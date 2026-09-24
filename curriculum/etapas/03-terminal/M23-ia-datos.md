@@ -7,11 +7,11 @@ semanas: 6
 horas: 120
 practicas:
   - id: p1
-    titulo: Pipeline de datos simple del producto (métricas)
+    titulo: Pipeline de métricas del producto
   - id: p2
     titulo: Integración LLM con prompts evaluados
   - id: p3
-    titulo: RAG básico sobre FAQs del negocio
+    titulo: RAG básico (sin filtrar PII innecesaria)
 proyecto:
   id: proj
   titulo: Asistente FAQ para el cliente del CRM
@@ -19,14 +19,20 @@ proyecto:
 
 # M23 — Ciencia de datos e IA aplicada
 
-## Análogos
-UABC: Ciencia de datos / Data mining. Tec: IA / ML.
+## Por qué existe
+IA útil = producto + evaluación + costos. **No envíes PII a APIs** sin política ([hilo](../../hilos/seguridad.md)).
+
+## Día 1 (2–3 h)
+Define 3 métricas del CRM. Exporta CSV. Escribe qué datos NUNCA salen a un LLM.
+
+## Temario
+Métricas → LLM API → evaluación de respuestas → RAG → proyecto FAQ.
 
 ## Recursos
-Material en español + APIs de LLM. Libros EN cuando tengas B1 lectura.
+Material ES + APIs; libros EN cuando B1.
 
-## Proyecto útil
-Bot/asistente que responda políticas/menú/FAQs del negocio usando sus documentos (RAG simple). Costos y límites éticos documentados.
+## Errores comunes
+Vender “magia IA”; no medir alucinaciones; pegar datos de clientes en prompts.
 
-## Dominio
-No vendes “magia IA”; mides calidad de respuestas y alucinaciones.
+## Criterios de dominio
+- [ ] Mides calidad de respuestas y documentas límites.

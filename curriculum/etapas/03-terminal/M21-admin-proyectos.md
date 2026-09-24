@@ -11,7 +11,7 @@ practicas:
   - id: p2
     titulo: 4 sprints documentados (meta/hecho/aprendizaje)
   - id: p3
-    titulo: Riesgos y mitigaciones
+    titulo: Riesgos (incluye seguridad) y mitigaciones
 proyecto:
   id: proj
   titulo: Tablero de proyecto vivo en el repo
@@ -19,14 +19,17 @@ proyecto:
 
 # M21 — Administración de proyectos de software
 
-## Análogos
-UABC: Administración de proyectos de software.
+## Por qué existe
+Sin gestión, 20 h/semana se evaporan. Los riesgos de seguridad entran al backlog ([hilo](../../hilos/seguridad.md)).
+
+## Día 1 (2–3 h)
+Crea milestones de 4 semanas. Mueve 5 issues reales (uno de seguridad). Define “hecho”.
+
+## Temario
+Roadmap → sprints → riesgos → métricas simples.
 
 ## Libros (ES)
-Intro Scrum/Kanban en español; *El método Lean Startup* (preparación M22).
+Intro Scrum/Kanban ES; preparación Lean Startup (M22).
 
-## Proyecto
-Issues, milestones y burndown simple (o CSV) del producto.
-
-## Dominio
-Estimas en rangos; cumples o aprendes explícitamente por qué no.
+## Criterios de dominio
+- [ ] Estimas en rangos; cumples o aprendes por qué no.

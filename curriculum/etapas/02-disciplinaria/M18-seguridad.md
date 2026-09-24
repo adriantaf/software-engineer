@@ -1,32 +1,119 @@
 ---
 id: M18
-titulo: Seguridad del software
+titulo: Seguridad del software (AppSec)
 etapa: disciplinaria
 orden: 18
-semanas: 4
-horas: 80
+semanas: 8
+horas: 160
 practicas:
   - id: p1
-    titulo: Mapear OWASP Top 10 contra tu CRM
+    titulo: Threat model STRIDE del CRM (documento)
   - id: p2
-    titulo: Corregir al menos 5 hallazgos
+    titulo: Reproducir y corregir ≥5 hallazgos OWASP en tu app
   - id: p3
-    titulo: Política de secretos y rotación básica
+    titulo: Checklist Secure SDLC en CI (audit, secrets, headers)
 proyecto:
   id: proj
-  titulo: Informe de seguridad del producto
+  titulo: Informe AppSec + PR de hardening con tests de regresión
 ---
 
-# M18 — Seguridad del software
+# M18 — Seguridad del software (AppSec)
+
+## Por qué existe
+
+Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer CRUDs” pero deja SQLi/XSS/IDOR **no es competente**. Aquí aprendes a **modelar amenazas, romper (solo tu sistema) y reparar**.
 
 ## Análogos
-UABC: Seguridad del software / redes. Tec: Ciberseguridad.
+UABC: Seguridad del software. Tec: Ciberseguridad.
 
-## Recursos (ES)
-OWASP Top 10 (documentación en español), labs guiados ofensivos **solo sobre tu propio sistema**.
+## Objetivos
 
-## Proyecto
-Informe: amenazas, mitigaciones, checklist pre-deploy.
+1. Hacer threat modeling ligero (STRIDE) de tu producto.
+2. Explicar y mitigar el OWASP Top 10 en código real.
+3. Diseñar auth (hashing, sesiones/JWT, CSRF) sin inventar crypto.
+4. Meter seguridad en el pipeline (secrets, `npm audit`, headers).
+5. Escribir tests que fallen si reaparece una vulnerabilidad básica.
 
-## Dominio
-No subes `.env` nunca; auth y SQL injection los entiendes de verdad.
+## Cómo estudiar esta materia
+
+- **Solo** atacas sistemas que tú controlas (localhost / tu staging).
+- Ciclo fijo: amenaza → PoC en tu app → fix → test de regresión → documento.
+- Lee OWASP en español; anota en tu vocabulario, no copies párrafos.
+
+## Día 1 (2–3 h)
+
+1. Dibuja tu CRM (aunque esté a medias): actores, trust boundaries, datos sensibles.
+2. Lista 5 activos (credenciales, PII, tokens, DB, admin).
+3. Escribe `projects/m18-appsec/threat-model-v0.md` con 5 amenazas posibles.
+4. Verifica que **no** tengas `.env` en git:
+   ```bash
+   git ls-files | rg -i 'env|secret|credential' || true
+   ```
+5. Lee OWASP Top 10 (overview ES) y marca cuáles aplican ya a tu diseño.
+
+## Ejemplo — hashing de contraseñas (idea correcta)
+
+```ts
+// Usa una lib madura (p.ej. bcrypt / argon2). NUNCA MD5/SHA solo.
+import bcrypt from "bcrypt";
+
+export async function hashPassword(plain: string): Promise<string> {
+  return bcrypt.hash(plain, 12);
+}
+
+export async function verifyPassword(plain: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(plain, hash);
+}
+```
+
+## Ejemplo — IDOR (qué buscar)
+
+Si `GET /api/citas/123` devuelve la cita **sin comprobar** que pertenece al usuario autenticado, tienes IDOR. Fix: autorización por `userId`/rol en el servidor, no solo ocultar botones en el front.
+
+## Temario (8 semanas)
+
+| Semana | Temas |
+|--------|-------|
+| 1 | Threat modeling STRIDE, activos, trust boundaries |
+| 2 | Auth: registro, login, hashing, sesiones vs JWT |
+| 3 | CSRF, cookies Secure/HttpOnly/SameSite |
+| 4 | Injection: SQLi, XSS, command injection |
+| 5 | IDOR, broken access control, rate limiting |
+| 6 | SSRF, file upload, deserialización (intro) |
+| 7 | Secrets, dependencias, headers, CSP básica |
+| 8 | Secure SDLC + informe + tests de regresión |
+
+## Libros / recursos (ES)
+
+- OWASP Top 10 (documentación en español).
+- Cheat sheets OWASP (auth, CSRF, XSS) — usar ES cuando exista.
+- [Hilo de seguridad](../../hilos/seguridad.md).
+- *No reinventar crypto*: libs estándar + docs.
+
+## Prácticas
+
+1. **P1:** Threat model v1 revisado (después de semana 2).
+2. **P2:** Tabla hallazgo → PoC (en tu app) → commit de fix → test.
+3. **P3:** CI con al menos: lint, test, `npm audit` (o equivalente), grep anti-secretos básico.
+
+## Proyecto útil
+
+Entrega en `projects/m18-appsec/`:
+
+1. Informe AppSec (amenazas, hallazgos, mitigaciones, residual risk).
+2. PR/commits de hardening en el repo del producto.
+3. ≥3 tests automatizados de seguridad (ej. usuario A no lee recurso de B; input XSS escapado).
+
+## Errores comunes
+
+- “Security by obscurity” (ocultar rutas admin sin auth).
+- Guardar JWT en `localStorage` sin entender XSS.
+- Inventar cifrado casero.
+- Atacar sitios ajenos (ilegal e inútil para tu egreso).
+
+## Criterios de dominio
+
+- [ ] Explicas SQLi y XSS con ejemplo y mitigación.
+- [ ] Tu app no lee recursos cross-user (demo + test).
+- [ ] No hay secretos en el historial de git del producto.
+- [ ] Tienes checklist pre-deploy de seguridad y la usas.

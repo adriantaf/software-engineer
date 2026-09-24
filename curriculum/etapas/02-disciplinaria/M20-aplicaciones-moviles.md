@@ -9,9 +9,9 @@ practicas:
   - id: p1
     titulo: "App cliente: login + lista de citas"
   - id: p2
-    titulo: Offline/caché básico o estados vacíos bien hechos
+    titulo: Estados vacíos/error + storage seguro de sesión
   - id: p3
-    titulo: Build instalable (APK o TestFlight/alterno)
+    titulo: Build instalable (APK o equivalente)
 proyecto:
   id: proj
   titulo: App móvil del CRM conectada al backend
@@ -19,17 +19,21 @@ proyecto:
 
 # M20 — Aplicaciones móviles
 
-## Análogos
-UABC/Tec: Aplicaciones móviles.
+## Por qué existe
+El dueño del negocio vive en el teléfono. Misma auth que la web; tokens no en texto plano inseguro.
+
+## Día 1 (2–3 h)
+Scaffold Flutter o RN. Pantalla login contra tu API. Si 401, mensaje claro.
 
 ## Stack
 Flutter (ya lo tocaste) **o** React Native — elige uno.
 
-## Recursos (ES)
-Docs oficiales Flutter/RN en español donde existan.
+## Temario
+Auth → listas → detalle cita → pulido offline/caché ligero → build.
 
-## Proyecto
-App del cliente o del dueño del negocio contra la API de M17.
+## Errores comunes
+App desconectada del backend real; guardar secretos en el binario.
 
-## Dominio
-Misma sesión/auth que la web; no es un prototipo desconectado.
+## Criterios de dominio
+- [ ] Misma sesión/auth que la web.
+- [ ] Build instalable en un dispositivo real.

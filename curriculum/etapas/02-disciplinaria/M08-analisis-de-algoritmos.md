@@ -11,7 +11,7 @@ practicas:
   - id: p2
     titulo: Ordenamientos implementados + análisis
   - id: p3
-    titulo: Búsqueda y programación dinámica intro (3 problemas)
+    titulo: Búsqueda y DP intro (3 problemas)
 proyecto:
   id: proj
   titulo: Autocomplete / búsqueda para tu producto
@@ -19,17 +19,48 @@ proyecto:
 
 # M08 — Análisis de algoritmos
 
+## Por qué existe
+Sin análisis, “optimizas” a ciegas. Aprendes patrones transferibles (no maratón tóxica).
+
 ## Análogos
 UABC: Análisis de algoritmos. Tec: Análisis y diseño de algoritmos.
 
 ## Objetivos
 Big-O, divide y vencerás, greedy intro, DP intro, grafos cortos.
 
+## Cómo estudiar esta materia
+4–5 problemas/semana. Después de resolver: escribe complejidad en voz alta.
+
+## Día 1 (2–3 h)
+1. Reescribe binary search en TS con tests de bordes.
+2. Justifica O(log n) en Markdown.
+3. Resuelve 2 problemas de arrays fáciles sin mirar la solución primero.
+
+## Ejemplo
+```ts
+export function binarySearch(a: number[], t: number): number {
+  let lo = 0, hi = a.length - 1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (a[mid] === t) return mid;
+    if (a[mid]! < t) lo = mid + 1; else hi = mid - 1;
+  }
+  return -1;
+}
+```
+
+## Temario
+Semanas: complejidad → sorting → searching/two pointers → trees/graphs intro → DP intro → proyecto autocomplete.
+
 ## Libros (ES)
-Texto univ. ES de algoritmos; problemas filtrados (no maratón tóxica: 4–5/semana).
+Texto univ. ES de algoritmos; problemas filtrados.
 
 ## Proyecto útil
-Motor de autocomplete para catálogo/clientes del CRM (trie o búsqueda binaria + ranking).
+Motor de autocomplete para catálogo/clientes del CRM.
 
-## Dominio
-Resuelves un medio de arrays/hashes explicando complejidad en voz alta.
+## Errores comunes
+Copiar soluciones; confundir promedio con peor caso; DP sin caso base.
+
+## Criterios de dominio
+- [ ] Resuelves un medio de arrays/hashes explicando complejidad.
+- [ ] Autocomplete funciona con dataset de prueba.

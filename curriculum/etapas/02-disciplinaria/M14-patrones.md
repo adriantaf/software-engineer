@@ -19,11 +19,27 @@ proyecto:
 
 # M14 — Patrones de software
 
-## Análogos
-UABC: Patrones de software.
+## Por qué existe
+Patrones son vocabulario compartido. Mal usados = cargo cult.
+
+## Día 1 (2–3 h)
+Implementa Strategy para “calcular precio” (base vs con descuento) con tests. Escribe cuándo NO usar el patrón.
+
+## Ejemplo
+```ts
+type Precio = { calcular(base: number): number };
+const normal: Precio = { calcular: (b) => b };
+const promo: Precio = { calcular: (b) => b * 0.9 };
+```
+
+## Temario
+GoF selectos → Repository/Service → refactor CRM → justificación en ADR.
 
 ## Libros (ES)
-*Patrones de diseño* (GoF, ed. ES si la consigues) o *Head First Design Patterns* (buscar ES / resumir con mentor en ES).
+GoF ed. ES si la consigues; o resúmenes guiados + mentor.
 
-## Dominio
-Nombras un patrón solo cuando reduce complejidad real (no cargo cult).
+## Errores comunes
+Nombrar “Factory” sin factory; over-engineering.
+
+## Criterios de dominio
+- [ ] 5 patrones aplicados con justificación escrita.

@@ -12,7 +12,7 @@ Nivel real: **pre-junior** (amplitud sin profundidad). No junior todavía. Detal
 
 | Ruta | Contenido |
 |------|-----------|
-| `curriculum/` | Plan universitario: 3 etapas, 25 materias, libros ES, prácticas, proyectos |
+| `curriculum/` | Plan universitario: 3 etapas, 26 materias, pista de ciberseguridad, labs, egreso |
 | `academia/` | App web simple (Astro + Tailwind + DaisyUI) para seguir el plan y marcar progreso |
 | `progress.json` | Avance commiteable (sincroniza desde la UI) |
 | `projects/` | Evidencia y bitácoras |

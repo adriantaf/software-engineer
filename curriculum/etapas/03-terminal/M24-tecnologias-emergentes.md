@@ -9,7 +9,7 @@ practicas:
   - id: p1
     titulo: Research notes de 3 tecnologías candidatas
   - id: p2
-    titulo: Criterios de adopción (costo, riesgo, valor)
+    titulo: Criterios de adopción (costo, riesgo, valor, seguridad)
   - id: p3
     titulo: Spike de 1 semana
 proyecto:
@@ -19,11 +19,14 @@ proyecto:
 
 # M24 — Tecnologías emergentes (electiva dirigida)
 
-## Análogos
-UABC/Tec: Tecnologías emergentes.
+## Por qué existe
+Separar hype de utilidad. Evalúa riesgo de deps y superficie nueva.
 
-## Proyecto
-PoC pequeño con decisión go/no-go escrita. No es portfolio vacío: debe conectar con tu producto o aprendizaje claro.
+## Día 1 (2–3 h)
+Elige 3 candidatos. Matriz: valor / costo / riesgo seguridad / fit con tu producto.
 
-## Dominio
-Separas hype de utilidad.
+## Temario
+Research → criterios → spike → go/no-go escrito.
+
+## Criterios de dominio
+- [ ] PoC con decisión go/no-go argumentada.

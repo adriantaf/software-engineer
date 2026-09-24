@@ -3,30 +3,95 @@ id: M10
 titulo: Redes de computadoras
 etapa: disciplinaria
 orden: 10
-semanas: 4
-horas: 80
+semanas: 5
+horas: 100
 practicas:
   - id: p1
-    titulo: Labs HTTP/DNS con curl y wireshark/tcpdump básico
+    titulo: Labs HTTP/DNS/TLS con curl e inspección de certificados
   - id: p2
-    titulo: Cliente/servidor TCP simple
+    titulo: Cliente/servidor TCP simple + diagrama de una request
   - id: p3
-    titulo: Diagrama de cómo viaja una request de tu API
+    titulo: Mapa de superficie de ataque de tu API (puertos, headers, cookies)
 proyecto:
   id: proj
-  titulo: Documentación de red del producto web
+  titulo: Documentación de red + amenazas del producto web
 ---
 
-# M10 — Redes de computadoras
+# M10 — Redes de computadoras (con mirada de seguridad)
+
+## Por qué existe
+
+Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “seguridad” es teatro. Esta materia es la **capa A** de la pista de ciberseguridad ([hilo](../../hilos/seguridad.md)).
 
 ## Análogos
 UABC: Redes. Tec: Fundamentos de redes.
 
-## Libros (ES)
-*Redes de computadoras* — Tanenbaum (ed. ES), capítulos selectos (capas, IP, TCP, HTTP).
+## Objetivos
 
-## Proyecto
-Doc que explique DNS → TLS → HTTP → tu servidor para el CRM.
+1. Explicar capas (modelo simplificado) y el viaje DNS → TCP → TLS → HTTP.
+2. Usar `curl`, leer headers y status codes con criterio.
+3. Entender certificados TLS a nivel ingeniero (no crypto avanzada).
+4. Dibujar la superficie de ataque de tu propio servicio.
 
-## Dominio
-Depuras un 502/timeout con hipótesis de red vs app.
+## Cómo estudiar esta materia
+
+- Cada concepto → un lab en terminal el mismo día.
+- Relaciona siempre con **tu** futuro CRM (M17).
+- No memorices números de puerto: entiende *por qué* 443 importa.
+
+## Día 1 (2–3 h)
+
+1. Ejecuta y anota:
+   ```bash
+   curl -v https://example.com -o /dev/null
+   ```
+2. Identifica en la salida: DNS (si aparece), TLS handshake, status HTTP, headers.
+3. Compara `http://` vs `https://` (redirigidos).
+4. Escribe en `projects/m10-redes/dia1.md`: “qué protege TLS y qué no protege”.
+5. Lee el capítulo de Tanenbaum (ES) sobre capa de aplicación / HTTP (selecto).
+
+## Ejemplo — inspeccionar headers de seguridad
+
+```bash
+curl -sI https://tu-dominio.ejemplo | sed -n '1,30p'
+```
+
+Busca (cuando tengas producto): `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`. Si faltan, anótalo para M18.
+
+## Temario
+
+| Semana | Temas |
+|--------|-------|
+| 1 | Modelo de capas, IP, TCP vs UDP, puertos |
+| 2 | DNS, HTTP/1.1–2 intuición, status codes |
+| 3 | TLS, certificados, MITM conceptual |
+| 4 | Cookies, sesiones, CORS intro |
+| 5 | Superficie de ataque + proyecto doc |
+
+## Libros / recursos (ES)
+
+- *Redes de computadoras* — Tanenbaum (ed. ES), capítulos selectos.
+- MDN: HTTP, cookies (ES).
+- [Hilo de seguridad](../../hilos/seguridad.md).
+
+## Prácticas
+
+1. **P1:** Bitácora de labs curl/TLS con capturas o logs.
+2. **P2:** Echo TCP mínimo en Node/TS + diagrama.
+3. **P3:** Inventario: endpoints, auth, datos sensibles, trust boundaries.
+
+## Proyecto útil
+
+Doc `projects/m10-redes/README.md`: cómo viaja una request a tu API + lista de amenazas de red (eavesdropping, session theft, DNS spoofing a alto nivel) y mitigaciones que aplicarás en M18/M19.
+
+## Errores comunes
+
+- Pensar que “HTTPS = ya estoy seguro” (XSS/IDOR siguen vivos).
+- Exponer APIs en HTTP “solo en local” y luego olvidarlo en prod.
+- Ignorar cookies `Secure` / `HttpOnly`.
+
+## Criterios de dominio
+
+- [ ] Depuras un timeout con hipótesis red vs app.
+- [ ] Explicas TLS a un compañero sin decir “es magia”.
+- [ ] Tu mapa de superficie existe y es honesto.

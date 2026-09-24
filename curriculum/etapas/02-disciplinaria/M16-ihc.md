@@ -19,14 +19,20 @@ proyecto:
 
 # M16 — IHC / Usabilidad
 
-## Análogos
-UABC: IHC + Laboratorio de usabilidad.
+## Por qué existe
+UI confusa = soporte eterno. Cuidado: errores de UX no deben filtrar datos ajenos.
+
+## Día 1 (2–3 h)
+Recorre tu UI como usuario nuevo. Lista 10 fricciones. Aplica 3 heurísticas de Nielsen.
+
+## Temario
+Heurísticas → prototipo → test 5 usuarios → iteración.
 
 ## Libros (ES)
-*No me hagas pensar* — Steve Krug (ed. ES).
+*No me hagas pensar* — Steve Krug.
 
-## Proyecto
-5 pruebas con usuarios reales (amigos/negocios). Cambia la UI con evidencia.
+## Errores comunes
+Diseñar para ti; ignorar estados de error/vacío; exponer IDs internos sensibles en UI.
 
-## Dominio
-Dejas de diseñar “bonito para ti” y diseñas “claro para ellos”.
+## Criterios de dominio
+- [ ] Informe con hallazgos y cambios hechos.

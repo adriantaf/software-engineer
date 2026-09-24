@@ -11,7 +11,7 @@ practicas:
   - id: p2
     titulo: 10 demos a negocios reales documentadas
   - id: p3
-    titulo: Pricing + propuesta escrita
+    titulo: Pricing + propuesta escrita (sin promesas de seguridad falsas)
 proyecto:
   id: proj
   titulo: Bektor pivoteado a producto vertical
@@ -19,17 +19,20 @@ proyecto:
 
 # M22 — Emprendimiento de negocios de software
 
-## Análogos
-UABC: Emprendimiento de negocios de software.
+## Por qué existe
+Bektor sin clientes enseñó: oferta genérica no vende. Un problema, un cliente, un canal. No prometas “seguridad bancaria” sin evidencia (M18/M25).
+
+## Día 1 (2–3 h)
+Reescribe la oferta en 1 párrafo. Identifica 20 negocios locales para outreach. Guion de demo de 5 minutos.
 
 ## Libros (ES)
 *El método Lean Startup* — Eric Ries (ed. ES).
 
-## Lecciones de Bektor
-Dos meses sin clientes con oferta genérica (“sitios web”) es señal de posicionamiento, no de falta de HTML. Aquí corriges: **un problema, un cliente, un canal**.
+## Proyecto útil
+`projects/m22-bektor/` con guion, objeciones, resultados de 10 demos.
 
-## Proyecto
-Pivot: “Agenda Pro para negocios locales” (o el vertical que validaste en M12–M17). Carpeta `projects/m22-bektor/` con guion de demo, objeciones y resultados.
+## Errores comunes
+Volver a “hacemos de todo”; pricing inventado; demos sin pedir siguiente paso.
 
-## Dominio
-Puedes explicar tu producto en 60 segundos y pedir la siguiente reunión.
+## Criterios de dominio
+- [ ] Pitch de 60 segundos + pedir la siguiente reunión.

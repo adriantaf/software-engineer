@@ -22,15 +22,19 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 - Inglés en paralelo (curso actual → B1 lectura técnica en 12–24 meses).
 - UABC (feb): esta academia **adelanta y profundiza**; no compite.
 
-## Estructura (3 etapas, 25 materias)
+## Estructura (3 etapas, 26 materias)
 
 1. [Etapa Básica](etapas/01-basica/README.md) — M01–M06 (~4–5 meses)
-2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 (~10–12 meses)
-3. [Etapa Terminal](etapas/03-terminal/README.md) — M21–M25 (~6–8 meses)
+2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 (~11–13 meses)
+3. [Etapa Terminal](etapas/03-terminal/README.md) — M21–M26 (~7–9 meses)
+
+**Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo](hilos/seguridad.md)
 
 Ver también:
 
 - [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
+- [Filosofía](filosofia.md) — mejor que la escuela tradicional
+- [Labs (índice)](labs/README.md)
 - [Equivalencias UABC / Tec](equivalencias.md)
 - [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)

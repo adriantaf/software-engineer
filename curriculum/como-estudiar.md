@@ -24,6 +24,8 @@ Si un día solo tienes 2 h: **1 h práctica + 1 h proyecto**. No “ver videos�
 7. **Proyecto** — cierra la materia.
 8. **Criterios de dominio** — autoexamen honesto.
 
+Lee también la [filosofía](filosofia.md) (por qué no somos escuela tradicional) y el [hilo de seguridad](hilos/seguridad.md).
+
 ## Qué cuenta como “terminado”
 
 Una materia **no** está terminada porque leíste el Markdown. Está terminada cuando:
