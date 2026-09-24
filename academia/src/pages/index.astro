@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  getCatalog,
+  getMateriasByEtapa,
+  getProgressSeed,
+  totalStats,
+} from '../lib/curriculum';
+
+const catalog = getCatalog();
+const stats = totalStats();
+const seed = getProgressSeed();
+---
+
+<Layout title="Dashboard">
+  <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
+
+  <div class="flex flex-col gap-6">
+    <section class="hero bg-base-100 rounded-box border border-base-300">
+      <div class="hero-content text-center py-10">
+        <div class="max-w-2xl">
+          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal · UABC + Tec</p>
+          <h1 class="text-4xl font-bold">{catalog.programa}</h1>
+          <p class="py-4 opacity-80">
+            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>.
+            {stats.materias} materias · ~{stats.horas} horas de plan · ~{stats.semanas} semanas de contenido.
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <a class="btn btn-primary" href="/materia/M01">Continuar / Empezar M01</a>
+            <a class="btn btn-outline" href="/progreso">Ver progreso</a>
+            <a class="btn btn-ghost" href="/egreso">Rúbrica de egreso</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-4" id="etapa-cards">
+      {
+        catalog.etapas.map((etapa) => {
+          const mats = getMateriasByEtapa(etapa.id);
+          const horas = mats.reduce((a, m) => a + m.horas, 0);
+          return (
+            <a href={`/etapa/${etapa.id}`} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors">
+              <div class="card-body">
+                <div class="badge badge-outline">Etapa {etapa.orden}</div>
+                <h2 class="card-title">{etapa.titulo}</h2>
+                <p class="text-sm opacity-80">{etapa.objetivo}</p>
+                <p class="text-sm">
+                  {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
+                </p>
+                <progress
+                  class="progress progress-primary w-full"
+                  data-etapa={etapa.id}
+                  value="0"
+                  max="100"
+                />
+                <p class="text-xs opacity-60" data-etapa-label={etapa.id}>
+                  0% completado (local)
+                </p>
+              </div>
+            </a>
+          );
+        })
+      }
+    </section>
+
+    <section class="card bg-base-100 border border-base-300">
+      <div class="card-body">
+        <h2 class="card-title">Fuentes universitarias</h2>
+        <ul class="list-disc pl-5 space-y-1">
+          {catalog.fuentes.map((f) => <li>{f}</li>)}
+        </ul>
+        <p class="text-sm opacity-70">
+          Física/química/cálculo avanzado los cursas en la UABC. Aquí priorizamos competencia de software
+          con proyectos útiles.
+        </p>
+        <div class="card-actions">
+          <a class="btn btn-sm" href="/nivel">Tu nivel real</a>
+          <a class="btn btn-sm btn-ghost" href="/docs/index">Mapa curricular (Markdown)</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="catalog-lite" set:html={JSON.stringify({
+    etapas: catalog.etapas.map((e) => ({
+      id: e.id,
+      materiaIds: getMateriasByEtapa(e.id).map((m) => m.id),
+    })),
+  })} />
+
+  <script>
+    import { loadProgress } from '../lib/progress-client';
+
+    function refresh() {
+      const raw = document.getElementById('catalog-lite')?.textContent;
+      if (!raw) return;
+      const catalog = JSON.parse(raw) as { etapas: { id: string; materiaIds: string[] }[] };
+      const progress = loadProgress();
+      for (const etapa of catalog.etapas) {
+        const done = etapa.materiaIds.filter(
+          (id) => progress?.materias?.[id]?.status === 'completada',
+        ).length;
+        const pct = etapa.materiaIds.length
+          ? Math.round((done / etapa.materiaIds.length) * 100)
+          : 0;
+        const bar = document.querySelector(`progress[data-etapa="${etapa.id}"]`);
+        const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
+        if (bar) bar.setAttribute('value', String(pct));
+        if (label) {
+          label.textContent = `${pct}% completado (${done}/${etapa.materiaIds.length})`;
+        }
+      }
+    }
+
+    refresh();
+    window.addEventListener('academia-progress', refresh);
+  </script>
+</Layout>

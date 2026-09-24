@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadMarkdownPage } from '../lib/curriculum';
+
+const page = loadMarkdownPage('egreso.md');
+---
+
+<Layout title="Egreso">
+  <article class="card bg-base-100 border border-base-300">
+    <div class="card-body prose-academia" set:html={page.html} />
+  </article>
+</Layout>

@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Academia', description = 'Plan de egreso competente en ingeniería de software' } = Astro.props;
+const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${title} · Academia`;
+---
+
+<!doctype html>
+<html lang="es" data-theme="corporate">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen bg-base-200">
+    <div class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-30">
+      <div class="navbar-start gap-2">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden" aria-label="Menú">☰</div>
+          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/etapa/basica">Básica</a></li>
+            <li><a href="/etapa/disciplinaria">Disciplinaria</a></li>
+            <li><a href="/etapa/terminal">Terminal</a></li>
+            <li><a href="/egreso">Egreso</a></li>
+            <li><a href="/nivel">Nivel</a></li>
+            <li><a href="/progreso">Progreso</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost text-lg font-bold" href="/">Academia</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="/">Dashboard</a></li>
+          <li><a href="/etapa/basica">Básica</a></li>
+          <li><a href="/etapa/disciplinaria">Disciplinaria</a></li>
+          <li><a href="/etapa/terminal">Terminal</a></li>
+          <li><a href="/egreso">Egreso</a></li>
+          <li><a href="/nivel">Nivel</a></li>
+          <li><a href="/progreso">Progreso</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a class="btn btn-sm btn-primary" href="/materia/M01">Empezar M01</a>
+      </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-8 max-w-6xl">
+      <slot />
+    </main>
+
+    <footer class="footer footer-center bg-base-100 text-base-content p-6 border-t border-base-300">
+      <aside>
+        <p class="font-medium">Academia de Egreso Competente</p>
+        <p class="text-sm opacity-70">Alineada a UABC + Tec · Mejorada con proyectos reales</p>
+      </aside>
+    </footer>
+
+    <script>
+      import { initProgressFromSeed } from '../lib/progress-client';
+      initProgressFromSeed();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCatalog, getProgressSeed } from '../lib/curriculum';
+
+const catalog = getCatalog();
+const seed = getProgressSeed();
+---
+
+<Layout title="Progreso">
+  <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
+
+  <h1 class="text-3xl font-bold mb-2">Progreso</h1>
+  <p class="mb-6 opacity-80">
+    El avance vive en <code>localStorage</code>. Copia el JSON a <code>progress.json</code> en la raíz
+    del repo y haz commit semanal.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-4 mb-6">
+    <div class="stat bg-base-100 border border-base-300 rounded-box">
+      <div class="stat-title">Completadas</div>
+      <div class="stat-value text-primary" id="stat-done">0</div>
+      <div class="stat-desc">de {catalog.materias.length} materias</div>
+    </div>
+    <div class="stat bg-base-100 border border-base-300 rounded-box">
+      <div class="stat-title">En curso</div>
+      <div class="stat-value text-warning" id="stat-doing">0</div>
+      <div class="stat-desc">materia actual: <span id="stat-current">—</span></div>
+    </div>
+    <div class="stat bg-base-100 border border-base-300 rounded-box">
+      <div class="stat-title">Meta semanal</div>
+      <div class="stat-value text-secondary">{catalog.ritmoHorasSemana}h</div>
+      <div class="stat-desc">ajusta según UABC/inglés</div>
+    </div>
+  </div>
+
+  <div class="card bg-base-100 border border-base-300 mb-6">
+    <div class="card-body">
+      <h2 class="card-title">Exportar / importar</h2>
+      <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-64 w-full"></textarea>
+      <div class="card-actions justify-end">
+        <button class="btn btn-outline" id="btn-refresh" type="button">Refrescar</button>
+        <button class="btn btn-outline" id="btn-copy" type="button">Copiar</button>
+        <button class="btn btn-primary" id="btn-import" type="button">Importar JSON</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="table bg-base-100 border border-base-300">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Materia</th>
+          <th>Etapa</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          catalog.materias.map((m) => (
+            <tr>
+              <td class="font-mono">
+                <a class="link" href={`/materia/${m.id}`}>
+                  {m.id}
+                </a>
+              </td>
+              <td>{m.titulo}</td>
+              <td>{m.etapa}</td>
+              <td><span class="badge" data-row-status={m.id}>—</span></td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    import { loadProgress, saveProgress, exportProgressJson } from '../lib/progress-client';
+    import type { ProgressState } from '../lib/progress-client';
+
+    const map: Record<string, string> = {
+      completada: 'badge-success',
+      en_curso: 'badge-warning',
+      disponible: 'badge-info',
+      bloqueada: 'badge-ghost',
+    };
+
+    function refresh() {
+      const p = loadProgress();
+      const materias = Object.values(p?.materias ?? {});
+      const done = materias.filter((m) => m.status === 'completada').length;
+      const doing = materias.filter((m) => m.status === 'en_curso').length;
+      const doneEl = document.getElementById('stat-done');
+      const doingEl = document.getElementById('stat-doing');
+      const currentEl = document.getElementById('stat-current');
+      const box = document.getElementById('export-box') as HTMLTextAreaElement;
+      if (doneEl) doneEl.textContent = String(done);
+      if (doingEl) doingEl.textContent = String(doing);
+      if (currentEl) currentEl.textContent = p?.materiaActual ?? '—';
+      if (box) box.value = exportProgressJson();
+
+      document.querySelectorAll('[data-row-status]').forEach((el) => {
+        const id = el.getAttribute('data-row-status')!;
+        const status = p?.materias?.[id]?.status ?? 'disponible';
+        el.className = `badge ${map[status] ?? 'badge-ghost'}`;
+        el.textContent = status.replace('_', ' ');
+      });
+    }
+
+    document.getElementById('btn-refresh')?.addEventListener('click', refresh);
+    document.getElementById('btn-copy')?.addEventListener('click', async () => {
+      const box = document.getElementById('export-box') as HTMLTextAreaElement;
+      await navigator.clipboard.writeText(box.value);
+    });
+    document.getElementById('btn-import')?.addEventListener('click', () => {
+      const box = document.getElementById('export-box') as HTMLTextAreaElement;
+      try {
+        const parsed = JSON.parse(box.value) as ProgressState;
+        saveProgress(parsed);
+        refresh();
+        alert('Progreso importado en este navegador.');
+      } catch {
+        alert('JSON inválido.');
+      }
+    });
+
+    refresh();
+    window.addEventListener('academia-progress', refresh);
+  </script>
+</Layout>

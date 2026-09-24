@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { loadMarkdownPage } from '../../lib/curriculum';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'index' }, props: { file: 'INDEX.md' } },
+    { params: { slug: 'equivalencias' }, props: { file: 'equivalencias.md' } },
+  ];
+}
+
+const { file } = Astro.props;
+const page = loadMarkdownPage(file);
+---
+
+<Layout title={page.title}>
+  <article class="card bg-base-100 border border-base-300">
+    <div class="card-body prose-academia" set:html={page.html} />
+  </article>
+</Layout>

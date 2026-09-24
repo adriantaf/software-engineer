@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+
+export function getStaticPaths() {
+  return getCatalog().materias.map((m) => ({ params: { id: m.id } }));
+}
+
+const { id } = Astro.params;
+const materia = loadMateria(id!);
+if (!materia) throw new Error(`Materia ${id} no encontrada`);
+const etapa = getEtapa(materia.etapa)!;
+const catalog = getCatalog();
+const idx = catalog.materias.findIndex((m) => m.id === materia.id);
+const prev = catalog.materias[idx - 1];
+const next = catalog.materias[idx + 1];
+---
+
+<Layout title={`${materia.id} ${materia.titulo}`}>
+  <div class="breadcrumbs text-sm mb-4">
+    <ul>
+      <li><a href="/">Dashboard</a></li>
+      <li><a href={`/etapa/${etapa.id}`}>{etapa.titulo}</a></li>
+      <li>{materia.id}</li>
+    </ul>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6">
+    <article class="card bg-base-100 border border-base-300 flex-1">
+      <div class="card-body prose-academia">
+        <div class="flex flex-wrap gap-2 not-prose mb-2">
+          <span class="badge badge-primary">{materia.id}</span>
+          <span class="badge badge-outline">{materia.semanas} semanas</span>
+          <span class="badge badge-outline">{materia.horas} h</span>
+        </div>
+        <div set:html={materia.bodyHtml} />
+      </div>
+    </article>
+
+    <aside class="lg:w-80 flex flex-col gap-4">
+      <div class="card bg-base-100 border border-base-300">
+        <div class="card-body gap-3">
+          <h2 class="card-title text-lg">Tu progreso</h2>
+          <p class="text-sm opacity-70">Se guarda en este navegador. Exporta a <code>progress.json</code> desde la página Progreso.</p>
+
+          <div class="divider my-1">Prácticas</div>
+          {
+            materia.practicas.length === 0 ? (
+              <p class="text-sm">Sin checklist de prácticas en frontmatter.</p>
+            ) : (
+              materia.practicas.map((p) => (
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-primary"
+                    data-practica={p.id}
+                    data-materia={materia.id}
+                  />
+                  <span class="label-text">{p.titulo}</span>
+                </label>
+              ))
+            )
+          }
+
+          {
+            materia.proyecto && (
+              <>
+                <div class="divider my-1">Proyecto</div>
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-secondary"
+                    data-proyecto
+                    data-materia={materia.id}
+                  />
+                  <span class="label-text">{materia.proyecto.titulo}</span>
+                </label>
+              </>
+            )
+          }
+
+          <div class="divider my-1">Materia</div>
+          <label class="label cursor-pointer justify-start gap-3">
+            <input type="checkbox" class="checkbox checkbox-success" data-completa data-materia={materia.id} />
+            <span class="label-text font-medium">Marcar materia completada</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="join join-vertical w-full">
+        {
+          prev && (
+            <a class="btn join-item" href={`/materia/${prev.id}`}>
+              ← {prev.id}
+            </a>
+          )
+        }
+        {
+          next && (
+            <a class="btn join-item btn-primary" href={`/materia/${next.id}`}>
+              {next.id} →
+            </a>
+          )
+        }
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    import {
+      loadProgress,
+      togglePractica,
+      toggleProyecto,
+      markMateriaCompletada,
+    } from '../../lib/progress-client';
+
+    function syncUI() {
+      const materiaId = document.querySelector('[data-completa]')?.getAttribute('data-materia');
+      if (!materiaId) return;
+      const m = loadProgress()?.materias?.[materiaId];
+      document.querySelectorAll('[data-practica]').forEach((el) => {
+        const id = el.getAttribute('data-practica')!;
+        (el as HTMLInputElement).checked = Boolean(m?.practicas?.[id]);
+      });
+      const proj = document.querySelector('[data-proyecto]') as HTMLInputElement | null;
+      if (proj) proj.checked = Boolean(m?.proyecto);
+      const comp = document.querySelector('[data-completa]') as HTMLInputElement | null;
+      if (comp) comp.checked = m?.status === 'completada';
+    }
+
+    document.querySelectorAll('[data-practica]').forEach((el) => {
+      el.addEventListener('change', () => {
+        const materiaId = el.getAttribute('data-materia')!;
+        const practicaId = el.getAttribute('data-practica')!;
+        togglePractica(materiaId, practicaId);
+        syncUI();
+      });
+    });
+
+    document.querySelector('[data-proyecto]')?.addEventListener('change', (e) => {
+      const el = e.currentTarget as HTMLInputElement;
+      toggleProyecto(el.getAttribute('data-materia')!);
+      syncUI();
+    });
+
+    document.querySelector('[data-completa]')?.addEventListener('change', (e) => {
+      const el = e.currentTarget as HTMLInputElement;
+      markMateriaCompletada(el.getAttribute('data-materia')!, el.checked);
+      syncUI();
+    });
+
+    syncUI();
+    window.addEventListener('academia-progress', syncUI);
+  </script>
+</Layout>

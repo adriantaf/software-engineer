@@ -1,0 +1,283 @@
+{
+  "programa": "Ingeniería de Software — Academia de Egreso Competente",
+  "fuentes": ["UABC Ingeniero en Software y Tecnologías Emergentes", "Tec de Monterrey ITC"],
+  "ritmoHorasSemana": 20,
+  "etapas": [
+    {
+      "id": "basica",
+      "orden": 1,
+      "titulo": "Etapa Básica",
+      "slug": "01-basica",
+      "duracionMeses": "4-5",
+      "objetivo": "Pensar como ingeniero, programar con solidez y bases matemáticas útiles."
+    },
+    {
+      "id": "disciplinaria",
+      "orden": 2,
+      "titulo": "Etapa Disciplinaria",
+      "slug": "02-disciplinaria",
+      "duracionMeses": "10-12",
+      "objetivo": "Ciclo completo de software, sistemas y producto en producción."
+    },
+    {
+      "id": "terminal",
+      "orden": 3,
+      "titulo": "Etapa Terminal",
+      "slug": "03-terminal",
+      "duracionMeses": "6-8",
+      "objetivo": "Liderazgo técnico, emprendimiento e egreso demostrable."
+    }
+  ],
+  "materias": [
+    {
+      "id": "M01",
+      "slug": "M01-metodo-y-herramientas",
+      "titulo": "Método, Git, Linux y documentación",
+      "etapa": "basica",
+      "orden": 1,
+      "semanas": 2,
+      "horas": 40,
+      "analogos": ["Introducción a la Ingeniería (UABC)", "Herramientas de desarrollo"]
+    },
+    {
+      "id": "M02",
+      "slug": "M02-programacion-i",
+      "titulo": "Programación I (TypeScript)",
+      "etapa": "basica",
+      "orden": 2,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": ["Metodología de la Programación", "Programación Estructurada (UABC)"]
+    },
+    {
+      "id": "M03",
+      "slug": "M03-matematicas-discretas",
+      "titulo": "Matemáticas discretas",
+      "etapa": "basica",
+      "orden": 3,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": ["Matemáticas Discretas (UABC/Tec)"]
+    },
+    {
+      "id": "M04",
+      "slug": "M04-probabilidad-estadistica",
+      "titulo": "Probabilidad y estadística aplicada",
+      "etapa": "basica",
+      "orden": 4,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Probabilidad y Estadística (UABC)", "Estadística y manejo de datos (Tec)"]
+    },
+    {
+      "id": "M05",
+      "slug": "M05-organizacion-computadoras",
+      "titulo": "Organización de computadoras",
+      "etapa": "basica",
+      "orden": 5,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": ["Organización de Computadoras (UABC)"]
+    },
+    {
+      "id": "M06",
+      "slug": "M06-programacion-ii",
+      "titulo": "Programación II (OO, tipos y errores)",
+      "etapa": "basica",
+      "orden": 6,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": ["Lenguajes de Programación Orientada a Objetos (UABC)", "POO (Tec)"]
+    },
+    {
+      "id": "M07",
+      "slug": "M07-estructuras-de-datos",
+      "titulo": "Estructuras de datos",
+      "etapa": "disciplinaria",
+      "orden": 7,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": ["Estructuras de Datos (UABC/Tec)"]
+    },
+    {
+      "id": "M08",
+      "slug": "M08-analisis-de-algoritmos",
+      "titulo": "Análisis de algoritmos",
+      "etapa": "disciplinaria",
+      "orden": 8,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": ["Análisis de Algoritmos (UABC)", "Análisis y diseño de algoritmos (Tec)"]
+    },
+    {
+      "id": "M09",
+      "slug": "M09-bases-de-datos",
+      "titulo": "Bases de datos",
+      "etapa": "disciplinaria",
+      "orden": 9,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": ["Bases de Datos (UABC)", "Desarrollo web y bases de datos (Tec)"]
+    },
+    {
+      "id": "M10",
+      "slug": "M10-redes",
+      "titulo": "Redes de computadoras",
+      "etapa": "disciplinaria",
+      "orden": 10,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Redes de Computadoras (UABC)", "Fundamentos de redes (Tec)"]
+    },
+    {
+      "id": "M11",
+      "slug": "M11-sistemas-operativos",
+      "titulo": "Sistemas operativos",
+      "etapa": "disciplinaria",
+      "orden": 11,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Administración de Sistemas Operativos (UABC)", "Sistemas operativos (Tec)"]
+    },
+    {
+      "id": "M12",
+      "slug": "M12-requerimientos",
+      "titulo": "Ingeniería de requerimientos",
+      "etapa": "disciplinaria",
+      "orden": 12,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": ["Ingeniería de Requerimientos (UABC)"]
+    },
+    {
+      "id": "M13",
+      "slug": "M13-analisis-y-diseno",
+      "titulo": "Análisis y diseño de software",
+      "etapa": "disciplinaria",
+      "orden": 13,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": ["Análisis y Diseño de Software (UABC)", "Fundamentos de ingeniería de software (Tec)"]
+    },
+    {
+      "id": "M14",
+      "slug": "M14-patrones",
+      "titulo": "Patrones de software",
+      "etapa": "disciplinaria",
+      "orden": 14,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Patrones de Software (UABC)"]
+    },
+    {
+      "id": "M15",
+      "slug": "M15-vv-calidad",
+      "titulo": "Verificación, validación y calidad",
+      "etapa": "disciplinaria",
+      "orden": 15,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["V&V del Software", "Aseguramiento de la Calidad (UABC)"]
+    },
+    {
+      "id": "M16",
+      "slug": "M16-ihc",
+      "titulo": "Interacción humano-computadora",
+      "etapa": "disciplinaria",
+      "orden": 16,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": ["IHC", "Laboratorio de Usabilidad (UABC)"]
+    },
+    {
+      "id": "M17",
+      "slug": "M17-aplicaciones-web",
+      "titulo": "Aplicaciones web full-stack",
+      "etapa": "disciplinaria",
+      "orden": 17,
+      "semanas": 8,
+      "horas": 160,
+      "analogos": ["Aplicaciones Web (UABC)", "Desarrollo web y bases de datos (Tec)"]
+    },
+    {
+      "id": "M18",
+      "slug": "M18-seguridad",
+      "titulo": "Seguridad del software",
+      "etapa": "disciplinaria",
+      "orden": 18,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Seguridad del Software (UABC)", "Ciberseguridad (Tec)"]
+    },
+    {
+      "id": "M19",
+      "slug": "M19-nube-devops",
+      "titulo": "Cómputo en la nube y DevOps",
+      "etapa": "disciplinaria",
+      "orden": 19,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": ["Cómputo en la Nube (UABC/Tec)"]
+    },
+    {
+      "id": "M20",
+      "slug": "M20-aplicaciones-moviles",
+      "titulo": "Aplicaciones móviles",
+      "etapa": "disciplinaria",
+      "orden": 20,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": ["Aplicaciones Móviles (UABC/Tec)"]
+    },
+    {
+      "id": "M21",
+      "slug": "M21-admin-proyectos",
+      "titulo": "Administración de proyectos de software",
+      "etapa": "terminal",
+      "orden": 21,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": ["Administración de Proyectos de Software (UABC)"]
+    },
+    {
+      "id": "M22",
+      "slug": "M22-emprendimiento",
+      "titulo": "Emprendimiento de negocios de software",
+      "etapa": "terminal",
+      "orden": 22,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": ["Emprendimiento de Negocios de Software (UABC)"]
+    },
+    {
+      "id": "M23",
+      "slug": "M23-ia-datos",
+      "titulo": "Ciencia de datos e IA aplicada",
+      "etapa": "terminal",
+      "orden": 23,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": ["Ciencia de Datos / Data Mining (UABC)", "IA / ML (Tec)"]
+    },
+    {
+      "id": "M24",
+      "slug": "M24-tecnologias-emergentes",
+      "titulo": "Tecnologías emergentes (electiva dirigida)",
+      "etapa": "terminal",
+      "orden": 24,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": ["Tecnologías Emergentes (UABC/Tec)"]
+    },
+    {
+      "id": "M25",
+      "slug": "M25-proyecto-integrador",
+      "titulo": "Proyecto integrador / titulación interna",
+      "etapa": "terminal",
+      "orden": 25,
+      "semanas": 8,
+      "horas": 160,
+      "analogos": ["Desarrollo de Aplicaciones Innovadoras (UABC)", "Ingeniería de Software (Tec)"]
+    }
+  ]
+}
