@@ -35,6 +35,46 @@ Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 mese
 3. Errores como parte del diseño.
 4. Empaquetar y versionar una librería pequeña.
 
+## Cómo estudiar esta materia
+
+- Prefiere **composición** antes que jerarquías profundas.
+- Cada refactor: tests en verde antes y después.
+- Lee *Código limpio* en dosis de 30–45 min y aplícalo al código de M02.
+
+## Día 1 (2–3 h)
+
+1. Elige un dominio simple: inventario o biblioteca.
+2. Sin framework, modela en TS:
+   ```ts
+   interface Libro {
+     id: string;
+     titulo: string;
+     prestado: boolean;
+   }
+
+   interface Biblioteca {
+     agregar(libro: Libro): void;
+     prestar(id: string): void;
+   }
+   ```
+3. Implementa una clase `BibliotecaMemoria` con array interno.
+4. Escribe 3 tests: agregar, prestar, prestar inexistente (debe fallar claro).
+5. Lee el capítulo de nombres/funciones de *Código limpio*.
+
+## Ejemplo — Result simple para errores
+
+```ts
+type Ok<T> = { ok: true; value: T };
+type Err = { ok: false; error: string };
+export type Result<T> = Ok<T> | Err;
+
+export function prestar(libro: { prestado: boolean }): Result<void> {
+  if (libro.prestado) return { ok: false, error: "Ya prestado" };
+  libro.prestado = true;
+  return { ok: true, value: undefined };
+}
+```
+
 ## Temario
 
 | Semana | Temas |
@@ -48,21 +88,28 @@ Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 mese
 ## Libros (español)
 
 - *Código limpio* (Clean Code) — Robert C. Martin, ed. ES.
-- *El programador pragmático* (ed. ES) — capítulos de ortogonalidad y DRY (lectura ligera).
-- Docs TypeScript: generics / narrowings.
+- *El programador pragmático* (ed. ES) — ortogonalidad y DRY (ligero).
+- Docs TypeScript: generics / narrowing.
 
 ## Prácticas
 
 1. **P1:** Dominio “biblioteca” o “inventario” solo con TS (sin Express).
-2. **P2:** Antes/después de refactor; captura el diff.
-3. **P3:** Tests que cubran null, vacío, duplicados, permisos.
+2. **P2:** Antes/después de refactor; guarda el diff.
+3. **P3:** Tests que cubran null, vacío, duplicados.
 
 ## Proyecto útil
 
-Publica una librería pequeña (por ejemplo validación de formularios o utilidades de fechas locales MX). README, semver, tests, ejemplo de uso. Aunque sea `npm pack` local, debe sentirse profesional.
+Librería pequeña (validación o utilidades). README, semver, tests, ejemplo de uso. Aunque sea `npm pack` local, debe sentirse profesional.
+
+## Errores comunes
+
+- Herencia de 5 niveles “porque OOP”.
+- Clases sin comportamiento (solo getters/setters vacíos).
+- Tragar errores con `catch (e) {}`.
+- Publicar sin README ni versión.
 
 ## Criterios de dominio (cierre Etapa Básica)
 
 - [ ] Explicas cuándo NO usar herencia.
 - [ ] Tu librería tiene API clara y tests.
-- [ ] Puedes revisar el código de M02 y señalar 5 mejoras concretas.
+- [ ] Revisas el código de M02 y señalas 5 mejoras concretas.

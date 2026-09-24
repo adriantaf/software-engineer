@@ -10,44 +10,44 @@ const seed = getProgressSeed();
 <Layout title="Progreso">
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <h1 class="text-3xl font-bold mb-2">Progreso</h1>
-  <p class="mb-6 opacity-80">
+  <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Progreso</h1>
+  <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
     El avance vive en <code>localStorage</code>. Copia el JSON a <code>progress.json</code> en la raíz
     del repo y haz commit semanal.
   </p>
 
-  <div class="grid md:grid-cols-3 gap-4 mb-6">
-    <div class="stat bg-base-100 border border-base-300 rounded-box">
+  <div class="grid sm:grid-cols-3 gap-4 mb-6">
+    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
       <div class="stat-title">Completadas</div>
-      <div class="stat-value text-primary" id="stat-done">0</div>
+      <div class="stat-value text-primary text-3xl sm:text-4xl" id="stat-done">0</div>
       <div class="stat-desc">de {catalog.materias.length} materias</div>
     </div>
-    <div class="stat bg-base-100 border border-base-300 rounded-box">
+    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
       <div class="stat-title">En curso</div>
-      <div class="stat-value text-warning" id="stat-doing">0</div>
-      <div class="stat-desc">materia actual: <span id="stat-current">—</span></div>
+      <div class="stat-value text-warning text-3xl sm:text-4xl" id="stat-doing">0</div>
+      <div class="stat-desc truncate">materia actual: <span id="stat-current">—</span></div>
     </div>
-    <div class="stat bg-base-100 border border-base-300 rounded-box">
+    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
       <div class="stat-title">Meta semanal</div>
-      <div class="stat-value text-secondary">{catalog.ritmoHorasSemana}h</div>
+      <div class="stat-value text-secondary text-3xl sm:text-4xl">{catalog.ritmoHorasSemana}h</div>
       <div class="stat-desc">ajusta según UABC/inglés</div>
     </div>
   </div>
 
-  <div class="card bg-base-100 border border-base-300 mb-6">
-    <div class="card-body">
+  <div class="card bg-base-100 border border-base-300 mb-6 overflow-hidden">
+    <div class="card-body min-w-0 p-4 sm:p-6">
       <h2 class="card-title">Exportar / importar</h2>
-      <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-64 w-full"></textarea>
-      <div class="card-actions justify-end">
-        <button class="btn btn-outline" id="btn-refresh" type="button">Refrescar</button>
-        <button class="btn btn-outline" id="btn-copy" type="button">Copiar</button>
-        <button class="btn btn-primary" id="btn-import" type="button">Importar JSON</button>
+      <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-64 w-full max-w-full min-w-0 overflow-x-auto"></textarea>
+      <div class="card-actions justify-end flex-wrap">
+        <button class="btn btn-outline btn-sm sm:btn-md" id="btn-refresh" type="button">Refrescar</button>
+        <button class="btn btn-outline btn-sm sm:btn-md" id="btn-copy" type="button">Copiar</button>
+        <button class="btn btn-primary btn-sm sm:btn-md" id="btn-import" type="button">Importar JSON</button>
       </div>
     </div>
   </div>
 
-  <div class="overflow-x-auto">
-    <table class="table bg-base-100 border border-base-300">
+  <div class="overflow-x-auto max-w-full rounded-box border border-base-300 bg-base-100">
+    <table class="table table-sm sm:table-md">
       <thead>
         <tr>
           <th>ID</th>
@@ -65,9 +65,9 @@ const seed = getProgressSeed();
                   {m.id}
                 </a>
               </td>
-              <td>{m.titulo}</td>
+              <td class="min-w-[10rem] break-words whitespace-normal">{m.titulo}</td>
               <td>{m.etapa}</td>
-              <td><span class="badge" data-row-status={m.id}>—</span></td>
+              <td><span class="badge whitespace-nowrap" data-row-status={m.id}>—</span></td>
             </tr>
           ))
         }

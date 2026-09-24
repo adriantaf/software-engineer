@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Es el lenguaje de estructuras de datos, criptografía ligera, bases de datos y algoritmos. UABC y Tec la exigen; aquí la haces **aplicada a código**.
+Es el lenguaje de estructuras de datos, bases de datos y algoritmos. UABC y Tec la exigen; aquí la haces **aplicada a código**.
 
 ## Análogos
 
@@ -35,6 +35,37 @@ Es el lenguaje de estructuras de datos, criptografía ligera, bases de datos y a
 4. Grafos introductorios.
 5. Conectar ideas con código TypeScript.
 
+## Cómo estudiar esta materia
+
+- Alterna: 1 h de teoría en papel + 1 h implementando en TS.
+- No memorices tablas de verdad: **constrúyelas**.
+- Cada concepto nuevo → un archivo `.ts` con 3 ejemplos.
+
+## Día 1 (2–3 h)
+
+1. Crea `projects/m03-discretas/README.md` con el índice de temas.
+2. En papel (o Markdown), escribe la tabla de verdad de `P ∧ Q`, `P ∨ Q`, `¬P`, `P → Q`.
+3. Implementa en TS:
+   ```ts
+   export function implica(p: boolean, q: boolean): boolean {
+     return !p || q;
+   }
+   ```
+4. Verifica los 4 casos de `P → Q` con `console.log` o un test.
+5. Lee el capítulo de lógica de tu libro ES (solo ese capítulo hoy).
+
+## Ejemplo — conjunto con operaciones
+
+```ts
+export function union<T>(a: Set<T>, b: Set<T>): Set<T> {
+  return new Set([...a, ...b]);
+}
+
+export function interseccion<T>(a: Set<T>, b: Set<T>): Set<T> {
+  return new Set([...a].filter((x) => b.has(x)));
+}
+```
+
 ## Temario
 
 | Semana | Temas |
@@ -47,19 +78,25 @@ Es el lenguaje de estructuras de datos, criptografía ligera, bases de datos y a
 
 ## Libros (español)
 
-- *Matemáticas discretas y sus aplicaciones* — Kenneth Rosen (ed. ES) **o**
-- Texto universitario ES de matemáticas discretas (cualquier facultad de ingeniería).
-- Complemento: apuntes propios en `projects/m03-discretas/`.
+- *Matemáticas discretas y sus aplicaciones* — Kenneth Rosen (ed. ES) **o** texto universitario ES.
+- Apuntes propios en `projects/m03-discretas/`.
 
 ## Prácticas
 
-1. **P1:** 10 demostraciones cortas a mano (escaneadas o Markdown).
-2. **P2:** Implementar `Set` ops, matriz de relación, lista de adyacencia.
+1. **P1:** 10 demostraciones cortas (escaneadas o Markdown).
+2. **P2:** Implementar ops de conjuntos, matriz de relación, lista de adyacencia.
 3. **P3:** Para 5 funciones tuyas, escribir Big-O y justificar.
 
 ## Proyecto útil
 
 CLI que lea un grafo (JSON) e imprima BFS/DFS y grado de nodos. Documenta la teoría detrás.
+
+## Errores comunes
+
+- Solo leer sin demostrar nada a mano.
+- Confundir → (implicación) con ↔ (bicondicional).
+- Decir “es O(n)” sin argumentar el peor caso.
+- Implementar BFS mal y no probar con un grafo de 4 nodos dibujado.
 
 ## Criterios de dominio
 

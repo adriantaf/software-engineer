@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de toda la academia.
+Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de toda la academia: terminal, Git limpio y bitácora.
 
 ## Análogos universitarios
 
@@ -36,6 +36,63 @@ Al terminar debes poder:
 2. Usar la terminal con soltura (navegación, pipes, permisos, grep).
 3. Hacer commits atómicos, ramas y PRs claros.
 4. Documentar decisiones (ADR) y leer documentación oficial.
+
+## Cómo estudiar esta materia
+
+- Lee [Cómo estudiar](../../como-estudiar.md) si aún no lo hiciste.
+- Cada día: terminal abierta + este repo clonado.
+- No veas un curso de Git de 8 horas: practica comandos en **este** repo.
+- La bitácora semanal es parte del aprendizaje, no un adorno.
+
+## Día 1 (2–3 h) — hazlo hoy
+
+1. Abre la terminal. Comprueba versiones:
+   ```bash
+   git --version
+   node --version
+   ```
+2. Si falta algo, instálalo (Node LTS + Git). En Windows preferible WSL2.
+3. Clona o abre este repo y crea la carpeta de evidencia:
+   ```bash
+   mkdir -p projects/m01-diario
+   ```
+4. Escribe `projects/m01-diario/entorno.md` con: SO, versiones de Git/Node, editor.
+5. Haz **un** commit atómico, por ejemplo:
+   ```bash
+   git add projects/m01-diario/entorno.md
+   git commit -m "docs(m01): registrar entorno de desarrollo"
+   ```
+6. Lee solo los capítulos 1–2 de *Pro Git* (o la guía oficial) y anota 5 comandos nuevos.
+
+## Ejemplo — mensaje de commit bueno vs malo
+
+```text
+malo:  update
+malo:  cambios
+bueno: docs(m01): añadir bitácora de la semana 0001
+bueno: chore(m01): aliases de git en .bashrc
+```
+
+Regla: el mensaje dice **qué** cambió y **por qué** importa.
+
+## Ejemplo — plantilla ADR (P3)
+
+Crea `projects/m01-diario/adr-001-typescript.md`:
+
+```markdown
+# ADR 001 — TypeScript como lenguaje principal
+
+## Contexto
+Necesito un lenguaje profundo para web, APIs e IA tooling.
+
+## Decisión
+Usar TypeScript en modo strict para la academia.
+
+## Consecuencias
++ Tipos y mejor tooling
++ Escala a React/Node
+− Curva inicial vs JS puro
+```
 
 ## Temario semanal
 
@@ -52,18 +109,18 @@ Al terminar debes poder:
 - `status`, `add`, `commit`, `diff`, `log`, `branch`, `merge`, `rebase` (intro), `stash`.
 - Mensajes de commit: qué y por qué.
 - Issues y PRs como conversación.
-- ADR (Architecture Decision Record) de 1 página.
+- ADR de 1 página.
 - Bitácora semanal en este repo.
 
 ## Libros y recursos (español)
 
 - *Pro Git* (Scott Chacon) — capítulos 1–3 (hay edición/traducción ES y web).
 - Documentación oficial de Git en español.
-- Guía de método de esta academia (`curriculum/INDEX.md`).
+- [Cómo estudiar](../../como-estudiar.md).
 
 ## Prácticas
 
-1. **P1:** Entorno listo: Node LTS, Git, editor, carpeta `~/dev`. Captura o lista de versiones en `projects/m01-diario/entorno.md`.
+1. **P1:** Entorno listo: Node LTS, Git, editor, carpeta `~/dev`. Lista de versiones en `projects/m01-diario/entorno.md`.
 2. **P2:** 7 días de commits atómicos en este repo (o diario). Nada de “update stuff”.
 3. **P3:** Un ADR: “Por qué TypeScript como lenguaje principal de la academia”.
 
@@ -73,6 +130,13 @@ Al terminar debes poder:
 
 - Actualiza `progress.json`.
 - Añade nota en `projects/m01-diario/semana-NNNN.md` (qué estudiaste, qué bloqueó, qué sigue).
+
+## Errores comunes
+
+- Instalar 15 herramientas el día 1 y no hacer ningún commit.
+- Usar solo la GUI de GitHub Desktop sin entender `status`/`diff`.
+- Commits gigantes (“todo el portafolio”) que no se pueden revisar.
+- Copiar aliases de internet sin saber qué hacen.
 
 ## Criterios de dominio
 

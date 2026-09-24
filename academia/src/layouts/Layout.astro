@@ -21,44 +21,46 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
   </head>
   <body class="min-h-screen bg-base-200">
-    <div class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-30">
-      <div class="navbar-start gap-2">
+    <div class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-30 px-2 sm:px-4 min-h-16 gap-1">
+      <div class="navbar-start gap-1 min-w-0 shrink">
         <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden" aria-label="Menú">☰</div>
-          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-square lg:hidden" aria-label="Menú">☰</div>
+          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-56 p-2 shadow border border-base-300">
             <li><a href={pathTo()}>Dashboard</a></li>
             <li><a href={pathTo('etapa/basica')}>Básica</a></li>
             <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
             <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
             <li><a href={pathTo('egreso')}>Egreso</a></li>
             <li><a href={pathTo('nivel')}>Nivel</a></li>
+            <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
             <li><a href={pathTo('progreso')}>Progreso</a></li>
           </ul>
         </div>
-        <a class="btn btn-ghost text-lg font-bold" href={pathTo()}>Academia</a>
+        <a class="btn btn-ghost text-base sm:text-lg font-bold px-2 truncate max-w-[9rem] sm:max-w-none" href={pathTo()}>Academia</a>
       </div>
-      <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
+      <div class="navbar-center hidden lg:flex min-w-0">
+        <ul class="menu menu-horizontal px-1 flex-nowrap gap-0">
           <li><a href={pathTo()}>Dashboard</a></li>
           <li><a href={pathTo('etapa/basica')}>Básica</a></li>
           <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
           <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
           <li><a href={pathTo('egreso')}>Egreso</a></li>
           <li><a href={pathTo('nivel')}>Nivel</a></li>
+          <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
           <li><a href={pathTo('progreso')}>Progreso</a></li>
         </ul>
       </div>
-      <div class="navbar-end">
-        <a class="btn btn-sm btn-primary" href={pathTo('materia/M01')}>Empezar M01</a>
+      <div class="navbar-end shrink-0">
+        <a class="btn btn-sm btn-primary" href={pathTo('materia/M01')}>M01</a>
       </div>
     </div>
 
-    <main class="container mx-auto px-4 py-8 max-w-6xl">
+    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0">
       <slot />
     </main>
 
     <footer class="footer footer-center bg-base-100 text-base-content p-6 border-t border-base-300">
-      <aside>
+      <aside class="max-w-prose px-2">
         <p class="font-medium">Academia de Egreso Competente</p>
         <p class="text-sm opacity-70">Alineada a UABC + Tec · Mejorada con proyectos reales</p>
       </aside>

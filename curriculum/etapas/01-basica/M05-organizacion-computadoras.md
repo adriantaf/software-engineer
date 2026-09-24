@@ -34,6 +34,34 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 3. Representación de datos.
 4. Relacionar el modelo con programas reales.
 
+## Cómo estudiar esta materia
+
+- Dibuja más de lo que subrayas.
+- Cada concepto → “¿dónde lo veo cuando corro `node cli.js`?”.
+- No memorizes ciclos de reloj: entiende el flujo de datos.
+
+## Día 1 (2–3 h)
+
+1. Lee un capítulo corto de arquitectura (Stallings/Tanenbaum ES, intro).
+2. En papel, dibuja: CPU, RAM, disco, teclado/pantalla y flechas de datos.
+3. Escribe en `projects/m05-como-corre/diagrama.md` la explicación en tus palabras (máx. 1 página).
+4. Ejecuta en terminal:
+   ```bash
+   free -h   # o el equivalente en tu SO
+   df -h
+   ```
+5. Anota qué es “memoria usada” vs “disco usado”.
+
+## Ejemplo — overflow de enteros (intuición)
+
+```ts
+// En JS los Number son flotantes; igual sirve para pensar límites
+const casi = Number.MAX_SAFE_INTEGER;
+console.log(casi + 1 === casi + 2); // true → perdiste precisión
+```
+
+Reflexión: la representación finita siempre tiene límites.
+
 ## Temario
 
 | Semana | Temas |
@@ -45,7 +73,7 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 ## Libros (español)
 
 - Capítulos selectos de *Organización y arquitectura de computadoras* (Stallings, ed. ES) **o**
-- *Estructura y organización de computadores* (Tanenbaum, ed. ES) — solo lo esencial.
+- *Estructura y organización de computadores* (Tanenbaum, ed. ES).
 
 ## Prácticas
 
@@ -56,6 +84,12 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 ## Proyecto útil
 
 Documento `projects/m05-como-corre/README.md`: desde que escribes `node cli.js` hasta que ves output — procesos, memoria, syscalls a nivel conceptual.
+
+## Errores comunes
+
+- Decir “la nube es magia” sin ubicar CPU/RAM/disco.
+- Confundir almacenamiento (SSD) con memoria principal (RAM).
+- Medir rendimiento una sola vez sin repetir.
 
 ## Criterios de dominio
 

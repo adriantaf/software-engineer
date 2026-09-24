@@ -15,34 +15,48 @@ const catalog = getCatalog();
 const idx = catalog.materias.findIndex((m) => m.id === materia.id);
 const prev = catalog.materias[idx - 1];
 const next = catalog.materias[idx + 1];
+const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
-  <div class="breadcrumbs text-sm mb-4">
-    <ul>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
       <li><a href={pathTo()}>Dashboard</a></li>
       <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
       <li>{materia.id}</li>
     </ul>
   </div>
 
-  <div class="flex flex-col lg:flex-row gap-6">
-    <article class="card bg-base-100 border border-base-300 flex-1">
-      <div class="card-body prose-academia">
-        <div class="flex flex-wrap gap-2 not-prose mb-2">
+  <div class="flex flex-col lg:flex-row gap-6 min-w-0">
+    <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
+      <div class="card-body p-4 sm:p-6 min-w-0">
+        <div class="flex flex-wrap gap-2 mb-3">
           <span class="badge badge-primary">{materia.id}</span>
           <span class="badge badge-outline">{materia.semanas} semanas</span>
           <span class="badge badge-outline">{materia.horas} h</span>
         </div>
-        <div set:html={materia.bodyHtml} />
+
+        {
+          hasDia1 && (
+            <div role="alert" class="alert alert-info mb-4 text-sm">
+              <span>
+                Empieza por la sección <strong>Día 1</strong> (2–3 h). Luego el temario semanal y las prácticas.
+              </span>
+            </div>
+          )
+        }
+
+        <div class="prose-academia min-w-0" set:html={materia.bodyHtml} />
       </div>
     </article>
 
-    <aside class="lg:w-80 flex flex-col gap-4">
-      <div class="card bg-base-100 border border-base-300">
-        <div class="card-body gap-3">
+    <aside class="w-full lg:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full">
+      <div class="card bg-base-100 border border-base-300 overflow-hidden">
+        <div class="card-body gap-3 p-4 sm:p-5 min-w-0">
           <h2 class="card-title text-lg">Tu progreso</h2>
-          <p class="text-sm opacity-70">Se guarda en este navegador. Exporta a <code>progress.json</code> desde la página Progreso.</p>
+          <p class="text-sm opacity-70 break-words">
+            Se guarda en este navegador. Exporta a <code class="break-all">progress.json</code> desde Progreso.
+          </p>
 
           <div class="divider my-1">Prácticas</div>
           {
@@ -50,10 +64,10 @@ const next = catalog.materias[idx + 1];
               <p class="text-sm">Sin checklist de prácticas en frontmatter.</p>
             ) : (
               materia.practicas.map((p) => (
-                <label class="label cursor-pointer justify-start gap-3">
+                <label class="checklist-item cursor-pointer">
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-primary"
+                    class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
                     data-practica={p.id}
                     data-materia={materia.id}
                   />
@@ -67,10 +81,10 @@ const next = catalog.materias[idx + 1];
             materia.proyecto && (
               <>
                 <div class="divider my-1">Proyecto</div>
-                <label class="label cursor-pointer justify-start gap-3">
+                <label class="checklist-item cursor-pointer">
                   <input
                     type="checkbox"
-                    class="checkbox checkbox-secondary"
+                    class="checkbox checkbox-secondary checkbox-sm mt-0.5 shrink-0"
                     data-proyecto
                     data-materia={materia.id}
                   />
@@ -81,24 +95,29 @@ const next = catalog.materias[idx + 1];
           }
 
           <div class="divider my-1">Materia</div>
-          <label class="label cursor-pointer justify-start gap-3">
-            <input type="checkbox" class="checkbox checkbox-success" data-completa data-materia={materia.id} />
+          <label class="checklist-item cursor-pointer">
+            <input
+              type="checkbox"
+              class="checkbox checkbox-success checkbox-sm mt-0.5 shrink-0"
+              data-completa
+              data-materia={materia.id}
+            />
             <span class="label-text font-medium">Marcar materia completada</span>
           </label>
         </div>
       </div>
 
-      <div class="join join-vertical w-full">
+      <div class="join join-vertical w-full max-w-full">
         {
           prev && (
-            <a class="btn join-item" href={pathTo(`materia/${prev.id}`)}>
+            <a class="btn join-item justify-start truncate" href={pathTo(`materia/${prev.id}`)}>
               ← {prev.id}
             </a>
           )
         }
         {
           next && (
-            <a class="btn join-item btn-primary" href={pathTo(`materia/${next.id}`)}>
+            <a class="btn join-item btn-primary justify-start truncate" href={pathTo(`materia/${next.id}`)}>
               {next.id} →
             </a>
           )

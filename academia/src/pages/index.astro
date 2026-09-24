@@ -17,17 +17,19 @@ const seed = getProgressSeed();
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
   <div class="flex flex-col gap-6">
-    <section class="hero bg-base-100 rounded-box border border-base-300">
-      <div class="hero-content text-center py-10">
-        <div class="max-w-2xl">
+    <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
+      <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
+        <div class="max-w-2xl w-full min-w-0">
           <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal · UABC + Tec</p>
-          <h1 class="text-4xl font-bold">{catalog.programa}</h1>
-          <p class="py-4 opacity-80">
-            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>.
-            {stats.materias} materias · ~{stats.horas} horas de plan · ~{stats.semanas} semanas de contenido.
+          <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
+          <p class="py-4 opacity-80 text-sm sm:text-base break-words">
+            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
+            <span class="opacity-50"> · </span>
+            {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
           </p>
           <div class="flex flex-wrap gap-2 justify-center">
             <a class="btn btn-primary" href={pathTo('materia/M01')}>Continuar / Empezar M01</a>
+            <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
             <a class="btn btn-outline" href={pathTo('progreso')}>Ver progreso</a>
             <a class="btn btn-ghost" href={pathTo('egreso')}>Rúbrica de egreso</a>
           </div>
@@ -35,18 +37,18 @@ const seed = getProgressSeed();
       </div>
     </section>
 
-    <section class="grid md:grid-cols-3 gap-4" id="etapa-cards">
+    <section class="grid md:grid-cols-3 gap-4 items-stretch" id="etapa-cards">
       {
         catalog.etapas.map((etapa) => {
           const mats = getMateriasByEtapa(etapa.id);
           const horas = mats.reduce((a, m) => a + m.horas, 0);
           return (
-            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors">
-              <div class="card-body">
+            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors h-full min-w-0 overflow-hidden">
+              <div class="card-body min-w-0">
                 <div class="badge badge-outline">Etapa {etapa.orden}</div>
-                <h2 class="card-title">{etapa.titulo}</h2>
-                <p class="text-sm opacity-80">{etapa.objetivo}</p>
-                <p class="text-sm">
+                <h2 class="card-title text-lg break-words">{etapa.titulo}</h2>
+                <p class="text-sm opacity-80 break-words">{etapa.objetivo}</p>
+                <p class="text-sm break-words">
                   {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
                 </p>
                 <progress
@@ -65,19 +67,20 @@ const seed = getProgressSeed();
       }
     </section>
 
-    <section class="card bg-base-100 border border-base-300">
-      <div class="card-body">
+    <section class="card bg-base-100 border border-base-300 overflow-hidden">
+      <div class="card-body min-w-0">
         <h2 class="card-title">Fuentes universitarias</h2>
-        <ul class="list-disc pl-5 space-y-1">
+        <ul class="list-disc pl-5 space-y-1 break-words">
           {catalog.fuentes.map((f) => <li>{f}</li>)}
         </ul>
-        <p class="text-sm opacity-70">
+        <p class="text-sm opacity-70 break-words">
           Física/química/cálculo avanzado los cursas en la UABC. Aquí priorizamos competencia de software
           con proyectos útiles.
         </p>
-        <div class="card-actions">
+        <div class="card-actions flex-wrap">
+          <a class="btn btn-sm" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
           <a class="btn btn-sm" href={pathTo('nivel')}>Tu nivel real</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa curricular (Markdown)</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa curricular</a>
         </div>
       </div>
     </section>

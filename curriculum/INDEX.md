@@ -30,6 +30,7 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 Ver también:
 
+- [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
 - [Equivalencias UABC / Tec](equivalencias.md)
 - [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)
