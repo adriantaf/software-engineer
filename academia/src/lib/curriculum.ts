@@ -3,6 +3,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { pathTo } from './paths';
+import { addHeadingAnchors, extractToc, linkGlossaryTerms } from './glossary-link';
 
 function resolveRepoRoot(): string {
   const candidates = [process.cwd(), path.resolve(process.cwd(), '..')];
@@ -21,6 +22,7 @@ marked.setOptions({ gfm: true });
 const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'INDEX.md': 'docs/index',
   'bibliografia.md': 'docs/bibliografia',
+  'glosario.md': 'docs/glosario',
   'como-estudiar.md': 'docs/como-estudiar',
   'filosofia.md': 'docs/filosofia',
   'producto-saas.md': 'docs/producto-saas',
@@ -78,8 +80,14 @@ function rewriteHtmlHrefs(html: string, fromCurriculumFile: string): string {
 }
 
 function renderCurriculumMarkdown(content: string, fromCurriculumFile: string): string {
-  const html = marked.parse(content) as string;
-  return rewriteHtmlHrefs(html, fromCurriculumFile);
+  let html = marked.parse(content) as string;
+  html = rewriteHtmlHrefs(html, fromCurriculumFile);
+  html = addHeadingAnchors(html);
+  // En el propio glosario no auto-enlazamos (ya están las anclas).
+  if (!fromCurriculumFile.replace(/\\/g, '/').endsWith('glosario.md')) {
+    html = linkGlossaryTerms(html, { expandFirst: true });
+  }
+  return html;
 }
 
 export type CatalogMateria = {
@@ -120,6 +128,7 @@ export type MateriaDoc = {
   practicas: { id: string; titulo: string }[];
   proyecto: { id: string; titulo: string } | null;
   bodyHtml: string;
+  toc: { id: string; text: string; level: number }[];
   slug: string;
   filepath: string;
 };
@@ -162,6 +171,7 @@ export function loadMateria(id: string): MateriaDoc | null {
   const { data, content } = matter(raw);
   const practicas = Array.isArray(data.practicas) ? data.practicas : [];
   const proyecto = data.proyecto ?? null;
+  const bodyHtml = renderCurriculumMarkdown(content, path.relative(curriculumRoot, filepath));
   return {
     id: String(data.id ?? meta.id),
     titulo: String(data.titulo ?? meta.titulo),
@@ -171,7 +181,8 @@ export function loadMateria(id: string): MateriaDoc | null {
     horas: Number(data.horas ?? meta.horas),
     practicas,
     proyecto,
-    bodyHtml: renderCurriculumMarkdown(content, path.relative(curriculumRoot, filepath)),
+    bodyHtml,
+    toc: extractToc(bodyHtml).filter((t) => t.level === 2),
     slug: meta.slug,
     filepath,
   };

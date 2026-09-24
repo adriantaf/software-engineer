@@ -16,6 +16,7 @@ const idx = catalog.materias.findIndex((m) => m.id === materia.id);
 const prev = catalog.materias[idx - 1];
 const next = catalog.materias[idx + 1];
 const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
+const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
@@ -29,16 +30,34 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 
   <div class="flex flex-col lg:flex-row gap-6 min-w-0">
     <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
-      <div class="card-body p-4 sm:p-6 min-w-0">
-        <div class="flex flex-wrap gap-2 mb-3">
-          <span class="badge badge-primary">{materia.id}</span>
-          <span class="badge badge-outline">{materia.semanas} semanas</span>
-          <span class="badge badge-outline">{materia.horas} h</span>
-        </div>
+      <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
+        <header class="mb-4 pb-4 border-b border-base-300">
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="badge badge-primary">{materia.id}</span>
+            <span class="badge badge-outline">{materia.semanas} semanas</span>
+            <span class="badge badge-outline">{materia.horas} h</span>
+            <span class="badge badge-ghost">{etapa.titulo}</span>
+          </div>
+          <p class="text-sm opacity-70 m-0">
+            Sigla en azul = definición en el
+            <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
+            (la primera vez también verás la expansión).
+          </p>
+          {
+            weekHints.length > 1 && (
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-xs uppercase tracking-wide opacity-60 self-center mr-1">Semanas</span>
+                {weekHints.map((w) => (
+                  <span class="badge badge-sm badge-outline font-mono">S{w}</span>
+                ))}
+              </div>
+            )
+          }
+        </header>
 
         {
           hasDia1 && (
-            <div role="alert" class="alert alert-info mb-4 text-sm">
+            <div role="alert" class="alert alert-info mb-5 text-sm">
               <span>
                 Empieza por la sección <strong>Día 1</strong> (2–3 h). Luego el temario semanal y las prácticas.
               </span>
@@ -46,11 +65,33 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
           )
         }
 
-        <div class="prose-academia min-w-0" set:html={materia.bodyHtml} />
+        <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
       </div>
     </article>
 
-    <aside class="w-full lg:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full">
+    <aside class="w-full lg:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+      {
+        materia.toc.length > 0 && (
+          <nav class="card bg-base-100 border border-base-300 overflow-hidden" aria-label="En esta ficha">
+            <div class="card-body gap-2 p-4 sm:p-5 min-w-0">
+              <h2 class="card-title text-base">En esta ficha</h2>
+              <ul class="menu menu-sm p-0 gap-0.5 max-h-64 overflow-y-auto">
+                {materia.toc.map((item) => (
+                  <li>
+                    <a class="py-1.5 leading-snug" href={`#${item.id}`}>
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a class="btn btn-ghost btn-sm justify-start px-2" href={pathTo('docs/glosario')}>
+                Abrir glosario →
+              </a>
+            </div>
+          </nav>
+        )
+      }
+
       <div class="card bg-base-100 border border-base-300 overflow-hidden">
         <div class="card-body gap-3 p-4 sm:p-5 min-w-0">
           <h2 class="card-title text-lg">Tu progreso</h2>

@@ -19,12 +19,12 @@ Si un día solo tienes 2 h: **1 h práctica + 1 h proyecto**. No “ver videos�
 2. **Objetivos** — qué debes poder hacer al terminar.
 3. **Día 1** — hazlo hoy, sin saltarte pasos.
 4. **Temario semanal** — avanza en orden.
-5. **Lecturas** — sigue la tabla **semana → capítulos** de la materia (ver [bibliografía](bibliografia.md)). No elijas capítulos al azar.
+5. **Lecturas** — sigue la tabla **semana → capítulos** de la materia (ver [bibliografía](bibliografia.md)). No elijas capítulos al azar. Si aparece una sigla en azul, ábrela en el [glosario](glosario.md).
 6. **Prácticas** — márcalas en la UI solo cuando existan archivos/evidencia.
 7. **Proyecto** — cierra la materia.
 8. **Criterios de dominio** — autoexamen honesto.
 
-Lee también la [filosofía](filosofia.md) (por qué no somos escuela tradicional) y el [hilo de seguridad](hilos/seguridad.md).
+Lee también la [filosofía](filosofia.md) (por qué no somos escuela tradicional), el [glosario](glosario.md) y el [hilo de seguridad](hilos/seguridad.md).
 
 ## Qué cuenta como “terminado”
 

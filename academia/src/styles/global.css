@@ -19,28 +19,32 @@ body {
 }
 
 .prose-academia h1 {
-  @apply text-2xl sm:text-3xl font-bold mt-2 mb-4 leading-tight;
+  @apply text-2xl sm:text-3xl font-bold mt-2 mb-4 leading-tight tracking-tight;
 }
 
 .prose-academia h2 {
-  @apply text-xl sm:text-2xl font-semibold mt-8 mb-3 border-b border-base-300 pb-2 leading-snug;
+  @apply text-xl sm:text-2xl font-semibold mt-10 mb-3 border-b border-base-300 pb-2 leading-snug scroll-mt-24;
 }
 
 .prose-academia h3 {
-  @apply text-lg sm:text-xl font-semibold mt-6 mb-2 leading-snug;
+  @apply text-lg sm:text-xl font-semibold mt-7 mb-2 leading-snug scroll-mt-24;
 }
 
 .prose-academia p,
 .prose-academia li {
-  @apply leading-relaxed;
+  @apply leading-relaxed text-[0.975rem] sm:text-base;
+}
+
+.prose-academia p {
+  @apply my-3;
 }
 
 .prose-academia ul {
-  @apply list-disc pl-5 sm:pl-6 my-3 space-y-1;
+  @apply list-disc pl-5 sm:pl-6 my-3 space-y-1.5;
 }
 
 .prose-academia ol {
-  @apply list-decimal pl-5 sm:pl-6 my-3 space-y-1;
+  @apply list-decimal pl-5 sm:pl-6 my-3 space-y-1.5;
 }
 
 .prose-academia table {
@@ -58,7 +62,21 @@ body {
 }
 
 .prose-academia a {
-  @apply link link-primary break-all;
+  @apply link link-primary;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.prose-academia a.glossary-term {
+  @apply font-semibold decoration-2 underline-offset-2;
+}
+
+.prose-academia .glossary-expand {
+  @apply text-sm opacity-75 font-normal not-italic;
+}
+
+.materia-body > h1:first-child {
+  @apply mt-0;
 }
 
 .prose-academia code {
@@ -66,7 +84,7 @@ body {
 }
 
 .prose-academia pre {
-  @apply bg-base-200 p-3 sm:p-4 rounded-lg overflow-x-auto my-4 max-w-full;
+  @apply bg-base-200 p-3 sm:p-4 rounded-lg overflow-x-auto my-4 max-w-full text-sm;
 }
 
 .prose-academia pre code {

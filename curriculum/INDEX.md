@@ -35,6 +35,7 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 Ver también:
 
 - [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
+- [Glosario](glosario.md) — siglas con definición en español
 - [Bibliografía](bibliografia.md) — libros + alternativa gratis
 - [Producto SaaS](producto-saas.md)
 - [Filosofía](filosofia.md) — mejor que la escuela tradicional
