@@ -2,6 +2,7 @@ import { glossaryMatchList, type GlossaryTerm } from './glossary';
 import { pathTo } from './paths';
 
 const SKIP_TAGS = new Set(['a', 'code', 'pre', 'script', 'style', 'kbd', 'samp']);
+const NO_EXPAND_TAGS = new Set(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'title']);
 
 function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -9,12 +10,10 @@ function escapeRe(s: string): string {
 
 function buildMatcher() {
   const list = glossaryMatchList();
-  // Word-ish boundaries: avoid matching inside longer identifiers.
   const parts = list.map(({ match }) => {
     const e = escapeRe(match);
-    // tenant_id and similar: allow underscore terms
     if (/_/.test(match)) return e;
-    if (/[()]/.test(match)) return e; // O(n)
+    if (/[()]/.test(match)) return e;
     return `\\b${e}\\b`;
   });
   const re = new RegExp(`(${parts.join('|')})`, 'g');
@@ -25,23 +24,28 @@ function buildMatcher() {
 const MATCHER = buildMatcher();
 
 /**
- * Enlaza siglas del glosario. Primera mención en el documento: añade expansión.
- * No toca contenido dentro de <a>, <code>, <pre>, etc.
+ * Enlaza siglas del glosario. Primera mención en el documento: añade expansión
+ * (salvo en títulos). No toca contenido dentro de <a>, <code>, <pre>, etc.
  */
 export function linkGlossaryTerms(html: string, options?: { expandFirst?: boolean }): string {
   const expandFirst = options?.expandFirst !== false;
   const base = pathTo('docs/glosario');
   const seen = new Set<string>();
   let skipDepth = 0;
+  let headingDepth = 0;
 
   return html.replace(/<\/?([A-Za-z][\w:-]*)\b[^>]*>|([^<]+)/g, (chunk, tagName?: string, text?: string) => {
     if (tagName) {
       const name = tagName.toLowerCase();
+      const closing = chunk.startsWith('</');
+      const selfClosing = /\/>$/.test(chunk);
       if (SKIP_TAGS.has(name)) {
-        const closing = chunk.startsWith('</');
-        const selfClosing = /\/>$/.test(chunk);
         if (closing) skipDepth = Math.max(0, skipDepth - 1);
         else if (!selfClosing) skipDepth += 1;
+      }
+      if (NO_EXPAND_TAGS.has(name)) {
+        if (closing) headingDepth = Math.max(0, headingDepth - 1);
+        else if (!selfClosing) headingDepth += 1;
       }
       return chunk;
     }
@@ -54,6 +58,8 @@ export function linkGlossaryTerms(html: string, options?: { expandFirst?: boolea
       const href = `${base}#${id}`;
       const title = `${term.term}: ${term.expansion}`;
       const link = `<a class="glossary-term" href="${href}" title="${escapeAttr(title)}">${raw}</a>`;
+      // En títulos solo enlace (evita "AppSec (…)" dentro del h1).
+      if (headingDepth > 0) return link;
       if (!expandFirst || seen.has(id)) return link;
       seen.add(id);
       return `${link} <span class="glossary-expand">(${escapeHtml(term.expansion)})</span>`;
