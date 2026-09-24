@@ -90,11 +90,20 @@ test("suma positivos", () => {
 | 5 | Errores, validación, Vitest |
 | 6 | Proyecto CLI + pulido |
 
-## Libros (español)
+## Lecturas
 
-- *Eloquent JavaScript* (Marijn Haverbeke) — traducción ES; haz los ejercicios.
-- Handbook de TypeScript (oficial; usar ES donde exista + práctica).
-- Empezar *Código limpio* (Robert C. Martin, ed. ES) — nombres y funciones (lento).
+Canon: *Eloquent JavaScript* (trad. ES) + [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/) + inicio de *Código limpio* (ed. ES). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / secciones | Alternativa gratis |
+|--------|----------------------|--------------------|
+| 1 | EJ **caps. 1–3** (valores/tipos; estructura; funciones) + TS Handbook *Basic Types* / *Everyday Types* | https://eloquentjavascript.net/ + Handbook EN |
+| 2 | EJ **caps. 4–5** (objetos/arrays; funciones de orden superior) + TS *Narrowing* | Misma URL |
+| 3 | EJ **cap. 10** (módulos) + Node docs `fs` + TS *Modules* | MDN JS (ES) módulos + Node docs |
+| 4 | EJ **cap. 11** (asíncrono) + `fetch` (MDN ES) | Misma URL |
+| 5 | EJ **cap. 8** (bugs y errores) + Vitest *Getting Started* + *Código limpio* **caps. 2–3** (nombres; funciones) | Docs Vitest; CC en biblioteca |
+| 6 | Repaso guiado + proyecto CLI (sin capítulo nuevo obligatorio); opcional EJ **cap. 7** (proyecto robot) como inspiración | — |
+
+**Regla:** cada capítulo de EJ lleva **ejercicios hechos**, no solo lectura.
 
 ## Prácticas
 

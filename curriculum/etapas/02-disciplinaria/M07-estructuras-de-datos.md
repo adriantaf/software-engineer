@@ -53,8 +53,20 @@ export class Stack<T> {
 ## Temario
 Arrays, listas, pilas, colas, hash tables, árboles, heaps intro, grafos (repaso M03).
 
-## Libros (ES)
-Texto universitario de ED en español + implementación propia obligatoria.
+## Lecturas
+
+Canon: texto universitario de ED estilo Joyanes (ed. ES) **o** apuntes equivalentes + implementación propia. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / foco de lectura | Alternativa |
+|--------|----------------------------|-------------|
+| 1 | Arrays y **listas enlazadas** (costos, operaciones) | Implementa + 5 tests; compara con `Array` |
+| 2 | **Pilas y colas** (y variantes) | Misma librería `projects/m07-estructuras/` |
+| 3 | **Tablas hash** (función, colisiones, load factor) | Docs MDN `Map`/`Set` como contraste |
+| 4 | **Árboles** / BST + recorridos | Visualización propia o VisuAlgo |
+| 5 | **Heaps** intro + prioridad | Implementación mínima + tests |
+| 6 | **Grafos** (repaso M03) + benchmarks + README “cuándo usar cada una” | — |
+
+**Regla:** leer el capítulo → implementar → medir. Sin implementación no cuenta.
 
 ## Prácticas
 P1–P3 del frontmatter. Evidencia en `projects/m07-estructuras/`.

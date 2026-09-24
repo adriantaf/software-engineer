@@ -44,8 +44,17 @@ Criterio: usuario empleado no puede GET /notas de otro local (403).
 ## Temario
 Entrevistas → stories/aceptación → SRS + RNF seguridad/privacidad → priorización MVP.
 
-## Recursos
-Plantilla [`projects/m12-srs/plantilla.md`](../../../projects/m12-srs/plantilla.md).
+## Lecturas
+
+Canon: plantilla IEEE 830 adaptada en el repo. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lectura obligatoria | Entrega ligada |
+|--------|--------------------|----------------|
+| 1 | [`projects/m12-srs/plantilla.md`](../../../projects/m12-srs/plantilla.md) completa + notas de entrevista | Guion de entrevista / stories |
+| 2 | Misma plantilla: secciones **funcionales** + **RNF** (seguridad, privacidad, performance) | Borrador SRS Agenda Ops |
+| 3 | Priorización MVP (MoSCoW o equivalente) + freeze de alcance 4 semanas de build | SRS v1 firmado por ti |
+
+**Regla:** no hay novela de libro: la “lectura” es la plantilla + rellenar con evidencia de entrevistas.
 
 ## Proyecto útil
 SRS real del Agenda/CRM (alcance MVP 4 semanas de build).

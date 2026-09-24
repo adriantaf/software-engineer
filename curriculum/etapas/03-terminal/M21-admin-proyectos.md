@@ -28,8 +28,17 @@ Crea milestones de 4 semanas. Mueve 5 issues reales (uno de seguridad). Define �
 ## Temario
 Roadmap → sprints → riesgos → métricas simples.
 
-## Libros (ES)
-Intro Scrum/Kanban ES; preparación Lean Startup (M22).
+## Lecturas
+
+Canon: [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf). Preparación Lean Startup → M22. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lectura | Entrega |
+|--------|---------|---------|
+| 1 | Guía Scrum completa (es corta) — roles, eventos, artefactos | Roadmap Agenda Ops |
+| 2 | Misma guía: foco en Sprint + Definition of Done | Plan de 2–3 sprints reales |
+| 3 | Notas de riesgos + métricas simples (lectura M21 / bitácora) | Tablero vivo + retrospectiva |
+
+**Regla:** estima en rangos; si fallas, documenta el porqué.
 
 ## Criterios de dominio
 - [ ] Estimas en rangos; cumples o aprendes por qué no.

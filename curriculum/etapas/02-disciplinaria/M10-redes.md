@@ -68,11 +68,19 @@ Busca (cuando tengas producto): `Strict-Transport-Security`, `Content-Security-P
 | 4 | Cookies, sesiones, CORS intro |
 | 5 | Superficie de ataque + proyecto doc |
 
-## Libros / recursos (ES)
+## Lecturas
 
-- *Redes de computadoras* — Tanenbaum (ed. ES), capítulos selectos.
-- MDN: HTTP, cookies (ES).
-- [Hilo de seguridad](../../hilos/seguridad.md).
+Canon: *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) + MDN HTTP (ES). Ver [bibliografía](../../bibliografia.md) y [hilo de seguridad](../../hilos/seguridad.md).
+
+| Semana | Capítulos / recursos | Alternativa |
+|--------|---------------------|-------------|
+| 1 | Tanenbaum: **intro + capa de red/transporte** (IP, TCP vs UDP, puertos) | Labs `curl`/ping/`ss` |
+| 2 | Tanenbaum: **capa de aplicación** + HTTP; MDN *HTTP overview* + status codes | MDN ES HTTP |
+| 3 | Tanenbaum: **seguridad en la red / TLS** (selecto) + lab certificados | Docs MDN *Transport Layer Security* |
+| 4 | MDN **Cookies** + sesiones; CORS intro (MDN) | Misma MDN ES |
+| 5 | Sintetiza superficie de ataque (puertos, headers, cookies) → doc proyecto | [Hilo seguridad](../../hilos/seguridad.md) |
+
+**Regla:** cada capítulo → un lab en terminal el mismo día.
 
 ## Prácticas
 

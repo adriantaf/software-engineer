@@ -51,6 +51,23 @@ Cumplir la rúbrica de egreso **en modo SaaS**: multi-tenant, billing test (Stri
 | 7 | Memoria técnica + métricas + M22 |
 | 8 | Demo, video, cierre egreso |
 
+## Lecturas
+
+Canon: memoria técnica propia + [producto-saas](../../producto-saas.md) + rúbrica [egreso](../../egreso.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lectura / relectura | Uso |
+|--------|---------------------|-----|
+| 1 | [producto-saas.md](../../producto-saas.md) completo + egreso | `alcance.md` congelado |
+| 2 | Tu SRS (M12) + diseño (M13) — solo gaps multi-tenant | Onboarding tenant |
+| 3 | Docs Stripe **test mode** (Checkout / Customer) intro | Preparar productos Free/Pro |
+| 4 | Repaso ADRs de tenancy | Features críticas |
+| 5 | Docs Stripe Checkout + webhooks (test) | Landing precios |
+| 6 | Informe M25 + OWASP access control (repaso) | Tests cross-tenant + CI |
+| 7 | Plantilla memoria técnica (estructura M26) + métricas M22 | Memoria v1 |
+| 8 | Checklist egreso | Demo + video |
+
+**Regla:** cada semana demo con ≥2 tenants; billing y seguridad no se aplazan.
+
 ## Entregables
 1. **SaaS en producción** (Agenda Ops) con ≥2 tenants demo.
 2. Landing de precios + checkout Stripe **test mode**.

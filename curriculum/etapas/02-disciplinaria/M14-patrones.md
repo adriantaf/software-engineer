@@ -35,8 +35,18 @@ const promo: Precio = { calcular: (b) => b * 0.9 };
 ## Temario
 GoF selectos → Repository/Service → refactor CRM → justificación en ADR.
 
-## Libros (ES)
-GoF ed. ES si la consigues; o resúmenes guiados + mentor.
+## Lecturas
+
+Canon: *Patrones de diseño* — GoF (ed. ES si hay). Alternativa: [Refactoring.Guru ES](https://refactoring.guru/es/design-patterns). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Patrones / capítulos | Alternativa gratis |
+|--------|---------------------|--------------------|
+| 1 | **Creacionales** selectos: Factory, Singleton (cuándo NO) | Refactoring.Guru — Factory / Singleton |
+| 2 | **Estructurales**: Adapter, Decorator, Facade | Refactoring.Guru equivalentes |
+| 3 | **Comportamiento**: Strategy, Observer, Command | Refactoring.Guru equivalentes |
+| 4 | **Repository / Service** en tu CRM + ADR justificando 5 patrones aplicados | Código + ADR |
+
+**Regla:** patrón sin justificación escrita = no cuenta.
 
 ## Errores comunes
 Nombrar “Factory” sin factory; over-engineering.

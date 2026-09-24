@@ -83,12 +83,22 @@ Si `GET /api/citas/123` devuelve la cita **sin comprobar** que pertenece al usua
 | 7 | Secrets, dependencias, headers, CSP básica |
 | 8 | Secure SDLC + informe + tests de regresión |
 
-## Libros / recursos (ES)
+## Lecturas
 
-- OWASP Top 10 (documentación en español).
-- Cheat sheets OWASP (auth, CSRF, XSS) — usar ES cuando exista.
-- [Hilo de seguridad](../../hilos/seguridad.md).
-- *No reinventar crypto*: libs estándar + docs.
+Canon: OWASP Top 10 + Cheat Sheets. Ver [bibliografía](../../bibliografia.md) y [hilo](../../hilos/seguridad.md).
+
+| Semana | Lectura OWASP / recurso | Enfoque práctico |
+|--------|------------------------|------------------|
+| 1 | STRIDE / threat modeling (notas M18 + cheat sheet threat model) | Activos y boundaries del piloto |
+| 2 | OWASP **A07 Identification and Authentication Failures** + Auth Cheat Sheet | Hashing, sesiones/JWT |
+| 3 | CSRF Cheat Sheet + cookies Secure/HttpOnly/SameSite | Labs en tu app |
+| 4 | **A03 Injection** + XSS Prevention Cheat Sheet | SQLi/XSS en tu stack |
+| 5 | **A01 Broken Access Control** + IDOR | Rate limiting básico |
+| 6 | SSRF / file upload (Cheat Sheets selectos) | Checklist de uploads |
+| 7 | Secrets management + dependency + Security Headers / CSP | `npm audit`, headers |
+| 8 | Secure SDLC overview + informe | Tests de regresión AppSec |
+
+**Regla:** hallazgo → PoC en **tu** app → fix → test. Nada de “laboratorio genérico” sin trasladar.
 
 ## Prácticas
 

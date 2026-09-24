@@ -44,8 +44,18 @@ pg_dump "$DATABASE_URL" > "backups/db-$DATE.sql"
 ## Temario
 Procesos/hilos → memoria/FS → permisos/usuarios → Docker + proyecto playbook.
 
-## Libros (ES)
-Silberschatz ed. ES — capítulos selectos.
+## Lecturas
+
+Canon: *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (Silberschatz, por tema) | Alternativa |
+|--------|-----------------------------------|-------------|
+| 1 | **Procesos e hilos** + scheduling intro | `ps`, `top`, experimento Node workers |
+| 2 | **Memoria** (paginación, virtual) + por qué OOM | Observa RSS de un proceso Node |
+| 3 | **Sistema de archivos** + I/O | Labs lectura/escritura + permisos |
+| 4 | **Concurrencia** intro (condiciones de carrera) + proyecto/notas enlazando a tu app | — |
+
+**Regla:** un experimento de SO por semana documentado en `projects/m11-so/`.
 
 ## Proyecto útil
 Scripts + Compose mínimo documentado (DB + API), usuario no-root en contenedor si es posible.

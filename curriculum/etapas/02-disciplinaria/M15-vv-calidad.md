@@ -28,8 +28,18 @@ Elige una función de dominio (crear cita). Escribe 5 tests: feliz, duplicado, s
 ## Temario
 Pirámide → mocks/fakes → CI → coverage útil → review checklist.
 
-## Libros (ES)
-*Código limpio*; *El programador pragmático*; guías testing ES.
+## Lecturas
+
+Canon: *Código limpio* + *El programador pragmático* + docs Vitest / Testing Library. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / docs | Alternativa |
+|--------|------------------|-------------|
+| 1 | CC **cap. 9** (pruebas) + pirámide de tests (artículo/notas M15) | Docs Vitest |
+| 2 | Mocks/fakes: docs Vitest mocking + Pragmático (rompe acoplamientos / testing) | Testing Library docs si hay UI |
+| 3 | CI: docs de GitHub Actions *Quickstart* + checklist review | Workflow mínimo en el repo |
+| 4 | Coverage útil + `npm audit` + tests de seguridad mínimos | — |
+
+**Regla:** un bug encontrado → test de regresión el mismo día.
 
 ## Proyecto útil
 CI verde + changelog + semver.

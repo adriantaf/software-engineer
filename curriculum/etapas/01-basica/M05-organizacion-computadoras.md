@@ -70,10 +70,17 @@ Reflexión: la representación finita siempre tiene límites.
 | 2 | Memoria jerárquica, disco vs RAM |
 | 3 | Representación + proyecto |
 
-## Libros (español)
+## Lecturas
 
-- Capítulos selectos de *Organización y arquitectura de computadoras* (Stallings, ed. ES) **o**
-- *Estructura y organización de computadores* (Tanenbaum, ed. ES).
+Canon: *Organización y arquitectura de computadoras* — William Stallings (ed. ES). Alternativa: Tanenbaum *Estructura y organización…* (mismos temas). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (Stallings, por título) | Alternativa |
+|--------|-----------------------------------|-------------|
+| 1 | Intro + **estructura/función del computador** + ciclo de instrucción (caps. de introducción y buses/CPU según tu ed.) | Explicación M05 + diagrama propio CPU–RAM–I/O |
+| 2 | **Memoria**: jerarquía, caché, interna y externa/disco | Apuntes M05 + benchmark RAM vs disco de la práctica |
+| 3 | **Representación de datos** + aritmética / overflow (caps. de número y ALU) + proyecto “cómo corre `node`” | Misma ficha M05 + conversiones en código |
+
+**Regla:** un diagrama por semana en `projects/m05-como-corre/`.
 
 ## Prácticas
 

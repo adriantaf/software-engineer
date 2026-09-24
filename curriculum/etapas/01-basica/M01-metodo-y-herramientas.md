@@ -112,11 +112,16 @@ Usar TypeScript en modo strict para la academia.
 - ADR de 1 página.
 - Bitácora semanal en este repo.
 
-## Libros y recursos (español)
+## Lecturas
 
-- *Pro Git* (Scott Chacon) — capítulos 1–3 (hay edición/traducción ES y web).
-- Documentación oficial de Git en español.
-- [Cómo estudiar](../../como-estudiar.md).
+Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo: [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / secciones | Alternativa gratis |
+|--------|----------------------|--------------------|
+| 1 | *Pro Git* **cap. 1** (Introducción) + [Cómo estudiar](../../como-estudiar.md); práctica shell (man/`--help` de `cd` `ls` `grep` `chmod`) | Misma URL ES + man pages |
+| 2 | *Pro Git* **caps. 2–3** (Fundamentos de Git; Ramas en Git) — haz los ejemplos en este repo | Misma URL ES |
+
+**Regla:** no leas más allá del cap. 3 en M01. Servidor remoto (cap. 4) llega cuando uses GitHub con remoto.
 
 ## Prácticas
 

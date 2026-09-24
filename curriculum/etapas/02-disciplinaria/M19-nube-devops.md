@@ -31,8 +31,18 @@ Un SaaS sin operación segura no es producto. Secrets, TLS, ambientes staging/pr
 ## Temario
 Docker → deploy → secrets/HTTPS/dominio → backups/monitoreo → runbook SaaS.
 
-## Recursos
-Docs Docker (ES), docs del PaaS/VPS, [producto-saas.md](../../producto-saas.md).
+## Lecturas
+
+Canon: documentación Docker + docs del PaaS. Ver [bibliografía](../../bibliografia.md) y [producto-saas](../../producto-saas.md).
+
+| Semana | Lectura | Alternativa |
+|--------|---------|-------------|
+| 1 | Docker **Get started** + Dockerfile best practices (oficial) | — |
+| 2 | Docs deploy del PaaS/VPS elegido (HTTPS, dominio) | — |
+| 3 | Secrets del proveedor + variables de entorno (nunca en imagen) | Runbook borrador |
+| 4 | Backups/restore + healthchecks + [producto-saas](../../producto-saas.md) ops | Prueba de restore real |
+
+**Regla:** un restore de BD probado vale más que tres tutoriales.
 
 ## Proyecto útil
 URL estable del piloto/SaaS + backups + healthcheck + runbook `projects/m19-ops/`.

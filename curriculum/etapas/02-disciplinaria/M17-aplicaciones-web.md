@@ -50,8 +50,22 @@ Semanas: auth → CRUD citas → admin roles → front → WhatsApp links → de
 - [ ] Roles claros (owner/staff) dentro del negocio piloto
 - [ ] HTTPS en deploy
 
-## Recursos (ES)
-MDN ES, OWASP intro, docs del framework, [producto-saas.md](../../producto-saas.md).
+## Lecturas
+
+Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lectura | Alternativa |
+|--------|---------|-------------|
+| 1 | MDN **auth/cookies/sesiones** (ES) + docs auth del framework | OWASP Auth Cheat Sheet |
+| 2 | Docs CRUD/routing del framework + modelo citas (tu SRS M12) | — |
+| 3 | Control de acceso / roles (docs + notas M13) | OWASP Access Control |
+| 4 | Front: MDN forms/accesibilidad básica + UI del piloto | — |
+| 5 | Integración WhatsApp links (docs oficiales API o deep links) | — |
+| 6 | Docs deploy del PaaS elegido + HTTPS | — |
+| 7 | OWASP Top 10 **overview** (mapa hacia M18) | https://owasp.org |
+| 8 | [producto-saas.md](../../producto-saas.md) sección multi-tenant + ADR `tenant_id` | Checklist camino a SaaS en esta ficha |
+
+**Regla:** cada semana deja el piloto más demoable; la lectura sirve al commit, no al revés.
 
 ## Proyecto útil
 **Agenda Ops — piloto:** servicios, citas, clientes, admin, WhatsApp, deploy público para **un** negocio de Ensenada. No es el SaaS multi-tenant completo aún; es la base.

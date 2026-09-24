@@ -76,10 +76,19 @@ export function interseccion<T>(a: Set<T>, b: Set<T>): Set<T> {
 | 4 | Combinatoria básica |
 | 5 | Grafos: representación, BFS/DFS intro |
 
-## Libros (español)
+## Lecturas
 
-- *Matemáticas discretas y sus aplicaciones* — Kenneth Rosen (ed. ES) **o** texto universitario ES.
-- Apuntes propios en `projects/m03-discretas/`.
+Canon: *Matemáticas discretas y sus aplicaciones* — Kenneth H. Rosen (ed. ES). Si tu edición numera ±1, sigue el **título**. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (Rosen) | Alternativa / apoyo |
+|--------|-------------------|---------------------|
+| 1 | **Cap. 1** — Lógica y demostraciones (proposicional, predicados, reglas) | Apuntes en `projects/m03-discretas/` + tablas de verdad propias |
+| 2 | **Cap. 2** — Conjuntos, funciones, secuencias (ops y leyes) | Mismos apuntes + implementación de ops |
+| 3 | **Cap. 5** (inducción/recursión, selecto) + **Cap. 9** (relaciones, selecto: matrices, propiedades) | Demostraciones cortas a mano |
+| 4 | **Cap. 6** — Conteo / combinatoria básica | Ejercicios del libro filtrados (pares) |
+| 5 | **Cap. 10** — Grafos (representación, caminos, BFS/DFS intro) | Implementación + dibujo de grafos pequeños |
+
+**Regla:** cada semana ≥3 ejercicios resueltos a mano **antes** de codear.
 
 ## Prácticas
 

@@ -52,8 +52,20 @@ export function binarySearch(a: number[], t: number): number {
 ## Temario
 Semanas: complejidad → sorting → searching/two pointers → trees/graphs intro → DP intro → proyecto autocomplete.
 
-## Libros (ES)
-Texto univ. ES de algoritmos; problemas filtrados.
+## Lecturas
+
+Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Alternativa: VisuAlgo + enunciados M08. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (CLRS, por tema) | Alternativa |
+|--------|---------------------------|-------------|
+| 1 | **Caps. de crecimiento / notación asintótica** (Θ, O, Ω) | Notas M08 + justificar Big-O de 5 funciones tuyas |
+| 2 | **Ordenamiento** (heapsort/mergesort/quicksort — los que cubra tu ed.) | VisuAlgo Sorting + implementar 2 |
+| 3 | **Búsqueda**, hashing aplicado, two pointers / sliding window (notas M08) | Problemas filtrados (fácil→medio) |
+| 4 | **Árboles y grafos** intro (BFS/DFS, caminos) | VisuAlgo Graph |
+| 5 | **Programación dinámica** intro (1–2 problemas clásicos) | Editorial propia en Markdown |
+| 6 | Proyecto autocomplete: estructura + complejidad documentada | — |
+
+**Regla:** cada problema: enunciado, complejidad, código, 3 casos de prueba.
 
 ## Proyecto útil
 Motor de autocomplete para catálogo/clientes del CRM.

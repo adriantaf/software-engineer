@@ -46,8 +46,19 @@ await db.query("SELECT * FROM citas WHERE id = $1 AND user_id = $2", [citaId, us
 ## Temario
 ER → normalización → SQL avanzado → índices/EXPLAIN intro → transacciones/migraciones → proyecto reportes.
 
-## Libros (ES)
-*Fundamentos de bases de datos* (Elmasri/Silberschatz, ed. ES).
+## Lecturas
+
+Canon: *Fundamentos de sistemas de bases de datos* — Elmasri & Navathe (ed. ES). Alternativa: tutorial PostgreSQL oficial. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / secciones | Alternativa |
+|--------|----------------------|-------------|
+| 1 | **Modelo ER** + diseño conceptual (caps. de modelado) | Diagrama ER de Agenda Ops |
+| 2 | **Normalización** (1FN–3FN, BCNF intro) | Ejercicios de descomposición |
+| 3 | **SQL** avanzado (joins, agregaciones, subconsultas) | Tutorial PostgreSQL *Querying* |
+| 4 | **Índices**, plan de ejecución / `EXPLAIN` intro | Docs PostgreSQL `EXPLAIN` |
+| 5 | **Transacciones** (ACID) + migraciones + proyecto reportes | Docs transacciones PG |
+
+**Regla:** cada concepto SQL → consulta contra tu BD de práctica, no solo lectura.
 
 ## Proyecto útil
 Esquema CRM + 5 reportes SQL + migraciones versionadas.

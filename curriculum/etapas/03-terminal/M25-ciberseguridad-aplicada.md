@@ -71,8 +71,20 @@ UABC: Seguridad / gestión. Tec: Ciberseguridad (cierre aplicado).
 | 5 | Privacidad / retención |
 | 6 | Tabletop + reporte final |
 
-## Recursos (ES)
-OWASP Testing Guide (selectos), [hilo seguridad](../../hilos/seguridad.md), [producto-saas](../../producto-saas.md).
+## Lecturas
+
+Canon: OWASP Testing Guide (secciones) + [hilo](../../hilos/seguridad.md) + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Secciones Testing Guide / foco | Práctica |
+|--------|-------------------------------|----------|
+| 1 | Information gathering / inventario de superficie | Clasificación datos por tenant |
+| 2 | Identity / authorization testing — **cross-tenant** | Review auth/roles |
+| 3 | Configuration / deploy hardening | Secretos billing |
+| 4 | Error handling / logging / abuse | Alertas mínimas |
+| 5 | Privacy / data protection (retención) | Política corta en repo |
+| 6 | Reporting + tabletop | `projects/m25-ciber/security-review.md` |
+
+**Regla:** al menos 2 issues críticos/altos de aislamiento cerrados con tests.
 
 ## Prácticas
 P1–P3 del frontmatter. Al menos **2** issues críticos/altos de aislamiento cerrados con tests.

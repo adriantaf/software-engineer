@@ -77,10 +77,18 @@ export function mediana(xs: number[]): number {
 | 3 | Estadística descriptiva + muestreo |
 | 4 | Proyecto informe |
 
-## Libros (español)
+## Lecturas
 
-- Texto univ. de probabilidad y estadística (ES) — capítulos selectos.
-- Datos: portal datos.gob.mx o datasets abiertos.
+Canon: *Probabilidad y estadística para ingeniería y ciencias* — Walpole, Myers et al. (ed. ES). Alternativa gratis: OpenStax *Introductory Statistics*. Catálogo: [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (Walpole) | Alternativa gratis (OpenStax) |
+|--------|---------------------|-------------------------------|
+| 1 | **Cap. 2** — Probabilidad (eventos, independencia, Bayes intro) | **Ch. 3** Probability Topics |
+| 2 | **Caps. 5–6** (selectos) — discretas (Bernoulli/Binomial) + continua/Normal intuición | **Ch. 4–6** Discrete RV / Continuous / Normal |
+| 3 | **Cap. 1** (datos) + **Cap. 8** (distribuciones muestrales / IC intro, selecto) + descriptivos | **Ch. 1–2** + **Ch. 7–8** (CLT / Confidence Intervals) |
+| 4 | Proyecto informe: aplica caps. de S1–S3; opcional **Cap. 9** (hipótesis de una muestra, lectura ligera) | **Ch. 9** Hypothesis Testing (solo la idea) + CSV de [datos.gob.mx](https://datos.gob.mx) |
+
+**Regla:** cada fórmula del capítulo → una simulación o cálculo en TS en `projects/m04-stats/`.
 
 ## Prácticas
 

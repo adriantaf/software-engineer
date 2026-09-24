@@ -31,6 +31,20 @@ Flutter (ya lo tocaste) **o** React Native — elige uno.
 ## Temario
 Auth → listas → detalle cita → pulido offline/caché ligero → build.
 
+## Lecturas
+
+Canon: docs oficiales Flutter **o** React Native (el stack que elegiste). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lectura (docs oficiales) | Enfoque |
+|--------|--------------------------|---------|
+| 1 | Auth / secure storage de sesión | Login contra tu API |
+| 2 | Listas / networking | Lista de citas |
+| 3 | Navegación + detalle | Detalle de cita |
+| 4 | Caché / offline ligero (docs del framework) | Estados vacío/error |
+| 5 | Build release (APK o equivalente) | Instalable en dispositivo real |
+
+**Regla:** misma auth que la web; nada de secretos de API en el binario.
+
 ## Errores comunes
 App desconectada del backend real; guardar secretos en el binario.
 

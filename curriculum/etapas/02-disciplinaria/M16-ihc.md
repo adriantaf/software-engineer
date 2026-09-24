@@ -28,8 +28,17 @@ Recorre tu UI como usuario nuevo. Lista 10 fricciones. Aplica 3 heurísticas de 
 ## Temario
 Heurísticas → prototipo → test 5 usuarios → iteración.
 
-## Libros (ES)
-*No me hagas pensar* — Steve Krug.
+## Lecturas
+
+Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: heurísticas Nielsen (NN/g). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (Krug) | Alternativa |
+|--------|------------------|-------------|
+| 1 | Caps. de **usabilidad / “no me hagas pensar”** + escaneo de páginas | Heurísticas Nielsen (artículo) |
+| 2 | Caps. de **navegación y diseño de páginas** + prototipo Agenda Ops | Wireframes propios |
+| 3 | Caps. de **tests con usuarios** (test de pasillo) → informe 5 usuarios | Guía NN/g testing cualitativo |
+
+**Regla:** prototipo → test con personas reales → cambios documentados.
 
 ## Errores comunes
 Diseñar para ti; ignorar estados de error/vacío; exponer IDs internos sensibles en UI.

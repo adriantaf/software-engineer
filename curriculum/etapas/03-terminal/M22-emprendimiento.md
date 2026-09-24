@@ -28,8 +28,20 @@ Bektor sin clientes enseñó: oferta genérica no vende. Ahora vendes **suscripc
 3. Lista 20 negocios del ICP para outreach.
 4. Guion de demo/trial de 5 minutos.
 
-## Libros (ES)
-*El método Lean Startup* — Eric Ries (ed. ES).
+## Lecturas
+
+Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos (por tema de tu ed.) | Práctica |
+|--------|-------------------------------|----------|
+| 1 | Visión / start / build-measure-learn | Pitch 60s SaaS escrito |
+| 2 | Validated learning | Guion de demo |
+| 3 | Experimentación / pivote | 3 hipótesis de pricing/ICP |
+| 4 | Medir (métricas accionables vs vanity) | Tablero simple de trials |
+| 5 | Acelerar / lotes pequeños | 5 demos documentadas |
+| 6 | Cierre: síntesis + pricing draft | 10 demos totales en `projects/m22-bektor/` |
+
+**Regla:** cada capítulo → una conversación o demo real, no solo subrayado.
 
 ## Proyecto útil
 `projects/m22-bektor/`: guion, objeciones, resultados de 10 demos (= intentos de trial), pricing. Enlace a landing de precios (aunque Stripe llegue en M26).

@@ -85,11 +85,19 @@ export function prestar(libro: { prestado: boolean }): Result<void> {
 | 4 | Errores, Result pattern simple, logging |
 | 5 | Empaquetado + proyecto |
 
-## Libros (español)
+## Lecturas
 
-- *Código limpio* (Clean Code) — Robert C. Martin, ed. ES.
-- *El programador pragmático* (ed. ES) — ortogonalidad y DRY (ligero).
-- Docs TypeScript: generics / narrowing.
+Canon: *Código limpio* (Martin, ed. ES) + *El programador pragmático* (Hunt & Thomas, ed. ES) + Handbook TS. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Capítulos / secciones | Alternativa |
+|--------|----------------------|-------------|
+| 1 | CC **caps. 1–3** (limpio; nombres; funciones) + Pragmático **DRY / ortogonalidad** (temas equivalentes en tu ed.) | Refactor de un módulo tuyo aplicando solo nombres y funciones |
+| 2 | CC **caps. 6 y 10** (objetos/estructuras; clases) + lectura corta SOLID S/O/D (artículo o resumen mentor) | Handbook TS *Object Types* |
+| 3 | TS Handbook **Generics** + **Narrowing** (oficial) | Ejemplos oficiales del Handbook |
+| 4 | CC **cap. 7** (errores) + patrón Result (notas M06 / ejemplo en repo) | Docs de errores en Node |
+| 5 | CC **cap. 9** (pruebas) + empaquetado npm (`package.json`, semver, README) | Docs npm + Vitest |
+
+**Regla:** cada capítulo de CC → un commit de refactor en `projects/m06-*` con el principio en el mensaje.
 
 ## Prácticas
 
