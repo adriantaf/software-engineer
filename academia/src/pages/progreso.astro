@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCatalog, getProgressSeed } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
 
 const catalog = getCatalog();
 const seed = getProgressSeed();
@@ -60,7 +61,7 @@ const seed = getProgressSeed();
           catalog.materias.map((m) => (
             <tr>
               <td class="font-mono">
-                <a class="link" href={`/materia/${m.id}`}>
+                <a class="link" href={pathTo(`materia/${m.id}`)}>
                   {m.id}
                 </a>
               </td>

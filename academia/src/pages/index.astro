@@ -6,6 +6,7 @@ import {
   getProgressSeed,
   totalStats,
 } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
 
 const catalog = getCatalog();
 const stats = totalStats();
@@ -26,9 +27,9 @@ const seed = getProgressSeed();
             {stats.materias} materias · ~{stats.horas} horas de plan · ~{stats.semanas} semanas de contenido.
           </p>
           <div class="flex flex-wrap gap-2 justify-center">
-            <a class="btn btn-primary" href="/materia/M01">Continuar / Empezar M01</a>
-            <a class="btn btn-outline" href="/progreso">Ver progreso</a>
-            <a class="btn btn-ghost" href="/egreso">Rúbrica de egreso</a>
+            <a class="btn btn-primary" href={pathTo('materia/M01')}>Continuar / Empezar M01</a>
+            <a class="btn btn-outline" href={pathTo('progreso')}>Ver progreso</a>
+            <a class="btn btn-ghost" href={pathTo('egreso')}>Rúbrica de egreso</a>
           </div>
         </div>
       </div>
@@ -40,7 +41,7 @@ const seed = getProgressSeed();
           const mats = getMateriasByEtapa(etapa.id);
           const horas = mats.reduce((a, m) => a + m.horas, 0);
           return (
-            <a href={`/etapa/${etapa.id}`} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors">
+            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors">
               <div class="card-body">
                 <div class="badge badge-outline">Etapa {etapa.orden}</div>
                 <h2 class="card-title">{etapa.titulo}</h2>
@@ -75,8 +76,8 @@ const seed = getProgressSeed();
           con proyectos útiles.
         </p>
         <div class="card-actions">
-          <a class="btn btn-sm" href="/nivel">Tu nivel real</a>
-          <a class="btn btn-sm btn-ghost" href="/docs/index">Mapa curricular (Markdown)</a>
+          <a class="btn btn-sm" href={pathTo('nivel')}>Tu nivel real</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa curricular (Markdown)</a>
         </div>
       </div>
     </section>

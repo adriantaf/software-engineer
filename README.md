@@ -25,7 +25,16 @@ npm install
 npm run dev
 ```
 
-Abre el dashboard → empieza por **M01**.
+Abre `http://localhost:4321/software-engineer/` (base de GitHub Pages).
+
+### GitHub Pages
+
+URL: **https://adriantaf.github.io/software-engineer/**
+
+1. En el repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. El workflow `.github/workflows/deploy-pages.yml` publica en cada push a `main` (y a la rama del PR mientras esté activa).
+
+Empieza por **M01**.
 
 ## Ritmo
 

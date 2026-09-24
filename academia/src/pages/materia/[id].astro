@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
   return getCatalog().materias.map((m) => ({ params: { id: m.id } }));
@@ -19,8 +20,8 @@ const next = catalog.materias[idx + 1];
 <Layout title={`${materia.id} ${materia.titulo}`}>
   <div class="breadcrumbs text-sm mb-4">
     <ul>
-      <li><a href="/">Dashboard</a></li>
-      <li><a href={`/etapa/${etapa.id}`}>{etapa.titulo}</a></li>
+      <li><a href={pathTo()}>Dashboard</a></li>
+      <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
       <li>{materia.id}</li>
     </ul>
   </div>
@@ -90,14 +91,14 @@ const next = catalog.materias[idx + 1];
       <div class="join join-vertical w-full">
         {
           prev && (
-            <a class="btn join-item" href={`/materia/${prev.id}`}>
+            <a class="btn join-item" href={pathTo(`materia/${prev.id}`)}>
               ← {prev.id}
             </a>
           )
         }
         {
           next && (
-            <a class="btn join-item btn-primary" href={`/materia/${next.id}`}>
+            <a class="btn join-item btn-primary" href={pathTo(`materia/${next.id}`)}>
               {next.id} →
             </a>
           )

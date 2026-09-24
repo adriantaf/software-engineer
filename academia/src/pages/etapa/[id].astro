@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCatalog, getEtapa, getMateriasByEtapa } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
   return getCatalog().etapas.map((e) => ({ params: { id: e.id } }));
@@ -17,7 +18,7 @@ const materias = getMateriasByEtapa(etapa.id);
 <Layout title={etapa.titulo}>
   <div class="breadcrumbs text-sm mb-4">
     <ul>
-      <li><a href="/">Dashboard</a></li>
+      <li><a href={pathTo()}>Dashboard</a></li>
       <li>{etapa.titulo}</li>
     </ul>
   </div>
@@ -48,7 +49,7 @@ const materias = getMateriasByEtapa(etapa.id);
             <tr class="hover">
               <td class="font-mono">{m.id}</td>
               <td>
-                <a class="link link-primary font-medium" href={`/materia/${m.id}`}>
+                <a class="link link-primary font-medium" href={pathTo(`materia/${m.id}`)}>
                   {m.titulo}
                 </a>
               </td>

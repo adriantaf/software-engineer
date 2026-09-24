@@ -8,6 +8,8 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://adriantaf.github.io',
+  base: '/software-engineer/',
   vite: {
     plugins: [tailwindcss()],
     server: {
