@@ -30,9 +30,12 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 **Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo](hilos/seguridad.md)
 
+**Producto / capstone:** SaaS vertical [**Agenda Ops**](producto-saas.md) (M12→M26).
+
 Ver también:
 
 - [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
+- [Producto SaaS](producto-saas.md)
 - [Filosofía](filosofia.md) — mejor que la escuela tradicional
 - [Labs (índice)](labs/README.md)
 - [Equivalencias UABC / Tec](equivalencias.md)

@@ -21,7 +21,7 @@
 | M19 | [Nube y DevOps](M19-nube-devops.md) | 4 | 80 |
 | M20 | [Aplicaciones móviles](M20-aplicaciones-moviles.md) | 5 | 100 |
 
-**Producto transversal:** Agenda/CRM para un negocio de Ensenada (Bektor vertical).
+**Producto transversal:** SaaS vertical [**Agenda Ops**](../../producto-saas.md) (citas/ops para negocios de servicio). M12–M17 = piloto; luego multi-tenant → egreso M26.
 
 **Pista seguridad:** M10 → M18 → (luego) M25. Ver [hilo](../../hilos/seguridad.md).
 

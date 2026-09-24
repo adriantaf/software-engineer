@@ -7,94 +7,83 @@ semanas: 6
 horas: 120
 practicas:
   - id: p1
-    titulo: Inventario de activos y superficie (prod/staging)
+    titulo: Inventario de activos y superficie (prod/staging SaaS)
   - id: p2
-    titulo: Security review manual + issues priorizados
+    titulo: Security review con pruebas cross-tenant obligatorias
   - id: p3
-    titulo: Tabletop de incidente (.env filtrado) documentado
+    titulo: Tabletop de incidente (.env / fuga) documentado
 proyecto:
   id: proj
-  titulo: Reporte tipo security review + hardening de producción
+  titulo: Security review SaaS (aislamiento multi-tenant) + hardening
 ---
 
 # M25 — Ciberseguridad aplicada
 
 ## Por qué existe
 
-**Capa C** de la pista de seguridad. M18 te enseñó AppSec en desarrollo; aquí operas como ingeniero responsable del **producto en el mundo real**: superficie, review, hardening de deploy, respuesta básica e incidentes.
+**Capa C** de la pista de seguridad, aplicada a tu **SaaS multi-tenant**. El fallo #1 a cazar: **IDOR cross-tenant** (el tenant A lee datos del B). Ver [producto-saas](../../producto-saas.md).
 
 ## Análogos
 UABC: Seguridad / gestión. Tec: Ciberseguridad (cierre aplicado).
 
 ## Objetivos
 
-1. Inventariar activos y superficie de un sistema desplegado.
-2. Hacer un security review estructurado (no “sentir que está bien”).
-3. Hardening de producción enlazado a M19 (HTTPS, backups, least privilege).
-4. Ejecutar un tabletop de incidente y documentar runbook.
-5. Intro a privacidad/datos personales a nivel ingeniería (contexto MX).
+1. Inventariar activos y superficie del SaaS desplegado.
+2. Security review con **pruebas de aislamiento entre tenants**.
+3. Hardening de producción (HTTPS, backups, least privilege, secrets Stripe).
+4. Tabletop de incidente + runbook.
+5. Intro privacidad/datos (contexto MX) por tenant.
 
 ## Cómo estudiar esta materia
 
-- Trabaja **sobre tu producto** (CRM/Agenda), no sobre demos ajenos.
-- Prioriza hallazgos por impacto × probabilidad (no por “se ve cool”).
-- Toda prueba ofensiva: solo tus ambientes.
+- Trabaja sobre Agenda Ops, no demos ajenos.
+- Prioriza cross-tenant y authz sobre hallazgos cosméticos.
+- Solo tus ambientes.
 
 ## Día 1 (2–3 h)
 
-1. Lista URLs, paneles admin, webhooks, DB, storage, CI secrets.
-2. Exporta (redactado) `projects/m25-ciber/inventario.md`.
-3. Corre healthchecks y anota versiones de dependencias críticas.
-4. Relee tu informe M18: ¿qué quedó pendiente en prod?
-5. Define “severidad”: crítica / alta / media / baja con ejemplos tuyos.
+1. Inventario: URLs, webhooks Stripe, DB, secrets CI.
+2. Crea (si no existen) **dos tenants de prueba**.
+3. Intenta, como usuario del tenant A, leer un recurso del B. Documenta resultado.
+4. `projects/m25-ciber/inventario.md` + nota de aislamiento.
 
-## Ejemplo — checklist rápido de review
+## Ejemplo — checklist SaaS
 
 ```text
-[ ] Auth en todos los endpoints sensibles
-[ ] Autorización por dueño/rol (anti-IDOR)
+[ ] Auth en endpoints sensibles
+[ ] Autorización por tenant_id + rol (anti IDOR cross-tenant)
+[ ] Tests automatizados cross-tenant
 [ ] Rate limit en login
 [ ] Headers de seguridad en prod
-[ ] Backups restaurables (probado)
-[ ] Logs sin contraseñas/tokens
-[ ] Dependencias con CVEs críticos conocidas
+[ ] Backups restaurables
+[ ] Logs sin secretos/PII innecesaria
+[ ] Webhooks Stripe verificados (firma)
 ```
 
 ## Temario
 
 | Semana | Temas |
 |--------|-------|
-| 1 | Inventario, superficie, clasificación de datos |
-| 2 | Review manual auth/roles + tooling básico |
-| 3 | Hardening deploy (TLS, firewall, secrets en hosting) |
-| 4 | Logging, abuso, alertas mínimas |
-| 5 | Privacidad / retención de datos (intro ingeniería) |
-| 6 | Tabletop incidente + reporte final |
+| 1 | Inventario, superficie, clasificación de datos por tenant |
+| 2 | Review auth/roles + **cross-tenant** |
+| 3 | Hardening deploy + secretos billing |
+| 4 | Logging, abuso, alertas |
+| 5 | Privacidad / retención |
+| 6 | Tabletop + reporte final |
 
 ## Recursos (ES)
-
-- OWASP Testing Guide (selectos) + tu checklist.
-- Docs de tu proveedor cloud (secretos, firewall).
-- [Hilo de seguridad](../../hilos/seguridad.md).
+OWASP Testing Guide (selectos), [hilo seguridad](../../hilos/seguridad.md), [producto-saas](../../producto-saas.md).
 
 ## Prácticas
-
-1. **P1:** Inventario completo (con dueño de cada secreto).
-2. **P2:** ≥8 issues en el tracker del producto, 5 cerrados con evidencia.
-3. **P3:** Tabletop escrito: detección → contención → rotación → postmortem.
+P1–P3 del frontmatter. Al menos **2** issues críticos/altos de aislamiento cerrados con tests.
 
 ## Proyecto útil
-
-`projects/m25-ciber/security-review.md` estilo profesional + enlaces a PRs. Este documento alimenta el egreso y el M26.
+`projects/m25-ciber/security-review.md` + PRs. Alimenta M26.
 
 ## Errores comunes
-
-- Escanear internet al azar “para practicar”.
-- Reportar 50 hallazgos cosméticos y cero IDOR reales.
-- No probar restore de backups (“ya hay backup” ≠ funciona).
+Ignorar multi-tenant; 50 hallazgos CSS y cero cross-tenant; no verificar webhooks.
 
 ## Criterios de dominio
-
-- [ ] Puedes guiar un tabletop de 30 min sin leer un tutorial.
-- [ ] Prod tiene TLS + secretos fuera del repo + backup restaurado al menos 1 vez.
-- [ ] El security review es accionable (prioridad + dueño + deadline).
+- [ ] Demo: A no lee datos de B (manual + test).
+- [ ] Tabletop 30 min sin tutorial.
+- [ ] TLS + secrets fuera de repo + restore probado.

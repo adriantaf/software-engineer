@@ -7,67 +7,61 @@ semanas: 8
 horas: 160
 practicas:
   - id: p1
-    titulo: Alcance congelado + plan de 8 semanas
+    titulo: Alcance SaaS congelado + plan de 8 semanas
   - id: p2
-    titulo: Memoria técnica v1
+    titulo: Memoria técnica del SaaS v1
   - id: p3
-    titulo: Demo pública / video
+    titulo: Demo pública / video del producto multi-tenant
 proyecto:
   id: proj
-  titulo: Capstone en producción + egreso
+  titulo: Agenda Ops SaaS en producción + egreso
 ---
 
-# M26 — Proyecto integrador
+# M26 — Proyecto integrador (SaaS)
 
 ## Por qué existe
 
-Cierre de la academia. Demuestras que puedes **imaginar → diseñar → construir → asegurar → operar → explicar**.
+Cierre de la academia. El egreso es un **SaaS vertical en producción**, no un CRUD suelto. Ver [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md).
 
 ## Análogos
 UABC: Desarrollo de aplicaciones innovadoras. Tec: cierre de ingeniería de software.
 
 ## Objetivos
-
-Cumplir la [rúbrica de egreso](../../egreso.md) completa, incluyendo seguridad (M18 + M25).
+Cumplir la rúbrica de egreso **en modo SaaS**: multi-tenant, billing test (Stripe), aislamiento, ops, evidencia comercial.
 
 ## Cómo estudiar esta materia
-
-- Congela alcance en la semana 1. El enemigo es el scope creep.
-- Cada semana: demo interna + bitácora.
-- Seguridad y tests no se “dejan para el final”.
+- Congela alcance semana 1 (MVP SaaS de la spec, no features infinitas).
+- Cada semana: demo con **≥2 tenants**.
+- Seguridad y billing no se dejan para el final.
 
 ## Día 1 (2–3 h)
-
-1. Escribe `projects/m26-capstone/alcance.md`: in / out / no-go.
-2. Copia checklist de [`egreso.md`](../../egreso.md) y marca estado actual.
-3. Planifica 8 sprints (aunque seas equipo de 1).
-4. Agenda la demo pública (fecha).
+1. `projects/m26-capstone/alcance.md` alineado a [producto-saas.md](../../producto-saas.md).
+2. Checklist de egreso marcado.
+3. Plan 8 sprints + fecha de demo pública.
+4. Stripe test: cuenta + productos Free/Pro creados (aunque el wire sea parcial).
 
 ## Temario (8 semanas)
 
 | Semana | Foco |
 |--------|------|
-| 1 | Alcance, arquitectura, riesgos |
-| 2–5 | Build del producto (features críticas) |
-| 6 | Hardening + tests + CI verdes |
-| 7 | Memoria técnica + polish comercial |
-| 8 | Demo, video, cierre de egreso |
+| 1 | Alcance SaaS, tenancy, riesgos |
+| 2–4 | Multi-tenant + onboarding + features críticas |
+| 5 | Stripe test + landing de precios |
+| 6 | Hardening + tests cross-tenant + CI |
+| 7 | Memoria técnica + métricas + M22 |
+| 8 | Demo, video, cierre egreso |
 
 ## Entregables
-
-1. Producto en producción (evolución del CRM u otro aprobado).
-2. Memoria técnica.
-3. App móvil/desktop conectada (o justificación fuerte si el vertical no la requiere — por defecto **sí**).
-4. Security review (M25) aplicado y vigente.
-5. Registro comercial (M22).
-6. Video demo sin tutorial de fondo.
+1. **SaaS en producción** (Agenda Ops) con ≥2 tenants demo.
+2. Landing de precios + checkout Stripe **test mode**.
+3. Memoria técnica (arquitectura, tenancy, billing, seguridad).
+4. App móvil/desktop conectada (o justificación fuerte; por defecto sí).
+5. Security review M25 vigente (cross-tenant).
+6. Registro comercial M22 (trials/demos).
+7. Video demo sin tutorial de fondo.
 
 ## Errores comunes
-
-- Empezar features nuevas en la semana 7.
-- Demo con credenciales hardcodeadas.
-- Memoria que describe el stack pero no las decisiones.
+Scope creep; un solo tenant “de mentira”; Stripe solo en localhost; demo con secretos en claro.
 
 ## Criterios de dominio final
-
-Construyes un CRUD con auth + deploy + tests en un fin de semana **sin seguir un curso**. Ese es el examen.
+CRUD con auth + deploy + tests en un fin de semana **y** explicas aislamiento multi-tenant + el IDOR cross-tenant.

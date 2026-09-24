@@ -2,11 +2,11 @@
 
 ## Construye (fin de semana)
 
-CRUD con auth + deploy HTTPS + tests + backup restore, **desde cero o desde tu producto**, sin curso paso a paso.
+Núcleo del **SaaS** (auth + tenancy + deploy HTTPS + tests + backup restore), desde cero o desde Agenda Ops, sin curso paso a paso.
 
 ## Explica (video 10–15 min)
 
-Arquitectura, trade-offs, amenaza principal y cómo la mitigaste.
+Arquitectura, multi-tenant, trade-offs, amenaza cross-tenant y mitigación.
 
 ## Negocio
 

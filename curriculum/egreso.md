@@ -1,27 +1,30 @@
 # Rúbrica de egreso competente (titulación interna)
 
-No es título oficial. Es la meta de dominio de esta academia. Debes cumplir **todas** las evidencias.
+No es título oficial. Meta de dominio: **SaaS vertical Agenda Ops** en producción. Ver [producto-saas.md](producto-saas.md).
 
 ## Checklist
 
-- [ ] **Sistema web en producción:** auth, base de datos, roles, tests, CI, deploy HTTPS, backups **con restore probado**.
-- [ ] **SRS + diseño** (diagramas + trust boundaries) de un negocio real o simulado serio.
+- [ ] **SaaS web en producción:** multi-tenant (`tenant_id`), auth, roles, tests, CI, deploy HTTPS, backups **con restore probado**.
+- [ ] **≥2 tenants demo** con datos aislados (prueba A no lee B).
+- [ ] **Billing Stripe test mode** + landing de precios (Free/Pro).
+- [ ] **Onboarding** de un negocio nuevo sin intervención manual tuya (o con runbook ≤15 min).
+- [ ] **SRS + diseño** (diagramas + trust boundaries + modelo de tenancy).
 - [ ] **App móvil o desktop** conectada al mismo backend.
-- [ ] **AppSec (M18):** threat model + ≥5 hallazgos OWASP corregidos con tests de regresión.
-- [ ] **Ciberseguridad aplicada (M25):** security review + tabletop de incidente + hardening prod documentado.
-- [ ] **Portfolio de estructuras de datos y algoritmos** (implementación propia + complejidad).
-- [ ] **10 conversaciones comerciales** documentadas + al menos 1 piloto pagado o carta de intención.
-- [ ] **Video o demo en vivo** explicando arquitectura, trade-offs y amenaza principal **sin tutorial**.
-- [ ] **Inglés:** progreso documentado hacia B1 lectura técnica.
+- [ ] **AppSec (M18):** threat model + ≥5 hallazgos OWASP corregidos con tests.
+- [ ] **Ciberseguridad aplicada (M25):** security review con **cross-tenant** + tabletop + hardening.
+- [ ] **Portfolio ED/algoritmos** (implementación + complejidad).
+- [ ] **10 demos/trials** documentadas (M22) + al menos 1 piloto pagado o carta de intención / trial activo serio.
+- [ ] **Video o demo en vivo** (arquitectura, tenancy, amenaza cross-tenant) **sin tutorial**.
+- [ ] **Inglés:** progreso hacia B1 lectura técnica.
 
 ## Entregables del proyecto integrador (M26)
 
-1. Repositorio público del producto.
-2. Memoria técnica: problema, usuarios, arquitectura, decisiones, métricas, seguridad.
-3. URL en producción + instructivo de despliegue + runbook.
-4. Suite de tests (backend ≥70% en lógica de negocio) + tests anti-IDOR/XSS básicos.
-5. Registro de demos/clientes en `projects/m22-bektor/` / `projects/m26-capstone/`.
+1. Repositorio público del SaaS.
+2. Memoria técnica: ICP, arquitectura, multi-tenant, Stripe, seguridad, métricas.
+3. URL prod + landing + instructivo deploy/runbook.
+4. Tests (≥70% lógica de negocio) + tests anti-IDOR **cross-tenant** + XSS básico.
+5. Registro comercial en `projects/m22-bektor/` / `projects/m26-capstone/`.
 
 ## Criterio de “aprobado”
 
-El mentor (o tú con honestidad brutal) solo marca egreso si puedes construir un CRUD con auth + deploy + tests **desde cero en un fin de semana** sin tutorial paso a paso, **y** explicas cómo evitarías el IDOR más obvio.
+Puedes levantar (o extender) el núcleo del SaaS con auth + tenancy + deploy + tests en un fin de semana sin tutorial paso a paso, **y** demuestras aislamiento entre tenants.

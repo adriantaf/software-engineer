@@ -20,7 +20,7 @@ La universidad lista temas y examina memoria. Aquí el estándar es otro.
 ## Qué sí hacemos
 
 - Día 1 concreto en cada materia.
-- Labs y productos útiles (CRM real, AppSec real).
+- Labs y productos útiles (**SaaS Agenda Ops**, AppSec real).
 - Rúbrica de egreso pública y exigente.
 - Ritmo sostenible (≥20 h/sem) alineado a inglés y UABC.
 
