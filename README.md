@@ -31,8 +31,10 @@ Abre `http://localhost:4321/software-engineer/` (base de GitHub Pages).
 
 URL: **https://adriantaf.github.io/software-engineer/**
 
-1. En el repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**
-2. El workflow `.github/workflows/deploy-pages.yml` publica en cada push a `main` (y a la rama del PR mientras esté activa).
+1. Espera a que el workflow *Deploy GitHub Pages* cree/actualice la rama `gh-pages`
+2. En el repo: **Settings → Pages → Build and deployment → Source: Deploy from a branch**
+3. Branch: **`gh-pages`** / folder: **`/` (root)** → Save
+4. Abre la URL de arriba (puede tardar 1–2 minutos la primera vez)
 
 Empieza por **M01**.
 
