@@ -58,4 +58,4 @@ Luego marcas el checkbox en la academia y actualizas `progress.json` (commit sem
 
 ## Siguiente paso ahora
 
-Abre **[M01](../etapas/01-basica/M01-metodo-y-herramientas.md)** y cumple el **Día 1**.
+Abre **[M01](etapas/01-basica/M01-metodo-y-herramientas.md)** y cumple el **Día 1**.

@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { pathTo } from './paths';
 
 function resolveRepoRoot(): string {
   const candidates = [process.cwd(), path.resolve(process.cwd(), '..')];
@@ -13,6 +14,73 @@ function resolveRepoRoot(): string {
 
 export const repoRoot = resolveRepoRoot();
 export const curriculumRoot = path.join(repoRoot, 'curriculum');
+
+marked.setOptions({ gfm: true });
+
+/** Páginas de la academia para archivos bajo curriculum/. */
+const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
+  'INDEX.md': 'docs/index',
+  'bibliografia.md': 'docs/bibliografia',
+  'como-estudiar.md': 'docs/como-estudiar',
+  'filosofia.md': 'docs/filosofia',
+  'producto-saas.md': 'docs/producto-saas',
+  'equivalencias.md': 'docs/equivalencias',
+  'egreso.md': 'egreso',
+  'nivel.md': 'nivel',
+  'hilos/seguridad.md': 'docs/seguridad',
+};
+
+const GITHUB_BLOB =
+  'https://github.com/adriantaf/software-engineer/blob/main';
+
+/**
+ * Convierte hrefs relativos a .md del currículo en rutas de la web
+ * (p. ej. ../../bibliografia.md → /software-engineer/docs/bibliografia).
+ */
+export function rewriteCurriculumHref(href: string, fromCurriculumFile: string): string {
+  if (!href || /^(https?:|mailto:|tel:|data:)/i.test(href)) return href;
+  if (href.startsWith('#') || href.startsWith('/')) return href;
+
+  const hashIdx = href.indexOf('#');
+  const pathPart = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+  const hash = hashIdx >= 0 ? href.slice(hashIdx) : '';
+  if (!pathPart) return href;
+
+  const fromDir = path.dirname(path.join(curriculumRoot, fromCurriculumFile));
+  const abs = path.resolve(fromDir, decodeURIComponent(pathPart));
+  const curriculumRel = path.relative(curriculumRoot, abs).replace(/\\/g, '/');
+  const repoRel = path.relative(repoRoot, abs).replace(/\\/g, '/');
+
+  if (!curriculumRel.startsWith('..')) {
+    const route = CURRICULUM_PAGE_ROUTES[curriculumRel];
+    if (route) return `${pathTo(route)}${hash}`;
+
+    const materia = curriculumRel.match(/^etapas\/[^/]+\/(M\d{2})-[^/]+\.md$/i);
+    if (materia) return `${pathTo(`materia/${materia[1]}`)}${hash}`;
+
+    if (/\.md$/i.test(curriculumRel)) {
+      return `${GITHUB_BLOB}/curriculum/${curriculumRel}${hash}`;
+    }
+  }
+
+  if (!repoRel.startsWith('..') && /\.(md|txt|json)$/i.test(repoRel)) {
+    return `${GITHUB_BLOB}/${repoRel}${hash}`;
+  }
+
+  return href;
+}
+
+function rewriteHtmlHrefs(html: string, fromCurriculumFile: string): string {
+  return html.replace(/\bhref=(["'])([^"']+)\1/gi, (_full, quote: string, href: string) => {
+    const next = rewriteCurriculumHref(href, fromCurriculumFile);
+    return `href=${quote}${next}${quote}`;
+  });
+}
+
+function renderCurriculumMarkdown(content: string, fromCurriculumFile: string): string {
+  const html = marked.parse(content) as string;
+  return rewriteHtmlHrefs(html, fromCurriculumFile);
+}
 
 export type CatalogMateria = {
   id: string;
@@ -103,7 +171,7 @@ export function loadMateria(id: string): MateriaDoc | null {
     horas: Number(data.horas ?? meta.horas),
     practicas,
     proyecto,
-    bodyHtml: marked.parse(content) as string,
+    bodyHtml: renderCurriculumMarkdown(content, path.relative(curriculumRoot, filepath)),
     slug: meta.slug,
     filepath,
   };
@@ -113,7 +181,7 @@ export function loadMarkdownPage(relativePath: string): { title: string; html: s
   const filepath = path.join(curriculumRoot, relativePath);
   const raw = fs.readFileSync(filepath, 'utf8');
   const { data, content } = matter(raw);
-  const html = marked.parse(content) as string;
+  const html = renderCurriculumMarkdown(content, relativePath.replace(/\\/g, '/'));
   const title =
     (typeof data.title === 'string' && data.title) ||
     content.match(/^#\s+(.+)$/m)?.[1] ||
