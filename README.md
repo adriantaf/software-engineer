@@ -1,4 +1,4 @@
-# Academia de Egreso Competente
+# Plan de Ingeniería de Software
 
 Plan de estudios personal de **Adrian Tafoya** para volverse ingeniero de software competente (y base para una empresa de talla mundial), con más práctica y proyectos útiles que una carrera típica.
 
@@ -42,7 +42,7 @@ Empieza por **M01**.
 
 - Meta: **≥ 20 h/semana**
 - Inglés en paralelo (Beginner 2 → B1 lectura técnica)
-- Si cursas carrera presencial o en línea, esta academia adelanta y profundiza en paralelo
+- Si cursas carrera presencial o en línea, este plan adelanta y profundiza en paralelo
 
 ## Reglas
 

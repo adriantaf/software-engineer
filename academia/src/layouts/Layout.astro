@@ -8,8 +8,8 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Academia', description = 'Plan de egreso competente en ingeniería de software' } = Astro.props;
-const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${title} · Academia`;
+const { title = 'Plan', description = 'Plan personal de ingeniería de software' } = Astro.props;
+const fullTitle = title === 'Plan' ? 'Plan de Ingeniería de Software' : `${title} · Plan`;
 const catalogIds = getCatalog().materias.map((m) => m.id);
 const continuarFallback = pathTo('materia/M01');
 ---
@@ -23,7 +23,7 @@ const continuarFallback = pathTo('materia/M01');
     <meta name="theme-color" content="#1d4ed8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Academia" />
+    <meta name="apple-mobile-web-app-title" content="Plan" />
     <meta name="mobile-web-app-capable" content="yes" />
     <title>{fullTitle}</title>
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
@@ -35,12 +35,13 @@ const continuarFallback = pathTo('materia/M01');
     <header class="sticky top-0 z-30 border-b border-base-300 bg-base-100">
       <div class="navbar min-h-14 px-3 sm:px-4 gap-2 max-w-6xl mx-auto w-full">
         <div class="flex items-center gap-1 min-w-0 shrink-0">
-          <div class="dropdown lg:hidden">
+          <div class="dropdown dropdown-bottom lg:hidden">
             <div tabindex="0" role="button" class="btn btn-ghost btn-square btn-sm" aria-label="Menú">☰</div>
             <ul
               tabindex="0"
-              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-56 p-2 shadow border border-base-300"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-72 max-w-[calc(100vw-1.5rem)] max-h-[70vh] overflow-y-auto p-2 shadow border border-base-300"
             >
+              <li class="menu-title"><span>Etapas</span></li>
               <li><a href={pathTo()}>Inicio</a></li>
               <li><a href={pathTo('etapa/basica')}>Básica</a></li>
               <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
@@ -59,7 +60,7 @@ const continuarFallback = pathTo('materia/M01');
               <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
             </ul>
           </div>
-          <a class="btn btn-ghost px-2 text-base font-bold tracking-tight" href={pathTo()}>Academia</a>
+          <a class="btn btn-ghost px-2 text-base font-bold tracking-tight" href={pathTo()}>Plan</a>
         </div>
 
         <nav class="hidden lg:flex flex-1 items-center justify-center min-w-0" aria-label="Principal">
@@ -110,8 +111,8 @@ const continuarFallback = pathTo('materia/M01');
 
     <footer class="footer footer-center bg-base-100 text-base-content p-6 border-t border-base-300">
       <aside class="max-w-prose px-2">
-        <p class="font-medium">Academia de Egreso Competente</p>
-        <p class="text-sm opacity-70">Mejorada con proyectos reales y evidencia en git</p>
+        <p class="font-medium">Plan de Ingeniería de Software</p>
+        <p class="text-sm opacity-70">Mejorado con proyectos reales y evidencia en git</p>
       </aside>
     </footer>
 
@@ -133,14 +134,17 @@ const continuarFallback = pathTo('materia/M01');
         }
         const id = resolveContinueMateriaId(ids);
         const href = pathTo(`materia/${id}`);
+        const narrow = window.matchMedia('(max-width: 1023px)').matches;
         document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((a) => {
           a.href = href;
-          a.textContent = id === 'M01' ? 'Continuar' : `Continuar ${id}`;
+          // En móvil el label corto evita que pelee con el brand.
+          a.textContent = narrow || id === 'M01' ? 'Continuar' : `Continuar ${id}`;
         });
       }
 
       syncContinuar();
       window.addEventListener('academia-progress', syncContinuar);
+      window.addEventListener('resize', syncContinuar);
     </script>
   </body>
 </html>

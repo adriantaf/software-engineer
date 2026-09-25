@@ -14,7 +14,7 @@
 
 **Etiqueta correcta:** estudiante en formación intensiva (pre-junior), no junior.
 
-## Escala de esta academia
+## Escala de este plan
 
 | Nivel | Significado | Evidencia mínima |
 |-------|------------|------------------|

@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de toda la academia: terminal, Git limpio y bitácora.
+Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de todo el plan: terminal, Git limpio y bitácora.
 
 **En resumen:** hoy configuras tu entorno, haces commits claros en **este** repo y escribes una decisión corta (ADR). No es un curso de Git de 8 horas: es hábito.
 
@@ -95,7 +95,7 @@ Crea `projects/m01-diario/adr-001-typescript.md`:
 Necesito un lenguaje profundo para web, APIs e IA tooling.
 
 ## Decisión
-Usar TypeScript en modo strict para la academia.
+Usar TypeScript en modo strict para el plan.
 
 ## Consecuencias
 + Tipos y mejor tooling
@@ -136,7 +136,7 @@ Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo:
 
 1. **P1:** Entorno listo: Node LTS, Git, editor, carpeta `~/dev`. Lista de versiones en `projects/m01-diario/entorno.md`.
 2. **P2:** 7 días de commits atómicos en este repo (o diario). Nada de “update stuff”.
-3. **P3:** Un ADR: “Por qué TypeScript como lenguaje principal de la academia”.
+3. **P3:** Un ADR: “Por qué TypeScript como lenguaje principal del plan”.
 
 ## Proyecto útil
 

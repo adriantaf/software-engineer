@@ -1,4 +1,4 @@
-# Bibliografía canónica de la academia
+# Bibliografía canónica del plan
 
 Cada materia tiene una sección **Lecturas** con tabla **semana → capítulos**. Aquí está el catálogo oficial para no inventar títulos.
 

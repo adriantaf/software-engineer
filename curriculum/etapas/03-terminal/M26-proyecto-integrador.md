@@ -21,9 +21,9 @@ proyecto:
 
 ## Por qué existe
 
-Cierre de la academia. El egreso es un **SaaS vertical en producción**, no un CRUD suelto. Ver [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md).
+Cierre del plan. El egreso es un **SaaS vertical en producción**, no un CRUD suelto. Ver [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md).
 
-**En resumen:** cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
+**En resumen:** cierras el plan con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
 
 
 ## Objetivos

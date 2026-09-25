@@ -1,4 +1,4 @@
-# Producto de la academia: SaaS vertical “Agenda Ops”
+# Producto del plan: SaaS vertical “Agenda Ops”
 
 Nombre de trabajo (puedes cambiar el branding). Este es el **hilo de producto** de M12 → M26 y el destino de Bektor.
 

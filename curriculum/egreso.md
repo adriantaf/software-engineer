@@ -1,4 +1,4 @@
-# Rúbrica de egreso competente (titulación interna)
+# Rúbrica de egreso (titulación interna)
 
 No es título oficial. Meta de dominio: **SaaS vertical Agenda Ops** en producción. Ver [producto-saas.md](producto-saas.md).
 

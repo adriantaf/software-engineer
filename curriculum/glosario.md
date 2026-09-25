@@ -1,4 +1,4 @@
-# Glosario de la academia
+# Glosario del plan
 
 Siglas y jerga que aparecen en las fichas. En las materias, cada sigla del glosario es un **enlace** a esta página; la **primera vez** en una ficha también verás la expansión entre paréntesis.
 
@@ -46,7 +46,7 @@ Tip: usa el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salta desde cualquier 
 
 <h2 id="crm">CRM</h2>
 
-**gestión de relación con clientes.** Sistema para clientes, contactos y seguimiento. En esta academia el producto es Agenda Ops (citas/ops).
+**gestión de relación con clientes.** Sistema para clientes, contactos y seguimiento. En este plan el producto es Agenda Ops (citas/ops).
 
 <h2 id="crud">CRUD</h2>
 
@@ -186,7 +186,7 @@ Tip: usa el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salta desde cualquier 
 
 <h2 id="solid">SOLID</h2>
 
-**cinco principios de diseño orientado a objetos.** Guías (S, O, L, I, D) para código más mantenible. En la academia priorizamos S, O y D al inicio.
+**cinco principios de diseño orientado a objetos.** Guías (S, O, L, I, D) para código más mantenible. En este plan priorizamos S, O y D al inicio.
 
 <h2 id="sql">SQL</h2>
 

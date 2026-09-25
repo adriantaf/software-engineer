@@ -1,4 +1,4 @@
-# Academia de Egreso Competente
+# Plan de Ingeniería de Software
 
 Plan de estudios personal de ingeniería de software, con prácticas evaluables, proyectos útiles y rúbrica de egreso.
 
@@ -20,7 +20,7 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 - Meta: **≥ 20 horas / semana**.
 - Inglés en paralelo (curso actual → B1 lectura técnica en 12–24 meses).
-- Si cursas universidad en paralelo: esta academia **adelanta y profundiza**; no compite.
+- Si cursas universidad en paralelo: este plan **adelanta y profundiza**; no compite.
 
 ## Estructura (3 etapas, 26 materias)
 
@@ -54,7 +54,7 @@ Ver también:
 5. **Tutoriales no cuentan como dominio.** Debes poder explicar y construir sin mirar el video.
 6. Reporta a tu mentor (Cursor) con: materia + qué hiciste + enlace/código + dudas concretas.
 
-## Cómo usar la academia
+## Cómo usar este plan
 
 ```bash
 cd academia

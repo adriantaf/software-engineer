@@ -23,10 +23,10 @@ export default defineConfig({
         'icons/apple-touch-icon.png',
       ],
       manifest: {
-        name: 'Academia de Egreso Competente',
-        short_name: 'Academia',
+        name: 'Plan de Ingeniería de Software',
+        short_name: 'Plan',
         description:
-          'Plan personal de egreso en ingeniería de software, con fichas, glosario y progreso local.',
+          'Plan personal de ingeniería de software, con fichas, glosario y progreso local.',
         lang: 'es',
         start_url: base,
         scope: base,

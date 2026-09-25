@@ -1,4 +1,4 @@
-# Cómo estudiar en esta academia
+# Cómo estudiar en este plan
 
 Esta guía es el manual de profesor. Léela una vez y vuelve cuando te atasques.
 
@@ -44,7 +44,7 @@ Una materia **no** está terminada porque leíste el Markdown. Está terminada c
 - El proyecto cumple los requisitos mínimos de la ficha.
 - Puedes explicar los criterios de dominio **sin mirar el tutorial**.
 
-Luego marcas el checkbox en la academia y actualizas `progress.json` (commit semanal).
+Luego marcas el checkbox en el plan y actualizas `progress.json` (commit semanal).
 
 ## Cuando no entiendas algo
 
@@ -64,7 +64,7 @@ Luego marcas el checkbox en la academia y actualizas `progress.json` (commit sem
 ## Inglés y la universidad
 
 - Inglés: sigue tu curso; aquí usamos libros en español hasta B1 lectura técnica.
-- Si cursas carrera en paralelo: esta academia **adelanta y profundiza**. Cuando la U vea “Bases de datos”, tú ya construyes el esquema del CRM aquí.
+- Si cursas carrera en paralelo: este plan **adelanta y profundiza**. Cuando la U vea “Bases de datos”, tú ya construyes el esquema del CRM aquí.
 
 ## Siguiente paso ahora
 

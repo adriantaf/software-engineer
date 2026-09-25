@@ -17,7 +17,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 ## Cómo usarla
 
-1. Abre la ficha **M01** en la academia.
+1. Abre la ficha **M01** en el plan.
 2. Haz el **Día 1** y sigue **Semana tipo**.
 3. Deja aquí (o enlaza) los archivos/commits de la checklist.
 4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
@@ -25,4 +25,4 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Enlaces
 
 - Ficha: `curriculum/etapas/01-basica/M01-metodo-y-herramientas.md`
-- Academia: `/materia/M01/`
+- Plan: `/materia/M01/`

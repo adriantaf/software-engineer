@@ -18,7 +18,7 @@ export const curriculumRoot = path.join(repoRoot, 'curriculum');
 
 marked.setOptions({ gfm: true });
 
-/** Páginas de la academia para archivos bajo curriculum/. */
+/** Páginas del plan para archivos bajo curriculum/. */
 const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'INDEX.md': 'docs/index',
   'bibliografia.md': 'docs/bibliografia',

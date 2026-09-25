@@ -1,4 +1,4 @@
-# Proyectos de la academia
+# Proyectos del plan
 
 Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado a **Evidencia de hecho**.
 

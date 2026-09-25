@@ -1,4 +1,4 @@
-# Filosofía de esta academia (mejor que la escuela tradicional)
+# Filosofía de este plan (mejor que la escuela tradicional)
 
 La universidad lista temas y examina memoria. Aquí el estándar es otro.
 
@@ -26,4 +26,4 @@ La universidad lista temas y examina memoria. Aquí el estándar es otro.
 
 ## Meta de dominio
 
-Egresas **junior sólido → mid** con fundamentos profesionales (incluido AppSec aplicado). “Experto mundial” se construye en años de práctica deliberada **después**; esta academia quita el freno del conocimiento incompleto.
+Egresas **junior sólido → mid** con fundamentos profesionales (incluido AppSec aplicado). “Experto mundial” se construye en años de práctica deliberada **después**; este plan quita el freno del conocimiento incompleto.

@@ -3,7 +3,7 @@
 Fecha: 2026-09-24
 
 ## Qué hice
-- Arranqué la Academia de Egreso Competente en este repo.
+- Arranqué el Plan de Ingeniería de Software en este repo.
 
 ## Qué me bloqueó
 - (por llenar)

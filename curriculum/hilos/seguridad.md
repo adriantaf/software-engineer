@@ -1,6 +1,6 @@
 # Hilo transversal — Seguridad
 
-La seguridad no es “la materia M18”. Es un hábito en **toda** la academia. Labs ofensivos: **solo tus sistemas**.
+La seguridad no es “la materia M18”. Es un hábito en **todo** el plan. Labs ofensivos: **solo tus sistemas**.
 
 ## Por etapa
 

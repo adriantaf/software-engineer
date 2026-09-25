@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
+cierras el plan con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
 
 ## Checklist (Evidencia de hecho)
 
@@ -17,7 +17,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 ## Cómo usarla
 
-1. Abre la ficha **M26** en la academia.
+1. Abre la ficha **M26** en el plan.
 2. Haz el **Día 1** y sigue **Semana tipo**.
 3. Deja aquí (o enlaza) los archivos/commits de la checklist.
 4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
@@ -25,4 +25,4 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Enlaces
 
 - Ficha: `curriculum/etapas/03-terminal/M26-proyecto-integrador.md`
-- Academia: `/materia/M26/`
+- Plan: `/materia/M26/`

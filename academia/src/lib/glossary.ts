@@ -228,7 +228,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'solid',
     term: 'SOLID',
     expansion: 'cinco principios de diseño orientado a objetos',
-    definition: 'Guías (S, O, L, I, D) para código más mantenible. En la academia priorizamos S, O y D al inicio.',
+    definition: 'Guías (S, O, L, I, D) para código más mantenible. En este plan priorizamos S, O y D al inicio.',
   },
   {
     id: 'dry',
@@ -312,7 +312,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'crm',
     term: 'CRM',
     expansion: 'gestión de relación con clientes',
-    definition: 'Sistema para clientes, contactos y seguimiento. En esta academia el producto es Agenda Ops (citas/ops).',
+    definition: 'Sistema para clientes, contactos y seguimiento. En este plan el producto es Agenda Ops (citas/ops).',
   },
   {
     id: 'semver',
@@ -406,7 +406,7 @@ export function glossaryMatchList(): { id: string; match: string; term: Glossary
 
 export function renderGlossaryMarkdown(): string {
   const lines = [
-    '# Glosario de la academia',
+    '# Glosario del plan',
     '',
     'Siglas y jerga que aparecen en las fichas. En las materias, cada sigla del glosario es un **enlace** a esta página; la **primera vez** en una ficha también verás la expansión entre paréntesis.',
     '',
