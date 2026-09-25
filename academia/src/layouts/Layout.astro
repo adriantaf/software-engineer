@@ -18,10 +18,18 @@ const continuarFallback = pathTo('materia/M01');
 <html lang="es" data-theme="corporate">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#1d4ed8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Academia" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <title>{fullTitle}</title>
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
+    <link rel="apple-touch-icon" href={pathTo('icons/apple-touch-icon.png')} />
+    <link rel="manifest" href={pathTo('manifest.webmanifest')} />
+    <script src="../pwa.ts"></script>
   </head>
   <body class="min-h-screen bg-base-200">
     <header class="sticky top-0 z-30 border-b border-base-300 bg-base-100">
@@ -40,6 +48,7 @@ const continuarFallback = pathTo('materia/M01');
               <li><a href={pathTo('progreso')}>Progreso</a></li>
               <li class="menu-title"><span>Guías</span></li>
               <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+              <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
               <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
               <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
               <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
@@ -66,6 +75,7 @@ const continuarFallback = pathTo('materia/M01');
                   class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-52 p-2 shadow border border-base-300"
                 >
                   <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+                  <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
                   <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
                   <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
                   <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
