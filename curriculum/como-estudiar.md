@@ -2,6 +2,14 @@
 
 Esta guía es el manual de profesor. Léela una vez y vuelve cuando te atasques.
 
+## Flujo rápido (cada materia)
+
+1. **Día 1** de la ficha (2–3 h) — hoy.
+2. **Temario** semana a semana.
+3. **Lecturas** — solo los capítulos de esa semana ([bibliografía](bibliografia.md)).
+4. **Práctica + proyecto** — evidencia en `projects/`.
+5. Sigla en azul → [glosario](glosario.md).
+
 ## Una semana de 20 horas (modelo)
 
 | Bloque | Horas | Qué haces |
@@ -24,7 +32,7 @@ Si un día solo tienes 2 h: **1 h práctica + 1 h proyecto**. No “ver videos�
 7. **Proyecto** — cierra la materia.
 8. **Criterios de dominio** — autoexamen honesto.
 
-Lee también la [filosofía](filosofia.md) (por qué no somos escuela tradicional), el [glosario](glosario.md) y el [hilo de seguridad](hilos/seguridad.md).
+Lee también la [filosofía](filosofia.md), el [glosario](glosario.md) y el [hilo de seguridad](hilos/seguridad.md).
 
 ## Qué cuenta como “terminado”
 

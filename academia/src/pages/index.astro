@@ -28,10 +28,9 @@ const seed = getProgressSeed();
             {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
           </p>
           <div class="flex flex-wrap gap-2 justify-center">
-            <a class="btn btn-primary" href={pathTo('materia/M01')}>Continuar / Empezar M01</a>
+            <a class="btn btn-primary" href={pathTo('materia/M01')}>Empezar M01</a>
             <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
-            <a class="btn btn-outline" href={pathTo('progreso')}>Ver progreso</a>
-            <a class="btn btn-ghost" href={pathTo('egreso')}>Rúbrica de egreso</a>
+            <a class="btn btn-ghost" href={pathTo('progreso')}>Progreso</a>
           </div>
         </div>
       </div>
@@ -77,14 +76,12 @@ const seed = getProgressSeed();
           Física/química/cálculo avanzado los cursas en la UABC. Aquí priorizamos competencia de software
           con proyectos útiles.
         </p>
-        <div class="card-actions flex-wrap">
-          <a class="btn btn-sm" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
-          <a class="btn btn-sm" href={pathTo('docs/glosario')}>Glosario</a>
-          <a class="btn btn-sm" href={pathTo('docs/bibliografia')}>Bibliografía</a>
-          <a class="btn btn-sm" href={pathTo('docs/producto-saas')}>Producto SaaS</a>
-          <a class="btn btn-sm" href={pathTo('docs/filosofia')}>Filosofía</a>
-          <a class="btn btn-sm" href={pathTo('nivel')}>Tu nivel real</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa curricular</a>
+        <div class="card-actions flex-wrap gap-2">
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/bibliografia')}>Bibliografía</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/producto-saas')}>Producto SaaS</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('egreso')}>Egreso</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa</a>
         </div>
       </div>
     </section>

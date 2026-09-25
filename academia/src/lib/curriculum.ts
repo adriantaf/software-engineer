@@ -182,7 +182,9 @@ export function loadMateria(id: string): MateriaDoc | null {
     practicas,
     proyecto,
     bodyHtml,
-    toc: extractToc(bodyHtml).filter((t) => t.level === 2),
+    toc: extractToc(bodyHtml).filter(
+      (t) => t.level === 2 && !/^ejemplo\b/i.test(t.text) && !/^d[ií]a\s*1\b/i.test(t.text),
+    ),
     slug: meta.slug,
     filepath,
   };

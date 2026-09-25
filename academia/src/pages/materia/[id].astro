@@ -16,13 +16,12 @@ const idx = catalog.materias.findIndex((m) => m.id === materia.id);
 const prev = catalog.materias[idx - 1];
 const next = catalog.materias[idx + 1];
 const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
-const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
   <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
     <ul class="flex-wrap">
-      <li><a href={pathTo()}>Dashboard</a></li>
+      <li><a href={pathTo()}>Inicio</a></li>
       <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
       <li>{materia.id}</li>
     </ul>
@@ -32,34 +31,22 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
     <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
       <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
         <header class="mb-4 pb-4 border-b border-base-300">
-          <div class="flex flex-wrap gap-2 mb-3">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
             <span class="badge badge-primary">{materia.id}</span>
-            <span class="badge badge-outline">{materia.semanas} semanas</span>
-            <span class="badge badge-outline">{materia.horas} h</span>
-            <span class="badge badge-ghost">{etapa.titulo}</span>
+            <span class="badge badge-outline">{materia.semanas} sem · {materia.horas} h</span>
           </div>
           <p class="text-sm opacity-70 m-0">
-            Sigla en azul = definición en el
+            Sigla en azul →
             <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
-            (la primera vez también verás la expansión).
+            (primera vez: expansión entre paréntesis).
           </p>
-          {
-            weekHints.length > 1 && (
-              <div class="flex flex-wrap gap-1.5 mt-3">
-                <span class="text-xs uppercase tracking-wide opacity-60 self-center mr-1">Semanas</span>
-                {weekHints.map((w) => (
-                  <span class="badge badge-sm badge-outline font-mono">S{w}</span>
-                ))}
-              </div>
-            )
-          }
         </header>
 
         {
           hasDia1 && (
             <div role="alert" class="alert alert-info mb-5 text-sm">
               <span>
-                Empieza por la sección <strong>Día 1</strong> (2–3 h). Luego el temario semanal y las prácticas.
+                Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
               </span>
             </div>
           )
@@ -69,22 +56,27 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
       </div>
     </article>
 
-    <aside class="w-full lg:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+    <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
       {
         materia.toc.length > 0 && (
-          <nav class="card bg-base-100 border border-base-300 overflow-hidden" aria-label="En esta ficha">
-            <div class="card-body gap-2 p-4 sm:p-5 min-w-0">
+          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="En esta ficha">
+            <div class="card-body gap-2 p-4 min-w-0">
               <h2 class="card-title text-base">En esta ficha</h2>
-              <ul class="menu menu-sm p-0 gap-0.5 max-h-64 overflow-y-auto">
-                {materia.toc.map((item) => (
-                  <li>
-                    <a class="py-1.5 leading-snug" href={`#${item.id}`}>
-                      {item.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <a class="btn btn-ghost btn-sm justify-start px-2" href={pathTo('docs/glosario')}>
+              <div class="max-h-64 overflow-y-auto overflow-x-hidden min-w-0 pr-1">
+                <ul class="flex flex-col gap-0.5 m-0 p-0 list-none">
+                  {materia.toc.map((item) => (
+                    <li class="min-w-0">
+                      <a
+                        class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200"
+                        href={`#${item.id}`}
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a class="link link-primary text-sm pt-1" href={pathTo('docs/glosario')}>
                 Abrir glosario →
               </a>
             </div>
@@ -92,17 +84,17 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
         )
       }
 
-      <div class="card bg-base-100 border border-base-300 overflow-hidden">
-        <div class="card-body gap-3 p-4 sm:p-5 min-w-0">
-          <h2 class="card-title text-lg">Tu progreso</h2>
-          <p class="text-sm opacity-70 break-words">
-            Se guarda en este navegador. Exporta a <code class="break-all">progress.json</code> desde Progreso.
+      <div class="card bg-base-100 border border-base-300 overflow-hidden min-w-0">
+        <div class="card-body gap-3 p-4 min-w-0">
+          <h2 class="card-title text-base">Tu progreso</h2>
+          <p class="text-xs opacity-70 m-0">
+            Se guarda en este navegador. Exporta desde Progreso.
           </p>
 
-          <div class="divider my-1">Prácticas</div>
+          <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0">Prácticas</p>
           {
             materia.practicas.length === 0 ? (
-              <p class="text-sm">Sin checklist de prácticas en frontmatter.</p>
+              <p class="text-sm m-0">Sin checklist en frontmatter.</p>
             ) : (
               materia.practicas.map((p) => (
                 <label class="checklist-item cursor-pointer">
@@ -112,7 +104,7 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
                     data-practica={p.id}
                     data-materia={materia.id}
                   />
-                  <span class="label-text">{p.titulo}</span>
+                  <span class="label-text text-sm">{p.titulo}</span>
                 </label>
               ))
             )
@@ -121,7 +113,7 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
           {
             materia.proyecto && (
               <>
-                <div class="divider my-1">Proyecto</div>
+                <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Proyecto</p>
                 <label class="checklist-item cursor-pointer">
                   <input
                     type="checkbox"
@@ -129,13 +121,13 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
                     data-proyecto
                     data-materia={materia.id}
                   />
-                  <span class="label-text">{materia.proyecto.titulo}</span>
+                  <span class="label-text text-sm">{materia.proyecto.titulo}</span>
                 </label>
               </>
             )
           }
 
-          <div class="divider my-1">Materia</div>
+          <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Materia</p>
           <label class="checklist-item cursor-pointer">
             <input
               type="checkbox"
@@ -143,22 +135,22 @@ const weekHints = Array.from({ length: materia.semanas }, (_, i) => i + 1);
               data-completa
               data-materia={materia.id}
             />
-            <span class="label-text font-medium">Marcar materia completada</span>
+            <span class="label-text text-sm font-medium">Completada</span>
           </label>
         </div>
       </div>
 
-      <div class="join join-vertical w-full max-w-full">
+      <div class="flex gap-2 w-full min-w-0">
         {
           prev && (
-            <a class="btn join-item justify-start truncate" href={pathTo(`materia/${prev.id}`)}>
+            <a class="btn btn-outline btn-sm flex-1 truncate" href={pathTo(`materia/${prev.id}`)}>
               ← {prev.id}
             </a>
           )
         }
         {
           next && (
-            <a class="btn join-item btn-primary justify-start truncate" href={pathTo(`materia/${next.id}`)}>
+            <a class="btn btn-primary btn-sm flex-1 truncate" href={pathTo(`materia/${next.id}`)}>
               {next.id} →
             </a>
           )

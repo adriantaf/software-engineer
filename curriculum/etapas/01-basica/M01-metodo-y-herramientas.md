@@ -23,6 +23,8 @@ proyecto:
 
 Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de toda la academia: terminal, Git limpio y bitácora.
 
+**En cristiano:** hoy configuras tu entorno, haces commits claros en **este** repo y escribes una decisión corta (ADR). No es un curso de Git de 8 horas: es hábito.
+
 ## Análogos universitarios
 
 - UABC: Introducción a la Ingeniería / Herramientas de desarrollo

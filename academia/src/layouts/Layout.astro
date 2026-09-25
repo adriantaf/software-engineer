@@ -21,47 +21,66 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
   </head>
   <body class="min-h-screen bg-base-200">
-    <div class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-30 px-2 sm:px-4 min-h-16 gap-1">
-      <div class="navbar-start gap-1 min-w-0 shrink">
-        <div class="dropdown">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-square lg:hidden" aria-label="Menú">☰</div>
-          <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-56 p-2 shadow border border-base-300">
-            <li><a href={pathTo()}>Dashboard</a></li>
-            <li><a href={pathTo('etapa/basica')}>Básica</a></li>
-            <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
-            <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
-            <li><a href={pathTo('egreso')}>Egreso</a></li>
-            <li><a href={pathTo('nivel')}>Nivel</a></li>
-            <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
-            <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
-            <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
-            <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-            <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
-            <li><a href={pathTo('progreso')}>Progreso</a></li>
-          </ul>
+    <header class="sticky top-0 z-30 border-b border-base-300 bg-base-100">
+      <div class="navbar min-h-14 px-3 sm:px-4 gap-2 max-w-6xl mx-auto w-full">
+        <div class="flex items-center gap-1 min-w-0 shrink-0">
+          <div class="dropdown lg:hidden">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-square btn-sm" aria-label="Menú">☰</div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-56 p-2 shadow border border-base-300"
+            >
+              <li><a href={pathTo()}>Inicio</a></li>
+              <li><a href={pathTo('etapa/basica')}>Básica</a></li>
+              <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
+              <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
+              <li><a href={pathTo('progreso')}>Progreso</a></li>
+              <li class="menu-title"><span>Guías</span></li>
+              <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+              <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
+              <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
+              <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
+              <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
+              <li><a href={pathTo('egreso')}>Egreso</a></li>
+              <li><a href={pathTo('nivel')}>Nivel</a></li>
+              <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost px-2 text-base font-bold tracking-tight" href={pathTo()}>Academia</a>
         </div>
-        <a class="btn btn-ghost text-base sm:text-lg font-bold px-2 truncate max-w-[9rem] sm:max-w-none" href={pathTo()}>Academia</a>
+
+        <nav class="hidden lg:flex flex-1 items-center justify-center min-w-0" aria-label="Principal">
+          <ul class="flex items-center gap-0.5 text-sm flex-nowrap">
+            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/basica')}>Básica</a></li>
+            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
+            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/terminal')}>Terminal</a></li>
+            <li>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Guías ▾</div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-52 p-2 shadow border border-base-300"
+                >
+                  <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+                  <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
+                  <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
+                  <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
+                  <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
+                  <li><a href={pathTo('egreso')}>Egreso</a></li>
+                  <li><a href={pathTo('nivel')}>Nivel</a></li>
+                  <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('progreso')}>Progreso</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
+          <a class="btn btn-primary btn-sm" href={pathTo('materia/M01')}>Continuar</a>
+        </div>
       </div>
-      <div class="navbar-center hidden lg:flex min-w-0">
-        <ul class="menu menu-horizontal px-1 flex-nowrap gap-0">
-          <li><a href={pathTo()}>Dashboard</a></li>
-          <li><a href={pathTo('etapa/basica')}>Básica</a></li>
-          <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
-          <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
-          <li><a href={pathTo('egreso')}>Egreso</a></li>
-          <li><a href={pathTo('nivel')}>Nivel</a></li>
-          <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
-          <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
-          <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
-          <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-          <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
-          <li><a href={pathTo('progreso')}>Progreso</a></li>
-        </ul>
-      </div>
-      <div class="navbar-end shrink-0">
-        <a class="btn btn-sm btn-primary" href={pathTo('materia/M01')}>M01</a>
-      </div>
-    </div>
+    </header>
 
     <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0">
       <slot />
