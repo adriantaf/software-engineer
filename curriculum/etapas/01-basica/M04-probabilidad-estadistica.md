@@ -23,6 +23,8 @@ proyecto:
 
 Métricas de producto, calidad de software y (más adelante) ML necesitan intuición estadística. Aquí aprendes a **preguntar con datos**, no solo a calcular.
 
+**En cristiano:** usas datos para preguntar mejor (no solo calcular). Simulas, describes un CSV y escribes un informe que un negocio entendería.
+
 ## Análogos
 
 - UABC: Probabilidad y Estadística
@@ -40,6 +42,17 @@ Métricas de producto, calidad de software y (más adelante) ML necesitan intuic
 - Cada fórmula → una simulación en TypeScript que la “compruebe”.
 - Usa datasets reales (pequeños): ventas, clima, CSV abiertos.
 - El informe final se escribe como si se lo entregaras a un dueño de negocio.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Probabilidad | 6–8 | Caps. Lecturas + simulación TS |
+| Descriptiva | 6–8 | CSV real → media/mediana/σ |
+| Informe | 4–6 | `informe.md` con limitaciones |
+| Retro | 1 | Correlación ≠ causalidad (ejemplo tuyo) |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -106,6 +119,15 @@ Informe `informe.md`: pregunta, datos, método, resultado, limitaciones. Se reut
 - Promediar porcentajes sin ponderar.
 - Tirar outliers sin justificar.
 - Informe solo con números y sin recomendación accionable.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Simulación:** `projects/m04-stats/` con 10_000 lanzamientos y conclusión escrita.
+- **P2 — CSV:** Pipeline limpia → tablas descriptivas; notebook o script.
+- **P3 — Hipótesis:** Una pregunta de negocio + conclusión cuidadosa (sin overclaim).
+- **Proyecto — Informe:** `informe.md`: pregunta, datos, método, resultado, limitaciones.
 
 ## Criterios de dominio
 

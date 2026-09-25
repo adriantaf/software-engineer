@@ -22,6 +22,8 @@ proyecto:
 ## Por qué existe
 Sin análisis, “optimizas” a ciegas. Aprendes patrones transferibles (no maratón tóxica).
 
+**En cristiano:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
+
 ## Análogos
 UABC: Análisis de algoritmos. Tec: Análisis y diseño de algoritmos.
 
@@ -30,6 +32,17 @@ Big-O, divide y vencerás, greedy intro, DP intro, grafos cortos.
 
 ## Cómo estudiar esta materia
 4–5 problemas/semana. Después de resolver: escribe complejidad en voz alta.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Teoría CLRS | 6–8 | Caps. Lecturas |
+| Problemas | 6–8 | 2–3 problemas con editorial |
+| Proyecto | 4–6 | Autocomplete / búsqueda |
+| Retro | 1 | Un medio que aún no sale |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. Reescribe binary search en TS con tests de bordes.
@@ -72,6 +85,15 @@ Motor de autocomplete para catálogo/clientes del CRM.
 
 ## Errores comunes
 Copiar soluciones; confundir promedio con peor caso; DP sin caso base.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — 15 problemas:** Carpeta con enunciado, complejidad, código, 3 tests c/u.
+- **P2 — Sorts:** ≥2 ordenamientos + análisis Big-O.
+- **P3 — DP intro:** 3 problemas DP con caso base explicado.
+- **Proyecto — Autocomplete:** Demo con dataset de prueba + README de complejidad.
 
 ## Criterios de dominio
 - [ ] Resuelves un medio de arrays/hashes explicando complejidad.

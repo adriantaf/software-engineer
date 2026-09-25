@@ -22,6 +22,8 @@ proyecto:
 ## Por qué existe
 Aquí nace el **piloto** del SaaS [Agenda Ops](../../producto-saas.md). **Auth y roles desde el MVP**. Prepárate para M18 y para multi-tenant después.
 
+**En cristiano:** nacen el piloto web de Agenda Ops: auth real, CRUD de citas, roles y base para multi-tenant.
+
 ## Análogos
 UABC: Aplicaciones web. Tec: Desarrollo web y BD.
 
@@ -30,6 +32,17 @@ HTTP, API, auth, validación, front serio, deploy público HTTPS. Modelo de dato
 
 ## Cómo estudiar esta materia
 Vertical slices: cada semana una historia de usuario completa (API+UI+test). Un solo negocio piloto = design partner.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Auth + API | 6–8 | Sesiones/JWT bien hechos |
+| Front | 6–8 | Rutas protegidas + estados |
+| Integración | 4–6 | WhatsApp links / admin |
+| Retro | 1 | ADR `tenant_id` |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. Scaffold API + DB según M09/M13.
@@ -72,6 +85,15 @@ Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [product
 
 ## Errores comunes
 Auth solo en el front; JWT mal guardado; deploy HTTP; MVP eterno; mezclar UI de “agencia” con producto SaaS.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — API auth:** Registro/login + validación; demo roles.
+- **P2 — Front:** Rutas protegidas; loading/error/vacío.
+- **P3 — Admin:** Roles owner/staff + deep-links WhatsApp.
+- **Proyecto — Piloto:** Deploy HTTPS + checklist camino a SaaS.
 
 ## Criterios de dominio
 - [ ] Usuario nuevo se onbandea sin ti (README + UX).

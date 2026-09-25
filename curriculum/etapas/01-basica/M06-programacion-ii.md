@@ -23,6 +23,8 @@ proyecto:
 
 Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 meses) pueda mantener.
 
+**En cristiano:** modelas un dominio con tipos serios, refactorizas con Código limpio y empaquetas algo reutilizable.
+
 ## Análogos
 
 - UABC: Lenguajes de Programación Orientada a Objetos
@@ -40,6 +42,17 @@ Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 mese
 - Prefiere **composición** antes que jerarquías profundas.
 - Cada refactor: tests en verde antes y después.
 - Lee *Código limpio* en dosis de 30–45 min y aplícalo al código de M02.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| OO + tipos | 6–8 | Dominio + interfaces |
+| Refactor CC | 6–8 | Diff antes/después |
+| Lib + tests | 4–6 | `npm pack` local |
+| Retro | 1 | Cuándo NO usar herencia |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -115,6 +128,15 @@ Librería pequeña (validación o utilidades). README, semver, tests, ejemplo de
 - Clases sin comportamiento (solo getters/setters vacíos).
 - Tragar errores con `catch (e) {}`.
 - Publicar sin README ni versión.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Dominio:** `projects/m06-*` con modelo TS (sin Express).
+- **P2 — Refactor:** Commit/diff mostrando nombres y funciones pequeñas.
+- **P3 — Bordes:** Tests de null, vacío, duplicados.
+- **Proyecto — Librería:** README, semver, tests, ejemplo de uso.
 
 ## Criterios de dominio (cierre Etapa Básica)
 

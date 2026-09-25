@@ -23,6 +23,8 @@ proyecto:
 
 **Capa C** de la pista de seguridad, aplicada a tu **SaaS multi-tenant**. El fallo #1 a cazar: **IDOR cross-tenant** (el tenant A lee datos del B). Ver [producto-saas](../../producto-saas.md).
 
+**En cristiano:** ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
+
 ## Análogos
 UABC: Seguridad / gestión. Tec: Ciberseguridad (cierre aplicado).
 
@@ -39,6 +41,17 @@ UABC: Seguridad / gestión. Tec: Ciberseguridad (cierre aplicado).
 - Trabaja sobre Agenda Ops, no demos ajenos.
 - Prioriza cross-tenant y authz sobre hallazgos cosméticos.
 - Solo tus ambientes.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Inventario | 6–8 | Superficie prod/staging |
+| Cross-tenant | 6–8 | Tests + fixes |
+| Tabletop | 4–6 | Incidente simulado |
+| Retro | 1 | Riesgo residual |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -94,6 +107,15 @@ P1–P3 del frontmatter. Al menos **2** issues críticos/altos de aislamiento ce
 
 ## Errores comunes
 Ignorar multi-tenant; 50 hallazgos CSS y cero cross-tenant; no verificar webhooks.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Inventario:** Activos + clasificación por tenant.
+- **P2 — Review:** ≥2 issues aislamiento cerrados con tests.
+- **P3 — Tabletop:** 30 min documentados (.env/fuga).
+- **Proyecto — Security review:** `projects/m25-ciber/security-review.md`.
 
 ## Criterios de dominio
 - [ ] Demo: A no lee datos de B (manual + test).

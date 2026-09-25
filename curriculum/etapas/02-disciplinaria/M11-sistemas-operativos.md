@@ -22,11 +22,24 @@ proyecto:
 ## Por qué existe
 Tu app corre sobre un SO. Permisos, procesos y contenedores mal puestos = incidentes. Enlace con [hilo seguridad](../../hilos/seguridad.md).
 
+**En cristiano:** administras procesos, permisos y un contenedor sin hacer tonterías de root/secretos.
+
 ## Análogos
 UABC: Administración de SO. Tec: Sistemas operativos.
 
 ## Objetivos
 Procesos, memoria a alto nivel, FS, permisos, Docker intro seguro.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Procesos/permisos | 6–8 | Labs Linux |
+| Scripts ops | 6–8 | Backup / logs |
+| Docker | 4–6 | Imagen sin root innecesario |
+| Retro | 1 | Un permiso que te salvó |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. `ps`, `top`/`htop`, `chmod`, `chown` — bitácora de 10 comandos.
@@ -62,6 +75,15 @@ Scripts + Compose mínimo documentado (DB + API), usuario no-root en contenedor 
 
 ## Errores comunes
 Correr todo como root; no probar restore; secretos en imagen Docker.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Labs:** Notas de procesos/señales/permisos con comandos.
+- **P2 — Scripts:** Backup + rotación de logs versionados.
+- **P3 — Docker:** Dockerfile Node + volumen; user no-root.
+- **Proyecto — Playbook:** `projects/m11-so/` operación local del stack.
 
 ## Criterios de dominio
 - [ ] Explicas proceso vs hilo.

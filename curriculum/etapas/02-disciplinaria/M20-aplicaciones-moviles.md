@@ -22,11 +22,24 @@ proyecto:
 ## Por qué existe
 El dueño del negocio vive en el teléfono. Misma auth que la web; tokens no en texto plano inseguro.
 
+**En cristiano:** el dueño vive en el teléfono: misma auth que la web, sesión segura, build instalable.
+
 ## Día 1 (2–3 h)
 Scaffold Flutter o RN. Pantalla login contra tu API. Si 401, mensaje claro.
 
 ## Stack
 Flutter (ya lo tocaste) **o** React Native — elige uno.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Auth móvil | 6–8 | Login API |
+| Listas/detalle | 6–8 | Citas |
+| Build | 4–6 | APK/IPA o equivalente |
+| Retro | 1 | Dónde NO guardar secretos |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Temario
 Auth → listas → detalle cita → pulido offline/caché ligero → build.
@@ -47,6 +60,15 @@ Canon: docs oficiales Flutter **o** React Native (el stack que elegiste). Ver [b
 
 ## Errores comunes
 App desconectada del backend real; guardar secretos en el binario.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Login+lista:** App contra API real.
+- **P2 — Estados:** Vacío/error + storage seguro de sesión.
+- **P3 — Build:** Instalable en dispositivo real.
+- **Proyecto — App CRM:** Misma sesión/auth que la web.
 
 ## Criterios de dominio
 - [ ] Misma sesión/auth que la web.

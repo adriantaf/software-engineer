@@ -22,8 +22,21 @@ proyecto:
 ## Por qué existe
 Separar hype de utilidad. Evalúa riesgo de deps y superficie nueva.
 
+**En cristiano:** separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
+
 ## Día 1 (2–3 h)
 Elige 3 candidatos. Matriz: valor / costo / riesgo seguridad / fit con tu producto.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Research | 6–8 | 3 candidatos |
+| Criterios | 6–8 | Matriz adopción |
+| Spike | 4–6 | PoC + decisión |
+| Retro | 1 | Qué descartaste y por qué |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Temario
 Research → criterios → spike → go/no-go escrito.
@@ -39,6 +52,15 @@ Canon: research notes (sin libro fijo) + papers/blogs citados en tu matriz. Ver 
 | 3 | Docs del spike elegido + amenaza de seguridad de la dep | PoC + go/no-go escrito |
 
 **Regla:** sin fuente primaria (docs oficiales) no entra a la matriz.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Notes:** 3 tecnologías con fuentes primarias.
+- **P2 — Matriz:** Costo/riesgo/valor/seguridad/fit.
+- **P3 — Spike:** PoC de ≤1 semana.
+- **Proyecto — Go/no-go:** Decisión escrita argumentada.
 
 ## Criterios de dominio
 - [ ] PoC con decisión go/no-go argumentada.

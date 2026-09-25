@@ -23,6 +23,8 @@ proyecto:
 
 Cierre de la academia. El egreso es un **SaaS vertical en producción**, no un CRUD suelto. Ver [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md).
 
+**En cristiano:** cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
+
 ## Análogos
 UABC: Desarrollo de aplicaciones innovadoras. Tec: cierre de ingeniería de software.
 
@@ -33,6 +35,17 @@ Cumplir la rúbrica de egreso **en modo SaaS**: multi-tenant, billing test (Stri
 - Congela alcance semana 1 (MVP SaaS de la spec, no features infinitas).
 - Cada semana: demo con **≥2 tenants**.
 - Seguridad y billing no se dejan para el final.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Build SaaS | 8–10 | Tenancy + features |
+| Billing/sec | 4–6 | Stripe test + tests cross-tenant |
+| Memoria/demo | 4–6 | Video + rúbrica egreso |
+| Retro | 1 | Gaps honestos |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. `projects/m26-capstone/alcance.md` alineado a [producto-saas.md](../../producto-saas.md).
@@ -79,6 +92,15 @@ Canon: memoria técnica propia + [producto-saas](../../producto-saas.md) + rúbr
 
 ## Errores comunes
 Scope creep; un solo tenant “de mentira”; Stripe solo en localhost; demo con secretos en claro.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Alcance:** `alcance.md` congelado + plan 8 semanas.
+- **P2 — Memoria:** Arquitectura, tenancy, billing, seguridad.
+- **P3 — Demo:** Video público multi-tenant sin tutorial de fondo.
+- **Proyecto — Egreso:** Prod + Stripe test + review M25 + demos M22.
 
 ## Criterios de dominio final
 CRUD con auth + deploy + tests en un fin de semana **y** explicas aislamiento multi-tenant + el IDOR cross-tenant.

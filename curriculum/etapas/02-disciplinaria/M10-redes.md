@@ -23,7 +23,7 @@ proyecto:
 
 Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “seguridad” es teatro. Esta materia es la **capa A** de la pista de ciberseguridad ([hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** vas a seguir el viaje de una petición desde tu navegador hasta el servidor (nombre de dominio → conexión → cifrado → HTTP) y anotar qué podría fallar o ser atacado en **tu** producto.
+**En cristiano:** sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto.
 
 ## Análogos
 UABC: Redes. Tec: Fundamentos de redes.
@@ -40,6 +40,17 @@ UABC: Redes. Tec: Fundamentos de redes.
 - Cada concepto → un lab en terminal el mismo día.
 - Relaciona siempre con **tu** futuro CRM (M17).
 - No memorices números de puerto: entiende *por qué* 443 importa.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Lectura redes | 6–8 | Caps. Tanenbaum / MDN |
+| Labs curl/TLS | 6–8 | Bitácora de labs |
+| Doc amenazas | 4–6 | Superficie de tu API |
+| Retro | 1 | Qué protege TLS y qué no |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -99,6 +110,15 @@ Doc `projects/m10-redes/README.md`: cómo viaja una request a tu API + lista de 
 - Pensar que “HTTPS = ya estoy seguro” (XSS/IDOR siguen vivos).
 - Exponer APIs en HTTP “solo en local” y luego olvidarlo en prod.
 - Ignorar cookies `Secure` / `HttpOnly`.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Labs:** `projects/m10-redes/` con logs curl/TLS.
+- **P2 — TCP:** Echo TCP mínimo + diagrama de una request.
+- **P3 — Superficie:** Mapa puertos/headers/cookies de tu servicio.
+- **Proyecto — Doc:** Amenazas de red del producto web enlazadas a M18.
 
 ## Criterios de dominio
 

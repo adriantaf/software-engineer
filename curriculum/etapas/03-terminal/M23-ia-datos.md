@@ -22,10 +22,23 @@ proyecto:
 ## Por qué existe
 IA útil = workflow del SaaS + evaluación + costos. **Todo scoped por `tenant_id`**. No mezcles FAQs ni PII entre negocios ([producto-saas](../../producto-saas.md), [hilo](../../hilos/seguridad.md)).
 
+**En cristiano:** métricas del SaaS + LLM con evaluación; RAG **por tenant** sin filtrar datos ajenos.
+
 ## Día 1 (2–3 h)
 1. Define 3 métricas del SaaS (activación, citas/semana, trials).
 2. Exporta CSV **agregado** (sin PII innecesaria).
 3. Escribe política: qué datos NUNCA salen a un LLM; cómo filtras por tenant.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Métricas | 6–8 | Por tenant |
+| LLM API | 6–8 | Prompts evaluados |
+| RAG aislado | 4–6 | Tests cross-tenant |
+| Retro | 1 | Costo vs valor |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Temario
 Métricas SaaS → LLM API → evaluación → RAG **por tenant** → proyecto FAQ.
@@ -47,6 +60,15 @@ Canon: docs de la API LLM elegida + guía M23 + [producto-saas](../../producto-s
 
 ## Errores comunes
 Vender “magia IA”; RAG global que filtra datos de otro tenant; pegar fichas de clientes en prompts.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Pipeline:** Métricas SaaS por tenant.
+- **P2 — LLM:** Scripts + rúbrica de calidad.
+- **P3 — RAG:** Demo A no ve corpus de B + test.
+- **Proyecto — FAQ:** Asistente scoped por tenant.
 
 ## Criterios de dominio
 - [ ] Demuestras que el tenant A no obtiene respuestas del corpus del B.

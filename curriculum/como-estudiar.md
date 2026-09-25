@@ -5,10 +5,12 @@ Esta guía es el manual de profesor. Léela una vez y vuelve cuando te atasques.
 ## Flujo rápido (cada materia)
 
 1. **Día 1** de la ficha (2–3 h) — hoy.
-2. **Temario** semana a semana.
-3. **Lecturas** — solo los capítulos de esa semana ([bibliografía](bibliografia.md)).
-4. **Práctica + proyecto** — evidencia en `projects/`.
+2. **Semana tipo (20 h)** — reparte la semana (no improvises todo el bloque).
+3. **Temario** semana a semana + **Lecturas** (solo esos capítulos).
+4. **Práctica + proyecto** — marca en la UI solo si cumple **Evidencia de hecho**.
 5. Sigla en azul → [glosario](glosario.md).
+
+En cada ficha verás también **En cristiano** (qué harás, en claro).
 
 ## Una semana de 20 horas (modelo)
 

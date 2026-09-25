@@ -23,6 +23,8 @@ proyecto:
 
 Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tooling. Dejas de “conocer JS” y pasas a **programar**.
 
+**En cristiano:** aprendes TypeScript de verdad con katas, un script real y tests. El cierre es una CLI de hábitos que puedes enseñar.
+
 ## Análogos
 
 - UABC: Metodología de la Programación, Programación Estructurada
@@ -41,6 +43,17 @@ Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tool
 - Activa `"strict": true` desde el primer `tsconfig`.
 - Cuando un error de tipos aparezca: **léelo completo** antes de googlear.
 - El CLI del proyecto se construye de a poco desde la semana 3, no al final.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Lectura + tipado | 6–8 | EJ / Handbook según tabla Lecturas |
+| Katas / labs | 6–8 | Exercism/Codewars en TS strict |
+| Proyecto CLI | 4–6 | `projects/m02-habits/` + Vitest |
+| Retro | 1 | 3 dudas tipadas resueltas |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -127,6 +140,15 @@ Requisitos mínimos:
 - Copiar soluciones de katas sin reescribirlas.
 - Meter toda la lógica en un solo `index.ts` de 400 líneas.
 - Tests que solo comprueban `true === true`.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Katas:** Repo `projects/m02-katas/` con ≥20 soluciones TS + README.
+- **P2 — Script:** Script que lee JSON y reporta; maneja archivo faltante con error claro.
+- **P3 — Tests:** `npm test` verde con ≥10 tests Vitest.
+- **Proyecto — CLI:** Comandos add/list/done/stats/export; JSON local; README con ejemplos.
 
 ## Criterios de dominio
 

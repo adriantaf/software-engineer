@@ -23,6 +23,8 @@ proyecto:
 
 Entender qué hace el hardware evita magia negra con rendimiento, memoria y sistemas operativos.
 
+**En cristiano:** entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
+
 ## Análogos
 
 - UABC: Organización de Computadoras
@@ -39,6 +41,17 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 - Dibuja más de lo que subrayas.
 - Cada concepto → “¿dónde lo veo cuando corro `node cli.js`?”.
 - No memorizes ciclos de reloj: entiende el flujo de datos.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Arquitectura | 6–8 | Diagrama + lectura Stallings |
+| Memoria / I/O | 6–8 | Labs de medición |
+| Documento | 4–6 | `projects/m05-como-corre/` |
+| Retro | 1 | RAM vs disco en tus palabras |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -97,6 +110,15 @@ Documento `projects/m05-como-corre/README.md`: desde que escribes `node cli.js` 
 - Decir “la nube es magia” sin ubicar CPU/RAM/disco.
 - Confundir almacenamiento (SSD) con memoria principal (RAM).
 - Medir rendimiento una sola vez sin repetir.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Diagrama:** 1 página CPU–RAM–I/O en Markdown/imagen.
+- **P2 — Binario:** Ejercicios de overflow/conversión en código + notas.
+- **P3 — Benchmark:** Loop vs I/O medido ≥3 veces; explicación.
+- **Proyecto — Cómo corre:** README desde `node cli.js` hasta el output.
 
 ## Criterios de dominio
 

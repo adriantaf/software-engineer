@@ -22,6 +22,8 @@ proyecto:
 ## Por qué existe
 Elegir mal una estructura te cuesta latencia y dinero. Aquí las **implementas** para entender trade-offs, no solo las usas.
 
+**En cristiano:** implementas estructuras a mano para elegir bien (no solo usar `Array`). Mides y documentas trade-offs.
+
 ## Análogos
 UABC/Tec: Estructuras de datos.
 
@@ -33,6 +35,17 @@ UABC/Tec: Estructuras de datos.
 ## Cómo estudiar esta materia
 - Primero implementa a mano; luego compara con `Array`/`Map` nativos.
 - Cada estructura: 5 tests mínimos + un benchmark ingenuo.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Lectura + diseño | 6–8 | Capítulos ED de la semana |
+| Implementar + tests | 6–8 | Estructura + 5 tests |
+| Benchmark | 4–6 | Vs nativas documentado |
+| Retro | 1 | Cuándo hash gana a árbol |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. Crea `projects/m07-estructuras/`.
@@ -76,6 +89,15 @@ Librería publicada localmente con README “cuándo usar cada una”.
 
 ## Errores comunes
 Usar solo arrays para todo; olvidar colisiones en hash; no medir.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Básicas:** Lista, pila, cola, hash con tests en `projects/m07-estructuras/`.
+- **P2 — BST:** Árbol + recorridos + tests.
+- **P3 — Bench:** Tabla tiempos vs `Array`/`Map`.
+- **Proyecto — Lib ED:** README “cuándo usar cada una” + suite verde.
 
 ## Criterios de dominio
 - [ ] Explicas cuándo un hash gana a un árbol.

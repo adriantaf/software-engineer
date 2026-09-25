@@ -46,6 +46,17 @@ Al terminar debes poder:
 - No veas un curso de Git de 8 horas: practica comandos en **este** repo.
 - La bitácora semanal es parte del aprendizaje, no un adorno.
 
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Método + shell | 6–8 | Terminal, docs, bitácora |
+| Git en este repo | 6–8 | Commits atómicos, ramas, diff |
+| Proyecto diario | 4–6 | `projects/m01-diario/` + `progress.json` |
+| Retro | 1 | Qué bloqueó / qué sigue |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+
 ## Día 1 (2–3 h) — hazlo hoy
 
 1. Abre la terminal. Comprueba versiones:
@@ -144,6 +155,15 @@ Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo:
 - Usar solo la GUI de GitHub Desktop sin entender `status`/`diff`.
 - Commits gigantes (“todo el portafolio”) que no se pueden revisar.
 - Copiar aliases de internet sin saber qué hacen.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Entorno:** `projects/m01-diario/entorno.md` con SO, Git, Node; commit `docs(m01): registrar entorno`.
+- **P2 — Commits:** ≥7 commits atómicos en 7 días (mensajes qué/porqué); `git log --oneline` pegado en la bitácora.
+- **P3 — ADR:** `projects/m01-diario/adr-001-*.md` con contexto / decisión / consecuencias.
+- **Proyecto — Diario:** Al menos 2 notas `semana-NNNN.md` + `progress.json` actualizado.
 
 ## Criterios de dominio
 

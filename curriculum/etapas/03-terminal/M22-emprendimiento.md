@@ -22,11 +22,24 @@ proyecto:
 ## Por qué existe
 Bektor sin clientes enseñó: oferta genérica no vende. Ahora vendes **suscripción al SaaS** [Agenda Ops](../../producto-saas.md), no “te hago una página”.
 
+**En cristiano:** vendes **suscripción SaaS**, no agencia: oferta clara, 10 demos reales y pricing MXN.
+
 ## Día 1 (2–3 h)
 1. Reescribe la oferta en 1 párrafo (problema → producto → precio).
 2. Define planes Free/Pro en MXN (borrador).
 3. Lista 20 negocios del ICP para outreach.
 4. Guion de demo/trial de 5 minutos.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Oferta | 6–8 | Pitch 60s |
+| Demos | 6–8 | Conversaciones reales |
+| Pricing | 4–6 | Free/Pro escrito |
+| Retro | 1 | Objeción más frecuente |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Lecturas
 
@@ -48,6 +61,15 @@ Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../
 
 ## Errores comunes
 Volver a “hacemos de todo”; vender proyectos a medida eternos; demos sin pedir el trial; prometer seguridad “bancaria” sin M18/M25.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Oferta:** One-pager SaaS (no “hacemos de todo”).
+- **P2 — 10 demos:** `projects/m22-bektor/` con aprendizajes.
+- **P3 — Pricing:** Propuesta Free/Pro MXN.
+- **Proyecto — Pivote:** Bektor → Agenda Ops documentado.
 
 ## Criterios de dominio
 - [ ] Pitch de 60 segundos de **SaaS** + pedir trial/siguiente reunión.

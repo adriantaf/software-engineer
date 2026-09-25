@@ -22,11 +22,24 @@ proyecto:
 ## Por qué existe
 Diseñar límites evita un monolito caótico. Marca **trust boundaries** (qué confías del cliente HTTP).
 
+**En cristiano:** traduces el SRS a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
+
 ## Análogos
 UABC: Análisis y diseño. Tec: Fundamentos de IS.
 
 ## Objetivos
 Flujos, diagramas útiles, arquitectura simple defendible, ADRs.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Flujos | 6–8 | Casos de uso |
+| Diagramas | 6–8 | Clases / secuencia |
+| Arquitectura | 4–6 | Capas + trust boundaries |
+| Retro | 1 | Por qué monolito modular |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. Lista módulos del CRM (auth, citas, clientes, admin).
@@ -61,6 +74,15 @@ Diseño del Agenda/CRM listo para M17.
 
 ## Errores comunes
 Microservicios prematuros; diagramas que nadie usa; confiar en el cliente.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Flujos:** Casos de uso principales del Agenda.
+- **P2 — UML:** Diagrama clases + 1 secuencia crítica.
+- **P3 — Boundaries:** Diagrama con trust boundaries marcados.
+- **Proyecto — Paquete:** ADRs + diagramas enlazados al repo.
 
 ## Criterios de dominio
 - [ ] Defiendes monolito modular con trade-offs.

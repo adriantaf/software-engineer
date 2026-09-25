@@ -23,6 +23,8 @@ proyecto:
 
 Es el lenguaje de estructuras de datos, bases de datos y algoritmos. UABC y Tec la exigen; aquí la haces **aplicada a código**.
 
+**En cristiano:** lógica, conjuntos y grafos no son adorno: los usas al razonar algoritmos y modelos. Demuestras a mano y codeas lo esencial.
+
 ## Análogos
 
 - UABC / Tec: Matemáticas discretas
@@ -40,6 +42,17 @@ Es el lenguaje de estructuras de datos, bases de datos y algoritmos. UABC y Tec 
 - Alterna: 1 h de teoría en papel + 1 h implementando en TS.
 - No memorices tablas de verdad: **constrúyelas**.
 - Cada concepto nuevo → un archivo `.ts` con 3 ejemplos.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Teoría Rosen | 6–8 | Capítulos de la semana + 3 demos |
+| Implementación | 6–8 | Ops de conjuntos / grafos en TS |
+| Proyecto CLI | 4–6 | Visualizador BFS/DFS |
+| Retro | 1 | Una prueba que aún no te sale |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -106,6 +119,15 @@ CLI que lea un grafo (JSON) e imprima BFS/DFS y grado de nodos. Documenta la teo
 - Confundir → (implicación) con ↔ (bicondicional).
 - Decir “es O(n)” sin argumentar el peor caso.
 - Implementar BFS mal y no probar con un grafo de 4 nodos dibujado.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — Demos:** 10 demostraciones cortas en `projects/m03-discretas/demos.md`.
+- **P2 — Código:** Ops de conjuntos + matriz de relación + adyacencia con tests.
+- **P3 — Big-O:** 5 funciones tuyas con Big-O justificado en Markdown.
+- **Proyecto — Grafo CLI:** Lee grafo JSON, imprime BFS/DFS y grados; README con teoría.
 
 ## Criterios de dominio
 

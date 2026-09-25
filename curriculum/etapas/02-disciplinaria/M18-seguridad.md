@@ -23,7 +23,7 @@ proyecto:
 
 Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer CRUDs” pero deja SQLi/XSS/IDOR **no es competente**. Aquí aprendes a **modelar amenazas, romper (solo tu sistema) y reparar**.
 
-**En cristiano:** imagina lo malo que alguien haría contra tu Agenda Ops, lo pruebas en **tu** código, lo arreglas y dejas un test para que no vuelva. Las siglas en azul abren el glosario.
+**En cristiano:** amenazas → PoC en **tu** app → fix → test. Las siglas azules están en el glosario.
 
 ## Análogos
 UABC: Seguridad del software. Tec: Ciberseguridad.
@@ -41,6 +41,17 @@ UABC: Seguridad del software. Tec: Ciberseguridad.
 - **Solo** atacas sistemas que tú controlas (localhost / tu staging).
 - Ciclo fijo: amenaza → PoC en tu app → fix → test de regresión → documento.
 - Lee OWASP en español; anota en tu vocabulario, no copies párrafos.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Threat model | 6–8 | STRIDE del producto |
+| Exploits propios | 6–8 | Hallazgo → fix |
+| CI seguridad | 4–6 | Audit/headers/secrets |
+| Retro | 1 | Riesgo residual escrito |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 
@@ -122,6 +133,15 @@ Entrega en `projects/m18-appsec/`:
 - Guardar JWT en `localStorage` sin entender XSS.
 - Inventar cifrado casero.
 - Atacar sitios ajenos (ilegal e inútil para tu egreso).
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — STRIDE:** Documento de threat model v1.
+- **P2 — ≥5 hallazgos:** Tabla PoC → commit fix → test.
+- **P3 — CI:** Lint+test+audit (+ grep secretos).
+- **Proyecto — Informe:** `projects/m18-appsec/` + PRs hardening.
 
 ## Criterios de dominio
 

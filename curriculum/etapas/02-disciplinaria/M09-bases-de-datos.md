@@ -22,6 +22,8 @@ proyecto:
 ## Por qué existe
 Los datos son el corazón del producto. Mal modelados = dolor eterno. Seguridad: **queries parametrizadas + least privilege** ([hilo](../../hilos/seguridad.md)).
 
+**En cristiano:** diseñas el esquema del producto: ER, SQL real, índices y migraciones sin SQL injection.
+
 ## Análogos
 UABC: Bases de datos. Tec: Desarrollo web y BD.
 
@@ -30,6 +32,17 @@ Modelo relacional, SQL sólido, índices, transacciones, migraciones, usuarios c
 
 ## Cómo estudiar esta materia
 Diseña en papel antes de crear tablas. Cada query peligrosa → versión parametrizada.
+
+## Semana tipo (20 h)
+
+| Bloque | Horas | Qué haces |
+|--------|-------|-----------|
+| Modelo ER | 6–8 | Diagrama + normalización |
+| SQL + EXPLAIN | 6–8 | Queries del dominio |
+| Migraciones | 4–6 | Seeds + least privilege |
+| Retro | 1 | Una query lenta explicada |
+
+Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
 ## Día 1 (2–3 h)
 1. Instala PostgreSQL (o Docker).
@@ -65,6 +78,15 @@ Esquema CRM + 5 reportes SQL + migraciones versionadas.
 
 ## Errores comunes
 SQLi por concatenación; un solo usuario postgres para todo; sin migraciones.
+
+## Evidencia de hecho
+
+Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+
+- **P1 — ER:** Diagrama hasta 3FN del CRM/Agenda.
+- **P2 — SQL:** Joins/agregaciones + `EXPLAIN` comentado.
+- **P3 — Migraciones:** Migraciones versionadas + usuario BD con least privilege.
+- **Proyecto — Esquema:** Seeds + 2 reportes útiles documentados.
 
 ## Criterios de dominio
 - [ ] Diseñas un esquema nuevo en 30 min y justificas FKs.
