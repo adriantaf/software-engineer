@@ -5,6 +5,8 @@ export type ProgressState = {
   inicio: string;
   horasSemanalesMeta: number;
   materiaActual: string;
+  /** Última ficha abierta (para Continuar). */
+  lastMateriaId?: string;
   materias: Record<
     string,
     {
@@ -23,6 +25,18 @@ function defaultMateria() {
     practicas: {} as Record<string, boolean>,
     proyecto: false,
     completadoEn: null as string | null,
+  };
+}
+
+function emptyState(materiaId = 'M01'): ProgressState {
+  return {
+    estudiante: 'Adrian Tafoya',
+    inicio: new Date().toISOString().slice(0, 10),
+    horasSemanalesMeta: 20,
+    materiaActual: materiaId,
+    lastMateriaId: materiaId,
+    materias: {},
+    notas: [],
   };
 }
 
@@ -59,52 +73,65 @@ export function ensureMateria(state: ProgressState, id: string) {
   return state.materias[id];
 }
 
+/** Marca la materia como visitada (Continuar + en_curso). */
+export function touchMateria(materiaId: string) {
+  const state = loadProgress() ?? emptyState(materiaId);
+  const m = ensureMateria(state, materiaId);
+  if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
+  state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
+  saveProgress(state);
+  return state;
+}
+
+/**
+ * Destino del botón Continuar:
+ * 1) última visitada (si no está completada)
+ * 2) primera no completada en orden del catálogo
+ * 3) M01
+ */
+export function resolveContinueMateriaId(catalogIds: string[]): string {
+  const state = loadProgress();
+  const ids = catalogIds.length ? catalogIds : ['M01'];
+  const last = state?.lastMateriaId || state?.materiaActual;
+  if (last && ids.includes(last)) {
+    const st = state?.materias?.[last]?.status;
+    if (st !== 'completada') return last;
+  }
+  for (const id of ids) {
+    if (state?.materias?.[id]?.status !== 'completada') return id;
+  }
+  return ids[0] ?? 'M01';
+}
+
 export function togglePractica(materiaId: string, practicaId: string) {
-  const state = loadProgress() ?? ({
-    estudiante: 'Adrian Tafoya',
-    inicio: new Date().toISOString().slice(0, 10),
-    horasSemanalesMeta: 20,
-    materiaActual: materiaId,
-    materias: {},
-    notas: [],
-  } satisfies ProgressState);
+  const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);
   m.practicas[practicaId] = !m.practicas[practicaId];
   if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
   state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
   saveProgress(state);
   return state;
 }
 
 export function toggleProyecto(materiaId: string) {
-  const state = loadProgress() ?? ({
-    estudiante: 'Adrian Tafoya',
-    inicio: new Date().toISOString().slice(0, 10),
-    horasSemanalesMeta: 20,
-    materiaActual: materiaId,
-    materias: {},
-    notas: [],
-  } satisfies ProgressState);
+  const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);
   m.proyecto = !m.proyecto;
   if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
   state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
   saveProgress(state);
   return state;
 }
 
 export function markMateriaCompletada(materiaId: string, done: boolean) {
-  const state = loadProgress() ?? ({
-    estudiante: 'Adrian Tafoya',
-    inicio: new Date().toISOString().slice(0, 10),
-    horasSemanalesMeta: 20,
-    materiaActual: materiaId,
-    materias: {},
-    notas: [],
-  } satisfies ProgressState);
+  const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);
   m.status = done ? 'completada' : 'en_curso';
   m.completadoEn = done ? new Date().toISOString().slice(0, 10) : null;
+  state.lastMateriaId = materiaId;
   saveProgress(state);
   return state;
 }

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { getCatalog } from '../lib/curriculum';
 import { pathTo } from '../lib/paths';
 
 interface Props {
@@ -9,6 +10,8 @@ interface Props {
 
 const { title = 'Academia', description = 'Plan de egreso competente en ingeniería de software' } = Astro.props;
 const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${title} · Academia`;
+const catalogIds = getCatalog().materias.map((m) => m.id);
+const continuarFallback = pathTo('materia/M01');
 ---
 
 <!doctype html>
@@ -40,6 +43,7 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
               <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
               <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
               <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
+              <li><a href={pathTo('docs/producto')}>Hilo producto</a></li>
               <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
               <li><a href={pathTo('egreso')}>Egreso</a></li>
               <li><a href={pathTo('nivel')}>Nivel</a></li>
@@ -65,6 +69,7 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
                   <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
                   <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
                   <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
+                  <li><a href={pathTo('docs/producto')}>Hilo producto</a></li>
                   <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
                   <li><a href={pathTo('egreso')}>Egreso</a></li>
                   <li><a href={pathTo('nivel')}>Nivel</a></li>
@@ -77,7 +82,14 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
         </nav>
 
         <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
-          <a class="btn btn-primary btn-sm" href={pathTo('materia/M01')}>Continuar</a>
+          <a
+            class="btn btn-primary btn-sm"
+            data-continuar
+            href={continuarFallback}
+            title="Última materia o siguiente incompleta"
+          >
+            Continuar
+          </a>
         </div>
       </div>
     </header>
@@ -93,9 +105,32 @@ const fullTitle = title === 'Academia' ? 'Academia de Egreso Competente' : `${ti
       </aside>
     </footer>
 
+    <script type="application/json" id="catalog-ids" set:html={JSON.stringify(catalogIds)} />
+
     <script>
-      import { initProgressFromSeed } from '../lib/progress-client';
+      import { initProgressFromSeed, resolveContinueMateriaId } from '../lib/progress-client';
+      import { pathTo } from '../lib/paths';
+
       initProgressFromSeed();
+
+      function syncContinuar() {
+        const raw = document.getElementById('catalog-ids')?.textContent;
+        let ids: string[] = [];
+        try {
+          ids = raw ? (JSON.parse(raw) as string[]) : [];
+        } catch {
+          ids = ['M01'];
+        }
+        const id = resolveContinueMateriaId(ids);
+        const href = pathTo(`materia/${id}`);
+        document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((a) => {
+          a.href = href;
+          a.textContent = id === 'M01' ? 'Continuar' : `Continuar ${id}`;
+        });
+      }
+
+      syncContinuar();
+      window.addEventListener('academia-progress', syncContinuar);
     </script>
   </body>
 </html>

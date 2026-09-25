@@ -80,5 +80,6 @@ Documenta en `projects/m26-capstone/metricas.md`:
 
 ## Lecturas relacionadas
 
+- [Hilo producto](hilos/producto.md) — mapa de artefactos M12→M26
 - [M17](etapas/02-disciplinaria/M17-aplicaciones-web.md) · [M22](etapas/03-terminal/M22-emprendimiento.md) · [M26](etapas/03-terminal/M26-proyecto-integrador.md)
 - [Egreso](egreso.md) · [Hilo seguridad](hilos/seguridad.md)

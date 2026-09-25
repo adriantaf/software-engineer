@@ -28,9 +28,9 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 (~11–13 meses)
 3. [Etapa Terminal](etapas/03-terminal/README.md) — M21–M26 (~7–9 meses)
 
-**Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo](hilos/seguridad.md)
+**Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo seguridad](hilos/seguridad.md)
 
-**Producto / capstone:** SaaS vertical [**Agenda Ops**](producto-saas.md) (M12→M26).
+**Producto / capstone:** SaaS vertical [**Agenda Ops**](producto-saas.md) (M12→M26) · [Hilo producto](hilos/producto.md)
 
 Ver también:
 
@@ -38,6 +38,7 @@ Ver también:
 - [Glosario](glosario.md) — siglas con definición en español
 - [Bibliografía](bibliografia.md) — libros + alternativa gratis
 - [Producto SaaS](producto-saas.md)
+- [Hilo producto](hilos/producto.md) — artefactos M12→M26
 - [Filosofía](filosofia.md) — mejor que la escuela tradicional
 - [Labs (índice)](labs/README.md)
 - [Equivalencias UABC / Tec](equivalencias.md)

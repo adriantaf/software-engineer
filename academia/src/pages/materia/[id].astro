@@ -165,7 +165,11 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
       togglePractica,
       toggleProyecto,
       markMateriaCompletada,
+      touchMateria,
     } from '../../lib/progress-client';
+
+    const materiaIdPage = document.querySelector('[data-completa]')?.getAttribute('data-materia');
+    if (materiaIdPage) touchMateria(materiaIdPage);
 
     function syncUI() {
       const materiaId = document.querySelector('[data-completa]')?.getAttribute('data-materia');

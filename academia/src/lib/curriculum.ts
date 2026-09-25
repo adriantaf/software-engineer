@@ -30,6 +30,7 @@ const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'egreso.md': 'egreso',
   'nivel.md': 'nivel',
   'hilos/seguridad.md': 'docs/seguridad',
+  'hilos/producto.md': 'docs/producto',
 };
 
 const GITHUB_BLOB =
