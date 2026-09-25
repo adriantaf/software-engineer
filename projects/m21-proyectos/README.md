@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 dejas de “hacer lo que salga”: roadmap, sprints y riesgos (incluye seguridad) en el repo.
 

@@ -21,13 +21,10 @@ proyecto:
 
 ## Por qué existe
 
-Es el lenguaje de estructuras de datos, bases de datos y algoritmos. UABC y Tec la exigen; aquí la haces **aplicada a código**.
+Es el lenguaje de estructuras de datos, bases de datos y algoritmos. Aquí la haces **aplicada a código**, no solo de pizarrón.
 
-**En cristiano:** lógica, conjuntos y grafos no son adorno: los usas al razonar algoritmos y modelos. Demuestras a mano y codeas lo esencial.
+**En resumen:** lógica, conjuntos y grafos no son adorno: los usas al razonar algoritmos y modelos. Demuestras a mano y codeas lo esencial.
 
-## Análogos
-
-- UABC / Tec: Matemáticas discretas
 
 ## Objetivos
 

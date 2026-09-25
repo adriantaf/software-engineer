@@ -23,10 +23,8 @@ proyecto:
 
 **Capa C** de la pista de seguridad, aplicada a tu **SaaS multi-tenant**. El fallo #1 a cazar: **IDOR cross-tenant** (el tenant A lee datos del B). Ver [producto-saas](../../producto-saas.md).
 
-**En cristiano:** ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
+**En resumen:** ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
 
-## Análogos
-UABC: Seguridad / gestión. Tec: Ciberseguridad (cierre aplicado).
 
 ## Objetivos
 

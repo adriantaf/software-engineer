@@ -20,7 +20,7 @@ const seed = getProgressSeed();
     <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
       <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
         <div class="max-w-2xl w-full min-w-0">
-          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal · UABC + Tec</p>
+          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal de egreso</p>
           <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
           <p class="py-4 opacity-80 text-sm sm:text-base break-words">
             Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
@@ -68,13 +68,10 @@ const seed = getProgressSeed();
 
     <section class="card bg-base-100 border border-base-300 overflow-hidden">
       <div class="card-body min-w-0">
-        <h2 class="card-title">Fuentes universitarias</h2>
-        <ul class="list-disc pl-5 space-y-1 break-words">
-          {catalog.fuentes.map((f) => <li>{f}</li>)}
-        </ul>
+        <h2 class="card-title">Recursos</h2>
         <p class="text-sm opacity-70 break-words">
-          Física/química/cálculo avanzado los cursas en la UABC. Aquí priorizamos competencia de software
-          con proyectos útiles.
+          Aquí priorizamos competencia de software con proyectos útiles. Física, química o cálculo avanzado,
+          si los necesitas, los cursas aparte.
         </p>
         <div class="card-actions flex-wrap gap-2">
           <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>

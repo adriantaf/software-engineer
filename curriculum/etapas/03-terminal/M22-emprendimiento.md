@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Bektor sin clientes enseñó: oferta genérica no vende. Ahora vendes **suscripción al SaaS** [Agenda Ops](../../producto-saas.md), no “te hago una página”.
 
-**En cristiano:** vendes **suscripción SaaS**, no agencia: oferta clara, 10 demos reales y pricing MXN.
+**En resumen:** vendes **suscripción SaaS**, no agencia: oferta clara, 10 demos reales y pricing MXN.
 
 ## Día 1 (2–3 h)
 1. Reescribe la oferta en 1 párrafo (problema → producto → precio).

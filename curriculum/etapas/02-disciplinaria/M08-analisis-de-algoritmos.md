@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Sin análisis, “optimizas” a ciegas. Aprendes patrones transferibles (no maratón tóxica).
 
-**En cristiano:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
+**En resumen:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
 
-## Análogos
-UABC: Análisis de algoritmos. Tec: Análisis y diseño de algoritmos.
 
 ## Objetivos
 Big-O, divide y vencerás, greedy intro, DP intro, grafos cortos.

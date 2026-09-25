@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 hoy configuras tu entorno, haces commits claros en **este** repo y escribes una decisión corta (ADR). No es un curso de Git de 8 horas: es hábito.
 

@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 usas datos para preguntar mejor (no solo calcular). Simulas, describes un CSV y escribes un informe que un negocio entendería.
 

@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Tu app corre sobre un SO. Permisos, procesos y contenedores mal puestos = incidentes. Enlace con [hilo seguridad](../../hilos/seguridad.md).
 
-**En cristiano:** administras procesos, permisos y un contenedor sin hacer tonterías de root/secretos.
+**En resumen:** administras procesos, permisos y un contenedor sin hacer tonterías de root/secretos.
 
-## Análogos
-UABC: Administración de SO. Tec: Sistemas operativos.
 
 ## Objetivos
 Procesos, memoria a alto nivel, FS, permisos, Docker intro seguro.

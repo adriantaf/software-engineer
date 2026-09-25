@@ -10,7 +10,7 @@ Esta guía es el manual de profesor. Léela una vez y vuelve cuando te atasques.
 4. **Práctica + proyecto** — marca en la UI solo si cumple **Evidencia de hecho**.
 5. Sigla en azul → [glosario](glosario.md).
 
-En cada ficha verás también **En cristiano** (qué harás, en claro).
+En cada ficha verás también **En resumen** (qué harás, en claro).
 
 ## Una semana de 20 horas (modelo)
 
@@ -61,10 +61,10 @@ Luego marcas el checkbox en la academia y actualizas `progress.json` (commit sem
 - Estudiar solo teoría la semana entera.
 - Compararte con juniors de LinkedIn en vez de con tu bitácora de hace 30 días.
 
-## Inglés y UABC
+## Inglés y la universidad
 
 - Inglés: sigue tu curso; aquí usamos libros en español hasta B1 lectura técnica.
-- Desde febrero (UABC): esta academia **adelanta y profundiza**. Si la U ve “Bases de datos”, tú ya construyes el esquema del CRM aquí.
+- Si cursas carrera en paralelo: esta academia **adelanta y profundiza**. Cuando la U vea “Bases de datos”, tú ya construyes el esquema del CRM aquí.
 
 ## Siguiente paso ahora
 

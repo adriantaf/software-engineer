@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Sin gestión, 20 h/semana se evaporan. Los riesgos de seguridad entran al backlog ([hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** dejas de “hacer lo que salga”: roadmap, sprints y riesgos (incluye seguridad) en el repo.
+**En resumen:** dejas de “hacer lo que salga”: roadmap, sprints y riesgos (incluye seguridad) en el repo.
 
 ## Día 1 (2–3 h)
 Crea milestones de 4 semanas. Mueve 5 issues reales (uno de seguridad). Define “hecho”.

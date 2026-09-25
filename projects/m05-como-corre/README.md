@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
 

@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
 

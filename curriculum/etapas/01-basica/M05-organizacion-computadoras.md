@@ -23,11 +23,8 @@ proyecto:
 
 Entender qué hace el hardware evita magia negra con rendimiento, memoria y sistemas operativos.
 
-**En cristiano:** entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
+**En resumen:** entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
 
-## Análogos
-
-- UABC: Organización de Computadoras
 
 ## Objetivos
 

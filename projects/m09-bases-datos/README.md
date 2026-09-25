@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 diseñas el esquema del producto: ER, SQL real, índices y migraciones sin SQL injection.
 

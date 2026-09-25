@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 implementas estructuras a mano para elegir bien (no solo usar `Array`). Mides y documentas trade-offs.
 

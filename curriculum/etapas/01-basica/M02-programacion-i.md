@@ -23,12 +23,8 @@ proyecto:
 
 Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tooling. Dejas de “conocer JS” y pasas a **programar**.
 
-**En cristiano:** aprendes TypeScript de verdad con katas, un script real y tests. El cierre es una CLI de hábitos que puedes enseñar.
+**En resumen:** aprendes TypeScript de verdad con katas, un script real y tests. El cierre es una CLI de hábitos que puedes enseñar.
 
-## Análogos
-
-- UABC: Metodología de la Programación, Programación Estructurada
-- Tec: Pensamiento computacional y programación
 
 ## Objetivos
 

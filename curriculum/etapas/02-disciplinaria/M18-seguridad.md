@@ -23,10 +23,8 @@ proyecto:
 
 Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer CRUDs” pero deja SQLi/XSS/IDOR **no es competente**. Aquí aprendes a **modelar amenazas, romper (solo tu sistema) y reparar**.
 
-**En cristiano:** amenazas → PoC en **tu** app → fix → test. Las siglas azules están en el glosario.
+**En resumen:** amenazas → PoC en **tu** app → fix → test. Las siglas azules están en el glosario.
 
-## Análogos
-UABC: Seguridad del software. Tec: Ciberseguridad.
 
 ## Objetivos
 

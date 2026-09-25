@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Añade En cristiano + Semana tipo + Evidencia de hecho a todas las materias."""
+"""Añade En resumen + Semana tipo + Evidencia de hecho a todas las materias."""
 from __future__ import annotations
 
 import re
@@ -403,11 +403,11 @@ ENRICH: dict[str, dict] = {
 
 
 def ensure_cristiano(text: str, cristiano: str) -> str:
-    if re.search(r"\*\*En cristiano:\*\*", text):
+    if re.search(r"\*\*En resumen:\*\*", text):
         # replace existing
         return re.sub(
-            r"\*\*En cristiano:\*\*[^\n]*\n",
-            f"**En cristiano:** {cristiano}\n",
+            r"\*\*En resumen:\*\*[^\n]*\n",
+            f"**En resumen:** {cristiano}\n",
             text,
             count=1,
         )
@@ -417,8 +417,8 @@ def ensure_cristiano(text: str, cristiano: str) -> str:
         m = re.search(r"(## Por qué existe\n\n.*?)(\n## )", text, re.S)
         if not m:
             return text
-        return text[: m.end(1)] + f"\n**En cristiano:** {cristiano}\n" + text[m.start(2) :]
-    insert = m.group(1) + f"**En cristiano:** {cristiano}\n\n"
+        return text[: m.end(1)] + f"\n**En resumen:** {cristiano}\n" + text[m.start(2) :]
+    insert = m.group(1) + f"**En resumen:** {cristiano}\n\n"
     return text[: m.start()] + insert + text[m.end() :]
 
 

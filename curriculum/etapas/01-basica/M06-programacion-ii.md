@@ -23,12 +23,8 @@ proyecto:
 
 Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 meses) pueda mantener.
 
-**En cristiano:** modelas un dominio con tipos serios, refactorizas con Código limpio y empaquetas algo reutilizable.
+**En resumen:** modelas un dominio con tipos serios, refactorizas con Código limpio y empaquetas algo reutilizable.
 
-## Análogos
-
-- UABC: Lenguajes de Programación Orientada a Objetos
-- Tec: Programación orientada a objetos
 
 ## Objetivos
 

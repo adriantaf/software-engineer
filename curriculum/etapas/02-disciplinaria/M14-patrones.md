@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Patrones son vocabulario compartido. Mal usados = cargo cult.
 
-**En cristiano:** aplicas pocos patrones con justificación (no nombres de adorno) en el código del CRM.
+**En resumen:** aplicas pocos patrones con justificación (no nombres de adorno) en el código del CRM.
 
 ## Día 1 (2–3 h)
 Implementa Strategy para “calcular precio” (base vs con descuento) con tests. Escribe cuándo NO usar el patrón.

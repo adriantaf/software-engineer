@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Los datos son el corazón del producto. Mal modelados = dolor eterno. Seguridad: **queries parametrizadas + least privilege** ([hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** diseñas el esquema del producto: ER, SQL real, índices y migraciones sin SQL injection.
+**En resumen:** diseñas el esquema del producto: ER, SQL real, índices y migraciones sin SQL injection.
 
-## Análogos
-UABC: Bases de datos. Tec: Desarrollo web y BD.
 
 ## Objetivos
 Modelo relacional, SQL sólido, índices, transacciones, migraciones, usuarios con permisos mínimos.

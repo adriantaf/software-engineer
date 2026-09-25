@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
 

@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 amenazas → PoC en **tu** app → fix → test. Las siglas azules están en el glosario.
 

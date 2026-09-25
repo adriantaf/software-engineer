@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Separar hype de utilidad. Evalúa riesgo de deps y superficie nueva.
 
-**En cristiano:** separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
+**En resumen:** separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
 
 ## Día 1 (2–3 h)
 Elige 3 candidatos. Matriz: valor / costo / riesgo seguridad / fit con tu producto.

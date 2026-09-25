@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 traduces el SRS a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
 

@@ -26,7 +26,7 @@ export default defineConfig({
         name: 'Academia de Egreso Competente',
         short_name: 'Academia',
         description:
-          'Plan personal de egreso en ingeniería de software (UABC + Tec), con fichas, glosario y progreso local.',
+          'Plan personal de egreso en ingeniería de software, con fichas, glosario y progreso local.',
         lang: 'es',
         start_url: base,
         scope: base,

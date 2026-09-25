@@ -26,7 +26,6 @@ const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'como-estudiar.md': 'docs/como-estudiar',
   'filosofia.md': 'docs/filosofia',
   'producto-saas.md': 'docs/producto-saas',
-  'equivalencias.md': 'docs/equivalencias',
   'instalar-iphone.md': 'docs/instalar-iphone',
   'egreso.md': 'egreso',
   'nivel.md': 'nivel',

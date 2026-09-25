@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Construir sin requisitos es adivinar. Incluye **requisitos no funcionales de seguridad** desde el SRS ([hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** congelas qué construir: entrevistas, stories y un SRS con seguridad, no pantallas bonitas primero.
+**En resumen:** congelas qué construir: entrevistas, stories y un SRS con seguridad, no pantallas bonitas primero.
 
-## Análogos
-UABC: Ingeniería de requerimientos.
 
 ## Objetivos
 Elicitar, documentar, priorizar; separar deseo de requisito.

@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 la calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad.
 

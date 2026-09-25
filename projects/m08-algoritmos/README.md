@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
 

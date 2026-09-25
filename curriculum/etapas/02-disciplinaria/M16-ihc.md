@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 UI confusa = soporte eterno. Cuidado: errores de UX no deben filtrar datos ajenos.
 
-**En cristiano:** dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada.
+**En resumen:** dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada.
 
 ## Día 1 (2–3 h)
 Recorre tu UI como usuario nuevo. Lista 10 fricciones. Aplica 3 heurísticas de Nielsen.

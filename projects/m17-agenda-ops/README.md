@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 nacen el piloto web de Agenda Ops: auth real, CRUD de citas, roles y base para multi-tenant.
 

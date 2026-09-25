@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 congelas qué construir: entrevistas, stories y un SRS con seguridad, no pantallas bonitas primero.
 

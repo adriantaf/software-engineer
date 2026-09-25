@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Elegir mal una estructura te cuesta latencia y dinero. Aquí las **implementas** para entender trade-offs, no solo las usas.
 
-**En cristiano:** implementas estructuras a mano para elegir bien (no solo usar `Array`). Mides y documentas trade-offs.
+**En resumen:** implementas estructuras a mano para elegir bien (no solo usar `Array`). Mides y documentas trade-offs.
 
-## Análogos
-UABC/Tec: Estructuras de datos.
 
 ## Objetivos
 1. Implementar lista, pila, cola, hash, árbol.

@@ -1,6 +1,6 @@
 # Academia de Egreso Competente
 
-Plan de estudios personal de **Adrian Tafoya** para volverse ingeniero de software competente (y base para una empresa de talla mundial). Alineado a **UABC** (*Ingeniero en Software y Tecnologías Emergentes*) y **Tec de Monterrey** (*ITC*), con más práctica y proyectos útiles que una carrera típica.
+Plan de estudios personal de **Adrian Tafoya** para volverse ingeniero de software competente (y base para una empresa de talla mundial), con más práctica y proyectos útiles que una carrera típica.
 
 > "Si puedes imaginarlo, puedes programarlo." — Alejandro Sánchez Taboada
 
@@ -42,7 +42,7 @@ Empieza por **M01**.
 
 - Meta: **≥ 20 h/semana**
 - Inglés en paralelo (Beginner 2 → B1 lectura técnica)
-- Desde febrero: UABC en línea; esta academia adelanta y profundiza
+- Si cursas carrera presencial o en línea, esta academia adelanta y profundiza en paralelo
 
 ## Reglas
 

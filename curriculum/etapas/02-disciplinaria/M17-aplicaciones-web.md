@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Aquí nace el **piloto** del SaaS [Agenda Ops](../../producto-saas.md). **Auth y roles desde el MVP**. Prepárate para M18 y para multi-tenant después.
 
-**En cristiano:** nacen el piloto web de Agenda Ops: auth real, CRUD de citas, roles y base para multi-tenant.
+**En resumen:** nacen el piloto web de Agenda Ops: auth real, CRUD de citas, roles y base para multi-tenant.
 
-## Análogos
-UABC: Aplicaciones web. Tec: Desarrollo web y BD.
 
 ## Objetivos
 HTTP, API, auth, validación, front serio, deploy público HTTPS. Modelo de datos que **pueda** llevar `tenant_id`.

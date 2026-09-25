@@ -1,6 +1,6 @@
 # Academia de Egreso Competente
 
-Plan de estudios personal alineado a **UABC** (*Ingeniero en Software y Tecnologías Emergentes*) y **Tec de Monterrey** (*ITC*), mejorado con prácticas evaluables, proyectos útiles y rúbrica de egreso.
+Plan de estudios personal de ingeniería de software, con prácticas evaluables, proyectos útiles y rúbrica de egreso.
 
 ## Objetivo
 
@@ -20,7 +20,7 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 - Meta: **≥ 20 horas / semana**.
 - Inglés en paralelo (curso actual → B1 lectura técnica en 12–24 meses).
-- UABC (feb): esta academia **adelanta y profundiza**; no compite.
+- Si cursas universidad en paralelo: esta academia **adelanta y profundiza**; no compite.
 
 ## Estructura (3 etapas, 26 materias)
 
@@ -42,7 +42,6 @@ Ver también:
 - [Hilo producto](hilos/producto.md) — artefactos M12→M26
 - [Filosofía](filosofia.md) — mejor que la escuela tradicional
 - [Labs (índice)](labs/README.md)
-- [Equivalencias UABC / Tec](equivalencias.md)
 - [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)
 

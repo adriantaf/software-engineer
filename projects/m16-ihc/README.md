@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada.
 

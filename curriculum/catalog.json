@@ -1,9 +1,6 @@
 {
   "programa": "Ingeniería de Software — Academia de Egreso Competente",
-  "fuentes": [
-    "UABC Ingeniero en Software y Tecnologías Emergentes",
-    "Tec de Monterrey ITC"
-  ],
+  "fuentes": [],
   "ritmoHorasSemana": 20,
   "etapas": [
     {
@@ -40,10 +37,7 @@
       "orden": 1,
       "semanas": 2,
       "horas": 40,
-      "analogos": [
-        "Introducción a la Ingeniería (UABC)",
-        "Herramientas de desarrollo"
-      ]
+      "analogos": []
     },
     {
       "id": "M02",
@@ -53,10 +47,7 @@
       "orden": 2,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Metodología de la Programación",
-        "Programación Estructurada (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M03",
@@ -66,9 +57,7 @@
       "orden": 3,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Matemáticas Discretas (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M04",
@@ -78,10 +67,7 @@
       "orden": 4,
       "semanas": 4,
       "horas": 80,
-      "analogos": [
-        "Probabilidad y Estadística (UABC)",
-        "Estadística y manejo de datos (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M05",
@@ -91,9 +77,7 @@
       "orden": 5,
       "semanas": 3,
       "horas": 60,
-      "analogos": [
-        "Organización de Computadoras (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M06",
@@ -103,10 +87,7 @@
       "orden": 6,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Lenguajes de Programación Orientada a Objetos (UABC)",
-        "POO (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M07",
@@ -116,9 +97,7 @@
       "orden": 7,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Estructuras de Datos (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M08",
@@ -128,10 +107,7 @@
       "orden": 8,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Análisis de Algoritmos (UABC)",
-        "Análisis y diseño de algoritmos (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M09",
@@ -141,10 +117,7 @@
       "orden": 9,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Bases de Datos (UABC)",
-        "Desarrollo web y bases de datos (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M10",
@@ -154,10 +127,7 @@
       "orden": 10,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Redes de Computadoras (UABC)",
-        "Fundamentos de redes (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M11",
@@ -167,10 +137,7 @@
       "orden": 11,
       "semanas": 4,
       "horas": 80,
-      "analogos": [
-        "Administración de Sistemas Operativos (UABC)",
-        "Sistemas operativos (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M12",
@@ -180,9 +147,7 @@
       "orden": 12,
       "semanas": 3,
       "horas": 60,
-      "analogos": [
-        "Ingeniería de Requerimientos (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M13",
@@ -192,10 +157,7 @@
       "orden": 13,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Análisis y Diseño de Software (UABC)",
-        "Fundamentos de ingeniería de software (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M14",
@@ -205,9 +167,7 @@
       "orden": 14,
       "semanas": 4,
       "horas": 80,
-      "analogos": [
-        "Patrones de Software (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M15",
@@ -217,10 +177,7 @@
       "orden": 15,
       "semanas": 4,
       "horas": 80,
-      "analogos": [
-        "V&V del Software",
-        "Aseguramiento de la Calidad (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M16",
@@ -230,10 +187,7 @@
       "orden": 16,
       "semanas": 3,
       "horas": 60,
-      "analogos": [
-        "IHC",
-        "Laboratorio de Usabilidad (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M17",
@@ -243,10 +197,7 @@
       "orden": 17,
       "semanas": 8,
       "horas": 160,
-      "analogos": [
-        "Aplicaciones Web (UABC)",
-        "Desarrollo web y bases de datos (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M18",
@@ -256,10 +207,7 @@
       "orden": 18,
       "semanas": 8,
       "horas": 160,
-      "analogos": [
-        "Seguridad del Software (UABC)",
-        "Ciberseguridad (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M19",
@@ -269,9 +217,7 @@
       "orden": 19,
       "semanas": 4,
       "horas": 80,
-      "analogos": [
-        "Cómputo en la Nube (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M20",
@@ -281,9 +227,7 @@
       "orden": 20,
       "semanas": 5,
       "horas": 100,
-      "analogos": [
-        "Aplicaciones Móviles (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M21",
@@ -293,9 +237,7 @@
       "orden": 21,
       "semanas": 3,
       "horas": 60,
-      "analogos": [
-        "Administración de Proyectos de Software (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M22",
@@ -305,9 +247,7 @@
       "orden": 22,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Emprendimiento de Negocios de Software (UABC)"
-      ]
+      "analogos": []
     },
     {
       "id": "M23",
@@ -317,10 +257,7 @@
       "orden": 23,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Ciencia de Datos / Data Mining (UABC)",
-        "IA / ML (Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M24",
@@ -330,9 +267,7 @@
       "orden": 24,
       "semanas": 3,
       "horas": 60,
-      "analogos": [
-        "Tecnologías Emergentes (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M25",
@@ -342,9 +277,7 @@
       "orden": 25,
       "semanas": 6,
       "horas": 120,
-      "analogos": [
-        "Seguridad / ciberseguridad aplicada (UABC/Tec)"
-      ]
+      "analogos": []
     },
     {
       "id": "M26",
@@ -354,10 +287,7 @@
       "orden": 26,
       "semanas": 8,
       "horas": 160,
-      "analogos": [
-        "Desarrollo de Aplicaciones Innovadoras (UABC)",
-        "Ingeniería de Software (Tec)"
-      ]
+      "analogos": []
     }
   ]
 }

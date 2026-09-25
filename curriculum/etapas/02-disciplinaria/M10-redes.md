@@ -23,10 +23,8 @@ proyecto:
 
 Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “seguridad” es teatro. Esta materia es la **capa A** de la pista de ciberseguridad ([hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto.
+**En resumen:** sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto.
 
-## Análogos
-UABC: Redes. Tec: Fundamentos de redes.
 
 ## Objetivos
 

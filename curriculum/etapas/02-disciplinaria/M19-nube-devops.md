@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Un SaaS sin operación segura no es producto. Secrets, TLS, ambientes staging/prod, dominio, backups ([hilo](../../hilos/seguridad.md); [producto-saas](../../producto-saas.md)).
 
-**En cristiano:** el piloto sobrevive fuera de tu laptop: Docker, secretos, HTTPS, backup con restore probado.
+**En resumen:** el piloto sobrevive fuera de tu laptop: Docker, secretos, HTTPS, backup con restore probado.
 
 ## Día 1 (2–3 h)
 1. Lista secretos actuales y dónde viven (incl. futuros de Stripe).

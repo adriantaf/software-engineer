@@ -5,7 +5,6 @@ import { loadMarkdownPage } from '../../lib/curriculum';
 export function getStaticPaths() {
   return [
     { params: { slug: 'index' }, props: { file: 'INDEX.md' } },
-    { params: { slug: 'equivalencias' }, props: { file: 'equivalencias.md' } },
     { params: { slug: 'como-estudiar' }, props: { file: 'como-estudiar.md' } },
     { params: { slug: 'filosofia' }, props: { file: 'filosofia.md' } },
     { params: { slug: 'producto-saas' }, props: { file: 'producto-saas.md' } },

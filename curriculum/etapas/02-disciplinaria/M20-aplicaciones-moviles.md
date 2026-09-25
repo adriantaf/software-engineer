@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 El dueño del negocio vive en el teléfono. Misma auth que la web; tokens no en texto plano inseguro.
 
-**En cristiano:** el dueño vive en el teléfono: misma auth que la web, sesión segura, build instalable.
+**En resumen:** el dueño vive en el teléfono: misma auth que la web, sesión segura, build instalable.
 
 ## Día 1 (2–3 h)
 Scaffold Flutter o RN. Pantalla login contra tu API. Si 401, mensaje claro.

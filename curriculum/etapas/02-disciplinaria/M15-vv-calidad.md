@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 Sin tests, cada cambio es miedo. Incluye tests de **auth/autorización** ([hilo seguridad](../../hilos/seguridad.md)).
 
-**En cristiano:** la calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad.
+**En resumen:** la calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad.
 
 ## Día 1 (2–3 h)
 Elige una función de dominio (crear cita). Escribe 5 tests: feliz, duplicado, sin auth, IDOR, validación.

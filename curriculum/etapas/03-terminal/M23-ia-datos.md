@@ -22,7 +22,7 @@ proyecto:
 ## Por qué existe
 IA útil = workflow del SaaS + evaluación + costos. **Todo scoped por `tenant_id`**. No mezcles FAQs ni PII entre negocios ([producto-saas](../../producto-saas.md), [hilo](../../hilos/seguridad.md)).
 
-**En cristiano:** métricas del SaaS + LLM con evaluación; RAG **por tenant** sin filtrar datos ajenos.
+**En resumen:** métricas del SaaS + LLM con evaluación; RAG **por tenant** sin filtrar datos ajenos.
 
 ## Día 1 (2–3 h)
 1. Define 3 métricas del SaaS (activación, citas/semana, trials).

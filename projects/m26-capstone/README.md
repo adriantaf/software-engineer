@@ -2,7 +2,7 @@
 
 Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
 
-## En cristiano
+## En resumen
 
 cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
 

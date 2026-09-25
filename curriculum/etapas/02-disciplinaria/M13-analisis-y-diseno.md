@@ -22,10 +22,8 @@ proyecto:
 ## Por qué existe
 Diseñar límites evita un monolito caótico. Marca **trust boundaries** (qué confías del cliente HTTP).
 
-**En cristiano:** traduces el SRS a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
+**En resumen:** traduces el SRS a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
 
-## Análogos
-UABC: Análisis y diseño. Tec: Fundamentos de IS.
 
 ## Objetivos
 Flujos, diagramas útiles, arquitectura simple defendible, ADRs.

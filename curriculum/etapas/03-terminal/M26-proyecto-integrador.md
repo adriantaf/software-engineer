@@ -23,10 +23,8 @@ proyecto:
 
 Cierre de la academia. El egreso es un **SaaS vertical en producción**, no un CRUD suelto. Ver [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md).
 
-**En cristiano:** cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
+**En resumen:** cierras la academia con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
 
-## Análogos
-UABC: Desarrollo de aplicaciones innovadoras. Tec: cierre de ingeniería de software.
 
 ## Objetivos
 Cumplir la rúbrica de egreso **en modo SaaS**: multi-tenant, billing test (Stripe), aislamiento, ops, evidencia comercial.

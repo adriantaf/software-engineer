@@ -23,12 +23,8 @@ proyecto:
 
 Métricas de producto, calidad de software y (más adelante) ML necesitan intuición estadística. Aquí aprendes a **preguntar con datos**, no solo a calcular.
 
-**En cristiano:** usas datos para preguntar mejor (no solo calcular). Simulas, describes un CSV y escribes un informe que un negocio entendería.
+**En resumen:** usas datos para preguntar mejor (no solo calcular). Simulas, describes un CSV y escribes un informe que un negocio entendería.
 
-## Análogos
-
-- UABC: Probabilidad y Estadística
-- Tec: Estadística y manejo de datos
 
 ## Objetivos
 
