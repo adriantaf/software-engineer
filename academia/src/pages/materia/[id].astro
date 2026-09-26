@@ -218,7 +218,7 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
       loadProgress,
       togglePractica,
       toggleProyecto,
-      toggleLeccion,
+      setLeccion,
       markMateriaCompletada,
       touchMateria,
     } from '../../lib/progress-client';
@@ -234,9 +234,9 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
         const id = el.getAttribute('data-practica')!;
         (el as HTMLInputElement).checked = Boolean(m?.practicas?.[id]);
       });
-      document.querySelectorAll('[data-leccion]').forEach((el) => {
+      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
         const id = el.getAttribute('data-leccion')!;
-        (el as HTMLInputElement).checked = Boolean(m?.lecciones?.[id]);
+        el.checked = Boolean(m?.lecciones?.[id]);
       });
       const proj = document.querySelector('[data-proyecto]') as HTMLInputElement | null;
       if (proj) proj.checked = Boolean(m?.proyecto);
@@ -253,11 +253,11 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
       });
     });
 
-    document.querySelectorAll('[data-leccion]').forEach((el) => {
+    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
       el.addEventListener('change', () => {
         const materiaId = el.getAttribute('data-materia')!;
         const leccionId = el.getAttribute('data-leccion')!;
-        toggleLeccion(materiaId, leccionId);
+        setLeccion(materiaId, leccionId, el.checked);
         syncUI();
       });
     });

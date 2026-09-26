@@ -160,6 +160,19 @@ export function toggleLeccion(materiaId: string, leccionId: string) {
   return state;
 }
 
+/** Fija el estado de una lección (preferible al toggle cuando el checkbox ya cambió en el DOM). */
+export function setLeccion(materiaId: string, leccionId: string, done: boolean) {
+  const state = loadProgress() ?? emptyState(materiaId);
+  const m = ensureMateria(state, materiaId);
+  m.lecciones[leccionId] = done;
+  if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
+  state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
+  state.lastLeccionId = leccionId;
+  saveProgress(state);
+  return state;
+}
+
 export function toggleProyecto(materiaId: string) {
   const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);

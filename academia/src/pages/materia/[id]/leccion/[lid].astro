@@ -168,27 +168,29 @@ const next = all[idx + 1];
   </div>
 
   <script>
-    import { loadProgress, toggleLeccion, touchMateria } from '../../../../lib/progress-client';
+    import { loadProgress, setLeccion, touchMateria } from '../../../../lib/progress-client';
 
     const materiaId = document.querySelector('[data-materia]')?.getAttribute('data-materia');
-    const leccionId = document.querySelector('[data-leccion]')?.getAttribute('data-leccion');
-    if (materiaId && leccionId) touchMateria(materiaId, leccionId);
+    const leccionIdPage = document
+      .querySelector('article input[data-leccion]')
+      ?.getAttribute('data-leccion');
+    if (materiaId && leccionIdPage) touchMateria(materiaId, leccionIdPage);
 
     function syncUI() {
       const mid = document.querySelector('[data-materia]')?.getAttribute('data-materia');
       if (!mid) return;
       const m = loadProgress()?.materias?.[mid];
-      document.querySelectorAll('[data-leccion]').forEach((el) => {
+      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
         const id = el.getAttribute('data-leccion')!;
-        (el as HTMLInputElement).checked = Boolean(m?.lecciones?.[id]);
+        el.checked = Boolean(m?.lecciones?.[id]);
       });
     }
 
-    document.querySelectorAll('[data-leccion]').forEach((el) => {
+    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
       el.addEventListener('change', () => {
         const mid = el.getAttribute('data-materia')!;
         const lid = el.getAttribute('data-leccion')!;
-        toggleLeccion(mid, lid);
+        setLeccion(mid, lid, el.checked);
         syncUI();
       });
     });
