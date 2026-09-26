@@ -38,36 +38,80 @@ Al terminar debes poder:
 5. Automatizar backup de PostgreSQL y **restaurar** una copia en un entorno de prueba, con pasos documentados.
 6. Mantener un runbook operativo que otra persona (o tú en seis meses) pueda seguir sin adivinar.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) y el hilo [producto](../../hilos/producto.md).
-- Trabaja sobre el **repo real** del piloto/SaaS; no levantes un “hello world” en Docker aparte.
-- Cada cambio de infra va con commit: Dockerfile, compose, docs en `projects/m19-ops/`.
-- **Nunca** pongas `DATABASE_URL`, claves de Stripe (futuro M26) ni JWT secrets en la imagen ni en git.
-- Si un deploy falla, anota el error en el runbook antes de borrarlo de memoria.
+M19 lleva **Agenda Ops** fuera de tu laptop: L01–L16 con evidencia en `projects/m19-ops/` y en el repo del producto.
+
+1. Orden **L01 → L16**; cada lección termina en commit de infra o doc ops.
+2. Trabaja sobre el **repo real** del piloto; no un hello-world Docker aparte.
+3. **Nunca** secretos en imagen ni en git; inventario sin valores.
+4. Staging para experimentos; prod para design partner y demos M22.
+5. [Cómo estudiar](../../como-estudiar.md) y [hilo producto](../../hilos/producto.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Docker | 6–8 | Multi-stage, Compose, healthcheck |
-| Deploy | 6–8 | Staging/prod + secrets del proveedor |
-| Backup | 4–6 | Job de backup + restore real una vez |
+| Docker / deploy | 10–12 | 4 lecciones (~5 h) |
+| Operación y backup | 6–8 | Restore real, runbook |
 | Retro | 1 | Runbook actualizado |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** (Dockerfile, deploy-log o restore). No saltes healthcheck ni smoke test.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la carpeta de evidencia: `mkdir -p projects/m19-ops`.
-2. Inventaria secretos en `projects/m19-ops/secrets-inventory.md`: `DATABASE_URL`, secret de sesión/JWT, API keys futuras (Stripe test), credenciales del PaaS. Marca **dónde deben vivir** (panel del host, vault, `.env` local ignorado por git).
-3. Comprueba que no filtraste secretos al historial:
-   ```bash
-   git ls-files | rg -i '\.env|secret|credential' || true
-   ```
-4. Define dos ambientes en `projects/m19-ops/ambientes.md`: **staging** (experimentos, migraciones) y **prod** (design partner / demos estables). Anota la URL objetivo de cada uno (aunque staging sea temporal).
-5. Añade o verifica endpoint `GET /health` en la API (200 + versión o “ok”) y anótalo en el runbook borrador.
-6. Elige dominio o subdominio para Agenda Ops (ej. `app.tudominio.com`, `staging.tudominio.com`) y regístralo en `projects/m19-ops/dominios.md`.
+### Semana 1 — Docker multi-stage y Compose prod-like (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Inventario de secretos y ambientes staging/prod](M19/L01-inventario-de-secretos-y-ambientes-staging-prod.md) | 5 |
+| L02 | [Dockerfile multi-stage para la API](M19/L02-dockerfile-multi-stage-para-la-api.md) | 5 |
+| L03 | [Compose prod-like: API + Postgres + volúmenes](M19/L03-compose-prod-like-api-postgres-volumenes.md) | 5 |
+| L04 | [Stack local documentado y P1 Docker](M19/L04-stack-local-documentado-y-p1-docker.md) | 5 |
+
+### Semana 2 — Deploy staging HTTPS y dominios (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [ADR hosting: PaaS vs VPS](M19/L05-adr-hosting-paas-vs-vps.md) | 5 |
+| L06 | [Deploy staging con HTTPS](M19/L06-deploy-staging-con-https.md) | 5 |
+| L07 | [Smoke test: login, cita y health externo](M19/L07-smoke-test-login-cita-y-health-externo.md) | 5 |
+| L08 | [Dominios y deploy-log semana 2](M19/L08-dominios-y-deploy-log-semana-2.md) | 5 |
+
+### Semana 3 — Producción, logs y rollback (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Promover configuración a producción](M19/L09-promover-configuracion-a-produccion.md) | 5 |
+| L10 | [Logs, rollback y versión desplegada](M19/L10-logs-rollback-y-version-desplegada.md) | 5 |
+| L11 | [Monitoreo mínimo y alertas manuales](M19/L11-monitoreo-minimo-y-alertas-manuales.md) | 5 |
+| L12 | [Revisión seguridad: puertos, SSH y firewall](M19/L12-revision-seguridad-puertos-ssh-y-firewall.md) | 5 |
+
+### Semana 4 — Backup, restore y runbook (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Backup automático PostgreSQL](M19/L13-backup-automatico-postgresql.md) | 5 |
+| L14 | [Prueba de restore en entorno aislado](M19/L14-prueba-de-restore-en-entorno-aislado.md) | 5 |
+| L15 | [Runbook completo de producción](M19/L15-runbook-completo-de-produccion.md) | 5 |
+| L16 | [Cierre M19 — checklist pre-demo M22](M19/L16-cierre-m19-checklist-pre-demo-m22.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: documentación oficial **Docker** + docs del PaaS/VPS elegido. Ver [bibliografía](../../bibliografia.md) y [producto-saas](../../producto-saas.md).
+
+| Semana | Lecciones | Lectura | Entrega |
+|--------|-----------|---------|---------|
+| 1 | L01–L04 | Docker Get started + Dockerfile best practices | P1 Compose + `docker.md` |
+| 2 | L05–L08 | Deploy proveedor (HTTPS, dominio, env) | `deploy-log.md`, staging URL |
+| 3 | L09–L12 | Logs, rollback, postura host | `runbook.md` borrador, prod |
+| 4 | L13–L16 | PostgreSQL backup/restore | P3 `restore-test.md`, runbook final |
+
+**Regla:** un restore de BD probado vale más que tutoriales de Kubernetes que no usarás en el egreso.
+
+
 
 ## Ejemplo — Dockerfile multi-stage (idea)
 
@@ -95,52 +139,7 @@ CMD ["node", "dist/server.js"]
 
 La imagen final no debe contener `.env` ni claves: solo variables inyectadas al arrancar el contenedor.
 
-## Temario semanal
 
-### Semana 1 — Docker y Compose (~20 h)
-
-- Por qué contenedores: reproducibilidad, mismas versiones de Node/Postgres que en prod.
-- Dockerfile multi-stage: separar build y runtime; `.dockerignore` (node_modules, `.git`, `.env`).
-- `docker compose`: servicio `api`, `db` (PostgreSQL), volúmenes para datos persistentes.
-- Variables de entorno vía `env_file` **local** (no commiteado) o secrets del host.
-- Healthchecks en Compose y dependencias (`depends_on` + condition healthy).
-- Entregable: stack local que levanta Agenda Ops con un comando documentado.
-
-### Semana 2 — Deploy staging (~20 h)
-
-- Elegir hosting: PaaS (Fly.io, Railway, Render, etc.) o VPS con Docker — **documenta la decisión** en `projects/m19-ops/adr-hosting.md`.
-- Pipeline manual o CI: build imagen → push registry (si aplica) → deploy staging.
-- HTTPS y dominio en staging; forzar redirección HTTP→HTTPS.
-- Secretos en el panel del proveedor, no en el repo.
-- Smoke test: login, crear cita, comprobar `/health` desde fuera.
-
-### Semana 3 — Prod + operación diaria (~20 h)
-
-- Promover configuración probada en staging a **prod** (misma imagen, distintas env vars).
-- Logs: dónde verlos en el proveedor; qué buscar ante 5xx.
-- Monitoreo mínimo: uptime del healthcheck, alerta manual (calendario) si cae el piloto.
-- Documentar rollback: imagen anterior o tag git desplegado.
-- Revisión [hilo seguridad](../../hilos/seguridad.md): puertos expuestos, SSH si usas VPS (clave, no password; firewall).
-
-### Semana 4 — Backup, restore y runbook (~20 h)
-
-- Backup automático de PostgreSQL (cron del host, `pg_dump` programado, o backup gestionado del proveedor).
-- **Prueba de restore** en entorno aislado: vaciar DB de prueba → restaurar dump → verificar citas.
-- Runbook completo: deploy, rollback, restore, contactos, URLs.
-- Checklist pre-demo para M22: prod estable antes de enseñar el producto.
-
-## Lecturas
-
-Canon: documentación oficial de Docker + docs del PaaS/VPS elegido. Ver [bibliografía](../../bibliografia.md) y [producto-saas](../../producto-saas.md).
-
-| Semana | Lectura | Alternativa |
-|--------|---------|-------------|
-| 1 | Docker **Get started** + Dockerfile best practices (oficial) | — |
-| 2 | Docs de deploy del proveedor (HTTPS, dominio, env vars) | — |
-| 3 | Secrets del proveedor + variables de entorno (nunca en imagen) | Runbook borrador |
-| 4 | Backups/restore del proveedor o PostgreSQL docs + healthchecks | Prueba de restore real |
-
-**Regla:** un restore de BD probado vale más que tres tutoriales de Kubernetes que no vas a usar en el egreso.
 
 ## Prácticas
 
