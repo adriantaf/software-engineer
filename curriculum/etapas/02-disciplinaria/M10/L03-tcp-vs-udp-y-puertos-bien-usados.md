@@ -3,80 +3,81 @@ id: L03
 materia: M10
 orden: 3
 titulo: TCP vs UDP y puertos bien usados
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Tanenbaum — capa de transporte (TCP, UDP, puertos)"
+lectura: "Tanenbaum: capa de transporte — TCP, UDP, puertos"
 evidencia: "semana-01.md: tabla protocolo/puerto/ejemplo Agenda Ops"
 ---
 
 # L03 — TCP vs UDP y puertos bien usados
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Agenda Ops hablará HTTP sobre TCP/443. DNS suele ir por UDP/53. Hoy dejas la tabla que evita confusiones en M11/M19.
 
 ## Objetivo
 
-Contrastar TCP y UDP con ejemplos reales (HTTP/TLS vs DNS/QUIC intuición) y listar puertos que tu stack futuro expondrá o no.
+Contrastar TCP vs UDP y mapear puertos al stack del producto.
 
-## Por qué importa
+## Pasos
 
-Abrir el puerto de Postgres “solo en local” es un clásico de incidentes; hoy decides qué debe escuchar el host.
+### 1. Conceptos en 10 líneas (40 min)
 
-## Conceptos
+En `semana-01.md`: handshake/estado vs datagrama; qué significa “puerto”; diferencia cliente efímero vs servidor bien conocido.
 
-- Three-way handshake (idea).
-- Puerto bien conocido vs efímero.
-- UDP: sin garantías de entrega ordenada.
-- Backlog y `LISTEN` en servidores.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Escucha local (45 min)
 
 ```bash
-ss -tuln | head -30    # o netstat -tuln
-nc -zv localhost 22 2>&1 | head -3
+ss -tuln | head -40
+# alternativa: netstat -tuln
 ```
 
-Enumera servicios en escucha en tu máquina. Para Agenda Ops (futuro): 443 público, 5432 **no** público. Escribe la regla en la bitácora.
+Marca 3 sockets que reconozcas (ssh, docker, node, postgres…). Si no hay nada interesante, arranca algo de M09 y vuelve a listar.
 
-### 4. Conexión con el plan (30–45 min)
+### 3. Tabla Agenda Ops (60 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+| Protocolo | Puerto | Quién | Notas |
+|-----------|--------|-------|-------|
+| TCP | 443 | API/HTTPS | tránsito cifrado |
+| TCP | 80 | redirect | idealmente solo → 443 |
+| UDP/TCP | 53 | DNS | fallo = “no resuelve” |
+| TCP | 5432 | Postgres | **no** exponer a 0.0.0.0 en prod |
+| TCP | 3000 | API dev | solo localhost o red compose |
 
-### 5. Commit atómico (15 min)
+Añade una fila más (Redis, mail, etc. si aplica).
+
+### 4. Experimento mental tcpdump (30 min)
+
+Sin capturar tráfico ajeno: escribe qué *verías* en un `tcpdump port 443` conceptual (SYN, TLS ClientHello, Application Data). Guarda en la bitácora — el lab real de captura queda para tu máquina con permiso.
+
+### 5. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l03 tcp-vs-udp-y-puertos-bien-usados"
+git add projects/m10-redes/labs/semana-01.md
+git commit -m "docs(m10): l03 tcp udp puertos"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Tanenbaum | TCP/UDP y puertos | `ss`/`netstat` man pages |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | TCP fiable vs UDP; sockets (IP:puerto); puertos bien conocidos | [MDN HTTP](https://developer.mozilla.org/es/docs/Web/HTTP) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Tabla TCP vs UDP con un caso cada uno.
-2. Lista de puertos que NO expondrás en piloto.
-3. Captura `ss` comentada.
+Marca la lección **solo si**:
+
+1. Tabla en `semana-01.md`: ≥6 filas protocolo/puerto/uso (incl. 443, 80, 53, 5432, 3000).
+2. `ss -tuln` (o `netstat`) capturado y explicado: qué escucha en tu máquina.
+3. Commit `docs(m10): l03 tcp udp puertos`.
 
 ## Errores comunes
 
-- Memorizar puertos sin saber el servicio.
-- Exponer DB porque “compose lo publicó”.
+- Decir “UDP es inseguro / TCP es seguro” (seguridad ≠ capa de transporte).
+- Publicar Postgres `5432` al mundo “solo en local” y olvidarlo.
+- Confundir puerto de contenedor con puerto del host.
 
 ## Siguiente
 

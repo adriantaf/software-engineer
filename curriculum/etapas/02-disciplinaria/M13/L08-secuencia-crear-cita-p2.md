@@ -3,74 +3,88 @@ id: L08
 materia: M13
 orden: 8
 titulo: "Secuencia: crear cita (P2)"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Secuencia negocio"
-evidencia: "diagramas/secuencia-crear-cita.md"
+lectura: Secuencia crear cita con auth + reglas; cierre P2 UML
+evidencia: diagramas/secuencia-crear-cita.md + clases.md (P2)
 ---
 
 # L08 — Secuencia: crear cita (P2)
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+P2 pide clases + secuencia crítica. Hoy cierras con el corazón del piloto: **crear cita**.
 
 ## Objetivo
 
-Secuencia crear cita con chequeo conflicto horario.
-
-## Por qué importa
-
-P2 exige clase + secuencia crítica.
-
-## Conceptos
-
-- transacción (idea).
-- conflicto.
-- 201/409.
+`diagramas/secuencia-crear-cita.md` alineada a UC-03 y a los errores de L03.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Borrador Mermaid (80–100 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+```mermaid
+sequenceDiagram
+  participant U as Browser
+  participant API as API
+  participant S as CitaService
+  participant DB as PostgreSQL
+  U->>API: POST /citas (Cookie + JSON)
+  API->>API: sesión + rol
+  alt sin sesión
+    API-->>U: 401
+  end
+  API->>S: crearCita(dto, userId)
+  S->>S: validar rango horario
+  S->>DB: ¿slot libre?
+  alt conflicto
+    S-->>API: Conflict
+    API-->>U: 409
+  else ok
+    S->>DB: INSERT cita
+    S-->>API: Cita
+    API-->>U: 201 + JSON
+  end
+```
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Alinea con clases y casos (40–50 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+- Nombres de métodos ≈ lo que pondrás en M14/M17 (`CitaService`).
+- Actualiza `casos-de-uso.md` si descubriste un alterno nuevo.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Checklist P2 (20 min)
 
-Secuencia con rama conflicto. Enlaza CU y US.
+- [ ] `diagramas/clases.md`
+- [ ] `diagramas/secuencia-*.md` (≥1 crítica)
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l08 secuencia-crear-cita-p2"
+git add projects/m13-diseno/diagramas
+git commit -m "docs(m13): secuencia crear cita y cierre P2"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Larman | secuencia | stories citas |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Secuencia crítica crear cita; authz en API | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. P2 secuencia lista.
-2. Conflicto modelado.
-3. Commit semana 2.
+Marca la lección **solo si**:
+
+1. `secuencia-crear-cita.md` incluye validación de sesión/rol, reglas de dominio e INSERT.
+2. P2 completo: `clases.md` + al menos una secuencia crítica en `diagramas/`.
+3. Commit `docs(m13): secuencia crear cita y cierre P2`.
 
 ## Errores comunes
 
-- Happy path solo.
-- Sin rol staff.
+- API inserta sin chequear sesión.
+- Conflicto de horario ausente en la secuencia.
+- Marcar P2 sin archivo de secuencia en git.
 
 ## Siguiente
 

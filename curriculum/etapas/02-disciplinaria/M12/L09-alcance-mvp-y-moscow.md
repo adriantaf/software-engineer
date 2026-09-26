@@ -3,74 +3,67 @@ id: L09
 materia: M12
 orden: 9
 titulo: Alcance MVP y MoSCoW
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "producto-saas fases"
-evidencia: "srs-borrador alcance"
+lectura: producto-saas fases + priorización
+evidencia: srs-borrador alcance MoSCoW
 ---
 
 # L09 — Alcance MVP y MoSCoW
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Decir “no” es un entregable. Hoy priorizas.
 
 ## Objetivo
 
-Priorizar Must/Should/Could/Won't para build de 4 semanas (auth, citas, clientes, admin).
+Congelar alcance MVP con MoSCoW en el borrador SRS.
 
-## Por qué importa
+## Pasos
 
-Freeze evita MVP infinito.
+### 1. Inventario (30 min)
 
-## Conceptos
+Lista US-xx existentes.
 
-- MoSCoW.
-- freeze.
-- fuera de alcance.
+### 2. MoSCoW (75 min)
 
-## Pasos (hazlos en orden)
+| US | MoSCoW | Justificación 1 línea |
+|----|--------|----------------------|
 
-### 1. Lectura dirigida (60–90 min)
+Must típicos: auth owner, clientes, citas CRUD básico, agenda del día. Won't: multi-tenant, Stripe, IA, app móvil nativa.
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 3. Capacidad (40 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Escribe supuestos de velocidad (1 dev) y qué cae si algo Must se atrasa.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Tabla MoSCoW. Lista explícita: multi-tenant, billing, IA = Won't ahora.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l09 alcance-mvp-y-moscow"
+git add projects/m12-srs/srs-borrador.md projects/m12-srs/stories.md
+git commit -m "docs(m12): l09 moscow mvp"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | producto-saas.md | — |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | MVP 4 semanas build; Must/Should/Could/Won't | [producto-saas.md](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. MoSCoW completo.
-2. Won't documentado.
-3. Fecha freeze propuesta.
+Marca la lección **solo si**:
+
+1. Tabla MoSCoW de todas las US + lista explícita Won't (multi-tenant, billing, IA…).
+2. Párrafo: por qué el Must cabe en ~4 semanas de build hacia M17.
+3. Commit `docs(m12): l09 moscow mvp`.
 
 ## Errores comunes
 
 - Todo es Must.
-- Cambiar vertical.
+- Won't vacío.
+- MVP que incluye pagos + IA + multi-sucursal.
 
 ## Siguiente
 

@@ -5,60 +5,66 @@ orden: 13
 titulo: BFS repaso y cola
 horas: 5.0
 semana: 4
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Grafos: BFS/DFS y caminos — CLRS BFS"
-evidencia: "1 problema BFS + grafo test"
+lectura: BFS sobre grafos / grids con cola
+evidencia: 1 problema BFS + grafo test
 ---
 
 # L13 — BFS repaso y cola
 
 **~5.0 h · Semana 4**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+BFS explora por capas; la cola es obligatoria.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: 1 problema BFS + grafo test.
+Implementar BFS reutilizable y resolver un problema con evidencia P1.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Grafo de prueba (40 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+`src/graph.ts` (lista de adyacencia) o reusa el de M07 copiando lo mínimo. Tests de vecinos.
 
-### 2. Trabajo central (150 min)
+### 2. `bfs(start)` (70 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Cola + set visitados; opcional mapa `dist`. Complejidad O(V+E) en análisis corto `docs/bfs.md`.
 
-### 3. Análisis escrito (45 min)
+### 3. Problema (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Ej. número de islas (grid), shortest path en grid sin pesos, o “grados de separación”. Carpeta en `problems/`.
 
-### 4. Tests (45 min)
+### 4. Índice (20 min)
 
-Tres casos mínimo por función: borde incluido.
+Patrón `bfs`.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "feat(m08): bfs con cola"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 4: Grafos: BFS/DFS y caminos — CLRS BFS | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | BFS: cola, visitados, capas O(V+E) | [VisuAlgo · BFS](https://visualgo.net/en/dfsbfs) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Utilidad de grafo o grid + `bfs` que retorna orden de visita o distancias.
+2. Un problema en `problems/` resuelto con BFS + ≥3 tests.
+3. Commit `feat(m08): bfs con cola`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- BFS con stack (eso es DFS).
+- No marcar visitados → loops.
+- Complejidad sin hablar de V y E.
+
 ## Siguiente
 
 [L14 — DFS y componentes](L14-dfs-y-componentes.md)

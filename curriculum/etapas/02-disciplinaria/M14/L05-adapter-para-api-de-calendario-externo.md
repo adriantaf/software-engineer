@@ -3,74 +3,61 @@ id: L05
 materia: M14
 orden: 5
 titulo: Adapter para API de calendario externo
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Refactoring.Guru Adapter"
-evidencia: "projects/m14-patrones/src/calendario-adapter.ts"
+lectura: Adapter; integrar API externa tras interfaz de dominio
+evidencia: src/calendar/ adapter + fake API + tests
 ---
 
 # L05 — Adapter para API de calendario externo
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Algún design partner vivirá en Google Calendar. Hoy aíslas ese JSON raro detrás de tu interfaz.
 
 ## Objetivo
 
-Adaptar una interfaz ficticia de calendario externo a tu puerto de dominio `CalendarioPuerto`.
-
-## Por qué importa
-
-Integraciones reales (Google Calendar luego) exigen Adapter, no ifs en el servicio de citas.
-
-## Conceptos
-
-- Adapter.
-- puerto.
-- librería terceros.
+Adapter + fake vendor + tests del puerto de dominio.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Puerto (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Define puerto dominio + adapter que traduce tipos/fechas. Test: el dominio solo ve tu interfaz.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l05 adapter-para-api-de-calendario-externo"
+```ts
+export interface ExternalCalendar {
+  listBusy(from: Date, to: Date): Promise<{ start: Date; end: Date }[]>;
+}
 ```
+
+### 2. Vendor feo + Adapter (70–90 min)
+
+Simula respuesta `{ items: [{ start: { dateTime: string } }] }` y adapta a `Date`.
+
+### 3. Tests + ADR (50 min)
+
+`adr/adapter-calendar.md` · commit `feat(m14): adapter calendario externo`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Refactoring.Guru | Adapter | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Adapter: convierte API de terceros a tu puerto de dominio | [Refactoring.Guru — Adapter (ES)](https://refactoring.guru/es/design-patterns/adapter) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Adapter + test de traducción.
-2. Dominio sin import de SDK.
-3. ADR o nota en README.
+Marca la lección **solo si**:
+
+1. Puerto de dominio (p. ej. `ExternalCalendar`) + adapter sobre un cliente “feo” simulado.
+2. Tests contra el puerto, no contra el JSON crudo del vendor.
+3. Commit `feat(m14): adapter calendario externo`.
 
 ## Errores comunes
 
-- Copiar tipos del SDK al dominio.
-- Adapter que re-lanza errores crudos.
+- Filtrar tipos del vendor a toda la app.
+- Adapter sin tests.
+- Llamar HTTP real obligatorio (usa fake en memoria).
 
 ## Siguiente
 

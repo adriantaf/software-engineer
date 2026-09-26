@@ -3,74 +3,71 @@ id: L18
 materia: M13
 orden: 18
 titulo: Endpoints y módulos previstos M17
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "OpenAPI borrador opcional"
-evidencia: "endpoints.md"
+lectura: Lista de rutas API y módulos de código previstos
+evidencia: projects/m13-diseno/endpoints-m17.md
 ---
 
 # L18 — Endpoints y módulos previstos M17
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+Puente explícito al scaffold: qué rutas y carpetas nacerán en M17.
 
 ## Objetivo
 
-Listar rutas REST previstas con método, auth, DTO (texto).
-
-## Por qué importa
-
-Scaffold M17 usa esta lista.
-
-## Conceptos
-
-- ruta.
-- método.
-- rol.
+`endpoints-m17.md` breve y accionable.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Tabla de endpoints (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+| Método | Ruta | Auth | Éxito | Errores |
+|--------|------|------|-------|---------|
+| POST | /auth/login | no | 200 | 401 |
+| POST | /citas | sí | 201 | 400/401/403/409 |
+| GET | /citas | sí | 200 | 401 |
+| … | … | … | … | … |
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Módulos (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+```text
+auth/  clientes/  servicios/  citas/
+```
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Relación con capas de L09.
 
-Tabla ≥12 rutas Must. Coherente con casos de uso.
+### 3. Enlaza desde README (20 min)
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l18 endpoints-y-modulos-previstos-m17"
+git add projects/m13-diseno
+git commit -m "docs(m13): endpoints y modulos previstos M17"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| srs-v1 | RF | arquitectura |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Contrato tentativo de API y módulos para el scaffold M17 | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. endpoints.md.
-2. Auth por ruta.
-3. Coherencia CU.
+Marca la lección **solo si**:
+
+1. `endpoints-m17.md` lista métodos/rutas Must con DTO/status resumidos.
+2. Mapa módulo → carpeta (`auth`, `citas`, `clientes`).
+3. Commit `docs(m13): endpoints y modulos previstos M17`.
 
 ## Errores comunes
 
-- Rutas no en SRS.
-- Falta POST citas.
+- OpenAPI de 80 rutas para el MVP.
+- Endpoints sin auth marcada.
+- Módulos que no coinciden con arquitectura.md.
 
 ## Siguiente
 

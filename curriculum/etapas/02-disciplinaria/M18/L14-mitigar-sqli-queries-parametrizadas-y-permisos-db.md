@@ -3,71 +3,51 @@ id: L14
 materia: M18
 orden: 14
 titulo: "Mitigar SQLi: queries parametrizadas y permisos DB"
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "SQLi Prevention Cheat Sheet"
-evidencia: "commit fix + test en repo producto"
+lectura: SQLi Prevention Cheat Sheet
+evidencia: commit fix + test en repo producto
 ---
 
 # L14 — Mitigar SQLi: queries parametrizadas y permisos DB
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Fix + least privilege del rol app en Postgres de Agenda Ops.
 
 ## Objetivo
 
-Corregir el vector SQLi (o endurecer consulta) y añadir test de regresión que falle si vuelve la concatenación.
-
-## Por qué importa
-
-Hallazgo sin fix no cuenta para P2.
-
-## Conceptos
-
-- Prepared statements.
-- Validación de entrada en frontera.
-- Usuario DB sin DDL.
+Commit fix (si había) + nota de rol DB sin DDL; test de regresión en búsquedas de clientes/citas.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Parametriza (60–80 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Reemplaza concat en la API del piloto. Test con payload previo → seguro.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Permisos DB (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Usuario app de Agenda Ops: DML limitado (sin DDL). Documenta en hallazgos.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Implementa fix en tu API de Agenda Ops (repo M17). Test automatizado: input malicioso → 400 o resultado vacío, nunca error SQL expuesto.
-
-Actualiza `001-sqli.md` con commit hash y captura de test verde.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l14 mitigar-sqli-queries-parametrizadas-y-pe"
-```
+`fix(m18): l14 sqli parametrizado`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | SQLi Prevention | Tests M15 si aplica |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | SQLi Prevention Cheat Sheet | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Commit fix.
-2. Test de regresión.
-3. Finding actualizado a Cerrado.
+Marca la lección **solo si**:
+
+1. Commit fix (artefacto: `commit fix`).
+2. Test de regresión (artefacto: `commit fix`).
+3. Finding actualizado a Cerrado (artefacto: `commit fix`).
 
 ## Errores comunes
 

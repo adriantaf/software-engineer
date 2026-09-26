@@ -5,60 +5,76 @@ orden: 5
 titulo: Pila (Stack) tipada
 horas: 5.0
 semana: 2
-lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — ED: pilas LIFO, aplicaciones (paréntesis, undo)"
-evidencia: "Stack<T> con push/pop/peek + 4 tests (inicio P1)"
+lectura: "Pilas LIFO: push, pop, peek e invariantes"
+evidencia: Stack<T> con push/pop/peek + 4 tests (inicio P1)
 ---
 
 # L05 — Pila (Stack) tipada
 
 **~5.0 h · Semana 2**
 
-La pila es la interfaz LIFO: implementación sobre array o lista, pero API propia.
+LIFO es la base de undo, parsers y DFS. Hoy la implementas tipada y la usas en un ejercicio corto.
 
 ## Objetivo
 
-Implementar pila genérica con tests y documentar O(1) en operaciones core.
+Entregar `Stack<T>` con API mínima, tests LIFO y un caso de uso (paréntesis balanceados o undo).
 
 ## Pasos
 
-### 1. API (60 min)
+### 1. Lectura (30 min)
 
-`push`, `pop`, `peek`, `size`, `isEmpty`. Decide: `pop` en vacío lanza error tipado.
+Sección de pilas en tu texto ED. Anota precondiciones de `pop`/`peek`.
 
-### 2. Tests (75 min)
+### 2. Implementación (60 min)
 
-LIFO orden, pop vacío, peek no muta, muchos pushes.
+`src/stack.ts` — puedes basarte en array **privado** o en tu lista; no reexportes mutadores internos.
 
-### 3. Aplicación mini (60 min)
+```ts
+export class Stack<T> {
+  push(x: T): void
+  pop(): T          // o T | undefined — documenta
+  peek(): T
+  get size(): number
+  isEmpty(): boolean
+}
+```
 
-`balanceParentesis(s: string): boolean` usando tu pila.
+### 3. Tests LIFO (45 min)
 
-### 4. Lectura (45 min)
+Push A,B,C → pop C,B,A; peek no modifica size; pop vacío; size tras N operaciones.
 
-Capítulo pilas.
+### 4. Ejercicio (70 min)
 
-### 5. Commit (30 min)
+`src/exercises/balanced.ts`: `isBalanced(s: string): boolean` usando `Stack<string>`. Tests: `()`, `([]){}`, `([)]`, vacío, `(((`.
 
-`feat(m07): stack tipado`.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): stack tipado"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — ED: pilas LIFO, aplicaciones (paréntesis, undo) | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Pila LIFO; aplicaciones (paréntesis, undo) | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Stack con 4+ tests.
-2. Ejercicio paréntesis funcionando.
-3. Big-O en COMPLEJIDAD.
+Marca la lección **solo si**:
+
+1. `src/stack.ts` tipado con `push`/`pop`/`peek`/`isEmpty`; ≥4 tests verdes.
+2. Un ejercicio (paréntesis o undo de 3 comandos) en `src/exercises/balanced.ts` o test dedicado.
+3. Commit `feat(m07): stack tipado`.
 
 ## Errores comunes
 
-- Exponer array interno mutable.
-- `peek` que hace pop por error.
+- Exponer el array interno mutable.
+- `pop` en vacío sin definir comportamiento (throw vs undefined).
+- Implementar “pila” sin tests de LIFO.
+
 ## Siguiente
 
 [L06 — Cola (Queue) y cola circular](L06-cola-queue-y-cola-circular.md)

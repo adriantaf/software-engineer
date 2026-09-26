@@ -3,74 +3,57 @@ id: L08
 materia: M16
 orden: 8
 titulo: Sesiones 4–5 y resumen agregado P2
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Síntesis cualitativa"
-evidencia: "projects/m16-ihc/sesiones/resumen-5-usuarios.md"
+lectura: Síntesis de patrones; cierre P2
+evidencia: participante-4..5 + resumen-5-usuarios.md (P2)
 ---
 
 # L08 — Sesiones 4–5 y resumen agregado P2
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+P2 exige 5 personas + síntesis.
 
 ## Objetivo
 
-Completar 5 sesiones y sintetizar patrones (impacto × frecuencia).
-
-## Por qué importa
-
-P2 cierra con evidencia agregada, no anécdotas.
-
-## Conceptos
-
-- síntesis.
-- patrón.
-- P2.
+Cerrar sesiones y `resumen-5-usuarios.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Sesiones 4–5 (60–90 min netos)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Matriz de patrones (60–70 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+| Hallazgo | # participantes | Severidad |
+|----------|-----------------|-----------|
+| No encuentra “Nueva cita” | 4/5 | alta |
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-resumen-5-usuarios.md con top problemas y citas representativas.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l08 sesiones-4-5-y-resumen-agregado-p2"
-```
+`docs(m16): resumen 5 usuarios cierre P2`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M16-ihc.md | P2 |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Cinco sesiones + resumen agregado de patrones | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. 5 sesiones.
-2. Resumen agregado.
-3. P2 verificable.
+Marca la lección **solo si**:
+
+1. Cinco sesiones documentadas.
+2. `sesiones/resumen-5-usuarios.md` con patrones (no solo anécdotas) — P2.
+3. Commit `docs(m16): resumen 5 usuarios cierre P2`.
 
 ## Errores comunes
 
-- Cinco amigos sin tareas.
-- Un solo párrafo.
+- Cinco clones de la misma nota.
+- Resumen sin frecuencias.
+- Ignorar hallazgos que contradicen tu ego de diseño.
 
 ## Siguiente
 

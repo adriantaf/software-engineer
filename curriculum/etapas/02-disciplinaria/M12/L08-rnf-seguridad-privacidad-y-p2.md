@@ -3,74 +3,72 @@ id: L08
 materia: M12
 orden: 8
 titulo: RNF seguridad, privacidad y P2
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Plantilla RNF + hilo seguridad"
-evidencia: "stories.md + srs-borrador RNF"
+lectura: Plantilla RNF + hilo seguridad
+evidencia: stories.md + srs-borrador RNF (≥8 stories)
 ---
 
 # L08 — RNF seguridad, privacidad y P2
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Cierras P2 y metes seguridad en el SRS desde ya ([hilo](../../../hilos/seguridad.md)).
 
 ## Objetivo
 
-Definir ≥3 RNF numerados (SEC/PRIV) trazables a stories.
+≥8 stories + ≥3 RNF de seguridad/privacidad trazables.
 
-## Por qué importa
+## Pasos
 
-P2 y P3 dependen de RNF explícitos.
+### 1. Completa stories (45 min)
 
-## Conceptos
+Llega a ≥8 con criterios. Índice al inicio de `stories.md`.
 
-- RNF.
-- PII mínimo.
-- auditoría.
+### 2. RNF (75 min)
 
-## Pasos (hazlos en orden)
+En `srs-borrador.md` §3.2, ejemplos:
 
-### 1. Lectura dirigida (60–90 min)
+| ID | Tipo | Descripción |
+|----|------|-------------|
+| RNF-SEC-01 | Seguridad | Toda ruta de negocio exige sesión; sin token → 401 |
+| RNF-SEC-02 | Autorización | Staff no lee notas privadas → 403 + log |
+| RNF-PRIV-01 | Privacidad | PII mínimo; single-tenant documentado |
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Enlaza cada RNF a US-xx.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. README P2 (20 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Marca P2 listo.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-RNF-SEC/PRIV en borrador SRS. Cada RNF enlaza a ≥1 story.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l08 rnf-seguridad-privacidad-y-p2"
+git add projects/m12-srs
+git commit -m "docs(m12): l08 rnf seguridad p2"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Hilo | seguridad.md | plantilla |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | RNF seguridad/privacidad trazables; single-tenant; 401/403 | [Hilo seguridad](../../../hilos/seguridad.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. ≥3 RNF seguridad/privacidad.
-2. Trazabilidad.
-3. P2 listo.
+Marca la lección **solo si**:
+
+1. `stories.md` tiene ≥8 stories con criterios (P2).
+2. `srs-borrador.md` incluye ≥3 RNF-SEC/PRIV numerados y enlazados a stories.
+3. Commit `docs(m12): l08 rnf seguridad p2`.
 
 ## Errores comunes
 
-- RNF genéricos.
-- Sin criterio de prueba futuro.
+- “Seguridad luego en M18” sin RNF.
+- RNF no medibles (“máxima seguridad”).
+- Stories sin permisos.
 
 ## Siguiente
 

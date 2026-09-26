@@ -3,69 +3,64 @@ id: L02
 materia: M17
 orden: 2
 titulo: Registro con hash de contraseña
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "OWASP Password Storage + bcrypt/argon2"
-evidencia: "POST /auth/register"
+lectura: OWASP Password Storage + bcrypt/argon2
+evidencia: POST /auth/register
 ---
 
 # L02 — Registro con hash de contraseña
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Agenda Ops no admite usuarios en texto plano. Hoy nace `POST /auth/register`.
 
 ## Objetivo
 
-Implementar registro: validar email/password, hash fuerte, persistir usuario ligado al negocio piloto.
-
-## Por qué importa
-
-Auth real desde el MVP — no usuarios en texto plano.
-
-## Conceptos
-
-- hash.
-- registro.
-- validación.
+Registro con validación (email/password), hash bcrypt/argon2 y usuario ligado al negocio piloto.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura OWASP Password Storage (25–35 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Cheat Sheet: cost factor, no MD5/SHA solo, never log passwords.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Esquema usuarios (30–40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Tabla `usuarios` (o migración): email único, `password_hash`, `rol`, `negocio_id`/`tenant_id` nullable documentado. Sin password en claro.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Endpoint register (70–90 min)
 
-Zod (o similar) en body. Test integración 201 y 400 email inválido.
+`POST /auth/register` con Zod/valibot: email válido, password ≥8 (o política documentada). Respuesta 201 sin devolver el hash. 400 en inválido.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Tests (40–50 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m17): l02 registro-con-hash-de-contrasena"
+npm test -- auth   # o vitest filter
 ```
+
+Casos: 201 feliz; 400 email malo; hash ≠ plaintext en DB.
+
+### 5. Commit
+
+`feat(m17): l02 register con hash`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Password Storage | m13 ADR auth |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | OWASP Password Storage + bcrypt/argon2 | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Register funciona.
-2. Hash no reversible.
-3. Test 400.
+Marca la lección **solo si**:
+
+1. Register funciona (artefacto: `POST /auth/register`).
+2. Hash no reversible (artefacto: `POST /auth/register`).
+3. Test 400 (artefacto: `POST /auth/register`).
+4. Commit `docs(m17): L02 registro-con-hash-de-contrasena`.
 
 ## Errores comunes
 

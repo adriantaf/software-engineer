@@ -3,71 +3,52 @@ id: L15
 materia: M18
 orden: 15
 titulo: XSS reflejado en campos de cliente o búsqueda
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "XSS Prevention Cheat Sheet"
-evidencia: "projects/m18-appsec/findings/002-xss-reflected.md"
+lectura: XSS Prevention Cheat Sheet
+evidencia: projects/m18-appsec/findings/002-xss-reflected.md
 ---
 
 # L15 — XSS reflejado en campos de cliente o búsqueda
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Busca reflejo de input en HTML.
 
 ## Objetivo
 
-Probar XSS reflejado en un campo que se renderiza (nombre, mensaje de error) y documentar contexto HTML/JS.
-
-## Por qué importa
-
-XSS roba sesiones si las cookies son legibles por JS.
-
-## Conceptos
-
-- Reflejado vs almacenado.
-- Contexto de escape.
-- Content-Type correcto.
+PoC XSS reflejado en tu UI o evidencia de escape; entrada en tabla hallazgos.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Prueba (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Payloads simples en nombre/búsqueda. Solo tu staging.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Documenta (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`pocs/xss-reflected.md` con pasos y resultado.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Payloads: `<script>alert(1)</script>`, event handlers. En `projects/m18-appsec/findings/002-xss-reflected.md` indica pantalla y si el navegador ejecutó (en tu cuenta de prueba).
-
-No uses payloads que exfiltruen a dominios externos; solo demuestra impacto local.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l15 xss-reflejado-en-campos-de-cliente-o-bus"
-```
+`docs(m18): l15 poc xss reflejado`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | XSS Prevention | CSP intro semana 7 |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | XSS Prevention Cheat Sheet | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. PoC documentada.
-2. Contexto identificado.
-3. Sin atacar usuarios reales.
+Marca la lección **solo si**:
+
+1. PoC documentada (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
+2. Contexto identificado (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
+3. Sin atacar usuarios reales (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
+4. Commit `docs(m18): L15 xss-reflejado-en-campos-de-cliente-o-busqueda`.
 
 ## Errores comunes
 

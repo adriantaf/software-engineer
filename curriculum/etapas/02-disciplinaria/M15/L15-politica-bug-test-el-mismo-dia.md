@@ -3,74 +3,55 @@ id: L15
 materia: M15
 orden: 15
 titulo: Política bug → test el mismo día
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Regresión documentada"
-evidencia: "projects/m15-calidad/regresiones.md"
+lectura: Regresión inmediata; ejemplo real
+evidencia: docs/bug-test-mismo-dia.md + test de regresión
 ---
 
 # L15 — Política bug → test el mismo día
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Regla del plan: el bug no se cierra solo con el fix.
 
 ## Objetivo
 
-Documentar un bug real o simulado y el test añadido el mismo día.
-
-## Por qué importa
-
-Esta regla separa equipos serios de demos frágiles.
-
-## Conceptos
-
-- regresión.
-- política.
-- postmortem ligero.
+Política + una regresión demostrable.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe la política (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Inyecta o usa un bug (60–80 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Red (test falla) → fix → green.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Entrada en `regresiones.md`: síntoma, causa, test, commit hash.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l15 politica-bug-test-el-mismo-dia"
-```
+`test(m15): regresion bug mismo dia`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Código limpio | pruebas | — |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Todo bug encontrado genera test el mismo día | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. regresiones.md con 1 caso.
-2. Test asociado.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Política escrita en el repo.
+2. Al menos un bug (real o inyectado) con test de regresión añadido el mismo día (documentado).
+3. Commit `test(m15): regresion bug mismo dia`.
 
 ## Errores comunes
 
-- Bug sin test.
-- Solo fix manual.
+- Política sin ejemplo.
+- Fix sin test.
+- Test que no falla ante el bug.
 
 ## Siguiente
 

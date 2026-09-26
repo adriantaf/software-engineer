@@ -3,74 +3,86 @@ id: L09
 materia: M13
 orden: 9
 titulo: Arquitectura en capas
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Capas + Clean idea"
-evidencia: "arquitectura.md borrador"
+lectura: Capas HTTP → application → domain → infrastructure
+evidencia: projects/m13-diseno/arquitectura.md (capas + responsabilidades)
 ---
 
 # L09 — Arquitectura en capas
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+El monolito modular de ADR 001 necesita fronteras internas. Hoy las escribes.
 
 ## Objetivo
 
-Definir capas HTTP → aplicación → dominio → infraestructura.
-
-## Por qué importa
-
-Evita mezclar SQL en controllers.
-
-## Conceptos
-
-- controller.
-- service.
-- repository.
+`projects/m13-diseno/arquitectura.md` con capas que M14/M17 puedan respetar.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Define capas (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+```text
+HTTP (controllers/routes)
+  → Application (services / use cases)
+    → Domain (reglas: solape, estados)
+      → Infrastructure (Postgres, mail, reloj)
+```
 
-### 2. Carpeta de evidencia (15–20 min)
+Tabla:
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+| Capa | Puede | No puede |
+|------|-------|----------|
+| HTTP | parsear DTO, status codes | reglas de solape |
+| Application | orquestar | SQL crudo (mejor vía repo) |
+| Domain | invariantes | conocer Express |
+| Infra | SQL, SMTP | decidir autorización de negocio a solas |
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Mapa de carpetas previstas (40–50 min)
 
-Diagrama capas + regla: autorización en aplicación/dominio.
+```text
+src/
+  http/
+  application/
+  domain/
+  infrastructure/
+```
 
-### 4. Conexión con el plan (30–45 min)
+Enlaza a módulos: `citas`, `clientes`, `auth`.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 3. Dibuja dependencias (40 min)
 
-### 5. Commit atómico (15 min)
+Mermaid `flowchart TB` de capas; flechas solo hacia abajo (o inward).
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l09 arquitectura-en-capas"
+git add projects/m13-diseno/arquitectura.md
+git commit -m "docs(m13): arquitectura en capas Agenda Ops"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Larman | capas | Código limpio módulos |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Arquitectura en capas; dónde viven reglas vs I/O | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. arquitectura.md.
-2. Regla autorización.
-3. Nombres de capas.
+Marca la lección **solo si**:
+
+1. `arquitectura.md` describe ≥4 capas con responsabilidad y ejemplo de archivo futuro.
+2. Queda explícito que autorización/reglas de cita no viven solo en React.
+3. Commit `docs(m13): arquitectura en capas Agenda Ops`.
 
 ## Errores comunes
 
-- Anémico sin comportamiento.
-- Lógica en React.
+- “Arquitectura” = lista de librerías sin fronteras.
+- Domain que importa SQL o Express.
+- Capas de adorno (8 capas para un CRUD).
 
 ## Siguiente
 

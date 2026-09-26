@@ -3,76 +3,63 @@ id: L02
 materia: M19
 orden: 2
 titulo: Dockerfile multi-stage para la API
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Dockerfile best practices (oficial)"
-evidencia: "Dockerfile en repo + projects/m19-ops/docker.md"
+lectura: Dockerfile best practices (oficial)
+evidencia: Dockerfile en repo + projects/m19-ops/docker.md
 ---
 
 # L02 — Dockerfile multi-stage para la API
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Imagen final sin devDependencies ni `.env`.
 
 ## Objetivo
 
-Escribir Dockerfile multi-stage: build TS/bundle y runtime slim sin devDependencies ni fuentes.
-
-## Por qué importa
-
-Imagen pequeña y sin toolchain reduce superficie.
-
-## Conceptos
-
-- multi-stage
-- USER node
-- HEALTHCHECK
+Dockerfile multi-stage + `.dockerignore`; build local exitoso.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe Dockerfile (90–110 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Stages build/runtime. USER no-root. HEALTHCHECK a `/health`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. dockerignore (20 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`.env`, `node_modules`, tests pesados, keystores.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Implementa patrón de la ficha M19. Documenta comandos build en `projects/m19-ops/docker.md`.
-
-`.dockerignore`: node_modules, .git, .env.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Build (40 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m19): l02 dockerfile-multi-stage-para-la-api"
+docker build -t agenda-ops-api:dev .
 ```
+
+### 4. Commit
+
+`feat(m19): l02 dockerfile multi-stage`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docker | multi-stage | M11 Docker |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Dockerfile best practices (oficial) | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. Dockerfile multi-stage.
-2. docker.md con comandos.
-3. .dockerignore.
+Marca la lección **solo si**:
+
+1. Dockerfile multi-stage (artefacto: `Dockerfile en repo`).
+2. docker.md con comandos (artefacto: `Dockerfile en repo`).
+3. .dockerignore (artefacto: `Dockerfile en repo`).
+4. Commit `docs(m19): L02 dockerfile-multi-stage-para-la-api`.
 
 ## Errores comunes
 
-- COPY .env
-- root en runtime
+- COPY .env.
+- root en runtime.
 
 ## Siguiente
 

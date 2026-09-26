@@ -3,74 +3,64 @@ id: L19
 materia: M10
 orden: 19
 titulo: Documento de amenazas de red del producto
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Proyecto M10 README + STRIDE lite (red)"
-evidencia: "projects/m10-redes/amenazas-red.md actualizado"
+lectura: Proyecto M10 README + STRIDE lite (red)
+evidencia: projects/m10-redes/amenazas-red.md actualizado
 ---
 
 # L19 — Documento de amenazas de red del producto
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+El entregable del proyecto: un doc que M18 pueda consumir sin redescubrir la red.
 
 ## Objetivo
 
-Redactar amenazas de red (eavesdropping, session theft, DNS spoofing) con mitigaciones enlazadas a M18/M19.
+Publicar `amenazas-red.md` completo y enlazado.
 
-## Por qué importa
+## Pasos
 
-Es el entregable proyecto de la materia y debe ser usable por tu yo de M17.
+### 1. Fusiona fuentes (60 min)
 
-## Conceptos
+Parte de `amenazas-enlace.md` + `superficie/endpoints.md` + labs TLS/cookies. Crea `amenazas-red.md` con secciones: activos, amenazas, mitigaciones, residual, follow-ups M18/M19.
 
-- STRIDE a nivel red.
-- Mitigación vs aceptación de riesgo.
-- Dependencias (CDN, hosting).
+### 2. STRIDE lite (60 min)
 
-## Pasos (hazlos en orden)
+Al menos una fila por: Spoofing, Tampering, Repudiation (logs), Information disclosure, DoS, Elevation (si aplica a red/admin).
 
-### 1. Lectura dirigida (60–90 min)
+### 3. README (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Índice del proyecto con P1/P2/P3 y proyecto marcados.
 
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Estructura: activo, amenaza, impacto, mitigación, estado. Mínimo 8 entradas.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l19 documento-de-amenazas-de-red-del-product"
+git add projects/m10-redes
+git commit -m "docs(m10): l19 amenazas red producto"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | Proyecto m10-redes README | Hilo seguridad |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | STRIDE lite sobre red: spoofing, tampering, info disclosure, DoS | [MDN HTTP](https://developer.mozilla.org/es/docs/Web/HTTP) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. `amenazas-red.md` ≥8 entradas.
-2. Mitigaciones realistas.
-3. README enlaza doc.
+Marca la lección **solo si**:
+
+1. `amenazas-red.md` integra enlace + superficie + mitigaciones hacia M18/M19.
+2. README del proyecto enlaza amenazas, superficie y tcp-echo.
+3. Commit `docs(m10): l19 amenazas red producto`.
 
 ## Errores comunes
 
-- Mitigación “usar HTTPS” sin detalle.
-- No priorizar por impacto.
+- Lista genérica copiada sin Agenda Ops.
+- Amenazas sin mitigación ni dueño (tú / M18).
+- Olvidar DNS y cookies.
 
 ## Siguiente
 

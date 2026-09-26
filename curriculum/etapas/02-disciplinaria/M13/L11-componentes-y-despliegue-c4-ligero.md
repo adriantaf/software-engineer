@@ -3,74 +3,72 @@ id: L11
 materia: M13
 orden: 11
 titulo: Componentes y despliegue (C4 ligero)
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "C4 nivel 1-2"
-evidencia: "diagramas/componentes.md"
+lectura: C4 niveles 1–2; contenedores del piloto
+evidencia: diagramas/c4-contenedores.md (contexto + contenedores)
 ---
 
 # L11 — Componentes y despliegue (C4 ligero)
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Zoom out: no clases, sino cajas desplegables. Suficiente para M19 sin teatro enterprise.
 
 ## Objetivo
 
-Diagrama contenedores: browser, API, Postgres, (futuro) worker.
-
-## Por qué importa
-
-Prepara M11 playbook y M19 deploy.
-
-## Conceptos
-
-- contenedor C4.
-- dependencia.
-- puerto.
+`diagramas/c4-contenedores.md` con contexto + contenedores del piloto.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Contexto (40–50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Personas: Owner/Staff. Sistema: Agenda Ops. Externos: Email o WhatsApp link, (luego) Stripe.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Contenedores (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+```mermaid
+flowchart LR
+  Person[Staff/Owner] --> Web[Web app]
+  Web --> API[API monolito]
+  API --> DB[(PostgreSQL)]
+  API --> Mail[Email provider]
+```
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Notas de deploy tentativas: un VPS o PaaS, un proceso Node, un Postgres (Docker ok en local).
 
-Mermaid o texto. Postgres solo red interna.
+### 3. Qué NO dibujas (20 min)
 
-### 4. Conexión con el plan (30–45 min)
+Sin service mesh, sin cola Kafka “por si acaso”. Si el SRS no lo pide, fuera.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l11 componentes-y-despliegue-c4-ligero"
+git add projects/m13-diseno/diagramas/c4-contenedores.md
+git commit -m "docs(m13): C4 ligero contexto y contenedores"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| C4 | modelo contenedor | m11 playbook |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | C4 context/container para un monolito web + DB | [C4 model](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. componentes.md.
-2. DB interna.
-3. Enlace arquitectura.
+Marca la lección **solo si**:
+
+1. Diagrama de contexto (persona + Agenda Ops + sistemas externos).
+2. Diagrama de contenedores: Web, API, PostgreSQL (± email).
+3. Commit `docs(m13): C4 ligero contexto y contenedores`.
 
 ## Errores comunes
 
-- DB pública en diagrama.
-- Falta API.
+- C4 con 25 microservicios inventados.
+- Olvidar al design partner / usuario del negocio como persona.
+- Mezclar nivel clases con nivel contenedores en un solo dibujo ilegible.
 
 ## Siguiente
 

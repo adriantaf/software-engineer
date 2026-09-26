@@ -5,60 +5,66 @@ orden: 2
 titulo: Notación asintótica Θ, O y Ω
 horas: 5.0
 semana: 1
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Crecimiento asintótico / notación Big-O — CLRS cap. crecimiento de funciones"
-evidencia: "notacion.md + 5 funciones clasificadas"
+lectura: "CLRS: crecimiento de funciones — O, Ω, Θ"
+evidencia: notacion.md + 5 funciones clasificadas
 ---
 
 # L02 — Notación asintótica Θ, O y Ω
 
 **~5.0 h · Semana 1**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Sin lenguaje común de cotas, el resto de M08 es opinión.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: notacion.md + 5 funciones clasificadas.
+Escribir `docs/notacion.md` con definiciones operativas y clasificar cinco ejemplos concretos.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Lectura CLRS (60–75 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Capítulo de crecimiento/notación. Anota definiciones formales y una intuición (“O = techo, Ω = piso, Θ = ajustado”).
 
-### 2. Trabajo central (150 min)
+### 2. Documento base (45 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+`docs/notacion.md`: definiciones + tabla `n`, `n log n`, `n²`, `2ⁿ` con valores a n=2,8,32 (calculadora).
 
-### 3. Análisis escrito (45 min)
+### 3. Cinco clasificaciones (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Incluye: binary search; un doble bucle triangular; `push` amortizado de array dinámico (referencia M07); factorial recursivo ingenuo; merge de dos arrays ordenados. Para cada uno: Θ o O + peor caso.
 
-### 4. Tests (45 min)
+### 4. Autocomprobación (30 min)
 
-Tres casos mínimo por función: borde incluido.
+Explica en voz alta la diferencia O vs Θ con un ejemplo; resume en 4 líneas al final del doc.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "docs(m08): notacion asintotica O Omega Theta"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 1: Crecimiento asintótico / notación Big-O — CLRS cap. crecimiento de funciones | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Definiciones O, Ω, Θ; peores vs cotas ajustadas | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `docs/notacion.md` define O/Ω/Θ con tus palabras + 1 ejemplo gráfico/tabla.
+2. Clasificas **5** funciones/algoritmos (código o fórmulas) con justificación de 2–3 líneas c/u.
+3. Commit `docs(m08): notacion asintotica O Omega Theta`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Usar O como sinónimo de “exactamente” sin Θ.
+- Confundir peor caso del algoritmo con cota de una función.
+- Lista de 5 sin justificación (“es O(n) porque sí”).
+
 ## Siguiente
 
 [L03 — Análisis de bucles y recursión simple](L03-analisis-de-bucles-y-recursion-simple.md)

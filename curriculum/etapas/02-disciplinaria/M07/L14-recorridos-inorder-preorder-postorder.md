@@ -5,61 +5,69 @@ orden: 14
 titulo: Recorridos inorder, preorder, postorder
 horas: 5.0
 semana: 4
-lectura: "Joyanes / texto univ. ED (ed. ES): Árboles / BST + recorridos — ED: recorridos"
-evidencia: "Tres recorridos + snapshots en tests"
+lectura: "Recorridos de árbol: inorden, preorden, postorden"
+evidencia: Tres recorridos + snapshots en tests
 ---
 
 # L14 — Recorridos inorder, preorder, postorder
 
 **~5.0 h · Semana 4**
 
-Semana 4 de M07: rigor en implementación, tests y documentación de costos.
+Inorder en un BST es el sorted dump. Preorden y postorden aparecen en serialización y borrado de directorios.
 
 ## Objetivo
 
-Avanzar evidencia `Tres recorridos + snapshots en tests` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Exponer tres recorridos con tests de snapshot sobre un árbol fijo.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Repaso teórico (25 min)
 
-Lee la sección indicada en tu texto ED sobre **Recorridos inorder, preorder, postorder**. Anota definiciones formales (pre/post condiciones).
+Escribe en `docs/bst-semana4.md` una línea por recorrido: orden de visita.
 
-### 2. Implementación (120 min)
+### 2. Implementación recursiva (70 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+En `src/bst.ts`: `inorder()`, `preorder()`, `postorder()` → arrays. Opcional: versión iterativa bonus.
 
-### 3. Tests (90 min)
+### 3. Tests snapshot (60 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Árbol 8,3,10,1,6,14,4:
 
-### 4. Documentación (30 min)
+- inorder: `[1,3,4,8,10,14]` (ajusta si tu set difiere)
+- preorder / postorder según tu dibujo VisuAlgo
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+### 4. Uso didáctico (40 min)
 
-### 5. Commit (30 min)
+Función `toSortedArray()` = inorder. Test de propiedad: insertar permutación y sorted es el mismo.
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): bst recorridos"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 4: Árboles / BST + recorridos — ED: recorridos | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Inorder ordena claves BST; pre/post usos | [VisuAlgo · BST](https://visualgo.net/en/bst) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. Métodos `inorder`, `preorder`, `postorder` que devuelven `number[]` (o visitor).
+2. Tests con snapshot de la secuencia 8,3,10,1,6 (inorder = ordenado).
+3. Commit `feat(m07): bst recorridos`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Inorder que no queda ordenado → invariante roto en insert.
+- Recorridos mutando el árbol.
+- Solo implementar inorder y fingir los otros.
+
 ## Siguiente
 
 [L15 — BST: mínimo, máximo y sucesor](L15-bst-minimo-maximo-y-sucesor.md)

@@ -3,74 +3,75 @@ id: L09
 materia: M15
 orden: 9
 titulo: Workflow GitHub Actions — esqueleto
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Actions quickstart"
-evidencia: "projects/m15-calidad/.github/workflows/ci.yml o raíz"
+lectura: GitHub Actions basics; ci.yml
+evidencia: .github/workflows/m15-ci.yml (o documentado) verde
 ---
 
 # L09 — Workflow GitHub Actions — esqueleto
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+P2: CI real. Hoy el esqueleto que falla si los tests fallan.
 
 ## Objetivo
 
-Crear workflow `ci.yml`: checkout, node 20, install, test.
-
-## Por qué importa
-
-CI obligatoria es práctica P2 y base de M17.
-
-## Conceptos
-
-- CI.
-- workflow.
-- push PR.
+`.github/workflows/` con job de test para M15.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe YAML (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Workflow mínimo verde en push. Documenta ruta en README M15.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l09 workflow-github-actions-esqueleto"
+```yaml
+name: m15-ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: projects/m15-calidad
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: projects/m15-calidad/package-lock.json
+      - run: npm ci
+      - run: npm test
 ```
+
+Ajusta si aún no hay lockfile (`npm install`).
+
+### 2. Documenta ruta (30 min)
+
+### 3. Commit + push cuando puedas verificar
+
+`ci(m15): workflow esqueleto github actions`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| GitHub | Actions docs | — |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Workflow CI: checkout, node, npm test | [GitHub Actions — Quickstart](https://docs.github.com/es/actions/writing-workflows/quickstart) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. Workflow existe.
-2. Verde en main o rama.
-3. README enlace.
+Marca la lección **solo si**:
+
+1. Workflow YAML que corre en push/PR e instala deps + `npm test` en `projects/m15-calidad` (o monorepo doc).
+2. README M15 enlaza al workflow / badge path.
+3. Commit `ci(m15): workflow esqueleto github actions`.
 
 ## Errores comunes
 
-- CI solo local.
-- Sin pin de node.
+- Workflow solo en docs sin YAML.
+- `npm test` en raíz sin `working-directory`.
+- Secrets pegados en el YAML.
 
 ## Siguiente
 

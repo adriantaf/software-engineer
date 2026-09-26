@@ -5,61 +5,74 @@ orden: 17
 titulo: Modelo de heap binario
 horas: 5.0
 semana: 5
-lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — ED: heaps"
-evidencia: "array-backed heap model + heapifyUp/Down"
+lectura: "Heap binario como array: índices padre/hijos"
+evidencia: array-backed heap model + heapifyUp/Down
 ---
 
 # L17 — Modelo de heap binario
 
 **~5.0 h · Semana 5**
 
-Semana 5 de M07: rigor en implementación, tests y documentación de costos.
+El heap vive en un array: padre en `(i-1)>>1`, hijos `2i+1` y `2i+2`.
 
 ## Objetivo
 
-Avanzar evidencia `array-backed heap model + heapifyUp/Down` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Codificar el modelo (índices + heapify up/down) antes de la API insert/extractMin.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. VisuAlgo + notas (40 min)
 
-Lee la sección indicada en tu texto ED sobre **Modelo de heap binario**. Anota definiciones formales (pre/post condiciones).
+Observa un min-heap. En `docs/heap.md` escribe la propiedad de heap y la forma completa de niveles.
 
-### 2. Implementación (120 min)
+### 2. Helpers (50 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+`src/heap-model.ts`:
 
-### 3. Tests (90 min)
+```ts
+export const parent = (i: number) => (i - 1) >> 1
+export const left = (i: number) => 2 * i + 1
+export const right = (i: number) => 2 * i + 2
+```
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Tests de índices 0..10.
 
-### 4. Documentación (30 min)
+### 3. heapifyUp / heapifyDown (90 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+Funciones que mutan `number[]` asumiendo min-heap. Casos de prueba: subir una hoja menor que el padre; bajar una raíz mayor que un hijo.
 
-### 5. Commit (30 min)
+### 4. Diagrama array↔árbol (30 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+En `docs/heap.md`, tabla índice→valor para un heap de ejemplo.
+
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): modelo heap binario"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — ED: heaps | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Heap shape + heap property; índices 2i+1 / 2i+2 | [VisuAlgo · Heap](https://visualgo.net/en/heap) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. Módulo con helpers `parent`/`left`/`right` y `heapifyUp`/`heapifyDown` sobre array.
+2. Tests unitarios de índices y de un heapify sobre array casi-heap.
+3. Commit `feat(m07): modelo heap binario`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Confundir índices 0-based y 1-based.
+- Heapify que no restaura la propiedad.
+- Tratar el heap como BST ordenado inorder.
+
 ## Siguiente
 
 [L18 — Heap mínimo: insert y extractMin](L18-heap-minimo-insert-y-extractmin.md)

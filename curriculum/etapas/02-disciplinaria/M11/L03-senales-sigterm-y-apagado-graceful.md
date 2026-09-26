@@ -3,74 +3,95 @@ id: L03
 materia: M11
 orden: 3
 titulo: Señales SIGTERM y apagado graceful
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Silberschatz — señales + Node process signals"
-evidencia: "labs/sigterm-node.md"
+lectura: Silberschatz — señales + Node process signals
+evidencia: labs/sigterm-node.md + app/graceful-server.js
 ---
 
 # L03 — Señales SIGTERM y apagado graceful
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+En deploy (M19) el orquestador envía SIGTERM. Si lo ignoras, cortas citas a medias.
 
 ## Objetivo
 
-Manejar `SIGTERM` en un script Node para cerrar servidor HTTP sin cortar requests a mitad.
+Un servidor HTTP Node que apaga en orden al recibir SIGTERM.
 
-## Por qué importa
+## Pasos
 
-En deploy (M19) el orquestador envía SIGTERM; ignorarla corrompe citas a medias.
+### 1. Código (75–90 min)
 
-## Conceptos
+Crea `projects/m11-so/app/graceful-server.js`:
 
-- SIGTERM vs SIGKILL.
-- Graceful shutdown.
-- Timeouts de cierre.
+```js
+import http from "node:http";
 
-## Pasos (hazlos en orden)
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("ok\n");
+});
 
-### 1. Lectura dirigida (60–90 min)
+const port = Number(process.env.PORT || 3099);
+server.listen(port, "127.0.0.1", () => console.log("listen", port));
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+function shutdown(signal) {
+  console.log("got", signal, "closing…");
+  server.close(() => {
+    console.log("closed");
+    process.exit(0);
+  });
+  setTimeout(() => {
+    console.error("force exit");
+    process.exit(1);
+  }, 10_000).unref();
+}
 
-### 2. Carpeta de evidencia (15–20 min)
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));
+```
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Script mínimo `http.createServer` + handler SIGTERM que cierra con timeout 10s. Prueba con `kill -TERM`.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 2. Prueba (40 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l03 senales-sigterm-y-apagado-graceful"
+node projects/m11-so/app/graceful-server.js &
+PID=$!
+curl -s http://127.0.0.1:3099/
+kill -TERM $PID
+wait $PID
+```
+
+Repite idea con `kill -KILL` y documenta la diferencia en `labs/sigterm-node.md`.
+
+### 3. Commit (15 min)
+
+```bash
+git add projects/m11-so/app projects/m11-so/labs/sigterm-node.md
+git commit -m "feat(m11): l03 graceful sigterm"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Silberschatz | Señales | Node process.on('SIGTERM') |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | SIGTERM vs SIGKILL; graceful shutdown de servidor HTTP | [Node.js process](https://nodejs.org/api/process.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Servidor cierra ordenadamente.
-2. Log de señal guardado.
-3. Diferencia TERM/KILL escrita.
+Marca la lección **solo si**:
+
+1. `app/graceful-server.js` maneja SIGTERM, deja de aceptar conexiones y cierra con timeout.
+2. `labs/sigterm-node.md` documenta prueba con `kill -TERM` vs `kill -KILL`.
+3. Commit `feat(m11): l03 graceful sigterm`.
 
 ## Errores comunes
 
-- Solo SIGKILL en producción.
-- No cerrar pool DB en shutdown.
+- Ignorar SIGTERM y solo morir con SIGKILL en deploy.
+- No poner timeout de cierre (conexiones eternas).
+- Confundir Ctrl+C (SIGINT) con lo que envía Kubernetes/Docker.
 
 ## Siguiente
 

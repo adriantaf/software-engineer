@@ -1,28 +1,62 @@
 # M23 — Ciencia de datos e IA aplicada
 
-Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
+Evidencia de métricas SaaS, LLM evaluado y RAG **por tenant** para Agenda Ops.
 
 ## En resumen
 
-métricas del SaaS + LLM con evaluación; RAG **por tenant** sin filtrar datos ajenos.
+Métricas del SaaS + LLM con evaluación; RAG por tenant sin filtrar datos ajenos.
 
-## Checklist (Evidencia de hecho)
+## Estructura esperada
 
-Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+```text
+projects/m23-ia/
+  README.md
+  bitacora-m23.md
+  politica-datos-llm.md
+  cierre-m23.md
+  metricas/
+    definiciones.md
+    query-agregada.sql
+    export-ejemplo.csv
+    pipeline.md
+    semana-01.md
+  llm-eval/
+    preguntas-gold.json
+    proveedor.md
+    prompt-v1.txt
+    prompt-v2.txt
+    rubrica.md
+    resultados-v1.csv
+    resumen-evaluacion.md
+    costos-mensuales.md
+    logs/
+  rag/
+    diseno.md
+    implementacion.md
+    tests-cross-tenant.md
+    ci-evidencia.md
+    corpus/tenant-a/
+    corpus/tenant-b/
+  faq-asistente/
+    endpoint.md
+    README.md
+    plan-pro-ia.md
+```
 
-- **P1 — Pipeline:** Métricas SaaS por tenant.
-- **P2 — LLM:** Scripts + rúbrica de calidad.
-- **P3 — RAG:** Demo A no ve corpus de B + test.
-- **Proyecto — FAQ:** Asistente scoped por tenant.
+## Checklist
 
-## Cómo usarla
+- **P1 — Pipeline:** métricas por `tenant_id` sin PII innecesaria.
+- **P2 — LLM:** prompts versionados + rúbrica sobre gold set.
+- **P3 — RAG:** demo A no ve corpus de B + test (preferible en CI).
+- **Proyecto — FAQ:** asistente scoped por tenant documentado.
 
-1. Abre la ficha **M23** en el plan.
-2. Sigue las lecciones **L01–L24** en orden (6 semanas × 4).
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
-4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
+## Reglas
+
+1. Escribe `politica-datos-llm.md` **antes** de pegar datos en APIs.
+2. No envíes dumps, secretos ni PII a proveedores LLM.
+3. Cada prompt: versión en archivo + resultado en rúbrica.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/03-terminal/M23-ia-datos.md`
-- Plan: `/materia/M23/`
+- Bibliografía: `curriculum/bibliografia.md#m23-ia-datos`

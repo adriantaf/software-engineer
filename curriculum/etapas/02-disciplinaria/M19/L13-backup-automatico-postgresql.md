@@ -3,74 +3,61 @@ id: L13
 materia: M19
 orden: 13
 titulo: Backup automático PostgreSQL
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "pg_dump + proveedor backups"
-evidencia: "projects/m19-ops/backup.md"
+lectura: pg_dump + proveedor backups
+evidencia: projects/m19-ops/backup.md
 ---
 
 # L13 — Backup automático PostgreSQL
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Backup que no corre no existe.
 
 ## Objetivo
 
-Automatizar pg_dump o backup gestionado; retención y ubicación segura.
-
-## Por qué importa
-
-P3 sin backup es teatro.
-
-## Conceptos
-
-- pg_dump
-- cron
-- cifrado opcional
+`backup.md` + script/cron `pg_dump` (o snapshot proveedor) con retención.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-backup.md: script o procedimiento, frecuencia, dónde se guarda (sin credenciales).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Script dump (80–100 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m19): l13 backup-automatico-postgresql"
+pg_dump "$DATABASE_URL" -Fc -f backup.dump
 ```
+
+Almacena fuera del contenedor efímero.
+
+### 2. Automatiza (40 min)
+
+Cron/GitHub scheduled/PaaS job. Documenta.
+
+### 3. Commit
+
+`feat(m19): l13 backup postgres`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| PostgreSQL | backup | Proveedor docs |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | pg_dump + proveedor backups | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. Procedimiento escrito.
-2. Job programado o gestionado.
-3. Tamaño estimado.
+Marca la lección **solo si**:
+
+1. Procedimiento escrito (artefacto: `projects/m19-ops/backup.md`).
+2. Job programado o gestionado (artefacto: `projects/m19-ops/backup.md`).
+3. Tamaño estimado (artefacto: `projects/m19-ops/backup.md`).
+4. Commit `docs(m19): L13 backup-automatico-postgresql`.
 
 ## Errores comunes
 
-- Backup manual olvidado
-- Dump en repo git
+- Backup manual olvidado.
+- Dump en repo git.
 
 ## Siguiente
 

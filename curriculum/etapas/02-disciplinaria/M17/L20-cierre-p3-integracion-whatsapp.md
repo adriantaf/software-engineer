@@ -3,69 +3,56 @@ id: L20
 materia: M17
 orden: 20
 titulo: Cierre P3 integración WhatsApp
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Ficha P3"
-evidencia: "integracion-whatsapp.md completo"
+lectura: Ficha P3
+evidencia: integracion-whatsapp.md completo
 ---
 
 # L20 — Cierre P3 integración WhatsApp
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+P3 no inventa API oficial sin credencial: documenta gaps.
 
 ## Objetivo
 
-Completar doc P3: capturas, límites legales/opt-in, qué no hace la integración.
-
-## Por qué importa
-
-P3 no sustituye API oficial si no está configurada — documenta gaps.
-
-## Conceptos
-
-- P3.
-- opt-in.
-- gap.
+`integracion-whatsapp.md` completo + checklist P3 en README + capturas.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Completa doc (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Plantilla, botón, opt-in, límites legales, gaps.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Capturas (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Flujo recordatorio (datos seed).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. README P3 (20 min)
 
-Checklist P3 en README. Cierre semana 5.
+Checklist Sí/Parcial/No.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l20 cierre-p3-integracion-whatsapp"
-```
+`docs(m17): l20 cierre p3 whatsapp`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M17-aplicaciones-web.md | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Ficha P3 | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. P3 checklist.
-2. Capturas.
-3. Gaps honestos.
+Marca la lección **solo si**:
+
+1. P3 checklist (artefacto: `integracion-whatsapp.md completo`).
+2. Capturas (artefacto: `integracion-whatsapp.md completo`).
+3. Gaps honestos (artefacto: `integracion-whatsapp.md completo`).
+4. Commit `docs(m17): L20 cierre-p3-integracion-whatsapp`.
 
 ## Errores comunes
 

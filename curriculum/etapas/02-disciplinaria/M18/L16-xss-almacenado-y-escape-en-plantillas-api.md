@@ -3,71 +3,51 @@ id: L16
 materia: M18
 orden: 16
 titulo: XSS almacenado y escape en plantillas/API
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "DOM XSS + stored XSS"
-evidencia: "commit fix + findings/002 actualizado"
+lectura: DOM XSS + stored XSS
+evidencia: commit fix + findings/002 actualizado
 ---
 
 # L16 — XSS almacenado y escape en plantillas/API
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Notas de cita/cliente son candidatas clásicas.
 
 ## Objetivo
 
-Mitigar XSS (escape, sanitización acotada, CSP futura) en el flujo almacenado (notas de cita, perfil).
-
-## Por qué importa
-
-El CRM guarda texto que vuelve a listarse; ahí vive el stored XSS.
-
-## Conceptos
-
-- Sanitizar HTML vs texto plano.
-- JSON no implica seguro en `dangerouslySetInnerHTML`.
-- Headers X-Content-Type-Options.
+PoC stored XSS o fix escape/encoding; no confiar solo en CSP aún.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Inserta payload (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Guarda `<script>` en nota (seed/test user).
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Verifica render (50–60 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+¿Ejecuta? Fix con escape del framework. Test.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Si hay notas/comentarios en citas, prueba almacenamiento. Fix en template/API. Test: payload guardado se muestra escapado.
-
-Tabla P2 en `projects/m18-appsec/findings-table.md` con filas SQLi + XSS (hallazgo → PoC → commit → test).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l16 xss-almacenado-y-escape-en-plantillas-ap"
-```
+`fix(m18): l16 xss almacenado escape`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | XSS Prevention | MDN textContent |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | DOM XSS + stored XSS | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. ≥2 filas en findings-table.
-2. Fix committed.
-3. Test o verificación manual repetible.
+Marca la lección **solo si**:
+
+1. ≥2 filas en findings-table (artefacto: `commit fix`).
+2. Fix committed (artefacto: `commit fix`).
+3. Test o verificación manual repetible (artefacto: `commit fix`).
 
 ## Errores comunes
 

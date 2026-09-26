@@ -3,74 +3,57 @@ id: L07
 materia: M15
 orden: 7
 titulo: Tests HTTP de API — auth y validación
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "supertest o fetch contra app test"
-evidencia: "projects/m15-calidad/tests/api/"
+lectura: Supertest/fetch contra app; 401 y 400
+evidencia: tests/http/ login/citas 401 y 400
 ---
 
 # L07 — Tests HTTP de API — auth y validación
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+La pirámide necesita la capa que habla HTTP: el contrato que el front verá.
 
 ## Objetivo
 
-Tests HTTP: 401 sin sesión, 400 payload inválido, 201 feliz en ruta de citas (spike o m17).
-
-## Por qué importa
-
-La autorización se prueba en servidor, no ocultando botones.
-
-## Conceptos
-
-- HTTP.
-- 401.
-- 400.
+Tests 401/400 contra API de prueba del piloto.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Mini app (60–80 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Si M17 no existe, spike en `projects/m15-calidad/src/http/`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Casos (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Tabla de la ficha M15: feliz opcional hoy; 401 y 400 obligatorios.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-≥4 tests API. Tabla entrada/esperado como en ficha M15.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l07 tests-http-de-api-auth-y-validacion"
-```
+`test(m15): http auth y validacion`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Auth cheat sheet | m13 endpoints |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | HTTP tests: sin auth → 401; body inválido → 400 | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. 401 automatizado.
-2. 400 validación.
-3. 201 feliz.
+Marca la lección **solo si**:
+
+1. App mínima (Express/Fastify/Hono o spike) con ruta protegida de citas.
+2. Tests automatizados: sin cookie/token → 401; body inválido → 400.
+3. Commit `test(m15): http auth y validacion`.
 
 ## Errores comunes
 
-- Solo test unitario.
-- Olvidar 403.
+- Probar solo el happy path.
+- Servidor global compartido sin aislamiento.
+- Hardcodear secrets de prod.
 
 ## Siguiente
 

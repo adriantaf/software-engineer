@@ -3,71 +3,52 @@ id: L19
 materia: M18
 orden: 19
 titulo: Rate limiting en login y endpoints sensibles
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Brute Force + Rate Limiting Cheat Sheets"
-evidencia: "commit middleware + nota en findings"
+lectura: Brute Force + Rate Limiting Cheat Sheets
+evidencia: commit middleware + nota en findings
 ---
 
 # L19 — Rate limiting en login y endpoints sensibles
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+Confirma o añade rate limit; mide 429.
 
 ## Objetivo
 
-Implementar límite de intentos (IP o cuenta) en login y al menos un endpoint costoso.
-
-## Por qué importa
-
-Sin rate limit, A07 y A04 (DoS ligero) son triviales.
-
-## Conceptos
-
-- Ventana fija vs token bucket (idea).
-- 429 Too Many Requests.
-- No bloquear legítimos sin UX.
+Evidencia 429 en login; hallazgo/fix documentado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Prueba carga ligera (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Script de N logins fallidos.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Ajuste (60–80 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Umbrales; no ban eterno sin doc.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Añade rate limit (lib o reverse proxy local). Prueba 20 intentos fallidos login → bloqueo temporal.
-
-Documenta configuración y cómo resetear en dev.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l19 rate-limiting-en-login-y-endpoints-sensi"
-```
+`fix(m18): l19 rate limit evidenciado`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Brute Force | M11 recursos |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Brute Force + Rate Limiting Cheat Sheets | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Rate limit activo.
-2. Prueba documentada.
-3. Mensaje usuario claro.
+Marca la lección **solo si**:
+
+1. Rate limit activo (artefacto: `commit middleware`).
+2. Prueba documentada (artefacto: `commit middleware`).
+3. Mensaje usuario claro (artefacto: `commit middleware`).
+4. Commit `docs(m18): L19 rate-limiting-en-login-y-endpoints-sensibles`.
 
 ## Errores comunes
 

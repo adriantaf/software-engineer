@@ -5,61 +5,68 @@ orden: 23
 titulo: README cuándo usar cada estructura
 horas: 5.0
 semana: 6
-lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Proyecto lib ED"
-evidencia: "README guía de selección + API pública"
+lectura: Guía de selección de estructuras
+evidencia: README guía de selección + API pública
 ---
 
 # L23 — README cuándo usar cada estructura
 
 **~5.0 h · Semana 6**
 
-Semana 6 de M07: rigor en implementación, tests y documentación de costos.
+El proyecto útil es una librería documentada, no solo archivos sueltos.
 
 ## Objetivo
 
-Avanzar evidencia `README guía de selección + API pública` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Redactar la guía de selección y dejar la API pública exportada y testeada.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Inventario (30 min)
 
-Lee la sección indicada en tu texto ED sobre **README cuándo usar cada estructura**. Anota definiciones formales (pre/post condiciones).
+Lista clases en `src/` y márcalas P1/P2/P3.
 
-### 2. Implementación (120 min)
+### 2. Guía de selección (90 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+En README: preguntas → estructura (¿acceso aleatorio? ¿LIFO? ¿prioridad? ¿prefijo? → “eso es M08”). Tabla resumen + enlace a `COMPLEJIDAD.md`.
 
-### 3. Tests (90 min)
+### 3. API y ejemplo (60 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+`src/index.ts` limpio. Bloque “Quick start” de 15 líneas en README importando Stack/HashMap/BST.
 
-### 4. Documentación (30 min)
+### 4. QA (30 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+```bash
+npm test && npm run build
+```
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+```bash
+git commit -am "docs(m07): guia cuando usar cada estructura"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Proyecto lib ED | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Árbol de decisión: acceso, orden, prioridad, grafo | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. README con guía “cuándo usar cada una” (todas las estructuras del curso).
+2. `src/index.ts` exporta la API pública; `npm test` verde.
+3. Commit `docs(m07): guia cuando usar cada estructura`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Guía genérica de Internet sin tus nombres de clase.
+- Olvidar heap/grafo en la tabla.
+- README sin cómo correr tests.
+
 ## Siguiente
 
 [L24 — Cierre M07 y evidencias](L24-cierre-m07-y-evidencias.md)

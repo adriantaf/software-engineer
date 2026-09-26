@@ -3,25 +3,27 @@ id: L09
 materia: M21
 orden: 9
 titulo: Matriz de riesgos del producto y del proyecto
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Gestión de riesgos (notas propias) + Scrum impediments"
-evidencia: "projects/m21-proyectos/riesgos.md borrador"
+lectura: Gestión de riesgos (notas propias) + Scrum impediments
+evidencia: projects/m21-proyectos/riesgos.md borrador
 ---
 
 # L09 — Matriz de riesgos del producto y del proyecto
 
 **~5 h · Semana 3**
 
+Agenda Ops se gestiona en el mismo repo. Hoy entregas **`projects/m21-proyectos/riesgos.md borrador`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M21.
+
 ## Objetivo
 
 Identificar ≥5 riesgos con probabilidad, impacto, mitigación, dueño y fecha de revisión.
 
-## Por qué importa
+## Por qué empieza así
 
 P3 y criterios de dominio exigen riesgos accionables, no lista genérica de ‘bugs’.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Probabilidad × impacto.
 - Riesgo vs issue.
@@ -30,52 +32,59 @@ P3 y criterios de dominio exigen riesgos accionables, no lista genérica de ‘b
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre la [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) y lee **solo** lo nombrado hoy: _Gestión de riesgos (notas propias) + Scrum impediments_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Subraya 3–5 frases que puedas aplicar en Agenda Ops (no resúmenes genéricos). Anótalas en `projects/m21-proyectos/bitacora-m21.md` bajo fecha de hoy.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m21-proyectos`.
 
 Crea `projects/m21-proyectos/riesgos.md` con tabla (≥5 filas): descripción, P, I, mitigación, dueño, revisión.
 
+### 3. Laboratorio principal (90–120 min)
+
 Incluye riesgos de **producto** (un solo design partner, scope creep) y **técnicos** (dependencia PaaS).
 
+### 4. Endurece el entregable (40–60 min)
+
 Enlaza issues de mitigación cuando existan.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m21): l09 matriz-de-riesgos-del-producto-y-del-pro"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | ../../hilos/seguridad.md | ../../../producto-saas.md |
-| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Guía Scrum 2020 (ES) | Gestión de riesgos (notas propias) + Scrum impediments | [Scrum Guide 2020 (PDF ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
 
 
 ## Hecho cuando
 
-1. ≥5 riesgos.
-2. Mitigación concreta cada uno.
-3. Fechas revisión.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m21-proyectos/riesgos.md borrador`.
+2. ≥5 riesgos.
+3. Mitigación concreta cada uno.
+4. Fechas revisión.
+5. Commit `docs(m21): l09 …` en el historial.
 
 ## Errores comunes
 
 - Riesgos ‘hackeo’ sin vector.
 - Sin dueño.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

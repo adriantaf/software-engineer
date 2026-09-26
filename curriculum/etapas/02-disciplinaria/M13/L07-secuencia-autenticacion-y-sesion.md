@@ -3,74 +3,82 @@ id: L07
 materia: M13
 orden: 7
 titulo: "Secuencia: autenticación y sesión"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Mermaid sequence"
-evidencia: "diagramas/secuencia-auth.md"
+lectura: "Larman: diagramas de secuencia; flujo login/sesión"
+evidencia: projects/m13-diseno/diagramas/secuencia-auth.md
 ---
 
 # L07 — Secuencia: autenticación y sesión
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Sin una secuencia de auth, el resto de diagramas asume magia. Hoy dibujas login y validación de sesión.
 
 ## Objetivo
 
-Diagrama de secuencia login + cookie/sesión según SRS.
-
-## Por qué importa
-
-Auth es secuencia crítica para seguridad.
-
-## Conceptos
-
-- secuencia.
-- sesión.
-- validación API.
+`diagramas/secuencia-auth.md` con Mermaid del flujo UC-01.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Decide mecanismo (20–30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Piloto recomendado: **sesión server-side o cookie firmada HttpOnly**. Anótalo; el ADR formal es L16.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Secuencia feliz + fallo (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+En `diagramas/secuencia-auth.md`:
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+```mermaid
+sequenceDiagram
+  participant U as Browser
+  participant API as API
+  participant DB as PostgreSQL
+  U->>API: POST /auth/login {email, password}
+  API->>DB: buscar usuario + verificar hash
+  alt ok
+    API->>API: crear sesión
+    API-->>U: 200 + Set-Cookie HttpOnly
+  else credenciales inválidas
+    API-->>U: 401
+  end
+  U->>API: GET /me (Cookie)
+  API->>API: validar sesión
+  API-->>U: 200 {id, rol}
+```
 
-Mermaid: browser→API→DB. Marca validación rol en API.
+### 3. Notas de seguridad (40 min)
 
-### 4. Conexión con el plan (30–45 min)
+Lista bajo el diagrama: password hasheado (nunca en logs), rate limit futuro, no revelar “email no existe” vs “password mal” si tu amenaza lo pide (o documenta el trade-off UX).
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l07 secuencia-autenticacion-y-sesion"
+git add projects/m13-diseno/diagramas/secuencia-auth.md
+git commit -m "docs(m13): secuencia autenticacion y sesion"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | cookies/sesión | srs auth |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Secuencia UML: login, cookie/sesión, fallo 401 | [Mermaid — sequenceDiagram](https://mermaid.js.org/syntax/sequenceDiagram.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. secuencia-auth.md.
-2. Validación en API.
-3. Errores 401.
+Marca la lección **solo si**:
+
+1. `secuencia-auth.md` muestra participantes Browser, API, Store/DB y pasos de login OK + fallo.
+2. Queda explícito dónde se crea/valida la sesión (API, no solo front).
+3. Commit `docs(m13): secuencia autenticacion y sesion`.
 
 ## Errores comunes
 
-- Auth solo en front.
-- Omitir logout.
+- Secuencia donde el browser “guarda el rol” y la API confía ciegamente.
+- Olvidar el camino de credenciales inválidas.
+- Tokens en localStorage sin justificación (si eliges cookie, dilo en el diagrama).
 
 ## Siguiente
 

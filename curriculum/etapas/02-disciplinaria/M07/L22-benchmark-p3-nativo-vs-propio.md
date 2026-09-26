@@ -5,61 +5,77 @@ orden: 22
 titulo: "Benchmark P3: nativo vs propio"
 horas: 5.0
 semana: 6
-lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Metodología benchmark"
-evidencia: "bench/ con tabla tiempos documentada"
+lectura: "Medir antes de opinar: microbenchmarks honestos"
+evidencia: bench/ con tabla tiempos documentada
 ---
 
 # L22 — Benchmark P3: nativo vs propio
 
 **~5.0 h · Semana 6**
 
-Semana 6 de M07: rigor en implementación, tests y documentación de costos.
+P3 exige números, no opiniones. Mides insert/lookup en tu hash y array vs nativos.
 
 ## Objetivo
 
-Avanzar evidencia `bench/ con tabla tiempos documentada` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Correr un bench reproducible y dejar tabla de tiempos en el repo.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Harness (50 min)
 
-Lee la sección indicada en tu texto ED sobre **Benchmark P3**. Anota definiciones formales (pre/post condiciones).
+`bench/run.ts` con `performance.now()`, warmup 1 iter, luego mide. Parámetro `N` (default 100_000).
 
-### 2. Implementación (120 min)
+### 2. Casos (90 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+Mínimo:
 
-### 3. Tests (90 min)
+- `DynamicArray.push` vs `Array.push`
+- `HashMap.set/get` vs `Map.set/get`
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Opcional: heap extract vs array+sort periódico.
 
-### 4. Documentación (30 min)
+### 3. Ejecuta y pega (40 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+```bash
+npm run bench
+# o: npx tsx bench/run.ts
+```
 
-### 5. Commit (30 min)
+Copia salida a `bench/RESULTADOS.md` con fecha y máquina (sin datos personales).
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 4. Lectura crítica (30 min)
+
+Párrafo: por qué el nativo suele ganar y qué aprendiste implementando.
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m07-estructuras/bench
+git commit -m "feat(m07): bench P3 nativo vs propio"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Metodología benchmark | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Metodología: warmup, N grande, no mentir con N=10 | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `bench/run.ts` compara ≥2 estructuras propias vs nativas (`Array`/`Map`).
+2. Tabla de tiempos en `bench/RESULTADOS.md` (o README P3).
+3. Commit `feat(m07): bench P3 nativo vs propio`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Benchmark con N trivial o sin warmup.
+- Conclusiones absolutas (“soy más rápido que V8”).
+- No versionar el comando para reproducir.
+
 ## Siguiente
 
 [L23 — README cuándo usar cada estructura](L23-readme-cuando-usar-cada-estructura.md)

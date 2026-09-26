@@ -3,74 +3,57 @@ id: L12
 materia: M14
 orden: 12
 titulo: Repaso comportamiento y anti-patrón propio
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Retro patrones semana 3"
-evidencia: "projects/m14-patrones/semana-03.md"
+lectura: Anti-patrón detectado en tu código
+evidencia: docs/anti-patron-propio.md
 ---
 
 # L12 — Repaso comportamiento y anti-patrón propio
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Criterio de dominio: un patrón que **rechazaste** y un olor que sí tuviste.
 
 ## Objetivo
 
-Documentar un anti-patrón que cometiste y cómo lo corregiste (cargo cult).
-
-## Por qué importa
-
-La retro alimenta code review en M15.
-
-## Conceptos
-
-- cargo cult.
-- retro.
-- simplificación.
+Documento honesto `docs/anti-patron-propio.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Elige un olor (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+God service, SQL en controller, Singleton de config, etc.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Escribe antes → después (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Fragmentos de código o pseudocódigo.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-`semana-03.md` + enlace al commit de fix.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l12 repaso-comportamiento-y-anti-patron-prop"
-```
+`docs(m14): anti-patron propio`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Refactoring.Guru | catálogo | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Documentar un anti-patrón propio y el refactor mental | [Refactoring.Guru — Patrones (ES)](https://refactoring.guru/es/design-patterns) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Anti-patrón descrito.
-2. Fix commiteado.
-3. Cierre semana 3.
+Marca la lección **solo si**:
+
+1. `anti-patron-propio.md` describe código tuyo (plan o spike) con olor y alternativa.
+2. Enlaza al patrón de M14 que lo evita.
+3. Commit `docs(m14): anti-patron propio`.
 
 ## Errores comunes
 
-- Retro vacía.
-- Añadir patrón sin necesidad.
+- Hablar de anti-patrones abstractos sin tu código.
+- Inventar un pecado que no cometiste.
+- No proponer fix.
 
 ## Siguiente
 

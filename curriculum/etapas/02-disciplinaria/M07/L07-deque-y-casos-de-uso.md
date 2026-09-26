@@ -5,59 +5,66 @@ orden: 7
 titulo: Deque y casos de uso
 horas: 5.0
 semana: 2
-lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — ED: deque; aplicaciones (sliding window, BFS 0-1 intro)"
-evidencia: "Deque mínimo o cola doble + 3 tests"
+lectura: "Deque: inserción/borrado en ambos extremos"
+evidencia: Deque mínimo o cola doble + 3 tests
 ---
 
 # L07 — Deque y casos de uso
 
 **~5.0 h · Semana 2**
 
-Insertar/quitar en ambos extremos aparece en ventanas deslizantes y ciertos algoritmos de grafos.
+Un deque cubre patrones (ventana deslizante, BFS 0-1) que pila o cola solas no cubren bien.
 
 ## Objetivo
 
-Implementar deque (o documentar por qué usas dos pilas) y resolver un ejercicio que requiera ambos extremos.
+Implementar un deque mínimo tipado y justificar un caso de uso real en 5–8 líneas.
 
 ## Pasos
 
-### 1. Deque API (90 min)
+### 1. API (20 min)
 
-`pushFront`, `pushBack`, `popFront`, `popBack`.
+Decide nombres y anótalos en el README bajo “API semana 2”.
 
-### 2. Ejercicio (75 min)
+### 2. Implementación (90 min)
 
-Palíndromo ignorando espacios con deque, o ventana máxima de tamaño k (versión simple).
+`src/deque.ts` sobre lista doble o buffer circular. Cuatro operaciones de extremo en O(1) amortizado/peor caso documentado.
 
-### 3. Tests (60 min)
+### 3. Tests (45 min)
 
-Operaciones alternadas en ambos lados.
+Mezcla front/back; vaciar por un extremo tras llenar por el otro; size coherente.
 
-### 4. Lectura (30 min)
+### 4. Caso de uso (60 min)
 
-Sección deque / variantes.
+En `docs/casos-deque.md` (o sección README): elige **uno** — comprobar palíndromo con deque, o bosquejo de sliding-window máximo. Pseudocódigo + complejidad.
 
-### 5. Commit (45 min)
+### 5. Commit (15 min)
 
-`feat(m07): deque y ejercicio`.
+```bash
+git commit -am "feat(m07): deque y ejercicio"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — ED: deque; aplicaciones (sliding window, BFS 0-1 intro) | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Deque / cola doble extremos | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Deque operativo.
-2. Ejercicio resuelto con tests.
-3. Costos anotados.
+Marca la lección **solo si**:
+
+1. `src/deque.ts` con `pushFront`/`pushBack`/`popFront`/`popBack` (o nombres equivalentes).
+2. ≥3 tests + un caso de uso escrito (sliding window / undo-redo / palíndromo).
+3. Commit `feat(m07): deque y ejercicio`.
 
 ## Errores comunes
 
-- Deque sobre array con shift O(n) sin advertencia.
+- Deque que solo envuelve dos stacks sin documentar costos amortizados.
+- Olvidar actualizar size en un extremo.
+- Caso de uso genérico (“sirve para todo”) sin ejemplo concreto.
+
 ## Siguiente
 
 [L08 — Pilas, colas y cierre P1 parcial](L08-pilas-colas-y-cierre-p1-parcial.md)

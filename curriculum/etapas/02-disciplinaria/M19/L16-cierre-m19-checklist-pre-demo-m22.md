@@ -3,70 +3,58 @@ id: L16
 materia: M19
 orden: 16
 titulo: Cierre M19 — checklist pre-demo M22
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Repaso M19"
-evidencia: "projects/m19-ops/cierre-m19.md"
+lectura: Repaso M19
+evidencia: projects/m19-ops/cierre-m19.md
 ---
 
 # L16 — Cierre M19 — checklist pre-demo M22
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Antes de vender el piloto, ops debe sobrevivir.
 
 ## Objetivo
 
-Verificar P1–P3, criterios dominio, prod estable para trials.
-
-## Por qué importa
-
-Handoff a M20 (API staging HTTPS) y M22.
-
-## Conceptos
-
-- checklist
-- dominio
+Checklist P1–P3 + criterios dominio + nota pre-demo comercial.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Auditoría (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Pre-demo M22 (50–60 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Qué puede fallar en vivo; smoke del día.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. README final (30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 4. Commit
 
-cierre-m19.md con evidencia por criterio ficha. Actualiza README.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m19): l16 cierre-m19-checklist-pre-demo-m22"
-```
+`docs(m19): l16 cierre pre-demo`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M19-nube-devops.md | producto |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Repaso M19 | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. P1–P3 OK.
-2. cierre escrito.
-3. README índice.
+Marca la lección **solo si**:
+
+1. P1–P3 OK (artefacto: `projects/m19-ops/cierre-m19.md`).
+2. cierre escrito (artefacto: `projects/m19-ops/cierre-m19.md`).
+3. README índice (artefacto: `projects/m19-ops/cierre-m19.md`).
+4. Commit `docs(m19): L16 cierre-m19-checklist-pre-demo-m22`.
 
 ## Errores comunes
 
-- Prod inestable
-- Sin restore probado
+- Prod inestable.
+- Sin restore probado.
+
+## Siguiente
+
+Materia siguiente: [M20 — Aplicaciones móviles](../M20-aplicaciones-moviles.md) (consume tu staging).

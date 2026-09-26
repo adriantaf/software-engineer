@@ -3,74 +3,57 @@ id: L06
 materia: M14
 orden: 6
 titulo: Decorator para logging de operaciones de cita
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Refactoring.Guru Decorator"
-evidencia: "projects/m14-patrones/src/cita-logging-decorator.ts"
+lectura: Decorator; logging sin ensuciar el core
+evidencia: src/citas/ decorator logger + tests
 ---
 
 # L06 — Decorator para logging de operaciones de cita
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Quieres auditoría de “quién creó cita” sin contaminar el dominio con Winston.
 
 ## Objetivo
 
-Envolver un servicio de citas con Decorator que registre operaciones sin modificar la clase core.
-
-## Por qué importa
-
-Observabilidad sin ensuciar reglas de negocio.
-
-## Conceptos
-
-- Decorator.
-- composición.
-- logging estructurado.
+Decorator de logging sobre operaciones de cita.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Interfaz CitaOps (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`create`, `cancel` mínimos (pueden ser in-memory).
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. LoggingCitaOps (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Delega + empuja a un `LogSink` inyectable.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Tests (40 min) + ADR + commit
 
-Implementa decorador que loguea `crear`/`cancelar` (sin PII en prod — documenta qué omites). Test: core se invoca.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l06 decorator-para-logging-de-operaciones-de"
-```
+`feat(m14): decorator logging citas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Refactoring.Guru | Decorator | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Decorator: añade logging cruzando la misma interfaz | [Refactoring.Guru — Decorator (ES)](https://refactoring.guru/es/design-patterns/decorator) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Decorator con test.
-2. PII no en logs de ejemplo.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Decorador envuelve un `CitaOps` (o similar) y registra llamada sin cambiar el resultado.
+2. Test demuestra que el inner se invoca y que el log recibe evento.
+3. Commit `feat(m14): decorator logging citas`.
 
 ## Errores comunes
 
-- Decorator que cambia comportamiento.
-- Logs con teléfono completo.
+- Meter `console.log` dentro de la regla de solape.
+- Decorator que cambia reglas de negocio “de paso”.
+- Sin interfaz común inner/outer.
 
 ## Siguiente
 

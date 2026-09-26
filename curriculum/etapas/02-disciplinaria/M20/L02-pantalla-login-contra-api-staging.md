@@ -3,74 +3,57 @@ id: L02
 materia: M20
 orden: 2
 titulo: Pantalla login contra API staging
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "HTTP client + auth API"
-evidencia: "projects/m20-movil/demo-login-lista.md (inicio)"
+lectura: HTTP client + auth API
+evidencia: projects/m20-movil/demo-login-lista.md (inicio)
 ---
 
 # L02 — Pantalla login contra API staging
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Misma auth que la web: nada de mock eterno.
 
 ## Objetivo
 
-Implementar login email/password contra HTTPS M19; errores claros sin stack trace.
-
-## Por qué importa
-
-Misma API que web M17.
-
-## Conceptos
-
-- POST login
-- 401 UX
-- timeout
+Login UI → `POST /auth/login` staging/local documentado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Config API URL (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Flavor dev/staging. No hardcode prod secrets.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Pantalla login (90–110 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Email/password; maneja errores red.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Probar contra staging. Anota URL base en stack.md. Commit feat(m20): login.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l02 pantalla-login-contra-api-staging"
-```
+`feat(m20): l02 login contra api`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M17 | auth endpoints | M19 staging |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | HTTP client + auth API | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. Login feliz
-2. 401 mensaje humano
-3. HTTPS
+Marca la lección **solo si**:
+
+1. Login feliz (artefacto: `projects/m20-movil/demo-login-lista.md (inicio)`).
+2. 401 mensaje humano (artefacto: `projects/m20-movil/demo-login-lista.md (inicio)`).
+3. HTTPS.
+4. Commit `docs(m20): L02 pantalla-login-contra-api-staging`.
 
 ## Errores comunes
 
-- localhost en release
-- Password en logs
+- localhost en release.
+- Password en logs.
 
 ## Siguiente
 

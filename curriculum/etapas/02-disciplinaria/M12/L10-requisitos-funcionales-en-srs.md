@@ -3,74 +3,64 @@ id: L10
 materia: M12
 orden: 10
 titulo: Requisitos funcionales en SRS
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "plantilla.md funcionales"
-evidencia: "srs-borrador.md funcionales"
+lectura: plantilla.md — requisitos funcionales
+evidencia: srs-borrador.md funcionales
 ---
 
 # L10 — Requisitos funcionales en SRS
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+El SRS habla RF-xx; las stories alimentan pero no sustituyen.
 
 ## Objetivo
 
-Completar sección funcional numerada alineada a stories Must.
+Completar §3.1 Requisitos funcionales del borrador.
 
-## Por qué importa
+## Pasos
 
-El SRS es contrato para M13/M17.
+### 1. Deriva RF (90–110 min)
 
-## Conceptos
+| ID | Descripción | Prioridad | Criterio / US |
+|----|-------------|-----------|---------------|
+| RF-01 | Owner autenticado gestiona clientes | Alta | US-0x |
 
-- RF numerado.
-- consistencia.
-- dependencias.
+Cubre clientes, citas, agenda, auth, roles básicos.
 
-## Pasos (hazlos en orden)
+### 2. Fuera de alcance (30 min)
 
-### 1. Lectura dirigida (60–90 min)
+§4 con bullets concretos (no “todo lo demás”).
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Cada Must tiene RF. Revisa duplicados y conflictos.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l10 requisitos-funcionales-en-srs"
+git add projects/m12-srs/srs-borrador.md
+git commit -m "docs(m12): l10 requisitos funcionales"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plantilla | funcionales | stories.md |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | RF-xx con prioridad y criterio; trazabilidad a US | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. RF cubren Must.
-2. Sin contradicciones.
-3. Referencias US-XX.
+Marca la lección **solo si**:
+
+1. Tabla §3.1 con ≥8 RF derivados de Must/Should.
+2. Cada RF tiene criterio de aceptación o enlace a US.
+3. Commit `docs(m12): l10 requisitos funcionales`.
 
 ## Errores comunes
 
-- RF vagos.
-- Desalineación con stories.
+- Copiar stories verbatim sin IDs RF.
+- RF sin prioridad.
+- Mezclar RNF en la tabla funcional.
 
 ## Siguiente
 

@@ -3,77 +3,86 @@ id: L01
 materia: M15
 orden: 1
 titulo: Entorno M15 y pirámide de tests
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Código limpio cap. 9 + Vitest"
-evidencia: "projects/m15-calidad/piramide.md + tests iniciales"
+lectura: Pirámide de tests; Vitest setup Agenda Ops
+evidencia: projects/m15-calidad/ + piramide.md + Vitest verde
 ---
 
 # L01 — Entorno M15 y pirámide de tests
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Sin suite local, CI es teatro. Hoy levantas Vitest y decides la pirámide del piloto.
 
 ## Objetivo
 
-Crear `projects/m15-calidad/`, documentar pirámide objetivo para Agenda Ops y 5 tests iniciales de dominio.
+`projects/m15-calidad/` ejecutable + `piramide.md` concreto.
 
-## Por qué importa
+## Por qué empieza así
 
-Sin pirámide escrita, acabarás con E2E lentos o cero tests de auth.
-
-## Conceptos
-
-- pirámide.
-- unit.
-- regla negocio.
+M14 te dejó reglas/services; M15 los blindan. M17 heredará este pipeline.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Scaffold (50–70 min)
 
 ```bash
-mkdir -p projects/m15-calidad/tests
+cd projects/m15-calidad
+npm init -y
+npm install -D typescript vitest @types/node
+# scripts.test = "vitest run"
 ```
-Elige función dominio (crear cita, solapamiento). 5 tests: feliz, regla rota, y placeholders auth si aplica.
 
-### 4. Conexión con el plan (30–45 min)
+Estructura:
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l01 entorno-m15-y-piramide-de-tests"
+```text
+src/domain/
+src/application/
+tests/
+piramide.md
 ```
+
+Puedes reutilizar lógica de `projects/m14-patrones` (copia o path documentado).
+
+### 2. Smoke test (30 min)
+
+`tests/smoke.test.ts` assert `1+1` o import de un módulo dominio.
+
+### 3. piramide.md (60–70 min)
+
+| Capa | Ejemplos Agenda Ops | Cantidad relativa |
+|------|---------------------|-------------------|
+| Unit | solape, precio, DTO validate | mayoría |
+| Integración | repo + Postgres test | media |
+| HTTP/API | 401/403 crear cita | menos |
+| E2E UI | 1–2 flujos | mínimo |
+
+### 4. Commit
+
+`docs(m15): entorno y piramide de tests`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Vitest | getting started | Código limpio cap. 9 |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Pirámide: muchos unit, menos integración, pocos E2E | [Vitest — Getting Started](https://vitest.dev/guide/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. piramide.md.
-2. 5 tests.
-3. Commit test(m15).
+Marca la lección **solo si**:
+
+1. `projects/m15-calidad/` con Vitest y un test smoke verde.
+2. `piramide.md` dibuja capas y qué irá en cada una para citas/auth.
+3. Commit `docs(m15): entorno y piramide de tests`.
 
 ## Errores comunes
 
-- Solo tests felices.
-- Pirámide genérica sin capas.
+- Pirámide invertida (todo E2E).
+- Proyecto sin script `test`.
+- Copiar pirámide genérica sin mapear a Agenda Ops.
 
 ## Siguiente
 

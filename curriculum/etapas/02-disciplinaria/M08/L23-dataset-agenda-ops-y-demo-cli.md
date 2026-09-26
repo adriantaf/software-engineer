@@ -5,60 +5,71 @@ orden: 23
 titulo: Dataset Agenda Ops y demo CLI
 horas: 5.0
 semana: 6
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Proyecto autocomplete + cierre — producto-saas.md"
-evidencia: "CSV/JSON demo + CLI"
+lectura: Dataset realista + CLI de demostración
+evidencia: CSV/JSON demo + CLI
 ---
 
 # L23 — Dataset Agenda Ops y demo CLI
 
 **~5.0 h · Semana 6**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Sin datos y sin demo, el autocomplete no es evidencia de proyecto.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: CSV/JSON demo + CLI.
+Cargar un dataset tipo Agenda Ops y exponer un CLI reproducible.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Dataset (50 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+`autocomplete/data/servicios.json` (o csv): nombres realistas (corte, barba, tinte…). Genera ≥100 entradas (script corto aceptable).
 
-### 2. Trabajo central (150 min)
+### 2. Loader (40 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Función `loadAndBuild(path)` inserta todos los términos.
 
-### 3. Análisis escrito (45 min)
+### 3. CLI (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+`autocomplete/cli.ts`:
 
-### 4. Tests (45 min)
+```bash
+npx tsx autocomplete/cli.ts --data autocomplete/data/servicios.json --prefix ti --k 5
+```
 
-Tres casos mínimo por función: borde incluido.
+### 4. Latencia (40 min)
 
-### 5. Commit (30 min)
+Cronometra suggest en frío/caliente; pega ms en `autocomplete/README.md` junto a N y estructura.
 
-`feat(m08): ...` atómico.
+### 5. Commit (15 min)
+
+```bash
+git add projects/m08-algoritmos/autocomplete
+git commit -m "feat(m08): dataset y CLI autocomplete"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 6: Proyecto autocomplete + cierre — producto-saas.md | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Cargar N términos; latencia de suggest en máquina local | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Dataset `autocomplete/data/` (CSV o JSON) con clientes/servicios demo (≥100 filas; ideal ≥1000).
+2. CLI `npx tsx autocomplete/cli.ts --prefix cor` (o similar) imprime sugerencias.
+3. README autocomplete con comando y nota de latencia; commit `feat(m08): dataset y CLI autocomplete`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Dataset de 5 filas presentado como demo seria.
+- CLI sin documentar en README.
+- Medir latencia una sola vez con N minúscula y generalizar.
+
 ## Siguiente
 
 [L24 — Cierre M08 y evidencias](L24-cierre-m08-y-evidencias.md)

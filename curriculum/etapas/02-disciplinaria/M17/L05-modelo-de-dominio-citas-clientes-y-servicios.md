@@ -3,69 +3,55 @@ id: L05
 materia: M17
 orden: 5
 titulo: Modelo de dominio citas, clientes y servicios
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "m13 diagrama clases + srs-v1"
-evidencia: "migraciones / entidades"
+lectura: m13 diagrama clases + srs-v1
+evidencia: migraciones / entidades
 ---
 
 # L05 — Modelo de dominio citas, clientes y servicios
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+CRUD sin dominio coherente genera IDOR y huérfanos. Hoy alineas entidades a M13/M09.
 
 ## Objetivo
 
-Alinear tablas y entidades con diseño M13: citas, clientes, servicios, relaciones y reglas en código dominio.
-
-## Por qué importa
-
-CRUD sin modelo coherente genera IDOR y datos huérfanos.
-
-## Conceptos
-
-- entidad.
-- migración.
-- dominio.
+Migraciones + carpeta `domain/` (o equivalente) con reglas puras sin ORM.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Contrasta diseño (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre diagrama M13 y migraciones M09. Lista diferencias a resolver hoy.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Migraciones (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Asegura tablas `clientes`, `servicios`, `citas` con FKs, estados, duración/precio base. Aplica y `\dt`.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Reglas de dominio (50–60 min)
 
-Migraciones aplicadas. Tipos dominio sin dependencia de ORM en reglas puras (carpeta `domain/`).
+Funciones puras: `fin > inicio`, solapamiento, cancelación permitida. Tests unitarios sin DB si puedes.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l05 modelo-de-dominio-citas-clientes-y-servi"
-```
+`feat(m17): l05 dominio citas clientes servicios`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m12-srs | RF citas | m13 clases |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | m13 diagrama clases + srs-v1 | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Migraciones.
-2. domain/ con reglas.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Migraciones (artefacto: `migraciones / entidades`).
+2. domain/ con reglas (artefacto: `migraciones / entidades`).
+3. Commit (artefacto: `migraciones / entidades`).
 
 ## Errores comunes
 

@@ -3,25 +3,27 @@ id: L10
 materia: M21
 orden: 10
 titulo: Riesgos de seguridad, privacidad y multi-tenant
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Hilo seguridad + OWASP ASVS (selecto)"
-evidencia: "projects/m21-proyectos/riesgos.md sección seguridad"
+lectura: Hilo seguridad + OWASP ASVS (selecto)
+evidencia: projects/m21-proyectos/riesgos.md sección seguridad
 ---
 
 # L10 — Riesgos de seguridad, privacidad y multi-tenant
 
 **~5 h · Semana 3**
 
+Agenda Ops se gestiona en el mismo repo. Hoy entregas **`projects/m21-proyectos/riesgos.md sección seguridad`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M21.
+
 ## Objetivo
 
 Añadir ≥2 riesgos de seguridad/privacidad (IDOR cross-tenant, secretos, backup sin restore) con mitigaciones enlazadas a M18/M25.
 
-## Por qué importa
+## Por qué empieza así
 
 Ignorar seguridad hasta M25 es exactamente el anti-patrón del plan.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - IDOR.
 - Secreto en repo.
@@ -30,52 +32,59 @@ Ignorar seguridad hasta M25 es exactamente el anti-patrón del plan.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre la [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) y lee **solo** lo nombrado hoy: _Hilo seguridad + OWASP ASVS (selecto)_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Subraya 3–5 frases que puedas aplicar en Agenda Ops (no resúmenes genéricos). Anótalas en `projects/m21-proyectos/bitacora-m21.md` bajo fecha de hoy.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m21-proyectos`.
 
 Extiende `projects/m21-proyectos/riesgos.md` con sección **Seguridad y privacidad** (≥2 filas).
 
+### 3. Laboratorio principal (90–120 min)
+
 Para cada uno: **cómo sabrías que ocurrió** y **evidencia de mitigación** (test, runbook, issue).
 
+### 4. Endurece el entregable (40–60 min)
+
 Cross-ref [hilo seguridad](../../hilos/seguridad.md) y issues M18 si existen.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
-git commit -m "docs(m21): l10 riesgos-de-seguridad-privacidad-y-multi-"
+git commit -m "docs(m21): l10 riesgos-de-seguridad-privacidad-y-multi"
 ```
+
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | ../../hilos/seguridad.md | ../M18-seguridad.md |
-| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Guía Scrum 2020 (ES) | Hilo seguridad + OWASP ASVS (selecto) | [Scrum Guide 2020 (PDF ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
 
 
 ## Hecho cuando
 
-1. ≥2 riesgos seguridad.
-2. Evidencia mitigación citada.
-3. Issue enlazado si aplica.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m21-proyectos/riesgos.md sección seguridad`.
+2. ≥2 riesgos seguridad.
+3. Evidencia mitigación citada.
+4. Issue enlazado si aplica.
+5. Commit `docs(m21): l10 …` en el historial.
 
 ## Errores comunes
 
 - Mitigación ‘confío en el framework’.
 - Mezclar riesgo con bug puntual sin impacto.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

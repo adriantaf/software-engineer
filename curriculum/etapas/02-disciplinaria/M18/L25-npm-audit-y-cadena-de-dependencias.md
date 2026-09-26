@@ -3,74 +3,54 @@ id: L25
 materia: M18
 orden: 25
 titulo: npm audit y cadena de dependencias
-horas: 5
+horas: 5.0
 semana: 7
-lectura: "OWASP A06 Vulnerable Components"
-evidencia: "projects/m18-appsec/deps-audit.md"
+lectura: OWASP A06 Vulnerable Components
+evidencia: projects/m18-appsec/deps-audit.md
 ---
 
 # L25 — npm audit y cadena de dependencias
 
-**~5 h · Semana 7**
+**~5.0 h · Semana 7**
+
+A06: componentes vulnerables.
 
 ## Objetivo
 
-Ejecutar auditoría de dependencias, triagear findings (prod vs dev), actualizar o documentar riesgo aceptado.
-
-## Por qué importa
-
-Tu app hereda CVEs de `node_modules`.
-
-## Conceptos
-
-- Semver y lockfile.
-- DevDependency vs runtime.
-- Riesgo aceptado con fecha.
+`npm audit` (o equivalente) corrido; severidades altas tratadas o aceptadas con justificación.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Audit (40 min)
 
 ```bash
-cd <repo Agenda Ops>
-npm audit --omit=dev 2>/dev/null || npm audit
+npm audit --json > projects/m18-appsec/docs/npm-audit.json || true
 ```
 
-Guarda salida en `projects/m18-appsec/deps-audit.md`. Arregla al menos 1 high/critical o documenta por qué no aplica.
+### 2. Triage (70–90 min)
 
-### 4. Conexión con el plan (30–45 min)
+Tabla: CVE, impacto en Agenda Ops, acción.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 3. Commit
 
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l25 npm-audit-y-cadena-de-dependencias"
-```
+`docs(m18): l25 npm audit triage`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | A06 | npm audit docs |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | OWASP A06 Vulnerable Components | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Audit guardado.
-2. ≥1 acción tomada.
-3. Fecha en doc.
+Marca la lección **solo si**:
+
+1. Audit guardado (artefacto: `projects/m18-appsec/deps-audit.md`).
+2. ≥1 acción tomada (artefacto: `projects/m18-appsec/deps-audit.md`).
+3. Fecha en doc (artefacto: `projects/m18-appsec/deps-audit.md`).
+4. Commit `docs(m18): L25 npm-audit-y-cadena-de-dependencias`.
 
 ## Errores comunes
 

@@ -3,73 +3,49 @@ id: L27
 materia: M18
 orden: 27
 titulo: Cabeceras de seguridad con Helmet o equivalente
-horas: 5
+horas: 5.0
 semana: 7
-lectura: "Security Headers Cheat Sheet"
-evidencia: "commit headers + captura curl"
+lectura: Security Headers Cheat Sheet
+evidencia: commit headers + captura curl
 ---
 
 # L27 — Cabeceras de seguridad con Helmet o equivalente
 
-**~5 h · Semana 7**
+**~5.0 h · Semana 7**
+
+Confirma headers en staging; completa gaps M17.
 
 ## Objetivo
 
-Configurar HSTS (si HTTPS), X-Frame-Options/ frame-ancestors, X-Content-Type-Options, Referrer-Policy.
-
-## Por qué importa
-
-M10 L16 en tu código de producción.
-
-## Conceptos
-
-- Helmet middleware.
-- HSTS solo con HTTPS estable.
-- Clickjacking.
+Headers activos verificados; doc en appsec.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. curl -I (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Ajustes (60–80 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+X-Content-Type-Options, Frame, Referrer-Policy, etc.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-```bash
-curl -sI https://<tu-staging>/ | rg -i 'strict|frame|content-type|referrer'
-```
-
-Documenta antes/después en bitácora. No rompas el front (prueba login).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l27 cabeceras-de-seguridad-con-helmet-o-equi"
-```
+`fix(m18): l27 security headers`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Secure Headers | M10 L16 |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Security Headers Cheat Sheet | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Headers visibles en staging.
-2. Login sigue funcionando.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Headers visibles en staging (artefacto: `commit headers`).
+2. Login sigue funcionando (artefacto: `commit headers`).
+3. Commit (artefacto: `commit headers`).
 
 ## Errores comunes
 

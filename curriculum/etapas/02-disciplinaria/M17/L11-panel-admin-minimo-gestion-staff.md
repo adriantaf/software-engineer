@@ -3,69 +3,56 @@ id: L11
 materia: M17
 orden: 11
 titulo: Panel admin mínimo — gestión staff
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "UI admin sin adornos"
-evidencia: "ruta /admin o equivalente"
+lectura: UI admin sin adornos
+evidencia: ruta /admin o equivalente
 ---
 
 # L11 — Panel admin mínimo — gestión staff
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+El dueño administra su equipo aquí — feo pero claro.
 
 ## Objetivo
 
-Pantalla admin: listar staff, invitar o crear staff (según SRS), solo owner.
-
-## Por qué importa
-
-El dueño del negocio administra su equipo aquí.
-
-## Conceptos
-
-- admin.
-- invitación.
-- UX claro.
+Ruta admin: listar/crear staff solo owner; `docs/ui-admin.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. API admin si falta (40–50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Endpoints alineados a matriz.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. UI mínima (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Lista + formulario. Errores 403 visibles. Sin CSS hero.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Doc (20 min)
 
-UI fea pero clara. Errores 403 visibles. Notas en `docs/ui-admin.md`.
+`docs/ui-admin.md` con pasos de demo.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l11 panel-admin-minimo-gestion-staff"
-```
+`feat(m17): l11 panel admin staff`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m16 | handoff UX | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | UI admin sin adornos | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Admin usable.
-2. Owner-only verificado.
-3. ui-admin.md.
+Marca la lección **solo si**:
+
+1. Admin usable (artefacto: `ruta /admin o equivalente`).
+2. Owner-only verificado (artefacto: `ruta /admin o equivalente`).
+3. ui-admin.md (artefacto: `ruta /admin o equivalente`).
+4. Commit `docs(m17): L11 panel-admin-minimo-gestion-staff`.
 
 ## Errores comunes
 

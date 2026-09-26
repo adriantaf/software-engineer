@@ -5,70 +5,100 @@ orden: 1
 titulo: Entorno del proyecto y arrays dinámicos
 horas: 5.0
 semana: 1
-lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — ED Joyanes (o equivalente): arrays estáticos/dinámicos, amortizado"
-evidencia: "projects/m07-estructuras/ con Vitest, DynamicArray + 5 tests"
+lectura: Arrays estáticos/dinámicos, capacidad y costo amortizado de push
+evidencia: projects/m07-estructuras/ con Vitest, DynamicArray + 5 tests
 ---
 
 # L01 — Entorno del proyecto y arrays dinámicos
 
 **~5.0 h · Semana 1**
 
-Arrancas la librería de estructuras: TypeScript strict, tests desde el día 1 y tu primera estructura lineal con costos documentados.
+Sin toolchain y evidencia en git, el resto de M07 no cuenta. Hoy levantas la librería y tu primera estructura lineal.
 
 ## Objetivo
 
-Levantar `projects/m07-estructuras/`, implementar un array dinámico tipado con capacidad explícita y anotar Big-O de acceso e inserción al final.
+Dejar `projects/m07-estructuras/` usable con TypeScript strict, Vitest y un `DynamicArray<T>` con costos documentados.
 
-## Pasos
+## Pasos (hazlos en orden)
 
-### 1. Proyecto y toolchain (45 min)
+### 1. Revisa el scaffold (15 min)
 
 ```bash
-mkdir -p projects/m07-estructuras/src
+ls projects/m07-estructuras
+cat projects/m07-estructuras/README.md
+```
+
+No borres la estructura; amplíala. Crea carpetas si faltan:
+
+```bash
+mkdir -p projects/m07-estructuras/{src,tests,bench}
+```
+
+### 2. Toolchain TypeScript + Vitest (45–60 min)
+
+```bash
 cd projects/m07-estructuras
 npm init -y
 npm install -D typescript tsx vitest @types/node
-npx tsc --init
+npx tsc --init --strict --rootDir src --outDir dist --module nodenext --moduleResolution nodenext --target ES2022
 ```
 
-`strict: true`. Scripts: `"test": "vitest run"`, `"build": "tsc"`. Enlaza esta carpeta desde `projects/m07-estructuras/README.md`.
+En `package.json` añade:
 
-### 2. `DynamicArray<T>` (90 min)
+```json
+"scripts": {
+  "test": "vitest run",
+  "test:watch": "vitest",
+  "build": "tsc",
+  "bench": "tsx bench/run.ts"
+}
+```
 
-Implementa capacidad, `length`, `get(i)`, `push(x)` con redimensionamiento (×2). **No** uses `Array` interno como atajo permanente: el objetivo es entender amortizado.
+Confirma `strict: true` en `tsconfig.json`.
 
-### 3. Tabla de costos (30 min)
+### 3. `DynamicArray<T>` (90 min)
 
-En `COMPLEJIDAD.md` (o README): O(1) acceso indexado, O(1) amortizado `push`, O(n) insert en medio (aún no implementado — anótalo).
+Crea `src/dynamic-array.ts` con buffer interno (p. ej. `Array<T | undefined>` o `new Array(cap)`), `length`, `capacity`, `get(i)`, `push(x)` que duplique capacidad al llenarse. **No** uses `Array.push` como única lógica: tú controlas el resize.
 
 ### 4. Cinco tests (60 min)
 
-Vacío, un elemento, redimensiona al llenar capacidad, `get` fuera de rango (define comportamiento: throw o undefined), secuencia larga.
+`tests/dynamic-array.test.ts`: vacío; un elemento; push que fuerza resize; `get` fuera de rango (throw o `undefined` — elige y documenta); secuencia de 100 pushes.
 
-### 5. Lectura + commit (45 min)
+```bash
+npm test
+```
 
-Lee el capítulo de **arrays** de tu texto ED. Commit: `feat(m07): dynamic array con tests`.
+### 5. Costos + commit (30–40 min)
+
+Escribe `COMPLEJIDAD.md` con filas: acceso indexado, `push` amortizado, insert en medio (aún no). Luego:
+
+```bash
+git add projects/m07-estructuras
+git commit -m "feat(m07): dynamic array con tests"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — ED Joyanes (o equivalente): arrays estáticos/dinámicos, amortizado | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Arrays estáticos vs dinámicos; crecimiento ×2 y amortizado | [VisuAlgo · Array](https://visualgo.net/en/array) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Proyecto TS strict con Vitest verde.
-2. `DynamicArray` con redimensionamiento probado.
-3. Big-O documentado para acceso y `push`.
-4. Commit en git.
+Marca la lección **solo si**:
+
+1. `projects/m07-estructuras/` tiene `package.json` con script `test` (Vitest) y `tsc` strict.
+2. `src/dynamic-array.ts` implementa capacidad, `get`, `push` con resize ×2; ≥5 tests verdes.
+3. `COMPLEJIDAD.md` documenta O(1) acceso y O(1) amortizado `push`; commit `feat(m07): dynamic array con tests`.
 
 ## Errores comunes
 
-- Implementar solo con `T[]` nativo y llamarlo “dynamic array”.
-- No probar el caso que dispara redimensionar.
-- Omitir documentación de costos.
+- Envolver `T[]` nativo y llamarlo “dynamic array” sin capacidad propia.
+- No tener un test que dispare el redimensionamiento.
+- Dejar `strict: false` o sin script `test`.
+
 ## Siguiente
 
 [L02 — Lista enlazada simple](L02-lista-enlazada-simple.md)

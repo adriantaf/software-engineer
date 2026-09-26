@@ -3,74 +3,53 @@ id: L14
 materia: M15
 orden: 14
 titulo: Review simulado en PR o notas
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Ejemplo review"
-evidencia: "projects/m15-calidad/review-ejemplo.md"
+lectura: Aplicar checklist a un cambio real
+evidencia: review-ejemplo.md o comentarios en PR
 ---
 
 # L14 — Review simulado en PR o notas
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+La checklist sin uso no cuenta para P3.
 
 ## Objetivo
 
-Aplicar checklist a un diff (PR propio o parche ficticio) con comentarios línea a línea.
-
-## Por qué importa
-
-Practicar review enseña a escribir código revisable.
-
-## Conceptos
-
-- PR.
-- comentarios.
-- severidad.
+Evidencia de review aplicado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Elige un diff (20 min) — idealmente de M14/M15
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Llena review-ejemplo.md (80–100 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-`review-ejemplo.md` con ≥10 comentarios categorizados (blocker/nit).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l14 review-simulado-en-pr-o-notas"
-```
+`docs(m15): review simulado P3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M15-vv-calidad.md | P3 |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Evidencia de uso del checklist en un cambio | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. review-ejemplo.md.
-2. Checklist referenciado.
-3. Al menos 1 blocker encontrado.
+Marca la lección **solo si**:
+
+1. `review-ejemplo.md` (o captura/enlace PR) aplicando el checklist a un diff tuyo.
+2. Al menos 1 hallazgo real o “N/A justificado” por sección de seguridad.
+3. Commit `docs(m15): review simulado P3`.
 
 ## Errores comunes
 
-- Review de 2 líneas.
-- Sin categoría.
+- Checklist todo ✓ sin mirar el diff.
+- Review de código ajeno inventado.
+- Sin enlace al commit/diff revisado.
 
 ## Siguiente
 

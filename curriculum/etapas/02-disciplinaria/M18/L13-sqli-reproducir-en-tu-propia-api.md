@@ -3,73 +3,52 @@ id: L13
 materia: M18
 orden: 13
 titulo: "SQLi: reproducir en tu propia API"
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "OWASP A03 Injection + SQLi Prevention"
-evidencia: "projects/m18-appsec/findings/001-sqli.md"
+lectura: OWASP A03 Injection + SQLi Prevention
+evidencia: projects/m18-appsec/findings/001-sqli.md
 ---
 
 # L13 — SQLi: reproducir en tu propia API
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Solo contra tu API. Busca concatenación SQL en búsquedas de cliente/cita.
 
 ## Objetivo
 
-Encontrar al menos un punto susceptible (búsqueda, filtro, orden) y demostrar SQLi controlada en local/staging **sin** dañar datos reales.
-
-## Por qué importa
-
-P2 empieza con hallazgo real; SQLi sigue vivo en ORMs mal usados.
-
-## Conceptos
-
-- Consulta concatenada vs parametrizada.
-- Error verbose vs genérico.
-- Principio de mínimo privilegio DB.
+PoC SQLi o “no reproducible con ORM” con evidencia de query parametrizada.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Caza (60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`rg` de SQL string concat / `$query` peligrosos.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. PoC (60–80 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Payload en campo búsqueda; captura en `pocs/sqli.md`. Si ORM puro: documenta intento fallido.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Usa cuenta de prueba. Intenta payloads en query params/body (`' OR '1'='1` etc.) en endpoints de búsqueda de clientes/citas.
-
-Documenta en `projects/m18-appsec/findings/001-sqli.md`: endpoint, payload, respuesta, impacto. **No** pegues datos de clientes reales.
-
-Si no hay SQLi, documenta por qué (ORM parametrizado) y prueba bypass conocido del ORM.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l13 sqli-reproducir-en-tu-propia-api"
-```
+`docs(m18): l13 poc sqli`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | SQL Injection | ORM docs de tu stack |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | OWASP A03 Injection + SQLi Prevention | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Finding documentado o prueba de mitigación.
-2. Solo tu entorno.
-3. Sin PII en el reporte.
+Marca la lección **solo si**:
+
+1. Finding documentado o prueba de mitigación (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
+2. Solo tu entorno (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
+3. Sin PII en el reporte (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
+4. Commit `docs(m18): L13 sqli-reproducir-en-tu-propia-api`.
 
 ## Errores comunes
 

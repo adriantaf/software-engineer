@@ -16,6 +16,21 @@ En cada ficha verás también **En resumen** (qué harás, en claro).
 
 Cada materia está partida en lecciones **L01…Ln** (~4 por semana). Cada una se marca como completada por su cuenta (objetivo + pasos + lectura + “Hecho cuando”). Las prácticas y el proyecto de la ficha siguen exigiendo evidencia en `projects/`.
 
+### Barra de calidad de una lección
+
+Una lección “alta” (el estándar del plan) incluye:
+
+1. Objetivo medible y pasos **con tiempos** (comandos o archivos concretos).
+2. Tabla **Lectura de esta lección** (fuente → qué leer → enlace a [bibliografía](bibliografia.md)).
+3. **Hecho cuando** (checks concretos) + **Errores comunes**.
+4. Evidencia en `projects/…` cuando el paso lo pida.
+
+No cuenta como estudio: marcar la lección tras solo leer el Markdown, o pasos genéricos del tipo “lee la ficha / carpeta / commit” sin lab del tema del día.
+
+### Buscar en el plan
+
+En la UI: **Buscar** (Pagefind). Indexa fichas, lecciones y guías tras el build. La primera visita online descarga el índice.
+
 ## Una semana de 20 horas (modelo)
 
 | Bloque | Horas | Qué haces |

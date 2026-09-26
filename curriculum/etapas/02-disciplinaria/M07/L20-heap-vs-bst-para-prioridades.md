@@ -5,61 +5,66 @@ orden: 20
 titulo: Heap vs BST para prioridades
 horas: 5.0
 semana: 5
-lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — Comparativa ED"
-evidencia: "COMPLEJIDAD heap vs BST"
+lectura: Trade-offs heap vs BST para colas de prioridad
+evidencia: COMPLEJIDAD heap vs BST
 ---
 
 # L20 — Heap vs BST para prioridades
 
 **~5.0 h · Semana 5**
 
-Semana 5 de M07: rigor en implementación, tests y documentación de costos.
+No todo “ordenado” necesita un árbol. Hoy eliges con tabla, no con intuición.
 
 ## Objetivo
 
-Avanzar evidencia `COMPLEJIDAD heap vs BST` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Documentar trade-offs heap vs BST para prioridades y dejar una decisión escrita de diseño.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Tabla de operaciones (60 min)
 
-Lee la sección indicada en tu texto ED sobre **Heap vs BST para prioridades**. Anota definiciones formales (pre/post condiciones).
+Filas: insert, find-min, extract-min, delete arbitrario, sorted iterate. Columnas: MinHeap, BST, `Map`+sort (referencia).
 
-### 2. Implementación (120 min)
+### 2. Experimento mental / microbench (70 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+Inserta N=10_000 prioridades y extrae N/2. Compara tu heap vs extraer min de un BST (si tienes min). Anota tiempos en la doc.
 
-### 3. Tests (90 min)
+### 3. Decisión (40 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+`docs/heap-vs-bst.md`: párrafo “En Agenda Ops para cola VIP usaría ___ porque ___”.
 
-### 4. Documentación (30 min)
+### 4. Bitácora (30 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+`bitacora/semana-05.md`.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+```bash
+git commit -am "docs(m07): heap vs bst prioridades"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — Comparativa ED | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Heap: mejor extract-min; BST: ordered scan / delete arbitrario | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. Sección en `COMPLEJIDAD.md` o `docs/heap-vs-bst.md` con tabla de ops.
+2. Bitácora semana 5 con una decisión (“para scheduler usaría…”).
+3. Commit `docs(m07): heap vs bst prioridades`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Decir que BST siempre es O(log n) sin hablar del peor caso degenerado.
+- Afirmar que heap permite search arbitrario O(log n).
+- Tabla sin ops concretas (insert/extract/search).
+
 ## Siguiente
 
 [L21 — Grafos: repaso y representación](L21-grafos-repaso-y-representacion.md)

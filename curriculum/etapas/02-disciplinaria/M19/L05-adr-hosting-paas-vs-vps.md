@@ -3,74 +3,57 @@ id: L05
 materia: M19
 orden: 5
 titulo: "ADR hosting: PaaS vs VPS"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Docs Fly/Railway/Render o VPS"
-evidencia: "projects/m19-ops/adr-hosting.md"
+lectura: Docs Fly/Railway/Render o VPS
+evidencia: projects/m19-ops/adr-hosting.md
 ---
 
 # L05 — ADR hosting: PaaS vs VPS
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Elige con criterios: costo, TLS, backups, tiempo.
 
 ## Objetivo
 
-Documentar decisión de hosting para Agenda Ops con criterios costo, TLS, Postgres gestionado, DX.
-
-## Por qué importa
-
-Evitas re-decidir cada semana.
-
-## Conceptos
-
-- PaaS
-- VPS+Docker
-- egress y region
+`adr-hosting.md` con decisión y consecuencias para Agenda Ops.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Compara (60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+PaaS vs VPS tabla.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. ADR (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Decisión alineada a tu staging M17 si ya existe.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-ADR con alternativas y consecuencias operativas (logs, secrets panel).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m19): l05 adr-hosting-paas-vs-vps"
-```
+`docs(m19): l05 adr hosting`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M19 semana 2 | — |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Docs Fly/Railway/Render o VPS | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. ADR firmada.
-2. Proveedor elegido.
-3. Riesgos listados.
+Marca la lección **solo si**:
+
+1. ADR firmada (artefacto: `projects/m19-ops/adr-hosting.md`).
+2. Proveedor elegido (artefacto: `projects/m19-ops/adr-hosting.md`).
+3. Riesgos listados (artefacto: `projects/m19-ops/adr-hosting.md`).
+4. Commit `docs(m19): L05 adr-hosting-paas-vs-vps`.
 
 ## Errores comunes
 
-- Sin ADR
-- Elegir solo por tutorial viejo
+- Sin ADR.
+- Elegir solo por tutorial viejo.
 
 ## Siguiente
 

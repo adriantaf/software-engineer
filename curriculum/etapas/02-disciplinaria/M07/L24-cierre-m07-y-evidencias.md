@@ -5,69 +5,74 @@ orden: 24
 titulo: Cierre M07 y evidencias
 horas: 5.0
 semana: 6
-lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Repaso total ED"
-evidencia: "bitácora + checklist dominio + progress"
+lectura: Checklist de dominio y evidencias en git
+evidencia: bitácora + checklist dominio + progress
 ---
 
 # L24 — Cierre M07 y evidencias
 
 **~5.0 h · Semana 6**
 
-Semana 6 de M07: rigor en implementación, tests y documentación de costos.
+Si no está en git con checklist, no cuenta. Hoy cierras la materia.
 
 ## Objetivo
 
-Avanzar evidencia `bitácora + checklist dominio + progress` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Dejar evidencia P1–P3 + proyecto enlazada desde bitácora de cierre y el README.
 
 ## Pasos
 
-### 1. Checklist de evidencias (60 min)
+### 1. Checklist con rutas (60 min)
 
-| Ítem | Evidencia |
-|------|-----------|
-| **P1** | Lista, pila, cola, hash con tests |
-| **P2** | BST + recorridos |
-| **P3** | Benchmark vs nativo |
-| **Proyecto** | README “cuándo usar cada una” |
+`bitacora/cierre-m07.md`:
 
-### 2. Criterios de dominio (45 min)
+- P1: rutas a lista/pila/cola/hash + tests
+- P2: bst + recorridos
+- P3: `bench/RESULTADOS.md`
+- Proyecto: guía README
 
-Responde sí/no + frase en `bitacora/cierre-m07.md`:
-- ¿Cuándo hash gana a árbol?
-- ¿Puedes reimplementar pila desde cero en 15 min?
+### 2. Criterios de dominio (50 min)
 
-### 3. Suite completa (90 min)
+Grábate o escribe respuesta de 3 minutos: “¿cuándo un hash gana a un árbol?”. Pega el outline en la bitácora.
 
-`npm test` verde. Arregla flaky tests.
+### 3. Regresión final (40 min)
 
-### 4. Bitácora final (30 min)
+```bash
+cd projects/m07-estructuras && npm test
+```
 
-Qué repetirías si tuvieras 4 h extra.
+### 4. Limpieza (40 min)
 
-### 5. Marca progreso (15 min)
+Quita `console.log` de debug, asegura que no hay secretos, actualiza scripts del package.json.
 
-Solo lecciones con “Hecho cuando” cumplido. Commit `docs(m07): cierre materia`.
+### 5. Commit (20 min)
+
+```bash
+git add projects/m07-estructuras
+git commit -m "docs(m07): cierre materia y evidencias"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Repaso total ED | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Autoevaluación: explicar hash vs árbol en voz alta | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `bitacora/cierre-m07.md` con checklist P1/P2/P3/proyecto marcados con rutas de archivo.
+2. Suite verde y README de selección presente.
+3. Commit `docs(m07): cierre materia y evidencias`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Marcar evidencias sin archivos en git.
+- Checklist genérico sin rutas.
+- Dejar benches o tests rotos “para después”.
 
 ## Siguiente
 
-Vuelve a la [ficha M07](../M07-estructuras-de-datos.md), marca lecciones y prácticas con evidencia, y continúa con **M08 — Análisis de algoritmos**.
+M07 cerrado — siguiente materia: [M08 · Análisis de algoritmos](../M08-analisis-de-algoritmos.md)

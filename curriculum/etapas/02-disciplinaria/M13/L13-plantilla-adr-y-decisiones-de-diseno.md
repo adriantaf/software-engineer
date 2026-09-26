@@ -3,74 +3,71 @@ id: L13
 materia: M13
 orden: 13
 titulo: Plantilla ADR y decisiones de diseño
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "ADR M01"
-evidencia: "adr/README o 002"
+lectura: Plantilla ADR M01; índice de decisiones pendientes
+evidencia: adr/README.md índice + plantilla reutilizable
 ---
 
 # L13 — Plantilla ADR y decisiones de diseño
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Semana de decisiones. Hoy ordenas el proceso para no improvisar en M17.
 
 ## Objetivo
 
-Fijar plantilla ADR y abrir ADR 002 (stack o persistencia).
-
-## Por qué importa
-
-Decisiones explícitas evitan debate infinito en M17.
-
-## Conceptos
-
-- contexto.
-- decisión.
-- consecuencias.
+Índice de ADRs + plantilla; lista de decisiones que faltan (persistencia, auth, tenant).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Plantilla (30–40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`projects/m13-diseno/adr/PLANTILLA.md` con secciones Contexto / Decisión / Consecuencias / Alternativas rechazadas.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Índice (40–50 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`adr/README.md`:
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+| ADR | Título | Estado |
+|-----|--------|--------|
+| 001 | Monolito modular | Aceptado |
+| 002 | Persistencia | Borrador L14 |
+| 003 | Auth/sesión | Borrador L16 |
+| 004 | Extensibilidad tenant | Nota L15 |
 
-ADR 002: p.ej. Postgres + ORM/query builder. Alternativas rechazadas.
+### 3. Backlog de decisiones (50–60 min)
 
-### 4. Conexión con el plan (30–45 min)
+Lista 5 preguntas abiertas (¿ORM?, ¿calcula fin el server?, ¿soft-delete citas?).
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l13 plantilla-adr-y-decisiones-de-diseno"
+git add projects/m13-diseno/adr
+git commit -m "docs(m13): indice ADR y plantilla"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M01 | ADR ejemplo | srs RNF |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | ADR: contexto, decisión, consecuencias; índice vivo | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. ADR 002 completo.
-2. Plantilla documentada.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `adr/README.md` lista ADR 001 y placeholders 002–004 con estado.
+2. Existe `adr/PLANTILLA.md` (o equivalente) copiable.
+3. Commit `docs(m13): indice ADR y plantilla`.
 
 ## Errores comunes
 
-- ADR sin alternativas.
-- Copiar texto genérico.
+- ADRs de 3 líneas sin consecuencias.
+- Decisiones en chats/Discord sin archivo.
+- Índice que no enlaza archivos reales.
 
 ## Siguiente
 

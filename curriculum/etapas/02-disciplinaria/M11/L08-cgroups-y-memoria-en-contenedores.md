@@ -3,74 +3,70 @@ id: L08
 materia: M11
 orden: 8
 titulo: cgroups y memoria en contenedores
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Docker docs memory + Silberschatz resumen"
-evidencia: "labs/cgroups-nota.md"
+lectura: Docker docs memory + Silberschatz resumen
+evidencia: labs/cgroups-nota.md
 ---
 
 # L08 — cgroups y memoria en contenedores
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Docker no “aisla magia”: usa cgroups. Hoy lo conectas con OOM de contenedor.
 
 ## Objetivo
 
-Relacionar cgroups con límites de memoria en Docker y qué ve el proceso dentro del contenedor.
+Explicar límites de memoria en contenedores con un experimento o procedimiento escrito.
 
-## Por qué importa
+## Pasos
 
-M11 semana 4 dockeriza el stack; hoy entiendes por qué el contenedor muere “sin razón”.
+### 1. Lectura (40 min)
 
-## Conceptos
+Docker memory constraints + idea de cgroup v1/v2 (alto nivel). Notas en `labs/cgroups-nota.md`.
 
-- cgroup v2 (idea).
-- Límite memoria Docker.
-- OOM en contenedor.
+### 2. Experimento (60–75 min)
 
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Esboza `deploy.resources.limits.memory` en compose futuro. Nota para playbook.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+Si tienes Docker:
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l08 cgroups-y-memoria-en-contenedores"
+docker run --rm -m 64m progrium/stress --vm 1 --vm-bytes 128M --vm-hang 0 || true
+```
+
+Documenta el fallo. Si no hay Docker: deja el comando y describe el resultado esperado + plan de verificación en L13.
+
+### 3. Diseño piloto (30 min)
+
+Propón límites tentativos API vs Postgres en un VPS 2 GB.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m11-so/labs/cgroups-nota.md
+git commit -m "docs(m11): l08 cgroups memoria"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docker | Resource constraints | Silberschatz |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | cgroups memoria/CPU; docker run -m; por qué el límite no es “RAM del host” | [Docker · Memory constraints](https://docs.docker.com/config/containers/resource_constraints/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Nota cgroups en bitácora.
-2. Enlace a playbook futuro.
-3. Cierre semana 2.
+Marca la lección **solo si**:
+
+1. `labs/cgroups-nota.md` explica límite `-m`/`mem_limit` y qué ve el proceso.
+2. Experimento documentado con `docker run --memory` (o nota si Docker no está disponible + comandos listos).
+3. Commit `docs(m11): l08 cgroups memoria`.
 
 ## Errores comunes
 
-- Sin límite memoria en compose.
-- Asumir host ilimitado.
+- Contenedor sin límite en un VPS pequeño compartiendo con Postgres.
+- Confundir límite soft/hard.
+- Pensar que cgroup “arregla leaks”.
 
 ## Siguiente
 

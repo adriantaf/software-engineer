@@ -5,61 +5,72 @@ orden: 19
 titulo: Cola de prioridad
 horas: 5.0
 semana: 5
-lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — ED: aplicaciones heap"
-evidencia: "PriorityQueue API + 3 casos"
+lectura: Priority queue sobre heap; API de tareas
+evidencia: PriorityQueue API + 3 casos
 ---
 
 # L19 — Cola de prioridad
 
 **~5.0 h · Semana 5**
 
-Semana 5 de M07: rigor en implementación, tests y documentación de costos.
+La PQ es la fachada del heap para el dominio (turnos, jobs, eventos).
 
 ## Objetivo
 
-Avanzar evidencia `PriorityQueue API + 3 casos` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Envolver el MinHeap en `PriorityQueue<T>` con tres casos de uso testeados.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. API (30 min)
 
-Lee la sección indicada en tu texto ED sobre **Cola de prioridad**. Anota definiciones formales (pre/post condiciones).
+```ts
+enqueue(item: T, priority: number): void
+dequeue(): T
+peek(): T
+```
 
-### 2. Implementación (120 min)
+Menor `priority` sale primero (documenta si inviertes).
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+### 2. Implementación (70 min)
 
-### 3. Tests (90 min)
+Guarda `{ item, priority }` en el heap; compara por priority (tie-break opcional por orden de llegada).
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+### 3. Tres casos (70 min)
 
-### 4. Documentación (30 min)
+Tests: (1) turnos `{cliente, prioridad}`; (2) vaciar cola; (3) mismas prioridades — orden estable o documentado.
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+### 4. Nota de producto (30 min)
 
-### 5. Commit (30 min)
+En README: cómo Agenda Ops usaría PQ para “siguiente en cola VIP”.
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): priority queue"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — ED: aplicaciones heap | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | PQ: enqueue con prioridad, dequeue del mínimo/máximo | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `src/priority-queue.ts` genérica (prioridad numérica o comparator).
+2. Tres casos de prueba de dominio (p. ej. turnos Agenda Ops: urgente < normal).
+3. Commit `feat(m07): priority queue`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- PQ que es solo un array sorted en cada insert sin decir O(n).
+- Prioridades invertidas sin documentar (min vs max).
+- Casos de prueba sin prioridades distintas.
+
 ## Siguiente
 
 [L20 — Heap vs BST para prioridades](L20-heap-vs-bst-para-prioridades.md)

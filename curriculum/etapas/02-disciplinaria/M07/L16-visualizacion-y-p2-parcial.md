@@ -5,61 +5,71 @@ orden: 16
 titulo: Visualización y P2 parcial
 horas: 5.0
 semana: 4
-lectura: "Joyanes / texto univ. ED (ed. ES): Árboles / BST + recorridos — VisuAlgo BST"
-evidencia: "export traverse a string + README P2"
+lectura: Serializar árbol para depuración; cierre P2 parcial
+evidencia: export traverse a string + README P2
 ---
 
 # L16 — Visualización y P2 parcial
 
 **~5.0 h · Semana 4**
 
-Semana 4 de M07: rigor en implementación, tests y documentación de costos.
+Cierras P2 parcial dejando el BST inspeccionable y documentado.
 
 ## Objetivo
 
-Avanzar evidencia `export traverse a string + README P2` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Exportar una representación textual/Mermaid del árbol y actualizar el README de P2 con la API.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Formatter (70 min)
 
-Lee la sección indicada en tu texto ED sobre **Visualización y P2 parcial**. Anota definiciones formales (pre/post condiciones).
+`format(node): string` indentado por profundidad, o generador Mermaid `graph TD`. Test: árbol pequeño produce string estable (snapshot).
 
-### 2. Implementación (120 min)
+### 2. README P2 (60 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+Sección “P2 — BST”: métodos, política de duplicados, límites del delete, ejemplo de uso de 10 líneas.
 
-### 3. Tests (90 min)
+### 3. Suite verde (40 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+```bash
+npm test
+```
 
-### 4. Documentación (30 min)
+Añade test de regresión si encontraste un bug al formatear.
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+### 4. Bitácora semana 4 (30 min)
 
-### 5. Commit (30 min)
+`bitacora/semana-04.md`: peor caso del BST (datos ordenados) y qué estructura usarías en su lugar (AVL/hash) — una frase.
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 5. Commit (20 min)
+
+```bash
+git add projects/m07-estructuras
+git commit -m "docs(m07): cierre P2 parcial BST"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 4: Árboles / BST + recorridos — VisuAlgo BST | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Debug visual de BST; checklist P2 | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `format()` o `toString()` del BST legible (líneas o Mermaid).
+2. README sección P2 con API BST + estado de delete (qué casos cubres).
+3. Commit `docs(m07): cierre P2 parcial BST`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Visualización que no corresponde al árbol real.
+- Marcar P2 “hecho” sin recorridos.
+- README sin enlazar `src/bst.ts`.
+
 ## Siguiente
 
 [L17 — Modelo de heap binario](L17-modelo-de-heap-binario.md)

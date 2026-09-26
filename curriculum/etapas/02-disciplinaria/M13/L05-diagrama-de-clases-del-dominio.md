@@ -3,74 +3,101 @@ id: L05
 materia: M13
 orden: 5
 titulo: Diagrama de clases del dominio
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Larman modelo dominio"
-evidencia: "diagramas/clases.md"
+lectura: "Larman: modelo de dominio; entidades Agenda Ops"
+evidencia: projects/m13-diseno/diagramas/clases.md (Mermaid classDiagram)
 ---
 
 # L05 — Diagrama de clases del dominio
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Traduces UC a cosas que existen: Cliente, Servicio, Cita, Usuario. Sin UML decorativo.
 
 ## Objetivo
 
-Modelar entidades MVP: Usuario, Cliente, Cita, Servicio (ajusta a SRS).
-
-## Por qué importa
-
-Clases deben caber en 4 semanas de build.
-
-## Conceptos
-
-- entidad.
-- agregado (idea).
-- relación.
+`projects/m13-diseno/diagramas/clases.md` con dominio mínimo alineado al SRS y a M09.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lista entidades Must (30–40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Desde `casos-de-uso.md` y, si existe, `projects/m09-bases-datos/er-agenda.md`:
 
-### 2. Carpeta de evidencia (15–20 min)
+- Usuario (rol owner/staff)
+- Cliente
+- Servicio
+- Cita
+- (Opcional) Negocio stub si ya pensaste single-tenant explícito
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Escribe el Mermaid (70–90 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+En `diagramas/clases.md` incluye este diagrama (ajústalo a tu SRS):
 
-Mermaid classDiagram en clases.md. Solo Must.
+```mermaid
+classDiagram
+  class Usuario {
+    +id: string
+    +email: string
+    +rol: owner|staff
+  }
+  class Cliente {
+    +id: string
+    +nombre: string
+    +telefono: string
+  }
+  class Servicio {
+    +id: string
+    +nombre: string
+    +duracionMin: number
+    +precioBase: number
+  }
+  class Cita {
+    +id: string
+    +inicio: datetime
+    +fin: datetime
+    +estado: agendada|cancelada
+  }
+  Usuario "1" --> "*" Cita : agenda
+  Cliente "1" --> "*" Cita
+  Servicio "1" --> "*" Cita
+```
 
-### 4. Conexión con el plan (30–45 min)
+Añade una tabla **Trazabilidad** (clase → UC / historia). Ejemplo: `Cita` → UC-03, UC-04.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 3. Atributos honestos (40 min)
 
-### 5. Commit atómico (15 min)
+Borra getters UML vacíos. Si no sabes el tipo, anótalo en una lista “decidir en L14” — no inventes 12 enums.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l05 diagrama-de-clases-del-dominio"
+git add projects/m13-diseno/diagramas/clases.md
+git commit -m "docs(m13): diagrama de clases del dominio"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Larman | modelo conceptual | M09 FK preview |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Modelo de dominio: clases, atributos y asociaciones mínimas | [Mermaid — classDiagram](https://mermaid.js.org/syntax/classDiagram.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. clases.md con Mermaid.
-2. ≤8 entidades.
-3. Nombres alineados SRS.
+Marca la lección **solo si**:
+
+1. `diagramas/clases.md` incluye Mermaid con ≥4 clases del MVP (p. ej. Usuario, Cliente, Servicio, Cita).
+2. Cada clase tiene atributos que implementarás en M17 (no “campos por estética”).
+3. Commit `docs(m13): diagrama de clases del dominio`.
 
 ## Errores comunes
 
-- 40 entidades día 1.
-- UML sin atributos útiles.
+- 40 clases el día 1 (Factura, Inventario, CRM…).
+- Modelar pantallas React como clases de dominio.
+- Olvidar `negocioId`/`userId` donde el SRS implica pertenencia.
 
 ## Siguiente
 

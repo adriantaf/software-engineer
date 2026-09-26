@@ -3,74 +3,52 @@ id: L10
 materia: M20
 orden: 10
 titulo: "Navegación: tabs o drawer mínimo"
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Navigation container"
-evidencia: "commit nav"
+lectura: Navigation container
+evidencia: commit nav
 ---
 
 # L10 — Navegación: tabs o drawer mínimo
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Agenda / Clientes (opcional) / Ajustes-logout.
 
 ## Objetivo
 
-Estructura Citas / Perfil / logout accesible.
-
-## Por qué importa
-
-App usable sin laberinto de pantallas.
-
-## Conceptos
-
-- tabs
-- drawer
-- logout
+Navegación mínima usable con una mano.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Tabs/drawer (90–110 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Logout accesible (30 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Perfil muestra email usuario; logout limpia secure storage.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l10 navegacion-tabs-o-drawer-minimo"
-```
+`feat(m20): l10 navegacion tabs`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docs | navigation | — |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | Navigation container | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. Nav estable
-2. Logout limpia token
-3. Commit
+Marca la lección **solo si**:
+
+1. Nav estable (artefacto: `commit nav`).
+2. Logout limpia token (artefacto: `commit nav`).
+3. Commit (artefacto: `commit nav`).
 
 ## Errores comunes
 
-- Sin logout
-- Back stack roto
+- Sin logout.
+- Back stack roto.
 
 ## Siguiente
 

@@ -5,60 +5,66 @@ orden: 9
 titulo: Hash maps en problemas de conteo
 horas: 5.0
 semana: 3
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Programación dinámica (intro) — CLRS hashing cap intro"
-evidencia: "2 problemas patrón hash"
+lectura: Patrón hashing / conteo de frecuencias
+evidencia: 2 problemas patrón hash
 ---
 
 # L09 — Hash maps en problemas de conteo
 
 **~5.0 h · Semana 3**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+El mapa de frecuencias convierte muchos O(n²) en O(n) promedio.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: 2 problemas patrón hash.
+Resolver dos problemas de conteo/hash con evidencia completa e índice actualizado.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Elige problemas (15 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Ejemplos: anagramas (`isAnagram`), two-sum con `Map`, primer carácter único, conteo de votos. Dos bastan.
 
-### 2. Trabajo central (150 min)
+### 2. Problema A (70 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Carpeta `problems/…`: enunciado, solución con `Map`, complejidad, 3 tests (borde: vacío / un elemento).
 
-### 3. Análisis escrito (45 min)
+### 3. Problema B (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Igual plantilla. Si two-sum ya existía con fuerza bruta, reescribe con hash y anota mejora.
 
-### 4. Tests (45 min)
+### 4. Índice (30 min)
 
-Tres casos mínimo por función: borde incluido.
+Patrón `hash-conteo` en `indice-patrones.md`.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "feat(m08): problemas hash conteo"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 3: Programación dinámica (intro) — CLRS hashing cap intro | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Frequency map; anagramas; two-sum con hash | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Dos problemas en `problems/` con patrón hash/conteo, complejidad y ≥3 tests c/u.
+2. Actualizas `indice-patrones.md` con esas filas.
+3. Commit `feat(m08): problemas hash conteo`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Solución O(n²) presentada como hash.
+- Usar sort+two pointers sin reconocer que no es el patrón de hoy.
+- Índice sin enlazar archivos.
+
 ## Siguiente
 
 [L10 — Two pointers en arrays ordenados](L10-two-pointers-en-arrays-ordenados.md)

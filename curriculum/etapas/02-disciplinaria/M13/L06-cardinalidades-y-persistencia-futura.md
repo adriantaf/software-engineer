@@ -3,74 +3,88 @@ id: L06
 materia: M13
 orden: 6
 titulo: Cardinalidades y persistencia futura
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Elmasri relaciones (repaso)"
-evidencia: "clases.md cardinalidades"
+lectura: Cardinalidades 1..* / *..*; FK futuras M09
+evidencia: clases.md con cardinalidades + nota de tablas/FK
 ---
 
 # L06 — Cardinalidades y persistencia futura
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Las flechas bonitas mienten si no dices *cuántos*. Hoy fijamos multiplicidad y el puente a tablas.
 
 ## Objetivo
 
-Anotar cardinalidades y FKs futuras coherentes con M09.
-
-## Por qué importa
-
-Evita modelo que no se puede implementar en SQL.
-
-## Conceptos
-
-- 1:N.
-- nullable.
-- índice (nota).
+Actualizar `diagramas/clases.md` con cardinalidades y un mapa clase→tabla coherente con M09.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Tabla entidad-relación texto. Marca PII.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Revisa M09 si existe (25–35 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l06 cardinalidades-y-persistencia-futura"
+ls projects/m09-bases-datos/migrations 2>/dev/null
+cat projects/m09-bases-datos/er-agenda.md 2>/dev/null | head -80
+```
+
+Si no hay M09 aún, asume tablas `usuarios`, `clientes`, `servicios`, `citas` como en el scaffold típico.
+
+### 2. Anota multiplicidades (50–60 min)
+
+Ejemplo piloto:
+
+| Asociación | Multiplicidad | Regla |
+|------------|---------------|-------|
+| Cliente–Cita | 1 a * | toda cita tiene un cliente |
+| Servicio–Cita | 1 a * | MVP: un servicio por cita |
+| Usuario–Cita | 1 a * | quién la creó / staff asignado |
+
+Actualiza el Mermaid (`"1" --> "*"`).
+
+### 3. Sección persistencia (60–70 min)
+
+Añade a `clases.md`:
+
+```markdown
+## Persistencia futura (M09 / M17)
+
+| Clase | Tabla | FK |
+|-------|-------|-----|
+| Cita | citas | cliente_id, servicio_id, usuario_id |
+| … | … | … |
+
+Índices probables: (inicio), (cliente_id), unique parcial anti-doble-booking (decidir en ADR persistencia).
+```
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m13-diseno/diagramas/clases.md
+git commit -m "docs(m13): cardinalidades y mapeo a persistencia"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M09 | ficha repaso | srs-v1 datos |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Multiplicidad en asociaciones; mapeo a FK en PostgreSQL | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. Cardinalidades en diagrama.
-2. PII marcada.
-3. Notas FK.
+Marca la lección **solo si**:
+
+1. Cada asociación en `clases.md` tiene multiplicidad explícita (1, 0..1, 1..*, *).
+2. Sección “Persistencia futura” mapea clase→tabla y FK (aunque no escribas SQL hoy).
+3. Commit `docs(m13): cardinalidades y mapeo a persistencia`.
 
 ## Errores comunes
 
-- Many-to-many sin tabla intermedia.
-- Mezclar staff y owner en una clase.
+- Cita *—* Servicio sin aclarar si una cita es un solo servicio (MVP).
+- Cardinalidades que contradicen el ER de M09.
+- “N:N citas-servicios” sin tabla puente pensada.
 
 ## Siguiente
 

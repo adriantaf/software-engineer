@@ -3,73 +3,87 @@ id: L04
 materia: M10
 orden: 4
 titulo: Cierre semana 1 — bitácora P1
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Repaso semana 1 Tanenbaum + ficha M10"
-evidencia: "projects/m10-redes/labs/semana-01.md consolidado"
+lectura: Repaso semana 1 Tanenbaum + ficha M10
+evidencia: projects/m10-redes/labs/semana-01.md consolidado (P1)
 ---
 
 # L04 — Cierre semana 1 — bitácora P1
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+P1 es bitácora reproducible. Hoy la dejas legible para tu yo de la semana 5.
 
 ## Objetivo
 
-Consolidar la bitácora de labs de la semana 1 y enlazar cada experimento a una hipótesis de fallo en producción.
+Consolidar evidencia de capas/IP/TCP y actualizar el README del proyecto.
 
-## Por qué importa
+## Pasos
 
-P1 exige evidencia continua; hoy cierras la semana con criterio de auditoría, no con notas sueltas.
-
-## Conceptos
-
-- Trazabilidad comando → observación → implicación.
-- Hipótesis red vs aplicación.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Revisa L01–L03. Une logs en `semana-01.md` con secciones: **Comando**, **Salida clave**, **Qué aprendí**, **Riesgo Agenda Ops**. Añade un mini diagrama DNS→TCP→TLS→HTTP.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Auditoría de archivos (30 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l04 cierre-semana-1-bitacora-p1"
+find projects/m10-redes -type f | sort
+```
+
+Mueve notas sueltas a `labs/` si hace falta.
+
+### 2. Consolida `semana-01.md` (90–120 min)
+
+Estructura mínima:
+
+```markdown
+# Semana 1 — Capas, IP, TCP/UDP
+## Índice
+## Capas + curl (L01)
+## IP / ruta (L02)
+## Puertos Agenda Ops (L03)
+## Pendientes
+```
+
+Copia fragmentos **anotados** (no dumps enteros).
+
+### 3. README (45 min)
+
+En `projects/m10-redes/README.md`, sección “Semana 1”:
+
+- [x] dia1 + curl log
+- [x] IP/gateway/traceroute
+- [x] tabla puertos
+
+### 4. Auto-quiz (30 min)
+
+Responde por escrito (5–8 líneas c/u): (a) qué protege TLS vs qué no; (b) por qué 5432 no va a internet; (c) triage timeout.
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m10-redes
+git commit -m "docs(m10): l04 cierre semana 1 bitacora"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M10-redes.md | — |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Síntesis capas + IP + transporte; checklist P1 parcial | [MDN HTTP](https://developer.mozilla.org/es/docs/Web/HTTP) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. `semana-01.md` ≥4 experimentos documentados.
-2. Un riesgo concreto para API futura.
-3. Commit de cierre semana 1.
+Marca la lección **solo si**:
+
+1. `labs/semana-01.md` unifica L01–L03 con índice y enlaces a logs.
+2. README de m10 marca “Semana 1 / P1 parcial” con checklist.
+3. Commit `docs(m10): l04 cierre semana 1 bitacora`.
 
 ## Errores comunes
 
-- Marcar P1 sin carpeta `labs/`.
-- Diagrama copiado sin explicación propia.
+- Tres archivos sueltos sin índice.
+- Checklist vacía (“luego documento”).
+- Commit sin `labs/`.
 
 ## Siguiente
 

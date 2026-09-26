@@ -5,61 +5,70 @@ orden: 10
 titulo: Tabla hash con encadenamiento
 horas: 5.0
 semana: 3
-lectura: "Joyanes / texto univ. ED (ed. ES): Tablas hash (función, colisiones, load factor) — ED: separate chaining"
-evidencia: "HashMapChaining con set/get/delete + load factor logged"
+lectura: "Encadenamiento (chaining): buckets y listas"
+evidencia: HashMapChaining con set/get/delete + load factor logged
 ---
 
 # L10 — Tabla hash con encadenamiento
 
 **~5.0 h · Semana 3**
 
-Semana 3 de M07: rigor en implementación, tests y documentación de costos.
+Cada bucket es una lista (o array) de pares clave-valor. Hoy montas el mapa usable.
 
 ## Objetivo
 
-Avanzar evidencia `HashMapChaining con set/get/delete + load factor logged` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Entregar `HashMap<K,V>` (string keys al inicio está bien) con encadenamiento, API set/get/delete y `loadFactor` visible.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Diseño de buckets (30 min)
 
-Lee la sección indicada en tu texto ED sobre **Tabla hash con encadenamiento**. Anota definiciones formales (pre/post condiciones).
+Escribe en `docs/hash-notes.md` la forma de cada entrada `{ key, value }` y cómo resuelves igualdad de claves.
 
-### 2. Implementación (120 min)
+### 2. Implementación (100 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+`src/hash-map.ts`: array de buckets (capacidad inicial 8 o 16); `set` inserta o actualiza; `get`/`has`; `delete` remueve de la cadena; getter `loadFactor = size/capacity`.
 
-### 3. Tests (90 min)
+### 3. Tests (60 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+set+get; overwrite; delete + get undefined; has false; varias claves en mismo bucket (usa el par colisionante de L09 o fuerza módulo pequeño en test).
 
-### 4. Documentación (30 min)
+### 4. Smoke manual (20 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+```bash
+npx tsx -e "import { HashMap } from './src/hash-map.ts'; ..."
+```
 
-### 5. Commit (30 min)
+O un test de integración corto.
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): hashmap encadenamiento"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 3: Tablas hash (función, colisiones, load factor) — ED: separate chaining | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Hash map con encadenamiento; set/get/delete | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `src/hash-map.ts` con `set`/`get`/`delete`/`has` y buckets por encadenamiento.
+2. Tests cubren overwrite, delete, get ausente; logueas o expones `loadFactor`.
+3. Commit `feat(m07): hashmap encadenamiento`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Open addressing sin decirlo (esta lección es chaining).
+- No manejar update de clave existente.
+- Usar `Map` nativo por dentro y llamarlo implementación propia.
+
 ## Siguiente
 
 [L11 — Factor de carga y rehash](L11-factor-de-carga-y-rehash.md)

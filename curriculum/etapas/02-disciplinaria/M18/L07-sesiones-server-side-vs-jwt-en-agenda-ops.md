@@ -3,73 +3,52 @@ id: L07
 materia: M18
 orden: 7
 titulo: Sesiones server-side vs JWT en Agenda Ops
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Session Management + JWT Cheat Sheets"
-evidencia: "projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)"
+lectura: Session Management + JWT Cheat Sheets
+evidencia: projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)
 ---
 
 # L07 — Sesiones server-side vs JWT en Agenda Ops
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Elige o ratifica con ADR corto de seguridad.
 
 ## Objetivo
 
-Decidir y documentar si Agenda Ops usa sesión en servidor, JWT firmado, o híbrido; consecuencias para XSS, logout y revocación.
-
-## Por qué importa
-
-M13 pudo dejar la decisión abierta; M18 la cierra con ojos de seguridad.
-
-## Conceptos
-
-- Revocación inmediata.
-- HttpOnly cookie vs Authorization header.
-- Refresh token (si aplica).
+`docs/adr-sesion-vs-jwt.md` + riesgos XSS/CSRF de la opción.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Compara (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Tabla pros/contras en contexto panel+API same-site vs SPA cross-origin.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. ADR (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Decisión, mitigaciones obligatorias (HttpOnly, TTL, revoke).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Redacta `projects/m18-appsec/adr-sesion-vs-jwt.md`: contexto, decisión, alternativas rechazadas, impacto en móvil M20.
-
-Prueba manual: login → copiar token/cookie → logout → reutilizar credencial vieja (debe fallar).
-
-Anota resultado en la ADR.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l07 sesiones-server-side-vs-jwt-en-agenda-op"
-```
+`docs(m18): l07 adr sesion jwt`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M13 | adr/005-auth si existe | M10 L14 sesiones |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Session Management + JWT Cheat Sheets | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. ADR con alternativas.
-2. Prueba logout/reuse documentada.
-3. Coherente con móvil futuro.
+Marca la lección **solo si**:
+
+1. ADR con alternativas (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
+2. Prueba logout/reuse documentada (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
+3. Coherente con móvil futuro (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
+4. Commit `docs(m18): L07 sesiones-server-side-vs-jwt-en-agenda-ops`.
 
 ## Errores comunes
 

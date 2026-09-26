@@ -3,73 +3,53 @@ id: L15
 materia: M20
 orden: 15
 titulo: Timeout, 5xx y mensajes humanos
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "HTTP timeouts"
-evidencia: "nota en demo doc"
+lectura: HTTP timeouts
+evidencia: nota en demo doc
 ---
 
 # L15 — Timeout, 5xx y mensajes humanos
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Timeouts explícitos; “servidor no disponible” > stacktrace.
 
 ## Objetivo
 
-Configurar timeout cliente; distinguir 5xx de error usuario.
-
-## Por qué importa
-
-No todo es ‘algo salió mal’.
-
-## Conceptos
-
-- timeout
-- 5xx
+Timeouts HTTP + mensajes mapeados; sin filtrar detalles internos.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Timeouts (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Mapeo errores (70–90 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Prueba timeout bajo artificialmente en dev.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l15 timeout-5xx-y-mensajes-humanos"
-```
+`feat(m20): l15 timeouts mensajes`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M20 semana 4 | — |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | HTTP timeouts | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. Timeout configurado
-2. 5xx mensaje
-3. Log dev sin PII
+Marca la lección **solo si**:
+
+1. Timeout configurado (artefacto: `nota en demo doc`).
+2. 5xx mensaje (artefacto: `nota en demo doc`).
+3. Log dev sin PII (artefacto: `nota en demo doc`).
+4. Commit `docs(m20): L15 timeout-5xx-y-mensajes-humanos`.
 
 ## Errores comunes
 
-- Sin timeout
-- Stack al usuario
+- Sin timeout.
+- Stack al usuario.
 
 ## Siguiente
 

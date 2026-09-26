@@ -3,74 +3,60 @@ id: L05
 materia: M16
 orden: 5
 titulo: Prototipo navegable y tareas del SRS
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Krug navegación"
-evidencia: "projects/m16-ihc/prototipo/"
+lectura: Prototipo clicable; tareas Must del SRS
+evidencia: prototipo/ navegable + mapa de tareas
 ---
 
 # L05 — Prototipo navegable y tareas del SRS
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Sin prototipo, las sesiones inventan la UI. Hoy lo dejas clicable.
 
 ## Objetivo
 
-Prototipo HTML/Figma con flujos Must: crear cliente, cita, ver agenda día.
-
-## Por qué importa
-
-Test sin prototipo es teatro.
-
-## Conceptos
-
-- prototipo.
-- Must.
-- flujo.
+`projects/m16-ihc/prototipo/` usable en test de 15–30 min.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Pantallas mínimas (90–120 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+HTML estático o Figma prototype: Login, Agenda del día, Nueva cita, Confirmación/error.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. tareas-srs.md (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+| Tarea test | Historia SRS |
+|------------|--------------|
+| Agendar cita cliente nuevo | H-cita-01 |
+| Cancelar cita de hoy | H-cita-02 |
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-≥3 pantallas enlazadas. Lista tareas alineadas a `m12-srs`.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l05 prototipo-navegable-y-tareas-del-srs"
-```
+`feat(m16): prototipo navegable y tareas SRS`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m12-srs | Must | — |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Prototipo para test de pasillo alineado al SRS | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. Prototipo navegable.
-2. Tareas escritas.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Prototipo navegable (HTML/Figma) cubriendo login → agenda → crear cita (mínimo).
+2. `prototipo/tareas-srs.md` mapea tareas de test a historias Must.
+3. Commit `feat(m16): prototipo navegable y tareas SRS`.
 
 ## Errores comunes
 
-- Solo mock estático suelto.
-- Tareas fuera de SRS.
+- Prototipo de marketing no usable en test.
+- Tareas que no existen en el SRS.
+- Dependencias rotas (links muertos entre pantallas).
 
 ## Siguiente
 

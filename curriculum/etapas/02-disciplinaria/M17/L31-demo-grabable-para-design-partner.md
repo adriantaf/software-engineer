@@ -3,69 +3,56 @@ id: L31
 materia: M17
 orden: 31
 titulo: Demo grabable para design partner
-horas: 5
+horas: 5.0
 semana: 8
-lectura: "Guion demo 10 min"
-evidencia: "projects/m17-agenda-ops/docs/demo-script.md"
+lectura: Guion demo 10 min
+evidencia: projects/m17-agenda-ops/docs/demo-script.md
 ---
 
 # L31 — Demo grabable para design partner
 
-**~5 h · Semana 8**
+**~5.0 h · Semana 8**
+
+Validación real del MVP en 10 minutos.
 
 ## Objetivo
 
-Guion demo: onboarding, cita, WhatsApp, roles. URL staging y creds test.
-
-## Por qué importa
-
-Validación real del MVP.
-
-## Conceptos
-
-- demo.
-- partner.
-- staging.
+`docs/demo-script.md` + URL HTTPS + creds **test** + capturas/video opcional.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Guion (50–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Onboarding → cita → recordatorio WA → roles. Tiempos por bloque.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Ensayo en staging (60–80 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Arregla roturas. Anota minutos reales.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Empaqueta evidencia (20 min)
 
-demo-script.md + video opcional o capturas secuenciales.
+Capturas secuenciales o link video privado.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l31 demo-grabable-para-design-partner"
-```
+`docs(m17): l31 demo script design partner`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m12 | design partner | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Guion demo 10 min | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. demo-script.md.
+Marca la lección **solo si**:
+
+1. demo-script.md (artefacto: `projects/m17-agenda-ops/docs/demo-script.md`).
 2. URL HTTPS.
-3. Credenciales test only.
+3. Credenciales test only (artefacto: `projects/m17-agenda-ops/docs/demo-script.md`).
+4. Commit `docs(m17): L31 demo-grabable-para-design-partner`.
 
 ## Errores comunes
 

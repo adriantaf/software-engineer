@@ -3,82 +3,80 @@ id: L02
 materia: M10
 orden: 2
 titulo: IP, direccionamiento y enrutamiento intro
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Tanenbaum — capa de red (IPv4, máscaras, routing básico)"
-evidencia: "notas en semana-01.md: IP local, gateway, traceroute resumido"
+lectura: "Tanenbaum: capa de red — IPv4, máscaras, routing básico"
+evidencia: "labs/semana-01.md: IP local, gateway, traceroute resumido"
 ---
 
 # L02 — IP, direccionamiento y enrutamiento intro
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+HTTP no “viaja solo”: alguien elige el siguiente hop. Hoy lees tu propia mesa de enrutamiento.
 
 ## Objetivo
 
-Leer tu configuración IP local y explicar hop-by-hop qué hace un paquete hacia un host público.
+Documentar dirección local, gateway y un traceroute resumido hacia un host público.
 
-## Por qué importa
+## Pasos
 
-Timeouts y “no llega al servidor” empiezan en routing o DNS; hoy practicas observación antes de culpar al código.
-
-## Conceptos
-
-- IPv4 y CIDR a nivel ingeniero.
-- Default gateway.
-- MTU (idea).
-- ICMP y `ping` como señal, no como prueba definitiva.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Inventario de interfaces (40 min)
 
 ```bash
-ip addr show | head -40    # o ifconfig en macOS
-ip route | head
-ping -c 3 1.1.1.1
-traceroute -m 12 example.com 2>/dev/null | head -15 || tracepath example.com | head -15
+ip -br addr
+ip route
 ```
 
-Documenta IP, máscara y gateway. ¿Cuántos saltos hasta `example.com`?
+En `projects/m10-redes/labs/semana-01.md` anota: interfaz, IPv4/CIDR, default gateway. Si usas macOS: `ifconfig` + `netstat -rn`.
 
-### 4. Conexión con el plan (30–45 min)
+### 2. Lectura dirigida (45 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+Tanenbaum (capa de red): qué es una máscara, por qué existe NAT en casa, diferencia host vs red. Escribe 6 viñetas propias — no copies el libro.
 
-### 5. Commit atómico (15 min)
+### 3. Traceroute (60–75 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l02 ip-direccionamiento-y-enrutamiento-intro"
+# Linux:
+traceroute -n example.com | head -20
+# o
+tracepath example.com | head -20
+```
+
+Tabla: hop | RTT aprox | nota (timeout / ISP / destino). Relaciona “salto” con “router que decide”.
+
+### 4. Hipótesis Agenda Ops (25 min)
+
+Si el panel no alcanza la API: ¿fallo DNS, IP inalcanzable, o app? Criterio de triage en 4 bullets.
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m10-redes/labs/semana-01.md
+git commit -m "docs(m10): l02 ip y enrutamiento"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Tanenbaum | Capa de red (IP) | Labs anteriores + apuntes |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | IPv4, máscara/CIDR, gateway, hop-by-hop | [MDN · HTTP (contexto app)](https://developer.mozilla.org/es/docs/Web/HTTP) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Tabla IP/gateway en bitácora.
-2. Salida resumida de traceroute.
-3. Explicas diferencia IP pública vs privada.
+Marca la lección **solo si**:
+
+1. `labs/semana-01.md` con IP local, máscara/CIDR, gateway y 3–5 hops de traceroute (o `tracepath`/`mtr`).
+2. Explicas en 5 líneas qué problema resuelve IP vs qué resuelve TCP.
+3. Commit `docs(m10): l02 ip y enrutamiento`.
 
 ## Errores comunes
 
-- Asumir que `ping` falla implica que HTTP fallará igual.
-- Publicar capturas con IPs internas de producción.
+- Confundir IP privada (`10.`, `192.168.`) con “no hay internet”.
+- Pegar traceroute completo sin interpretar timeouts.
+- Olvidar que el API de Agenda Ops tendrá IP pública *y* ruta interna en compose.
 
 ## Siguiente
 

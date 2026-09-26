@@ -3,74 +3,51 @@ id: L20
 materia: M18
 orden: 20
 titulo: Tests automatizados cross-user (P2 avance)
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Testing access control"
-evidencia: "tests en repo producto + projects/m18-appsec/findings-table.md"
+lectura: Testing access control
+evidencia: tests en repo producto + projects/m18-appsec/findings-table.md
 ---
 
 # L20 — Tests automatizados cross-user (P2 avance)
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+P2 avanza con tests que fallen si vuelve el IDOR.
 
 ## Objetivo
 
-Escribir ≥2 tests: usuario A no lee/edita recurso de B; rol staff no ejecuta acción de owner.
-
-## Por qué importa
-
-P2 pide tabla hallazgo→fix→test; hoy consolidas access control.
-
-## Conceptos
-
-- Fixture dos usuarios.
-- Arrange-Act-Assert.
-- 401 vs 403 semántica.
+≥2 tests cross-user en CI local; tabla hallazgos con ≥3 filas PoC→fix→test.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe tests (90–110 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Usuario A no lee/edita recurso B.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Tabla P2 (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`hallazgos.md` columnas requeridas.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-```bash
-# ejemplo nombre
-npm test -- --testPathPattern=authz
-```
-
-Actualiza findings-table con IDOR y RBAC. Mínimo 5 hallazgos totales en P2 al cerrar M18 — planifica los que faltan.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l20 tests-automatizados-cross-user-p2-avance"
-```
+`test(m18): l20 cross-user p2 avance`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M18 P2 | M15 testing |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Testing access control | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. ≥2 tests authz verdes.
-2. findings-table ≥3 filas.
-3. Commits referenciados.
+Marca la lección **solo si**:
+
+1. ≥2 tests authz verdes (artefacto: `tests en repo producto`).
+2. findings-table ≥3 filas (artefacto: `tests en repo producto`).
+3. Commits referenciados (artefacto: `tests en repo producto`).
 
 ## Errores comunes
 

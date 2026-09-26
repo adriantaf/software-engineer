@@ -3,74 +3,64 @@ id: L14
 materia: M10
 orden: 14
 titulo: Sesiones, tokens y estado en APIs
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "MDN Web Storage vs cookies + notas OAuth2 (vista alta)"
-evidencia: "labs/sesiones.md"
+lectura: MDN Web Storage vs cookies + OAuth2 vista alta
+evidencia: labs/sesiones.md
 ---
 
 # L14 — Sesiones, tokens y estado en APIs
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+El panel (origen A) hablará con la API (origen B). Hoy eliges cómo viaja la identidad.
 
 ## Objetivo
 
-Comparar sesión server-side, JWT stateless y refresh tokens; elegir borrador para piloto single-tenant.
+Dejar una decisión documentada sesión vs token para el piloto single-tenant.
 
-## Por qué importa
+## Pasos
 
-M12/M13 fijarán auth; hoy entiendes trade-offs de red y superficie.
+### 1. Modelos (50 min)
 
-## Conceptos
+En `labs/sesiones.md`: (1) session id opaco en cookie HttpOnly; (2) access token Bearer; (3) híbrido access corto + refresh.
 
-- Stateful session store.
-- JWT en header vs cookie.
-- Rotación de refresh.
+### 2. Amenazas (40 min)
 
-## Pasos (hazlos en orden)
+XSS → robo de token en JS vs cookie HttpOnly; CSRF → SameSite + anti-CSRF; replay → TTL corto.
 
-### 1. Lectura dirigida (60–90 min)
+### 3. Decisión piloto (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Elige **un** modelo para M17 y escribe “por qué”. Anota qué cambia cuando llegue multi-tenant (M19+).
 
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Tabla comparativa con columnas: revocación, tamaño, CSRF, XSS. Recomendación provisional para Agenda Ops.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l14 sesiones-tokens-y-estado-en-apis"
+git add projects/m10-redes/labs/sesiones.md
+git commit -m "docs(m10): l14 sesiones tokens"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | Web Storage API | OAuth 2.0 overview (no implementar aún) |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Sesión server-side vs JWT/opaque token; dónde vive el estado | [MDN HTTP](https://developer.mozilla.org/es/docs/Web/HTTP) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Tabla comparativa completa.
-2. Recomendación con justificación.
-3. Riesgos CSRF mencionados.
+Marca la lección **solo si**:
+
+1. `labs/sesiones.md` compara sesión+cookie vs Bearer token para Agenda Ops (pros/contras).
+2. Diagrama: browser → API → store de sesión/Redis/PG.
+3. Commit `docs(m10): l14 sesiones tokens`.
 
 ## Errores comunes
 
-- JWT en localStorage “porque es fácil”.
-- Sesiones sin expiración.
+- JWT eterno en localStorage sin rotación ni revoke.
+- Mezclar “stateless” con “sin authz”.
+- Olvidar logout / invalidación.
 
 ## Siguiente
 

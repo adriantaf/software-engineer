@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-M05 te dio el mapa de la máquina; M11 te enseñó a operar procesos y contenedores. Aquí bajas un piso: **C, memoria, ABI y ensamblador x86-64** para dejar de tratar el runtime como magia. Eso mejora depuración, AppSec (overflows) y, más adelante, compiladores (M28).
+M05 te dio el mapa de la máquina; M11 te enseñó a operar procesos y contenedores. Aquí bajas un piso: **C, memoria, ABI y ensamblador x86-64** para dejar de tratar el runtime como magia. Eso mejora depuración, AppSec (overflows) y, más adelante, un estudio opcional de compiladores.
 
 **En resumen:** escribes C pequeño, lees el asm que genera el compilador y documentas cómo un binario llega a ejecutarse.
 
@@ -139,7 +139,7 @@ En M18 verás el ángulo AppSec; aquí basta entender **por qué** el stack se c
 - Comandos exactos de compile/link.
 - Fragmento de asm de `main` (o función elegida).
 - Diagrama: fuente → `.o` → ejecutable → proceso.
-- Una frase de puente a M18 (memoria insegura) y a M28 (lo que hace un compilador).
+- Una frase de puente a M18 (memoria insegura) y a compiladores (opcional futuro: qué hace un compilador).
 
 ## Errores comunes
 

@@ -3,77 +3,68 @@ id: L09
 materia: M11
 orden: 9
 titulo: "Sistema de archivos: inodos y espacio"
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Silberschatz sistema de archivos"
-evidencia: "labs/semana-03-fs.md"
+lectura: Silberschatz sistema de archivos
+evidencia: labs/semana-03-fs.md
 ---
 
 # L09 — Sistema de archivos: inodos y espacio
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Backups y logs viven en disco. Hoy mides espacio e inodos.
 
 ## Objetivo
 
-Usar `df` y `du` para localizar consumo; explicar inodo y nombre.
+Diagnosticar uso de disco como operador del piloto.
 
-## Por qué importa
+## Pasos
 
-Logs de API y backups llenan disco antes que CPU.
-
-## Conceptos
-
-- inodo.
-- df vs du.
-- Enlaces duros/simbólicos (idea).
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Medición (45 min)
 
 ```bash
 df -h
-du -sh projects/* 2>/dev/null | sort -h | tail
+df -i
+du -sh projects/* 2>/dev/null | sort -h
 ```
 
-### 4. Conexión con el plan (30–45 min)
+### 2. Conceptos (45 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+Inodo vs nombre de archivo; hardlink vs symlink (una tabla). Qué pasa con muchas fotos/tmp de citas.
 
-### 5. Commit atómico (15 min)
+### 3. Política (30 min)
+
+Dónde vivirían backups y logs de Agenda Ops; cuota mínima libre antes de alerta.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l09 sistema-de-archivos-inodos-y-espacio"
+git add projects/m11-so/labs/semana-03-fs.md
+git commit -m "docs(m11): l09 filesystem inodos"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Silberschatz | Sistema de archivos | man df/du |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | Inodos, enlaces, df/du; quedarse sin inodos vs sin bloques | [Node.js process](https://nodejs.org/api/process.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Salida df/du comentada.
-2. Riesgo logs Agenda Ops.
-3. Plan rotación (L11).
+Marca la lección **solo si**:
+
+1. `labs/semana-03-fs.md` con `df -h`, `df -i`, `du -sh` anotados.
+2. Explicas diferencia “disco lleno” vs “sin inodos”.
+3. Commit `docs(m11): l09 filesystem inodos`.
 
 ## Errores comunes
 
-- Borrar datos sin backup.
-- Ignorar inodos agotados.
+- Borrar logs a ciegas en prod.
+- Llenar disco con dumps de BD sin rotación.
+- Ignorar tamaño de `node_modules`/imágenes Docker.
 
 ## Siguiente
 

@@ -3,70 +3,56 @@ id: L20
 materia: M20
 orden: 20
 titulo: Cierre M20 — dominio y README proyecto
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Repaso M20"
-evidencia: "projects/m20-movil/README.md índice"
+lectura: Repaso M20
+evidencia: projects/m20-movil/README.md índice
 ---
 
 # L20 — Cierre M20 — dominio y README proyecto
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+Cierra P1–P3 y criterios de dominio móvil.
 
 ## Objetivo
 
-Verificar P1–P3, criterios dominio, enlaces evidencia.
-
-## Por qué importa
-
-Cierras materia móvil antes de emprendimiento M22.
-
-## Conceptos
-
-- README
-- dominio
+README índice + autoevaluación dominio + enlace artefacto.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Auditoría (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Criterios dominio (50–60 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. README final (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 4. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-README con enlaces demo-login-lista, auth-storage, build-evidence. cierre-m20.md checklist ficha.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l20 cierre-m20-dominio-y-readme-proyecto"
-```
+`docs(m20): l20 cierre dominio`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M20-aplicaciones-moviles.md | — |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | Repaso M20 | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. README completo
-2. P1–P3
-3. Criterios con evidencia
+Marca la lección **solo si**:
+
+1. README completo (artefacto: `projects/m20-movil/README.md índice`).
+2. P1–P3 (artefacto: `projects/m20-movil/README.md índice`).
+3. Criterios con evidencia (artefacto: `projects/m20-movil/README.md índice`).
+4. Commit `docs(m20): L20 cierre-m20-dominio-y-readme-proyecto`.
 
 ## Errores comunes
 
-- README vacío
-- Build solo emulador
+- README vacío.
+- Build solo emulador.
+
+## Siguiente
+
+Etapa terminal: [M21 — Admin. proyectos](../../03-terminal/M21-admin-proyectos.md).

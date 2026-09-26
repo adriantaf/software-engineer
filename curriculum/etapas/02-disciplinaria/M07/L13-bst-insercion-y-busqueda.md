@@ -5,61 +5,73 @@ orden: 13
 titulo: "BST: inserción y búsqueda"
 horas: 5.0
 semana: 4
-lectura: "Joyanes / texto univ. ED (ed. ES): Árboles / BST + recorridos — ED: árboles binarios de búsqueda"
-evidencia: "BST insert/contains + tests ordenados"
+lectura: "Árboles binarios de búsqueda: invariante e insert/contains"
+evidencia: BST insert/contains + tests ordenados
 ---
 
 # L13 — BST: inserción y búsqueda
 
 **~5.0 h · Semana 4**
 
-Semana 4 de M07: rigor en implementación, tests y documentación de costos.
+P2 empieza con el invariante: izquierda < nodo < derecha.
 
 ## Objetivo
 
-Avanzar evidencia `BST insert/contains + tests ordenados` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Implementar un BST de números (o `T` comparable) con `insert` y `contains`, más tests que demuestren el orden.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Lectura + VisuAlgo (40 min)
 
-Lee la sección indicada en tu texto ED sobre **BST**. Anota definiciones formales (pre/post condiciones).
+Inserta la secuencia 8,3,10,1,6 en VisuAlgo BST. Copia el dibujo a `docs/bst-semana4.md`.
 
-### 2. Implementación (120 min)
+### 2. Nodos e insert (90 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+`src/bst.ts`:
 
-### 3. Tests (90 min)
+```ts
+class BstNode { left: BstNode | null; right: BstNode | null; constructor(public key: number) {} }
+export class BST { insert(key: number): void; contains(key: number): boolean }
+```
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Define política de duplicados en un comentario de una línea.
 
-### 4. Documentación (30 min)
+### 3. Tests (60 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+Vacío contains false; insert uno; secuencia 8,3,10,1,6 contains todos; ausente; duplicado según política.
 
-### 5. Commit (30 min)
+### 4. Complejidad (20 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+`COMPLEJIDAD.md`: O(h) con h altura; peor caso cadena O(n).
+
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): bst insert y contains"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 4: Árboles / BST + recorridos — ED: árboles binarios de búsqueda | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | BST: hijo izq < nodo < der; insert y search | [VisuAlgo · BST](https://visualgo.net/en/bst) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `src/bst.ts` con `insert` y `contains` respetando invariante BST.
+2. ≥5 tests (vacío, cadena ordenada, duplicado definido, contains true/false).
+3. Commit `feat(m07): bst insert y contains`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Insertar sin respetar orden (rompe invariante).
+- Duplicados silenciosos sin política (ignorar / contar / throw).
+- Confundir BST con heap.
+
 ## Siguiente
 
 [L14 — Recorridos inorder, preorder, postorder](L14-recorridos-inorder-preorder-postorder.md)

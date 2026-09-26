@@ -3,69 +3,56 @@ id: L12
 materia: M17
 orden: 12
 titulo: Demo roles y inicio P3 WhatsApp
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Ficha P3 parcial"
-evidencia: "projects/m17-agenda-ops/docs/demo-roles.md"
+lectura: Ficha P3 parcial
+evidencia: projects/m17-agenda-ops/docs/demo-roles.md
 ---
 
 # L12 — Demo roles y inicio P3 WhatsApp
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Evidencia reproducible para el design partner.
 
 ## Objetivo
 
-Grabar o documentar pasos demo: owner vs staff en acción bloqueada.
-
-## Por qué importa
-
-P3 requiere evidencia reproducible para el design partner.
-
-## Conceptos
-
-- demo.
-- roles.
-- evidencia.
+`docs/demo-roles.md` con usuarios test y acción bloqueada; anotar inicio P3 WhatsApp.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Script demo (50–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Pasos numerados: login owner → OK; login staff → 403 en admin.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Evidencia (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Capturas o log HTTP (sin cookies completas). Enlace a tests 403.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Kickoff WhatsApp (30 min)
 
-demo-roles.md con usuarios test y pasos. Enlace a tests 403.
+Sección en doc: deep-link vs API oficial; qué harás en L17–L20.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l12 demo-roles-y-inicio-p3-whatsapp"
-```
+`docs(m17): l12 demo roles inicio p3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M17-aplicaciones-web.md | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Ficha P3 parcial | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. demo-roles.md.
-2. Staff bloqueado demo.
-3. Cierre semana 3.
+Marca la lección **solo si**:
+
+1. demo-roles.md (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
+2. Staff bloqueado demo (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
+3. Cierre semana 3 (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
+4. Commit `docs(m17): L12 demo-roles-y-inicio-p3-whatsapp`.
 
 ## Errores comunes
 

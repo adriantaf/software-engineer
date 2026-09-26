@@ -3,74 +3,68 @@ id: L17
 materia: M10
 orden: 17
 titulo: "Superficie de ataque: endpoints y datos"
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Hilo seguridad + ficha M10 proyecto"
-evidencia: "superficie/endpoints.md (P3 inicio)"
+lectura: Hilo seguridad + ficha M10 proyecto
+evidencia: superficie/endpoints.md (P3 inicio)
 ---
 
 # L17 — Superficie de ataque: endpoints y datos
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+P3 empieza aquí: inventarias antes de endurecer (M18).
 
 ## Objetivo
 
-Inventariar endpoints previstos, datos sensibles y vectores de red para el piloto web.
+Completar el mapa de superficie del piloto Agenda Ops (aunque sea diseño).
 
-## Por qué importa
+## Pasos
 
-El mapa de superficie es entregable P3 y entrada a M18.
-
-## Conceptos
-
-- Superficie de ataque.
-- PII en tránsito y en reposo (intro).
-- Trust boundary navegador/API.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Tabla: endpoint, auth, datos, riesgo red (robo sesión, sniffing, CSRF). Incluye admin y staff.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Plantilla (30 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l17 superficie-de-ataque-endpoints-y-datos"
+mkdir -p projects/m10-redes/superficie
+```
+
+Crea `endpoints.md` con columnas: método, path, auth, roles, datos, notas.
+
+### 2. Inventario (90 min)
+
+Incluye al menos: login/logout, CRUD clientes, CRUD citas, listados, health `/health`, estáticos del panel. Marca PII (teléfono, notas privadas).
+
+### 3. Trust boundaries (40 min)
+
+Mermaid o ASCII: User Agent → TLS → API → PG; backups; logs. Qué cruza cada frontera.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m10-redes/superficie
+git commit -m "docs(m10): l17 superficie endpoints"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | [Hilo seguridad](../../../hilos/seguridad.md) | Ficha M10 |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Inventario de endpoints, auth, datos sensibles y trust boundaries | [Hilo seguridad](../../../hilos/seguridad.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Tabla ≥10 filas (borrador API).
-2. Datos PII marcados.
-3. Riesgos numerados.
+Marca la lección **solo si**:
+
+1. `superficie/endpoints.md` lista endpoints previstos (citas/clientes/auth) + auth + PII.
+2. Diagrama trust boundary: browser / API / DB / backups.
+3. Commit `docs(m10): l17 superficie endpoints`.
 
 ## Errores comunes
 
-- Inventario solo del happy path.
-- Olvidar webhooks o health checks.
+- Inventario vacío “porque aún no hay código”.
+- Olvidar admin, healthchecks, webhooks.
+- Marcar todo como “público”.
 
 ## Siguiente
 

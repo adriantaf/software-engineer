@@ -3,25 +3,27 @@ id: L10
 materia: M24
 orden: 10
 titulo: Flujo mínimo demostrable
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "API reference secciones usadas en el spike"
-evidencia: "projects/m24-emergentes/spike/ + demo-log.md"
+lectura: API reference secciones usadas en el spike
+evidencia: projects/m24-emergentes/spike/ + demo-log.md
 ---
 
 # L10 — Flujo mínimo demostrable
 
 **~5 h · Semana 3**
 
+Evalúas tecnología emergente con decisión escrita. Hoy entregas **`projects/m24-emergentes/spike/ + demo-log.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M24.
+
 ## Objetivo
 
 Implementar un flujo que un mentor pueda ver en ≤10 min (webhook, evento UI, mensaje test, etc.).
 
-## Por qué importa
+## Por qué empieza así
 
 P3 exige PoC, no repositorio vacío con intenciones.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Happy path
 - Idempotencia básica
@@ -29,49 +31,54 @@ P3 exige PoC, no repositorio vacío con intenciones.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee fuentes **primarias** (docs oficiales / pricing / límites): _API reference secciones usadas en el spike_.
 
-### 2. Carpeta de evidencia (15–20 min)
+En la bitácora de la semana, lista URLs + 3 límites duros (rate, región, costo). Prohibido basarte solo en blogs.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m24-emergentes`.
 
 Completa el happy path del plan. Registra en `spike/demo-log.md` pasos + capturas o salida terminal.
 
+### 3. Laboratorio principal (90–120 min)
+
 Si usas webhooks: verifica firma o documenta TODO explícito.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta a **Agenda Ops** (SaaS multi-tenant, piloto M17, egreso M26). Usa el escenario de [producto-saas](../../producto-saas.md) si aún no tienes deploy.
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
-git commit -m "docs(m24): l10 flujo-minimo-demostrable"
+git commit -m "docs(m24): l10 flujo-m-nimo-demostrable"
 ```
+
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Vendor | API usada en spike | threat-sketch |
-| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs oficiales del candidato + ficha M24 | API reference secciones usadas en el spike | [producto-saas (encaje ICP)](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
 
 
 ## Hecho cuando
 
-1. Flujo demo reproducible.
-2. demo-log.md con pasos.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m24-emergentes/spike/ + demo-log.md`.
+2. Flujo demo reproducible.
+3. demo-log.md con pasos.
+4. Commit `docs(m24): l10 …` en el historial.
 
 ## Errores comunes
 
 - Demo solo en tu máquina sin instrucciones.
 - PII real en prueba.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

@@ -3,77 +3,77 @@ id: L06
 materia: M11
 orden: 6
 titulo: Observar RSS y CPU de Node
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "man ps, top/htop"
-evidencia: "labs/rss-node.md"
+lectura: man ps, top/htop
+evidencia: labs/rss-node.md
 ---
 
 # L06 — Observar RSS y CPU de Node
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Mides el proceso que importa: tu runtime.
 
 ## Objetivo
 
-Medir RSS/CPU de un proceso Node bajo carga ligera (script bucle + servidor).
+Capturar RSS/CPU de Node y `process.memoryUsage()`.
 
-## Por qué importa
+## Pasos
 
-Sin baseline no sabes si un leak es real.
-
-## Conceptos
-
-- RSS vs VSZ.
-- %CPU.
-- Carga sintética.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Proceso de muestra (50 min)
 
 ```bash
-node -e "setInterval(()=>{},1000)"
-# en otra terminal: ps -o pid,rss,cmd -p <pid>
+node -e 'const a=[]; setInterval(()=>{a.push(Buffer.alloc(1e5)); console.log(process.memoryUsage());}, 1000)' &
+PID=$!
+sleep 3
+ps -p $PID -o pid,pcpu,rss,vsz,cmd
+kill $PID
 ```
 
-### 4. Conexión con el plan (30–45 min)
+Copia números a `labs/rss-node.md` e interpreta rss vs heapUsed.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 2. top (30 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l06 observar-rss-y-cpu-de-node"
+# una snapshot:
+ps aux --sort=-%mem | head -15
+```
+
+Localiza `node` si queda alguno.
+
+### 3. Nota ops (30 min)
+
+Qué alarma pondrías en el piloto (RSS > X MB sostenido).
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m11-so/labs/rss-node.md
+git commit -m "docs(m11): l06 rss cpu node"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Silberschatz | Memoria | htop tutorial |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | RSS/VSZ; %CPU; process.memoryUsage() en Node | [Node.js process](https://nodejs.org/api/process.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Captura antes/después carga.
-2. Números con unidades.
-3. Interpretación honesta.
+Marca la lección **solo si**:
+
+1. `labs/rss-node.md` con mediciones de un proceso Node (ps + memoryUsage).
+2. Script o one-liner que imprime heap/rss.
+3. Commit `docs(m11): l06 rss cpu node`.
 
 ## Errores comunes
 
-- Un solo snapshot.
-- Confundir heap JS con RSS total.
+- Mirar solo VSZ y asustarse.
+- Medir una vez sin carga ni idle.
+- No anotar unidades (kB vs MB).
 
 ## Siguiente
 

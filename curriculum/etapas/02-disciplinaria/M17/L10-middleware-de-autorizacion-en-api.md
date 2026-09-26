@@ -3,69 +3,56 @@ id: L10
 materia: M17
 orden: 10
 titulo: Middleware de autorización en API
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Middleware pattern"
-evidencia: "authorize(role) middleware"
+lectura: Middleware pattern
+evidencia: authorize(role) middleware
 ---
 
 # L10 — Middleware de autorización en API
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+403 debe ser imposible de saltar desde el front.
 
 ## Objetivo
 
-Middleware que verifica rol y negocio en cada handler sensible.
-
-## Por qué importa
-
-403 debe ser imposible de evitar desde el front.
-
-## Conceptos
-
-- middleware.
-- 403.
-- contexto usuario.
+Middleware `authorize(roles)` (o políticas) en handlers sensibles + tests 403/IDOR.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Implementa middleware (80–100 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Inyecta usuario de sesión; rechaza rol insuficiente; opcional: scope por `negocio_id`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Aplica a rutas (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Admin staff, borrar servicio, etc. según matriz.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Tests (40–50 min)
 
-Tests staff bloqueado en acción owner. Test 403 IDOR entre recursos.
+Staff en acción owner → 403. Usuario A no lee cita de B si aplica.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l10 middleware-de-autorizacion-en-api"
-```
+`feat(m17): l10 middleware autorizacion`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m15 | tests seguridad | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Middleware pattern | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Middleware activo.
-2. 403 tests.
-3. Sin lógica duplicada.
+Marca la lección **solo si**:
+
+1. Middleware activo (artefacto: `authorize(role) middleware`).
+2. 403 tests (artefacto: `authorize(role) middleware`).
+3. Sin lógica duplicada (artefacto: `authorize(role) middleware`).
+4. Commit `docs(m17): L10 middleware-de-autorizacion-en-api`.
 
 ## Errores comunes
 

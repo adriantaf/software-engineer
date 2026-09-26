@@ -3,74 +3,72 @@ id: L02
 materia: M14
 orden: 2
 titulo: Factory Method para notificadores de canal
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Refactoring.Guru Factory Method"
-evidencia: "projects/m14-patrones/src/notificador-factory.ts"
+lectura: Factory Method; email vs WhatsApp link
+evidencia: src/notify/ factory + tests + ADR
 ---
 
 # L02 — Factory Method para notificadores de canal
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+El piloto avisará por email o link de WhatsApp. El service de citas no debe importar detalles de cada canal.
 
 ## Objetivo
 
-Encapsular creación de notificadores (email vs enlace WhatsApp) con Factory Method o factory simple en TS.
-
-## Por qué importa
-
-Agenda Ops enviará recordatorios por distintos canales sin que el dominio conozca detalles.
-
-## Conceptos
-
-- Factory Method.
-- creación variable.
-- dominio aislado.
+Factory Method (o factory function tipada) para notificadores + tests + ADR.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Interfaz común (30–40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Crea interfaz `Notificador` y factory `crearNotificador(canal)`. Test: factory devuelve implementación correcta por canal.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l02 factory-method-para-notificadores-de-can"
+```ts
+export type Notifier = { send(to: string, body: string): Promise<void> };
 ```
+
+Stubs: `EmailNotifier`, `WhatsAppLinkNotifier` (concatena `https://wa.me/...`).
+
+### 2. Factory (50–60 min)
+
+```ts
+export function createNotifier(channel: "email" | "whatsapp"): Notifier {
+  switch (channel) {
+    case "email": return new EmailNotifier();
+    case "whatsapp": return new WhatsAppLinkNotifier();
+  }
+}
+```
+
+### 3. Tests (40–50 min)
+
+Assert de comportamiento observable (p. ej. mock de send, o retorno del link).
+
+### 4. ADR (25 min) + commit
+
+`adr/factory-notifiers.md` · `feat(m14): factory method notificadores`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Refactoring.Guru | Factory Method | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Factory Method: crear notificadores sin acoplar al cliente | [Refactoring.Guru — Factory Method (ES)](https://refactoring.guru/es/design-patterns/factory-method) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Factory con test por canal.
-2. Sin `new` disperso en servicio de citas.
-3. Commit feat(m14).
+Marca la lección **solo si**:
+
+1. Factory crea al menos 2 notificadores (email / whatsapp-link) detrás de una interfaz.
+2. ≥2 tests: el cliente pide canal y recibe el tipo correcto sin `new` concreto.
+3. Commit `feat(m14): factory method notificadores`.
 
 ## Errores comunes
 
-- Factory que solo hace `new` fijo.
-- Lógica de negocio dentro del factory.
+- Clase `XFactory` que solo hace `return new X()`.
+- WhatsApp = enviar mensajes reales (hoy: deep-link o stub).
+- Factory que conoce SMTP y HTML a la vez sin interfaz.
 
 ## Siguiente
 

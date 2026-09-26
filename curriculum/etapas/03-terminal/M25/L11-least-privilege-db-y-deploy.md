@@ -3,25 +3,27 @@ id: L11
 materia: M25
 orden: 11
 titulo: Least privilege DB y deploy
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "OWASP Configuration + Stripe webhooks docs"
-evidencia: "projects/m25-ciber/hardening/least-privilege.md"
+lectura: OWASP Configuration + Stripe webhooks docs
+evidencia: projects/m25-ciber/hardening/least-privilege.md
 ---
 
 # L11 — Least privilege DB y deploy
 
 **~5 h · Semana 3**
 
+El bug #1 a cazar es IDOR cross-tenant. Hoy entregas **`projects/m25-ciber/hardening/least-privilege.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M25.
+
 ## Objetivo
 
 Usuario DB no superuser; permisos CI mínimos.
 
-## Por qué importa
+## Por qué empieza así
 
 Billing roto o secrets filtrados tumba el SaaS antes del primer cliente.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Stripe signature
 - Secrets manager / env
@@ -29,47 +31,62 @@ Billing roto o secrets filtrados tumba el SaaS antes del primer cliente.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Configuration + Stripe webhooks docs_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara carpetas (15–25 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+```bash
+mkdir -p projects/m25-ciber/hardening
+```
+
+Confirma que escribirás `projects/m25-ciber/hardening/least-privilege.md`.
+
+### 3. Laboratorio principal (100–130 min)
 
 Ejecuta checks reales (`curl -I`, `pg_restore`, etc.) y pega **salida redactada** en el archivo de evidencia.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Criterio de calidad (30–45 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta a **Agenda Ops** (SaaS multi-tenant, piloto M17, egreso M26). Usa el escenario de [producto-saas](../../producto-saas.md) si aún no tienes deploy.
+Relee `projects/m25-ciber/hardening/least-privilege.md`: ¿un mentor externo entendería el resultado sin preguntarte?
+
+Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m25): l11 least-privilege-db-y-deploy"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Stripe | Webhooks signing | M19 backup |
-| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP WSTG / Testing Guide | OWASP Configuration + Stripe webhooks docs | [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
 
 
 ## Hecho cuando
 
-1. Checklist ítem demostrado.
-2. Sin valores de API keys.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m25-ciber/hardening/least-privilege.md`.
+2. Checklist ítem demostrado.
+3. Sin valores de API keys.
+4. Commit `docs(m25): l11 …` en el historial.
 
 ## Errores comunes
 
 - Solo checklist teórico.
 - Restore nunca probado.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

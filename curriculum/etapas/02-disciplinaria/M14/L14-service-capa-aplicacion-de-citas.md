@@ -3,74 +3,57 @@ id: L14
 materia: M14
 orden: 14
 titulo: Service — capa aplicación de citas
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Service layer + casos de uso"
-evidencia: "projects/m14-patrones/src/cita-service.ts"
+lectura: Application service; orquestación y authz
+evidencia: src/citas/cita-service.ts + tests (P2)
 ---
 
 # L14 — Service — capa aplicación de citas
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+El service es lo que M13 llamó application layer: orquesta dominio + puertos.
 
 ## Objetivo
 
-Implementar `CitaService` que use Repository y publique eventos (Observer de L09).
-
-## Por qué importa
-
-Orquesta reglas sin conocer HTTP ni SQL.
-
-## Conceptos
-
-- Service.
-- caso de uso.
-- transacción futura.
+`CitaService` testeable sin HTTP.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. API del service (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`crear`, `cancelar`, `listarDelDia`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Implementación (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Inyecta repo (+ clock + notifier opcionales).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Tests P2 + README + commit
 
-Service crea cita con validación de horario. Test con repo memoria + fake event bus.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l14 service-capa-aplicacion-de-citas"
-```
+`feat(m14): service capa aplicacion citas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m13-diseno | capas | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Service de aplicación: reglas + repo; sin HTTP ni SQL | [Refactoring.Guru — Patrones (ES)](https://refactoring.guru/es/design-patterns) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Service con tests.
-2. Reglas no en controller.
-3. Enlace a Repository.
+Marca la lección **solo si**:
+
+1. `CitaService` usa `CitaRepository` y valida solape/rol (stub de auth ok).
+2. Tests de servicio con repo in-memory (P2 evidenciado).
+3. Commit `feat(m14): service capa aplicacion citas`.
 
 ## Errores comunes
 
-- God service.
-- Validación solo en front.
+- Service que importa Express.
+- Authz solo “si rol en string del DTO” sin explicación.
+- Duplicar facade y service sin roles claros — documenta relación.
 
 ## Siguiente
 

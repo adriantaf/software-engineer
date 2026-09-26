@@ -3,69 +3,56 @@ id: L24
 materia: M17
 orden: 24
 titulo: Smoke test post-deploy
-horas: 5
+horas: 5.0
 semana: 6
-lectura: "Checklist smoke"
-evidencia: "projects/m17-agenda-ops/docs/smoke-test.md"
+lectura: Checklist smoke
+evidencia: projects/m17-agenda-ops/docs/smoke-test.md
 ---
 
 # L24 — Smoke test post-deploy
 
-**~5 h · Semana 6**
-
-## Objetivo
-
-Script o checklist: register/login/crear cita en staging.
-
-## Por qué importa
+**~5.0 h · Semana 6**
 
 Detecta config rota antes de la demo.
 
-## Conceptos
+## Objetivo
 
-- smoke.
-- staging.
-- regresión manual.
+`docs/smoke-test.md` con corrida fechada: login + crear cita (+ health).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe checklist/script (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Pasos curl o Playwright mínimo contra staging.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Ejecuta y registra (60–80 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Fecha, resultado, fallos. No uses datos del partner real.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Cierre semana 6 (20 min)
 
-smoke-test.md con resultado fechado de última corrida.
+Enlace smoke desde README.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l24 smoke-test-post-deploy"
-```
+`docs(m17): l24 smoke test staging`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m15 | regresión | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Checklist smoke | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. smoke-test.md.
-2. Corrida fechada.
-3. Cierre semana 6.
+Marca la lección **solo si**:
+
+1. smoke-test.md (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
+2. Corrida fechada (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
+3. Cierre semana 6 (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
+4. Commit `docs(m17): L24 smoke-test-post-deploy`.
 
 ## Errores comunes
 

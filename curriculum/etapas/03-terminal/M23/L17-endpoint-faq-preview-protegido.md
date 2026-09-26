@@ -3,25 +3,27 @@ id: L17
 materia: M23
 orden: 17
 titulo: Endpoint faq-preview protegido
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "API interna admin"
-evidencia: "projects/m23-ia/faq-asistente/endpoint.md"
+lectura: API interna admin
+evidencia: projects/m23-ia/faq-asistente/endpoint.md
 ---
 
 # L17 — Endpoint faq-preview protegido
 
 **~5 h · Semana 5**
 
+Métricas e IA **por tenant**, sin mezclar datos. Hoy entregas **`projects/m23-ia/faq-asistente/endpoint.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M23.
+
 ## Objetivo
 
 Diseñar o implementar POST interno faq-preview auth owner/staff con rate limit.
 
-## Por qué importa
+## Por qué empieza así
 
 Semana 5 entrega superficie controlada antes de UI pulida.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - AuthZ.
 - Rate limit.
@@ -30,50 +32,55 @@ Semana 5 entrega superficie controlada antes de UI pulida.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee la fuente de hoy: _API interna admin_. Si es docs de proveedor LLM, abre la página oficial del modelo/API que usarás.
 
-### 2. Carpeta de evidencia (15–20 min)
+Anota en `projects/m23-ia/bitacora-m23.md`: qué **no** enviarás a la API (PII, dumps, secretos) y qué sí (texto FAQ del tenant).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m23-ia/faq-asistente`.
 
 Documenta en `projects/m23-ia/faq-asistente/endpoint.md` ruta, roles, body, respuesta, errores.
 
+### 3. Laboratorio principal (90–120 min)
+
 Enlaza PR repo producto si existe. Sin endpoint público anónimo.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m23): l17 endpoint-faq-preview-protegido"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M18 | authZ | ../M17-aplicaciones-web.md |
-| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs API LLM elegida + política de datos | API interna admin | [producto-saas · FAQ por tenant](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
 
 
 ## Hecho cuando
 
-1. endpoint.md.
-2. Roles definidos.
-3. Rate limit mencionado.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m23-ia/faq-asistente/endpoint.md`.
+2. endpoint.md.
+3. Roles definidos.
+4. Rate limit mencionado.
+5. Commit `docs(m23): l17 …` en el historial.
 
 ## Errores comunes
 
 - Endpoint público.
 - Sin auth.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

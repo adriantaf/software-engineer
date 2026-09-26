@@ -3,25 +3,27 @@ id: L12
 materia: M23
 orden: 12
 titulo: Umbral de calidad y cierre P2 parcial
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Quality gate FAQ"
-evidencia: "projects/m23-ia/llm-eval/resumen-evaluacion.md"
+lectura: Quality gate FAQ
+evidencia: projects/m23-ia/llm-eval/resumen-evaluacion.md
 ---
 
 # L12 — Umbral de calidad y cierre P2 parcial
 
 **~5 h · Semana 3**
 
+Métricas e IA **por tenant**, sin mezclar datos. Hoy entregas **`projects/m23-ia/llm-eval/resumen-evaluacion.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M23.
+
 ## Objetivo
 
 Comparar v1 vs v2; decidir si cumples umbral o documentas deuda para semana 5–6.
 
-## Por qué importa
+## Por qué empieza así
 
 P2 exige rúbrica + resultados tabulados; hoy cierras el gate numérico.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Umbral.
 - Deuda.
@@ -30,50 +32,55 @@ P2 exige rúbrica + resultados tabulados; hoy cierras el gate numérico.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee la fuente de hoy: _Quality gate FAQ_. Si es docs de proveedor LLM, abre la página oficial del modelo/API que usarás.
 
-### 2. Carpeta de evidencia (15–20 min)
+Anota en `projects/m23-ia/bitacora-m23.md`: qué **no** enviarás a la API (PII, dumps, secretos) y qué sí (texto FAQ del tenant).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m23-ia/llm-eval`.
 
 `projects/m23-ia/llm-eval/resumen-evaluacion.md`: tabla versiones, % correcto, costo tokens estimado, decisión.
 
+### 3. Laboratorio principal (90–120 min)
+
 Si no alcanzas umbral, lista 3 acciones (más docs tenant, RAG, bajar temperatura).
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m23): l12 umbral-de-calidad-y-cierre-p2-parcial"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M23-ia-datos.md P2 | ../../../producto-saas.md |
-| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs API LLM elegida + política de datos | Quality gate FAQ | [producto-saas · FAQ por tenant](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
 
 
 ## Hecho cuando
 
-1. Resumen v1/v2.
-2. Umbral evaluado.
-3. Decisión documentada.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m23-ia/llm-eval/resumen-evaluacion.md`.
+2. Resumen v1/v2.
+3. Umbral evaluado.
+4. Decisión documentada.
+5. Commit `docs(m23): l12 …` en el historial.
 
 ## Errores comunes
 
 - Declarar éxito sin CSV.
 - Ignorar costos.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

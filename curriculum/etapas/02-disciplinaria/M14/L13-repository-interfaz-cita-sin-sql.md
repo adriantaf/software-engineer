@@ -3,74 +3,53 @@ id: L13
 materia: M14
 orden: 13
 titulo: Repository — interfaz Cita sin SQL
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Patrón Repository + diseño M13"
-evidencia: "projects/m14-patrones/src/cita-repository.ts"
+lectura: Repository; puerto de persistencia
+evidencia: src/citas/cita-repository.ts + InMemory + ADR (P2 inicio)
 ---
 
 # L13 — Repository — interfaz Cita sin SQL
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P2: capas backend alineadas a M13. Empiezas por el puerto de persistencia.
 
 ## Objetivo
 
-Definir `CitaRepository` en dominio e implementación en memoria para tests.
-
-## Por qué importa
-
-M17 usará Postgres; hoy fijas el puerto.
-
-## Conceptos
-
-- Repository.
-- puerto.
-- infra separada.
+`CitaRepository` + impl in-memory + ADR.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Tipos de dominio Cita (30 min) — alineados a M13
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Interfaz + InMemory (70–90 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Tests + ADR + commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Interfaz async `findById`, `save`. Impl memoria + test roundtrip.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l13 repository-interfaz-cita-sin-sql"
-```
+`feat(m14): repository cita sin sql`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m13-diseno | persistencia ADR | M09 esquema |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Repository: interfaz de dominio sin SQL; impl in-memory | [Refactoring.Guru — Patrones (ES)](https://refactoring.guru/es/design-patterns) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Interfaz en dominio.
-2. Impl memoria testeada.
-3. Sin SQL en dominio.
+Marca la lección **solo si**:
+
+1. `CitaRepository` con `findById`/`save` (y filtro por dueño/negocio si aplica).
+2. `InMemoryCitaRepository` + tests; **cero** SQL en el dominio.
+3. Commit `feat(m14): repository cita sin sql`.
 
 ## Errores comunes
 
-- Repository que devuelve rows SQL.
-- Mezclar con Service aún.
+- Interfaz que expone `query(sql: string)`.
+- Repo que es solo un alias del ORM entity.
+- Sin tests del in-memory.
 
 ## Siguiente
 

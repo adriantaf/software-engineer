@@ -3,25 +3,27 @@ id: L21
 materia: M25
 orden: 21
 titulo: Tabletop — fuga de .env
-horas: 5
+horas: 5.0
 semana: 6
-lectura: "OWASP Reporting + ficha M25"
-evidencia: "projects/m25-ciber/tabletop/env-leak.md"
+lectura: OWASP Reporting + ficha M25
+evidencia: projects/m25-ciber/tabletop/env-leak.md
 ---
 
 # L21 — Tabletop — fuga de .env
 
 **~5 h · Semana 6**
 
+El bug #1 a cazar es IDOR cross-tenant. Hoy entregas **`projects/m25-ciber/tabletop/env-leak.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M25.
+
 ## Objetivo
 
 Simulación 30 min: secretos filtrados; pasos; comunicación.
 
-## Por qué importa
+## Por qué empieza así
 
 M26 exige review M25 vigente; tabletop demuestra que no solo leíste OWASP.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Contención
 - Rotación credenciales
@@ -29,47 +31,56 @@ M26 exige review M25 vigente; tabletop demuestra que no solo leíste OWASP.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Reporting + ficha M25_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Escenario tabletop .env (30–40 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+En `tabletop/env-leak.md` define: quién filtró (gist/chat), qué secrets estaban, alcance (staging vs prod).
 
-Cada tabletop: línea de tiempo, decisiones, acciones con dueño y fecha.
+### 3. Narrativa ≥30 min de decisión (90–110 min)
 
-### 4. Conexión con el plan (30–45 min)
+Escribe timeline minuto a minuto (T+0 … T+60): detectar, rotar claves Stripe/DB, revocar sesiones, comunicar. Sin copiar tutorial genérico — usa **tus** nombres de servicio.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta a **Agenda Ops** (SaaS multi-tenant, piloto M17, egreso M26). Usa el escenario de [producto-saas](../../producto-saas.md) si aún no tienes deploy.
+### 4. Acciones verificables (30–40 min)
+
+Checklist de 8 acciones con dueño=tú y evidencia esperada (issue, rotación documentada).
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m25): l21 tabletop-fuga-de-env"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | Proyecto security-review | egreso.md |
-| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP WSTG / Testing Guide | OWASP Reporting + ficha M25 | [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
 
 
 ## Hecho cuando
 
-1. Narrativa ≥30 min equivalente escrita.
-2. security-review.md enlaza PRs y tests.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m25-ciber/tabletop/env-leak.md`.
+2. Narrativa ≥30 min equivalente escrita.
+3. security-review.md enlaza PRs y tests.
+4. Commit `docs(m25): l21 …` en el historial.
 
 ## Errores comunes
 
 - Tabletop copiado de blog.
 - Review sin pruebas cross-tenant.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

@@ -3,74 +3,57 @@ id: L15
 materia: M14
 orden: 15
 titulo: Refactor P3 — módulo legacy antes y después
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Refactoring Fowler (intro)"
-evidencia: "projects/m14-patrones/refactor-notas.md"
+lectura: Refactor con comportamiento preservado
+evidencia: refactor-notas.md + diff/commits (P3)
 ---
 
 # L15 — Refactor P3 — módulo legacy antes y después
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P3: tomas código tuyo (spike feo, god function de precios, etc.) y lo refactorizas.
 
 ## Objetivo
 
-Refactorizar un módulo propio (spike previo o archivo `legacy-citas.ts`) sin cambiar comportamiento observable.
-
-## Por qué importa
-
-P3 demuestra que entiendes patrones como herramienta, no decoración.
-
-## Conceptos
-
-- refactor seguro.
-- tests antes.
-- diff.
+`refactor-notas.md` + evidencia en git.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Elige módulo (20 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Si no hay legacy, crea `src/legacy/agendar-todo-en-uno.ts` a propósito y luego rompe el monolito.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Caracteriza con test (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Refactor hacia patrones ya vistos (80–100 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 4. Notas + commit
 
-Tests de caracterización → refactor → mismos tests verdes. `refactor-notas.md` con antes/después.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l15 refactor-p3-modulo-legacy-antes-y-despue"
-```
+`refactor(m14): modulo legacy P3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M14-patrones.md | P3 |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Refactor de módulo legacy propio con antes/después | [Refactoring.Guru — Patrones (ES)](https://refactoring.guru/es/design-patterns) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. refactor-notas.md.
-2. Tests verdes antes/después.
-3. Diff o commits.
+Marca la lección **solo si**:
+
+1. `refactor-notas.md` con módulo antes/después y qué patrón aplicaste.
+2. Evidencia git (commits o diff pegado) y tests verdes post-refactor.
+3. Commit `refactor(m14): modulo legacy P3` (o docs si el diff está en notas).
 
 ## Errores comunes
 
-- Refactor sin tests.
-- Cambiar comportamiento silencioso.
+- Reescribir de cero y llamarlo refactor.
+- Cambiar comportamiento observable sin test.
+- Notas sin rutas de archivo.
 
 ## Siguiente
 

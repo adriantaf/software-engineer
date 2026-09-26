@@ -3,71 +3,60 @@ id: L12
 materia: M16
 orden: 12
 titulo: Cierre M16 — handoff M17 y criterios dominio
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Ficha M16 cierre"
-evidencia: "projects/m16-ihc/nota-handoff-m17-ux.md"
+lectura: Handoff UX→implementación M17; criterios dominio
+evidencia: README índice + handoff-m17.md + autoevaluación
 ---
 
 # L12 — Cierre M16 — handoff M17 y criterios dominio
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Cierras IHC dejando al yo-de-M17 una lista accionable, no un PDF de adorno.
 
 ## Objetivo
 
-Cerrar M16: checklist P1–P3, guion reutilizable, lista cambios para M17.
-
-## Por qué importa
-
-M17 implementa; M16 ya decidió qué duele al usuario.
-
-## Conceptos
-
-- handoff.
-- guion.
-- dominio UX.
+Handoff + autoevaluación de criterios de dominio.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. handoff-m17.md (50–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Tickets UX → pantallas/endpoints M13.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. README final (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Criterios de dominio (40 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Informe con prioridades; hallazgo alto abordado; guion reutilizable; mensajes sin filtrar datos ajenos.
 
-`nota-handoff-m17-ux.md` + README índice. Responde criterios dominio en bitácora.
+### 4. Commit
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l12 cierre-m16-handoff-m17-y-criterios-domin"
-```
+`docs(m16): cierre handoff M17 y dominio`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M16-ihc.md | ../M17-aplicaciones-web.md |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Handoff a M17 y criterios de dominio de la ficha | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. Handoff M17.
-2. P1–P3 ok.
-3. Cierre commit.
+Marca la lección **solo si**:
+
+1. README M16 índice P1–P3 + informe.
+2. `handoff-m17.md` con cambios UX a implementar en el front real.
+3. Commit `docs(m16): cierre handoff M17 y dominio`.
 
 ## Errores comunes
 
-- Saltar iteración.
-- Informe sin método.
+- Handoff sin rutas a prototipo/informe.
+- Criterios de dominio todos ✓ sin evidencia.
+- Guion no reutilizable.
+
+## Siguiente
+
+Materia siguiente: [M17 — Aplicaciones web](../M17-aplicaciones-web.md).

@@ -3,71 +3,71 @@ id: L12
 materia: M12
 orden: 12
 titulo: Revisión M13 y cierre M12
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Ficha M12 + handoff diseño"
-evidencia: "nota-handoff-m13.md"
+lectura: Ficha M12 + handoff diseño
+evidencia: nota-handoff-m13.md
 ---
 
 # L12 — Revisión M13 y cierre M12
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Dejas el testigo listo para diseño (Larman/UML en M13).
 
 ## Objetivo
 
-Auto revisión: coherencia, preguntas abiertas para diseño, criterios dominio.
+Handoff explícito + cierre de evidencias.
 
-## Por qué importa
+## Pasos
 
-M13 empieza leyendo tu SRS; hoy reduces fricción.
+### 1. Relectura SRS (40 min)
 
-## Conceptos
+Lee `srs-v1.md` como si fueras M13: marca ambigüedades.
 
-- handoff.
-- preguntas abiertas.
-- auditoría.
+### 2. Handoff (75 min)
 
-## Pasos (hazlos en orden)
+`nota-handoff-m13.md`:
 
-### 1. Lectura dirigida (60–90 min)
+- Entidades candidatas (Cliente, Servicio, Cita, Usuario…)
+- Casos de uso Must
+- Reglas de conflicto de horario
+- Preguntas abiertas
+- Riesgos (alcance, datos, auth)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 3. Dominio (30 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Auto-check de la ficha: ¿puedes decir “no” con alternativa escrita? ¿3 RNF? ¿Must con criterios?
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Lista preguntas para M13 (auth, modelo cita). Bitácora cierre. Commit final M12.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l12 revision-m13-y-cierre-m12"
+git add projects/m12-srs
+git commit -m "docs(m12): cierre handoff m13"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M12-requerimientos.md | m13-diseno README |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Handoff a análisis/diseño: entidades, casos de uso, riesgos | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. Handoff escrito.
-2. P1–P3 auditados.
-3. Cierre M12 commit.
+Marca la lección **solo si**:
+
+1. `nota-handoff-m13.md` lista entidades candidatas, 5 preguntas abiertas y riesgos.
+2. README m12 con checklist P1–P3 y proyecto cerrados.
+3. Commit `docs(m12): cierre handoff m13`.
 
 ## Errores comunes
 
-- SRS sin fecha.
-- Stories sin criterios.
+- Handoff vacío “lee el SRS”.
+- Reabrir alcance Must sin versión.
+- No enlazar stories/SRS desde README.
+
+## Siguiente
+
+Cierra la [ficha M12](../M12-requerimientos.md). Siguiente: [M13 — Análisis y diseño](../M13-analisis-y-diseno.md).

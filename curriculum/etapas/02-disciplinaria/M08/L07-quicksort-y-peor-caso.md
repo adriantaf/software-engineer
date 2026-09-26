@@ -5,60 +5,66 @@ orden: 7
 titulo: Quicksort y peor caso
 horas: 5.0
 semana: 2
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Divide y vencerás — CLRS quicksort"
-evidencia: "sorts/quick.ts + caso O(n²)"
+lectura: "CLRS: quicksort — partición y peor caso"
+evidencia: sorts/quick.ts + caso O(n²)
 ---
 
 # L07 — Quicksort y peor caso
 
 **~5.0 h · Semana 2**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Quicksort brilla en promedio y falla con pivotes ingenuos en datos ordenados.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: sorts/quick.ts + caso O(n²).
+Implementar quicksort, documentar el peor caso O(n²) y una mitigación concreta.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Partición (70 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+`sorts/quick.ts`: Lomuto o Hoare — elige una y comenta invariante.
 
-### 2. Trabajo central (150 min)
+### 2. Peor caso escrito (50 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+`sorts/quick-peor-caso.md`: secuencia que degenera con pivote `a[hi]`; contador de comparaciones opcional en modo debug.
 
-### 3. Análisis escrito (45 min)
+### 3. Mitigación (50 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Implementa pivote aleatorio **o** median-of-three. Nota en el markdown.
 
-### 4. Tests (45 min)
+### 4. Tests (40 min)
 
-Tres casos mínimo por función: borde incluido.
+Ordenado, invertido, duplicados, random vs nativo.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "feat(m08): quicksort y peor caso"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 2: Divide y vencerás — CLRS quicksort | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Quicksort promedio vs peor caso n²; pivotes | [VisuAlgo · Sorting](https://visualgo.net/en/sorting) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `sorts/quick.ts` con partición documentada.
+2. `sorts/quick-peor-caso.md` explica entrada adversaria (ya ordenado + pivote fijo) y mitigación (pivote random/median-of-three).
+3. Tests + commit `feat(m08): quicksort y peor caso`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Afirmar “quicksort es O(n log n)” sin matizar peor caso.
+- Partición incorrecta (loops infinitos).
+- Sin test de array con muchos duplicados.
+
 ## Siguiente
 
 [L08 — Tabla P2 sorts en README](L08-tabla-p2-sorts-en-readme.md)

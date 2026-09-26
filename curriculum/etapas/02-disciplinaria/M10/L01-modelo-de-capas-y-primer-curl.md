@@ -3,81 +3,92 @@ id: L01
 materia: M10
 orden: 1
 titulo: Modelo de capas y primer curl
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Tanenbaum — intro y capas (modelo OSI/TCP simplificado)"
-evidencia: "projects/m10-redes/labs/semana-01.md + dia1.md con curl -v"
+lectura: "Tanenbaum: intro + capas (modelo OSI/TCP simplificado)"
+evidencia: projects/m10-redes/labs/dia1.md + curl -v log
 ---
 
 # L01 — Modelo de capas y primer curl
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Sin mapa de capas, cada error de red se vuelve “el Wi‑Fi está mal”. Hoy fijas el diagrama mental que usarás hasta M18.
 
 ## Objetivo
 
-Dibujar un modelo de capas de cinco niveles y capturar con `curl -v` el viaje hasta la primera respuesta HTTP de un sitio HTTPS.
-
-## Por qué importa
-
-Sin mapa de capas, cada error de red se vuelve “el Wi‑Fi está mal”. Hoy instalas el diagrama mental que usarás hasta M18.
-
-## Conceptos
-
-- Encapsulación y desencapsulación entre capas.
-- Diferencia entre **protocolo** y **servicio** expuesto.
-- Puerto lógico vs dirección IP.
-- Request/response en capa de aplicación (HTTP).
+Dejar `projects/m10-redes/` con un lab día 1: modelo de 5 capas + evidencia de `curl -v` sobre HTTPS.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Revisa el scaffold (15 min)
 
 ```bash
-mkdir -p projects/m10-redes/labs
+ls projects/m10-redes
+cat projects/m10-redes/README.md
+mkdir -p projects/m10-redes/{labs,tcp-echo,superficie,samples}
+```
+
+No borres la estructura; amplíala.
+
+### 2. Modelo de 5 capas (45–60 min)
+
+En `projects/m10-redes/labs/dia1.md` dibuja ASCII (o Mermaid) con:
+
+1. Aplicación (HTTP)
+2. Transporte (TCP/UDP + puerto)
+3. Red (IP)
+4. Enlace
+5. Física (una línea)
+
+Anota **encapsulación**: header de cada capa envuelve el payload de arriba.
+
+### 3. Primer `curl -v` (60–75 min)
+
+```bash
 curl -v https://example.com -o /dev/null 2>&1 | tee projects/m10-redes/labs/curl-example.log
 ```
 
-En `projects/m10-redes/dia1.md` responde: ¿qué capas ves en la salida? (resolución, TCP, TLS, HTTP). Compara `http://example.com` vs `https://` (redirección).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+En `dia1.md`, tabla de 4 filas: línea del log → capa → qué significa. Compara también:
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l01 modelo-de-capas-y-primer-curl"
+curl -v http://example.com -o /dev/null 2>&1 | head -40
+```
+
+¿Hay redirección a HTTPS? Anótalo.
+
+### 4. Agenda Ops (20 min)
+
+Párrafo: cuando el panel de Agenda Ops llame a `https://api…/citas`, ¿qué capas deben funcionar antes de que el JSON exista?
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m10-redes
+git commit -m "docs(m10): l01 capas y primer curl"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Tanenbaum | Introducción + capas | MDN *Overview of HTTP* (vista rápida) |
-| Plan | [Hilo seguridad](../../../hilos/seguridad.md) (10 min) | — |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Intro + encapsulación; mapa de 5 capas hacia HTTP | [MDN · Overview of HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Overview) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Existe `dia1.md` con qué protege TLS y qué **no** protege.
-2. Log `curl -v` guardado en `labs/`.
-3. Diagrama ASCII de capas en la bitácora.
+Marca la lección **solo si**:
+
+1. `projects/m10-redes/labs/dia1.md` con diagrama ASCII de 5 capas y qué ve `curl -v`.
+2. Log `labs/curl-example.log` (o fragmento anotado) con líneas de DNS/TCP/TLS/HTTP resaltadas.
+3. Commit `docs(m10): l01 capas y primer curl`.
 
 ## Errores comunes
 
-- Pegar la salida entera sin resaltar líneas relevantes.
-- Confundir TLS con “cifrado de la base de datos”.
+- Pegar 200 líneas de curl sin marcar qué capa es cada bloque.
+- Decir “HTTPS = la app ya es segura” (XSS/IDOR siguen vivos).
+- Confundir TLS con cifrado en reposo de la BD.
 
 ## Siguiente
 

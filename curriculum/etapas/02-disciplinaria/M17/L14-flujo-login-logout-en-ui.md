@@ -3,69 +3,56 @@ id: L14
 materia: M17
 orden: 14
 titulo: Flujo login/logout en UI
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Forms accesibles"
-evidencia: "páginas login"
+lectura: Forms accesibles
+evidencia: páginas login
 ---
 
 # L14 — Flujo login/logout en UI
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Primera impresión del piloto: labels claros, error de credencial, logout limpio.
 
 ## Objetivo
 
-Form login con labels, errores de credencial, logout que limpia sesión.
-
-## Por qué importa
-
-Primera impresión del piloto.
-
-## Conceptos
-
-- login UI.
-- error auth.
-- logout.
+Form login accesible + logout que limpia sesión en cliente y servidor.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Form (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Labels, autocomplete, mensaje 401 en español. No meter token en querystring.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Logout (30–40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Botón visible; limpia cookie/estado; redirect login.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Checklist manual (20 min)
 
-Manejo 401 en login. Test e2e opcional o checklist manual en docs.
+`docs/ui-login-checklist.md` con 5 pasos.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l14 flujo-login-logout-en-ui"
-```
+`feat(m17): l14 login logout ui`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m16 | estados error | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Forms accesibles | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Login/logout.
-2. Errores visibles.
-3. Sin password en state.
+Marca la lección **solo si**:
+
+1. Login/logout (artefacto: `páginas login`).
+2. Errores visibles (artefacto: `páginas login`).
+3. Sin password en state (artefacto: `páginas login`).
+4. Commit `docs(m17): L14 flujo-login-logout-en-ui`.
 
 ## Errores comunes
 

@@ -3,74 +3,73 @@ id: L02
 materia: M12
 orden: 2
 titulo: Entrevista y notas timestamp
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Técnicas elicitación (plantilla)"
-evidencia: "entrevistas/notas-YYYY-MM-DD.md"
+lectura: Técnicas elicitación (plantilla + tu guion)
+evidencia: entrevistas/notas-YYYY-MM-DD.md
 ---
 
 # L02 — Entrevista y notas timestamp
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+P1 exige evidencia de entrevista. Hoy la corres y dejas notas auditables.
 
 ## Objetivo
 
-Realizar entrevista (real o simulación seria) y capturar citas, dolores y reglas de negocio.
+Completar una sesión con notas timestamp en `entrevistas/`.
 
-## Por qué importa
+## Pasos
 
-Sin notas crudas no hay trazabilidad al SRS.
+### 1. Prep (20 min)
 
-## Conceptos
+Imprime o ten abierto `guion-v1.md`. Acuerda duración (~45 min). Si es simulación: briefing escrito del personaje (dueño de X).
 
-- semiestructurada.
-- problema vs solución.
-- timestamp.
+### 2. Sesión (45–60 min)
 
-## Pasos (hazlos en orden)
+Formato de notas:
 
-### 1. Lectura dirigida (60–90 min)
+```markdown
+# Entrevista — 2026-09-26 — Partner A
+## 00:00–00:05 Rapport
+…
+## 00:05–00:20 Flujo actual
+> cita textual breve
+Interpretación: …
+```
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 3. Debrief (45 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Al final del archivo: insights, dolores rankeados, datos sensibles mencionados, contradicciones, follow-ups.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Sesión ≥30 min. Notas con timestamp cada 10–15 min. Commit notas.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l02 entrevista-y-notas-timestamp"
+git add projects/m12-srs/entrevistas
+git commit -m "docs(m12): l02 notas entrevista"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plantilla | secciones contexto | — |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Notas con timestamp; separar cita textual vs interpretación | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. Notas con fecha.
-2. ≥5 citas o paráfrasis.
-3. Problemas sin UI aún.
+Marca la lección **solo si**:
+
+1. Archivo `entrevistas/notas-YYYY-MM-DD.md` con ≥30 min de sesión (real o roleplay serio).
+2. Cada bloque marca tiempo + texto; al final: 5 insights y 5 preguntas abiertas.
+3. Commit `docs(m12): l02 notas entrevista`.
 
 ## Errores comunes
 
-- Inventar respuestas sin marcar simulación.
-- Mezclar dos negocios.
+- Notas que solo dicen “quiere una app”.
+- Mezclar lo que dijo con lo que tú inventaste.
+- Grabar sin consentimiento si es persona real.
 
 ## Siguiente
 

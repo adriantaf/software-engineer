@@ -3,69 +3,51 @@ id: L30
 materia: M17
 orden: 30
 titulo: Checklist camino a SaaS
-horas: 5
+horas: 5.0
 semana: 8
-lectura: "Ficha M17 checklist"
-evidencia: "projects/m17-agenda-ops/docs/checklist-saas.md"
+lectura: Ficha M17 checklist
+evidencia: projects/m17-agenda-ops/docs/checklist-saas.md
 ---
 
 # L30 — Checklist camino a SaaS
 
-**~5 h · Semana 8**
-
-## Objetivo
-
-Completar checklist ficha: tablas, roles, HTTPS, tests — gaps honestos.
-
-## Por qué importa
+**~5.0 h · Semana 8**
 
 Transparencia > checkboxes mentirosos.
 
-## Conceptos
+## Objetivo
 
-- checklist.
-- gap.
-- SaaS.
+`docs/checklist-saas.md` con Sí/No/Parcial + plan de gaps.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Copia criterios ficha (20 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Auth, CRUD, roles, WhatsApp, HTTPS, tests, tenant ADR.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Evalúa con evidencia (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Cada ítem enlaza commit/URL/doc. Fechas para gaps.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-checklist-saas.md copiado de ficha con Sí/No/Parcial.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l30 checklist-camino-a-saas"
-```
+`docs(m17): l30 checklist camino saas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M17-aplicaciones-web.md | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Ficha M17 checklist | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. checklist-saas.md.
-2. Gaps con plan.
-3. Commit.
+Marca la lección **solo si**:
+
+1. checklist-saas.md (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
+2. Gaps con plan (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
+3. Commit (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
 
 ## Errores comunes
 

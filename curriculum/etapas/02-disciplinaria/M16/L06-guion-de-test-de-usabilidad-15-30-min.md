@@ -3,74 +3,61 @@ id: L06
 materia: M16
 orden: 6
 titulo: Guion de test de usabilidad 15–30 min
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "NN/g usability test"
-evidencia: "projects/m16-ihc/sesiones/guion-v1.md"
+lectura: "Krug: test de pasillo; consentimiento básico"
+evidencia: guion-usabilidad.md
 ---
 
 # L06 — Guion de test de usabilidad 15–30 min
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+El guion evita sesiones anécdota. Hoy lo escribes antes de citar gente.
 
 ## Objetivo
 
-Redactar guion con contexto, 3 tareas, preguntas cierre y consentimiento básico.
-
-## Por qué importa
-
-Guion fijo hace comparables las 5 sesiones.
-
-## Conceptos
-
-- guion.
-- consentimiento.
-- think aloud.
+`guion-usabilidad.md` listo para leer en voz alta.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Estructura (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Contexto → consentimiento → tareas (del L05) → debrief.
 
-### 2. Carpeta de evidencia (15–20 min)
+Usa el extracto de la ficha M16 como base y adáptalo a tu sub-vertical.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Criterios de éxito por tarea (40 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Observable: “creó la cita sin ayuda del facilitador”.
 
-Plantilla participante anónimo. No pidas datos sensibles innecesarios.
+### 3. Piloto contigo mismo (30 min) — cronometra
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l06 guion-de-test-de-usabilidad-15-30-min"
-```
+`docs(m16): guion de usabilidad`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| NN/g | running a test | — |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Guion 15–30 min + consentimiento y think-aloud | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. guion-v1.md.
-2. Consentimiento.
-3. 3 tareas medibles.
+Marca la lección **solo si**:
+
+1. `guion-usabilidad.md` con intro, tareas, preguntas de cierre y tiempo.
+2. Incluye consentimiento básico y anonimización de notas.
+3. Commit `docs(m16): guion de usabilidad`.
 
 ## Errores comunes
 
-- Guion que guía al usuario.
-- Sin tiempo por tarea.
+- Guion que defiende el diseño (“es fácil ¿verdad?”).
+- Sesiones de 2 horas.
+- Sin espacio para think-aloud.
 
 ## Siguiente
 

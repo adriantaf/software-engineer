@@ -3,25 +3,27 @@ id: L11
 materia: M22
 orden: 11
 titulo: Refinar ICP tras objeciones recurrentes
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Lean — segmento y niche"
-evidencia: "projects/m22-bektor/icp.md revisión"
+lectura: Lean — segmento y niche
+evidencia: projects/m22-bektor/icp.md revisión
 ---
 
 # L11 — Refinar ICP tras objeciones recurrentes
 
 **~5 h · Semana 3**
 
+Vendes suscripción SaaS, no agencia. Hoy entregas **`projects/m22-bektor/icp.md revisión`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M22.
+
 ## Objetivo
 
 Revisar ICP: ¿sigues en el sub-vertical? Ajustar **mensaje**, no segmento, salvo evidencia fuerte.
 
-## Por qué importa
+## Por qué empieza así
 
 Cambiar ICP cada semana es anti-patrón; aquí solo permites ajuste de mensaje o criterio de calificación.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Calificación lead.
 - Disqualify.
@@ -30,50 +32,55 @@ Cambiar ICP cada semana es anti-patrón; aquí solo permites ajuste de mensaje o
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — segmento y niche_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m22-bektor`.
 
 Añade a `projects/m22-bektor/icp.md` sección **Calificación**: 3 preguntas antes de demo.
 
+### 3. Laboratorio principal (90–120 min)
+
 Resume objeciones 1–6 en `projects/m22-bektor/bitacora-m22.md`. Confirma por escrito: mantienes sub-vertical Sí/No + razón.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m22): l11 refinar-icp-tras-objeciones-recurrentes"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ries | Pivot segmento | ../M21-admin-proyectos.md |
-| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — segmento y niche | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 
 ## Hecho cuando
 
-1. ICP revisado.
-2. Objeciones resumidas.
-3. Decisión segmento explícita.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m22-bektor/icp.md revisión`.
+2. ICP revisado.
+3. Objeciones resumidas.
+4. Decisión segmento explícita.
+5. Commit `docs(m22): l11 …` en el historial.
 
 ## Errores comunes
 
 - Cambiar ICP sin 10 conversaciones.
 - Mezclar verticales en outreach.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

@@ -3,74 +3,55 @@ id: L09
 materia: M14
 orden: 9
 titulo: Observer para eventos de dominio
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Refactoring.Guru Observer"
-evidencia: "projects/m14-patrones/src/eventos-cita-observer.ts"
+lectura: Observer; cita creada → listeners
+evidencia: src/events/ observer + tests + ADR
 ---
 
 # L09 — Observer para eventos de dominio
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Crear cita no debería conocer todos los side-effects. Observer (o event emitter tipado) desacopla.
 
 ## Objetivo
 
-Publicar evento `CitaCreada` y suscriptores (auditoría, recordatorio futuro) con Observer.
-
-## Por qué importa
-
-Desacopla efectos secundarios del agregado cita.
-
-## Conceptos
-
-- Observer.
-- evento dominio.
-- suscriptor.
+Evento `CitaCreada` + listeners + tests + ADR.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Tipos de evento (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Emitter + subscribe (60–70 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Integra en facade o service mínimo (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 4. Tests + ADR + commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Implementa bus simple o lista de handlers. Test: al crear cita se notifica a N suscriptores.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l09 observer-para-eventos-de-dominio"
-```
+`feat(m14): observer eventos de dominio`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Refactoring.Guru | Observer | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Observer/eventos de dominio: desacoplar efectos al crear cita | [Refactoring.Guru — Observer (ES)](https://refactoring.guru/es/design-patterns/observer) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Observer con ≥2 suscriptores en test.
-2. ADR 003 o sección README.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Emisor de `CitaCreada` con ≥2 listeners (p. ej. audit log + notify stub).
+2. Tests: al crear, ambos listeners reciben el evento.
+3. Commit `feat(m14): observer eventos de dominio`.
 
 ## Errores comunes
 
-- Observer con orden frágil no documentado.
-- Lógica de negocio en suscriptor.
+- Observer síncrono que rompe el flujo si un listener lanza — documenta política.
+- Event bus global Singleton sin necesidad.
+- Listeners que mutan la cita a espaldas del aggregate.
 
 ## Siguiente
 

@@ -3,74 +3,53 @@ id: L10
 materia: M16
 orden: 10
 titulo: Iteración UI — antes y después
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Fix implementado o wireframe"
-evidencia: "projects/m16-ihc/iteracion/"
+lectura: Implementar o wireframear fixes; evidencia visual
+evidencia: iteracion/ antes-despues (P3)
 ---
 
 # L10 — Iteración UI — antes y después
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+P3: iteración documentada. Arreglas al menos lo más doloroso.
 
 ## Objetivo
 
-Implementar o wireframear fixes del top 5; capturas antes/después.
-
-## Por qué importa
-
-P3 exige evidencia visual del cambio.
-
-## Conceptos
-
-- iteración.
-- antes/después.
-- P3.
+Evidencia visual/código en `iteracion/`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Implementa o wireframea top hallazgos (120–150 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Capturas antes/después (30 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Carpeta `iteracion/` con pares de capturas o diff front.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l10 iteracion-ui-antes-y-despues"
-```
+`feat(m16): iteracion UI antes-despues P3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m17 | handoff UX | — |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Cambios concretos con evidencia antes/después | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. ≥3 fixes visibles.
-2. Antes/después.
-3. Commit si hay código.
+Marca la lección **solo si**:
+
+1. `iteracion/` con antes/después (capturas, HTML diff o Figma frames) de ≥1 hallazgo alto.
+2. Notas de qué cambió y por qué.
+3. Commit `feat(m16): iteracion UI antes-despues P3`.
 
 ## Errores comunes
 
-- Solo texto “lo haré”.
-- Mensajes error verbosos.
+- Solo promesas (“lo haremos en M17”) sin artefacto.
+- Rediseño total sin trazabilidad al hallazgo.
+- Después igual al antes.
 
 ## Siguiente
 

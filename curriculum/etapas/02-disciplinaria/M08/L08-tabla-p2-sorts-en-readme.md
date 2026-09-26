@@ -5,60 +5,70 @@ orden: 8
 titulo: Tabla P2 sorts en README
 horas: 5.0
 semana: 2
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Divide y vencerás — Comparativa sorts"
-evidencia: "sorts/README.md P2 parcial"
+lectura: Comparativa de ordenamientos P2
+evidencia: sorts/README.md P2 parcial
 ---
 
 # L08 — Tabla P2 sorts en README
 
 **~5.0 h · Semana 2**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+P2 parcial: tres sorts propios + tabla defendible.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: sorts/README.md P2 parcial.
+Publicar `sorts/README.md` comparativo y verificar tests de la carpeta sorts.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Auditoría (30 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+```bash
+ls sorts/*.ts
+npm test
+```
 
-### 2. Trabajo central (150 min)
+### 2. Tabla (70 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Columnas: algoritmo | peor | promedio | espacial | estable | cuándo usarlo. Filas: insertion, merge, quick, `Array.sort` (motor).
 
-### 3. Análisis escrito (45 min)
+### 3. Microbench opcional (60 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+`sorts/bench.ts` N=5_000 — pega números en el README (honestos).
 
-### 4. Tests (45 min)
+### 4. Enlace raíz (30 min)
 
-Tres casos mínimo por función: borde incluido.
+Desde `projects/m08-algoritmos/README.md` → sección P2.
 
-### 5. Commit (30 min)
+### 5. Commit (20 min)
 
-`feat(m08): ...` atómico.
+```bash
+git add projects/m08-algoritmos
+git commit -m "docs(m08): tabla P2 sorts"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 2: Divide y vencerás — Comparativa sorts | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Tabla peor/promedio/espacial/estable por sort | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `sorts/README.md` con tabla insertion/merge/quick (y nativo como referencia).
+2. Suite de sorts verde; enlace desde README raíz del proyecto.
+3. Commit `docs(m08): tabla P2 sorts`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Tabla copiada de Internet sin alinear a tu código.
+- Omitir estabilidad o memoria.
+- Dejar quick sin nota de peor caso.
+
 ## Siguiente
 
 [L09 — Hash maps en problemas de conteo](L09-hash-maps-en-problemas-de-conteo.md)

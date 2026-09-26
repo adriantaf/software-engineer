@@ -67,7 +67,7 @@ Si un día solo tienes 2 h: **una lección** con commit demostrable.
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L01 | [Scaffold Agenda Ops — API, DB y stack.md](M17/L01-scaffold-agenda-ops-api-db-y-stack-md.md) | 5 |
+| L01 | [Scaffold Agenda Ops — API, DB y stack](M17/L01-scaffold-agenda-ops-api-db-y-stack-md.md) | 5 |
 | L02 | [Registro con hash de contraseña](M17/L02-registro-con-hash-de-contrasena.md) | 5 |
 | L03 | [Login, sesión y GET /me protegido](M17/L03-login-sesion-y-get-me-protegido.md) | 5 |
 | L04 | [Cierre semana 1 — suite auth P1](M17/L04-cierre-semana-1-suite-auth-p1.md) | 5 |

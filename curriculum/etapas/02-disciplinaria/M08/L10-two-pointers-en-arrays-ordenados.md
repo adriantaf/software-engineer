@@ -5,60 +5,66 @@ orden: 10
 titulo: Two pointers en arrays ordenados
 horas: 5.0
 semana: 3
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Programación dinámica (intro) — Notas M08"
-evidencia: "2 problemas two pointers"
+lectura: Two pointers / left-right en secuencias ordenadas
+evidencia: 2 problemas two pointers
 ---
 
 # L10 — Two pointers en arrays ordenados
 
 **~5.0 h · Semana 3**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Con orden, left/right reemplazan búsquedas anidadas.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: 2 problemas two pointers.
+Entregar dos soluciones two-pointers bien testeadas e indexadas.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Patrón en papel (25 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Dibuja pair-sum = target en array ordenado. Anota cuándo mueves left vs right.
 
-### 2. Trabajo central (150 min)
+### 2. Problema A — pair sum (60 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+`problems/…-pair-sum/`. Tests: hay par, no hay, duplicados, negativos.
 
-### 3. Análisis escrito (45 min)
+### 3. Problema B (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Ej. contenedor de agua, squaring sorted array, merge dos ordenados in-place conceptual. Misma plantilla.
 
-### 4. Tests (45 min)
+### 4. Índice + nota (30 min)
 
-Tres casos mínimo por función: borde incluido.
+Compara con hash two-sum: trade-off ordenar+O(n) vs hash O(n) promedio.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "feat(m08): two pointers arrays ordenados"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 3: Programación dinámica (intro) — Notas M08 | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Punteros extremos; pair sum en array ordenado | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Dos problemas two-pointers con arrays ordenados (o justificación de por qué ordenas antes).
+2. Complejidad O(n) tras ordenar si aplica — dilo explícito.
+3. Commit `feat(m08): two pointers arrays ordenados`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Two pointers en no ordenado sin ordenar ni justificar.
+- Índices que se cruzan mal (loop infinito).
+- No cubrir caso sin solución.
+
 ## Siguiente
 
 [L11 — Sliding window](L11-sliding-window.md)

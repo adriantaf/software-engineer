@@ -3,74 +3,92 @@ id: L02
 materia: M13
 orden: 2
 titulo: Actores y casos de uso prioritarios
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Larman casos de uso"
-evidencia: "casos-de-uso.md borrador"
+lectura: "Larman: actores y casos de uso; SRS Agenda Ops Must"
+evidencia: projects/m13-diseno/casos-de-uso.md (actores + UC prioritarios)
 ---
 
 # L02 — Actores y casos de uso prioritarios
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Sin actores claros, los diagramas de la semana 2 no saben *quién* habla con la API.
 
 ## Objetivo
 
-Derivar casos de uso Must del SRS: login, CRUD citas/clientes, admin roles.
+Borrador sólido de `projects/m13-diseno/casos-de-uso.md`: actores + casos Must del piloto.
 
 ## Por qué importa
 
-Casos de uso son guía de pruebas y API.
-
-## Conceptos
-
-- actor.
-- caso de uso.
-- precondición.
+M17 implementará login, CRUD de citas/clientes y roles. Si hoy no priorizas, mañana codificas features que el design partner no usa.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Extrae actores del SRS (40–50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Abre `projects/m12-srs/srs-v1.md` (o plantilla) y marca quién inicia cada historia Must.
 
-### 2. Carpeta de evidencia (15–20 min)
+Actores mínimos esperados:
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+| Actor | Responsabilidad |
+|-------|-----------------|
+| Owner | Admin del negocio: roles, servicios, clientes |
+| Staff | Opera agenda del día: crear/cancelar citas |
+| Sistema | Recordatorios futuros / jobs (aunque sea stub) |
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Lista casos Must (70–90 min)
 
-≥6 casos con ID CU-XX. Enlaza a US del SRS.
+Crea o amplía `projects/m13-diseno/casos-de-uso.md` con secciones **Actores** y **Casos prioritarios (Must)**.
 
-### 4. Conexión con el plan (30–45 min)
+Tabla mínima esperada:
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+| ID | Nombre | Actor | Traza SRS | Notas |
+|----|--------|-------|-----------|-------|
+| UC-01 | Iniciar sesión | Owner/Staff | H-auth-01 | cookie/sesión |
+| UC-02 | Crear cliente | Owner/Staff | H-cli-01 | |
+| UC-03 | Crear cita | Staff | H-cita-01 | slot + servicio |
+| UC-04 | Cancelar cita | Staff | H-cita-02 | |
+| UC-05 | Listar agenda del día | Staff | H-cita-03 | |
 
-### 5. Commit atómico (15 min)
+Ajusta IDs a tu SRS; no copies ciegos.
+
+### 3. Diagrama ligero opcional (30–40 min)
+
+Si ayuda, añade Mermaid use-case (máx. 8 elipses). Si el diagrama no cambia una decisión, bórralo.
+
+### 4. Párrafo de alcance (20 min)
+
+Al final del archivo: qué **queda fuera** del piloto (pagos Stripe, multi-sucursal, WhatsApp bot completo).
+
+### 5. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l02 actores-y-casos-de-uso-prioritarios"
+git add projects/m13-diseno/casos-de-uso.md
+git commit -m "docs(m13): actores y casos de uso prioritarios"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Larman | casos de uso | srs-v1 |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Actores, casos de uso y priorización Must del SRS | [UML — Use Case Diagram (resumen)](https://www.uml-diagrams.org/use-case-diagrams.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. ≥6 casos.
-2. Trazabilidad SRS.
-3. Actores correctos.
+Marca la lección **solo si**:
+
+1. `casos-de-uso.md` lista actores (owner, staff, sistema) con 1 frase de responsabilidad cada uno.
+2. ≥5 casos de uso Must con id (UC-xx), actor primario y traza a historia/requisito del SRS.
+3. Commit `docs(m13): actores y casos de uso prioritarios`.
 
 ## Errores comunes
 
-- Casos decorativos.
-- Olvidar staff.
+- 30 casos de uso “por si acaso”; quédate en el MVP Must.
+- Actor “Usuario” genérico sin distinguir owner vs staff.
+- Casos sin traza al SRS (imposible saber si son inventados).
 
 ## Siguiente
 

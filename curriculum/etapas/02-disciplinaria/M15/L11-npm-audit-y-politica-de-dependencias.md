@@ -3,74 +3,55 @@ id: L11
 materia: M15
 orden: 11
 titulo: npm audit y política de dependencias
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "npm audit docs"
-evidencia: "ci.yml audit step"
+lectura: npm audit; política high/critical
+evidencia: audit en CI + docs/politica-deps.md
 ---
 
 # L11 — npm audit y política de dependencias
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+El piloto también tiene supply chain. Hoy el audit deja de ser opcional.
 
 ## Objetivo
 
-Añadir `npm audit --audit-level=high` (o documentar excepción con ticket).
-
-## Por qué importa
-
-Supply chain importa aunque seas piloto.
-
-## Conceptos
-
-- audit.
-- dependencias.
-- CVE.
+Audit en pipeline + política escrita (P2 completo con lint+test+audit).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Corre audit local (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Añade a CI (40 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. política-deps.md (50 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 4. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Paso audit en CI. Si falla, `SECURITY-EXCEPTIONS.md` con razón y fecha revisión.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l11 npm-audit-y-politica-de-dependencias"
-```
+`ci(m15): npm audit y politica deps`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| npm | audit | OWASP dep check |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Audit en CI; excepciones con ticket/motivo | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. Audit en CI.
-2. Política escrita.
-3. Verde o excepción documentada.
+Marca la lección **solo si**:
+
+1. `npm audit --audit-level=high` (o equivalente) en workflow o script CI.
+2. `docs/politica-deps.md` describe qué hacer con vulns y excepciones.
+3. Commit `ci(m15): npm audit y politica deps`.
 
 ## Errores comunes
 
-- Ignorar audit.
-- Excepciones sin fecha.
+- `--audit-level=critical` sin mirar high.
+- Silenciar audit con flag oculto permanente.
+- No pinear versiones y vivir en builds flaky.
 
 ## Siguiente
 

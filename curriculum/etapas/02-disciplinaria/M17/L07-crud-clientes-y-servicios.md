@@ -3,69 +3,51 @@ id: L07
 materia: M17
 orden: 7
 titulo: CRUD clientes y servicios
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "SRS RF clientes/servicios"
-evidencia: "/clientes /servicios"
+lectura: SRS RF clientes/servicios
+evidencia: /clientes /servicios
 ---
 
 # L07 — CRUD clientes y servicios
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Servicios definen duración/precio; clientes son PII — trázalos al SRS.
 
 ## Objetivo
 
-CRUD completo clientes y servicios con autorización owner/staff según matriz preliminar.
-
-## Por qué importa
-
-Servicios definen duración y precio base para citas.
-
-## Conceptos
-
-- CRUD.
-- servicio.
-- cliente.
+CRUD `/clientes` y `/servicios` con auth y 404 coherente.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Endpoints (100–120 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Create/read/update/(soft)delete. Validar teléfono/nombre. No mezclar clientes entre negocios.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Tests (40–50 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Feliz + 404 + 401. Update servicio cambia duración usada en citas nuevas (documenta comportamiento).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Endpoints + tests feliz y 404. Seeds opcionales.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l07 crud-clientes-y-servicios"
-```
+`feat(m17): l07 crud clientes servicios`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m12-srs | Must | m14 precio opcional |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | SRS RF clientes/servicios | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. CRUD ambos recursos.
-2. Tests.
-3. Commit.
+Marca la lección **solo si**:
+
+1. CRUD ambos recursos (artefacto: `/clientes /servicios`).
+2. Tests (artefacto: `/clientes /servicios`).
+3. Commit (artefacto: `/clientes /servicios`).
 
 ## Errores comunes
 

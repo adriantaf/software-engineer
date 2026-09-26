@@ -1,28 +1,51 @@
 # M24 — Tecnologías emergentes
 
-Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
+Research, matriz de adopción y spike go/no-go para Agenda Ops.
 
 ## En resumen
 
-separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
+Separas hype de utilidad: research, criterios (incluye seguridad) y un spike go/no-go.
 
-## Checklist (Evidencia de hecho)
+## Estructura esperada
 
-Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+```text
+projects/m24-emergentes/
+  README.md
+  candidatos.md
+  matriz-adopcion.md
+  go-no-go.md
+  bitacora/
+    semana-01.md … semana-03.md
+  research/
+    README.md
+    candidato-1.md
+    candidato-2.md
+    candidato-3.md
+    comparacion-v0.md
+  spike/
+    README.md
+    hipotesis.md
+    plan.md
+    threat-sketch.md
+    demo-log.md
+    resultados.md
+    .env.example
+```
 
-- **P1 — Notes:** 3 tecnologías con fuentes primarias.
-- **P2 — Matriz:** Costo/riesgo/valor/seguridad/fit.
-- **P3 — Spike:** PoC de ≤1 semana.
-- **Proyecto — Go/no-go:** Decisión escrita argumentada.
+## Checklist
 
-## Cómo usarla
+- **P1 — Notes:** 3 research con fuentes primarias.
+- **P2 — Matriz:** costo/riesgo/valor/seguridad/fit.
+- **P3 — Spike:** PoC ≤1 semana en `spike/`.
+- **Proyecto — Go/no-go:** `go-no-go.md` argumentado.
 
-1. Abre la ficha **M24** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
-4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
+## Reglas
+
+1. Docs oficiales antes de puntuar la matriz.
+2. Spike aislado — no merge a prod sin go.
+3. Un “no” bien fundado vale igual que un “go”.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/03-terminal/M24-tecnologias-emergentes.md`
-- Plan: `/materia/M24/`
+- Bibliografía: `curriculum/bibliografia.md#m24-tecnologias-emergentes`

@@ -3,74 +3,71 @@ id: L15
 materia: M10
 orden: 15
 titulo: CORS, preflight y errores típicos
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "MDN CORS"
-evidencia: "labs/cors.md"
+lectura: MDN CORS
+evidencia: labs/cors.md
 ---
 
 # L15 — CORS, preflight y errores típicos
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+CORS no autentica usuarios: solo relaja same-origin en el browser. Hoy lo configuras sin abrirlo todo.
 
 ## Objetivo
 
-Explicar por qué el navegador aplica CORS y qué cabeceras configura el servidor API para un front en otro origen.
+Documentar preflight y una política CORS para panel+API de Agenda Ops.
 
-## Por qué importa
+## Pasos
 
-En M17 separarás front y API; hoy evitas “arreglar CORS con `*`”.
+### 1. Lectura MDN (45 min)
 
-## Conceptos
+Same-origin; simple request vs preflight; `Access-Control-Allow-Credentials`.
 
-- Same-origin policy.
-- Preflight OPTIONS.
-- Credentials y `Access-Control-Allow-Credentials`.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Esboza política CORS para piloto: orígenes permitidos, métodos, headers. Prohíbe `*` con credenciales.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 2. Simula preflight (45 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l15 cors-preflight-y-errores-tipicos"
+curl -v -X OPTIONS https://httpbin.org/anything \
+  -H 'Origin: https://app.agenda.local' \
+  -H 'Access-Control-Request-Method: POST' \
+  -H 'Access-Control-Request-Headers: content-type,authorization'
+```
+
+Anota qué respondería **tu** API (orígenes permitidos, métodos, headers).
+
+### 3. Política producto (45 min)
+
+En `labs/cors.md`: allowlist de orígenes staging/prod; nunca `*` con credentials; cómo fallar cerrado.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m10-redes/labs/cors.md
+git commit -m "docs(m10): l15 cors"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | CORS | Fetch API |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Same-origin policy; ACAO; preflight OPTIONS; credenciales | [MDN · CORS](https://developer.mozilla.org/es/docs/Web/HTTP/CORS) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Política CORS borrador.
-2. Explicas preflight en 5 frases.
-3. Error común documentado.
+Marca la lección **solo si**:
+
+1. `labs/cors.md` explica preflight y configuración segura (sin `*` + credentials).
+2. Ejemplo de error de consola típico y cómo lo depurarías con curl OPTIONS.
+3. Commit `docs(m10): l15 cors`.
 
 ## Errores comunes
 
 - `Access-Control-Allow-Origin: *` con cookies.
-- Confundir CORS con autorización en API.
+- Desactivar CORS en el navegador “para desarrollar”.
+- Confundir CORS con authz de negocio.
 
 ## Siguiente
 

@@ -6,24 +6,42 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 Aplicas pocos patrones con justificación (no nombres de adorno) en el dominio del piloto **Agenda Ops** (citas, precios, notificaciones).
 
+## Arranque rápido (L01)
+
+```bash
+cd projects/m14-patrones
+npm install
+npm test
+```
+
+Si aún no hay `package.json`, créalo siguiendo la lección L01 (TypeScript strict + Vitest).
+
+## Estructura esperada
+
+```text
+src/
+  pricing/          ← Strategy (L01)
+  notify/           ← Factory (L02)
+  calendar/         ← Adapter (L05)
+  citas/            ← Decorator, Facade, Repository, Service
+  events/           ← Observer (L09)
+  admin/            ← Command (L10)
+  index.ts          ← API pública (L08)
+adr/                ← un ADR corto por patrón
+docs/
+tests/              ← o colocalizados *.test.ts
+refactor-notas.md   ← P3
+```
+
 ## Checklist (Evidencia de hecho)
 
-Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
-
-- **P1 — 3 patrones:** Strategy, Observer y Factory con tests.
-- **P2 — Repo/Service:** Capa backend del piloto (interfaces de dominio separadas de persistencia).
-- **P3 — Refactor:** Módulo legacy refactorizado + diff en `refactor-notas.md`.
-- **Proyecto — ≥5 patrones:** ADR justificando cada uno en contexto Agenda Ops.
-
-## Cómo usarla
-
-1. Abre la ficha **M14** en el plan y la lección **L01**.
-2. Sigue las lecciones **L01–L16** en orden (4 por semana).
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
-4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
+- **P1 — 3 patrones:** Strategy, Observer y Factory con tests + ADRs.
+- **P2 — Repo/Service:** interfaces de dominio separadas de persistencia.
+- **P3 — Refactor:** `refactor-notas.md` + diff/commits.
+- **Proyecto — ≥5 patrones:** este README índice + ADRs.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/02-disciplinaria/M14-patrones.md`
 - Lecciones: `curriculum/etapas/02-disciplinaria/M14/`
-- Plan: `/materia/M14/`
+- Bibliografía: `curriculum/bibliografia.md#m14-patrones`

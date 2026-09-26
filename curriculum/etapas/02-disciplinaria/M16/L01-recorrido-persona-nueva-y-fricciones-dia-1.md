@@ -3,77 +3,74 @@ id: L01
 materia: M16
 orden: 1
 titulo: Recorrido persona nueva y fricciones día 1
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Krug cap. 1 + producto Agenda Ops"
-evidencia: "projects/m16-ihc/heuristicas/fricciones-dia1.md"
+lectura: "Krug: no me hagas pensar; primer recorrido Agenda Ops"
+evidencia: projects/m16-ihc/fricciones-dia-1.md
 ---
 
 # L01 — Recorrido persona nueva y fricciones día 1
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+El design partner no es tú. Hoy recorres Agenda Ops (prototipo o UI parcial) como persona nueva.
 
 ## Objetivo
 
-Recorrer UI/wireframe del piloto como usuario nuevo y listar ≥10 fricciones al agendar cita.
+Lista de fricciones en `fricciones-dia-1.md` y carpetas base de evidencia.
 
-## Por qué importa
+## Por qué empieza así
 
-Tu intuición de dev no es la del dueño del negocio.
-
-## Conceptos
-
-- fricción.
-- tarea.
-- design partner.
+Sin fricciones observadas, la auditoría Nielsen se vuelve checklist vacío.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Prepara carpeta (15 min)
 
 ```bash
-mkdir -p projects/m16-ihc/heuristicas projects/m16-ihc/sesiones
+mkdir -p projects/m16-ihc/{heuristicas,sesiones,iteracion,prototipo}
+cat projects/m16-ihc/README.md
 ```
-Sin ayuda: crear cita. Anota cada pausa/confusión.
 
-### 4. Conexión con el plan (30–45 min)
+### 2. Elige superficie (20 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+Prototipo HTML en `prototipo/`, Figma export, o UI M17 si existe. Si no hay nada: crea 2–3 HTML estáticos de login + agenda + nueva cita (L05 lo endurece).
 
-### 5. Commit atómico (15 min)
+### 3. Recorrido cronometrado (60–80 min)
 
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l01 recorrido-persona-nueva-y-fricciones-dia"
-```
+Cronómetro: “Agendar cita para cliente nuevo”. Anota cada duda, click engañoso, label confuso.
+
+### 4. Escribe fricciones-dia-1.md (70–90 min)
+
+| ID | Paso | Fricción | Impacto percibido |
+|----|------|----------|-------------------|
+| F01 | Login | … | alto/medio/bajo |
+
+### 5. Commit
+
+`docs(m16): fricciones dia 1 persona nueva`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Krug | No me hagas pensar | producto-saas.md |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Escaneo y fricción en el primer uso del panel de citas | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. ≥10 fricciones.
-2. Fecha y contexto.
-3. Commit docs(m16).
+Marca la lección **solo si**:
+
+1. Carpeta `projects/m16-ihc/` con `fricciones-dia-1.md` (≥8 fricciones concretas del flujo agendar/ver agenda).
+2. Cada fricción nombra pantalla/paso y quién sufre (owner vs staff nuevo).
+3. Commit `docs(m16): fricciones dia 1 persona nueva`.
 
 ## Errores comunes
 
-- Lista genérica.
-- Sin probar flujo real.
+- “La UI está fea” sin paso reproducible.
+- Evaluar solo como desarrollador con datos seed perfectos.
+- Ignorar login y estados vacíos.
 
 ## Siguiente
 

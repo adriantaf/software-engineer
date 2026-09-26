@@ -48,6 +48,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
               <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
               <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
               <li><a href={pathTo('progreso')}>Progreso</a></li>
+              <li><a href={pathTo('buscar')}>Buscar</a></li>
               <li class="menu-title"><span>Guías</span></li>
               <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
               <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
@@ -98,10 +99,19 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
               </div>
             </li>
             <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('progreso')}>Progreso</a></li>
+            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('buscar')}>Buscar</a></li>
           </ul>
         </nav>
 
         <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
+          <a
+            class="btn btn-ghost btn-sm hidden sm:inline-flex"
+            href={pathTo('buscar')}
+            title="Buscar en el plan"
+            aria-label="Buscar"
+          >
+            Buscar
+          </a>
           <a
             class="btn btn-primary btn-sm"
             data-continuar
@@ -128,7 +138,10 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
       </div>
     </div>
 
-    <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0">
+    <main
+      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0"
+      data-pagefind-body
+    >
       <slot />
     </main>
 

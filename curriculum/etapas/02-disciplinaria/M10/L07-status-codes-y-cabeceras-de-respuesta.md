@@ -3,79 +3,70 @@ id: L07
 materia: M10
 orden: 7
 titulo: Status codes y cabeceras de respuesta
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "MDN HTTP response status + lista IANA selecta"
-evidencia: "labs/status-codes.md"
+lectura: MDN HTTP response status + cabeceras selectas
+evidencia: labs/status-codes.md
 ---
 
 # L07 — Status codes y cabeceras de respuesta
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+El cliente (y tú en soporte) leen el status antes que el JSON. Hoy eliges códigos con criterio.
 
 ## Objetivo
 
-Clasificar códigos 2xx/3xx/4xx/5xx y leer cabeceras `Cache-Control`, `Content-Type`, `Server` con ojo crítico.
+Tabla de status para Agenda Ops + inspección de cabeceras con `curl -sI`.
 
-## Por qué importa
+## Pasos
 
-Un 401 mal interpretado como 500 envía horas de debug al lugar equivocado.
+### 1. Inventario de códigos (60 min)
 
-## Conceptos
+En `labs/status-codes.md` documenta al menos: 200, 201, 204, 301/302, 400, 401, 403, 404, 409, 422, 429, 500, 502/503. Una frase de cuándo aplica a citas/clientes.
 
-- Semántica 401 vs 403.
-- Redirects 301/302.
-- Caching en APIs (cuándo no cachear).
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Labs cabeceras (60 min)
 
 ```bash
-curl -s -o /dev/null -w '%{http_code}\n' https://httpbin.org/status/404
-curl -sI https://httpbin.org/response-headers?freeform=%22X-Test:1%22 | head -25
+curl -sI https://example.com | tee projects/m10-redes/samples/headers-example.txt
+curl -sI https://httpbin.org/status/404
+curl -sI https://httpbin.org/status/301
 ```
 
-Mapea códigos que usará Agenda Ops: login fallido, cita no encontrada, conflicto de horario.
+Marca `Content-Type`, `Location`, `Cache-Control` / `Age` si aparecen.
 
-### 4. Conexión con el plan (30–45 min)
+### 3. Matriz producto (45 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+Escenarios: cita duplicada en mismo slot → ¿409?; token ausente → 401; staff sin permiso a notas privadas → 403; validación de horario → 422.
 
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l07 status-codes-y-cabeceras-de-respuesta"
+git add projects/m10-redes/labs/status-codes.md projects/m10-redes/samples
+git commit -m "docs(m10): l07 status codes"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | HTTP status codes | httpbin.org/status |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Clases 2xx/3xx/4xx/5xx; Cache-Control, Content-Type, Location | [MDN · Códigos de estado](https://developer.mozilla.org/es/docs/Web/HTTP/Status) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Lista ≥8 códigos con ejemplo Agenda Ops.
-2. Captura de cabeceras anotada.
-3. Diferencia 401/403 escrita.
+Marca la lección **solo si**:
+
+1. `labs/status-codes.md` con ≥8 códigos y cuándo los usaría Agenda Ops (401/403/404/409/422/429…).
+2. Labs `curl -sI` anotando status + 3 cabeceras relevantes.
+3. Commit `docs(m10): l07 status codes`.
 
 ## Errores comunes
 
-- Devolver siempre 200 con `{error:true}`.
-- Exponer `Server` con versión vulnerable.
+- Devolver 200 con `{error:…}` en el body y llamarlo API.
+- Confundir 401 (no autenticado) con 403 (no autorizado).
+- Usar 500 para validación de input del cliente.
 
 ## Siguiente
 

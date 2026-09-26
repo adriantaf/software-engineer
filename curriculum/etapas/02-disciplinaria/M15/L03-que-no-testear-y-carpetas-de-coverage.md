@@ -3,74 +3,59 @@ id: L03
 materia: M15
 orden: 3
 titulo: Qué no testear y carpetas de coverage
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Vitest coverage v8"
-evidencia: "projects/m15-calidad/coverage-objetivo.md"
+lectura: Coverage útil; exclusiones conscientes
+evidencia: vitest coverage en domain/ + docs/no-testear.md
 ---
 
 # L03 — Qué no testear y carpetas de coverage
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Coverage es brújula, no religión. Hoy apuntas el medidor al dominio.
 
 ## Objetivo
 
-Definir carpetas donde coverage **sí** importa (`domain/`) y dónde no (DTOs boilerplate).
-
-## Por qué importa
-
-100 % en mappers no salva un IDOR.
-
-## Conceptos
-
-- coverage útil.
-- exclusiones.
-- umbral.
+Config de coverage + política escrita.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Instala provider (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`npm i -D @vitest/coverage-v8` y script `test:cov`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. include domain (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. no-testear.md (50 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Ejemplos: wrappers del framework, generados, `main.ts` de boot.
 
-`coverage-objetivo.md` + script `npm test -- --coverage` si aplica al spike.
+### 4. Commit
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l03 que-no-testear-y-carpetas-de-coverage"
-```
+`test(m15): coverage dominio y politica no-testear`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Vitest | coverage | Ficha M15 |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | No perseguir 100% en boilerplate; coverage en domain/ | [Vitest — Coverage](https://vitest.dev/guide/coverage.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. Documento coverage.
-2. Umbral solo dominio.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Coverage configurado enfocando `src/domain/**` (o carpeta equivalente).
+2. `docs/no-testear.md` lista ≥3 cosas que no testearás (ORM glue, framework).
+3. Commit `test(m15): coverage dominio y politica no-testear`.
 
 ## Errores comunes
 
-- Perseguir 100 % global.
-- Ignorar dominio.
+- 100% en DTOs vacíos y 0% en solape.
+- Excluir `domain/` “porque es difícil”.
+- Subir reportes HTML enormes al repo sin necesidad.
 
 ## Siguiente
 

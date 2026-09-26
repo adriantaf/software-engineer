@@ -3,73 +3,56 @@ id: L09
 materia: M18
 orden: 9
 titulo: Cookies Secure, HttpOnly y SameSite
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "OWASP Session Management + cookie flags"
-evidencia: "projects/m18-appsec/cookies-lab.md"
+lectura: OWASP Session Management + cookie flags
+evidencia: projects/m18-appsec/cookies-lab.md
 ---
 
 # L09 — Cookies Secure, HttpOnly y SameSite
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Atributos correctos o sesión robable.
 
 ## Objetivo
 
-Inspeccionar cookies de sesión de Agenda Ops en DevTools y verificar flags; corregir configuración en el servidor.
-
-## Por qué importa
-
-M10 estudió cookies; hoy aplicas flags en **tu** stack.
-
-## Conceptos
-
-- SameSite=Lax/Strict.
-- Secure en HTTPS.
-- HttpOnly vs JS legítimo.
+Checklist de cookie de sesión en staging/local documentado; fix flags faltantes.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Inspección (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+DevTools / `Set-Cookie` en login.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Hardening (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Secure (prod), HttpOnly, SameSite=Lax o Strict justificado.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Evidencia (20 min)
 
-Login en staging/local. En `projects/m18-appsec/cookies-lab.md` tabla: nombre cookie, flags, lifetime, path.
+Captura headers redactados en `pocs/cookies.md`.
 
-Si falta `Secure` o `HttpOnly` en cookie de sesión, parchea middleware/framework y captura antes/después (sin valor de cookie).
+### 4. Commit
 
-Prueba: ¿JavaScript puede leer la cookie de sesión? Documenta.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l09 cookies-secure-httponly-y-samesite"
-```
+`fix(m18): l09 cookie flags`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | Set-Cookie | M10 L13 |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | OWASP Session Management + cookie flags | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Tabla de cookies real.
-2. Parche o justificación documentada.
+Marca la lección **solo si**:
+
+1. Tabla de cookies real (artefacto: `projects/m18-appsec/cookies-lab.md`).
+2. Parche o justificación documentada (artefacto: `projects/m18-appsec/cookies-lab.md`).
 3. Prueba HttpOnly.
+4. Commit `docs(m18): L09 cookies-secure-httponly-y-samesite`.
 
 ## Errores comunes
 

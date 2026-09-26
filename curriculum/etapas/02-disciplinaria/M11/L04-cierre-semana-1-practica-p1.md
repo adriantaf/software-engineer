@@ -3,72 +3,70 @@ id: L04
 materia: M11
 orden: 4
 titulo: Cierre semana 1 — práctica P1
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Repaso Silberschatz procesos"
-evidencia: "labs/semana-01-procesos.md consolidado"
+lectura: Repaso Silberschatz procesos
+evidencia: labs/semana-01-procesos.md consolidado (P1)
 ---
 
 # L04 — Cierre semana 1 — práctica P1
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+P1 es bitácora de procesos/señales/permisos. Hoy la dejas revisable.
 
 ## Objetivo
 
-Consolidar labs de procesos/señales/permisos para P1.
+Consolidar semana 1 y actualizar el README.
 
-## Por qué importa
+## Pasos
 
-P1 exige comandos reproducibles, no capturas sueltas.
-
-## Conceptos
-
-- Trazabilidad comando → efecto.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Une L01–L03 en un solo archivo con índice. Verifica que otro pueda reproducir.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Inventario (25 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l04 cierre-semana-1-practica-p1"
+find projects/m11-so -type f | sort
+```
+
+### 2. Consolida (90–110 min)
+
+`semana-01-procesos.md` con secciones: dia1, proceso vs hilo, SIGTERM (enlace al código). Incluye 3 comandos “runbook” de diagnóstico.
+
+### 3. README (40 min)
+
+Checklist:
+
+- [x] labs dia1
+- [x] notas hilos/event loop
+- [x] graceful-server + prueba
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m11-so
+git commit -m "docs(m11): l04 cierre semana 1 p1"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M11-sistemas-operativos.md | — |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | Síntesis procesos/hilos/señales; checklist P1 parcial | [Node.js process](https://nodejs.org/api/process.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. P1 semana 1 completa.
-2. Commit consolidado.
-3. Checklist permisos.
+Marca la lección **solo si**:
+
+1. `labs/semana-01-procesos.md` unifica L01–L03 con comandos reproducibles.
+2. README marca P1 parcial (procesos/señales).
+3. Commit `docs(m11): l04 cierre semana 1 p1`.
 
 ## Errores comunes
 
-- Mezclar logs de distintas máquinas sin fecha.
-- Olvidar umask en explicación.
+- Labs sin comandos copiables.
+- Código graceful sin nota de prueba.
+- Checklist vacía.
 
 ## Siguiente
 

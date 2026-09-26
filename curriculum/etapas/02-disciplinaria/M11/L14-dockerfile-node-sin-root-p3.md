@@ -3,74 +3,85 @@ id: L14
 materia: M11
 orden: 14
 titulo: Dockerfile Node sin root (P3)
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Dockerfile reference USER"
-evidencia: "projects/m11-so/Dockerfile"
+lectura: Dockerfile reference USER
+evidencia: projects/m11-so/Dockerfile
 ---
 
 # L14 — Dockerfile Node sin root (P3)
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P3: imagen de servicio Node endurecida lo razonable para local/piloto.
 
 ## Objetivo
 
-Escribir Dockerfile Node con usuario no-root y dependencias `npm ci`.
+Escribir un `Dockerfile` que no corra como root.
 
-## Por qué importa
+## Pasos
 
-Root en contenedor amplifica escape y escritura indebida.
+### 1. App mínima (40 min)
 
-## Conceptos
+Reutiliza o adapta `app/graceful-server.js` como `CMD`. Añade `app/package.json` si hace falta (`"type":"module"`).
 
-- USER.
-- COPY --chown.
-- slim images.
+### 2. Dockerfile (75 min)
 
-## Pasos (hazlos en orden)
+```dockerfile
+FROM node:20-bookworm-slim
+WORKDIR /app
+RUN groupadd -r app && useradd -r -g app app
+COPY --chown=app:app app/package*.json ./
+RUN npm ci --omit=dev || npm install --omit=dev
+COPY --chown=app:app app/ ./
+USER app
+EXPOSE 3099
+CMD ["node", "graceful-server.js"]
+```
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Dockerfile según ejemplo ficha M11; `docker build` y `docker run` verificando `whoami` dentro.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+Ajusta rutas a tu layout. Documenta build:
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l14 dockerfile-node-sin-root-p3"
+docker build -t m11-api:dev -f projects/m11-so/Dockerfile projects/m11-so
+docker run --rm -p 127.0.0.1:3099:3099 m11-api:dev
+```
+
+### 3. Verificación user (30 min)
+
+```bash
+docker run --rm m11-api:dev id
+```
+
+Debe ser `app`, no `root`.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m11-so/Dockerfile projects/m11-so/app
+git commit -m "feat(m11): l14 dockerfile non-root"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docker | Dockerfile best practices | Ficha M11 |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | USER no-root; npm ci; no secretos en capas | [Dockerfile reference](https://docs.docker.com/reference/dockerfile/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Imagen construye.
-2. Proceso no es root.
-3. Nota en README.
+Marca la lección **solo si**:
+
+1. `Dockerfile` multi-stage o slim con `USER` no-root.
+2. App mínima en `app/` que responde HTTP; build documentado.
+3. Commit `feat(m11): l14 dockerfile non-root`.
 
 ## Errores comunes
 
-- Secretos en ARG/ENV de build.
-- latest sin pin.
+- Correr como root sin justificación.
+- `COPY .` con `.env` dentro.
+- `npm install` en runtime en vez de build.
 
 ## Siguiente
 

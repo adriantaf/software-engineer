@@ -3,74 +3,69 @@ id: L05
 materia: M12
 orden: 5
 titulo: Formato user story y trazabilidad
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Plantilla + historias INVEST"
-evidencia: "stories.md inicio"
+lectura: Plantilla + historias INVEST
+evidencia: stories.md inicio
 ---
 
 # L05 — Formato user story y trazabilidad
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Las stories son el puente entrevista → SRS → tests (M15/M17).
 
 ## Objetivo
 
-Escribir primeras stories con rol, necesidad y beneficio; enlazar a problemas.md.
+Arrancar `stories.md` con historias trazables.
 
-## Por qué importa
+## Pasos
 
-Stories son puente a tests en M15/M17.
+### 1. Plantilla de story (30 min)
 
-## Conceptos
+```markdown
+## US-01 — …
+**Como** owner **quiero** … **para** …
+**Problema:** P-01
+**Prioridad:** (luego MoSCoW)
+```
 
-- INVEST.
-- trazabilidad.
-- rol.
+### 2. Escribe ≥4 (90 min)
 
-## Pasos (hazlos en orden)
+Cobertura mínima: agendar cita, ver agenda del día, alta de cliente, cancelar/reagendar. Lenguaje del glosario.
 
-### 1. Lectura dirigida (60–90 min)
+### 3. Mapa (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Tabla `US-xx → P-xx → sección SRS futura`.
 
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-≥4 stories iniciales en `stories.md` con ID (US-01…).
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l05 formato-user-story-y-trazabilidad"
+git add projects/m12-srs/stories.md
+git commit -m "docs(m12): l05 user stories base"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plantilla | req funcionales | — |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Como/quiero/para; INVEST; trazabilidad story→problema→SRS | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. ≥4 stories.
-2. Enlace a problema.
-3. IDs estables.
+Marca la lección **solo si**:
+
+1. `stories.md` con ≥4 stories en formato estándar + ID (US-01…).
+2. Cada story enlaza a un problema P-xx o insight de entrevista.
+3. Commit `docs(m12): l05 user stories base`.
 
 ## Errores comunes
 
-- Stories técnicas (“crear tabla”).
-- Sin rol.
+- Stories técnicas (“como desarrollador quiero Postgres”).
+- Sin ID ni trazabilidad.
+- Épicas enormes sin partir.
 
 ## Siguiente
 

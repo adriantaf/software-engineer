@@ -3,73 +3,52 @@ id: L26
 materia: M18
 orden: 26
 titulo: Secretos, .env y rotación
-horas: 5
+horas: 5.0
 semana: 7
-lectura: "Secrets Management Cheat Sheet"
-evidencia: "projects/m18-appsec/secrets-rotation.md"
+lectura: Secrets Management Cheat Sheet
+evidencia: projects/m18-appsec/secrets-rotation.md
 ---
 
 # L26 — Secretos, .env y rotación
 
-**~5 h · Semana 7**
+**~5.0 h · Semana 7**
+
+Historial git no debe tener SESSION_SECRET real.
 
 ## Objetivo
 
-Verificar que secretos viven fuera de git; plan de rotación para JWT/session secret y DB.
-
-## Por qué importa
-
-Un commit con `.env` es incidente permanente (historial).
-
-## Conceptos
-
-- `.gitignore`.
-- Rotación sin downtime (idea).
-- Pre-commit hooks.
+Inventario secretos; rotación documentada; grep limpio.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Busca fugas (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+`git log -p | rg -i 'password|secret|api_key' | head` (cuidado output).
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Proceso rotación (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`docs/rotacion-secretos.md` pasos staging.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-```bash
-git log -p --all -S 'DATABASE_URL' | head -20
-```
-
-`projects/m18-appsec/secrets-rotation.md`: inventario (sin valores), dónde viven en local/staging, pasos rotar session secret.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l26 secretos-env-y-rotacion"
-```
+`docs(m18): l26 secretos rotacion`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Secrets | M19 secrets-inventory |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Secrets Management Cheat Sheet | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Inventario sin valores.
-2. grep historial ejecutado.
-3. Plan rotación.
+Marca la lección **solo si**:
+
+1. Inventario sin valores (artefacto: `projects/m18-appsec/secrets-rotation.md`).
+2. grep historial ejecutado (artefacto: `projects/m18-appsec/secrets-rotation.md`).
+3. Plan rotación (artefacto: `projects/m18-appsec/secrets-rotation.md`).
+4. Commit `docs(m18): L26 secretos-env-y-rotacion`.
 
 ## Errores comunes
 

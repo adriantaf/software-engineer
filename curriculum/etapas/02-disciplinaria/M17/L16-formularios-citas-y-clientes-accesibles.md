@@ -3,69 +3,56 @@ id: L16
 materia: M17
 orden: 16
 titulo: Formularios citas y clientes accesibles
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "MDN forms a11y básica"
-evidencia: "formularios create"
+lectura: MDN forms a11y básica
+evidencia: formularios create
 ---
 
 # L16 — Formularios citas y clientes accesibles
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Errores de servidor mapeados a campos — no solo `alert`.
 
 ## Objetivo
 
-Crear/editar cita y cliente con validación inline alineada a API.
-
-## Por qué importa
-
-Errores server mapeados a campos.
-
-## Conceptos
-
-- form.
-- a11y.
-- validación.
+Create/edit cita y cliente con labels, `aria-invalid` y validación alineada a API. Cierre P2 parcial.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Forms (100–120 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Mapear 400 de API a mensajes por campo. Confiar también en validación servidor.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. A11y rápida (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Tab order, labels for/id, contraste mínimo deje de ser accidente.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. README P2 (20 min)
 
-Labels, `aria-invalid`, mensajes en español. Commit cierre semana 4 P2 parcial.
+Marca P2 parcial: rutas protegidas + ui-estados + forms.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l16 formularios-citas-y-clientes-accesibles"
-```
+`feat(m17): l16 formularios accesibles p2`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | formularios | m12 criterios |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | MDN forms a11y básica | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Forms create/edit.
-2. Errores campo.
-3. P2 parcial.
+Marca la lección **solo si**:
+
+1. Forms create/edit (artefacto: `formularios create`).
+2. Errores campo (artefacto: `formularios create`).
+3. P2 parcial (artefacto: `formularios create`).
+4. Commit `docs(m17): L16 formularios-citas-y-clientes-accesibles`.
 
 ## Errores comunes
 

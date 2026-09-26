@@ -3,74 +3,57 @@ id: L11
 materia: M16
 orden: 11
 titulo: Informe de usabilidad para stakeholders
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Informe ejecutivo 1 página"
-evidencia: "projects/m16-ihc/informe-usabilidad.md"
+lectura: Informe ejecutivo; riesgos UX→seguridad
+evidencia: informe-usabilidad.md (proyecto)
 ---
 
 # L11 — Informe de usabilidad para stakeholders
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+El proyecto de M16 es el informe que el design partner entiende.
 
 ## Objetivo
 
-Redactar informe: método, participantes, hallazgos, cambios, riesgos UX→seguridad.
-
-## Por qué importa
-
-El design partner lee esto, no tu bitácora cruda.
-
-## Conceptos
-
-- informe.
-- ejecutivo.
-- stakeholder.
+`informe-usabilidad.md` completo.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Resumen ejecutivo (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Cuerpo (80–100 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Método, participantes (anónimos), tareas, hallazgos, iteración, backlog residual.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Riesgos seguridad UX (30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 4. Commit
 
-1 página resumen + anexo método. Enlaza artefactos M16.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l11 informe-de-usabilidad-para-stakeholders"
-```
+`docs(m16): informe de usabilidad`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M16-ihc.md | proyecto |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Informe para design partner: método, hallazgos, cambios | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. informe-usabilidad.md.
-2. Resumen 1 pág.
-3. Riesgos seguridad UX.
+Marca la lección **solo si**:
+
+1. `informe-usabilidad.md` con resumen ejecutivo (1 pág), método, top hallazgos, cambios hechos/planificados.
+2. Sección de riesgos UX que pueden virar a bugs de seguridad.
+3. Commit `docs(m16): informe de usabilidad`.
 
 ## Errores comunes
 
-- Informe sin cambios concretos.
-- IDs internos en errores.
+- Informe solo técnico para ti.
+- Sin prioridades.
+- Ocultar hallazgos incómodos.
 
 ## Siguiente
 

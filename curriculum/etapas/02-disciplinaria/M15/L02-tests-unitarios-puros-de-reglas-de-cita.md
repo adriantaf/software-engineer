@@ -3,74 +3,67 @@ id: L02
 materia: M15
 orden: 2
 titulo: Tests unitarios puros de reglas de cita
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Dominio sin I/O"
-evidencia: "projects/m15-calidad/tests/dominio-citas.test.ts"
+lectura: Código limpio cap. pruebas; reglas de solape/estado
+evidencia: tests/domain/ reglas de cita ≥5 tests
 ---
 
 # L02 — Tests unitarios puros de reglas de cita
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+La base de la pirámide: reglas que el dueño del negocio nota si fallan (doble booking).
 
 ## Objetivo
 
-Ampliar tests unitarios: pasado, duración, solapamiento, zona horaria documentada.
-
-## Por qué importa
-
-La lógica de citas es donde más duele un bug en producción.
-
-## Conceptos
-
-- unit puro.
-- fast feedback.
-- tabla casos.
+Suite unitaria de dominio de citas sin DB ni HTTP.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Extrae regla (40–50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Ejemplo:
 
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-≥8 casos en tabla markdown + tests. Sin DB ni HTTP en esta lección.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l02 tests-unitarios-puros-de-reglas-de-cita"
+```ts
+export function rangesOverlap(aStart: Date, aEnd: Date, bStart: Date, bEnd: Date): boolean {
+  return aStart < bEnd && bStart < aEnd;
+}
 ```
+
+### 2. Tabla de casos (60–70 min)
+
+Adyacentes, contenidos, idénticos, invertidos (`end < start` → throw/invalid).
+
+### 3. Red→green (30 min)
+
+Rompe la función, mira fallar, restaura — anota en `docs/red-green-cita.md`.
+
+### 4. Commit
+
+`test(m15): reglas de cita unitarias`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m12-srs | stories Must | — |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Unit tests puros: sin I/O; reglas de cita | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. ≥8 tests dominio.
-2. Tabla casos.
-3. Verde local.
+Marca la lección **solo si**:
+
+1. Funciones de dominio (solape, transición de estado, o validar rango) con ≥5 tests.
+2. Al menos un test que **falla** si rompes la regla a propósito (red→green documentado en nota breve).
+3. Commit `test(m15): reglas de cita unitarias`.
 
 ## Errores comunes
 
-- Tests que levantan servidor.
-- Datos hardcode sin nombre.
+- Tests que levantan servidor HTTP para una resta de fechas.
+- Asserts débiles (`toBeTruthy` en objetos).
+- Reglas duplicadas en test y producción divergentes.
 
 ## Siguiente
 

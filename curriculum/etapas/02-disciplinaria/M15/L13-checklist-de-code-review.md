@@ -3,74 +3,55 @@ id: L13
 materia: M15
 orden: 13
 titulo: Checklist de code review
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Checklist propio + seguridad"
-evidencia: "projects/m15-calidad/checklist-review.md"
+lectura: "Checklist review: calidad + seguridad"
+evidencia: checklist-review.md (P3)
 ---
 
 # L13 — Checklist de code review
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P3 empieza aquí: lo que mirarás en cada PR del piloto.
 
 ## Objetivo
 
-Redactar checklist PR: estilo, tests, migraciones, secrets, auth, IDOR.
-
-## Por qué importa
-
-P3 exige aplicarlo en un PR real o simulado.
-
-## Conceptos
-
-- review.
-- checklist.
-- seguridad.
+`projects/m15-calidad/checklist-review.md` usable.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Borrador por secciones (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Estilo · Tests · Authz · Validación · Migraciones · Secrets · Observabilidad mínima.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Alinea a M13 boundaries (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-≥15 ítems verificables. Incluye “¿hay test de regresión?” y “¿validación server?”.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l13 checklist-de-code-review"
-```
+`docs(m15): checklist de code review`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Hilo | seguridad.md | Código limpio |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Checklist PR: tests, auth, secrets, migraciones | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. checklist-review.md.
-2. Ítems seguridad.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `checklist-review.md` con ítems de estilo, tests, seguridad (auth/IDOR/validación), secrets.
+2. Ítems accionables (sí/no), no vagos.
+3. Commit `docs(m15): checklist de code review`.
 
 ## Errores comunes
 
-- Checklist vago.
-- Sin ítems auth.
+- Lista de 80 ítems inusable.
+- Cero ítems de seguridad.
+- Copiar checklist enterprise sin adaptar al piloto.
 
 ## Siguiente
 

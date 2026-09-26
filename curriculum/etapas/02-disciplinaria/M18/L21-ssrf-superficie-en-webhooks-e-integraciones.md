@@ -3,71 +3,50 @@ id: L21
 materia: M18
 orden: 21
 titulo: "SSRF: superficie en webhooks e integraciones"
-horas: 5
+horas: 5.0
 semana: 6
-lectura: "SSRF Prevention Cheat Sheet"
-evidencia: "projects/m18-appsec/findings/004-ssrf.md"
+lectura: SSRF Prevention Cheat Sheet
+evidencia: projects/m18-appsec/findings/004-ssrf.md
 ---
 
 # L21 — SSRF: superficie en webhooks e integraciones
 
-**~5 h · Semana 6**
+**~5.0 h · Semana 6**
+
+¿La API fetcha URLs controladas por usuario?
 
 ## Objetivo
 
-Identificar si Agenda Ops (o roadmap) acepta URLs server-side (webhook, import, avatar remoto) y evaluar riesgo SSRF.
-
-## Por qué importa
-
-Aun sin feature, documentar el control evita sorpresas en M26 integraciones.
-
-## Conceptos
-
-- Allowlist de hosts.
-- Bloquear metadata IP.
-- No reutilizar cliente HTTP sin validar.
+Inventario SSRF (webhooks, previews, imports) + mitigación o N/A justificado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Busca fetch/axios a URLs user-controlled (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Documenta (60–70 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Allowlist, bloqueo link-local. PoC solo local.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Si no hay feature URL, simula diseño en `004-ssrf.md`: qué pasaría con `http://169.254.169.254`. Define allowlist propuesta.
-
-Si hay fetch server-side, prueba URL interna en staging aislado.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l21 ssrf-superficie-en-webhooks-e-integracio"
-```
+`docs(m18): l21 superficie ssrf`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | SSRF | — |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | SSRF Prevention Cheat Sheet | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. Doc SSRF con allowlist.
-2. Riesgo nombrado.
-3. Sin escanear terceros.
+Marca la lección **solo si**:
+
+1. Doc SSRF con allowlist (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
+2. Riesgo nombrado (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
+3. Sin escanear terceros (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
+4. Commit `docs(m18): L21 ssrf-superficie-en-webhooks-e-integraciones`.
 
 ## Errores comunes
 

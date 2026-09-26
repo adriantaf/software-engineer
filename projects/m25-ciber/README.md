@@ -1,28 +1,67 @@
 # M25 — Ciberseguridad aplicada
 
-Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
+Security review del SaaS multi-tenant Agenda Ops. Bug #1: **IDOR cross-tenant**.
 
 ## En resumen
 
-ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
+Ciber aplicada al SaaS: inventario, aislamiento, hardening, tabletop y review final.
 
-## Checklist (Evidencia de hecho)
+## Estructura esperada
 
-Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
+```text
+projects/m25-ciber/
+  README.md
+  inventario.md
+  clasificacion-datos.md
+  tenants-prueba.md
+  security-review.md
+  runbook-incidentes.md
+  bitacora/
+  aislamiento/
+    prueba-manual-01.md
+    tests.md
+  review/
+    authn.md
+    authz-matrix.md
+  hardening/
+    headers.md
+    stripe-secrets.md
+    least-privilege.md
+    restore-test.md
+  logging/
+    politica-logs.md
+    errores.md
+  abuso/
+    rate-limit.md
+  alertas/
+    minimas.md
+  privacidad/
+    retencion.md
+    exports.md
+    aviso-borrador.md
+  hallazgos/
+    hallazgo-01.md
+    hallazgo-02.md
+  tabletop/
+    env-leak.md
+    cross-tenant-incident.md
+```
 
-- **P1 — Inventario:** Activos + clasificación por tenant.
-- **P2 — Review:** ≥2 issues aislamiento cerrados con tests.
-- **P3 — Tabletop:** 30 min documentados (.env/fuga).
-- **Proyecto — Security review:** `projects/m25-ciber/security-review.md`.
+## Checklist
 
-## Cómo usarla
+- **P1 — Inventario:** activos + clasificación por tenant.
+- **P2 — Review:** ≥2 issues de aislamiento cerrados con tests.
+- **P3 — Tabletop:** ≥30 min documentados (.env / cross-tenant).
+- **Proyecto — Security review:** `security-review.md`.
 
-1. Abre la ficha **M25** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
-4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
+## Reglas
+
+1. Solo atacas **tus** ambientes staging/prod acordados.
+2. Prioriza IDOR cross-tenant sobre hallazgos cosméticos.
+3. Sin secretos ni passwords en markdown.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/03-terminal/M25-ciberseguridad-aplicada.md`
-- Plan: `/materia/M25/`
+- Bibliografía: `curriculum/bibliografia.md#m25-ciberseguridad-aplicada`
+- Hilo: `curriculum/hilos/seguridad.md`

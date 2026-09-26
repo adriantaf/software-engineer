@@ -3,74 +3,75 @@ id: L19
 materia: M13
 orden: 19
 titulo: Checklist listo para scaffold
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "Ficha M13 cierre"
-evidencia: "checklist-scaffold.md"
+lectura: Checklist de salida hacia M17
+evidencia: checklist-scaffold.md marcado con evidencia enlazada
 ---
 
 # L19 — Checklist listo para scaffold
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+Definition of Ready: si falta algo Must, hoy se arregla o se documenta el riesgo.
 
 ## Objetivo
 
-Verificar modelo, secuencias, ADRs, boundaries antes de código.
-
-## Por qué importa
-
-Evita empezar M17 sin mapa.
-
-## Conceptos
-
-- checklist.
-- riesgo residual.
-- preguntas.
+`checklist-scaffold.md` que un yo futuro use el día 1 de M17.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe el checklist (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+```markdown
+# Checklist — listo para scaffold M17
 
-### 2. Carpeta de evidencia (15–20 min)
+- [ ] SRS enlazado
+- [ ] casos-de-uso.md (P1)
+- [ ] clases + secuencia (P2)
+- [ ] trust-boundaries (P3)
+- [ ] arquitectura.md + DTOs
+- [ ] ADR 001–003
+- [ ] endpoints-m17.md
+- [ ] nota tenant_id
+```
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Marca con enlaces (50–60 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Cada ítem: ruta relativa al archivo.
 
-Checklist binaria Sí/No por ítem. Preguntas abiertas a M17.
+### 3. Deuda consciente (30 min)
 
-### 4. Conexión con el plan (30–45 min)
+Sección “Aceptamos no tener X porque…”.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l19 checklist-listo-para-scaffold"
+git add projects/m13-diseno/checklist-scaffold.md
+git commit -m "docs(m13): checklist listo para scaffold"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M13-analisis-y-diseno.md | M17 ficha |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Definition of Ready del paquete de diseño | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. checklist-scaffold.md.
-2. Sin ítems No críticos.
-3. Preguntas listadas.
+Marca la lección **solo si**:
+
+1. `checklist-scaffold.md` con ítems marcados y enlaces a archivos del paquete.
+2. Cero ítems Must en “TBD” sin justificación.
+3. Commit `docs(m13): checklist listo para scaffold`.
 
 ## Errores comunes
 
-- Marcar sí sin artefacto.
-- Diagramas sin SRS.
+- Checklist todo ✓ sin enlaces.
+- Dejar P2/P3 incompletos y seguir igual.
+- Incluir nice-to-have como bloqueantes.
 
 ## Siguiente
 

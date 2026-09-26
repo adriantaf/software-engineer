@@ -3,74 +3,100 @@ id: L15
 materia: M11
 orden: 15
 titulo: "docker compose: API y base de datos"
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Compose file reference"
-evidencia: "docker-compose.yml documentado"
+lectura: Compose file reference
+evidencia: docker-compose.yml documentado
 ---
 
 # L15 — docker compose: API y base de datos
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+El stack local del piloto: API + Postgres como en Agenda Ops.
 
 ## Objetivo
 
-Definir compose mínimo API+Postgres: red interna, volumen DB, puerto API solo.
+Dejar `docker-compose.yml` usable y documentado.
 
-## Por qué importa
+## Pasos
 
-Playbook M11 debe levantar stack reproducible.
+### 1. Compose (90 min)
 
-## Conceptos
+`projects/m11-so/docker-compose.yml` (ajusta nombres):
 
-- service network.
-- depends_on.
-- ports mapping.
+```yaml
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: agenda
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: agenda
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    # no ports: públicos; la API habla por la red compose
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agenda"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  api:
+    build: .
+    environment:
+      PORT: 3099
+      DATABASE_URL: postgres://agenda:${POSTGRES_PASSWORD}@db:5432/agenda
+    ports:
+      - "127.0.0.1:3099:3099"
+    depends_on:
+      db:
+        condition: service_healthy
+volumes:
+  pgdata:
+```
 
-## Pasos (hazlos en orden)
+### 2. Env example (30 min)
 
-### 1. Lectura dirigida (60–90 min)
+`.env.example` con `POSTGRES_PASSWORD=change-me`. `.env` en `.gitignore`.
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Compose con Postgres no publicado a 0.0.0.0 salvo necesidad documentada. `.env.example`.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Up (40 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l15 docker-compose-api-y-base-de-datos"
+cd projects/m11-so
+cp -n .env.example .env
+docker compose up -d --build
+curl -s http://127.0.0.1:3099/
+docker compose ps
+```
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m11-so/docker-compose.yml projects/m11-so/.env.example
+git commit -m "feat(m11): l15 compose api db"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docker | Compose | Postgres image doc |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | Servicios api+db; red interna; volúmenes; no exponer 5432 públicamente | [Compose specification](https://docs.docker.com/compose/compose-file/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. `docker compose up` funciona.
-2. DB no expuesta públicamente.
-3. .env.example sin secretos.
+Marca la lección **solo si**:
+
+1. `docker-compose.yml` con API + Postgres, volumen, red, env desde `.env.example`.
+2. Nota: puerto DB solo interno o localhost; API en localhost.
+3. Commit `feat(m11): l15 compose api db`.
 
 ## Errores comunes
 
-- Puerto 5432 publicado “temporal”.
-- Contraseña en git.
+- Publicar `5432:5432` a 0.0.0.0 sin necesidad.
+- Passwords en el YAML commiteadas.
+- Olvidar healthcheck / depends_on con criterio.
 
 ## Siguiente
 

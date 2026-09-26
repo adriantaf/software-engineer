@@ -3,74 +3,64 @@ id: L16
 materia: M13
 orden: 16
 titulo: ADR auth y sesión
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "SRS seguridad"
-evidencia: "adr/005-auth.md"
+lectura: Sesión vs JWT; cookie HttpOnly; roles owner/staff
+evidencia: adr/003-auth-sesion.md
 ---
 
 # L16 — ADR auth y sesión
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Cierras la decisión que L07 dibujó: cómo autenticamos el piloto.
 
 ## Objetivo
 
-ADR alineada a RNF: sesión server-side vs JWT según M10/M12.
-
-## Por qué importa
-
-Auth unificada en diseño antes del código.
-
-## Conceptos
-
-- sesión.
-- CSRF.
-- rotación.
+`adr/003-auth-sesion.md` coherente con `secuencia-auth.md` y boundaries.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Alternativas (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Tabla: sesión servidor / JWT cookie / JWT bearer. Elige una para el piloto.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. ADR (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Incluye: hash de passwords, expiración, logout, roles, rechazo de “rol en query string”.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Sincroniza diagrama (30 min)
 
-ADR 005 con consecuencias operativas (redis/DB sessions).
+Si cambió el mecanismo, actualiza `secuencia-auth.md`.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l16 adr-auth-y-sesion"
+git add projects/m13-diseno
+git commit -m "docs(m13): ADR 003 auth y sesion"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M12 | RNF SEC | M10 cookies |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Decisión de autenticación/sesión y roles del piloto | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. ADR 005.
-2. Alineado SRS.
-3. ≥2 ADRs semana 4.
+Marca la lección **solo si**:
+
+1. ADR 003 elige mecanismo (p. ej. cookie de sesión) con consecuencias.
+2. Roles owner/staff y dónde se autorizan (API) quedan escritos.
+3. Commit `docs(m13): ADR 003 auth y sesion`.
 
 ## Errores comunes
 
-- Auth indefinida en M17.
-- Omitir CSRF.
+- JWT en localStorage “porque tutorial” sin amenazas.
+- Roles solo en el front.
+- ADR que contradice secuencia-auth sin actualizarla.
 
 ## Siguiente
 

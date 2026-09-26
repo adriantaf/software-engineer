@@ -1,28 +1,59 @@
 # M11 — Sistemas operativos
 
-Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace claro), no cuenta.
+Carpeta de **evidencia** + scripts/Docker del stack local Agenda Ops. Si no está en git (aquí o con enlace claro), no cuenta.
 
 ## En resumen
 
-administras procesos, permisos y un contenedor sin hacer tonterías de root/secretos.
+Administras procesos, permisos y un contenedor sin abusar de root ni meter secretos en la imagen.
+
+## Arranque rápido
+
+```bash
+mkdir -p projects/m11-so/{labs,scripts,app,samples,backups,logs}
+cd projects/m11-so
+# tras L14–L15:
+cp -n .env.example .env   # edita POSTGRES_PASSWORD
+docker compose up -d --build
+curl -s http://127.0.0.1:3099/
+```
+
+## Estructura
+
+```
+projects/m11-so/
+├── README.md
+├── playbook.md           # proyecto — operación local
+├── restore-prueba.md     # P2 — evidencia de restore
+├── Dockerfile            # P3
+├── docker-compose.yml    # P3
+├── .env.example
+├── labs/                 # P1 — procesos, memoria, FS, docker
+├── scripts/              # P2 — backup.sh, rotate-logs.sh
+├── app/                  # servidor Node de labs / imagen
+├── backups/              # salida local (no secretos de prod)
+└── logs/
+```
+
+## Lecciones → artefactos
+
+| Semana | Lecciones | Qué debe existir aquí |
+|--------|-----------|------------------------|
+| 1 | L01–L04 | labs procesos + `app/graceful-server.js` |
+| 2 | L05–L08 | labs memoria / OOM / cgroups |
+| 3 | L09–L12 | permisos + `scripts/backup.sh` + restore |
+| 4 | L13–L16 | Dockerfile, compose, `playbook.md` |
 
 ## Checklist (Evidencia de hecho)
 
-Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
-
-- **P1 — Labs:** Notas de procesos/señales/permisos con comandos.
-- **P2 — Scripts:** Backup + rotación de logs versionados.
-- **P3 — Docker:** Dockerfile Node + volumen; user no-root.
-- **Proyecto — Playbook:** `projects/m11-so/` operación local del stack.
-
-## Cómo usarla
-
-1. Abre la ficha **M11** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
-4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
+- **P1 — Labs:** `labs/` con procesos/señales/permisos.
+- **P2 — Scripts:** `scripts/backup.sh` + rotación + `restore-prueba.md`.
+- **P3 — Docker:** `Dockerfile` no-root + `docker-compose.yml`.
+- **Proyecto — Playbook:** `playbook.md` enlazado desde este README.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/02-disciplinaria/M11-sistemas-operativos.md`
+- Lecciones: `curriculum/etapas/02-disciplinaria/M11/`
 - Plan: `/materia/M11/`
+- Bibliografía: `curriculum/bibliografia.md#m11-sistemas-operativos`
+- Producto: `curriculum/producto-saas.md`

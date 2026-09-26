@@ -117,11 +117,15 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 
 ## M13 — Análisis y diseño
 
+<a id="m13-analisis-y-diseno"></a>
+
 - **Principal:** *UML y patrones* — Larman (ed. ES)
 - **Gratis / apoyo:** ADRs + diagramas Mermaid en `projects/m13-diseno/`
 - **Ficha:** [M13](etapas/02-disciplinaria/M13-analisis-y-diseno.md)
 
 ## M14 — Patrones
+
+<a id="m14-patrones"></a>
 
 - **Principal:** *Patrones de diseño* — GoF (ed. ES si hay)
 - **Gratis:** [Refactoring.Guru ES](https://refactoring.guru/es/design-patterns)
@@ -129,11 +133,15 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 
 ## M15 — V&V y calidad
 
+<a id="m15-v-v-y-calidad"></a>
+
 - **Principal:** *Código limpio* (pruebas) + *El programador pragmático* (testing)
 - **Gratis:** [Vitest](https://vitest.dev/) · Testing Library
 - **Ficha:** [M15](etapas/02-disciplinaria/M15-vv-calidad.md)
 
 ## M16 — IHC
+
+<a id="m16-ihc"></a>
 
 - **Principal:** *No me hagas pensar* — Steve Krug (ed. ES)
 - **Gratis:** [Heurísticas Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/)
@@ -141,11 +149,15 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 
 ## M17 — Aplicaciones web
 
+<a id="m17-aplicaciones-web"></a>
+
 - **Principal:** [MDN Web Docs](https://developer.mozilla.org/es/) + docs del framework
 - **Gratis / apoyo:** [OWASP Top 10](https://owasp.org/www-project-top-ten/) · [producto-saas](producto-saas.md)
 - **Ficha:** [M17](etapas/02-disciplinaria/M17-aplicaciones-web.md)
 
 ## M18 — Seguridad (AppSec)
+
+<a id="m18-seguridad-appsec"></a>
 
 - **Principal:** OWASP Top 10 + Cheat Sheets
 - **Gratis:** [owasp.org](https://owasp.org)
@@ -153,11 +165,15 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 
 ## M19 — Nube / DevOps
 
+<a id="m19-nube-devops"></a>
+
 - **Principal:** Docs Docker + PaaS/VPS elegido
 - **Gratis:** [docs.docker.com](https://docs.docker.com)
 - **Ficha:** [M19](etapas/02-disciplinaria/M19-nube-devops.md)
 
 ## M20 — Aplicaciones móviles
+
+<a id="m20-aplicaciones-moviles"></a>
 
 - **Principal:** Docs Flutter **o** React Native (stack elegido)
 - **Gratis:** docs oficiales del stack

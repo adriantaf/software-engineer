@@ -3,69 +3,55 @@ id: L27
 materia: M17
 orden: 27
 titulo: Rate limit en login
-horas: 5
+horas: 5.0
 semana: 7
-lectura: "OWASP brute force"
-evidencia: "rate limit middleware"
+lectura: OWASP brute force
+evidencia: rate limit middleware
 ---
 
 # L27 — Rate limit en login
 
-**~5 h · Semana 7**
+**~5.0 h · Semana 7**
+
+Piloto en internet ⇒ mínimo anti-fuerza bruta.
 
 ## Objetivo
 
-Limitar intentos login por IP/usuario con respuesta 429 documentada.
-
-## Por qué importa
-
-Piloto público en internet necesita mínimo anti-fuerza bruta.
-
-## Conceptos
-
-- rate limit.
-- 429.
-- login.
+Rate limit login → 429 documentado; no romper CI.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Middleware (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Por IP y/o email; ventana corta; mensaje claro.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Prueba (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+N intentos → 429. Config de test con umbral bajo.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Doc (15 min)
 
-Test 429 tras N intentos. No bloquear CI IPs — config test.
+Úsalo en owasp-mapa (A07).
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l27 rate-limit-en-login"
-```
+`feat(m17): l27 rate limit login`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Authentication | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | OWASP brute force | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Rate limit.
-2. 429 test o manual.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Rate limit (artefacto: `rate limit middleware`).
+2. 429 test o manual (artefacto: `rate limit middleware`).
+3. Commit (artefacto: `rate limit middleware`).
 
 ## Errores comunes
 

@@ -3,78 +3,74 @@ id: L13
 materia: M10
 orden: 13
 titulo: "Cookies: atributos y modelo de almacenamiento"
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "MDN Cookies (ES)"
-evidencia: "labs/cookies.md"
+lectura: MDN Cookies (ES)
+evidencia: labs/cookies.md
 ---
 
 # L13 — Cookies: atributos y modelo de almacenamiento
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+La sesión del dueño del salón vivirá en cookies o en headers. Hoy eliges atributos a conciencia.
 
 ## Objetivo
 
-Documentar `Set-Cookie` con `Secure`, `HttpOnly`, `SameSite` y cuándo usar cookie vs header Authorization.
+Documentar el modelo de cookie de sesión para Agenda Ops.
 
-## Por qué importa
+## Pasos
 
-La sesión del dueño de Agenda Ops no puede robarse por XSS ni enviarse en HTTP plano.
+### 1. Lectura MDN (50 min)
 
-## Conceptos
+Subraya Secure, HttpOnly, SameSite=Lax/Strict/None, Domain, Path, Max-Age vs Expires.
 
-- Cookie de sesión vs token en memoria.
-- SameSite=Lax/Strict.
-- Path y Domain.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Lab observación (40 min)
 
 ```bash
-curl -sI https://httpbin.org/cookies/set/session/abc | rg -i set-cookie || true
+curl -sI https://example.com | grep -i set-cookie || true
 ```
 
-Diseña (en texto) la cookie de sesión del piloto: atributos obligatorios.
+Si no hay cookies, inventa un ejemplo realista en la bitácora y analiza cada flag.
 
-### 4. Conexión con el plan (30–45 min)
+### 3. Decisión producto (60 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+En `labs/cookies.md`:
 
-### 5. Commit atómico (15 min)
+```text
+Set-Cookie: session=…; Path=/; Secure; HttpOnly; SameSite=Lax; Max-Age=…
+```
+
+Justifica cada flag para owner/staff. Contrasta con token en `Authorization` header.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l13 cookies-atributos-y-modelo-de-almacenami"
+git add projects/m10-redes/labs/cookies.md
+git commit -m "docs(m10): l13 cookies"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | HTTP cookies | OWASP Session Management cheat sheet (selecto) |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Set-Cookie; Secure, HttpOnly, SameSite, Path, Domain, Max-Age | [MDN · HTTP cookies](https://developer.mozilla.org/es/docs/Web/HTTP/Cookies) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Diseño de cookie de sesión escrito.
-2. Tabla atributo/propósito.
-3. Riesgo XSS ligado a HttpOnly.
+Marca la lección **solo si**:
+
+1. `labs/cookies.md` tabla de atributos con decisión recomendada para sesión Agenda Ops.
+2. Ejemplo `Set-Cookie` redactado (valores ficticios).
+3. Commit `docs(m10): l13 cookies`.
 
 ## Errores comunes
 
-- SameSite=None sin Secure.
-- Guardar JWT enorme en cookie sin necesidad.
+- Cookie de sesión sin `Secure`/`HttpOnly` en prod.
+- `SameSite=None` sin entender CSRF.
+- Guardar access tokens de larga vida en `localStorage` “porque es más fácil”.
 
 ## Siguiente
 

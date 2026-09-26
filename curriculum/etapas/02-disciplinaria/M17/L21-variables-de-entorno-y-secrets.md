@@ -3,69 +3,57 @@ id: L21
 materia: M17
 orden: 21
 titulo: Variables de entorno y secrets
-horas: 5
+horas: 5.0
 semana: 6
-lectura: "12-factor config"
-evidencia: "projects/m17-agenda-ops/.env.example"
+lectura: 12-factor config
+evidencia: projects/m17-agenda-ops/.env.example
 ---
 
 # L21 — Variables de entorno y secrets
 
-**~5 h · Semana 6**
+**~5.0 h · Semana 6**
+
+Deploy seguro empieza por no commitear secretos.
 
 ## Objetivo
 
-Separar config: DATABASE_URL, SESSION_SECRET, etc. `.env.example` sin valores reales.
-
-## Por qué importa
-
-Deploy seguro empieza por no commitear secrets.
-
-## Conceptos
-
-- env.
-- secrets.
-- example.
+`.env.example` completo; validación de arranque si falta `DATABASE_URL`/`SESSION_SECRET`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Inventario (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lista vars: DB, session, CORS origin, WhatsApp phone opcional.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Example + validación (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Fail-fast al boot con mensaje claro. Confirma `.gitignore` cubre `.env`.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Validar arranque si falta variable crítica. Documentar en README.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Grep anti-secretos (20 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m17): l21 variables-de-entorno-y-secrets"
+git ls-files | rg -i 'env|pem|secret' || true
 ```
+
+### 4. Commit
+
+`chore(m17): l21 env example y validacion`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Secrets management | — |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | 12-factor config | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. .env.example.
-2. Validación arranque.
-3. Commit.
+Marca la lección **solo si**:
+
+1. .env.example (artefacto: `projects/m17-agenda-ops/.env.example`).
+2. Validación arranque (artefacto: `projects/m17-agenda-ops/.env.example`).
+3. Commit (artefacto: `projects/m17-agenda-ops/.env.example`).
 
 ## Errores comunes
 

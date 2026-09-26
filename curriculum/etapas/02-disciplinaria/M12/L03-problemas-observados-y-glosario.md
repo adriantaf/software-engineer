@@ -3,74 +3,66 @@ id: L03
 materia: M12
 orden: 3
 titulo: Problemas observados y glosario
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "problemas.md + glosario"
-evidencia: "problemas.md y glosario.md"
+lectura: problemas.md + glosario del dominio
+evidencia: problemas.md y glosario.md
 ---
 
 # L03 — Problemas observados y glosario
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Traduces la entrevista a problemas y lenguaje compartido.
 
 ## Objetivo
 
-Listar ≥5 problemas observados y glosario dominio (cita, servicio, no-show, staff).
+Publicar `problemas.md` y `glosario.md` en `projects/m12-srs/`.
 
-## Por qué importa
+## Pasos
 
-El glosario evita ambigüedad en stories y SRS.
+### 1. Extrae problemas (75 min)
 
-## Conceptos
+Tabla:
 
-- problema observado.
-- término dominio.
-- supuesto.
+| ID | Problema observado | Evidencia (nota) | Impacto | Frecuencia |
+|----|--------------------|------------------|---------|------------|
+| P-01 | Doble reserva el sábado | 00:18 | pierde cliente | semanal |
 
-## Pasos (hazlos en orden)
+Prohibido: soluciones (“app con calendario”).
 
-### 1. Lectura dirigida (60–90 min)
+### 2. Glosario (60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Términos mínimos: Cliente, Servicio, Cita, No-show, Recordatorio, Staff, Owner, Bloqueo de horario, Nota privada, Adelanto (si aplica). Definición en 1–2 frases del partner.
 
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Cada problema: evidencia de entrevista. Glosario ≥8 términos.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l03 problemas-observados-y-glosario"
+git add projects/m12-srs/problemas.md projects/m12-srs/glosario.md
+git commit -m "docs(m12): l03 problemas y glosario"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | producto-saas.md | — |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Problema ≠ solución; glosario cita/servicio/cliente/no-show | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. ≥5 problemas.
-2. Glosario enlazado.
-3. Supuestos marcados.
+Marca la lección **solo si**:
+
+1. `problemas.md` con ≥6 problemas observados (evidencia → impacto → frecuencia).
+2. `glosario.md` con ≥8 términos del dominio alineados al partner.
+3. Commit `docs(m12): l03 problemas y glosario`.
 
 ## Errores comunes
 
-- Problemas = features deseadas.
-- Sin fuente en notas.
+- Escribir “necesitan dashboard” como problema.
+- Glosario genérico sin el lenguaje del negocio.
+- Problemas sin ancla en las notas.
 
 ## Siguiente
 

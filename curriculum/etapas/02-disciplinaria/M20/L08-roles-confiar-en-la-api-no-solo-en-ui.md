@@ -3,73 +3,55 @@ id: L08
 materia: M20
 orden: 8
 titulo: "Roles: confiar en la API, no solo en UI"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "RBAC móvil"
-evidencia: "nota rbac en demo-login-lista.md"
+lectura: RBAC móvil
+evidencia: nota rbac en demo-login-lista.md
 ---
 
 # L08 — Roles: confiar en la API, no solo en UI
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Ocultar botón ≠ autorización.
 
 ## Objetivo
 
-Probar cuenta staff vs owner; ocultar acciones que API niega con 403.
-
-## Por qué importa
-
-Doble fuente de verdad mata proyectos.
-
-## Conceptos
-
-- 403 handling
-- roles
+Staff no ejecuta acción owner aunque parchee la UI; demo + nota.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lee rol de `/me` (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. UI condicional + prueba API (80–100 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Forzar llamada staff a endpoint owner → 403 manejado.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Prueba endpoint prohibido; muestra mensaje adecuado.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l08 roles-confiar-en-la-api-no-solo-en-ui"
-```
+`feat(m20): l08 roles confiar api`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M18 | rbac-matrix | M12 roles |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | RBAC móvil | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. Prueba rol documentada
-2. 403 UX
-3. Sin lógica secreta solo UI
+Marca la lección **solo si**:
+
+1. Prueba rol documentada (artefacto: `nota rbac en demo-login-lista.md`).
+2. 403 UX (artefacto: `nota rbac en demo-login-lista.md`).
+3. Sin lógica secreta solo UI (artefacto: `nota rbac en demo-login-lista.md`).
+4. Commit `docs(m20): L08 roles-confiar-en-la-api-no-solo-en-ui`.
 
 ## Errores comunes
 
-- Admin hardcoded en app
-- Ignorar 403
+- Admin hardcoded en app.
+- Ignorar 403.
 
 ## Siguiente
 

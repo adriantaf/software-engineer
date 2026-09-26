@@ -3,81 +3,58 @@ id: L01
 materia: M18
 orden: 1
 titulo: Activos, actores y datos sensibles en Agenda Ops
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "OWASP Threat Modeling (overview) + notas STRIDE"
-evidencia: "projects/m18-appsec/threat-model-v0.md sección Activos"
+lectura: OWASP Threat Modeling (overview) + notas STRIDE
+evidencia: projects/m18-appsec/threat-model-v0.md sección Activos
 ---
 
 # L01 — Activos, actores y datos sensibles en Agenda Ops
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Sin lista de activos, el threat model es decoración.
 
 ## Objetivo
 
-Inventariar actores (dueño, staff, cliente final, atacante) y activos (PII, credenciales, citas, tokens, Postgres) del piloto Agenda Ops.
-
-## Por qué importa
-
-Sin lista de activos, el threat model es decoración. Esta lección arranca P1 y el hilo OWASP del módulo.
-
-## Conceptos
-
-- Actor vs rol en el sistema.
-- PII en citas (nombre, teléfono, notas).
-- Superficie: panel web + API REST.
-- Supuesto: solo atacas **tu** staging/local.
+Tablas de actores y ≥5 activos en `threat-model-v0.md` (PII, credenciales, citas, tokens, Postgres).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Carpeta evidencia (15 min)
 
 ```bash
-mkdir -p projects/m18-appsec
+mkdir -p projects/m18-appsec/{pocs,fixes,tests,ci}
 ```
 
-En `threat-model-v0.md` crea tablas **Actores** y **Activos** (≥5 activos). Dibuja un diagrama caja-flecha: navegador → API → Postgres. Marca qué datos salen en JSON de `/api/citas`.
+### 2. Actores y activos (80–100 min)
 
-```bash
-git ls-files | rg -i 'env|secret|credential|\.pem' || true
-```
+Dueño, staff, cliente final, atacante anónimo. Activos con clasificación (confidencialidad). Diagrama: navegador → API → Postgres.
 
-Anota el resultado en el mismo archivo (sin pegar secretos).
+### 3. Superficie JSON (30 min)
 
-### 4. Conexión con el plan (30–45 min)
+Marca qué campos salen en `/api/citas`. `git ls-files | rg -i 'env|secret|pem'`.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 4. Commit
 
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l01 activos-actores-y-datos-sensibles-en-age"
-```
+`docs(m18): l01 activos actores agenda ops`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | Threat Modeling (ES/overview) | Cheat Sheet STRIDE |
-| Plan | [producto-saas.md](../../../producto-saas.md) | M13 trust boundaries |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | OWASP Threat Modeling (overview) + notas STRIDE | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
+Marca la lección **solo si**:
+
 1. Existe `projects/m18-appsec/threat-model-v0.md` con actores y ≥5 activos.
-2. Diagrama ASCII o Mermaid del piloto.
-3. Comando anti-secretos ejecutado y anotado.
+2. Diagrama ASCII o Mermaid del piloto (artefacto: `projects/m18-appsec/threat-model-v0.md sección Activos`).
+3. Comando anti-secretos ejecutado y anotado (artefacto: `projects/m18-appsec/threat-model-v0.md sección Activos`).
+4. Commit `docs(m18): L01 activos-actores-y-datos-sensibles-en-agenda-ops`.
 
 ## Errores comunes
 

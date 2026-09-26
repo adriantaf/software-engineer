@@ -3,74 +3,64 @@ id: L07
 materia: M16
 orden: 7
 titulo: Sesiones 1–3 — notas de participantes
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Facilitación test"
-evidencia: "projects/m16-ihc/sesiones/participante-*.md"
+lectura: Facilitación; notas estructuradas
+evidencia: sesiones/participante-1..3.md
 ---
 
 # L07 — Sesiones 1–3 — notas de participantes
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Personas reales (design partner, conocidos del rubro, compañeros). No auto-test.
 
 ## Objetivo
 
-Facilitar 3 sesiones (reales o design partners) y capturar notas estructuradas.
-
-## Por qué importa
-
-Tres sesiones ya muestran patrones repetidos.
-
-## Conceptos
-
-- sesión.
-- patrón.
-- cita textual.
+`sesiones/participante-1.md` … `participante-3.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Agenda 3 sesiones (ya deberías haber citado)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Facilita y anota (3×15–30 min + buffer)
 
-### 2. Carpeta de evidencia (15–20 min)
+Plantilla:
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-≥3 archivos `participante-N.md` con tarea, éxito/fallo, quotes.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l07 sesiones-1-3-notas-de-participantes"
+```markdown
+# Participante P1
+Consentimiento: sí
+Perfil: staff de … (anónimo)
+Tarea 1: …
+Obstáculos:
+Citas textuales:
 ```
+
+### 3. Commit parcial el mismo día
+
+`docs(m16): sesiones 1-3 usabilidad`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Krug | test de pasillo | — |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Tres sesiones reales con notas por participante | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. 3 sesiones documentadas.
-2. Sin PII innecesaria.
-3. Commits.
+Marca la lección **solo si**:
+
+1. Tres archivos de sesión con consentimiento anotado, tareas y citas textuales relevantes.
+2. Sin PII innecesaria (usa P1/P2/P3).
+3. Commit `docs(m16): sesiones 1-3 usabilidad`.
 
 ## Errores comunes
 
-- Resumir sin datos.
-- Defender el diseño.
+- Sesiones inventadas.
+- Facilitador que interrumpe y “enseña” la UI.
+- Notas solo “le fue bien”.
 
 ## Siguiente
 

@@ -3,69 +3,55 @@ id: L13
 materia: M17
 orden: 13
 titulo: Scaffold front y rutas protegidas
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "React Router / framework docs"
-evidencia: "front app + router"
+lectura: React Router / framework docs
+evidencia: front app + router
 ---
 
 # L13 — Scaffold front y rutas protegidas
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Agenda Ops se usa desde el navegador a diario.
 
 ## Objetivo
 
-Crear front con login, layout panel, rutas protegidas redirect a login.
-
-## Por qué importa
-
-Agenda Ops se usa desde navegador diario.
-
-## Conceptos
-
-- SPA.
-- protected route.
-- layout.
+Front (`apps/web` o `client/`) con login, layout y redirect si no hay sesión.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Scaffold UI (60–80 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Router + página login + shell panel. `VITE_API_URL` / equivalente en `.env.example`.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Protected routes (50–60 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Sin sesión → `/login`. Con sesión → agenda.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. CORS documentado (20 min)
 
-Estructura `apps/web` o `client/`. Env API_URL documentado.
+Origen front permitido en API; nada de `*` en prod.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l13 scaffold-front-y-rutas-protegidas"
-```
+`feat(m17): l13 scaffold front rutas protegidas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | fetch | m16 prototipo |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | React Router / framework docs | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Front arranca.
-2. Redirect sin sesión.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Front arranca (artefacto: `front app`).
+2. Redirect sin sesión (artefacto: `front app`).
+3. Commit (artefacto: `front app`).
 
 ## Errores comunes
 

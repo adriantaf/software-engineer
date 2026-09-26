@@ -3,79 +3,68 @@ id: L16
 materia: M10
 orden: 16
 titulo: Cabeceras de seguridad HTTP
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "MDN CSP, HSTS, X-Frame-Options"
-evidencia: "labs/security-headers.md"
+lectura: MDN CSP, HSTS, X-Frame-Options / frame-ancestors
+evidencia: labs/security-headers.md
 ---
 
 # L16 — Cabeceras de seguridad HTTP
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Capa barata y visible. Hoy inventarias headers y dejas una checklist para M17/M18.
 
 ## Objetivo
 
-Inspeccionar un sitio real y redactar lista de cabeceras que aplicarás en Agenda Ops (aunque aún no exista código).
+Escribir la política inicial de security headers del producto.
 
-## Por qué importa
+## Pasos
 
-P3 y el proyecto M10 piden inventario honesto de superficie.
-
-## Conceptos
-
-- CSP (idea).
-- HSTS.
-- X-Content-Type-Options.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Escaneo (40 min)
 
 ```bash
-curl -sI https://securityheaders.com 2>/dev/null | head -30
-# o cualquier sitio de referencia que elijas
+curl -sI https://example.com | sed -n '1,40p'
 ```
 
-Lista cabeceras presentes/ausentes y prioridad para MVP.
+Busca: `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`.
 
-### 4. Conexión con el plan (30–45 min)
+### 2. Checklist Agenda Ops (75 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+En `labs/security-headers.md`, para cada header: valor propuesto + riesgo si falta. CSP en modo report-only primero está bien — documéntalo.
 
-### 5. Commit atómico (15 min)
+### 3. Cierre semana 4 (30 min)
+
+README: L13–L16 hechos; enlace a cookies/CORS/headers.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l16 cabeceras-de-seguridad-http"
+git add projects/m10-redes
+git commit -m "docs(m10): l16 security headers"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| MDN | Content-Security-Policy | securityheaders.com como inspiración |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | HSTS, CSP, X-Content-Type-Options, Referrer-Policy, frame-ancestors | [MDN · Strict-Transport-Security](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Strict-Transport-Security) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Lista priorizada para MVP.
-2. Captura curl comentada.
-3. Cierre semana 4.
+Marca la lección **solo si**:
+
+1. `labs/security-headers.md` con checklist de headers y valores iniciales para Agenda Ops.
+2. `curl -sI` contra un sitio real anotando cuáles faltan.
+3. Commit `docs(m10): l16 security headers`.
 
 ## Errores comunes
 
-- CSP `unsafe-inline` sin plan de quitarlo.
-- HSTS sin HTTPS estable.
+- CSP `unsafe-inline` eterno “para que cargue”.
+- HSTS en localhost de desarrollo sin saber cómo deshacerlo.
+- Creer que headers reemplazan authz.
 
 ## Siguiente
 

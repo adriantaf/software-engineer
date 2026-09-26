@@ -5,60 +5,66 @@ orden: 18
 titulo: Programación dinámica bottom-up
 horas: 5.0
 semana: 5
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Greedy / selección de actividades — CLRS DP"
-evidencia: "dp/bottom-up-ejemplo.ts"
+lectura: DP bottom-up / tabulación
+evidencia: dp/bottom-up-ejemplo.ts
 ---
 
 # L18 — Programación dinámica bottom-up
 
 **~5.0 h · Semana 5**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Tabular elimina la pila de recursión y deja el orden de dependencias explícito.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: dp/bottom-up-ejemplo.ts.
+Reescribir el problema de L17 (o uno nuevo) en bottom-up con tabla `dp[]`.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Diseña el orden (30 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+En papel: de qué celda depende `dp[i]`.
 
-### 2. Trabajo central (150 min)
+### 2. Implementación (70 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+`dp/bottom-up-ejemplo.ts`. Inicializa bases; loop hasta n.
 
-### 3. Análisis escrito (45 min)
+### 3. Equivalencia (40 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Test: para n en 0..20, memo === bottom-up.
 
-### 4. Tests (45 min)
+### 4. Nota espacial (40 min)
 
-Tres casos mínimo por función: borde incluido.
+¿Puedes usar 2 variables en fib? Documéntalo; no es obligatorio optimizar.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git commit -am "feat(m08): dp bottom-up"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 5: Greedy / selección de actividades — CLRS DP | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Tabla dp[]; orden de llenado; equivalencia con memo | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `dp/bottom-up-ejemplo.ts` con tabulación del mismo problema que L17 (o coin change simple).
+2. Comparas espacial (optimización de variables opcionales) en nota corta.
+3. Commit `feat(m08): dp bottom-up`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Llenar la tabla en orden incorrecto.
+- Off-by-one en índices.
+- Copiar memo y llamarlo bottom-up sin array dp.
+
 ## Siguiente
 
 [L19 — Tres problemas DP (P3)](L19-tres-problemas-dp-p3.md)

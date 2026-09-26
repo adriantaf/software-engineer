@@ -3,74 +3,56 @@ id: L01
 materia: M19
 orden: 1
 titulo: Inventario de secretos y ambientes staging/prod
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Docker docs — env vars + 12-factor"
-evidencia: "projects/m19-ops/secrets-inventory.md + ambientes.md"
+lectura: Docker docs — env vars + 12-factor
+evidencia: projects/m19-ops/secrets-inventory.md + ambientes.md
 ---
 
 # L01 — Inventario de secretos y ambientes staging/prod
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Sin mapa de secretos, el Dockerfile los horneará por accidente.
 
 ## Objetivo
 
-Crear inventario de secretos sin valores y definir URLs/objetivo de staging y prod para Agenda Ops.
-
-## Por qué importa
-
-M19 empieza donde M18 dejó: nada de secretos en git antes de empaquetar.
-
-## Conceptos
-
-- DATABASE_URL
-- SESSION_SECRET
-- Stripe test futuro
+`ambientes.md` + inventario de secretos **sin valores** (staging vs prod).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Carpetas (15 min)
 
 ```bash
-mkdir -p projects/m19-ops
-git ls-files | rg -i '\.env|secret|credential' || true
+mkdir -p projects/m19-ops/{scripts,logs}
 ```
 
-Completa `secrets-inventory.md` y `ambientes.md` según ficha M19.
+### 2. Inventario (80–100 min)
 
-### 4. Conexión con el plan (30–45 min)
+Tabla: nombre var, quién la inyecta, rotación. Separar staging/prod URLs.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 3. Cruza con M17 `.env.example` (30 min)
 
-### 5. Commit atómico (15 min)
+### 4. Commit
 
-```bash
-git add projects/
-git status
-git commit -m "docs(m19): l01 inventario-de-secretos-y-ambientes-stagi"
-```
+`docs(m19): l01 inventario secretos ambientes`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | producto-saas.md | M18 secrets |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Docker docs — env vars + 12-factor | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. Ambos archivos existen.
-2. Sin valores secretos.
-3. URLs objetivo anotadas.
+Marca la lección **solo si**:
+
+1. Ambos archivos existen (artefacto: `projects/m19-ops/secrets-inventory.md`).
+2. Sin valores secretos (artefacto: `projects/m19-ops/secrets-inventory.md`).
+3. URLs objetivo anotadas (artefacto: `projects/m19-ops/secrets-inventory.md`).
+4. Commit `docs(m19): L01 inventario-de-secretos-y-ambientes-staging-prod`.
 
 ## Errores comunes
 

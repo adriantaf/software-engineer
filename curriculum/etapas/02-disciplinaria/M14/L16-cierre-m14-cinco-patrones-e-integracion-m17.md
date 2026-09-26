@@ -3,71 +3,62 @@ id: L16
 materia: M14
 orden: 16
 titulo: Cierre M14 — cinco patrones e integración M17
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Ficha M14 proyecto + M17 ficha"
-evidencia: "projects/m14-patrones/README.md proyecto + adr resumen"
+lectura: ≥5 patrones justificados; plan handoff M17
+evidencia: README índice ≥5 + handoff-m17.md
 ---
 
 # L16 — Cierre M14 — cinco patrones e integración M17
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Proyecto de la materia: ≥5 patrones justificados en Agenda Ops + camino a M17.
 
 ## Objetivo
 
-Entregar índice ≥5 patrones justificados y plan de migración a `projects/m17-agenda-ops/`.
-
-## Por qué importa
-
-El piloto hereda decisiones; hoy las dejas trazables.
-
-## Conceptos
-
-- handoff M17.
-- ADR resumen.
-- criterios dominio.
+Índice final + handoff; criterios de dominio autoevaluados.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Cuenta 5 (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Strategy, Factory, Adapter, Decorator, Facade, Observer, Command, Repository… elige ≥5 reales.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Handoff (50–60 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Qué se queda en `m14-patrones` vs qué nace en M17; enlaces a M13 endpoints.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Autoevaluación (30 min)
 
-README final: 5+ patrones, ADRs, comando test. `nota-handoff-m17.md` con rutas a copiar.
+Patrón rechazado; tests de API pública; repo sin SQL en dominio.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l16 cierre-m14-cinco-patrones-e-integracion-"
-```
+`docs(m14): cierre cinco patrones e integracion M17`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M14-patrones.md | ../M17-aplicaciones-web.md |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Proyecto: ≥5 patrones con ADR; integración hacia M17 | [Refactoring.Guru — Patrones (ES)](https://refactoring.guru/es/design-patterns) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. ≥5 patrones en índice.
-2. Handoff M17.
-3. Cierre M14 commit.
+Marca la lección **solo si**:
+
+1. README lista ≥5 patrones con enlace a código y ADR.
+2. `handoff-m17.md` dice qué módulos copiar/portar al repo web.
+3. Commit `docs(m14): cierre cinco patrones e integracion M17`.
 
 ## Errores comunes
 
-- Patrones sin justificación.
-- Olvidar tests.
+- Contar Decorator+logging como 5 patrones repetidos sin sustancia.
+- Sin patrón rechazado documentado.
+- Handoff vacío.
+
+## Siguiente
+
+Materia siguiente: [M15 — V&V y calidad](../M15-vv-calidad.md) · L01 en `../M15/`.

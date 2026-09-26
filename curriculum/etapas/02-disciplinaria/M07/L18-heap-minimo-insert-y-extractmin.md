@@ -5,61 +5,66 @@ orden: 18
 titulo: "Heap mínimo: insert y extractMin"
 horas: 5.0
 semana: 5
-lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — ED: priority queue"
-evidencia: "MinHeap operativo + tests"
+lectura: Operaciones insert y extract-min en heap
+evidencia: MinHeap operativo + tests
 ---
 
 # L18 — Heap mínimo: insert y extractMin
 
 **~5.0 h · Semana 5**
 
-Semana 5 de M07: rigor en implementación, tests y documentación de costos.
+Con el modelo listo, montas la estructura usable.
 
 ## Objetivo
 
-Avanzar evidencia `MinHeap operativo + tests` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Entregar `MinHeap` completo con insert/extractMin/peek y tests de orden.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Clase MinHeap (90 min)
 
-Lee la sección indicada en tu texto ED sobre **Heap mínimo**. Anota definiciones formales (pre/post condiciones).
+`src/min-heap.ts` usa `heap-model.ts`. `insert`: push + heapifyUp. `extractMin`: swap root/último, pop, heapifyDown.
 
-### 2. Implementación (120 min)
+### 2. Tests (70 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+Insertar `{5,3,8,1}` → extract 1,3,5,8; peek no muta; extract vacío; 100 random vs `[...].sort((a,b)=>a-b)`.
 
-### 3. Tests (90 min)
+### 3. Complejidad (30 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Filas en `COMPLEJIDAD.md` para heap.
 
-### 4. Documentación (30 min)
+### 4. Export (20 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+Reexporta desde `src/index.ts`.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+```bash
+git commit -am "feat(m07): minheap insert extractMin"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — ED: priority queue | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | insert O(log n); extractMin O(log n); peek O(1) | [VisuAlgo · Heap](https://visualgo.net/en/heap) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `src/min-heap.ts` con `insert`, `extractMin`, `peek`, `size`.
+2. ≥5 tests: orden de extracción, vacío, un elemento, secuencia aleatoria vs sort.
+3. Commit `feat(m07): minheap insert extractMin`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- extractMin sin heapifyDown.
+- Insert solo con `push` al array sin subir.
+- Tests que no verifican orden de salida.
+
 ## Siguiente
 
 [L19 — Cola de prioridad](L19-cola-de-prioridad.md)

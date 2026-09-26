@@ -3,73 +3,54 @@ id: L04
 materia: M20
 orden: 4
 titulo: Errores de validación y flujo 401
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Interceptors HTTP"
-evidencia: "commit + nota en auth-storage.md"
+lectura: Interceptors HTTP
+evidencia: commit + nota en auth-storage.md
 ---
 
 # L04 — Errores de validación y flujo 401
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+401 → limpiar storage y volver a login.
 
 ## Objetivo
 
-Manejar 401 global (logout), validación formulario, estados loading/error en login.
-
-## Por qué importa
-
-Auth móvil real no termina en login exitoso una vez.
-
-## Conceptos
-
-- interceptor
-- navigator login
+Interceptor/wrapper HTTP con 401 global; mensajes de validación legibles.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Interceptor (70–90 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Prueba (40 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Token inválido fuerza login. Evidencia en checklist.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Implementa interceptor 401 como ejemplo ficha M20. Prueba token expirado.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l04 errores-de-validacion-y-flujo-401"
-```
+`feat(m20): l04 flujo 401`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M20 ejemplo 401 | — |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | Interceptors HTTP | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. 401 redirige login
-2. Loading/error UI
-3. Commit
+Marca la lección **solo si**:
+
+1. 401 redirige login (artefacto: `commit`).
+2. Loading/error UI (artefacto: `commit`).
+3. Commit (artefacto: `commit`).
 
 ## Errores comunes
 
-- Stack trace al usuario
-- Ignorar 401
+- Stack trace al usuario.
+- Ignorar 401.
 
 ## Siguiente
 

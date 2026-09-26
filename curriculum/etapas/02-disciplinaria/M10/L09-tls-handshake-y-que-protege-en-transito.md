@@ -3,79 +3,68 @@ id: L09
 materia: M10
 orden: 9
 titulo: "TLS: handshake y qué protege en tránsito"
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Tanenbaum seguridad/TLS selecto + MDN TLS"
-evidencia: "labs/tls-handshake.md"
+lectura: Tanenbaum seguridad/TLS selecto + MDN TLS
+evidencia: labs/tls-handshake.md
 ---
 
 # L09 — TLS: handshake y qué protege en tránsito
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Sin TLS, cookies de sesión de Agenda Ops viajan en claro. Con TLS mal entendido, crees que ya terminaste AppSec.
 
 ## Objetivo
 
-Describir las fases del handshake TLS 1.2/1.3 a alto nivel y listar amenazas que TLS mitiga vs las que no.
+Describir el handshake y delimitar el alcance de protección en tránsito.
 
-## Por qué importa
+## Pasos
 
-“Ya tiene HTTPS” no responde por XSS ni por logs con PII; hoy acotas el contrato de TLS.
+### 1. Lectura + esquema (60 min)
 
-## Conceptos
+En `labs/tls-handshake.md`: ClientHello → ServerHello/cert → claves → Application Data. Una figura ASCII basta.
 
-- Confidencialidad e integridad en tránsito.
-- Certificado de servidor.
-- Perfect Forward Secrecy (idea).
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Ver en curl (45 min)
 
 ```bash
-curl -v https://example.com -o /dev/null 2>&1 | rg -i 'TLS|SSL|subject|issuer' || true
-openssl s_client -connect example.com:443 -servername example.com </dev/null 2>/dev/null | openssl x509 -noout -subject -issuer -dates
+curl -v https://example.com -o /dev/null 2>&1 | tee projects/m10-redes/samples/tls-curl.txt
 ```
 
-Tabla: amenaza → ¿TLS ayuda? (eavesdropping, tampering, phishing de dominio).
+Resalta: ALPN, versión TLS, “SSL certificate verify ok” (o error).
 
-### 4. Conexión con el plan (30–45 min)
+### 3. Alcance (45 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+Tabla “protege / no protege” con ejemplos del producto (eavesdropping en café Wi‑Fi vs XSS en el panel).
 
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l09 tls-handshake-y-que-protege-en-transito"
+git add projects/m10-redes/labs/tls-handshake.md projects/m10-redes/samples
+git commit -m "docs(m10): l09 tls handshake"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Tanenbaum | TLS intro | MDN Transport Layer Security |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Handshake TLS; confidencialidad e integridad en tránsito; qué NO cubre | [MDN · TLS](https://developer.mozilla.org/es/docs/Glossary/TLS) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Tabla amenaza/mitigación.
-2. Salida openssl comentada.
-3. Párrafo “qué no protege TLS”.
+Marca la lección **solo si**:
+
+1. `labs/tls-handshake.md` explica handshake en lenguaje ingeniero + captura `curl -v` con líneas TLS.
+2. Lista explícita: 3 cosas que TLS protege y 3 que **no** (XSS, IDOR, BD robada…).
+3. Commit `docs(m10): l09 tls handshake`.
 
 ## Errores comunes
 
-- Creer que TLS autentica al usuario.
-- Mezclar TLS con hash de contraseña en DB.
+- “HTTPS = seguro contra todo”.
+- Pensar que el body JSON ya no necesita authz.
+- Confundir certificado inválido con “firewall”.
 
 ## Siguiente
 

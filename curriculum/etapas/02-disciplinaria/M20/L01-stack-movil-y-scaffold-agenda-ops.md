@@ -3,74 +3,60 @@ id: L01
 materia: M20
 orden: 1
 titulo: Stack móvil y scaffold Agenda Ops
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "Flutter o RN — get started"
-evidencia: "projects/m20-movil/stack.md + repo-url.md"
+lectura: Flutter o RN — get started
+evidencia: projects/m20-movil/stack.md + repo-url.md
 ---
 
 # L01 — Stack móvil y scaffold Agenda Ops
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Elige Flutter **o** RN y no mires atrás sin ADR.
 
 ## Objetivo
 
-Elegir Flutter o RN, documentar SDK, crear scaffold y enlazar repo.
-
-## Por qué importa
-
-Un framework, un camino hasta M20 cierre.
-
-## Conceptos
-
-- Flutter vs RN
-- staging URL
-- lint
+Scaffold app + `stack-movil.md` + enlace en `projects/m20-movil/README.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Decide stack (25 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Documenta por qué.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Scaffold (90–110 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+App corre en emulador/dispositivo. Carpetas `lib/` o `src/`.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Evidencia (30 min)
 
-mkdir -p projects/m20-movil. stack.md con decisión. Scaffold en app/ o repo enlazado.
+README m20 apunta al repo/submódulo.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m20): l01 stack-movil-y-scaffold-agenda-ops"
-```
+`docs(m20): l01 scaffold stack movil`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docs | oficial stack | producto-saas |
-| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Flutter o React Native (stack elegido) | Flutter o RN — get started | [Flutter get started](https://docs.flutter.dev/get-started/install) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
 
 
 ## Hecho cuando
 
-1. stack.md
-2. scaffold commit
-3. repo-url
+Marca la lección **solo si**:
+
+1. stack.md (artefacto: `projects/m20-movil/stack.md`).
+2. scaffold commit (artefacto: `projects/m20-movil/stack.md`).
+3. repo-url (artefacto: `projects/m20-movil/stack.md`).
 
 ## Errores comunes
 
-- Cambiar stack semana 3
-- Sin versión SDK
+- Cambiar stack semana 3.
+- Sin versión SDK.
 
 ## Siguiente
 

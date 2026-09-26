@@ -3,25 +3,27 @@ id: L02
 materia: M23
 orden: 2
 titulo: Consulta agregada por tenant_id sin PII
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "SQL agregaciones + minimización datos"
-evidencia: "projects/m23-ia/metricas/query-agregada.sql"
+lectura: SQL agregaciones + minimización datos
+evidencia: projects/m23-ia/metricas/query-agregada.sql
 ---
 
 # L02 — Consulta agregada por tenant_id sin PII
 
 **~5 h · Semana 1**
 
+Métricas e IA **por tenant**, sin mezclar datos. Hoy entregas **`projects/m23-ia/metricas/query-agregada.sql`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M23.
+
 ## Objetivo
 
 Escribir SQL o script que agrupe por `tenant_id` sin columnas de PII en SELECT.
 
-## Por qué importa
+## Por qué empieza así
 
 El pipeline P1 debe ser reproducible y seguro para compartir export de ejemplo.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - GROUP BY tenant_id.
 - Minimización.
@@ -30,50 +32,55 @@ El pipeline P1 debe ser reproducible y seguro para compartir export de ejemplo.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee la fuente de hoy: _SQL agregaciones + minimización datos_. Si es docs de proveedor LLM, abre la página oficial del modelo/API que usarás.
 
-### 2. Carpeta de evidencia (15–20 min)
+Anota en `projects/m23-ia/bitacora-m23.md`: qué **no** enviarás a la API (PII, dumps, secretos) y qué sí (texto FAQ del tenant).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Prepara evidencia y carpetas (20–30 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Confirma rutas bajo `projects/m23-ia/metricas`.
 
 Crea `projects/m23-ia/metricas/query-agregada.sql` (o `.ts` script) contra schema Agenda Ops o fixture documentado.
 
+### 3. Laboratorio principal (90–120 min)
+
 Prohibido SELECT de teléfono, nombre, notas clínicas. Comentario en archivo explica fuente tablas.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m23): l02 consulta-agregada-por-tenant-id-sin-pii"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M09 | modelo datos | ../../hilos/seguridad.md |
-| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs API LLM elegida + política de datos | SQL agregaciones + minimización datos | [producto-saas · FAQ por tenant](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
 
 
 ## Hecho cuando
 
-1. Query/script existe.
-2. Sin PII en output.
-3. Comentario fuente.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m23-ia/metricas/query-agregada.sql`.
+2. Query/script existe.
+3. Sin PII en output.
+4. Comentario fuente.
+5. Commit `docs(m23): l02 …` en el historial.
 
 ## Errores comunes
 
 - Dump crudo clientes.
 - tenant_id del cliente HTTP.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

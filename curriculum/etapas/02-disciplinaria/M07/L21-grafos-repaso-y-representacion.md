@@ -5,61 +5,75 @@ orden: 21
 titulo: "Grafos: repaso y representación"
 horas: 5.0
 semana: 6
-lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Repaso M03 + ED grafos"
-evidencia: "Adjacency list en TS reutilizable"
+lectura: "Grafos: lista de adyacencia vs matriz"
+evidencia: Adjacency list en TS reutilizable
 ---
 
 # L21 — Grafos: repaso y representación
 
 **~5.0 h · Semana 6**
 
-Semana 6 de M07: rigor en implementación, tests y documentación de costos.
+Repasas M03 con una API TypeScript reutilizable (base para M08 BFS/DFS).
 
 ## Objetivo
 
-Avanzar evidencia `Adjacency list en TS reutilizable` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Implementar grafo por lista de adyacencia con tests claros.
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Lectura corta (30 min)
 
-Lee la sección indicada en tu texto ED sobre **Grafos**. Anota definiciones formales (pre/post condiciones).
+Lista vs matriz: memoria y costo de `neighbors`. Elige lista para el curso.
 
-### 2. Implementación (120 min)
+### 2. API (80 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+`src/graph.ts`:
 
-### 3. Tests (90 min)
+```ts
+export class Graph {
+  addVertex(v: string): void
+  addEdge(a: string, b: string, undirected = true): void
+  neighbors(v: string): string[]
+  vertices(): string[]
+}
+```
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+### 3. Tests (50 min)
 
-### 4. Documentación (30 min)
+Triángulo A-B-C; dirigido vs no dirigido; vértice aislado.
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+### 4. Ejemplo dominio (40 min)
 
-### 5. Commit (30 min)
+En `docs/grafo-agenda.md`: clientes/servicios como “quién recomienda a quién” (3 nodos). Solo documentación.
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m07): grafo lista de adyacencia"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Repaso M03 + ED grafos | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Lista de adyacencia; dirigido vs no dirigido | [VisuAlgo · Graph](https://visualgo.net/en/graphds) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `src/graph.ts` con `addVertex`, `addEdge`, `neighbors`.
+2. Tests: grafo pequeño no dirigido; edge bidireccional; vecino ausente.
+3. Commit `feat(m07): grafo lista de adyacencia`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Matriz densa para grafo sparse sin justificar.
+- Olvidar simetría en no dirigido.
+- API sin tipos (arrays `any`).
+
 ## Siguiente
 
 [L22 — Benchmark P3: nativo vs propio](L22-benchmark-p3-nativo-vs-propio.md)

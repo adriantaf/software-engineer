@@ -5,61 +5,66 @@ orden: 15
 titulo: "BST: mínimo, máximo y sucesor"
 horas: 5.0
 semana: 4
-lectura: "Joyanes / texto univ. ED (ed. ES): Árboles / BST + recorridos — ED: operaciones BST"
-evidencia: "min/max/delete leaf intro"
+lectura: Extremos y sucesor en BST; borrado de hoja intro
+evidencia: min/max/delete leaf intro
 ---
 
 # L15 — BST: mínimo, máximo y sucesor
 
 **~5.0 h · Semana 4**
 
-Semana 4 de M07: rigor en implementación, tests y documentación de costos.
+Min/max son caminatas a izquierda/derecha. El borrado completo puede esperar; hoy hojas y un hijo.
 
 ## Objetivo
 
-Avanzar evidencia `min/max/delete leaf intro` con código TS, tests Vitest y notas en COMPLEJIDAD/README.
+Añadir `min`/`max`, opcional `successor`, y `delete` al menos para hojas (ideal: también un solo hijo).
 
 ## Pasos
 
-### 1. Lectura dirigida (60 min)
+### 1. Min/max (40 min)
 
-Lee la sección indicada en tu texto ED sobre **BST**. Anota definiciones formales (pre/post condiciones).
+Implementa y testa árbol vacío (throw o undefined) y árbol con varios nodos.
 
-### 2. Implementación (120 min)
+### 2. Sucesor (50 min)
 
-Crea o extiende módulos bajo `src/` con tipos explícitos. Sin `any`. Exporta API mínima documentada en comentario JSDoc breve.
+Documenta algoritmo: si hay derecho, min del subárbol; si no, sube por padres (si guardas `parent`) o re-busca desde root. Test con claves conocidas.
 
-### 3. Tests (90 min)
+### 3. Delete hoja / un hijo (90 min)
 
-Mínimo **5** tests: feliz, vacío, borde, caso que fuerza estructura interna (p. ej. colisión, rotación simple, heapify), regresión.
+Implementa casos 0 y 1 hijo. Caso 2 hijos puede quedar como TODO documentado si te falta tiempo — dilo en README P2.
 
-### 4. Documentación (30 min)
+### 4. Tests de invariante (40 min)
 
-Actualiza `COMPLEJIDAD.md` o README con Big-O de operaciones nuevas. Si comparas con nativo, di **cuándo** gana cada uno.
+Tras deletes, `inorder()` sigue ordenado y `contains` del borrado es false.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
+```bash
+git commit -am "feat(m07): bst min max delete hoja"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 4: Árboles / BST + recorridos — ED: operaciones BST | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Min/max por rama; sucesor; borrar hoja y un hijo | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Código + tests verdes para el foco de la lección.
-2. Costos documentados.
-3. Commit en git.
+Marca la lección **solo si**:
+
+1. `min()`, `max()` y al menos borrado de hoja (y preferible nodo con un hijo).
+2. Tests para min/max en árbol no vacío y delete que mantiene invariante (inorder coherente).
+3. Commit `feat(m07): bst min max delete hoja`.
 
 ## Errores comunes
 
-- Copiar implementación sin entender invariantes.
-- Tests solo “felices”.
-- Omitir commit.
+- Borrar sin reenlazar padres.
+- Sucesor mal calculado (olvidar el subárbol derecho).
+- Dejar tests sin verificar inorder tras delete.
+
 ## Siguiente
 
 [L16 — Visualización y P2 parcial](L16-visualizacion-y-p2-parcial.md)

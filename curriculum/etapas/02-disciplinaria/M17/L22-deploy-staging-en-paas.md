@@ -3,69 +3,56 @@ id: L22
 materia: M17
 orden: 22
 titulo: Deploy staging en PaaS
-horas: 5
+horas: 5.0
 semana: 6
-lectura: "Docs PaaS elegido"
-evidencia: "URL staging"
+lectura: Docs PaaS elegido
+evidencia: URL staging
 ---
 
 # L22 — Deploy staging en PaaS
 
-**~5 h · Semana 6**
-
-## Objetivo
-
-Desplegar API+front o API primero en staging con build reproducible.
-
-## Por qué importa
+**~5.0 h · Semana 6**
 
 Piloto invisible no es piloto.
 
-## Conceptos
+## Objetivo
 
-- deploy.
-- staging.
-- build.
+URL staging + `docs/deploy.md` paso a paso (build, env, migraciones).
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Elige PaaS (20 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Render/Fly/Railway/etc. Anota límites free tier.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Deploy (100–130 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Build reproducible; secrets en panel; migra DB staging.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Documenta (30 min)
 
-URL en README. Proceso `docs/deploy.md` paso a paso.
+URL en README (staging). `docs/deploy.md`.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Commit
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l22 deploy-staging-en-paas"
-```
+`docs(m17): l22 deploy staging paas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| PaaS | docs | m19 preview |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | Docs PaaS elegido | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. Staging URL.
-2. deploy.md.
-3. Build CI opcional.
+Marca la lección **solo si**:
+
+1. Staging URL (artefacto: `URL staging`).
+2. deploy.md (artefacto: `URL staging`).
+3. Build CI opcional (artefacto: `URL staging`).
+4. Commit `docs(m17): L22 deploy-staging-en-paas`.
 
 ## Errores comunes
 

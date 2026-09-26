@@ -3,69 +3,51 @@ id: L15
 materia: M17
 orden: 15
 titulo: Listas con loading, error y vacío
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "m16 estados-ui"
-evidencia: "projects/m17-agenda-ops/docs/ui-estados.md"
+lectura: m16 estados-ui
+evidencia: projects/m17-agenda-ops/docs/ui-estados.md
 ---
 
 # L15 — Listas con loading, error y vacío
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P2 exige los tres estados UX en agenda/listas.
 
 ## Objetivo
 
-Implementar agenda del día y listas con tres estados UX obligatorios.
-
-## Por qué importa
-
-P2 exige documentación de estados.
-
-## Conceptos
-
-- loading.
-- empty.
-- error boundary.
+Agenda del día (o lista citas) con loading/error/vacío; `docs/ui-estados.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Implementa estados (90–110 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Skeleton/spinner; error con reintento; vacío con CTA “Nueva cita”.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Documenta (40 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`docs/ui-estados.md`: pantalla → cómo forzar cada estado (throttle, API down, seed vacío).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-ui-estados.md con capturas o descripción por pantalla.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m17): l15 listas-con-loading-error-y-vacio"
-```
+`feat(m17): l15 ui estados loading error vacio`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M17-aplicaciones-web.md | P2 |
-| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| MDN Web Docs + docs del framework elegido | m16 estados-ui | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
 ## Hecho cuando
 
-1. ui-estados.md.
-2. 3 estados en UI.
-3. Commit.
+Marca la lección **solo si**:
+
+1. ui-estados.md (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
+2. 3 estados en UI (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
+3. Commit (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
 
 ## Errores comunes
 

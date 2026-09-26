@@ -3,74 +3,59 @@ id: L02
 materia: M16
 orden: 2
 titulo: Auditoría Nielsen — tres heurísticas profundas
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "10 heurísticas NN/g"
-evidencia: "projects/m16-ihc/heuristicas/auditoria-v0.md"
+lectura: Tres heurísticas Nielsen a fondo sobre el piloto
+evidencia: heuristicas/parcial-3.md
 ---
 
 # L02 — Auditoría Nielsen — tres heurísticas profundas
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Profundizas tres heurísticas que más duelen en scheduling: estado del sistema, lenguaje del negocio, prevención de errores.
 
 ## Objetivo
 
-Aplicar al menos 3 heurísticas Nielsen con número, nombre y evidencia en captura o texto.
-
-## Por qué importa
-
-Vocabulario común con stakeholders del piloto.
-
-## Conceptos
-
-- Nielsen.
-- severidad.
-- evidencia.
+`heuristicas/parcial-3.md` con hallazgos severizados.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Elige tres (20 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Recomendadas: (#1) visibilidad de estado, (#2) match con el mundo real (jerga del salón/clínica), (#5) prevención de errores.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Audita con capturas o URLs (90–110 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Tabla como en la ficha M16 (ID, heurística, hallazgo, severidad, fix).
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Cruza con fricciones L01 (30 min)
 
-Tabla hallazgo como en ficha M16. Enlaza a fricciones-dia1.
+### 4. Commit
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m16): l02 auditoria-nielsen-tres-heuristicas-profu"
-```
+`docs(m16): auditoria parcial tres heuristicas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| NN/g | 10 heuristics | — |
-| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *No me hagas pensar* — Steve Krug (ed. ES) | Visibilidad de estado, match mundo real, prevención de errores | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 
 ## Hecho cuando
 
-1. auditoria-v0.md.
-2. ≥3 heurísticas.
-3. Severidad asignada.
+Marca la lección **solo si**:
+
+1. Documento con 3 heurísticas profundas y ≥2 hallazgos cada una (severidad 1–3 o baja/media/alta).
+2. Hallazgos trazan a pantallas del piloto (agenda/cita/login).
+3. Commit `docs(m16): auditoria parcial tres heuristicas`.
 
 ## Errores comunes
 
-- Heurística sin evidencia.
-- Solo opinión.
+- Las 10 heurísticas en una línea cada una.
+- Severidad inflada en todo.
+- Hallazgos genéricos (“mejorar UX”).
 
 ## Siguiente
 

@@ -3,74 +3,53 @@ id: L10
 materia: M15
 orden: 10
 titulo: Lint y formato en pipeline
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "ESLint + Prettier del stack"
-evidencia: "ci.yml lint step"
+lectura: ESLint/Prettier o oxlint; fail on lint
+evidencia: script lint en CI
 ---
 
 # L10 — Lint y formato en pipeline
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+CI sin lint deja pasar basura que los tests no ven.
 
 ## Objetivo
 
-Añadir paso `npm run lint` (o equivalente) que falle CI si hay errores.
-
-## Por qué importa
-
-Estilo consistente reduce ruido en review.
-
-## Conceptos
-
-- lint.
-- format.
-- fail fast.
+Lint (y opcional format check) en local + Actions.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Config ESLint o equivalente (60–70 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Añade step al workflow (30 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Commit
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Configura lint en spike o enlaza monorepo. Paso en CI documentado.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m15): l10 lint-y-formato-en-pipeline"
-```
+`ci(m15): lint en pipeline`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | ../M15-vv-calidad.md | — |
-| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Código limpio* (pruebas) + Vitest docs | Lint en CI: mismo estándar local y remoto | [Vitest](https://vitest.dev/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
 ## Hecho cuando
 
-1. Lint en CI.
-2. Fix o suppress justificado.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Script `npm run lint` local verde.
+2. Paso de lint en el workflow (falla el job si lint falla).
+3. Commit `ci(m15): lint en pipeline`.
 
 ## Errores comunes
 
-- lint --fix en CI sin check.
-- Desactivar reglas críticas.
+- Lint solo warning ignorado.
+- Reglas tan estrictas que nadie corre local.
+- Formatear en CI sin config en repo.
 
 ## Siguiente
 

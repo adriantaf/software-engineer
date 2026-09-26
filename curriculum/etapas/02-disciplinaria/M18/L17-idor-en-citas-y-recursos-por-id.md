@@ -3,71 +3,56 @@ id: L17
 materia: M18
 orden: 17
 titulo: IDOR en citas y recursos por ID
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "OWASP A01 Broken Access Control"
-evidencia: "projects/m18-appsec/findings/003-idor.md"
+lectura: OWASP A01 Broken Access Control
+evidencia: projects/m18-appsec/findings/003-idor.md
 ---
 
 # L17 — IDOR en citas y recursos por ID
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+`GET /citas/:id` sin comprobar dueño = IDOR.
 
 ## Objetivo
 
-Demostrar acceso cross-user a `GET/PUT /api/citas/:id` (u otro recurso) con dos cuentas de prueba.
-
-## Por qué importa
-
-El ejemplo de la ficha M18: ocultar botones no basta.
-
-## Conceptos
-
-- Autorización server-side.
-- ID predecible.
-- UUID no es autorización.
+PoC cross-user + fix autorización + test automatizado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Dos usuarios (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Owner A y B (o staff) con citas distintas.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. PoC (50–60 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Token A pide id de B. Documenta status code.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Fix + test (60–80 min)
 
-Crea usuario A y B. A crea cita. B intenta leer/editar ID de A. Documenta en `003-idor.md`.
+Filtro por negocio/usuario. Test 403/404.
 
-Si ya está protegido, muestra test automatizado que falla si quitas el check.
+### 4. Commit
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l17 idor-en-citas-y-recursos-por-id"
-```
+`fix(m18): l17 idor citas`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | A01 | Ejemplo IDOR ficha M18 |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | OWASP A01 Broken Access Control | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. PoC con dos usuarios.
-2. Impacto descrito.
-3. Ruta exacta.
+Marca la lección **solo si**:
+
+1. PoC con dos usuarios (artefacto: `projects/m18-appsec/findings/003-idor.md`).
+2. Impacto descrito (artefacto: `projects/m18-appsec/findings/003-idor.md`).
+3. Ruta exacta (artefacto: `projects/m18-appsec/findings/003-idor.md`).
+4. Commit `docs(m18): L17 idor-en-citas-y-recursos-por-id`.
 
 ## Errores comunes
 

@@ -3,74 +3,66 @@ id: L17
 materia: M13
 orden: 17
 titulo: Índice del paquete de diseño
-horas: 5
+horas: 5.0
 semana: 5
-lectura: "README proyecto"
-evidencia: "projects/m13-diseno/README.md"
+lectura: Empaquetar evidencias; README como mapa M17
+evidencia: projects/m13-diseno/README.md índice enlazando SRS/diagramas/ADRs
 ---
 
 # L17 — Índice del paquete de diseño
 
-**~5 h · Semana 5**
+**~5.0 h · Semana 5**
+
+El proyecto de M13 es el paquete. Hoy el README se vuelve el mapa.
 
 ## Objetivo
 
-Crear índice enlazando SRS, diagramas, ADRs, arquitectura.
-
-## Por qué importa
-
-El paquete debe ser navegable en 2 minutos.
-
-## Conceptos
-
-- índice.
-- trazabilidad.
-- onboarding.
+Reescribir `projects/m13-diseno/README.md` como índice navegable.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-README con checklist enlaces. Verifica rutas relativas.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Inventario (30 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l17 indice-del-paquete-de-diseno"
+find projects/m13-diseno -type f -name '*.md' | sort
+```
+
+### 2. README índice (80–100 min)
+
+Secciones: En resumen · Enlace SRS · Flujos · Diagramas · Arquitectura · ADRs · Checklist evidencias P1–P3 · Cómo empezar M17.
+
+### 3. Rompe enlaces (20 min)
+
+Haz clic mental: cada ruta relativa debe existir.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m13-diseno/README.md
+git commit -m "docs(m13): indice del paquete de diseno"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | proyecto M13 | srs-v1 |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | README índice del paquete de diseño Agenda Ops | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. README índice.
-2. Todos los artefactos enlazados.
-3. Sin enlaces rotos.
+Marca la lección **solo si**:
+
+1. README M13 enlaza SRS, casos-de-uso, diagramas, arquitectura y ADRs.
+2. Un extraño puede navegar el paquete en ≤10 minutos.
+3. Commit `docs(m13): indice del paquete de diseno`.
 
 ## Errores comunes
 
-- README vacío.
-- Diagramas huérfanos.
+- README genérico de la plantilla sin enlaces.
+- Enlaces rotos a archivos que no existen.
+- Diagramas huérfanos fuera del índice.
 
 ## Siguiente
 

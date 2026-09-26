@@ -3,25 +3,27 @@ id: L01
 materia: M22
 orden: 1
 titulo: Lean Startup aplicado a Agenda Ops — carpeta y visión
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "El método Lean Startup — visión, start, build-measure-learn"
-evidencia: "projects/m22-bektor/demos + bitacora-m22.md"
+lectura: El método Lean Startup — visión, start, build-measure-learn
+evidencia: projects/m22-bektor/demos + bitacora-m22.md
 ---
 
 # L01 — Lean Startup aplicado a Agenda Ops — carpeta y visión
 
 **~5 h · Semana 1**
 
+Vendes suscripción SaaS, no agencia. Hoy entregas **`projects/m22-bektor/demos + bitacora-m22.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M22.
+
 ## Objetivo
 
 Crear estructura comercial, leer visión/start/BML y escribir hipótesis de negocio SaaS (no agencia).
 
-## Por qué importa
+## Por qué empieza así
 
 M22 vende **suscripción** al producto que construiste; Bektor como agencia no es el modelo del plan.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - Visión vs estrategia.
 - Build-measure-learn.
@@ -30,55 +32,55 @@ M22 vende **suscripción** al producto que construiste; Bektor como agencia no e
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Lee en *El método Lean Startup* (ed. ES) lo indicado: _El método Lean Startup — visión, start, build-measure-learn_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Prepara evidencia y carpetas (20–30 min)
 
 ```bash
 mkdir -p projects/m22-bektor/demos
 ```
 
-Lee capítulos iniciales de *El método Lean Startup* (ed. ES). En `projects/m22-bektor/bitacora-m22.md`: visión en 5 líneas + ciclo BML aplicado a trials de Agenda Ops.
+### 3. Laboratorio principal (90–120 min)
 
 Lista 3 supuestos que **matarían** el negocio si fueran falsos.
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit atómico (15 min)
 
 ```bash
-git add projects/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
 git commit -m "docs(m22): l01 lean-startup-aplicado-a-agenda-ops-carpe"
 ```
 
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
+
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ries | Lean Startup inicio | ../../../producto-saas.md |
-| Ficha | ../M22-emprendimiento.md | ../../../como-estudiar.md |
-| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *El método Lean Startup* — Eric Ries (ed. ES) | El método Lean Startup — visión, start, build-measure-learn | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 
 ## Hecho cuando
 
-1. demos/ existe.
-2. bitacora con BML.
-3. 3 supuestos críticos.
+Marca la lección **solo si**:
+
+1. Existe el entregable: `projects/m22-bektor/demos + bitacora-m22.md`.
+2. demos/ existe.
+3. bitacora con BML.
+4. 3 supuestos críticos.
+5. Commit `docs(m22): l01 …` en el historial.
 
 ## Errores comunes
 
 - Volver a vender ‘páginas web’.
 - Leer sin escribir acción.
+- Marcar la lección en la UI sin archivo en git.
 
 ## Siguiente
 

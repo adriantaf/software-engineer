@@ -22,6 +22,6 @@ fuente.c → .o → ejecutable → proceso (loader) → main → exit
 
 -
 
-## Qué hace el compilador aquí (puente M28)
+## Qué hace el compilador aquí (puente a estudio opcional)
 
 -

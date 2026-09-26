@@ -3,71 +3,52 @@ id: L29
 materia: M18
 orden: 29
 titulo: "Pipeline CI: lint, test, audit, anti-secretos"
-horas: 5
+horas: 5.0
 semana: 8
-lectura: "Secure SDLC + CI guides"
-evidencia: "projects/m18-appsec/ci-appsec.yml snippet o enlace workflow"
+lectura: Secure SDLC + CI guides
+evidencia: projects/m18-appsec/ci-appsec.yml snippet o enlace workflow
 ---
 
 # L29 — Pipeline CI: lint, test, audit, anti-secretos
 
-**~5 h · Semana 8**
+**~5.0 h · Semana 8**
+
+P3: CI con lint+test+audit+grep secretos.
 
 ## Objetivo
 
-Añadir job CI con lint, tests, `npm audit` (fail on high), grep básico anti-secretos.
-
-## Por qué importa
-
-P3 de la ficha: seguridad en el pipeline, no solo en la cabeza.
-
-## Conceptos
-
-- Fail build on audit.
-- Trufflehog/gitleaks lite.
-- Branch protection (idea).
+Workflow verde documentado en `projects/m18-appsec/ci/`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Pipeline (100–120 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Enlace al workflow del repo app. Job anti-secretos básico.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Evidencia (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Log CI o script local reproducible.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Commit
 
-Crea o extiende workflow GitHub Actions / CI del repo. Documenta en `projects/m18-appsec/ci-appsec.md` qué corre en cada PR.
-
-Ejecuta pipeline en branch de prueba y pega enlace/run id.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m18): l29 pipeline-ci-lint-test-audit-anti-secreto"
-```
+`ci(m18): l29 pipeline p3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | DevSecOps guideline | Ficha P3 |
-| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| OWASP Top 10 + Cheat Sheets | Secure SDLC + CI guides | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
 
 
 ## Hecho cuando
 
-1. CI documentado.
-2. Audit en pipeline.
-3. Run verde o excepciones justificadas.
+Marca la lección **solo si**:
+
+1. CI documentado (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
+2. Audit en pipeline (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
+3. Run verde o excepciones justificadas (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
+4. Commit `docs(m18): L29 pipeline-ci-lint-test-audit-anti-secretos`.
 
 ## Errores comunes
 

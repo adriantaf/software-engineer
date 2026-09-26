@@ -3,74 +3,59 @@ id: L14
 materia: M19
 orden: 14
 titulo: Prueba de restore en entorno aislado
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Restore docs"
-evidencia: "projects/m19-ops/restore-test.md"
+lectura: Restore docs
+evidencia: projects/m19-ops/restore-test.md
 ---
 
 # L14 — Prueba de restore en entorno aislado
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+P3: restore real documentado.
 
 ## Objetivo
 
-Restaurar dump en DB de prueba, verificar citas visibles, registrar tiempo y resultado.
-
-## Por qué importa
-
-Un restore nunca probado no cuenta.
-
-## Conceptos
-
-- restore
-- RTO idea
-- vacuum
+`restore-test.md` con fecha, tamaño dump, tiempo, resultado.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Entorno aislado (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+DB temporal/local.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Restore (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`pg_restore` / pipe. Verifica conteo citas seed.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Registra (20 min)
 
-restore-test.md: fecha, dump usado, duración, éxito/fallo, captura query count citas.
+### 4. Commit
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m19): l14 prueba-de-restore-en-entorno-aislado"
-```
+`docs(m19): l14 restore test p3`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M19 P3 | — |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Restore docs | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. Restore real documentado.
-2. Verificación datos.
-3. Fecha.
+Marca la lección **solo si**:
+
+1. Restore real documentado (artefacto: `projects/m19-ops/restore-test.md`).
+2. Verificación datos (artefacto: `projects/m19-ops/restore-test.md`).
+3. Fecha (artefacto: `projects/m19-ops/restore-test.md`).
+4. Commit `docs(m19): L14 prueba-de-restore-en-entorno-aislado`.
 
 ## Errores comunes
 
-- Solo teoría
-- Restore sobre prod
+- Solo teoría.
+- Restore sobre prod.
 
 ## Siguiente
 

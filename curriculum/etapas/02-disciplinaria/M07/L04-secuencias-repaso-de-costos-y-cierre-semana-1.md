@@ -5,63 +5,77 @@ orden: 4
 titulo: "Secuencias: repaso de costos y cierre semana 1"
 horas: 5.0
 semana: 1
-lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta"
-evidencia: "COMPLEJIDAD.md completo semana 1 + bitácora semana"
+lectura: "Repaso arrays vs listas: cuándo cada una"
+evidencia: COMPLEJIDAD.md completo semana 1 + bitácora semana
 ---
 
 # L04 — Secuencias: repaso de costos y cierre semana 1
 
 **~5.0 h · Semana 1**
 
-Consolidas la semana lineal antes de pilas: autoevaluación sin IDE.
+Cierras la semana de secuencias dejando una tabla defendible y la suite verde.
 
 ## Objetivo
 
-Completar tabla comparativa array dinámico / lista simple / lista doble / `Array` nativo y dejar bitácora honesta.
+Completar `COMPLEJIDAD.md` para array y listas, escribir bitácora de semana 1 y dejar tests verdes.
 
 ## Pasos
 
-### 1. Tabla maestra (60 min)
+### 1. Auditoría de código (45 min)
 
-| Estructura | Acceso | Insert head | Insert tail | Memoria extra |
-|------------|--------|-------------|-------------|---------------|
+```bash
+cd projects/m07-estructuras
+find src -name '*.ts' | sort
+npm test
+```
 
-Rellena con Θ/O correctos.
+Anota gaps (métodos sin test, Big-O faltante).
 
-### 2. Kata oral (45 min)
+### 2. Tabla unificada (75 min)
 
-Explica en voz alta por qué `push` amortizado es O(1). Graba nota o escribe párrafo en `bitacora/semana-01.md`.
+En `COMPLEJIDAD.md`, una tabla con columnas: operación | DynamicArray | Singly | Doubly. Filas: acceso, insert head, append, delete por valor, memoria extra por elemento.
 
-### 3. Refactor (90 min)
+### 3. Mini experimento (60 min)
 
-Elimina duplicación entre listas (interface `Sequence<T>` opcional). Tests siguen verdes.
+Script `bench/sequences-smoke.ts` (o test de timing informal): 10_000 prepends en lista vs unshift en array nativo. Pega 3 números en la bitácora (no hace falta microbenchmark serio aún).
 
-### 4. Benchmark micro (45 min)
+### 4. Bitácora (40 min)
 
-Opcional: 10⁵ inserts — nativo vs tu dynamic array. No optimices prematuramente; documenta resultado.
+```bash
+mkdir -p bitacora
+```
 
-### 5. Commit (30 min)
+`bitacora/semana-01.md`: qué estructura elegirías para cola de impresión vs buffer de edición, en 2 frases cada una.
 
-`docs(m07): cierre semana 1 secuencias`.
+### 5. Commit (20 min)
+
+```bash
+git add projects/m07-estructuras
+git commit -m "docs(m07): cierre semana 1 secuencias"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Joyanes / texto univ. ED (ed. ES) | Trade-offs arrays vs listas (tiempo y memoria) | [MDN Map (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
 
 
 ## Hecho cuando
 
-1. Tabla comparativa en repo.
-2. Bitácora semana 1 con bloqueos.
-3. Suite verde.
+Marca la lección **solo si**:
+
+1. `COMPLEJIDAD.md` tiene tabla comparativa array / lista simple / lista doble para insert head, append, acceso, delete.
+2. Existe `bitacora/semana-01.md` (o sección en README) con 5–8 líneas de lo aprendido.
+3. Suite `npm test` verde; commit `docs(m07): cierre semana 1 secuencias`.
 
 ## Errores comunes
 
-- Saltar bitácora “porque solo fue código”.
-- Confundir peor caso de redimensionar con amortizado sin explicar.
+- Tabla de costos inventada sin mirar tu código.
+- Cerrar la semana con tests en rojo.
+- Bitácora vacía o solo “terminé las lecciones”.
+
 ## Siguiente
 
 [L05 — Pila (Stack) tipada](L05-pila-stack-tipada.md)

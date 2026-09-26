@@ -3,74 +3,73 @@ id: L14
 materia: M13
 orden: 14
 titulo: ADR persistencia y modelo de datos
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Elmasri + ADR"
-evidencia: "adr/003-persistencia.md"
+lectura: Elección Postgres + acceso a datos; modelo MVP
+evidencia: adr/002-persistencia.md
 ---
 
 # L14 — ADR persistencia y modelo de datos
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Agenda Ops vive de consultas de agenda y FKs. Hoy firmas cómo persistir.
 
 ## Objetivo
 
-ADR sobre esquema relacional, migraciones y soft-delete si aplica.
-
-## Por qué importa
-
-M09 y M17 dependen de esta decisión.
-
-## Conceptos
-
-- migración.
-- esquema.
-- soft delete.
+`adr/002-persistencia.md` alineado a M09 y al diagrama de clases.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Escribe el ADR (90–110 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+```markdown
+# ADR 002 — PostgreSQL + migraciones versionadas
 
-### 2. Carpeta de evidencia (15–20 min)
+## Contexto
+Citas con rangos de tiempo, FKs, reportes simples, posible tenant_id luego.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+## Decisión
+PostgreSQL; migraciones SQL (o Prisma migrate — elige una) en repo.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+## Consecuencias
++ Constraints e índices reales
++ Coincide con M09
+− Ops de backups (M19)
+```
 
-ADR 003 enlaza clases.md y cardinalidades.
+Incluye acceso: Repository en infra (M14), no SQL en controllers.
 
-### 4. Conexión con el plan (30–45 min)
+### 2. Actualiza índice ADR (15 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 3. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l14 adr-persistencia-y-modelo-de-datos"
+git add projects/m13-diseno/adr
+git commit -m "docs(m13): ADR 002 persistencia"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| M09 | ficha | srs |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Decisión de persistencia: Postgres, migraciones, acceso | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. ADR 003.
-2. Enlace diagrama clases.
-3. Migraciones mencionadas.
+Marca la lección **solo si**:
+
+1. ADR 002 elige Postgres (o justifica excepción) y cómo migrarás (SQL files / herramienta).
+2. Alternativas rechazadas (p. ej. Mongo “porque JSON”) con motivo.
+3. Commit `docs(m13): ADR 002 persistencia`.
 
 ## Errores comunes
 
-- JSON files en prod.
-- Sin plan migraciones.
+- Elegir DB por moda sin relación al reporte de citas.
+- “Usaremos un ORM” sin decir cuál ni migración.
+- Contradecir cardinalidades de L06 sin actualizar clases.
 
 ## Siguiente
 

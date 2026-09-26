@@ -3,74 +3,57 @@ id: L07
 materia: M14
 orden: 7
 titulo: Facade para el flujo agendar cita
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Refactoring.Guru Facade"
-evidencia: "projects/m14-patrones/src/agendar-cita-facade.ts"
+lectura: Facade; orquestar validación + persistencia + notify
+evidencia: src/citas/agendar-facade.ts + tests
 ---
 
 # L07 — Facade para el flujo agendar cita
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+El caso de uso “agendar” toca varias piezas. Facade ofrece una puerta al application layer.
 
 ## Objetivo
 
-Crear Facade `agendarCita` que coordine validación, persistencia (fake) y evento.
-
-## Por qué importa
-
-El panel y la API de M17 necesitan un punto de entrada claro, no seis llamadas sueltas.
-
-## Conceptos
-
-- Facade.
-- orquestación.
-- caso de uso.
+Facade `agendarCita` + tests de feliz/error.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Subsistemas stubs (40 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Validador de solape, repo in-memory, notifier no-op.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Facade (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Orquesta; traduce errores a resultados tipados.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Tests + ADR + commit
 
-Facade con dependencias inyectadas (repos fake). Test happy path y error de solapamiento.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m14): l07 facade-para-el-flujo-agendar-cita"
-```
+`feat(m14): facade agendar cita`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| m13-diseno | secuencia crear cita | — |
-| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Facade: API simple sobre subsistema de agendar | [Refactoring.Guru — Facade (ES)](https://refactoring.guru/es/design-patterns/facade) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
 ## Hecho cuando
 
-1. Facade + 2 tests.
-2. Alineado a caso de uso M13.
-3. Nota en README.
+Marca la lección **solo si**:
+
+1. `agendarCita(...)` facade coordina validación + save + notify (stubs ok).
+2. Test de flujo feliz y un fallo (p. ej. slot ocupado) sin que el caller toque 3 servicios.
+3. Commit `feat(m14): facade agendar cita`.
 
 ## Errores comunes
 
-- Facade con SQL dentro.
-- Sin test de error.
+- Facade dios de 20 dependencias.
+- Duplicar reglas fuera y dentro del facade.
+- Sin test del camino de error.
 
 ## Siguiente
 

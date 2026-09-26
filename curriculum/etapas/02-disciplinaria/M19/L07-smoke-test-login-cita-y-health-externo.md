@@ -3,73 +3,55 @@ id: L07
 materia: M19
 orden: 7
 titulo: "Smoke test: login, cita y health externo"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Runbook borrador"
-evidencia: "projects/m19-ops/smoke-staging.md"
+lectura: Runbook borrador
+evidencia: projects/m19-ops/smoke-staging.md
 ---
 
 # L07 — Smoke test: login, cita y health externo
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Health solo no basta: login + crear cita.
 
 ## Objetivo
 
-Ejecutar checklist smoke desde fuera de tu laptop: login, crear cita, GET /health.
-
-## Por qué importa
-
-‘Contenedor verde’ ≠ producto usable.
-
-## Conceptos
-
-- smoke test
-- datos prueba
+Corrida fechada en `deploy-log.md` o `smoke-staging.md`.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Script/checklist (50 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+### 2. Ejecuta contra staging (70–90 min)
 
-### 2. Carpeta de evidencia (15–20 min)
+Registra pass/fail.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 3. Commit
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Checklist binario en smoke-staging.md con capturas o salidas curl anonimizadas.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
-
-```bash
-git add projects/
-git status
-git commit -m "docs(m19): l07 smoke-test-login-cita-y-health-externo"
-```
+`docs(m19): l07 smoke staging`
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Ficha | M19 | M17 API |
-| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Docs Docker + PaaS/VPS elegido | Runbook borrador | [Docker docs](https://docs.docker.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
 
 
 ## Hecho cuando
 
-1. Smoke completo.
-2. health externo.
-3. Fecha registrada.
+Marca la lección **solo si**:
+
+1. Smoke completo (artefacto: `projects/m19-ops/smoke-staging.md`).
+2. health externo (artefacto: `projects/m19-ops/smoke-staging.md`).
+3. Fecha registrada (artefacto: `projects/m19-ops/smoke-staging.md`).
+4. Commit `docs(m19): L07 smoke-test-login-cita-y-health-externo`.
 
 ## Errores comunes
 
-- Solo health sin login
-- Smoke nunca repetido
+- Solo health sin login.
+- Smoke nunca repetido.
 
 ## Siguiente
 

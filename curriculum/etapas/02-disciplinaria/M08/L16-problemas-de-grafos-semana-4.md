@@ -5,60 +5,67 @@ orden: 16
 titulo: Problemas de grafos semana 4
 horas: 5.0
 semana: 4
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Grafos: BFS/DFS y caminos — VisuAlgo Graph"
-evidencia: "problems/ +2 grafos"
+lectura: "Cierre semana grafos: +2 problemas en índice"
+evidencia: problems/ +2 grafos
 ---
 
 # L16 — Problemas de grafos semana 4
 
 **~5.0 h · Semana 4**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Consolidás la semana 4 con dos prácticas más y el índice al día.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: problems/ +2 grafos.
+Sumar dos problemas de grafos bien empaquetados y actualizar el índice.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Selección (20 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Ideas: clone graph, course schedule (ciclo), flood fill, word ladder corto.
 
-### 2. Trabajo central (150 min)
+### 2. Problema 1 (80 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Plantilla completa + 3 tests.
 
-### 3. Análisis escrito (45 min)
+### 3. Problema 2 (80 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Igual. Si detectas ciclo, documenta complejidad.
 
-### 4. Tests (45 min)
+### 4. Índice + bitácora (30 min)
 
-Tres casos mínimo por función: borde incluido.
+`bitacora/semana-04.md` opcional: qué patrón aún te cuesta.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git add projects/m08-algoritmos
+git commit -m "feat(m08): problemas grafos semana 4"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 4: Grafos: BFS/DFS y caminos — VisuAlgo Graph | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Práctica BFS/DFS adicional; índice ≥ entradas de grafos | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. **+2** problemas de grafos (además de L13–L15 si ya contaban, completa hasta tener evidencia clara de dos más o consolida carpetas).
+2. `indice-patrones.md` con filas bfs/dfs/camino.
+3. Commit `feat(m08): problemas grafos semana 4`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Reentregar el mismo archivo tres veces con otro nombre.
+- Índice desactualizado.
+- Tests flaky por orden de vecinos no determinista sin sort.
+
 ## Siguiente
 
 [L17 — Memoización top-down](L17-memoizacion-top-down.md)

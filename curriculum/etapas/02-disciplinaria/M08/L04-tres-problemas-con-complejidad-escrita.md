@@ -5,60 +5,76 @@ orden: 4
 titulo: Tres problemas con complejidad escrita
 horas: 5.0
 semana: 1
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Crecimiento asintótico / notación Big-O — CLRS + problem set propio"
-evidencia: "problems/ con 3 entradas + complejidad"
+lectura: "Plantilla de entrega: enunciado, complejidad, código, tests"
+evidencia: problems/ con 3 entradas + complejidad
 ---
 
 # L04 — Tres problemas con complejidad escrita
 
 **~5.0 h · Semana 1**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Cierras la semana 1 con la plantilla P1 que usarás el resto del curso.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: problems/ con 3 entradas + complejidad.
+Dejar tres problemas completos en `problems/` e iniciar `indice-patrones.md`.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Plantilla (20 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Cada problema:
 
-### 2. Trabajo central (150 min)
+```
+problems/NN-nombre/
+  enunciado.md    # problema + complejidad objetivo
+  solution.ts
+  solution.test.ts
+```
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+### 2. Completar / añadir hasta 3 (120 min)
 
-### 3. Análisis escrito (45 min)
+Si L01 ya trajo 2, añade un tercero (p. ej. “mover ceros”, “intersección de arrays”). 30–45 min de intento serio antes de editorial propia.
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+### 3. Índice (40 min)
 
-### 4. Tests (45 min)
+`indice-patrones.md` tabla: id | patrón | archivo | complejidad | notas.
 
-Tres casos mínimo por función: borde incluido.
+### 4. Suite (30 min)
 
-### 5. Commit (30 min)
+```bash
+cd projects/m08-algoritmos && npm test
+```
 
-`feat(m08): ...` atómico.
+### 5. Commit (20 min)
+
+```bash
+git add projects/m08-algoritmos
+git commit -m "feat(m08): tres problemas con complejidad"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 1: Crecimiento asintótico / notación Big-O — CLRS + problem set propio | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Disciplina de evidencia por problema (P1) | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Tres carpetas bajo `problems/` (pueden incluir las de L01) cada una con enunciado, complejidad, solución y ≥3 tests.
+2. Filas iniciales en `indice-patrones.md` (≥3).
+3. Commit `feat(m08): tres problemas con complejidad`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Código sin enunciado ni Big-O.
+- Un solo test feliz.
+- Índice vacío al cerrar la semana.
+
 ## Siguiente
 
 [L05 — Insertion sort implementado](L05-insertion-sort-implementado.md)

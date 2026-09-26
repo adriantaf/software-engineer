@@ -3,77 +3,71 @@ id: L13
 materia: M11
 orden: 13
 titulo: Imágenes, contenedores y volúmenes
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "Docker docs + Silberschatz síntesis"
-evidencia: "labs/docker-intro.md"
+lectura: Docker docs get started + Silberschatz síntesis
+evidencia: labs/docker-intro.md
 ---
 
 # L13 — Imágenes, contenedores y volúmenes
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+Antes del Dockerfile de la API: vocabulario sólido.
 
 ## Objetivo
 
-Diferenciar imagen, contenedor, volumen; levantar `hello-world` y un contenedor Node efímero.
+Dejar notas reproducibles de imagen/contenedor/volumen.
 
-## Por qué importa
+## Pasos
 
-Agenda Ops usará Postgres persistente; hoy separas datos de imagen.
+### 1. Vocabulario (40 min)
 
-## Conceptos
+Tabla en `labs/docker-intro.md`: image, container, layer, registry, volume, network.
 
-- capa de imagen.
-- volumen nombrado.
-- ephemeral container.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 2. Lab (60–75 min)
 
 ```bash
+docker version
 docker run --rm hello-world
-docker volume create m11-pgdata
+docker volume create m11-demo
+docker run --rm -v m11-demo:/data alpine sh -c 'echo hola >/data/x; cat /data/x'
 ```
 
-### 4. Conexión con el plan (30–45 min)
+Si Docker no está: instálalo o documenta el bloqueo y comandos exactos para cuando lo tengas (el playbook L16 lo exigirá).
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 3. Postgres (30 min)
 
-### 5. Commit atómico (15 min)
+Por qué el volumen sobrevive a `docker rm` y por qué eso importa en Agenda Ops.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m11): l13 imagenes-contenedores-y-volumenes"
+git add projects/m11-so/labs/docker-intro.md
+git commit -m "docs(m11): l13 docker intro"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Docker | Volumes overview | Silberschatz |
-| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES) | Imagen vs contenedor; capas; volúmenes para datos persistentes | [Docker Get Started](https://docs.docker.com/get-started/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
 
 
 ## Hecho cuando
 
-1. Glosario imagen/contenedor/volumen.
-2. Volumen creado.
-3. Notas para compose.
+Marca la lección **solo si**:
+
+1. `labs/docker-intro.md` con vocabulario y un `docker run`/`volume` documentado.
+2. Explicas por qué el FS del contenedor no basta para Postgres.
+3. Commit `docs(m11): l13 docker intro`.
 
 ## Errores comunes
 
-- Datos en capa writable sin volumen.
-- docker system prune sin pensar.
+- Guardar la BD solo en la capa writable del contenedor.
+- Confundir bind mount con named volume.
+- Correr todo `--privileged`.
 
 ## Siguiente
 

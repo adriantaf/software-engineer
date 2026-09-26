@@ -5,60 +5,70 @@ orden: 22
 titulo: Implementación trie o índice
 horas: 5.0
 semana: 6
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Proyecto autocomplete + cierre — CLRS no aplica"
-evidencia: "autocomplete/ código + tests"
+lectura: Implementar la estructura elegida en L21
+evidencia: autocomplete/ código + tests
 ---
 
 # L22 — Implementación trie o índice
 
 **~5.0 h · Semana 6**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+Hoy el diseño se vuelve código testeable.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: autocomplete/ código + tests.
+Implementar `insert`/`suggest` según `DISENO.md` con tests sólidos.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Esqueleto (30 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+`autocomplete/src/index.ts` (o `trie.ts`) exportando la API acordada.
 
-### 2. Trabajo central (150 min)
+### 2. Insert (60 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Normaliza strings (lowercase trim — documenta). Inserta carácter a carácter si trie; o actualiza índice.
 
-### 3. Análisis escrito (45 min)
+### 3. Suggest (70 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Baja al nodo prefijo; DFS/BFS recolectando hasta k. Si elegiste binary search sobre lista ordenada, implementa lower_bound.
 
-### 4. Tests (45 min)
+### 4. Tests (50 min)
 
-Tres casos mínimo por función: borde incluido.
+```bash
+npm test
+```
 
-### 5. Commit (30 min)
+Incluye case folding según política.
 
-`feat(m08): ...` atómico.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "feat(m08): autocomplete estructura base"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 6: Proyecto autocomplete + cierre — CLRS no aplica | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Trie nodes / índice: insert y suggest correctos | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Código en `autocomplete/` alineado al DISENO (trie u otra) con `insert`/`suggest`.
+2. ≥5 tests: vacío, prefijo sin matches, prefijo corto, k limit, case policy documentada.
+3. Commit `feat(m08): autocomplete estructura base`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Implementar otra estructura distinta al DISENO sin actualizarlo.
+- Suggest O(n) silencioso cuando prometiste trie.
+- Sin tests de k.
+
 ## Siguiente
 
 [L23 — Dataset Agenda Ops y demo CLI](L23-dataset-agenda-ops-y-demo-cli.md)

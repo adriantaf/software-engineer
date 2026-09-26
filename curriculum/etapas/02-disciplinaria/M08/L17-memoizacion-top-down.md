@@ -5,60 +5,67 @@ orden: 17
 titulo: Memoización top-down
 horas: 5.0
 semana: 5
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Greedy / selección de actividades — CLRS DP intro"
-evidencia: "dp/memo-ejemplo.ts"
+lectura: CLRS DP intro — top-down con memo
+evidencia: dp/memo-ejemplo.ts
 ---
 
 # L17 — Memoización top-down
 
 **~5.0 h · Semana 5**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+DP empieza viendo subproblemas solapados: fibonacci es el laboratorio.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: dp/memo-ejemplo.ts.
+Implementar una solución top-down con memo y demostrar el ahorro de llamadas.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Lectura (40 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+CLRS intro DP: overlapping subproblems + optimal substructure. Anota en `dp/README.md`.
 
-### 2. Trabajo central (150 min)
+### 2. Fib (u otro) naive vs memo (70 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+`dp/memo-ejemplo.ts`: versión ingenua (solo para n pequeño) y `fibMemo` con `Map`/`array`. Contador de llamadas.
 
-### 3. Análisis escrito (45 min)
+### 3. Tests (40 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+fib(0..10) conocidos; n=40 memo termina en ms.
 
-### 4. Tests (45 min)
+### 4. Definición de estado (40 min)
 
-Tres casos mínimo por función: borde incluido.
+Escribe: estado = `__`, transición = `__`, base = `__`.
 
-### 5. Commit (30 min)
+### 5. Commit (15 min)
 
-`feat(m08): ...` atómico.
+```bash
+git add projects/m08-algoritmos/dp
+git commit -m "feat(m08): memoizacion top-down"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 5: Greedy / selección de actividades — CLRS DP intro | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Recursión + mapa memo; overlapping subproblems | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `dp/memo-ejemplo.ts` (fib o paths) con y sin memo, o contador de llamadas.
+2. Tests de valores conocidos; nota de complejidad en `dp/README.md` borrador.
+3. Commit `feat(m08): memoizacion top-down`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Memoizar sin clave correcta (olvidar argumentos).
+- Creer que memo cambia la respuesta (solo el tiempo).
+- Sin caso base.
+
 ## Siguiente
 
 [L18 — Programación dinámica bottom-up](L18-programacion-dinamica-bottom-up.md)

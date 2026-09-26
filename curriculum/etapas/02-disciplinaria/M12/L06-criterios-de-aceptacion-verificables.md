@@ -3,74 +3,72 @@ id: L06
 materia: M12
 orden: 6
 titulo: Criterios de aceptación verificables
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Given/When/Then intro"
-evidencia: "stories.md criterios"
+lectura: Given/When/Then intro
+evidencia: stories.md criterios
 ---
 
 # L06 — Criterios de aceptación verificables
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Si no puedes convertirlo en test, no es criterio.
 
 ## Objetivo
 
-Añadir criterios numerados o GWT a cada story; incluir 401/403 donde aplique.
+Endurecer `stories.md` con aceptación verificable.
 
-## Por qué importa
+## Pasos
 
-Seguridad entra aquí, no “luego en M18”.
+### 1. Reglas (20 min)
 
-## Conceptos
+Cada criterio: sujeto observable + condición + resultado. Preferible Given/When/Then.
 
-- criterio verificable.
-- error path.
-- permisos.
+### 2. Reescribe (90–110 min)
 
-## Pasos (hazlos en orden)
+Ejemplo:
 
-### 1. Lectura dirigida (60–90 min)
+```text
+Given un owner autenticado
+When crea una cita en un slot libre
+Then la cita aparece en GET /api/citas?fecha=… con status 201 al crear
+```
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Incluye 401/403 donde aplique (aunque el RNF formal llegue en L08).
 
-### 2. Carpeta de evidencia (15–20 min)
+### 3. Revisión cruzada (30 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+Marca en amarillo (comentario) criterios vagos y corrígelos.
 
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Al menos 2 stories con criterios de error. Ejemplo notas privadas staff vs owner.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l06 criterios-de-aceptacion-verificables"
+git add projects/m12-srs/stories.md
+git commit -m "docs(m12): l06 criterios aceptacion"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | hilo seguridad | ejemplo ficha M12 |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Criterios testeables; happy path + error; nada de “se ve bien” | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. Criterios en todas las stories nuevas.
-2. ≥2 con error/permiso.
-3. Sin “se ve bien”.
+Marca la lección **solo si**:
+
+1. Cada story existente tiene ≥3 criterios verificables (Given/When/Then o lista numerada).
+2. Al menos un criterio de error/permiso en 2 stories.
+3. Commit `docs(m12): l06 criterios aceptacion`.
 
 ## Errores comunes
 
-- Criterios subjetivos.
-- Omitir 403 en datos sensibles.
+- “Que sea intuitivo”.
+- Criterios solo de UI visual.
+- Sin casos de error.
 
 ## Siguiente
 

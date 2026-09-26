@@ -5,60 +5,73 @@ orden: 21
 titulo: "Autocomplete: elección de estructura"
 horas: 5.0
 semana: 6
-lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Proyecto autocomplete + cierre — Trie / prefix map"
-evidencia: "autocomplete/DISENO.md"
+lectura: Trie vs array filtrado vs inverted index — trade-offs
+evidencia: autocomplete/DISENO.md
 ---
 
 # L21 — Autocomplete: elección de estructura
 
 **~5.0 h · Semana 6**
 
-M08 conecta teoría CLRS con problemas clasificados y el autocomplete del producto.
+El proyecto une M08 con Agenda Ops: sugerencias rápidas de clientes/servicios.
 
 ## Objetivo
 
-Producir evidencia en `projects/m08-algoritmos/` alineada con: autocomplete/DISENO.md.
+Dejar `autocomplete/DISENO.md` con decisión de estructura y complejidades objetivo.
 
 ## Pasos
 
-### 1. Setup / repaso (30 min)
+### 1. Contexto producto (30 min)
 
-Confirma carpetas: `problems/`, `sorts/`, `dp/`, `autocomplete/`. README con comandos test.
+Lee `curriculum/producto-saas.md` (Agenda Ops). Lista campos sugeribles: nombre cliente, nombre servicio.
 
-### 2. Trabajo central (150 min)
+### 2. Opciones (60 min)
 
-Implementa o resuelve el foco de hoy en TypeScript strict. Escribe enunciado en Markdown si es problema externo.
+Tabla en DISENO: scan lineal, array ordenado + binary search, trie, `Map` prefijo→lista. Pros/contras.
 
-### 3. Análisis escrito (45 min)
+### 3. Decisión (50 min)
 
-Archivo `*-analisis.md`: complejidad temporal y espacial, peor caso, justificación en 5–8 frases.
+Elige **una** para implementar en L22. Justifica con tamaño demo (p. ej. 5k–50k strings) y k resultados.
 
-### 4. Tests (45 min)
+### 4. API (40 min)
 
-Tres casos mínimo por función: borde incluido.
+```ts
+insert(term: string): void
+suggest(prefix: string, k?: number): string[]
+```
 
-### 5. Commit (30 min)
+Más complejidad insert/query escritas.
 
-`feat(m08): ...` atómico.
+### 5. Commit (15 min)
+
+```bash
+mkdir -p projects/m08-algoritmos/autocomplete
+git add projects/m08-algoritmos/autocomplete
+git commit -m "docs(m08): diseno autocomplete"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 6: Proyecto autocomplete + cierre — Trie / prefix map | [VisuAlgo](https://visualgo.net/en) |
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Prefijos: trie O(|p|) vs scan O(n·|p|) | [VisuAlgo](https://visualgo.net/en) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
 
 
 ## Hecho cuando
 
-1. Evidencia en repo según objetivo.
-2. Complejidad escrita.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `autocomplete/DISENO.md` elige estructura con tabla de trade-offs y complejidad objetivo de query.
+2. Alcance del dataset Agenda Ops (clientes/servicios) definido.
+3. Commit `docs(m08): diseno autocomplete`.
 
 ## Errores comunes
 
-- Copiar solución sin invariante.
-- Confundir O promedio con peor caso.
+- Elegir trie “porque suena avanzado” sin dataset size.
+- No definir operaciones (insert, suggest(prefix, k)).
+- Diseñar API HTTP entera en vez del núcleo de búsqueda.
+
 ## Siguiente
 
 [L22 — Implementación trie o índice](L22-implementacion-trie-o-indice.md)

@@ -3,74 +3,78 @@ id: L15
 materia: M13
 orden: 15
 titulo: Extensibilidad tenant_id sin implementar
-horas: 5
+horas: 5.0
 semana: 4
-lectura: "producto-saas evolución"
-evidencia: "adr/004-tenant-future.md"
+lectura: producto-saas.md multi-tenant; nota de extensibilidad
+evidencia: adr/004-extensibilidad-tenant.md o seccion en arquitectura.md
 ---
 
 # L15 — Extensibilidad tenant_id sin implementar
 
-**~5 h · Semana 4**
+**~5.0 h · Semana 4**
+
+El camino a SaaS pide `tenant_id` después. Hoy dejas el gancho **sin** construir el edificio.
 
 ## Objetivo
 
-Documentar dónde vivirá `tenant_id` en modelo y API sin implementarlo en piloto.
-
-## Por qué importa
-
-Camino a SaaS sin reescribir todo en M21.
-
-## Conceptos
-
-- single-tenant ahora.
-- tenant_id futuro.
-- riesgo mezcla datos.
+Nota de extensibilidad legible por el yo-de-M17/M19.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lee producto-saas (25 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Sección evolución técnica: piloto single-tenant → tenants.
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Escribe la nota (80–100 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+`adr/004-extensibilidad-tenant.md`:
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+```markdown
+# Nota — Extensibilidad multi-tenant
 
-ADR 004: supuestos, columnas futuras, no exponer multi-tenant en MVP.
+## Ahora (piloto)
+Un negocio design partner. `negocioId` implícito o constante de config.
 
-### 4. Conexión con el plan (30–45 min)
+## Después
+Columna `tenant_id` en clientes, servicios, citas, usuarios.
+Queries siempre filtran por tenant. Tests IDOR cross-tenant en M15/M18.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+## Qué no hacemos hoy
+Stripe, onboarding self-serve, N esquemas Postgres.
+```
 
-### 5. Commit atómico (15 min)
+### 3. Marca en clases.md (30 min)
+
+Comentario: “candidato a tenant_id” en entidades de negocio.
+
+### 4. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l15 extensibilidad-tenant-id-sin-implementar"
+git add projects/m13-diseno
+git commit -m "docs(m13): nota extensibilidad tenant_id"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | producto-saas.md | srs supuestos |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Single-tenant ahora; dónde encajará tenant_id después | [Producto SaaS — evolución técnica](../../../producto-saas.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. ADR 004.
-2. Riesgo cross-tenant nombrado.
-3. No implementar aún.
+Marca la lección **solo si**:
+
+1. Documento que explica single-tenant del piloto y *dónde* se añadirá `tenant_id` (tablas/capas).
+2. Lista explícita de lo que NO implementas aún (billing, onboarding multi-negocio).
+3. Commit `docs(m13): nota extensibilidad tenant_id`.
 
 ## Errores comunes
 
-- Implementar multi-tenant en piloto.
-- Ignorar extensión.
+- Implementar multi-tenant completo en diseño día 1.
+- Ignorar tenant y luego reescribir todo el esquema.
+- Poner tenant_id solo en el front.
 
 ## Siguiente
 

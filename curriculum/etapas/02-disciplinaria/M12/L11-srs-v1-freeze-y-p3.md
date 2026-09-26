@@ -3,74 +3,73 @@ id: L11
 materia: M12
 orden: 11
 titulo: SRS v1, freeze y P3
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "plantilla completa"
-evidencia: "projects/m12-srs/srs-v1.md"
+lectura: plantilla completa
+evidencia: projects/m12-srs/srs-v1.md
 ---
 
 # L11 — SRS v1, freeze y P3
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+P3 y proyecto: el documento que M13/M17 consumen.
 
 ## Objetivo
 
-Promover borrador a `srs-v1.md` con fecha de freeze y firma (tu nombre/fecha).
+Publicar `srs-v1.md` congelado.
 
-## Por qué importa
+## Pasos
 
-Entregable proyecto Agenda Ops para diseño e implementación.
-
-## Conceptos
-
-- srs-v1.
-- freeze.
-- supuestos.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Copia/revisa → srs-v1.md. README m12 actualizado. Checklist P1–P3.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Copiar y pulir (90–120 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l11 srs-v1-freeze-y-p3"
+cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md
+```
+
+Completa huecos: referencias, supuestos, dependencias (Node, Postgres), RNF ≥3, glosario, MoSCoW resumido.
+
+### 2. Freeze banner (20 min)
+
+Al inicio:
+
+```markdown
+> **Freeze v1 — YYYY-MM-DD**  
+> Cambios post-freeze → ADR o srs-v1.1 con diff explícito.
+```
+
+### 3. Checklist P3 (30 min)
+
+README: P1 entrevistas, P2 stories≥8, P3 srs-v1 con RNF.
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m12-srs
+git commit -m "docs(m12): l11 srs-v1 freeze p3"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plantilla | completa | Ficha M12 |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Freeze: copiar borrador → srs-v1.md; RNF seguridad ≥3 | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. srs-v1.md existe.
-2. ≥3 RNF SEC/PRIV.
-3. Freeze fechado.
+Marca la lección **solo si**:
+
+1. `srs-v1.md` completo (intro, contexto, RF, RNF≥3 seguridad/privacidad, fuera de alcance, glosario).
+2. Fecha de freeze y versión v1 anotadas.
+3. Commit `docs(m12): l11 srs-v1 freeze p3`.
 
 ## Errores comunes
 
-- Dejar borrador sin v1.
-- Sin supuestos single-tenant.
+- Seguir editando “borrador eterno” sin v1.
+- RNF de seguridad ausentes.
+- Glosario desalineado con M09/M17.
 
 ## Siguiente
 

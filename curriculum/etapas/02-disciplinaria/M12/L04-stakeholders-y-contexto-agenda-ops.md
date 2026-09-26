@@ -3,74 +3,75 @@ id: L04
 materia: M12
 orden: 4
 titulo: Stakeholders y contexto Agenda Ops
-horas: 5
+horas: 5.0
 semana: 1
-lectura: "SRS plantilla stakeholders"
-evidencia: "srs-borrador.md sección contexto"
+lectura: SRS plantilla — stakeholders y descripción general
+evidencia: srs-borrador.md sección contexto
 ---
 
 # L04 — Stakeholders y contexto Agenda Ops
 
-**~5 h · Semana 1**
+**~5.0 h · Semana 1**
+
+Cierras elicitación metiendo contexto en el SRS borrador.
 
 ## Objetivo
 
-Documentar actores owner/staff/cliente final y objetivos del piloto single-tenant.
+Rellenar introducción + descripción general del `srs-borrador.md`.
 
-## Por qué importa
+## Pasos
 
-M13 y M17 heredan actores; cambiarlos tarde cuesta caro.
-
-## Conceptos
-
-- stakeholder.
-- single-tenant.
-- MVP 4 semanas.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
-
-Completa contexto y alcance preliminar en borrador. MoSCoW preview.
-
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 1. Lee la plantilla (30 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m12): l04 stakeholders-y-contexto-agenda-ops"
+sed -n '1,80p' projects/m12-srs/plantilla.md
+```
+
+### 2. Stakeholders (60 min)
+
+Para Owner, Staff, Cliente final (indirecto): metas, dolores, acceso a datos. Incluye supuesto single-tenant del piloto.
+
+### 3. Contexto (60 min)
+
+Secciones 1.1–1.3 y 2.1–2.3 del borrador. Diagrama:
+
+```mermaid
+flowchart LR
+  Owner --> Panel
+  Staff --> Panel
+  Panel --> API
+  API --> DB
+  Cliente -. WhatsApp .-> Owner
+```
+
+### 4. Commit (15 min)
+
+```bash
+git add projects/m12-srs/srs-borrador.md
+git commit -m "docs(m12): l04 contexto stakeholders"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plantilla | introducción | hilo seguridad |
-| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| IEEE 830 adaptada (repo) | Stakeholders owner/staff/cliente; perspectiva del producto piloto | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
 ## Hecho cuando
 
-1. Actores definidos.
-2. Objetivo piloto escrito.
-3. Cierre semana 1 P1.
+Marca la lección **solo si**:
+
+1. `srs-borrador.md` secciones 1–2 rellenadas (propósito, alcance borrador, stakeholders).
+2. Diagrama de contexto (Mermaid o ASCII): actores ↔ Agenda Ops.
+3. Commit `docs(m12): l04 contexto stakeholders`.
 
 ## Errores comunes
 
-- Omitir cliente final indirecto.
-- Multi-tenant en MVP.
+- Olvidar al cliente final (aunque no tenga login en MVP).
+- Alcance infinito en la intro.
+- Stakeholders sin metas.
 
 ## Siguiente
 

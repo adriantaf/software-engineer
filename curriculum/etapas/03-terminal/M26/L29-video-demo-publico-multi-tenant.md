@@ -3,73 +3,74 @@ id: L29
 materia: M26
 orden: 29
 titulo: Video demo público multi-tenant
-horas: 5
+horas: 5.0
 semana: 8
-lectura: "guion demo"
-evidencia: "projects/m26-capstone/demo.md"
+lectura: guion demo
+evidencia: projects/m26-capstone/demo.md
 ---
 
 # L29 — Video demo público multi-tenant
 
 **~5 h · Semana 8**
 
+Capstone: SaaS multi-tenant en producción. Hoy entregas **`projects/m26-capstone/demo.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M26.
+
 ## Objetivo
 
-Entregar evidencia de: Video demo público multi-tenant para el capstone Agenda Ops en producción.
+Video demo público multi-tenant (sin tutorial de fondo).
 
-## Por qué importa
+## Por qué empieza así
 
 M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de tutoriales.
 
-## Conceptos
+Conceptos que debes poder explicar al cerrar:
 
 - YouTube/Loom
 - Sin tutorial fondo
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md) según: _guion demo_.
 
-### 2. Carpeta de evidencia (15–20 min)
+Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+### 2. Guion del video (40–50 min)
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+`demo.md`: guion ≤8 min — login A, cita, login B, prueba de aislamiento, pricing/checkout test, cierre.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+### 3. Graba (90–120 min)
 
-Graba: dos negocios, billing test, seguridad mencionada.
+Graba pantalla (Loom/OBS). Sin tutorial de terceros de fondo. URLs de staging/prod reales.
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-08.md`.
+### 4. Publica enlace (20–30 min)
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta a **Agenda Ops** (SaaS multi-tenant, piloto M17, egreso M26). Usa el escenario de [producto-saas](../../producto-saas.md) si aún no tienes deploy.
+Enlace unlisted/público en `demo.md` + duración + fecha. Si el video es privado, no cuenta para egreso.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/
+git add projects/ curriculum/etapas/03-terminal/ || git add projects/
 git status
-git commit -m "docs(m26): l29 video-demo-publico-multi-tenant"
+git commit -m "docs(m26): l29 video-demo-p-blico-multi-tenant"
 ```
+
+El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Plan | [producto-saas.md](../../producto-saas.md) | [egreso.md](../../egreso.md) |
-| Ficha | M26-proyecto-integrador.md | M25 security-review |
-| Catálogo | Entrada M26 | [Bibliografía · M26](../../../bibliografia.md#m26-proyecto-integrador) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Memoria propia + producto-saas + egreso | guion demo | [Rúbrica de egreso](../../../egreso.md) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M26](../../../bibliografia.md#m26-proyecto-integrador) |
 
 
 ## Hecho cuando
 
-1. Artefacto indicado existe: projects/m26-capstone/demo.md.
+Marca la lección **solo si**:
+
+1. Existe `projects/m26-capstone/demo.md`.
 2. Commit en git con mensaje docs(m26).
 3. Bitácora de la semana actualizada.
 

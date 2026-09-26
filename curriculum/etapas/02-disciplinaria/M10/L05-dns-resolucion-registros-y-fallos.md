@@ -3,81 +3,91 @@ id: L05
 materia: M10
 orden: 5
 titulo: "DNS: resolución, registros y fallos"
-horas: 5
+horas: 5.0
 semana: 2
-lectura: "Tanenbaum — DNS + MDN DNS"
-evidencia: "labs/semana-02-dns.md con dig/host"
+lectura: Tanenbaum DNS + MDN DNS overview
+evidencia: labs/semana-02-dns.md con dig/host
 ---
 
 # L05 — DNS: resolución, registros y fallos
 
-**~5 h · Semana 2**
+**~5.0 h · Semana 2**
+
+Antes de TCP hay un nombre. Si DNS miente o tarda, Agenda Ops “no carga” aunque la API esté viva.
 
 ## Objetivo
 
-Resolver un nombre con `dig`/`host`, interpretar TTL y registrar cómo un fallo DNS se manifiesta en el navegador o en `curl`.
+Usar `dig`/`host` y documentar registros y modos de fallo.
 
-## Por qué importa
+## Pasos
 
-Certificados válidos con nombre equivocado, caches viejas y subdominios mal configurados rompen deploys.
-
-## Conceptos
-
-- Registros A/AAAA, CNAME.
-- TTL y caché recursiva.
-- Autoritativo vs recursivo.
-
-## Pasos (hazlos en orden)
-
-### 1. Lectura dirigida (60–90 min)
-
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
-
-### 2. Carpeta de evidencia (15–20 min)
-
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
-
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 1. Herramientas (20 min)
 
 ```bash
-dig example.com A +short
-dig example.com AAAA +short
-dig @1.1.1.1 example.com
-host -t SOA example.com
+which dig host getent || true
+dig -v 2>&1 | head -1
 ```
 
-Simula “cambio de IP”: anota qué pasaría si el TTL fuera 3600 y cambias el registro.
+Si no hay `dig`: `sudo apt install dnsutils` (o equivalente).
 
-### 4. Conexión con el plan (30–45 min)
-
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
-
-### 5. Commit atómico (15 min)
+### 2. Labs de registros (75–90 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m10): l05 dns-resolucion-registros-y-fallos"
+dig example.com A +noall +answer
+dig example.com AAAA +short
+dig www.github.com CNAME +short
+host -a example.com | head -30
+```
+
+En `projects/m10-redes/labs/semana-02-dns.md`: qué es A vs CNAME; qué harías con un TXT de verificación.
+
+### 3. Fallos (45 min)
+
+Escribe tres síntomas y la primera prueba:
+
+1. NXDOMAIN
+2. SERVFAIL / timeout al resolver
+3. Respuesta correcta pero IP bloqueada/firewall
+
+Comando de contraste:
+
+```bash
+getent hosts example.com
+ping -c 1 $(dig +short example.com A | head -1)
+```
+
+### 4. Producto (25 min)
+
+Cuando publiques `api.tu-dominio`, lista registros mínimos (A/AAAA o CNAME) y por qué el panel y la API pueden ser hosts distintos.
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m10-redes/labs/semana-02-dns.md
+git commit -m "docs(m10): l05 dns dig"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Tanenbaum | DNS | MDN *DNS* |
-| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) | Resolución recursiva, A/AAAA/CNAME/MX/TXT, TTL y fallos típicos | [MDN · DNS (concepto)](https://developer.mozilla.org/es/docs/Glossary/DNS) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
 
 
 ## Hecho cuando
 
-1. Salida `dig` comentada.
-2. Explicas TTL en tus palabras.
-3. Escenario de fallo DNS documentado.
+Marca la lección **solo si**:
+
+1. `labs/semana-02-dns.md` con salida anotada de `dig`/`host` (A/AAAA/CNAME al menos).
+2. Escenario escrito: “DNS falla pero ping a IP funciona” — cómo lo detectas.
+3. Commit `docs(m10): l05 dns dig`.
 
 ## Errores comunes
 
-- Confundir DNS con búsqueda HTTP.
-- Ignorar IPv6 (AAAA) en entornos mixtos.
+- Confundir “no resuelve” con “el servidor HTTP está caído”.
+- Ignorar TTL cuando “ya cambié el DNS y no veo el cambio”.
+- Pegar dig sin decir qué registro buscabas.
 
 ## Siguiente
 

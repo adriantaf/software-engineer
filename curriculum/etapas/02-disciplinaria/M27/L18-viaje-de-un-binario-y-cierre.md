@@ -13,7 +13,7 @@ evidencia: viaje-binario.md — cierra proyecto M27
 
 **~5.0 h · Semana 5**
 
-Cierras el **proyecto**: el relato completo compile → link → run, con puente a M18 y M28.
+Cierras el **proyecto**: el relato completo compile → link → run, con puente a M18 y a compiladores (opcional futuro).
 
 ## Objetivo
 
@@ -23,7 +23,7 @@ Cierras el **proyecto**: el relato completo compile → link → run, con puente
 
 ### 1. Escribe el viaje (120 min)
 
-Plantilla del scaffold: pregunta → comandos → asm extracto → diagrama → riesgos → siguiente (M28 compiladores).
+Plantilla del scaffold: pregunta → comandos → asm extracto → diagrama → riesgos → siguiente (compiladores, opcional futuro).
 
 ### 2. Checklist (60 min)
 
@@ -62,4 +62,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-Cierra la [ficha M27](../M27-sistemas-bajo-nivel.md). Siguiente en el plan: **M12** (o M28 cuando exista).
+Cierra la [ficha M27](../M27-sistemas-bajo-nivel.md). Siguiente en el plan: **M12**. Compiladores quedan como estudio opcional futuro, fuera del catálogo.

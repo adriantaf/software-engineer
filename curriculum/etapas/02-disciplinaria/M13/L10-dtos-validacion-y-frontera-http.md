@@ -3,74 +3,78 @@ id: L10
 materia: M13
 orden: 10
 titulo: DTOs, validación y frontera HTTP
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "Validación entrada"
-evidencia: "arquitectura.md DTO"
+lectura: DTO vs entidad; validación de entrada en frontera
+evidencia: arquitectura.md sección DTOs + ejemplo CreateCitaDto
 ---
 
 # L10 — DTOs, validación y frontera HTTP
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+La frontera HTTP es el primer filtro: basura in → 400. El dominio recibe datos ya saneados.
 
 ## Objetivo
 
-Listar DTOs de entrada/salida y dónde validas (no confiar en cliente).
-
-## Por qué importa
-
-Agenda Ops recibe JSON malicioso desde el primer día.
-
-## Conceptos
-
-- DTO.
-- validación.
-- sanitización (idea).
+Ampliar `arquitectura.md` (o `diagramas/dtos.md`) con contratos de entrada/salida del piloto.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Inventario de endpoints que ya prevés (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+De L02/L08: `POST /auth/login`, `POST /citas`, `GET /citas`, `POST /clientes`, …
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Especifica CreateCitaDto (60–70 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+```ts
+// contrato documental (aún sin código M17)
+type CreateCitaDto = {
+  clienteId: string;   // uuid
+  servicioId: string;
+  inicio: string;      // ISO-8601
+};
+// fin se calcula con duracionMin del servicio (o viene explícito — decide y documenta)
+```
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+Validaciones: uuid formato, `inicio` futuro (o ≥ ahora−slack), servicio existe.
 
-Tabla endpoint→DTO→reglas. Enlaza RNF.
+### 3. Respuesta pública (40 min)
 
-### 4. Conexión con el plan (30–45 min)
+Lista campos del 201: `id`, `inicio`, `fin`, `estado`, `clienteId` — **sin** datos de otros módulos sensibles.
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+### 4. Regla de oro (20 min)
 
-### 5. Commit atómico (15 min)
+Un párrafo: “El controller valida forma; el service/domain valida negocio (solape, rol).”
+
+### 5. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l10 dtos-validacion-y-frontera-http"
+git add projects/m13-diseno
+git commit -m "docs(m13): DTOs y validacion en frontera HTTP"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| OWASP | input validation intro | srs |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | DTOs de entrada/salida; validar en HTTP antes del dominio | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. Tabla DTOs.
-2. Validación server-side.
-3. Sin confiar en front.
+Marca la lección **solo si**:
+
+1. Documentas al menos `CreateCitaDto` / respuesta con campos y validaciones (tipos, rangos).
+2. Dejas claro: entidad de dominio ≠ JSON crudo del request.
+3. Commit `docs(m13): DTOs y validacion en frontera HTTP`.
 
 ## Errores comunes
 
-- Tipos TS = validación.
-- Omitir límites tamaño.
+- Aceptar el body entero y pasarlo al INSERT.
+- Validar solo en el front.
+- Mezclar campos internos (`passwordHash`) en DTO de respuesta.
 
 ## Siguiente
 

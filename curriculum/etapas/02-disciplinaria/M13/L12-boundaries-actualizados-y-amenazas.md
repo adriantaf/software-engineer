@@ -3,74 +3,73 @@ id: L12
 materia: M13
 orden: 12
 titulo: Boundaries actualizados y amenazas
-horas: 5
+horas: 5.0
 semana: 3
-lectura: "trust boundaries + STRIDE lite"
-evidencia: "trust-boundaries.md v2"
+lectura: Trust boundaries + amenazas alto nivel; cierre P3
+evidencia: trust-boundaries.md actualizado (P3) + notas de amenaza
 ---
 
 # L12 — Boundaries actualizados y amenazas
 
-**~5 h · Semana 3**
+**~5.0 h · Semana 3**
+
+Cierras P3: el diagrama de L01 ahora refleja capas, DTOs y contenedores reales.
 
 ## Objetivo
 
-Actualizar boundaries con endpoints y amenazas por zona.
-
-## Por qué importa
-
-P3 requiere límites y notas de amenaza.
-
-## Conceptos
-
-- zona desconfianza.
-- amenaza.
-- control.
+Actualizar `diagramas/trust-boundaries.md` y dejar P3 evidenciable.
 
 ## Pasos (hazlos en orden)
 
-### 1. Lectura dirigida (60–90 min)
+### 1. Relee L01 + arquitectura (30 min)
 
-Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+Marca desactualizaciones (¿apareció el mail? ¿sesión?).
 
-### 2. Carpeta de evidencia (15–20 min)
+### 2. Tabla de amenazas (70–90 min)
 
-Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+| Amenaza | Límite | Mitigación de diseño |
+|---------|--------|----------------------|
+| IDOR cita | API→DB | filtro por dueño/negocio en queries |
+| Session hijack | Browser→API | Cookie Secure/HttpOnly; logout |
+| Mass assignment | Browser→API | DTO allowlist |
+| SQLi | API→DB | parametrized queries / ORM |
 
-### 3. Laboratorio / trabajo documental (90–120 min)
+### 3. Checklist P3 (20 min)
 
-Cada límite: datos, protocolo, control. Al menos 3 amenazas.
+Ficha: `trust-boundaries.md` con límites y notas de amenaza.
 
-### 4. Conexión con el plan (30–45 min)
+### 4. Bitácora semana 3 (30 min)
 
-Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+`bitacora-semana-3.md`: capas + amenaza que más te preocupa.
 
-### 5. Commit atómico (15 min)
+### 5. Commit (15 min)
 
 ```bash
-git add projects/
-git status
-git commit -m "docs(m13): l12 boundaries-actualizados-y-amenazas"
+git add projects/m13-diseno
+git commit -m "docs(m13): boundaries actualizados y amenazas P3"
 ```
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Hilo | seguridad | M10 amenazas |
-| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *UML y patrones* — Larman (ed. ES) | Amenazas en límites; IDOR, sesión, validación | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 
 ## Hecho cuando
 
-1. P3 actualizado.
-2. Amenazas por zona.
-3. Semana 3 cerrada.
+Marca la lección **solo si**:
+
+1. `trust-boundaries.md` actualizado con capas/C4 y ≥3 amenazas con mitigación de diseño.
+2. P3 cumplido: boundaries con límites y notas de amenaza.
+3. Commit `docs(m13): boundaries actualizados y amenazas P3`.
 
 ## Errores comunes
 
-- Boundary estático sin API.
-- Sin control en API.
+- Lista OWASP Top 10 pegada sin relación a tus cajas.
+- Mitigaciones solo “usaremos HTTPS” sin authz en API.
+- P3 marcado con el archivo de L01 sin actualizar.
 
 ## Siguiente
 
