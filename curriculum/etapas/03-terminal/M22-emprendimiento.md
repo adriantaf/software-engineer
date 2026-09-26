@@ -38,33 +38,101 @@ Al terminar debes poder:
 5. Capturar objeciones recurrentes y ajustar mensaje o producto (build-measure-learn).
 6. Documentar el pivote Bektor → Agenda Ops como decisión de negocio, no solo rebranding.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee *El método Lean Startup* (Eric Ries, ed. ES) según la tabla semanal; cada capítulo debe producir **una acción** (mensaje, lista de contactos, demo).
-- Usa el piloto en **staging o prod** de M19; nunca demos con `localhost`.
-- Registra cada conversación el mismo día en `projects/m22-bektor/demos/`.
-- Pide siempre un siguiente paso concreto: trial de 14 días, segunda visita, introducción a otro dueño.
-- Honestidad en bitácora: “no contestó” cuenta si hubo intento documentado; no inflates vanity metrics.
+M22 vende **suscripción Agenda Ops** con conversaciones reales: L01–L24 (6 semanas × 4 lecciones).
+
+1. Orden **L01 → L24**; cada lectura Lean → **acción** (demo, lista, pricing).
+2. ICP **único** seis semanas; pivote solo documentado al final.
+3. Demos sobre **staging/prod** (M19), nunca `localhost`.
+4. Registra cada conversación el mismo día en `projects/m22-bektor/demos/`.
+5. [producto-saas](../../producto-saas.md) + [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Oferta | 6–8 | Pitch, one-pager, landing borrador |
-| Demos | 6–8 | Conversaciones reales |
-| Pricing | 4–6 | Free/Pro escrito |
+| Oferta / outreach | 6–8 | 4 lecciones de la semana |
+| Demos reales | 6–8 | Fichas en `demos/` |
+| Pricing / métricas | 4–6 | MXN Free/Pro, trials |
 | Retro | 1 | Objeción más frecuente |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** (demo o outreach documentado). No saltes la lectura.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. `mkdir -p projects/m22-bektor/demos`.
-2. Reescribe la oferta en **un párrafo** en `projects/m22-bektor/oferta-saas.md` (problema del dueño → Agenda Ops → suscripción, no “páginas web”).
-3. Borrador de `projects/m22-bektor/pricing.md`: planes Free/Pro en MXN, límites (calendarios, citas/mes), qué incluye cada uno.
-4. Lista 20 negocios del ICP en `projects/m22-bektor/outreach-lista.md` (nombre, contacto, por qué encajan).
-5. Guion de demo de 5 minutos en `projects/m22-bektor/guion-demo-5min.md`: login → crear cita → WhatsApp link → cierre pidiendo trial.
-6. Escribe `projects/m22-bektor/pivote-bektor-agenda-ops.md`: qué dejaste de vender y por qué.
+### Semana 1 — Visión y oferta (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Lean Startup aplicado a Agenda Ops — carpeta y visión](M22/L01-lean-startup-aplicado-a-agenda-ops-carpeta-y-vision.md) | 5 |
+| L02 | [ICP único — sub-vertical fijado por escrito](M22/L02-icp-unico-sub-vertical-fijado-por-escrito.md) | 5 |
+| L03 | [Oferta SaaS en un párrafo](M22/L03-oferta-saas-en-un-parrafo.md) | 5 |
+| L04 | [Outreach 20 contactos y guion demo 5 min](M22/L04-outreach-20-contactos-y-guion-demo-5-min.md) | 5 |
+
+### Semana 2 — Validated learning y guion (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Validated learning — hipótesis de dolor y métrica de trial](M22/L05-validated-learning-hipotesis-de-dolor-y-metrica-de-trial.md) | 5 |
+| L06 | [Demo 1 — conversación real documentada](M22/L06-demo-1-conversacion-real-documentada.md) | 5 |
+| L07 | [Demo 2 — refinar guion y oferta](M22/L07-demo-2-refinar-guion-y-oferta.md) | 5 |
+| L08 | [Demos 3–4 y anti-patrones agencia](M22/L08-demos-3-4-y-anti-patrones-agencia.md) | 5 |
+
+### Semana 3 — Experimentos de pricing e ICP (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Tres hipótesis de precio o sub-vertical](M22/L09-tres-hipotesis-de-precio-o-sub-vertical.md) | 5 |
+| L10 | [Demos 5–6 — escuchar precio en voz alta](M22/L10-demos-5-6-escuchar-precio-en-voz-alta.md) | 5 |
+| L11 | [Refinar ICP tras objeciones recurrentes](M22/L11-refinar-icp-tras-objeciones-recurrentes.md) | 5 |
+| L12 | [Pricing Free/Pro — borrador defendible](M22/L12-pricing-free-pro-borrador-defendible.md) | 5 |
+
+### Semana 4 — Métricas accionables (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Métricas accionables — tablero de trials](M22/L13-metricas-accionables-tablero-de-trials.md) | 5 |
+| L14 | [Demos 7–8 — seguimiento y lotes pequeños](M22/L14-demos-7-8-seguimiento-y-lotes-pequenos.md) | 5 |
+| L15 | [Objeción #1 y cambio de producto o mensaje](M22/L15-objecion-1-y-cambio-de-producto-o-mensaje.md) | 5 |
+| L16 | [Refinar pricing tras métricas semana 4](M22/L16-refinar-pricing-tras-metricas-semana-4.md) | 5 |
+
+### Semana 5 — Acelerar outreach (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L17 | [Outreach semana 5 — lote de cinco contactos](M22/L17-outreach-semana-5-lote-de-cinco-contactos.md) | 5 |
+| L18 | [Demos 9–10 — cerrar P2](M22/L18-demos-9-10-cerrar-p2.md) | 5 |
+| L19 | [Landing de precios y enlace en evidencia](M22/L19-landing-de-precios-y-enlace-en-evidencia.md) | 5 |
+| L20 | [Pivote Bektor → Agenda Ops — narrativa completa](M22/L20-pivote-bektor-agenda-ops-narrativa-completa.md) | 5 |
+
+### Semana 6 — Cierre comercial de la materia (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L21 | [Pricing final para M26 y trial operativo](M22/L21-pricing-final-para-m26-y-trial-operativo.md) | 5 |
+| L22 | [Síntesis comercial para backlog M21](M22/L22-sintesis-comercial-para-backlog-m21.md) | 5 |
+| L23 | [Pitch final 60s y práctica grabada](M22/L23-pitch-final-60s-y-practica-grabada.md) | 5 |
+| L24 | [Cierre M22 — P1–P3, dominio y README](M22/L24-cierre-m22-p1-p3-dominio-y-readme.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos (por tema de tu ed.) | Práctica |
+|--------|-----------|-------------------------------|----------|
+| 1 | L01–L04 | Visión / start / build-measure-learn | `oferta-saas.md`, outreach, guion |
+| 2 | L05–L08 | Validated learning | demos 1–4, pivote borrador |
+| 3 | L09–L12 | Experimentación / pivote | pricing, demos 5–6 |
+| 4 | L13–L16 | Medir (accionable vs vanity) | `metricas-trials.md`, demos 7–8 |
+| 5 | L17–L20 | Acelerar / lotes pequeños | demos 9–10, landing, pivote |
+| 6 | L21–L24 | Cierre comercial + handoff | pricing final, pitch, cierre |
+
+**Regla:** cada capítulo → una conversación o demo real, no solo subrayado.
+
+
 
 ## Ejemplo — estructura de ficha de demo
 
@@ -79,61 +147,7 @@ Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa
 - **Aprendizaje:** …
 ```
 
-## Temario semanal
 
-### Semana 1 — Visión y oferta (~20 h)
-
-- Lean: visión, start, build-measure-learn aplicado a SaaS vertical.
-- Pitch 60 s y one-pager (no folleto de agencia).
-- ICP fijado por escrito; anti-patterns (marketplace, “hacemos apps a medida”).
-- Alineación con MVP de [producto-saas](../../producto-saas.md).
-
-### Semana 2 — Validated learning y guion (~20 h)
-
-- Hipótesis: dolor (no-shows, doble reserva), solución mínima, métrica de éxito del trial.
-- Guion demo + manejo de “no tengo tiempo”.
-- Primeras 2–3 conversaciones (aunque sean exploratorias).
-- Actualizar oferta según feedback.
-
-### Semana 3 — Experimentos de pricing e ICP (~20 h)
-
-- Tres hipótesis de precio o sub-vertical; cómo las invalidarías.
-- Comparar con alternativas (libreta, Calendly genérico, WhatsApp solo).
-- 2–3 demos adicionales documentadas.
-
-### Semana 4 — Métricas accionables (~20 h)
-
-- Trials iniciados, activación (≥1 cita en 7 días), no MRR ficticio sin pagos.
-- Tablero simple en `projects/m22-bektor/metricas-trials.md`.
-- 2–3 demos más; refinar pricing draft.
-
-### Semana 5 — Acelerar outreach (~20 h)
-
-- Lotes pequeños: 5 contactos por semana con seguimiento.
-- Landing con precios (puede ser estática en el repo del producto); enlace en evidencia.
-- Demos 6–9 documentadas.
-
-### Semana 6 — Cierre comercial de la materia (~20 h)
-
-- Demo 10 completada.
-- Pricing Free/Pro final para M26 (Stripe test).
-- Síntesis de objeciones y decisiones de producto para backlog M21.
-- README de carpeta actualizado.
-
-## Lecturas
-
-Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos (por tema de tu ed.) | Práctica |
-|--------|-------------------------------|----------|
-| 1 | Visión / start / build-measure-learn | `oferta-saas.md` + pitch 60s |
-| 2 | Validated learning | `guion-demo-5min.md` + ≥2 demos |
-| 3 | Experimentación / pivote | 3 hipótesis en `pricing.md` o anexo |
-| 4 | Medir (métricas accionables vs vanity) | `metricas-trials.md` |
-| 5 | Acelerar / lotes pequeños | Demos 5–9 en `demos/` |
-| 6 | Cierre: síntesis + pricing draft | 10 demos totales + pricing final |
-
-**Regla:** cada capítulo → una conversación o demo real, no solo subrayado.
 
 ## Prácticas
 
