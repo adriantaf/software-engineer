@@ -87,4 +87,11 @@ Luego marcas el checkbox en el plan. Cada semana: **check-in** en la página Pro
 
 ## Siguiente paso ahora
 
-Abre **[M01](etapas/01-basica/M01-metodo-y-herramientas.md)** y cumple la **[L01](etapas/01-basica/M01/L01-entorno-y-primer-commit.md)**.
+El curriculum y la academia **ya están listos** para estudiar. No esperes otra oleada de contenido: ejecuta.
+
+1. En la UI: **Continuar** (o [M01 · L01](etapas/01-basica/M01/L01-entorno-y-primer-commit.md) si empiezas de cero).
+2. Cumple el **Hecho cuando** de esa lección con evidencia en `projects/`.
+3. Cada semana: **check-in** en la página **Progreso** del sitio → exporta a `progress.json` → commit.
+4. Si Chrome/PWA muestra un plan viejo tras un deploy: banner **Actualizar**, o [borrar datos del sitio](instalar-iphone.md#chrome--pwa-se-quedo-en-contenido-viejo).
+
+Opcional: **Buscar** en la UI (Pagefind) para localizar lecturas y lecciones.

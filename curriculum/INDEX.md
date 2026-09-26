@@ -63,3 +63,5 @@ npm run dev
 ```
 
 Abre el dashboard, sigue la materia actual y marca prácticas/proyectos. El avance se guarda en el navegador y puedes sincronizarlo a `progress.json` en la raíz del repo.
+
+**Estado:** listo para estudiar (sin oleada pendiente de curriculum). Ritual concreto: [Cómo estudiar → Siguiente paso ahora](como-estudiar.md#siguiente-paso-ahora).
