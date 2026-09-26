@@ -40,36 +40,121 @@ Al terminar debes poder:
 6. Deep-links WhatsApp para recordatorios o confirmaciones (sin sustituir la API).
 7. Desplegar el piloto en HTTPS con checklist documentado hacia multi-tenant.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) y [producto-saas.md](../../producto-saas.md) antes de la semana 2.
-- **Vertical slices:** cada semana una historia de usuario completa (API + UI + test mínimo).
-- Un solo negocio piloto (design partner); no mezcles UI de “agencia” con producto SaaS.
-- Cada endpoint nuevo: test de auth (401/403) antes de pulir CSS.
-- Documenta decisiones de `tenant_id` en ADR corto al cierre (semana 8).
+M17 construye el **MVP web Agenda Ops** con profundidad: L01–L32 (8 semanas × 4 lecciones).
+
+1. Lee [producto-saas.md](../../producto-saas.md) y el paquete M13 antes de la semana 2.
+2. **Vertical slices:** cada semana una historia completa (API + UI + test mínimo cuando aplique).
+3. Cada endpoint sensible: test 401/403 antes de pulir CSS.
+4. Evidencia en `projects/m17-agenda-ops/`; stack fijo en `stack.md`.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Auth + API | 6–8 | Sesiones/JWT bien hechos |
-| Front | 6–8 | Rutas protegidas + estados |
-| Integración | 4–6 | WhatsApp links / admin |
-| Retro | 1 | ADR o gap hacia SaaS |
+| Auth + API | 6–8 | 4 lecciones de la semana |
+| Front / integración | 6–8 | Rutas, estados, WhatsApp según semana |
+| Tests + docs | 4–6 | ADR, deploy, checklist |
+| Retro | 1 | Gap honesto hacia M18/M19 |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** con commit demostrable.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea o abre la carpeta de evidencia:
-   ```bash
-   mkdir -p projects/m17-agenda-ops/docs
-   ```
-2. Scaffold API + conexión DB según esquema M09 (`projects/m17-agenda-ops/` o repo enlazado en README).
-3. `POST /auth/register` + `POST /auth/login` con hash (bcrypt/argon2 — no MD5).
-4. Ruta protegida `GET /me` que falle con **401** sin sesión/token; test automatizado mínimo.
-5. Lee [producto-saas.md](../../producto-saas.md) y anota en `projects/m17-agenda-ops/docs/decisiones-multitenant.md` **3** decisiones de modelo que faciliten `tenant_id` luego.
-6. Commit, por ejemplo: `feat(m17): auth register/login + GET /me protegido`.
+### Semana 1 — Auth, usuarios y fundación (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Scaffold Agenda Ops — API, DB y stack.md](M17/L01-scaffold-agenda-ops-api-db-y-stack-md.md) | 5 |
+| L02 | [Registro con hash de contraseña](M17/L02-registro-con-hash-de-contrasena.md) | 5 |
+| L03 | [Login, sesión y GET /me protegido](M17/L03-login-sesion-y-get-me-protegido.md) | 5 |
+| L04 | [Cierre semana 1 — suite auth P1](M17/L04-cierre-semana-1-suite-auth-p1.md) | 5 |
+
+### Semana 2 — CRUD citas, clientes y servicios (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Modelo de dominio citas, clientes y servicios](M17/L05-modelo-de-dominio-citas-clientes-y-servicios.md) | 5 |
+| L06 | [API citas — crear y listar con reglas](M17/L06-api-citas-crear-y-listar-con-reglas.md) | 5 |
+| L07 | [CRUD clientes y servicios](M17/L07-crud-clientes-y-servicios.md) | 5 |
+| L08 | [Seeds demo y datos design partner](M17/L08-seeds-demo-y-datos-design-partner.md) | 5 |
+
+### Semana 3 — Roles owner/staff y admin (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Matriz de permisos owner y staff](M17/L09-matriz-de-permisos-owner-y-staff.md) | 5 |
+| L10 | [Middleware de autorización en API](M17/L10-middleware-de-autorizacion-en-api.md) | 5 |
+| L11 | [Panel admin mínimo — gestión staff](M17/L11-panel-admin-minimo-gestion-staff.md) | 5 |
+| L12 | [Demo roles y inicio P3 WhatsApp](M17/L12-demo-roles-y-inicio-p3-whatsapp.md) | 5 |
+
+### Semana 4 — Front serio y estados UX (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Scaffold front y rutas protegidas](M17/L13-scaffold-front-y-rutas-protegidas.md) | 5 |
+| L14 | [Flujo login/logout en UI](M17/L14-flujo-login-logout-en-ui.md) | 5 |
+| L15 | [Listas con loading, error y vacío](M17/L15-listas-con-loading-error-y-vacio.md) | 5 |
+| L16 | [Formularios citas y clientes accesibles](M17/L16-formularios-citas-y-clientes-accesibles.md) | 5 |
+
+### Semana 5 — WhatsApp e integración (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L17 | [Deep links WhatsApp — diseño del mensaje](M17/L17-deep-links-whatsapp-diseno-del-mensaje.md) | 5 |
+| L18 | [Botón enviar recordatorio desde ficha cita](M17/L18-boton-enviar-recordatorio-desde-ficha-cita.md) | 5 |
+| L19 | [Confirmación de cita y estados](M17/L19-confirmacion-de-cita-y-estados.md) | 5 |
+| L20 | [Cierre P3 integración WhatsApp](M17/L20-cierre-p3-integracion-whatsapp.md) | 5 |
+
+### Semana 6 — Deploy HTTPS y smoke tests (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L21 | [Variables de entorno y secrets](M17/L21-variables-de-entorno-y-secrets.md) | 5 |
+| L22 | [Deploy staging en PaaS](M17/L22-deploy-staging-en-paas.md) | 5 |
+| L23 | [HTTPS y health checks](M17/L23-https-y-health-checks.md) | 5 |
+| L24 | [Smoke test post-deploy](M17/L24-smoke-test-post-deploy.md) | 5 |
+
+### Semana 7 — Hardening ligero y CI (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L25 | [Mapa OWASP Top 10 en el piloto](M17/L25-mapa-owasp-top-10-en-el-piloto.md) | 5 |
+| L26 | [Headers de seguridad y CORS prod](M17/L26-headers-de-seguridad-y-cors-prod.md) | 5 |
+| L27 | [Rate limit en login](M17/L27-rate-limit-en-login.md) | 5 |
+| L28 | [Tests auth en CI o script local reproducible](M17/L28-tests-auth-en-ci-o-script-local-reproducible.md) | 5 |
+
+### Semana 8 — Checklist camino a SaaS y cierre (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L29 | [ADR tenant_id y modelo multi-negocio](M17/L29-adr-tenant-id-y-modelo-multi-negocio.md) | 5 |
+| L30 | [Checklist camino a SaaS](M17/L30-checklist-camino-a-saas.md) | 5 |
+| L31 | [Demo grabable para design partner](M17/L31-demo-grabable-para-design-partner.md) | 5 |
+| L32 | [Cierre M17 — evidencias, dominio y handoff M19](M17/L32-cierre-m17-evidencias-dominio-y-handoff-m19.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Lectura | Alternativa |
+|--------|-----------|---------|-------------|
+| 1 | L01–L04 | MDN auth/cookies + ADR sesión M13 | OWASP Auth Cheat Sheet |
+| 2 | L05–L08 | SRS M12 + modelo citas M13/M09 | — |
+| 3 | L09–L12 | Control de acceso / `permisos.md` | OWASP Access Control |
+| 4 | L13–L16 | MDN forms/a11y + handoff M16 | `ui-estados.md` |
+| 5 | L17–L20 | WhatsApp / deep links (docs oficiales) | `integracion-whatsapp.md` |
+| 6 | L21–L24 | Deploy PaaS + HTTPS | `smoke-test.md` |
+| 7 | L25–L28 | OWASP Top 10 mapa + rate limit | hilo seguridad |
+| 8 | L29–L32 | Multi-tenant ADR + checklist ficha | Demo design partner |
+
+**Regla:** cada semana deja el piloto más demoable; la lectura sirve al commit.
+
+
 
 ## Stack sugerido
 
@@ -150,22 +235,6 @@ Regla: la autorización se prueba en el **servidor**, no solo ocultando botones.
 - [ ] HTTPS en deploy
 - [ ] Tests de auth/roles en CI o script local reproducible
 
-## Lecturas
-
-Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Lectura | Alternativa |
-|--------|---------|-------------|
-| 1 | MDN **auth/cookies/sesiones** (ES) + docs auth del framework | OWASP Auth Cheat Sheet |
-| 2 | Docs CRUD/routing + modelo citas (SRS M12) | — |
-| 3 | Control de acceso / roles (docs + notas M13) | OWASP Access Control |
-| 4 | MDN forms/accesibilidad básica + UI del piloto | — |
-| 5 | WhatsApp / deep links (docs oficiales) | — |
-| 6 | Docs deploy del PaaS + HTTPS | — |
-| 7 | OWASP Top 10 **overview** (mapa hacia M18) | https://owasp.org |
-| 8 | [producto-saas.md](../../producto-saas.md) multi-tenant + ADR | Checklist en esta ficha |
-
-**Regla:** cada semana deja el piloto más demoable; la lectura sirve al commit, no al revés.
 
 ## Prácticas
 

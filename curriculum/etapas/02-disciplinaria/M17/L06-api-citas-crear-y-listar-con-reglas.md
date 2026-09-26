@@ -1,0 +1,75 @@
+---
+id: L06
+materia: M17
+orden: 6
+titulo: API citas — crear y listar con reglas
+horas: 5
+semana: 2
+lectura: "REST + validación horarios"
+evidencia: "POST/GET /citas"
+---
+
+# L06 — API citas — crear y listar con reglas
+
+**~5 h · Semana 2**
+
+## Objetivo
+
+Endpoints crear/listar citas con auth, validación fin>inicio, no pasado sin override documentado.
+
+## Por qué importa
+
+Core del piloto Agenda Ops.
+
+## Conceptos
+
+- REST.
+- 409 solapamiento.
+- paginación.
+
+## Pasos (hazlos en orden)
+
+### 1. Lectura dirigida (60–90 min)
+
+Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+
+### 2. Carpeta de evidencia (15–20 min)
+
+Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+
+### 3. Laboratorio / trabajo documental (90–120 min)
+
+Tests 201, 400 horario, 409 solapamiento. Listar con filtro fecha.
+
+### 4. Conexión con el plan (30–45 min)
+
+Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+
+### 5. Commit atómico (15 min)
+
+```bash
+git add projects/
+git status
+git commit -m "docs(m17): l06 api-citas-crear-y-listar-con-reglas"
+```
+
+## Lectura de esta lección
+
+| Fuente | Qué leer | Alternativa |
+|--------|----------|-------------|
+| m12 | stories citas | — |
+
+## Hecho cuando
+
+1. POST/GET citas.
+2. Reglas testeadas.
+3. 401 sin auth.
+
+## Errores comunes
+
+- Listar sin auth.
+- Timezone ignorada.
+
+## Siguiente
+
+[L07 — CRUD clientes y servicios](L07-crud-clientes-y-servicios.md)
