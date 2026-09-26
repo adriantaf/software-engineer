@@ -58,6 +58,8 @@ git commit -m "docs(m13): l13 plantilla-adr-y-decisiones-de-diseno"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M01 | ADR ejemplo | srs RNF |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

@@ -78,6 +78,8 @@ git branch -d practica/m01-rama
 | Fuente | Capítulos |
 |--------|-----------|
 | *Pro Git* | **Cap. 3** (ramas). Rebase: solo intro; no reescribas historial remoto aún. |
+| Catálogo | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
+
 
 ## Hecho cuando
 

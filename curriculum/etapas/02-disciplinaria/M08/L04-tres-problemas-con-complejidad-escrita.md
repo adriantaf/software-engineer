@@ -5,7 +5,7 @@ orden: 4
 titulo: Tres problemas con complejidad escrita
 horas: 5.0
 semana: 1
-lectura: "CLRS + problem set propio"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Crecimiento asintótico / notación Big-O — CLRS + problem set propio"
 evidencia: "problems/ con 3 entradas + complejidad"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 1: Crecimiento asintótico / notación Big-O — CLRS + problem set propio | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

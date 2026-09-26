@@ -58,6 +58,8 @@ git commit -m "docs(m19): l13 backup-automatico-postgresql"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | PostgreSQL | backup | Proveedor docs |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

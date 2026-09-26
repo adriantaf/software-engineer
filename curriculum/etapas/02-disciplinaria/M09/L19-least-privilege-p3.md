@@ -5,7 +5,7 @@ orden: 19
 titulo: Least privilege (P3)
 horas: 5.0
 semana: 5
-lectura: "hilos/seguridad.md"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Roles, permisos y esquema Agenda Ops — hilos/seguridad.md"
 evidencia: "roles.md + rol app"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 5: Roles, permisos y esquema Agenda Ops — hilos/seguridad.md | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

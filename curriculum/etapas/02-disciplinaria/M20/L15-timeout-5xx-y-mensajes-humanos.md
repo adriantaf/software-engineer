@@ -57,6 +57,8 @@ git commit -m "docs(m20): l15 timeout-5xx-y-mensajes-humanos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M20 semana 4 | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m19): l02 dockerfile-multi-stage-para-la-api"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docker | multi-stage | M11 Docker |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

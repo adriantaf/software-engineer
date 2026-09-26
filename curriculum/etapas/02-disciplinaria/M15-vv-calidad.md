@@ -101,7 +101,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Código limpio* (cap. pruebas) + *El programador pragmático* (testing) + docs Vitest. Ver [bibliografía](../../bibliografia.md).
+Canon: *Código limpio* (cap. pruebas) + *El programador pragmático* (testing) + docs Vitest. Ver [bibliografía](../../bibliografia.md#m15-v-v-y-calidad).
 
 | Semana | Lecciones | Capítulos / docs | Alternativa |
 |--------|-----------|------------------|-------------|

@@ -58,6 +58,8 @@ git commit -m "docs(m17): l08 seeds-demo-y-datos-design-partner"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | README | demo creds test | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

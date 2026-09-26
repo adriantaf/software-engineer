@@ -63,6 +63,8 @@ git commit -m "docs(m21): l12 cierre-m21-p1-p3-dominio-y-handoff-comer"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M21-admin-proyectos.md | ../../../como-estudiar.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

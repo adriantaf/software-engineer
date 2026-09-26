@@ -58,6 +58,8 @@ git commit -m "docs(m15): l07 tests-http-de-api-auth-y-validacion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Auth cheat sheet | m13 endpoints |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

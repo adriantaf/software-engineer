@@ -58,6 +58,8 @@ git commit -m "docs(m16): l07 sesiones-1-3-notas-de-participantes"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Krug | test de pasillo | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

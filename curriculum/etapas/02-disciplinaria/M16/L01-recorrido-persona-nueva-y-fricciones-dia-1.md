@@ -61,6 +61,8 @@ git commit -m "docs(m16): l01 recorrido-persona-nueva-y-fricciones-dia"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Krug | No me hagas pensar | producto-saas.md |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

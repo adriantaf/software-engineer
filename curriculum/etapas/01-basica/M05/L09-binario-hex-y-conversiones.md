@@ -50,6 +50,8 @@ Explica `chmod 644` en binario (6 = rw-, etc.) en las notas.
 | Fuente | Qué leer |
 |--------|----------|
 | Stallings | Sistemas numéricos, representación |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

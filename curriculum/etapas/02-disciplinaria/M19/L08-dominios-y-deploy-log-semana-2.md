@@ -57,6 +57,8 @@ git commit -m "docs(m19): l08 dominios-y-deploy-log-semana-2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M10 | DNS | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

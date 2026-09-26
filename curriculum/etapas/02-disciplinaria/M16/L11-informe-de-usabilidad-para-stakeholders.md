@@ -58,6 +58,8 @@ git commit -m "docs(m16): l11 informe-de-usabilidad-para-stakeholders"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M16-ihc.md | proyecto |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

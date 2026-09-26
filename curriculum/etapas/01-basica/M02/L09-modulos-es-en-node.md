@@ -60,6 +60,8 @@ Lee módulos en EJ; refactoriza un ejercicio anterior a dos archivos.
 | *Eloquent JavaScript* | Cap. 10 |
 | TS Handbook | [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html) |
 | MDN | [Módulos JS](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

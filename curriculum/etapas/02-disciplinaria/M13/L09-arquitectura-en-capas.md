@@ -58,6 +58,8 @@ git commit -m "docs(m13): l09 arquitectura-en-capas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Larman | capas | Código limpio módulos |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

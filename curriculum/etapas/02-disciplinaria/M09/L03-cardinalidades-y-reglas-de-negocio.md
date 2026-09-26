@@ -5,7 +5,7 @@ orden: 3
 titulo: Cardinalidades y reglas de negocio
 horas: 5.0
 semana: 1
-lectura: "Elmasri relaciones"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Modelo ER / relacional — Elmasri relaciones"
 evidencia: "ER revisado con FKs planeadas"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 1: Modelo ER / relacional — Elmasri relaciones | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

@@ -63,6 +63,8 @@ git commit -m "docs(m21): l05 sprint-planning-meta-unica-del-sprint-1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Scrum Guide | Sprint Planning | DoD local |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

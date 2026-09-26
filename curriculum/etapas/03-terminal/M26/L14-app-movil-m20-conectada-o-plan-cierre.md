@@ -64,6 +64,8 @@ git commit -m "docs(m26): l14 app-movil-m20-conectada-o-plan-cierre"
 |--------|----------|-------------|
 | Plan | [producto-saas.md](../../producto-saas.md) | [egreso.md](../../egreso.md) |
 | Ficha | M26-proyecto-integrador.md | M25 security-review |
+| Catálogo | Entrada M26 | [Bibliografía · M26](../../../bibliografia.md#m26-proyecto-integrador) |
+
 
 ## Hecho cuando
 

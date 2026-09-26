@@ -58,6 +58,8 @@ git commit -m "docs(m25): l13 logging-sin-secretos-ni-pii-innecesaria"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Logging cheat sheet | M19 runbook |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

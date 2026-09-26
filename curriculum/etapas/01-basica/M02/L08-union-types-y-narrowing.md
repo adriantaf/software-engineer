@@ -75,6 +75,8 @@ Llega a **≥15 katas** o deja lista en README cuántas faltan para 20 (P1).
 |--------|----------|
 | TS Handbook | [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) |
 | *Eloquent JavaScript* | Repaso caps. 4–5 (ejercicio pendiente) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

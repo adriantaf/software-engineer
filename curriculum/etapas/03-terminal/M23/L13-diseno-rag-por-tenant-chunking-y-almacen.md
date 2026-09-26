@@ -61,6 +61,8 @@ git commit -m "docs(m23): l13 diseno-rag-por-tenant-chunking-y-almacen"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | RAG guide | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

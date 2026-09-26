@@ -58,6 +58,8 @@ git commit -m "docs(m20): l16 appsec-movil-no-loguear-pii-ni-tokens"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M18 | informe | MASVS |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

@@ -48,6 +48,8 @@ Documenta en el apunte: en TypeScript, `Set<T>` modela conjunto **finito** de va
 |--------|----------|
 | Rosen | Cap. 2.1 |
 | Ficha M03 | Semana 2 en tabla de lecciones |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

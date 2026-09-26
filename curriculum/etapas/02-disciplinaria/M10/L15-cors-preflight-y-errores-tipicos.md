@@ -58,6 +58,8 @@ git commit -m "docs(m10): l15 cors-preflight-y-errores-tipicos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | CORS | Fetch API |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

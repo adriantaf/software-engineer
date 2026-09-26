@@ -58,6 +58,8 @@ git commit -m "docs(m13): l19 checklist-listo-para-scaffold"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M13-analisis-y-diseno.md | M17 ficha |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m22): l07 demo-2-refinar-guion-y-oferta"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ries | Pivot mensaje | ../M21-admin-proyectos.md backlog |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

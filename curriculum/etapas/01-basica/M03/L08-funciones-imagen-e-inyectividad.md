@@ -72,6 +72,8 @@ Nota en `conjuntos.md` o bitácora: qué operación de `sets.ts` usarás en rela
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 2.3 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

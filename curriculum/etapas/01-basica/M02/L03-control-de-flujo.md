@@ -63,6 +63,8 @@ Cap. 2 + **1 ejercicio** en TS.
 | Fuente | Qué leer |
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 2 (control de flujo) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

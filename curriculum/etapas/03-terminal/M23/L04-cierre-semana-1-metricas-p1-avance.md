@@ -60,6 +60,8 @@ git commit -m "docs(m23): l04 cierre-semana-1-metricas-p1-avance"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M23-ia-datos.md | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m25): l06 review-authz-roles-staff-vs-admin"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Access control testing | M18 IDOR |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

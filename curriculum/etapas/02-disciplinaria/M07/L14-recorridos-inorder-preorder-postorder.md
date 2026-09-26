@@ -5,7 +5,7 @@ orden: 14
 titulo: Recorridos inorder, preorder, postorder
 horas: 5.0
 semana: 4
-lectura: "ED: recorridos"
+lectura: "Joyanes / texto univ. ED (ed. ES): Árboles / BST + recorridos — ED: recorridos"
 evidencia: "Tres recorridos + snapshots en tests"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 4: Árboles / BST + recorridos — ED: recorridos | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

@@ -5,7 +5,7 @@ orden: 20
 titulo: Reportes, seeds y cierre M09
 horas: 5.0
 semana: 5
-lectura: "Proyecto CRM"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Roles, permisos y esquema Agenda Ops — Proyecto CRM"
 evidencia: "reportes.md + seeds + README"
 ---
 
@@ -43,10 +43,11 @@ Recrear BD solo con README en máquina limpia (simulación).
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 5: Roles, permisos y esquema Agenda Ops — Proyecto CRM | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

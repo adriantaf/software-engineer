@@ -65,6 +65,8 @@ git commit -m "docs(m10): l01 modelo-de-capas-y-primer-curl"
 |--------|----------|-------------|
 | Tanenbaum | Introducción + capas | MDN *Overview of HTTP* (vista rápida) |
 | Plan | [Hilo seguridad](../../../hilos/seguridad.md) (10 min) | — |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

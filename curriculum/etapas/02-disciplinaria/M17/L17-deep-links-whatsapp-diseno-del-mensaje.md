@@ -58,6 +58,8 @@ git commit -m "docs(m17): l17 deep-links-whatsapp-diseno-del-mensaje"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Oficial | WhatsApp Business | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

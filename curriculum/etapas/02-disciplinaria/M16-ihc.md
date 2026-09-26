@@ -91,7 +91,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: [heurísticas Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/). Ver [bibliografía](../../bibliografia.md).
+Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: [heurísticas Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/). Ver [bibliografía](../../bibliografia.md#m16-ihc).
 
 | Semana | Lecciones | Capítulos (Krug) / recursos | Alternativa |
 |--------|-----------|----------------------------|-------------|

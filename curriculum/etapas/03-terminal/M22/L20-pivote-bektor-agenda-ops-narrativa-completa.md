@@ -61,6 +61,8 @@ git commit -m "docs(m22): l20 pivote-bektor-agenda-ops-narrativa-compl"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md proyecto | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

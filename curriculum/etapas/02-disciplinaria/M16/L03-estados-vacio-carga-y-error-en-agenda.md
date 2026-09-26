@@ -58,6 +58,8 @@ git commit -m "docs(m16): l03 estados-vacio-carga-y-error-en-agenda"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m17 | ui-estados futuro | m12 stories |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m23): l22 costo-mensual-estimado-por-tenant-activo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Pricing calculator | ../../../producto-saas.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

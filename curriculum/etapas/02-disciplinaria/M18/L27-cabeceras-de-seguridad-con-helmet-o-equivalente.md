@@ -62,6 +62,8 @@ git commit -m "docs(m18): l27 cabeceras-de-seguridad-con-helmet-o-equi"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Secure Headers | M10 L16 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

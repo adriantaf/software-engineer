@@ -61,6 +61,8 @@ git commit -m "docs(m23): l09 rubrica-de-evaluacion-faq"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Eval guides | ../../../como-estudiar.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

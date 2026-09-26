@@ -60,6 +60,8 @@ Incluye al menos: un bucle simple, un bucle anidado, y algo sobre `Set`/`Map`.
 |--------|----------|
 | Rosen | Cap. 6.4 (binomio) |
 | Ficha M03 | Criterio P3 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

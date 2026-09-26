@@ -5,7 +5,7 @@ orden: 13
 titulo: BFS repaso y cola
 horas: 5.0
 semana: 4
-lectura: "CLRS BFS"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Grafos: BFS/DFS y caminos — CLRS BFS"
 evidencia: "1 problema BFS + grafo test"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 4: Grafos: BFS/DFS y caminos — CLRS BFS | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

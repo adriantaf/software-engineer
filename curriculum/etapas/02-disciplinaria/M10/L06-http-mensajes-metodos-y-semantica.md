@@ -63,6 +63,8 @@ git commit -m "docs(m10): l06 http-mensajes-metodos-y-semantica"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTP request methods | httpbin.org para pruebas |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

@@ -5,7 +5,7 @@ orden: 4
 titulo: Glosario alineado al dominio
 horas: 5.0
 semana: 1
-lectura: "SRS M12 si existe"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Modelo ER / relacional — SRS M12 si existe"
 evidencia: "glosario.md"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 1: Modelo ER / relacional — SRS M12 si existe | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

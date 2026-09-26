@@ -5,7 +5,7 @@ orden: 24
 titulo: Cierre M08 y evidencias
 horas: 5.0
 semana: 6
-lectura: "Repaso P1–P3"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Proyecto autocomplete + cierre — Repaso P1–P3"
 evidencia: "checklist + indice ≥15"
 ---
 
@@ -39,10 +39,11 @@ Resuelve un medio sin notas — regístralo en bitácora.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 6: Proyecto autocomplete + cierre — Repaso P1–P3 | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

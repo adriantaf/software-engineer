@@ -62,6 +62,8 @@ git commit -m "docs(m18): l05 inventario-de-autenticacion-actual"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | A07 + Auth Cheat Sheet | M10 cookies/sesiones |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m23): l14 ingesta-corpus-tenant-a-demo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M12 | SRS políticas | ../../../producto-saas.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

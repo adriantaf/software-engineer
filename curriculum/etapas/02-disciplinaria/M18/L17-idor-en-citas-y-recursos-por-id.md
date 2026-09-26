@@ -60,6 +60,8 @@ git commit -m "docs(m18): l17 idor-en-citas-y-recursos-por-id"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | A01 | Ejemplo IDOR ficha M18 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

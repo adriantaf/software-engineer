@@ -60,6 +60,8 @@ git commit -m "docs(m18): l19 rate-limiting-en-login-y-endpoints-sensi"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Brute Force | M11 recursos |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

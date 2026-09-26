@@ -62,6 +62,8 @@ Tres comandos seguidos verificando que el JSON persiste.
 | Fuente | Qué leer |
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 11 |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

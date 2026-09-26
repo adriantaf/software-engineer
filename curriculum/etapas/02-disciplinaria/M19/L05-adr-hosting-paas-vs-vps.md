@@ -58,6 +58,8 @@ git commit -m "docs(m19): l05 adr-hosting-paas-vs-vps"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19 semana 2 | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

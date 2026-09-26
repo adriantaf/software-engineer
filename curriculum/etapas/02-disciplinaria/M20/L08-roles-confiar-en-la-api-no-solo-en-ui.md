@@ -57,6 +57,8 @@ git commit -m "docs(m20): l08 roles-confiar-en-la-api-no-solo-en-ui"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M18 | rbac-matrix | M12 roles |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

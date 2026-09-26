@@ -115,7 +115,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: texto universitario de ED estilo Joyanes (ed. ES) **o** apuntes equivalentes + implementación propia. Ver [bibliografía](../../bibliografia.md).
+Canon: texto universitario de ED estilo Joyanes (ed. ES) **o** apuntes equivalentes + implementación propia. Ver [bibliografía](../../bibliografia.md#m07-estructuras-de-datos).
 
 | Semana | Lecciones | Capítulos / foco |
 |--------|-----------|------------------|

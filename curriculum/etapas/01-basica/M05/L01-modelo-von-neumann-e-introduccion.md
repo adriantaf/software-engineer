@@ -84,6 +84,8 @@ Añade a `notas-L01.md` una tabla: término → definición → dónde lo verás
 |--------|----------|-------------|
 | Stallings | Intro + estructura/función | Tanenbaum, capítulos paralelos |
 | Plan | [Cómo estudiar](../../../como-estudiar.md) (repaso 10 min) | — |
+| Catálogo | Entrada M05 | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

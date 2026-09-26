@@ -58,6 +58,8 @@ git commit -m "docs(m16): l06 guion-de-test-de-usabilidad-15-30-min"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | NN/g | running a test | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

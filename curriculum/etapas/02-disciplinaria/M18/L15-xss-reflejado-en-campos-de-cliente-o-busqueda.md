@@ -60,6 +60,8 @@ git commit -m "docs(m18): l15 xss-reflejado-en-campos-de-cliente-o-bus"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | XSS Prevention | CSP intro semana 7 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m19): l03 compose-prod-like-api-postgres-volumenes"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docker | Compose | M11 compose |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

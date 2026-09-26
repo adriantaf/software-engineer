@@ -58,6 +58,8 @@ git commit -m "docs(m25): l18 minimizacion-en-exports-y-soporte"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | producto-saas privacidad | M23 política LLM |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

@@ -81,6 +81,8 @@ git commit -m "feat(m06): libreria final y cierre etapa basica"
 |--------|----------|
 | Ficha M06 | Criterios de dominio |
 | Tu M02 | Código real a mejorar |
+| Catálogo | [Bibliografía · M06](../../../bibliografia.md#m06-programacion-ii) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m17): l03 login-sesion-y-get-me-protegido"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTP cookies | hilo seguridad |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

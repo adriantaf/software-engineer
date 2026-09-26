@@ -62,6 +62,8 @@ Esqueleto `done <id>` con validación de id existente.
 |--------|----------|
 | *Código limpio* | Caps. 2–3 (ed. ES) |
 | Catálogo | [bibliografía](../../../bibliografia.md) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

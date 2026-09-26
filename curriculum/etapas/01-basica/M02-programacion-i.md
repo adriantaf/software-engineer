@@ -136,7 +136,7 @@ test("suma positivos", () => {
 
 ## Lecturas (mapa rápido)
 
-Canon: *Eloquent JavaScript* (trad. ES) + [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/) + inicio de *Código limpio* (ed. ES). Ver [bibliografía](../../bibliografia.md).
+Canon: *Eloquent JavaScript* (trad. ES) + [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/) + inicio de *Código limpio* (ed. ES). Ver [bibliografía](../../bibliografia.md#m02-programacion-i).
 
 | Semana | Lecciones | Capítulos / secciones | Alternativa gratis |
 |--------|-----------|----------------------|--------------------|

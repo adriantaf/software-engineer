@@ -58,6 +58,8 @@ git commit -m "docs(m16): l02 auditoria-nielsen-tres-heuristicas-profu"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | NN/g | 10 heuristics | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

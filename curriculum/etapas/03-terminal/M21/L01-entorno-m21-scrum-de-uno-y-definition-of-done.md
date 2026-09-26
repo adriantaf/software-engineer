@@ -68,6 +68,8 @@ git commit -m "docs(m21): l01 entorno-m21-scrum-de-uno-y-definition-of"
 |--------|----------|-------------|
 | Scrum Guide | 2020 ES PDF | ../../../como-estudiar.md |
 | Plan | ../../../producto-saas.md | ../../hilos/seguridad.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

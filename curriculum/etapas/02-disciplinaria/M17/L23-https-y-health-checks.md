@@ -58,6 +58,8 @@ git commit -m "docs(m17): l23 https-y-health-checks"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTPS | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

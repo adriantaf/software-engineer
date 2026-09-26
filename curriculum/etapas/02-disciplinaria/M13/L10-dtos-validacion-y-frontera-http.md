@@ -58,6 +58,8 @@ git commit -m "docs(m13): l10 dtos-validacion-y-frontera-http"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | input validation intro | srs |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

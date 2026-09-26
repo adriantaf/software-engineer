@@ -61,6 +61,8 @@ git commit -m "docs(m23): l08 primer-script-llm-y-logs-sin-pii"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Quickstart API | ../M23-ia-datos.md semana 2 |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

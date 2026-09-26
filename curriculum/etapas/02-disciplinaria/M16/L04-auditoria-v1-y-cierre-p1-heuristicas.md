@@ -58,6 +58,8 @@ git commit -m "docs(m16): l04 auditoria-v1-y-cierre-p1-heuristicas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M16-ihc.md | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

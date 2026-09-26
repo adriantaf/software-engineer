@@ -61,6 +61,8 @@ git commit -m "docs(m23): l23 readme-asistente-faq-y-limites-producto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M23-ia-datos.md proyecto | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

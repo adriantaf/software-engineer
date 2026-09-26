@@ -80,6 +80,8 @@ Tests para `validarNombreHabito` o `formatearReporte` (P2).
 | Fuente | Qué leer |
 |--------|----------|
 | Vitest | [Getting Started](https://vitest.dev/guide/) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

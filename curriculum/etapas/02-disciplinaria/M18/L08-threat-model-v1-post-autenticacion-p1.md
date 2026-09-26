@@ -62,6 +62,8 @@ git commit -m "docs(m18): l08 threat-model-v1-post-autenticacion-p1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18-seguridad.md P1 | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

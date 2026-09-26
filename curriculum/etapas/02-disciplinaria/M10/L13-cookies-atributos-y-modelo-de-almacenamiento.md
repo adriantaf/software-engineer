@@ -62,6 +62,8 @@ git commit -m "docs(m10): l13 cookies-atributos-y-modelo-de-almacenami"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTP cookies | OWASP Session Management cheat sheet (selecto) |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

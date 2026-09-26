@@ -63,6 +63,8 @@ git commit -m "docs(m21): l04 backlog-refinado-y-criterios-de-aceptaci"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Scrum Guide | Refinamiento | Ficha M21 semana 1 |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

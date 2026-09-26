@@ -5,7 +5,7 @@ orden: 22
 titulo: "Benchmark P3: nativo vs propio"
 horas: 5.0
 semana: 6
-lectura: "Metodología benchmark"
+lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Metodología benchmark"
 evidencia: "bench/ con tabla tiempos documentada"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Metodología benchmark | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

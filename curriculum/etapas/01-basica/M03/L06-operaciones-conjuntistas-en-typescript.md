@@ -76,6 +76,8 @@ Dado `U = {1..10}`, `A = pares`, `B = múltiplos de 3`, calcula a mano `|A ∩ B
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 2.2 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

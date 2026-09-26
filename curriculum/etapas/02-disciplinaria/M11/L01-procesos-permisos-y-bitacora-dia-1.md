@@ -65,6 +65,8 @@ git commit -m "docs(m11): l01 procesos-permisos-y-bitacora-dia-1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Procesos | man ps, chmod |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

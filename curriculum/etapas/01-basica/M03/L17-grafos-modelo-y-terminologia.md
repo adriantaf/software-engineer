@@ -65,6 +65,8 @@ Ejercicio de terminología del 10.1 en `grafos.md`.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 10.1–10.2 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

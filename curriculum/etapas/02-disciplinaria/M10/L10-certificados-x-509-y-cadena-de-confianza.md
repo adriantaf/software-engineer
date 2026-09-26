@@ -62,6 +62,8 @@ git commit -m "docs(m10): l10 certificados-x-509-y-cadena-de-confianza"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | Digital certificates | openssl x509 man |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

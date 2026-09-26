@@ -136,7 +136,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: memoria propia + [producto-saas](../../producto-saas.md) + [egreso](../../egreso.md). Ver [bibliografía](../../bibliografia.md).
+Canon: memoria propia + [producto-saas](../../producto-saas.md) + [egreso](../../egreso.md). Ver [bibliografía](../../bibliografia.md#m26-proyecto-integrador).
 
 | Semana | Lecciones | Lectura / relectura | Uso |
 |--------|-----------|---------------------|-----|

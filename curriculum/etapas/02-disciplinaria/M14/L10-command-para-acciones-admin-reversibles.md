@@ -58,6 +58,8 @@ git commit -m "docs(m14): l10 command-para-acciones-admin-reversibles"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Command | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

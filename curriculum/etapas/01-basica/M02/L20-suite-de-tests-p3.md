@@ -52,6 +52,8 @@ Documenta en README: `npm test` antes de cada commit de features.
 | Fuente | Qué leer |
 |--------|----------|
 | Vitest | [Matchers](https://vitest.dev/api/expect.html) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

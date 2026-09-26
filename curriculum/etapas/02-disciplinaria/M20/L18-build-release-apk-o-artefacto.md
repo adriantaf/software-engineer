@@ -57,6 +57,8 @@ git commit -m "docs(m20): l18 build-release-apk-o-artefacto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M20 P3 | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

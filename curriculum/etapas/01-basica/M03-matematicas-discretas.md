@@ -108,7 +108,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Matemáticas discretas y sus aplicaciones* — Kenneth H. Rosen (ed. ES). Si tu edición numera ±1, sigue el **título**. Catálogo: [bibliografía](../../bibliografia.md).
+Canon: *Matemáticas discretas y sus aplicaciones* — Kenneth H. Rosen (ed. ES). Si tu edición numera ±1, sigue el **título**. Catálogo: [bibliografía](../../bibliografia.md#m03-matematicas-discretas).
 
 | Semana | Lecciones | Capítulos / foco Rosen |
 |--------|-----------|-------------------------|

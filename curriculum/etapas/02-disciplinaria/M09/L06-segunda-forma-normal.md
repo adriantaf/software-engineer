@@ -5,7 +5,7 @@ orden: 6
 titulo: Segunda forma normal
 horas: 5.0
 semana: 2
-lectura: "Elmasri 2FN"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): SQL consultas (SELECT/JOIN) — Elmasri 2FN"
 evidencia: "tablas split + justificación"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 2: SQL consultas (SELECT/JOIN) — Elmasri 2FN | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

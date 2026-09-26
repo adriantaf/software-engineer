@@ -58,6 +58,8 @@ git commit -m "docs(m17): l28 tests-auth-en-ci-o-script-local-reproduc"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m15 | nota cierre | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

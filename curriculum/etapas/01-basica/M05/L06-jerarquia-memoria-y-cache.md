@@ -52,6 +52,8 @@ Párrafo: ¿por qué “más hilos” no siempre acelera si compiten por caché/
 | Fuente | Qué leer |
 |--------|----------|
 | Stallings | Jerarquía, caché, localidad |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

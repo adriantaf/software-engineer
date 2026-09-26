@@ -61,6 +61,8 @@ git commit -m "docs(m13): l01 trust-boundaries-y-adr-001"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | hilo seguridad | plantilla ADR M01 |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

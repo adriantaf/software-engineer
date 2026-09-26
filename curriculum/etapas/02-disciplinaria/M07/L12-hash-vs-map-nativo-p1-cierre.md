@@ -5,7 +5,7 @@ orden: 12
 titulo: Hash vs Map nativo (P1 cierre)
 horas: 5.0
 semana: 3
-lectura: "MDN Map/Set"
+lectura: "Joyanes / texto univ. ED (ed. ES): Tablas hash (función, colisiones, load factor) — MDN Map/Set"
 evidencia: "P1 completa: lista,pila,cola,hash + tabla comparativa nativo"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 3: Tablas hash (función, colisiones, load factor) — MDN Map/Set | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

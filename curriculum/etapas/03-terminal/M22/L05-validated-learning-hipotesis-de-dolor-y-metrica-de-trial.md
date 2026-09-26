@@ -61,6 +61,8 @@ git commit -m "docs(m22): l05 validated-learning-hipotesis-de-dolor-y-"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ries | Validated learning | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

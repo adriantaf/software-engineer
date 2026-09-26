@@ -61,6 +61,8 @@ git commit -m "docs(m22): l06 demo-1-conversacion-real-documentada"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md ejemplo demo | ../../../como-estudiar.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

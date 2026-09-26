@@ -5,7 +5,7 @@ orden: 6
 titulo: Cola (Queue) y cola circular
 horas: 5.0
 semana: 2
-lectura: "ED: colas FIFO; cola circular para evitar desplazamientos"
+lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — ED: colas FIFO; cola circular para evitar desplazamientos"
 evidencia: "Queue<T> + tests; opcional CircularQueue"
 ---
 
@@ -43,9 +43,11 @@ Capítulo colas.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — ED: colas FIFO; cola circular para evitar desplazamientos | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

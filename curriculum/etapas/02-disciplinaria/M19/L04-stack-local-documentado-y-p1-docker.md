@@ -59,6 +59,8 @@ git commit -m "docs(m19): l04 stack-local-documentado-y-p1-docker"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19 P1 | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

@@ -57,6 +57,8 @@ git commit -m "docs(m19): l15 runbook-completo-de-produccion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | proyecto M19 | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

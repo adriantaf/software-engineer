@@ -63,6 +63,8 @@ git commit -m "docs(m21): l02 milestones-y-cinco-issues-reales-del-pro"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Scrum Guide | Artefactos | GitHub Projects docs |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

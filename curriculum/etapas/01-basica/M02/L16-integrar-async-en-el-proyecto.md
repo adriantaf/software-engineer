@@ -46,6 +46,8 @@ Bitácora: fetch usado, async explicado a un compañero imaginario en 3 frases.
 | Fuente | Qué leer |
 |--------|----------|
 | *Eloquent JavaScript* | Repaso cap. 11 |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

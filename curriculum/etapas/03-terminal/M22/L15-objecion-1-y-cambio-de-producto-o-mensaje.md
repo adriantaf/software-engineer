@@ -61,6 +61,8 @@ git commit -m "docs(m22): l15 objecion-1-y-cambio-de-producto-o-mensaj"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M21 | projects/m21-proyectos | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

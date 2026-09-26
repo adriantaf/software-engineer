@@ -63,6 +63,8 @@ git commit -m "docs(m10): l08 http-2-intuicion-y-curl-avanzado"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTP/2 | curl -w format |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

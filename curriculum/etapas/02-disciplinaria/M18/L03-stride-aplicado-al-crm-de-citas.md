@@ -62,6 +62,8 @@ git commit -m "docs(m18): l03 stride-aplicado-al-crm-de-citas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | STRIDE | Top 10 overview ES |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

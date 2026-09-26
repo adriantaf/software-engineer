@@ -5,7 +5,7 @@ orden: 22
 titulo: Implementación trie o índice
 horas: 5.0
 semana: 6
-lectura: "CLRS no aplica"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Proyecto autocomplete + cierre — CLRS no aplica"
 evidencia: "autocomplete/ código + tests"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 6: Proyecto autocomplete + cierre — CLRS no aplica | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

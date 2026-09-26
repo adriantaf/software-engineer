@@ -58,6 +58,8 @@ git commit -m "docs(m12): l10 requisitos-funcionales-en-srs"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | funcionales | stories.md |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m22): l18 demos-9-10-cerrar-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md P2 | ../../../como-estudiar.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

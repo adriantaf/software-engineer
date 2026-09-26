@@ -63,6 +63,8 @@ git commit -m "docs(m21): l10 riesgos-de-seguridad-privacidad-y-multi-"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../hilos/seguridad.md | ../M18-seguridad.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

@@ -109,7 +109,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *UML y patrones* — Larman (ed. ES) **o** guía UML en español + ADRs. Apoyo: *Código limpio* (módulos). Ver [bibliografía](../../bibliografia.md).
+Canon: *UML y patrones* — Larman (ed. ES) **o** guía UML en español + ADRs. Apoyo: *Código limpio* (módulos). Ver [bibliografía](../../bibliografia.md#m13-analisis-y-diseno).
 
 | Semana | Lecciones | Capítulos / secciones | Alternativa |
 |--------|-----------|----------------------|-------------|

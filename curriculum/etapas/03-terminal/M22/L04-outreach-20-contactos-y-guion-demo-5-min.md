@@ -63,6 +63,8 @@ git commit -m "docs(m22): l04 outreach-20-contactos-y-guion-demo-5-min"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M19 | URL staging | ../M19-nube-devops.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

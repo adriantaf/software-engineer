@@ -61,6 +61,8 @@ git commit -m "docs(m23): l07 proveedor-llm-auth-modelo-y-costos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Pricing + limits docs | ../../../como-estudiar.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

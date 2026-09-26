@@ -91,7 +91,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: **docs oficiales** de los tres candidatos + notas de la matriz. Ver [bibliografía](../../bibliografia.md).
+Canon: **docs oficiales** de los tres candidatos + notas de la matriz. Ver [bibliografía](../../bibliografia.md#m24-tecnologias-emergentes).
 
 | Semana | Lecciones | Lectura | Entrega |
 |--------|-----------|---------|---------|

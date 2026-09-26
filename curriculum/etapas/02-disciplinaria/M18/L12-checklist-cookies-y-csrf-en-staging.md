@@ -59,6 +59,8 @@ git commit -m "docs(m18): l12 checklist-cookies-y-csrf-en-staging"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18 semana 3 | M19 ambientes futuro |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

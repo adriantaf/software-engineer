@@ -58,6 +58,8 @@ git commit -m "docs(m17): l27 rate-limit-en-login"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Authentication | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

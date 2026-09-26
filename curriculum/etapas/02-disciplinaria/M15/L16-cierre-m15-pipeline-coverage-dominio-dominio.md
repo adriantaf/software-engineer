@@ -58,6 +58,8 @@ git commit -m "docs(m15): l16 cierre-m15-pipeline-coverage-dominio-dom"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M15-vv-calidad.md | ../M17-aplicaciones-web.md |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

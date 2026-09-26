@@ -61,6 +61,8 @@ git commit -m "docs(m23): l06 set-gold-de-10-preguntas-faq-del-icp"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M22 | projects/m22-bektor | ../../../producto-saas.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

@@ -81,6 +81,8 @@ Al final de `semana-0001.md`, lista 3 resultados observables (ej.: “entorno.md
 |--------|----------|
 | Plan | [Cómo estudiar](../../../como-estudiar.md) |
 | Plan | [Filosofía](../../../filosofia.md) (opcional, 10–15 min) |
+| Catálogo | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
+
 
 ## Hecho cuando
 

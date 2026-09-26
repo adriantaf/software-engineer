@@ -78,6 +78,8 @@ git commit -m "docs(m03): tres demostraciones introductorias"
 |--------|----------|
 | Rosen | Cap. 1.6–1.7 (métodos de prueba) |
 | Apuntes | `leyes-logicas.md` (contrapositiva) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

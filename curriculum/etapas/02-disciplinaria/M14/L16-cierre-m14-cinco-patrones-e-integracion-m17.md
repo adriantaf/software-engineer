@@ -58,6 +58,8 @@ git commit -m "docs(m14): l16 cierre-m14-cinco-patrones-e-integracion-"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M14-patrones.md | ../M17-aplicaciones-web.md |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

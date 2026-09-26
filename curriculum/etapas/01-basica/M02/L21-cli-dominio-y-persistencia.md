@@ -61,6 +61,8 @@ Diagrama texto: CLI → dominio → io.
 | Fuente | Qué leer |
 |--------|----------|
 | *Código limpio* | Repaso cap. 3 (funciones pequeñas) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

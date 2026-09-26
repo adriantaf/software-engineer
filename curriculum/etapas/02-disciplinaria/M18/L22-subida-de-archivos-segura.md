@@ -60,6 +60,8 @@ git commit -m "docs(m18): l22 subida-de-archivos-segura"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | File Upload | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

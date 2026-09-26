@@ -62,6 +62,8 @@ Párrafo en README del proyecto: por qué BFS usa cola y complejidad `O(V+E)` co
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 10.3 (BFS) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

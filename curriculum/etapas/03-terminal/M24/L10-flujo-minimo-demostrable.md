@@ -60,6 +60,8 @@ git commit -m "docs(m24): l10 flujo-minimo-demostrable"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | API usada en spike | threat-sketch |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

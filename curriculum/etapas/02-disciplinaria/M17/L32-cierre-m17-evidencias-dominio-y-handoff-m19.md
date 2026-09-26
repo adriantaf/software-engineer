@@ -58,6 +58,8 @@ git commit -m "docs(m17): l32 cierre-m17-evidencias-dominio-y-handoff-"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M17-aplicaciones-web.md | ../M19-nube-devops.md |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

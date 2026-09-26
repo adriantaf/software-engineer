@@ -62,6 +62,8 @@ git commit -m "docs(m14): l01 entorno-m14-y-strategy-de-precios"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Strategy | GoF creacionales intro |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ git commit -m "docs(m19): l06 deploy-staging-con-https"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Proveedor | HTTPS docs | M10 TLS |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

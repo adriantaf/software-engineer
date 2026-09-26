@@ -61,6 +61,8 @@ git commit -m "docs(m11): l09 sistema-de-archivos-inodos-y-espacio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Sistema de archivos | man df/du |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

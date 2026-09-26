@@ -59,6 +59,8 @@ git commit -m "docs(m05): mediciones semana 2 memoria y disco"
 |--------|----------|
 | Man pages | `free`, `df` |
 | Tus L05–L07 | Apuntes en `projects/m05-como-corre/` |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

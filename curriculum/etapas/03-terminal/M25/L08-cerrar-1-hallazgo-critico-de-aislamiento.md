@@ -60,6 +60,8 @@ git commit -m "docs(m25): l08 cerrar-1-hallazgo-critico-de-aislamiento"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Access control testing | M18 IDOR |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

@@ -63,6 +63,8 @@ git commit -m "docs(m10): l09 tls-handshake-y-que-protege-en-transito"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Tanenbaum | TLS intro | MDN Transport Layer Security |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

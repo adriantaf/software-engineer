@@ -58,6 +58,8 @@ git commit -m "docs(m13): l17 indice-del-paquete-de-diseno"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | proyecto M13 | srs-v1 |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

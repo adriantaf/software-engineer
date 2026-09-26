@@ -58,6 +58,8 @@ git commit -m "docs(m17): l14 flujo-login-logout-en-ui"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m16 | estados error | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m17): l13 scaffold-front-y-rutas-protegidas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | fetch | m16 prototipo |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

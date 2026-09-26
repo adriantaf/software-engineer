@@ -58,6 +58,8 @@ git commit -m "docs(m17): l24 smoke-test-post-deploy"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m15 | regresión | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

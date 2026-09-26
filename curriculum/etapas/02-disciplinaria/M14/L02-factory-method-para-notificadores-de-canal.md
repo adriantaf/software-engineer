@@ -58,6 +58,8 @@ git commit -m "docs(m14): l02 factory-method-para-notificadores-de-can"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Factory Method | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

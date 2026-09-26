@@ -61,6 +61,8 @@ git commit -m "docs(m23): l17 endpoint-faq-preview-protegido"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M18 | authZ | ../M17-aplicaciones-web.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

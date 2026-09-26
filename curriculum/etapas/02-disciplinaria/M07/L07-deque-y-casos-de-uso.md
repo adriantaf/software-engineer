@@ -5,7 +5,7 @@ orden: 7
 titulo: Deque y casos de uso
 horas: 5.0
 semana: 2
-lectura: "ED: deque; aplicaciones (sliding window, BFS 0-1 intro)"
+lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — ED: deque; aplicaciones (sliding window, BFS 0-1 intro)"
 evidencia: "Deque mínimo o cola doble + 3 tests"
 ---
 
@@ -43,9 +43,11 @@ Sección deque / variantes.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — ED: deque; aplicaciones (sliding window, BFS 0-1 intro) | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

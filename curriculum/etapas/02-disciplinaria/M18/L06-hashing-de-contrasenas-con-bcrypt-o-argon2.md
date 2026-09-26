@@ -65,6 +65,8 @@ git commit -m "docs(m18): l06 hashing-de-contrasenas-con-bcrypt-o-argo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Password Storage | Ejemplo ficha M18 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

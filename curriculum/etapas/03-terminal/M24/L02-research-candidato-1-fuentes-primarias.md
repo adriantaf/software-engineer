@@ -60,6 +60,8 @@ git commit -m "docs(m24): l02 research-candidato-1-fuentes-primarias"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Docs oficiales candidato 1 | Changelog seguridad |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

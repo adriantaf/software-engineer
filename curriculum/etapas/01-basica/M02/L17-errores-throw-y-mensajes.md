@@ -59,6 +59,8 @@ Imprime `AppError` como `codigo: mensaje` en stderr.
 | Fuente | Qué leer |
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 8 |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

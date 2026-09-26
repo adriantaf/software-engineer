@@ -92,6 +92,8 @@ git commit -am "feat(m04): Bayes intro y cierre semana 1"
 |--------|------|
 | Walpole | Cap. 2 — Bayes |
 | OpenStax | Ch. 3 — Bayes’ theorem |
+| Catálogo | [Bibliografía · M04](../../../bibliografia.md#m04-probabilidad-y-estadistica) |
+
 
 ## Hecho cuando
 

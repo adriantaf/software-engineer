@@ -119,7 +119,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: docs API LLM elegida + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+Canon: docs API LLM elegida + [producto-saas](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md#m23-ia-datos).
 
 | Semana | Lecciones | Lectura | Enfoque |
 |--------|-----------|---------|---------|

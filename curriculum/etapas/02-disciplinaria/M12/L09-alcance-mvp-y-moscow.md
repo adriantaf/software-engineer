@@ -58,6 +58,8 @@ git commit -m "docs(m12): l09 alcance-mvp-y-moscow"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | producto-saas.md | — |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m14): l07 facade-para-el-flujo-agendar-cita"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m13-diseno | secuencia crear cita | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

@@ -119,7 +119,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../../bibliografia.md).
+Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../../bibliografia.md#m22-emprendimiento).
 
 | Semana | Lecciones | Capítulos (por tema de tu ed.) | Práctica |
 |--------|-----------|-------------------------------|----------|

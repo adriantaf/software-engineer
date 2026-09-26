@@ -5,7 +5,7 @@ orden: 2
 titulo: Notación asintótica Θ, O y Ω
 horas: 5.0
 semana: 1
-lectura: "CLRS cap. crecimiento de funciones"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Crecimiento asintótico / notación Big-O — CLRS cap. crecimiento de funciones"
 evidencia: "notacion.md + 5 funciones clasificadas"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 1: Crecimiento asintótico / notación Big-O — CLRS cap. crecimiento de funciones | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

@@ -60,6 +60,8 @@ Nota en bitácora: horas, katas, un error de tipos que te costó.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 3 |
 | TS Handbook | [More on Functions](https://www.typescriptlang.org/docs/handbook/2/functions.html) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

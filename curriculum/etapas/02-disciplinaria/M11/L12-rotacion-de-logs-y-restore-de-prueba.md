@@ -58,6 +58,8 @@ git commit -m "docs(m11): l12 rotacion-de-logs-y-restore-de-prueba"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M11 P2 | — |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

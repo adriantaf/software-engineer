@@ -58,6 +58,8 @@ git commit -m "docs(m17): l04 cierre-semana-1-suite-auth-p1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M17-aplicaciones-web.md | m15 CI |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

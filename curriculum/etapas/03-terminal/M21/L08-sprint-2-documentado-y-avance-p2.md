@@ -62,6 +62,8 @@ git commit -m "docs(m21): l08 sprint-2-documentado-y-avance-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Scrum Guide | Retro | ../M22-emprendimiento.md handoff |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

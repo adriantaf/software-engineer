@@ -61,6 +61,8 @@ git commit -m "docs(m23): l20 test-automatizado-cross-tenant-en-ci"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M15 | ../M15-vv-calidad.md | GitHub Actions |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

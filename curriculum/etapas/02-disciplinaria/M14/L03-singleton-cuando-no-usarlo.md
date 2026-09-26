@@ -58,6 +58,8 @@ git commit -m "docs(m14): l03 singleton-cuando-no-usarlo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Singleton | Ficha M14 semana 1 |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

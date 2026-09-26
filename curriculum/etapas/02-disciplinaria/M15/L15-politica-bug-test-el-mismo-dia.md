@@ -58,6 +58,8 @@ git commit -m "docs(m15): l15 politica-bug-test-el-mismo-dia"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Código limpio | pruebas | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

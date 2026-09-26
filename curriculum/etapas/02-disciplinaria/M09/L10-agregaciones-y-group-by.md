@@ -5,7 +5,7 @@ orden: 10
 titulo: Agregaciones y GROUP BY
 horas: 5.0
 semana: 3
-lectura: "Elmasri"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Índices y EXPLAIN — Elmasri"
 evidencia: "sql/reportes-agregados.sql"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 3: Índices y EXPLAIN — Elmasri | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

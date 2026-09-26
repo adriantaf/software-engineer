@@ -52,6 +52,8 @@ Un ejercicio del libro que pida reescribir una expresión conjuntista; solución
 |--------|----------|
 | Rosen | Cap. 2.2 (leyes) |
 | Apuntes | `leyes-logicas.md` (paralelo De Morgan) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

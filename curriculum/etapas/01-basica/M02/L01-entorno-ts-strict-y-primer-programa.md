@@ -104,6 +104,8 @@ Lee *Eloquent JavaScript* **capítulo 1**. Resuelve **2 ejercicios** en `src/ej-
 |--------|----------|-------------|
 | *Eloquent JavaScript* | Cap. 1 | https://eloquentjavascript.net/ |
 | TS Handbook | [Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html) (intro) | Misma URL EN |
+| Catálogo | Entrada M02 | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

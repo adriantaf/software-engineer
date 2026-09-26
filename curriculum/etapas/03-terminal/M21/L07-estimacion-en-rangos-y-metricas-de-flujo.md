@@ -63,6 +63,8 @@ git commit -m "docs(m21): l07 estimacion-en-rangos-y-metricas-de-flujo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M21-admin-proyectos.md | Scrum Guide DoD |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

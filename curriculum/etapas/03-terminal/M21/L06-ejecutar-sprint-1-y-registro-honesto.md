@@ -63,6 +63,8 @@ git commit -m "docs(m21): l06 ejecutar-sprint-1-y-registro-honesto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Scrum Guide | Daily + Review | ../../../como-estudiar.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

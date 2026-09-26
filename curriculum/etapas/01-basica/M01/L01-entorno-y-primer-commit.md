@@ -96,6 +96,8 @@ Anota **5 comandos o ideas nuevas** al final de `entorno.md` (o en una sección 
 |--------|----------|-------------|
 | *Pro Git* | Cap. 1 | Misma [URL en español](https://git-scm.com/book/es/v2) |
 | Este plan | [Cómo estudiar](../../../como-estudiar.md) (una pasada) | — |
+| Catálogo | Entrada M01 | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
+
 
 ## Hecho cuando
 

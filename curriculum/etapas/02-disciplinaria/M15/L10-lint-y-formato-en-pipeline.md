@@ -58,6 +58,8 @@ git commit -m "docs(m15): l10 lint-y-formato-en-pipeline"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M15-vv-calidad.md | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

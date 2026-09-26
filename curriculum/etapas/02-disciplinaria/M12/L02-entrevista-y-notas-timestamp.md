@@ -58,6 +58,8 @@ git commit -m "docs(m12): l02 entrevista-y-notas-timestamp"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | secciones contexto | — |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

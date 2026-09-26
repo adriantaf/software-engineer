@@ -59,6 +59,8 @@ Lista qué archivos forman la evidencia **P2** hasta ahora (L09–L10).
 | Fuente | Qué leer |
 |--------|----------|
 | Stallings | Enteros, complemento a dos |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

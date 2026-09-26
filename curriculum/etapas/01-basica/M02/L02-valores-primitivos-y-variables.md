@@ -64,6 +64,8 @@ EJ cap. 2 + *Basic Types* del Handbook.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 2 |
 | TS Handbook | [Basic Types](https://www.typescriptlang.org/docs/handbook/2/basic-types.html) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

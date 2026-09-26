@@ -58,6 +58,8 @@ git commit -m "docs(m14): l11 cierre-p1-strategy-observer-y-factory"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M14-patrones.md | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

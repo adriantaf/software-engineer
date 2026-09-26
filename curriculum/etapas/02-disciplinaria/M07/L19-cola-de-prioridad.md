@@ -5,7 +5,7 @@ orden: 19
 titulo: Cola de prioridad
 horas: 5.0
 semana: 5
-lectura: "ED: aplicaciones heap"
+lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — ED: aplicaciones heap"
 evidencia: "PriorityQueue API + 3 casos"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — ED: aplicaciones heap | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

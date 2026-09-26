@@ -101,6 +101,8 @@ git commit -m "feat(m03): tablas de verdad e implicación en TS"
 |--------|----------|-------------|
 | Rosen | Cap. 1.1–1.2 (proposiciones, conectivos) | Misma edición ES; si el número difiere, busca “Lógica proposicional” |
 | Plan | [Cómo estudiar](../../../como-estudiar.md) (regla 40/30/30) | — |
+| Catálogo | Entrada M03 | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

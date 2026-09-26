@@ -63,6 +63,8 @@ git commit -m "docs(m21): l11 tablero-vivo-sprints-3-4-y-dod-en-practi"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md | ../../../producto-saas.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

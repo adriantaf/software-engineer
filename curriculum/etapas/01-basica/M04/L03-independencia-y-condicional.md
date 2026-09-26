@@ -95,6 +95,8 @@ git commit -am "docs(m04): condicional e independencia L03"
 |--------|------|
 | Walpole | Cap. 2 — conditional probability |
 | OpenStax | Ch. 3 — conditional / independent events |
+| Catálogo | [Bibliografía · M04](../../../bibliografia.md#m04-probabilidad-y-estadistica) |
+
 
 ## Hecho cuando
 

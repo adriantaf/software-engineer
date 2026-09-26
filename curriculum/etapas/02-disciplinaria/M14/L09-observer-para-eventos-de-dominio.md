@@ -58,6 +58,8 @@ git commit -m "docs(m14): l09 observer-para-eventos-de-dominio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Observer | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

@@ -63,6 +63,8 @@ git commit -m "docs(m18): l25 npm-audit-y-cadena-de-dependencias"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | A06 | npm audit docs |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

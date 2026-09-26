@@ -66,6 +66,8 @@ git commit -m "docs(m22): l01 lean-startup-aplicado-a-agenda-ops-carpe"
 |--------|----------|-------------|
 | Ries | Lean Startup inicio | ../../../producto-saas.md |
 | Ficha | ../M22-emprendimiento.md | ../../../como-estudiar.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

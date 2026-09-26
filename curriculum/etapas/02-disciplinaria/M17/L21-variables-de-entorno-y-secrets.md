@@ -58,6 +58,8 @@ git commit -m "docs(m17): l21 variables-de-entorno-y-secrets"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Secrets management | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

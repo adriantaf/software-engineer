@@ -58,6 +58,8 @@ git commit -m "docs(m14): l05 adapter-para-api-de-calendario-externo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Adapter | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

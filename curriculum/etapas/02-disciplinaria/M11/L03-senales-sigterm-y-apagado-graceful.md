@@ -58,6 +58,8 @@ git commit -m "docs(m11): l03 senales-sigterm-y-apagado-graceful"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Señales | Node process.on('SIGTERM') |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

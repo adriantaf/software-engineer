@@ -57,6 +57,8 @@ git commit -m "docs(m20): l17 firma-android-y-keystore-fuera-del-repo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | release build | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

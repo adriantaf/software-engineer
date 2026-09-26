@@ -60,6 +60,8 @@ git commit -m "docs(m24): l05 matriz-de-adopcion-y-pesos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Ejemplo matriz M24 | OWASP threat sketch |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

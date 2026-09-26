@@ -57,6 +57,8 @@ git commit -m "docs(m20): l12 deep-link-opcional-a-una-cita"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | deep linking | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

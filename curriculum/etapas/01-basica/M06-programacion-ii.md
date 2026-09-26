@@ -108,7 +108,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Código limpio* (Martin, ed. ES) + *El programador pragmático* (Hunt & Thomas, ed. ES) + [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). Catálogo: [bibliografía](../../bibliografia.md).
+Canon: *Código limpio* (Martin, ed. ES) + *El programador pragmático* (Hunt & Thomas, ed. ES) + [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html). Catálogo: [bibliografía](../../bibliografia.md#m06-programacion-ii).
 
 | Semana | Lecciones | Capítulos / secciones |
 |--------|-----------|----------------------|

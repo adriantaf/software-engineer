@@ -60,6 +60,8 @@ git commit -m "docs(m24): l03 research-candidatos-2-y-3"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Docs 2 y 3 | Issues conocidos GitHub |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

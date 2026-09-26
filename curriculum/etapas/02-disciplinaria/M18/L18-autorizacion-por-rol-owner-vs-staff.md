@@ -60,6 +60,8 @@ git commit -m "docs(m18): l18 autorizacion-por-rol-owner-vs-staff"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | SRS | M12 roles | OWASP A01 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

@@ -94,6 +94,8 @@ git commit -m "feat(m04): eventos y dado simulado L02"
 |--------|------|
 | Walpole | Cap. 2 — axiomas y reglas |
 | OpenStax | Ch. 3 — sets y probability rules |
+| Catálogo | [Bibliografía · M04](../../../bibliografia.md#m04-probabilidad-y-estadistica) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m23): l11 prompt-v2-iteracion-medida"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Prompt engineering tips | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

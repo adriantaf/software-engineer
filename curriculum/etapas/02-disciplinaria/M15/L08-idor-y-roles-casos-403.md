@@ -58,6 +58,8 @@ git commit -m "docs(m15): l08 idor-y-roles-casos-403"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Hilo | seguridad.md | m12 RNF |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

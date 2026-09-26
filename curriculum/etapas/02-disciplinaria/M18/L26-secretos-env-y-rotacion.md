@@ -62,6 +62,8 @@ git commit -m "docs(m18): l26 secretos-env-y-rotacion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Secrets | M19 secrets-inventory |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

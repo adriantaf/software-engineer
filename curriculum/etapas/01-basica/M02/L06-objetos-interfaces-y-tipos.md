@@ -70,6 +70,8 @@ Dos katas más; apunta total hacia 12.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 4 (objetos) |
 | TS Handbook | [Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

@@ -5,7 +5,7 @@ orden: 24
 titulo: Cierre M07 y evidencias
 horas: 5.0
 semana: 6
-lectura: "Repaso total ED"
+lectura: "Joyanes / texto univ. ED (ed. ES): Grafos (repaso M03) + benchmarks + README — Repaso total ED"
 evidencia: "bitácora + checklist dominio + progress"
 ---
 
@@ -50,9 +50,11 @@ Solo lecciones con “Hecho cuando” cumplido. Commit `docs(m07): cierre materi
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 6: Grafos (repaso M03) + benchmarks + README — Repaso total ED | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

@@ -81,6 +81,8 @@ Responde al final del archivo:
 |--------|----------|
 | Stallings | CPU, ciclo de instrucción, registros |
 | Opcional | Video corto de simulador educativo (solo si cierras con tu diagrama) |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

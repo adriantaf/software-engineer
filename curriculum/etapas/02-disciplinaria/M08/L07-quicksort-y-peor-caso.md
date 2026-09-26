@@ -5,7 +5,7 @@ orden: 7
 titulo: Quicksort y peor caso
 horas: 5.0
 semana: 2
-lectura: "CLRS quicksort"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Divide y vencerás — CLRS quicksort"
 evidencia: "sorts/quick.ts + caso O(n²)"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 2: Divide y vencerás — CLRS quicksort | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

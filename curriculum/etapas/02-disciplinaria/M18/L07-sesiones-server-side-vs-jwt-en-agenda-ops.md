@@ -62,6 +62,8 @@ git commit -m "docs(m18): l07 sesiones-server-side-vs-jwt-en-agenda-op"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M13 | adr/005-auth si existe | M10 L14 sesiones |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

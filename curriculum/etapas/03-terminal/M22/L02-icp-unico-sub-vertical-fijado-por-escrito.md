@@ -61,6 +61,8 @@ git commit -m "docs(m22): l02 icp-unico-sub-vertical-fijado-por-escrit"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | ../M12-requerimientos.md design partner |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

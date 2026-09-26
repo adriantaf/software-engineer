@@ -60,6 +60,8 @@ git commit -m "docs(m25): l07 automatizar-test-cross-tenant-en-ci"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Access control testing | M18 IDOR |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m10): l18 cliente-y-servidor-tcp-minimo-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Node.js | net module | Tanenbaum TCP |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

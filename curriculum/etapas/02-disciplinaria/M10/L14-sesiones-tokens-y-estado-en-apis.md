@@ -58,6 +58,8 @@ git commit -m "docs(m10): l14 sesiones-tokens-y-estado-en-apis"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | Web Storage API | OAuth 2.0 overview (no implementar aún) |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

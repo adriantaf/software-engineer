@@ -5,7 +5,7 @@ orden: 3
 titulo: Lista doble y operaciones indexadas
 horas: 5.0
 semana: 1
-lectura: "ED: listas doblemente enlazadas; eliminación O(1) con referencia al nodo"
+lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — ED: listas doblemente enlazadas; eliminación O(1) con referencia al nodo"
 evidencia: "DoublyLinkedList + deleteByValue; tests de borde"
 ---
 
@@ -43,9 +43,11 @@ Sección listas dobles del texto.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — ED: listas doblemente enlazadas; eliminación O(1) con referencia al nodo | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

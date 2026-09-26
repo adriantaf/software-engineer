@@ -72,6 +72,8 @@ Lista 5 comandos/flags del cap. 2 que no usabas (ej. `git log --stat`, `git rm`,
 | *Pro Git* | **Cap. 2** | [ES](https://git-scm.com/book/es/v2) |
 
 **Regla M01:** no pases al cap. 4 (servidor remoto) todavía. Remotos cuando uses GitHub de verdad en el flujo diario.
+| Catálogo | Entrada M01 | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m13): l12 boundaries-actualizados-y-amenazas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Hilo | seguridad | M10 amenazas |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

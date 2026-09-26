@@ -58,6 +58,8 @@ git commit -m "docs(m16): l12 cierre-m16-handoff-m17-y-criterios-domin"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M16-ihc.md | ../M17-aplicaciones-web.md |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

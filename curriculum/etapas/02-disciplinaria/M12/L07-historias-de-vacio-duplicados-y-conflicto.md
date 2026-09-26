@@ -58,6 +58,8 @@ git commit -m "docs(m12): l07 historias-de-vacio-duplicados-y-conflict"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | reglas negocio | — |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

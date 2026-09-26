@@ -62,6 +62,8 @@ git commit -m "docs(m24): l04 cierre-research-semana-1-y-backlog-m21"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Práctica P1 M24 | M21 roadmap |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

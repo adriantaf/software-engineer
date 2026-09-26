@@ -61,6 +61,8 @@ git commit -m "docs(m17): l01 scaffold-agenda-ops-api-db-y-stack-md"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m13-diseno | endpoints.md | m09 esquema |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

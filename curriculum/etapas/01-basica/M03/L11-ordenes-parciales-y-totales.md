@@ -65,6 +65,8 @@ Test: relación “divide” en `{2,4,6,12}`; verifica antisimétrica y transiti
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 9.6 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

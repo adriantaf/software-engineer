@@ -110,6 +110,8 @@ Walpole **cap. 2** (eventos, probabilidad) hasta reglas básicas, o OpenStax **C
 | Walpole | Cap. 2 — introducción y frecuencia relativa |
 | OpenStax | Ch. 3 — Probability Topics (primeras secciones) |
 | Plan | [Ficha M04](../M04-probabilidad-estadistica.md) — objetivos |
+| Catálogo | [Bibliografía · M04](../../../bibliografia.md#m04-probabilidad-y-estadistica) |
+
 
 ## Hecho cuando
 

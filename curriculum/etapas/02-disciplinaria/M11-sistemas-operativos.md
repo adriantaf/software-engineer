@@ -100,7 +100,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES). Catálogo: [bibliografía](../../bibliografia.md).
+Canon: *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES). Catálogo: [bibliografía](../../bibliografia.md#m11-sistemas-operativos).
 
 | Semana | Lecciones | Capítulos (por tema) | Alternativa / práctica |
 |--------|-----------|----------------------|-------------------------|

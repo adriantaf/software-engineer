@@ -5,7 +5,7 @@ orden: 1
 titulo: Entorno del proyecto y arrays dinámicos
 horas: 5.0
 semana: 1
-lectura: "ED Joyanes (o equivalente): arrays estáticos/dinámicos, amortizado"
+lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — ED Joyanes (o equivalente): arrays estáticos/dinámicos, amortizado"
 evidencia: "projects/m07-estructuras/ con Vitest, DynamicArray + 5 tests"
 ---
 
@@ -51,10 +51,11 @@ Lee el capítulo de **arrays** de tu texto ED. Commit: `feat(m07): dynamic array
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer | Alternativa |
-|--------|----------|-------------|
-| Texto ED (Joyanes u otro) | Arrays: operaciones y costos | Implementación + tabla propia |
-| MDN | [`Array`](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array) como contraste | Solo lectura |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — ED Joyanes (o equivalente): arrays estáticos/dinámicos, amortizado | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m17): l05 modelo-de-dominio-citas-clientes-y-servi"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12-srs | RF citas | m13 clases |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

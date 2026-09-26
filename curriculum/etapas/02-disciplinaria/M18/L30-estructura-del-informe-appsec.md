@@ -60,6 +60,8 @@ git commit -m "docs(m18): l30 estructura-del-informe-appsec"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | proyecto M18 | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

@@ -69,6 +69,8 @@ Ejecuta varias veces. En `es-y-buses.md`, anota: ¿qué E/S ocurre? ¿CPU al 100
 |--------|----------|
 | Stallings | Buses + entrada/salida |
 | Plan | Man `read(2)` o docs Node `fs` (10 min, conceptual) |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

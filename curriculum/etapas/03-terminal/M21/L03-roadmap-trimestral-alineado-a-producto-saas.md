@@ -65,6 +65,8 @@ git commit -m "docs(m21): l03 roadmap-trimestral-alineado-a-producto-s"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | ../M21-admin-proyectos.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

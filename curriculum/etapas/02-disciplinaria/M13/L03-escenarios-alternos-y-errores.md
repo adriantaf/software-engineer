@@ -58,6 +58,8 @@ git commit -m "docs(m13): l03 escenarios-alternos-y-errores"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Larman | escenarios | stories errores |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

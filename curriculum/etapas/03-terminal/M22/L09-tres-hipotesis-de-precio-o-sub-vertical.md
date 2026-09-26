@@ -61,6 +61,8 @@ git commit -m "docs(m22): l09 tres-hipotesis-de-precio-o-sub-vertical"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | Competidores locales (observación) |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

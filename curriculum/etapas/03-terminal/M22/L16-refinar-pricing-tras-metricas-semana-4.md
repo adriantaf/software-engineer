@@ -61,6 +61,8 @@ git commit -m "docs(m22): l16 refinar-pricing-tras-metricas-semana-4"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M23 | ../M23-ia-datos.md | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

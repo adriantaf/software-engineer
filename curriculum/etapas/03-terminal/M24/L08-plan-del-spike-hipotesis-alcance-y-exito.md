@@ -62,6 +62,8 @@ git commit -m "docs(m24): l08 plan-del-spike-hipotesis-alcance-y-exito"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Semana 3 spike | P2 matriz |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

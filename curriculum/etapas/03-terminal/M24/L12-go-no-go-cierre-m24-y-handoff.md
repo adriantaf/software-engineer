@@ -60,6 +60,8 @@ git commit -m "docs(m24): l12 go-no-go-cierre-m24-y-handoff"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Criterios dominio M24 | M26 alcance |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

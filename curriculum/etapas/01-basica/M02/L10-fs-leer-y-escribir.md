@@ -86,6 +86,8 @@ Lee `fs/promises` y `path` en la documentación oficial de Node.
 |--------|----------|
 | Node.js | [fs/promises](https://nodejs.org/api/fs.html#promises-api) |
 | Node.js | [path](https://nodejs.org/api/path.html) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

@@ -5,7 +5,7 @@ orden: 1
 titulo: PostgreSQL local y carpeta de evidencia
 horas: 5.0
 semana: 1
-lectura: "Elmasri: intro SGBD"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Modelo ER / relacional — Elmasri: intro SGBD"
 evidencia: "README conexión + docker opcional"
 ---
 
@@ -45,10 +45,11 @@ Usuario sin superuser; `sql/citas-con-cliente.sql`; commit `feat(m09): esquema i
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 1: Modelo ER / relacional — Elmasri: intro SGBD | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

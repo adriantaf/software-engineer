@@ -60,6 +60,8 @@ git commit -m "docs(m18): l23 deserializacion-y-json-peligroso"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | API Security Top 10 | Input validation |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

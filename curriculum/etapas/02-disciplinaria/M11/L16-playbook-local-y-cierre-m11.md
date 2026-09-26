@@ -57,6 +57,8 @@ git commit -m "docs(m11): l16 playbook-local-y-cierre-m11"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M11-sistemas-operativos.md | producto-saas.md |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m23): l02 consulta-agregada-por-tenant-id-sin-pii"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M09 | modelo datos | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m23): l10 correr-evaluacion-v1-sobre-gold-set"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M23-ia-datos.md semana 3 | preguntas-gold.json |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

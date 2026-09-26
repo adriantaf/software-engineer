@@ -54,6 +54,8 @@ Un ejercicio 6.2 adicional.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 6.2 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

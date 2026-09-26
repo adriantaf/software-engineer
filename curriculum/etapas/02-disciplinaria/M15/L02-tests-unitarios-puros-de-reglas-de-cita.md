@@ -58,6 +58,8 @@ git commit -m "docs(m15): l02 tests-unitarios-puros-de-reglas-de-cita"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12-srs | stories Must | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

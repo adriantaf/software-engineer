@@ -61,6 +61,8 @@ git commit -m "docs(m23): l12 umbral-de-calidad-y-cierre-p2-parcial"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M23-ia-datos.md P2 | ../../../producto-saas.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

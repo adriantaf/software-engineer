@@ -57,6 +57,8 @@ git commit -m "docs(m20): l20 cierre-m20-dominio-y-readme-proyecto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M20-aplicaciones-moviles.md | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

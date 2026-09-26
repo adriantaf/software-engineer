@@ -57,6 +57,8 @@ git commit -m "docs(m20): l14 sin-red-banner-y-reintento"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | connectivity | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

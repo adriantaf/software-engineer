@@ -69,6 +69,8 @@ Un ejercicio de 6.3 o 6.4 en `conteo.md`.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 6.3–6.4 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

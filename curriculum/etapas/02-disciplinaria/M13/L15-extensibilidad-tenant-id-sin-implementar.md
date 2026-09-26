@@ -58,6 +58,8 @@ git commit -m "docs(m13): l15 extensibilidad-tenant-id-sin-implementar"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | producto-saas.md | srs supuestos |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

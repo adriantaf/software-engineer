@@ -106,7 +106,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) + MDN HTTP (ES). Ver [bibliografía](../../bibliografia.md) y [hilo de seguridad](../../hilos/seguridad.md).
+Canon: *Redes de computadoras* — Tanenbaum & Wetherall (ed. ES) + MDN HTTP (ES). Ver [bibliografía](../../bibliografia.md#m10-redes) y [hilo de seguridad](../../hilos/seguridad.md).
 
 | Semana | Lecciones | Capítulos / recursos | Alternativa |
 |--------|-----------|---------------------|-------------|

@@ -71,6 +71,8 @@ Tests: para `n = 0..50`, `sumaHasta(n) === sumaFormula(n)`. Comenta en el apunte
 |--------|----------|
 | Rosen | Cap. 5.1 |
 | Apuntes | `induccion.md` |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

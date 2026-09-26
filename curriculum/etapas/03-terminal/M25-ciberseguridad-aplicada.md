@@ -115,7 +115,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: **OWASP Testing Guide** (secciones por semana) + [hilo seguridad](../../hilos/seguridad.md). Ver [bibliografía](../../bibliografia.md).
+Canon: **OWASP Testing Guide** (secciones por semana) + [hilo seguridad](../../hilos/seguridad.md). Ver [bibliografía](../../bibliografia.md#m25-ciberseguridad-aplicada).
 
 | Semana | Lecciones | OWASP / foco | Entrega |
 |--------|-----------|--------------|---------|

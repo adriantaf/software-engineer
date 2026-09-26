@@ -57,6 +57,8 @@ Observa memoria con `free -h` antes/después (orden de magnitud). Documenta: ¿c
 |--------|----------|
 | Stallings | Memoria interna, direccionamiento |
 | Opcional | MDN `ArrayBuffer` (15 min) |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

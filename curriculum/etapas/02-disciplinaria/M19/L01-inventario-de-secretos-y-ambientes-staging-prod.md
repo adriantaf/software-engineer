@@ -63,6 +63,8 @@ git commit -m "docs(m19): l01 inventario-de-secretos-y-ambientes-stagi"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | producto-saas.md | M18 secrets |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

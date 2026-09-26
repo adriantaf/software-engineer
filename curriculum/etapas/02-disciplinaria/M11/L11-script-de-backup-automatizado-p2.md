@@ -58,6 +58,8 @@ git commit -m "docs(m11): l11 script-de-backup-automatizado-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | I/O | bash manual |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

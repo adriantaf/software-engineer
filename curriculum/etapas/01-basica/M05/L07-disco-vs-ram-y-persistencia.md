@@ -65,6 +65,8 @@ Añade subsección “Jerarquía completa” enlazando a L06–L07.
 | Fuente | Qué leer |
 |--------|----------|
 | Stallings | Almacenamiento externo |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

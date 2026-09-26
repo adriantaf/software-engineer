@@ -5,7 +5,7 @@ orden: 4
 titulo: "Secuencias: repaso de costos y cierre semana 1"
 horas: 5.0
 semana: 1
-lectura: "Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta"
+lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta"
 evidencia: "COMPLEJIDAD.md completo semana 1 + bitácora semana"
 ---
 
@@ -46,9 +46,11 @@ Opcional: 10⁵ inserts — nativo vs tu dynamic array. No optimices prematurame
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

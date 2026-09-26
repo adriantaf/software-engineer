@@ -65,6 +65,8 @@ git commit -m "docs(m24): l01 estructura-m24-y-tres-candidatos-al-produc"
 |--------|----------|-------------|
 | Plan | [producto-saas.md](../../producto-saas.md) | M21 backlog |
 | Ficha | M24-tecnologias-emergentes.md | — |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

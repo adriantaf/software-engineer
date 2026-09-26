@@ -58,6 +58,8 @@ git commit -m "docs(m13): l05 diagrama-de-clases-del-dominio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Larman | modelo conceptual | M09 FK preview |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

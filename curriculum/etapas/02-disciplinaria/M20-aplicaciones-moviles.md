@@ -110,7 +110,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: documentación oficial de **Flutter** o **React Native** (el stack elegido). Ver [bibliografía](../../bibliografia.md).
+Canon: documentación oficial de **Flutter** o **React Native** (el stack elegido). Ver [bibliografía](../../bibliografia.md#m20-aplicaciones-moviles).
 
 | Semana | Lecciones | Docs oficiales | Enfoque |
 |--------|-----------|----------------|---------|

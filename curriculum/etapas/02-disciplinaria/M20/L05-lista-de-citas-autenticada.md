@@ -58,6 +58,8 @@ git commit -m "docs(m20): l05 lista-de-citas-autenticada"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | API | GET citas | SRS |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

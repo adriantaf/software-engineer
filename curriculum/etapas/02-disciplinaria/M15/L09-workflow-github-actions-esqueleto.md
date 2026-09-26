@@ -58,6 +58,8 @@ git commit -m "docs(m15): l09 workflow-github-actions-esqueleto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | GitHub | Actions docs | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

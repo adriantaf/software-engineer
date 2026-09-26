@@ -61,6 +61,8 @@ git commit -m "docs(m22): l13 metricas-accionables-tablero-de-trials"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M23 | métricas por tenant | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

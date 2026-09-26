@@ -5,7 +5,7 @@ orden: 7
 titulo: Tercera forma normal (P1)
 horas: 5.0
 semana: 2
-lectura: "Elmasri 3FN"
+lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): SQL consultas (SELECT/JOIN) — Elmasri 3FN"
 evidencia: "er-agenda.md hasta 3FN"
 ---
 
@@ -43,10 +43,11 @@ Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Elmasri & Navathe | Sección de la semana |
-| PostgreSQL docs | Tema equivalente (Query, EXPLAIN, Roles) |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 2: SQL consultas (SELECT/JOIN) — Elmasri 3FN | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
+
 
 ## Hecho cuando
 

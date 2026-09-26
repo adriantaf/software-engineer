@@ -58,6 +58,8 @@ git commit -m "docs(m11): l05 memoria-virtual-y-paginacion-intuicion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Memoria virtual | Artículos OS notes |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

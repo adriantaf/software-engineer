@@ -5,7 +5,7 @@ orden: 2
 titulo: Lista enlazada simple
 horas: 5.0
 semana: 1
-lectura: "ED: listas enlazadas singulares, punteros head/tail"
+lectura: "Joyanes / texto univ. ED (ed. ES): Arrays y listas enlazadas (costos, operaciones) — ED: listas enlazadas singulares, punteros head/tail"
 evidencia: "SinglyLinkedList con insert head/tail, find, 5 tests"
 ---
 
@@ -47,9 +47,11 @@ Capítulo listas enlazadas. Dibuja 3 operaciones en papel antes de codificar.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 1: Arrays y listas enlazadas (costos, operaciones) — ED: listas enlazadas singulares, punteros head/tail | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

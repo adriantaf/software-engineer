@@ -62,6 +62,8 @@ git commit -m "docs(m18): l11 fijacion-de-sesion-y-logout-completo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Session Management | Auth cheat sheet |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

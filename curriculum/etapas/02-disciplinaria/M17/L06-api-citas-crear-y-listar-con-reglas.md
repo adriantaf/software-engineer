@@ -58,6 +58,8 @@ git commit -m "docs(m17): l06 api-citas-crear-y-listar-con-reglas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12 | stories citas | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

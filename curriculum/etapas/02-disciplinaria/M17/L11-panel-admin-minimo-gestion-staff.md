@@ -58,6 +58,8 @@ git commit -m "docs(m17): l11 panel-admin-minimo-gestion-staff"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m16 | handoff UX | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

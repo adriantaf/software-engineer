@@ -58,6 +58,8 @@ git commit -m "docs(m10): l19 documento-de-amenazas-de-red-del-product"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | Proyecto m10-redes README | Hilo seguridad |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

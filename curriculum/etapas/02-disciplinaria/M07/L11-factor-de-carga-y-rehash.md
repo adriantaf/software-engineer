@@ -5,7 +5,7 @@ orden: 11
 titulo: Factor de carga y rehash
 horas: 5.0
 semana: 3
-lectura: "ED: rehashing"
+lectura: "Joyanes / texto univ. ED (ed. ES): Tablas hash (función, colisiones, load factor) — ED: rehashing"
 evidencia: "Rehash al superar umbral; tests que fuerzan resize"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 3: Tablas hash (función, colisiones, load factor) — ED: rehashing | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

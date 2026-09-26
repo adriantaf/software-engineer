@@ -79,7 +79,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo: [bibliografía](../../bibliografia.md).
+Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo: [bibliografía](../../bibliografia.md#m01-metodo-git).
 
 | Semana | Lecciones | Capítulos / foco |
 |--------|-----------|------------------|

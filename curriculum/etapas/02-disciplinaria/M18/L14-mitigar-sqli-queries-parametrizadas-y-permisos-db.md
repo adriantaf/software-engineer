@@ -60,6 +60,8 @@ git commit -m "docs(m18): l14 mitigar-sqli-queries-parametrizadas-y-pe"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | SQLi Prevention | Tests M15 si aplica |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

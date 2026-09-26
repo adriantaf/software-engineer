@@ -58,6 +58,8 @@ git commit -m "docs(m13): l16 adr-auth-y-sesion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M12 | RNF SEC | M10 cookies |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

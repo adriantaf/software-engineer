@@ -60,6 +60,8 @@ git commit -m "docs(m18): l21 ssrf-superficie-en-webhooks-e-integracio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | SSRF | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

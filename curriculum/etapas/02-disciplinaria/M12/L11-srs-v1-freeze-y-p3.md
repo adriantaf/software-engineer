@@ -58,6 +58,8 @@ git commit -m "docs(m12): l11 srs-v1-freeze-y-p3"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | completa | Ficha M12 |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

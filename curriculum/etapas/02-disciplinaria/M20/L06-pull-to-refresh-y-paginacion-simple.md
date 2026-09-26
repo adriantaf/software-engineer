@@ -57,6 +57,8 @@ git commit -m "docs(m20): l06 pull-to-refresh-y-paginacion-simple"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | list refresh | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

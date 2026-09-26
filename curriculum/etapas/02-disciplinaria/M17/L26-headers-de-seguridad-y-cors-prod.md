@@ -58,6 +58,8 @@ git commit -m "docs(m17): l26 headers-de-seguridad-y-cors-prod"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | CORS | m10 lecciones |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

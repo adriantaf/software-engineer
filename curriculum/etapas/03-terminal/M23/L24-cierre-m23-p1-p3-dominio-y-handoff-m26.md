@@ -61,6 +61,8 @@ git commit -m "docs(m23): l24 cierre-m23-p1-p3-dominio-y-handoff-m26"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M23-ia-datos.md | ../M26-proyecto-integrador.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

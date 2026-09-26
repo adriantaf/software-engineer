@@ -57,6 +57,8 @@ git commit -m "docs(m20): l04 errores-de-validacion-y-flujo-401"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M20 ejemplo 401 | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

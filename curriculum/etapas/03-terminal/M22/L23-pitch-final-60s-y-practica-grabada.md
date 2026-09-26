@@ -61,6 +61,8 @@ git commit -m "docs(m22): l23 pitch-final-60s-y-practica-grabada"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md dominio | ../../../como-estudiar.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

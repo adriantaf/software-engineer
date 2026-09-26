@@ -58,6 +58,8 @@ git commit -m "docs(m11): l10 permisos-usuarios-y-minimo-privilegio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Protección | Ficha M11 |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

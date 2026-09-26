@@ -61,6 +61,8 @@ git commit -m "docs(m22): l19 landing-de-precios-y-enlace-en-evidencia"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M19 | deploy estático | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

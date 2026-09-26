@@ -63,6 +63,8 @@ git commit -m "docs(m10): l07 status-codes-y-cabeceras-de-respuesta"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | HTTP status codes | httpbin.org/status |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

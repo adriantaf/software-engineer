@@ -57,6 +57,8 @@ git commit -m "docs(m20): l03 secure-storage-de-token-o-sesion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Mobile MASVS storage | M18 JWT |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

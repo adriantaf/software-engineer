@@ -57,6 +57,8 @@ git commit -m "docs(m13): l04 cierre-p1-flujos-principales"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M13-analisis-y-diseno.md | — |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

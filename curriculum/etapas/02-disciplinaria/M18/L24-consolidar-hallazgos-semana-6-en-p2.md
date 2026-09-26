@@ -60,6 +60,8 @@ git commit -m "docs(m18): l24 consolidar-hallazgos-semana-6-en-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18 P2 | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

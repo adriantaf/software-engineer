@@ -58,6 +58,8 @@ git commit -m "docs(m13): l14 adr-persistencia-y-modelo-de-datos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M09 | ficha | srs |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

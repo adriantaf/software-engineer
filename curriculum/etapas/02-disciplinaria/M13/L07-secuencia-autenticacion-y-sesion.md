@@ -58,6 +58,8 @@ git commit -m "docs(m13): l07 secuencia-autenticacion-y-sesion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | cookies/sesión | srs auth |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

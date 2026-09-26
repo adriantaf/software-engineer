@@ -58,6 +58,8 @@ git commit -m "docs(m12): l05 formato-user-story-y-trazabilidad"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | req funcionales | — |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

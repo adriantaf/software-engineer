@@ -68,6 +68,8 @@ En bitácora: 5 líneas sync vs async con ejemplo de tu CLI.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 11 (inicio) |
 | MDN | [Promise](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Promise) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m22): l12 pricing-free-pro-borrador-defendible"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | ../M26-proyecto-integrador.md Stripe |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

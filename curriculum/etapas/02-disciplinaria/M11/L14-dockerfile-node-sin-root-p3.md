@@ -58,6 +58,8 @@ git commit -m "docs(m11): l14 dockerfile-node-sin-root-p3"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docker | Dockerfile best practices | Ficha M11 |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

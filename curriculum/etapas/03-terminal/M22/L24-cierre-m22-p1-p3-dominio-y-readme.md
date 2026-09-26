@@ -61,6 +61,8 @@ git commit -m "docs(m22): l24 cierre-m22-p1-p3-dominio-y-readme"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M22-emprendimiento.md | ../M23-ia-datos.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

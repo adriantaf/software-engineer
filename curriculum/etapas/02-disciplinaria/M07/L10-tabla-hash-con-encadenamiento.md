@@ -5,7 +5,7 @@ orden: 10
 titulo: Tabla hash con encadenamiento
 horas: 5.0
 semana: 3
-lectura: "ED: separate chaining"
+lectura: "Joyanes / texto univ. ED (ed. ES): Tablas hash (función, colisiones, load factor) — ED: separate chaining"
 evidencia: "HashMapChaining con set/get/delete + load factor logged"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 3: Tablas hash (función, colisiones, load factor) — ED: separate chaining | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

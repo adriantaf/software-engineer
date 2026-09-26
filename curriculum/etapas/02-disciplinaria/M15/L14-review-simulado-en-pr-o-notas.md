@@ -58,6 +58,8 @@ git commit -m "docs(m15): l14 review-simulado-en-pr-o-notas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M15-vv-calidad.md | P3 |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

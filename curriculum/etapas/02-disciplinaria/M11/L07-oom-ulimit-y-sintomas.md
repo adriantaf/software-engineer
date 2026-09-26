@@ -58,6 +58,8 @@ git commit -m "docs(m11): l07 oom-ulimit-y-sintomas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Memoria | Docker memory limits doc |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

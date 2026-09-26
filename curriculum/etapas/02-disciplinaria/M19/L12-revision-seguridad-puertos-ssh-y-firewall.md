@@ -58,6 +58,8 @@ git commit -m "docs(m19): l12 revision-seguridad-puertos-ssh-y-firewal"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Hilo | seguridad | M18 |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

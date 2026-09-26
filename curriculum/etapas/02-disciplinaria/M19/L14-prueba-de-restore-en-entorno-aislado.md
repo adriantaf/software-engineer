@@ -58,6 +58,8 @@ git commit -m "docs(m19): l14 prueba-de-restore-en-entorno-aislado"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19 P3 | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

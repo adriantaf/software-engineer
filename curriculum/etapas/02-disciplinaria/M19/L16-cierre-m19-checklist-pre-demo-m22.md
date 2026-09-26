@@ -57,6 +57,8 @@ git commit -m "docs(m19): l16 cierre-m19-checklist-pre-demo-m22"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19-nube-devops.md | producto |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

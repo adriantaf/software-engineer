@@ -60,6 +60,8 @@ git commit -m "docs(m18): l29 pipeline-ci-lint-test-audit-anti-secreto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | DevSecOps guideline | Ficha P3 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

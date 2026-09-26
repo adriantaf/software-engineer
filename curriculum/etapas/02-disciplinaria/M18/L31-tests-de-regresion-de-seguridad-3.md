@@ -60,6 +60,8 @@ git commit -m "docs(m18): l31 tests-de-regresion-de-seguridad-3"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18 proyecto | P2/P3 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

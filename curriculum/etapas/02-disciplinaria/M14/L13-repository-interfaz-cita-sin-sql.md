@@ -58,6 +58,8 @@ git commit -m "docs(m14): l13 repository-interfaz-cita-sin-sql"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m13-diseno | persistencia ADR | M09 esquema |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

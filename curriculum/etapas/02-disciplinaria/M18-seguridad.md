@@ -133,7 +133,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: **OWASP Top 10** + Cheat Sheets. Ver [bibliografía](../../bibliografia.md) y [hilo seguridad](../../hilos/seguridad.md).
+Canon: **OWASP Top 10** + Cheat Sheets. Ver [bibliografía](../../bibliografia.md#m18-seguridad-appsec) y [hilo seguridad](../../hilos/seguridad.md).
 
 | Semana | Lecciones | Lectura OWASP / recurso | Enfoque Agenda Ops |
 |--------|-----------|-------------------------|-------------------|

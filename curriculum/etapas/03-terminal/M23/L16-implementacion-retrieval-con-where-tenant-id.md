@@ -60,6 +60,8 @@ git commit -m "docs(m23): l16 implementacion-retrieval-con-where-tenan"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M18 | IDOR | ../../hilos/seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

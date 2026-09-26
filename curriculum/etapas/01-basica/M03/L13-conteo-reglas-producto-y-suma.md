@@ -60,6 +60,8 @@ Un ejercicio del 6.1 adicional en `conteo.md`.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 6.1 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

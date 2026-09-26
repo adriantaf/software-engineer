@@ -55,6 +55,8 @@ Una frase: cómo esto se parece a “agrupar usuarios con el mismo rol” o “n
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 9.5 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

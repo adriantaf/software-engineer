@@ -61,6 +61,8 @@ git commit -m "docs(m15): l01 entorno-m15-y-piramide-de-tests"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vitest | getting started | Código limpio cap. 9 |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

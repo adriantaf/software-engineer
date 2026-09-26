@@ -61,6 +61,8 @@ git commit -m "docs(m22): l11 refinar-icp-tras-objeciones-recurrentes"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ries | Pivot segmento | ../M21-admin-proyectos.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

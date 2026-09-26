@@ -58,6 +58,8 @@ git commit -m "docs(m20): l01 stack-movil-y-scaffold-agenda-ops"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | oficial stack | producto-saas |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

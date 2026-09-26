@@ -58,6 +58,8 @@ git commit -m "docs(m17): l25 mapa-owasp-top-10-en-el-piloto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Top 10 | hilo seguridad |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

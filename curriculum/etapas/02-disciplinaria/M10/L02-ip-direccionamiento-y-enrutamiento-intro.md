@@ -66,6 +66,8 @@ git commit -m "docs(m10): l02 ip-direccionamiento-y-enrutamiento-intro"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Tanenbaum | Capa de red (IP) | Labs anteriores + apuntes |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

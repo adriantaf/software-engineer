@@ -60,6 +60,8 @@ git commit -m "docs(m18): l28 csp-basica-sin-romper-agenda-ops"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | CSP | MDN CSP |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

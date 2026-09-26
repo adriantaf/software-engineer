@@ -58,6 +58,8 @@ git commit -m "docs(m20): l02 pantalla-login-contra-api-staging"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M17 | auth endpoints | M19 staging |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

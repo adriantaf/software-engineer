@@ -57,6 +57,8 @@ git commit -m "docs(m19): l07 smoke-test-login-cita-y-health-externo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19 | M17 API |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

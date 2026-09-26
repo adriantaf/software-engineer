@@ -5,7 +5,7 @@ orden: 6
 titulo: Merge sort y estabilidad
 horas: 5.0
 semana: 2
-lectura: "CLRS merge sort"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Divide y vencerás — CLRS merge sort"
 evidencia: "sorts/merge.ts + nota estabilidad"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 2: Divide y vencerás — CLRS merge sort | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

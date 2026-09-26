@@ -61,6 +61,8 @@ git commit -m "docs(m23): l18 ui-o-cli-asistente-para-owner"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | ../M16-ihc.md estados UI |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

@@ -61,6 +61,8 @@ git commit -m "docs(m11): l06 observar-rss-y-cpu-de-node"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Memoria | htop tutorial |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

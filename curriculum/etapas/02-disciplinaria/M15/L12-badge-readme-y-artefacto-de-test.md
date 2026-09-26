@@ -58,6 +58,8 @@ git commit -m "docs(m15): l12 badge-readme-y-artefacto-de-test"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | GitHub | badges | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

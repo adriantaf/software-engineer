@@ -58,6 +58,8 @@ git commit -m "docs(m14): l06 decorator-para-logging-de-operaciones-de"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | Decorator | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

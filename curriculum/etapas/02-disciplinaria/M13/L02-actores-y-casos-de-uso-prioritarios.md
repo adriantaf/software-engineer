@@ -58,6 +58,8 @@ git commit -m "docs(m13): l02 actores-y-casos-de-uso-prioritarios"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Larman | casos de uso | srs-v1 |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

@@ -58,6 +58,8 @@ git commit -m "docs(m25): l23 runbook-de-respuesta-incidentes"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Proyecto security-review | egreso.md |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

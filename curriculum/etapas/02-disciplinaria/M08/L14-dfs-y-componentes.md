@@ -5,7 +5,7 @@ orden: 14
 titulo: DFS y componentes
 horas: 5.0
 semana: 4
-lectura: "CLRS DFS"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Grafos: BFS/DFS y caminos — CLRS DFS"
 evidencia: "problema componentes conexas"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 4: Grafos: BFS/DFS y caminos — CLRS DFS | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

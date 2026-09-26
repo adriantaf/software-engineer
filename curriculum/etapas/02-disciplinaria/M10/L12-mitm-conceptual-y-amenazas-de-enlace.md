@@ -58,6 +58,8 @@ git commit -m "docs(m10): l12 mitm-conceptual-y-amenazas-de-enlace"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Tanenbaum | Seguridad en redes | MDN HSTS |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

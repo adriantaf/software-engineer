@@ -61,6 +61,8 @@ git commit -m "docs(m11): l13 imagenes-contenedores-y-volumenes"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docker | Volumes overview | Silberschatz |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

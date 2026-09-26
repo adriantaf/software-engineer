@@ -58,6 +58,8 @@ git commit -m "docs(m13): l20 cierre-m13-trazabilidad-y-dominio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M13-analisis-y-diseno.md | — |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

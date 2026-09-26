@@ -58,6 +58,8 @@ git commit -m "docs(m12): l08 rnf-seguridad-privacidad-y-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Hilo | seguridad.md | plantilla |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

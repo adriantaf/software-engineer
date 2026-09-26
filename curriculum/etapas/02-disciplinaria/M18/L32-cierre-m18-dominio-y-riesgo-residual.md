@@ -60,6 +60,8 @@ git commit -m "docs(m18): l32 cierre-m18-dominio-y-riesgo-residual"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18-seguridad.md | [Hilo seguridad](../../../hilos/seguridad.md) |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

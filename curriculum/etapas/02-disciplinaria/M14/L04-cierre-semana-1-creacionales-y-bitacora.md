@@ -58,6 +58,8 @@ git commit -m "docs(m14): l04 cierre-semana-1-creacionales-y-bitacora"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M14-patrones.md | m13-diseno |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

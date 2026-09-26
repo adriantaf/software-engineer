@@ -5,7 +5,7 @@ orden: 8
 titulo: Pilas, colas y cierre P1 parcial
 horas: 5.0
 semana: 2
-lectura: "Repaso pilas/colas; MDN Map no aplica aún"
+lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — Repaso pilas/colas; MDN Map no aplica aún"
 evidencia: "README sección LIFO/FIFO + bitácora semana 2"
 ---
 
@@ -43,9 +43,11 @@ Un test que use pila y cola en el mismo escenario (simulación simple).
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — Repaso pilas/colas; MDN Map no aplica aún | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

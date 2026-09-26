@@ -79,6 +79,8 @@ Sin mirar apuntes, explica en voz alta el diagrama. Graba bullet points de lagun
 |--------|----------|
 | Stallings | Repaso caps. semana 1 |
 | Tus archivos | L01–L03 en `projects/m05-como-corre/` |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

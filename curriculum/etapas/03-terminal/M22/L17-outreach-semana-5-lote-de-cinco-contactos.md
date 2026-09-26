@@ -61,6 +61,8 @@ git commit -m "docs(m22): l17 outreach-semana-5-lote-de-cinco-contacto"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ries | Motor crecimiento (lectura selecta) | ../../../como-estudiar.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

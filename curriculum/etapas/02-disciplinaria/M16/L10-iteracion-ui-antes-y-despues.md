@@ -58,6 +58,8 @@ git commit -m "docs(m16): l10 iteracion-ui-antes-y-despues"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m17 | handoff UX | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

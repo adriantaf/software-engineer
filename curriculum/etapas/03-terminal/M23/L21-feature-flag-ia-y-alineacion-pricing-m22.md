@@ -61,6 +61,8 @@ git commit -m "docs(m23): l21 feature-flag-ia-y-alineacion-pricing-m22"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M22 | projects/m22-bektor | ../../../producto-saas.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

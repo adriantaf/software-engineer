@@ -70,6 +70,8 @@ git commit -m "docs(m18): l01 activos-actores-y-datos-sensibles-en-age"
 |--------|----------|-------------|
 | OWASP | Threat Modeling (ES/overview) | Cheat Sheet STRIDE |
 | Plan | [producto-saas.md](../../../producto-saas.md) | M13 trust boundaries |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

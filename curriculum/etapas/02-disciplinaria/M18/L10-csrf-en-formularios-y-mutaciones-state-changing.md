@@ -62,6 +62,8 @@ git commit -m "docs(m18): l10 csrf-en-formularios-y-mutaciones-state-c"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | CSRF Prevention | M10 CORS |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

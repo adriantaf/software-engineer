@@ -60,6 +60,8 @@ git commit -m "docs(m25): l05 review-authn-sesion-y-tokens"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Access control testing | M18 IDOR |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

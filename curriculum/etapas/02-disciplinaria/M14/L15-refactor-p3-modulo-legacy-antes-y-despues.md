@@ -58,6 +58,8 @@ git commit -m "docs(m14): l15 refactor-p3-modulo-legacy-antes-y-despue"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M14-patrones.md | P3 |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

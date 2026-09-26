@@ -58,6 +58,8 @@ git commit -m "docs(m15): l03 que-no-testear-y-carpetas-de-coverage"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vitest | coverage | Ficha M15 |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

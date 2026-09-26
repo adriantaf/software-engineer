@@ -100,7 +100,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: documentación oficial **Docker** + docs del PaaS/VPS elegido. Ver [bibliografía](../../bibliografia.md) y [producto-saas](../../producto-saas.md).
+Canon: documentación oficial **Docker** + docs del PaaS/VPS elegido. Ver [bibliografía](../../bibliografia.md#m19-nube-devops) y [producto-saas](../../producto-saas.md).
 
 | Semana | Lecciones | Lectura | Entrega |
 |--------|-----------|---------|---------|

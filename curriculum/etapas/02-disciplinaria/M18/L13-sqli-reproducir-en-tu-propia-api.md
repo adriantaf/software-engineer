@@ -62,6 +62,8 @@ git commit -m "docs(m18): l13 sqli-reproducir-en-tu-propia-api"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | SQL Injection | ORM docs de tu stack |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

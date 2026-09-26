@@ -58,6 +58,8 @@ git commit -m "docs(m16): l09 priorizar-top-5-hallazgos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Informe | borrador | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

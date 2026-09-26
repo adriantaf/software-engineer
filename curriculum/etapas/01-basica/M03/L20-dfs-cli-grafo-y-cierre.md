@@ -98,6 +98,8 @@ Commit final coherente. Marca lecciones L01–L20 solo si cada una cumple su “
 |--------|----------|
 | Rosen | Cap. 10.3 (DFS) + repaso según huecos |
 | Ficha | [M03 — Matemáticas discretas](../M03-matematicas-discretas.md) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

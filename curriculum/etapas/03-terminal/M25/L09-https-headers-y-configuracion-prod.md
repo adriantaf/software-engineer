@@ -58,6 +58,8 @@ git commit -m "docs(m25): l09 https-headers-y-configuracion-prod"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Stripe | Webhooks signing | M19 backup |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

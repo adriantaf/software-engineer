@@ -5,7 +5,7 @@ orden: 18
 titulo: Programación dinámica bottom-up
 horas: 5.0
 semana: 5
-lectura: "CLRS DP"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Greedy / selección de actividades — CLRS DP"
 evidencia: "dp/bottom-up-ejemplo.ts"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 5: Greedy / selección de actividades — CLRS DP | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

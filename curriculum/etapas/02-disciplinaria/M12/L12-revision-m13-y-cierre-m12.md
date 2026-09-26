@@ -58,6 +58,8 @@ git commit -m "docs(m12): l12 revision-m13-y-cierre-m12"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M12-requerimientos.md | m13-diseno README |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

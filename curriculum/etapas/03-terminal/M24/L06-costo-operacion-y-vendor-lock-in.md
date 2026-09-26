@@ -60,6 +60,8 @@ git commit -m "docs(m24): l06 costo-operacion-y-vendor-lock-in"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Vendor | Pricing oficial | Términos de datos |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

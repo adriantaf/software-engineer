@@ -58,6 +58,8 @@ git commit -m "docs(m15): l06 tests-de-integracion-con-persistencia"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m09 | esquema citas | m14 Repository |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

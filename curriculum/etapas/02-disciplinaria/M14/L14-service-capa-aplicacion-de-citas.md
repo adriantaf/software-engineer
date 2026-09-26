@@ -58,6 +58,8 @@ git commit -m "docs(m14): l14 service-capa-aplicacion-de-citas"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m13-diseno | capas | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

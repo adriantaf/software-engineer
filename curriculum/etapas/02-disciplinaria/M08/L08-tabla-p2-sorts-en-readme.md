@@ -5,7 +5,7 @@ orden: 8
 titulo: Tabla P2 sorts en README
 horas: 5.0
 semana: 2
-lectura: "Comparativa sorts"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Divide y vencerás — Comparativa sorts"
 evidencia: "sorts/README.md P2 parcial"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 2: Divide y vencerás — Comparativa sorts | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

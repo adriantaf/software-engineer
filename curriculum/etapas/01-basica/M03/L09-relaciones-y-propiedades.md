@@ -58,6 +58,8 @@ Un ejercicio de clasificar propiedades; solución en `relaciones.md`.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 9.1 (relaciones y propiedades) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

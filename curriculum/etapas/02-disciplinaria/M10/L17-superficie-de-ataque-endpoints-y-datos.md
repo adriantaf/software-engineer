@@ -58,6 +58,8 @@ git commit -m "docs(m10): l17 superficie-de-ataque-endpoints-y-datos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | [Hilo seguridad](../../../hilos/seguridad.md) | Ficha M10 |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

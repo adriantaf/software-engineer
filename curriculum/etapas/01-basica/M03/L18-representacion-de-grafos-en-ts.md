@@ -87,6 +87,8 @@ Función `grados(g): Map<T, number>` y compara con cálculo manual de L17.
 | Fuente | Qué leer |
 |--------|----------|
 | Rosen | Cap. 10.2 |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

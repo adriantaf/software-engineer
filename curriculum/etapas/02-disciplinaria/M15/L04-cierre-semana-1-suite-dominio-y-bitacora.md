@@ -58,6 +58,8 @@ git commit -m "docs(m15): l04 cierre-semana-1-suite-dominio-y-bitacora"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12-srs | srs-v1 | — |
+| Catálogo | Entrada M15 | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
+
 
 ## Hecho cuando
 

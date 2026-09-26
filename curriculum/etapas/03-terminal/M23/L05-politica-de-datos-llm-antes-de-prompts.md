@@ -61,6 +61,8 @@ git commit -m "docs(m23): l05 politica-de-datos-llm-antes-de-prompts"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../hilos/seguridad.md | Términos API LLM elegida |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

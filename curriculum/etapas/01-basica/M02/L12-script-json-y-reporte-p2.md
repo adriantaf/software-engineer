@@ -88,6 +88,8 @@ Bitácora: CLI + P2 estado; katas ≥17 si puedes.
 | Fuente | Qué leer |
 |--------|----------|
 | *Eloquent JavaScript* | Repaso cap. 10 si el refactor de módulos fue flojo |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

@@ -89,7 +89,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Organización y arquitectura de computadoras* — William Stallings (ed. ES). Alternativa: Tanenbaum *Estructura y organización…* (mismos temas). Catálogo: [bibliografía](../../bibliografia.md).
+Canon: *Organización y arquitectura de computadoras* — William Stallings (ed. ES). Alternativa: Tanenbaum *Estructura y organización…* (mismos temas). Catálogo: [bibliografía](../../bibliografia.md#m05-organizacion-de-computadoras).
 
 | Semana | Lecciones | Capítulos / foco (Stallings, por título) |
 |--------|-----------|-------------------------------------------|

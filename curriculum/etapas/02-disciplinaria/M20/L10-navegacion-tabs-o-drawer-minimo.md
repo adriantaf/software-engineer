@@ -58,6 +58,8 @@ git commit -m "docs(m20): l10 navegacion-tabs-o-drawer-minimo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docs | navigation | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

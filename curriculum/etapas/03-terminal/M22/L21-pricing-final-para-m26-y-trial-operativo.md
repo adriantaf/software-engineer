@@ -61,6 +61,8 @@ git commit -m "docs(m22): l21 pricing-final-para-m26-y-trial-operativo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M26 | ../M26-proyecto-integrador.md | Stripe test mode |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

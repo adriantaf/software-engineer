@@ -57,6 +57,8 @@ git commit -m "docs(m10): l04 cierre-semana-1-bitacora-p1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M10-redes.md | — |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

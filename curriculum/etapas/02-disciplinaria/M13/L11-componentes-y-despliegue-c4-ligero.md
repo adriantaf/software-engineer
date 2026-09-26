@@ -58,6 +58,8 @@ git commit -m "docs(m13): l11 componentes-y-despliegue-c4-ligero"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | C4 | modelo contenedor | m11 playbook |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

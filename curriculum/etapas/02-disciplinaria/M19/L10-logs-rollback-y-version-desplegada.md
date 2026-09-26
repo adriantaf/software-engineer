@@ -58,6 +58,8 @@ git commit -m "docs(m19): l10 logs-rollback-y-version-desplegada"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Proveedor | logs | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

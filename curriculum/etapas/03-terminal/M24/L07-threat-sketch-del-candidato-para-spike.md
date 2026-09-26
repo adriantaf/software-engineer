@@ -60,6 +60,8 @@ git commit -m "docs(m24): l07 threat-sketch-del-candidato-para-spike"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Webhook / API security notes | hilo seguridad |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

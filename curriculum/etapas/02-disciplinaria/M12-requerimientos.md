@@ -90,7 +90,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: plantilla IEEE 830 adaptada en el repo + [producto-saas.md](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+Canon: plantilla IEEE 830 adaptada en el repo + [producto-saas.md](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md#m12-requerimientos).
 
 | Semana | Lecciones | Lectura obligatoria | Entrega ligada |
 |--------|-----------|--------------------|----------------|

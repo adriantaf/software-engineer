@@ -88,6 +88,8 @@ En `shell-notas.md` escribe: URL + 3 hallazgos (atajos, secciones, cómo buscar)
 |--------|-----|
 | Sistema | `man grep`, `man chmod` o `--help` |
 | Oficiales | MDN / Node / editor (una sola, con notas) |
+| Catálogo | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
+
 
 ## Hecho cuando
 

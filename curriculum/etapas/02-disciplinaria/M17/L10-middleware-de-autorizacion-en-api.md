@@ -58,6 +58,8 @@ git commit -m "docs(m17): l10 middleware-de-autorizacion-en-api"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m15 | tests seguridad | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

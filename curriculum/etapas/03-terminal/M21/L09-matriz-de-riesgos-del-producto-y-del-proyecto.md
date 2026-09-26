@@ -63,6 +63,8 @@ git commit -m "docs(m21): l09 matriz-de-riesgos-del-producto-y-del-pro"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../hilos/seguridad.md | ../../../producto-saas.md |
+| Catálogo | Entrada M21 | [Bibliografía · M21](../../../bibliografia.md#m21-admin-proyectos) |
+
 
 ## Hecho cuando
 

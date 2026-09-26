@@ -58,6 +58,8 @@ git commit -m "docs(m12): l06 criterios-de-aceptacion-verificables"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | hilo seguridad | ejemplo ficha M12 |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

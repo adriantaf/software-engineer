@@ -57,6 +57,8 @@ git commit -m "docs(m19): l09 promover-configuracion-a-produccion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M19 semana 3 | — |
+| Catálogo | Entrada M19 | [Bibliografía · M19](../../../bibliografia.md#m19-nube-devops) |
+
 
 ## Hecho cuando
 

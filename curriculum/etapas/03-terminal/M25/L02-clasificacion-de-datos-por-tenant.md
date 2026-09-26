@@ -59,6 +59,8 @@ git commit -m "docs(m25): l02 clasificacion-de-datos-por-tenant"
 |--------|----------|-------------|
 | OWASP | Testing Guide inventario | [producto-saas](../../producto-saas.md) |
 | Ficha | M25 checklist SaaS | M18 access control |
+| Catálogo | Entrada M25 | [Bibliografía · M25](../../../bibliografia.md#m25-ciberseguridad-aplicada) |
+
 
 ## Hecho cuando
 

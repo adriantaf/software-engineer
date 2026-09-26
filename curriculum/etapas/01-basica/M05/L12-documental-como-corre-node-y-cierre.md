@@ -72,6 +72,8 @@ git commit -m "docs(m05): documental como corre node y cierre M05"
 |--------|----------|
 | Stallings | Repaso representación + sistema |
 | Ficha M05 | Criterios de dominio |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

@@ -120,7 +120,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Alternativa: VisuAlgo + enunciados propios. Ver [bibliografía](../../bibliografia.md).
+Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Alternativa: VisuAlgo + enunciados propios. Ver [bibliografía](../../bibliografia.md#m08-analisis-de-algoritmos).
 
 | Semana | Lecciones | Capítulos (CLRS, por tema) |
 |--------|-----------|---------------------------|

@@ -5,7 +5,7 @@ orden: 5
 titulo: Pila (Stack) tipada
 horas: 5.0
 semana: 2
-lectura: "ED: pilas LIFO, aplicaciones (paréntesis, undo)"
+lectura: "Joyanes / texto univ. ED (ed. ES): Pilas y colas (y variantes) — ED: pilas LIFO, aplicaciones (paréntesis, undo)"
 evidencia: "Stack<T> con push/pop/peek + 4 tests (inicio P1)"
 ---
 
@@ -43,9 +43,11 @@ Capítulo pilas.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 2: Pilas y colas (y variantes) — ED: pilas LIFO, aplicaciones (paréntesis, undo) | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

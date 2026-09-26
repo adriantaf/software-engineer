@@ -61,6 +61,8 @@ git commit -m "docs(m22): l10 demos-5-6-escuchar-precio-en-voz-alta"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M23 | costos LLM futuros | ../../../producto-saas.md |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
 
 ## Hecho cuando
 

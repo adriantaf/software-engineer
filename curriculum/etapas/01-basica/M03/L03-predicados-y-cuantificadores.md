@@ -76,6 +76,8 @@ Rosen 1.4–1.5: resuelve 1 ejercicio de traducción y 1 de negación en `predic
 |--------|----------|
 | Rosen | Cap. 1.4–1.5 |
 | Apuntes | `leyes-logicas.md` (implicación en enunciados) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 

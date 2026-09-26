@@ -57,6 +57,8 @@ git commit -m "docs(m20): l19 release-notes-y-demo-cruzada-con-web"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | proyecto M20 | M17 web |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

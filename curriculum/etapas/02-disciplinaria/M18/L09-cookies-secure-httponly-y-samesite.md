@@ -62,6 +62,8 @@ git commit -m "docs(m18): l09 cookies-secure-httponly-y-samesite"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | Set-Cookie | M10 L13 |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

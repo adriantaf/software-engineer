@@ -58,6 +58,8 @@ git commit -m "docs(m17): l15 listas-con-loading-error-y-vacio"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M17-aplicaciones-web.md | P2 |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

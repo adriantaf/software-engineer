@@ -63,6 +63,8 @@ git commit -m "docs(m18): l20 tests-automatizados-cross-user-p2-avance"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M18 P2 | M15 testing |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

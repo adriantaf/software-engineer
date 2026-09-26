@@ -58,6 +58,8 @@ git commit -m "docs(m11): l02 proceso-vs-hilo-y-el-runtime-node"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Silberschatz | Hilos | Node.js event loop guide |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

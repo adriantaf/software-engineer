@@ -92,7 +92,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf). Preparación comercial → M22. Ver [bibliografía](../../bibliografia.md).
+Canon: [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf). Preparación comercial → M22. Ver [bibliografía](../../bibliografia.md#m21-admin-proyectos).
 
 | Semana | Lecciones | Lectura | Entrega ligada |
 |--------|-----------|---------|----------------|

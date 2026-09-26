@@ -61,6 +61,8 @@ git commit -m "docs(m23): l19 casos-tests-cross-tenant-manuales"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | SEC | ../../hilos/seguridad.md | ../M18-seguridad.md |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

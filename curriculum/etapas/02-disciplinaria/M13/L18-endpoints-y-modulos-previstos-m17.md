@@ -58,6 +58,8 @@ git commit -m "docs(m13): l18 endpoints-y-modulos-previstos-m17"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | srs-v1 | RF | arquitectura |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

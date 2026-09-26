@@ -5,7 +5,7 @@ orden: 1
 titulo: Entorno y binary search con invariante
 horas: 5.0
 semana: 1
-lectura: "CLRS: inserción ordenada / búsqueda binaria"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Crecimiento asintótico / notación Big-O — CLRS: inserción ordenada / búsqueda binaria"
 evidencia: "binary-search.ts + analisis + 2 problemas arrays"
 ---
 
@@ -45,10 +45,11 @@ p. ej. two sum, max subarray — sin mirar solución 30 min; luego editorial pro
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 1: Crecimiento asintótico / notación Big-O — CLRS: inserción ordenada / búsqueda binaria | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

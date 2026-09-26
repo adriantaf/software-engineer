@@ -60,6 +60,8 @@ git commit -m "docs(m24): l11 medicion-contra-la-hipotesis"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | Hipótesis L08 | Matriz costo |
+| Catálogo | Entrada M24 | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
+
 
 ## Hecho cuando
 

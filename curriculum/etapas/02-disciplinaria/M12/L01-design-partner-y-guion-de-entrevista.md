@@ -62,6 +62,8 @@ git commit -m "docs(m12): l01 design-partner-y-guion-de-entrevista"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | producto-saas.md | plantilla SRS |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

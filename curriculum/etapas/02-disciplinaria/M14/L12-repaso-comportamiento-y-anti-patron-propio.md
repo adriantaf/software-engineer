@@ -58,6 +58,8 @@ git commit -m "docs(m14): l12 repaso-comportamiento-y-anti-patron-prop"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Refactoring.Guru | catálogo | — |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

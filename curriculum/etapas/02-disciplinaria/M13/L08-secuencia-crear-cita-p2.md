@@ -58,6 +58,8 @@ git commit -m "docs(m13): l08 secuencia-crear-cita-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Larman | secuencia | stories citas |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

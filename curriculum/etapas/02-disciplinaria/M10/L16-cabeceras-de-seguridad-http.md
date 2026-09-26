@@ -63,6 +63,8 @@ git commit -m "docs(m10): l16 cabeceras-de-seguridad-http"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | MDN | Content-Security-Policy | securityheaders.com como inspiración |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

@@ -65,6 +65,8 @@ git commit -m "docs(m05): representación numérica y benchmark loop vs IO"
 |--------|----------|
 | Stallings | Punto flotante |
 | Tus L06–L07 | Caché y disco |
+| Catálogo | [Bibliografía · M05](../../../bibliografia.md#m05-organizacion-de-computadoras) |
+
 
 ## Hecho cuando
 

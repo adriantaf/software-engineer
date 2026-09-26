@@ -58,6 +58,8 @@ git commit -m "docs(m11): l08 cgroups-y-memoria-en-contenedores"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Docker | Resource constraints | Silberschatz |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

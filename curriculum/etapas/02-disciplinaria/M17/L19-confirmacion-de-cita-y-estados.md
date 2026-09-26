@@ -58,6 +58,8 @@ git commit -m "docs(m17): l19 confirmacion-de-cita-y-estados"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12-srs | flujos | — |
+| Catálogo | Entrada M17 | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
+
 
 ## Hecho cuando
 

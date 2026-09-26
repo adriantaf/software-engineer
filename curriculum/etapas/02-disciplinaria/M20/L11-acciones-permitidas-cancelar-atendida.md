@@ -57,6 +57,8 @@ git commit -m "docs(m20): l11 acciones-permitidas-cancelar-atendida"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | SRS | historias citas | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

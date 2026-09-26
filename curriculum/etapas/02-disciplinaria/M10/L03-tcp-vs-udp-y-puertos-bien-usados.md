@@ -64,6 +64,8 @@ git commit -m "docs(m10): l03 tcp-vs-udp-y-puertos-bien-usados"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Tanenbaum | TCP/UDP y puertos | `ss`/`netstat` man pages |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

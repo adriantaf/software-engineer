@@ -58,6 +58,8 @@ git commit -m "docs(m13): l06 cardinalidades-y-persistencia-futura"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | M09 | ficha repaso | srs-v1 datos |
+| Catálogo | Entrada M13 | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
+
 
 ## Hecho cuando
 

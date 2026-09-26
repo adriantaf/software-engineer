@@ -58,6 +58,8 @@ git commit -m "docs(m10): l11 lab-openssl-y-pinning-conceptual"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | [Hilo seguridad](../../../hilos/seguridad.md) | OWASP Transport Layer Protection (vista rápida) |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

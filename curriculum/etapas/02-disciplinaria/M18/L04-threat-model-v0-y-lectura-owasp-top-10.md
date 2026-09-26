@@ -62,6 +62,8 @@ git commit -m "docs(m18): l04 threat-model-v0-y-lectura-owasp-top-10"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | OWASP | Top 10 ES | Cheat Sheets índice |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

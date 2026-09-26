@@ -5,7 +5,7 @@ orden: 9
 titulo: Hash maps en problemas de conteo
 horas: 5.0
 semana: 3
-lectura: "CLRS hashing cap intro"
+lectura: "*Introducción a los algoritmos* — CLRS (ed. ES): Programación dinámica (intro) — CLRS hashing cap intro"
 evidencia: "2 problemas patrón hash"
 ---
 
@@ -43,10 +43,11 @@ Tres casos mínimo por función: borde incluido.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| CLRS (Cormen et al.) | Sección de la semana en ficha M08 |
-| Alternativa | VisuAlgo + notas propias |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| *Introducción a los algoritmos* — CLRS (ed. ES) | Semana 3: Programación dinámica (intro) — CLRS hashing cap intro | [VisuAlgo](https://visualgo.net/en) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M08](../../../bibliografia.md#m08-analisis-de-algoritmos) |
+
 
 ## Hecho cuando
 

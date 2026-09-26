@@ -65,6 +65,8 @@ Dos katas estilo “aplicar función a cada elemento” o reduce custom.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 5 |
 | TS Handbook | [More on Functions — generics intro](https://www.typescriptlang.org/docs/handbook/2/generics.html) (solo primeras secciones) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

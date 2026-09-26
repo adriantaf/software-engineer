@@ -59,6 +59,8 @@ EJ cap. 4 hasta objetos/arrays básicos.
 |--------|----------|
 | *Eloquent JavaScript* | Cap. 4 (inicio) |
 | TS Handbook | [Everyday Types — Arrays](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#arrays) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

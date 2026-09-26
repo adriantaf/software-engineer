@@ -58,6 +58,8 @@ git commit -m "docs(m12): l04 stakeholders-y-contexto-agenda-ops"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plantilla | introducción | hilo seguridad |
+| Catálogo | Entrada M12 | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
+
 
 ## Hecho cuando
 

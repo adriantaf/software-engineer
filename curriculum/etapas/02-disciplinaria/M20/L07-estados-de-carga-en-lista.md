@@ -57,6 +57,8 @@ git commit -m "docs(m20): l07 estados-de-carga-en-lista"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | M20 semana 2 | — |
+| Catálogo | Entrada M20 | [Bibliografía · M20](../../../bibliografia.md#m20-aplicaciones-moviles) |
+
 
 ## Hecho cuando
 

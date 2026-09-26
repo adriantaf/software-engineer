@@ -58,6 +58,8 @@ git commit -m "docs(m16): l05 prototipo-navegable-y-tareas-del-srs"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | m12-srs | Must | — |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

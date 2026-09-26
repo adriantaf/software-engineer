@@ -63,6 +63,8 @@ git commit -m "docs(m23): l01 tres-metricas-saas-por-tenant-definicion"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Plan | ../../../producto-saas.md | ../M22-emprendimiento.md metricas |
+| Catálogo | Entrada M23 | [Bibliografía · M23](../../../bibliografia.md#m23-ia-datos) |
+
 
 ## Hecho cuando
 

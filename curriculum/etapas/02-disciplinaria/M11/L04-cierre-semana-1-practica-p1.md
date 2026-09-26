@@ -56,6 +56,8 @@ git commit -m "docs(m11): l04 cierre-semana-1-practica-p1"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M11-sistemas-operativos.md | — |
+| Catálogo | Entrada M11 | [Bibliografía · M11](../../../bibliografia.md#m11-sistemas-operativos) |
+
 
 ## Hecho cuando
 

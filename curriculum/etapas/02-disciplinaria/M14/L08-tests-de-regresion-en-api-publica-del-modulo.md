@@ -58,6 +58,8 @@ git commit -m "docs(m14): l08 tests-de-regresion-en-api-publica-del-mo"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M15-vv-calidad.md | Vitest |
+| Catálogo | Entrada M14 | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
+
 
 ## Hecho cuando
 

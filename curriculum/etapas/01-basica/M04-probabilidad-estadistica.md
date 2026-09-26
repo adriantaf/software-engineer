@@ -98,7 +98,7 @@ Empieza por **L01** hoy.
 
 ## Lecturas (mapa rápido)
 
-Canon: *Probabilidad y estadística para ingeniería y ciencias* — Walpole, Myers et al. (ed. ES). Alternativa gratis: OpenStax *Introductory Statistics*. Catálogo: [bibliografía](../../bibliografia.md).
+Canon: *Probabilidad y estadística para ingeniería y ciencias* — Walpole, Myers et al. (ed. ES). Alternativa gratis: OpenStax *Introductory Statistics*. Catálogo: [bibliografía](../../bibliografia.md#m04-probabilidad-y-estadistica).
 
 | Semana | Lecciones | Capítulos (Walpole) | Alternativa (OpenStax) |
 |--------|-----------|---------------------|-------------------------|

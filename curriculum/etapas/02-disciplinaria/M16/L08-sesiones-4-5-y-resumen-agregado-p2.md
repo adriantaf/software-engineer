@@ -58,6 +58,8 @@ git commit -m "docs(m16): l08 sesiones-4-5-y-resumen-agregado-p2"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Ficha | ../M16-ihc.md | P2 |
+| Catálogo | Entrada M16 | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
+
 
 ## Hecho cuando
 

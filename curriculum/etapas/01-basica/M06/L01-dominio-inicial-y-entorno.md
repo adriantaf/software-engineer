@@ -71,6 +71,8 @@ Caps. 1–2: anota 5 reglas que aplicarás esta semana en comentarios al final d
 |--------|----------|
 | *Código limpio* | Caps. 1–2 |
 | *Pragmático* | DRY (sección equivalente) |
+| Catálogo | [Bibliografía · M06](../../../bibliografia.md#m06-programacion-ii) |
+
 
 ## Hecho cuando
 

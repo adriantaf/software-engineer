@@ -62,6 +62,8 @@ Anota en README: no abusar de APIs públicas en bucles.
 | Fuente | Qué leer |
 |--------|----------|
 | MDN | [fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

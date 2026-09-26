@@ -5,7 +5,7 @@ orden: 17
 titulo: Modelo de heap binario
 horas: 5.0
 semana: 5
-lectura: "ED: heaps"
+lectura: "Joyanes / texto univ. ED (ed. ES): Heaps intro + prioridad — ED: heaps"
 evidencia: "array-backed heap model + heapifyUp/Down"
 ---
 
@@ -43,9 +43,11 @@ Mensaje `feat(m07)` o `docs(m07)` descriptivo en español.
 
 ## Lectura de esta lección
 
-| Fuente | Qué leer |
-|--------|----------|
-| Ver ficha | Capítulo de la semana |
+| Fuente | Qué leer | Enlace |
+|--------|----------|--------|
+| Joyanes / texto univ. ED (ed. ES) | Semana 5: Heaps intro + prioridad — ED: heaps | [MDN Map/Set (contraste)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) |
+| Catálogo | Entrada de esta materia | [Bibliografía · M07](../../../bibliografia.md#m07-estructuras-de-datos) |
+
 
 ## Hecho cuando
 

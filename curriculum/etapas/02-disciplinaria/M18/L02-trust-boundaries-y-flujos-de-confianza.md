@@ -63,6 +63,8 @@ git commit -m "docs(m18): l02 trust-boundaries-y-flujos-de-confianza"
 |--------|----------|-------------|
 | M13 | trust-boundaries | M10 amenazas de red |
 | OWASP | STRIDE en boundaries | — |
+| Catálogo | Entrada M18 | [Bibliografía · M18](../../../bibliografia.md#m18-seguridad-appsec) |
+
 
 ## Hecho cuando
 

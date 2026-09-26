@@ -78,6 +78,8 @@ npx tsx src/cli.ts list
 | Fuente | Qué leer |
 |--------|----------|
 | Node.js | [process.argv](https://nodejs.org/api/process.html#processargv) |
+| Catálogo | [Bibliografía · M02](../../../bibliografia.md#m02-programacion-i) |
+
 
 ## Hecho cuando
 

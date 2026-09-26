@@ -65,6 +65,8 @@ git commit -m "docs(m10): l05 dns-resolucion-registros-y-fallos"
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
 | Tanenbaum | DNS | MDN *DNS* |
+| Catálogo | Entrada M10 | [Bibliografía · M10](../../../bibliografia.md#m10-redes) |
+
 
 ## Hecho cuando
 

@@ -70,6 +70,8 @@ Del cap. 1 (sección de equivalencias): resuelve **2** ejercicios de “mostrar 
 |--------|----------|
 | Rosen | Cap. 1.3 (equivalencias, leyes) |
 | Apuntes | `logica-proposicional.md` (repaso si hace falta) |
+| Catálogo | [Bibliografía · M03](../../../bibliografia.md#m03-matematicas-discretas) |
+
 
 ## Hecho cuando
 
