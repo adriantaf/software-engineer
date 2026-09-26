@@ -5,61 +5,71 @@ orden: 14
 titulo: EXPLAIN ANALYZE en consultas reales
 horas: 5.0
 semana: 4
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Transacciones e integridad — PG EXPLAIN"
-evidencia: "explain-notas.md primera entrada"
+lectura: "PG: EXPLAIN / Using EXPLAIN"
+evidencia: explain-notas.md con plan ANTES pegado
 ---
 
 # L14 — EXPLAIN ANALYZE en consultas reales
 
 **~5.0 h · Semana 4**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+El plan de ejecución es la radiografía. Hoy lees una de **tu** query.
 
 ## Objetivo
 
-Entregar `explain-notas.md primera entrada` con SQL ejecutado (no solo leído).
+Llenar la sección “Plan (antes…)” de `explain-notas.md`.
 
 ## Pasos
 
 ### 1. Lectura (45 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+[Using EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html) — enfócate en nodos Seq Scan, Index Scan, cost, rows, actual time.
 
-### 2. Trabajo en repo (150 min)
+### 2. Elige query (20 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+Copia tu reporte diario o agg a `sql/explain-reporte-diario.sql`.
 
-### 3. Query parametrizada (30 min)
+### 3. Corre EXPLAIN (60 min)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+```sql
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT …;
+```
 
-### 4. Evidencia en git (45 min)
+Pega salida completa en `explain-notas.md`.
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+### 4. Traducción al español (60 min)
 
-### 5. Commit (30 min)
+Escribe 5–8 líneas: qué nodo domina, estimaciones vs reality (`rows` vs `actual rows`), buffers.
 
-`feat(m09): ...` descriptivo.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "docs(m09): explain analyze reporte diario"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 4: Transacciones e integridad — PG EXPLAIN | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | PG: EXPLAIN / Using EXPLAIN | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Corres `EXPLAIN (ANALYZE, BUFFERS)` sobre una query de reporte.
+2. Pegas el plan en `explain-notas.md` (sección antes).
+3. Explicas en llano Seq Scan vs Index Scan.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Solo `EXPLAIN` sin `ANALYZE` y hablar de tiempos reales.
+- Pegar el plan sin interpretar una sola línea.
+- Medir con tabla vacía.
+
 ## Siguiente
 
 [L15 — Optimizar query lenta de reporte](L15-optimizar-query-lenta-de-reporte.md)

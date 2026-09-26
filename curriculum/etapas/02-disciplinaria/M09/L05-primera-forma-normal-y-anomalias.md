@@ -5,61 +5,78 @@ orden: 5
 titulo: Primera forma normal y anomalías
 horas: 5.0
 semana: 2
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): SQL consultas (SELECT/JOIN) — Elmasri 1FN"
-evidencia: "ejercicio descomposición 1FN"
+lectura: "Elmasri: 1FN, anomalías de inserción/borrado/actualización"
+evidencia: er-agenda.md sección 1FN + ejemplo de tabla mala descompuesta
 ---
 
 # L05 — Primera forma normal y anomalías
 
 **~5.0 h · Semana 2**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+1FN exige atributos atómicos. Las hojas de Excel del salón casi nunca lo cumplen.
 
 ## Objetivo
 
-Entregar `ejercicio descomposición 1FN` con SQL ejecutado (no solo leído).
+Demostrar una violación de 1FN del dominio y dejar el esquema (o el diseño) en 1FN con evidencia escrita.
+
+## Conceptos
+
+- Valor atómico vs lista/repetición en la misma fila.
+- Anomalías de actualización (cambiar un teléfono en N filas).
+- Anomalías de borrado (perder el único dato del cliente al borrar una cita).
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura (45–60 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Capítulo/sección de 1FN y anomalías en Elmasri. Anota definiciones con tus palabras.
 
-### 2. Trabajo en repo (150 min)
+### 2. Tabla mala (45 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+En `er-agenda.md` (sección Normalización), pega algo así y **explícalo**:
 
-### 3. Query parametrizada (30 min)
+| cita_id | cliente | telefonos | servicios |
+|---------|---------|-----------|-----------|
+| 1 | Ana | 646-111, 646-222 | Corte, Barba |
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+Señala qué columnas no son atómicas.
 
-### 4. Evidencia en git (45 min)
+### 3. Descomposición (75 min)
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+Escribe las tablas resultantes (Cliente, Telefono opcional, Servicio, Cita). Compara con `001_init.sql`: ¿ya estás en 1FN? Si añadiste un campo lista, corrígelo con migración o nota de deuda.
 
-### 5. Commit (30 min)
+### 4. Anomalías (40 min)
 
-`feat(m09): ...` descriptivo.
+Una fila de texto por tipo: inserción / actualización / borrado, usando el ejemplo malo.
+
+### 5. Commit (15 min)
+
+```bash
+git commit -am "docs(m09): 1FN y anomalias agenda"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 2: SQL consultas (SELECT/JOIN) — Elmasri 1FN | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri: 1FN, anomalías de inserción/borrado/actualización | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Documentas una “tabla Excel” que viola 1FN (teléfonos múltiples o listas en una celda).
+2. Muestras la descomposición a relaciones atómicas.
+3. Marcas 1FN como cumplida en la tabla de normalización de `er-agenda.md`.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Guardar `telefonos` como `'a,b,c'` en un solo `text` “porque es más fácil”.
+- Declarar 1FN sin ejemplo de anomalía.
+- Normalizar de oídas sin tocar el ER.
+
 ## Siguiente
 
 [L06 — Segunda forma normal](L06-segunda-forma-normal.md)

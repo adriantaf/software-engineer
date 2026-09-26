@@ -143,14 +143,19 @@ Regla: el identificador de negocio/tenant en el `WHERE` es autorización, no sol
 
 ## Proyecto útil
 
-**Esquema CRM / Agenda Ops con seeds y reportes:** todo bajo `projects/m09-bases-datos/`:
+**Esquema CRM / Agenda Ops con seeds y reportes:** todo bajo `projects/m09-bases-datos/`.
 
-- Migraciones que levanten el esquema desde cero en CI o en la máquina de un compañero.
+Ya hay un **scaffold** listo para L01: `docker-compose.yml`, `.env.example`, `migrations/001_init.sql` (clientes / servicios / citas + `tenant_id`), plantillas `er-agenda.md`, `sql/`, `seeds/`, `roles.md`, `reportes.md`.
+
+Tu trabajo:
+
+- Completar ER hasta 3FN y las lecciones L01→L20 (no reescribir el scaffold desde cero).
+- Migraciones adicionales (auditoría, índices, rol app) reproducibles en máquina limpia.
 - Seeds realistas (clientes, servicios, citas en distintos estados).
-- Dos reportes SQL documentados en `reportes.md` (pregunta de negocio + query + ejemplo de salida).
-- README con comando `docker compose up` o equivalente si usas contenedor.
+- Dos reportes SQL en `reportes.md` (pregunta de negocio + query + ejemplo de salida).
+- README con `docker compose up` (o PG nativo) sin secretos en git.
 
-Piensa en M17: columnas que faciliten `tenant_id` más adelante (sin implementar multi-tenant aún).
+Piensa en M17: `tenant_id` ya está preparado; no implementes multi-tenant aún.
 
 ## Errores comunes
 

@@ -5,61 +5,83 @@ orden: 2
 titulo: Entidades Cliente, Servicio, Cita
 horas: 5.0
 semana: 1
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Modelo ER / relacional — Elmasri ER"
-evidencia: "er-agenda.md borrador"
+lectura: "Elmasri: modelo ER — entidades y atributos"
+evidencia: er-agenda.md con 3 entidades y atributos justificados
 ---
 
 # L02 — Entidades Cliente, Servicio, Cita
 
 **~5.0 h · Semana 1**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+El producto Agenda Ops gira en torno a tres hechos: quién reserva, qué se ofrece y cuándo ocurre.
 
 ## Objetivo
 
-Entregar `er-agenda.md borrador` con SQL ejecutado (no solo leído).
+Completar el borrador de `er-agenda.md` con entidades, atributos y un diagrama que puedas defender en voz alta.
+
+## Conceptos
+
+- **Entidad** vs **atributo** vs **relación**.
+- Clave primaria estable (`uuid`) vs natural (teléfono — malo como PK).
+- `tenant_id` como columna preparatoria (aún single-tenant).
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura dirigida (45–60 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+En Elmasri, secciones de entidades/atributos/tipos de entidad. Anota 5 términos en `glosario.md` o al final de `er-agenda.md`.
 
-### 2. Trabajo en repo (150 min)
+### 2. Contrasta con el SQL ya aplicado (30 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+```bash
+psql "..." -c '\d clientes'
+psql "..." -c '\d servicios'
+psql "..." -c '\d citas'
+```
 
-### 3. Query parametrizada (30 min)
+Lista en `er-agenda.md` qué columnas ya existen y si faltan atributos de negocio (ej. `notas`).
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+### 3. Escribe atributos con justificación (90 min)
 
-### 4. Evidencia en git (45 min)
+Para cada entidad: atributo → tipo → por qué lo necesitas el día 1. Ejemplo mínimo:
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+- Cliente: `nombre`, `telefono` (WhatsApp), `email` opcional.
+- Servicio: `duracion_min`, `precio_centavos` (evita floats).
+- Cita: `inicia_en`, `termina_en`, `estado`.
 
-### 5. Commit (30 min)
+### 4. Diagrama (45 min)
 
-`feat(m09): ...` descriptivo.
+Actualiza el bloque Mermaid de `er-agenda.md` (o exporta PNG y enlázalo). Las tres entidades deben aparecer.
+
+### 5. Commit (15 min)
+
+```bash
+git add projects/m09-bases-datos/er-agenda.md
+git commit -m "docs(m09): entidades cliente servicio cita"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 1: Modelo ER / relacional — Elmasri ER | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri: modelo ER — entidades y atributos | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `er-agenda.md` describe Cliente, Servicio y Cita con atributos y tipos.
+2. El diagrama Mermaid (o equivalente) refleja esas tres entidades.
+3. Commit `docs(m09): entidades cliente servicio cita`.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Mezclar “Usuario staff” con “Cliente” del salón.
+- Poner precio solo en la cita y olvidar el catálogo de servicios.
+- ER bonito sin relación con las tablas de `001_init.sql`.
+
 ## Siguiente
 
 [L03 — Cardinalidades y reglas de negocio](L03-cardinalidades-y-reglas-de-negocio.md)

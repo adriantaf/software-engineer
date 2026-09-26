@@ -5,61 +5,74 @@ orden: 10
 titulo: Agregaciones y GROUP BY
 horas: 5.0
 semana: 3
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Índices y EXPLAIN — Elmasri"
-evidencia: "sql/reportes-agregados.sql"
+lectura: "Elmasri: agregación GROUP BY; PG aggregate functions"
+evidencia: sql/agg-citas-por-servicio.sql
 ---
 
 # L10 — Agregaciones y GROUP BY
 
 **~5.0 h · Semana 3**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+El dueño pregunta: “¿qué servicio se agenda más?”. Eso es `GROUP BY`.
 
 ## Objetivo
 
-Entregar `sql/reportes-agregados.sql` con SQL ejecutado (no solo leído).
+Entregar `sql/agg-citas-por-servicio.sql` con al menos dos agregaciones ejecutadas.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura (40 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Funciones de agregación y `GROUP BY` / `WHERE` vs filtros de grupo.
 
-### 2. Trabajo en repo (150 min)
+### 2. Escribe y corre (90 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+```sql
+-- sql/agg-citas-por-servicio.sql
+SELECT s.nombre,
+       count(*) AS total_citas,
+       count(*) FILTER (WHERE c.estado = 'completada') AS completadas,
+       coalesce(sum(s.precio_centavos) FILTER (WHERE c.estado = 'completada'), 0) AS ingresos_centavos
+FROM citas c
+JOIN servicios s ON s.id = c.servicio_id
+GROUP BY s.id, s.nombre
+ORDER BY total_citas DESC;
+```
 
-### 3. Query parametrizada (30 min)
+(Ajusta si usas snapshot de precio en la cita.)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+### 3. Segunda query (45 min)
 
-### 4. Evidencia en git (45 min)
+Citas por día (`date_trunc('day', inicia_en)`) de los últimos 14 días.
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+### 4. Frase de negocio (20 min)
 
-### 5. Commit (30 min)
+En comentario del SQL: “El servicio más agendado esta semana es X con N citas”.
 
-`feat(m09): ...` descriptivo.
+### 5. Commit (15 min)
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 3: Índices y EXPLAIN — Elmasri | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri: agregación GROUP BY; PG aggregate functions | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
+Marca la lección **solo si**:
+
+1. Existe y corre un SQL con `GROUP BY` + `COUNT`/`SUM`.
+2. Interpretas el resultado en una frase de negocio.
 3. Commit.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Seleccionar columnas no agregadas fuera del `GROUP BY`.
+- Sumar `precio` en float.
+- Reportar conteos sin filtrar `cancelada` cuando la pregunta es “atendidas”.
+
 ## Siguiente
 
 [L11 — Subconsultas y HAVING](L11-subconsultas-y-having.md)

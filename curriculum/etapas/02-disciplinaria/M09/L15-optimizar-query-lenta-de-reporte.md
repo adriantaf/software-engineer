@@ -5,61 +5,62 @@ orden: 15
 titulo: Optimizar query lenta de reporte
 horas: 5.0
 semana: 4
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Transacciones e integridad — PG performance"
-evidencia: "índice creado + antes/después"
+lectura: Elmasri selectividad / PG Index-Only Scans intro
+evidencia: Plan DESPUÉS + cambio (índice o reescritura)
 ---
 
 # L15 — Optimizar query lenta de reporte
 
 **~5.0 h · Semana 4**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+Una pasada de EXPLAIN no basta: cambias algo y vuelves a medir.
 
 ## Objetivo
 
-Entregar `índice creado + antes/después` con SQL ejecutado (no solo leído).
+Completar “Plan (después)” y la conclusión en `explain-notas.md`.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Hipótesis (30 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Ejemplos: falta índice en `(tenant_id, inicia_en)`; `WHERE date(inicia_en) = …` impide uso de índice; SELECT * innecesario.
 
-### 2. Trabajo en repo (150 min)
+### 2. Cambia una sola cosa (60–90 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+Índice **o** reescritura (mejor `inicia_en >= @start AND inicia_en < @end` que casteos).
 
-### 3. Query parametrizada (30 min)
+### 3. Remide (45 min)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+Mismo `EXPLAIN (ANALYZE, BUFFERS)`. Pega en la sección después.
 
-### 4. Evidencia en git (45 min)
+### 4. Criterio de éxito (30 min)
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+Si con seeds pequeños no hay diferencia, dilo honestamente y explica qué pasaríacon 100k citas (orden de magnitud).
 
-### 5. Commit (30 min)
-
-`feat(m09): ...` descriptivo.
+### 5. Commit (15 min)
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 4: Transacciones e integridad — PG performance | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri selectividad / PG Index-Only Scans intro | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Aplicas un cambio (índice, filtro, reescritura).
+2. Vuelves a correr EXPLAIN ANALYZE.
+3. Documentas comparación antes/después.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Declarar victoria sin segunda medición.
+- Índice que no se usa (tipo de dato / función sobre columna).
+- Optimizar una query que nadie corre.
+
 ## Siguiente
 
 [L16 — Documentar planes de ejecución](L16-documentar-planes-de-ejecucion.md)

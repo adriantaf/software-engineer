@@ -5,61 +5,70 @@ orden: 11
 titulo: Subconsultas y HAVING
 horas: 5.0
 semana: 3
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Índices y EXPLAIN — PostgreSQL docs"
-evidencia: "sql/subconsultas.sql"
+lectura: "Elmasri: subconsultas; HAVING"
+evidencia: sql/subq-clientes-frecuentes.sql
 ---
 
 # L11 — Subconsultas y HAVING
 
 **~5.0 h · Semana 3**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+“Clientes con más de 2 citas completadas” pide filtrar **grupos**, no filas.
 
 ## Objetivo
 
-Entregar `sql/subconsultas.sql` con SQL ejecutado (no solo leído).
+Crear `sql/subq-clientes-frecuentes.sql` con `HAVING` y al menos una subconsulta.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura (40 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Subconsultas escalares, `IN`/`EXISTS`, y `HAVING`.
 
-### 2. Trabajo en repo (150 min)
+### 2. HAVING (60 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+```sql
+SELECT cl.nombre, count(*) AS completadas
+FROM citas c
+JOIN clientes cl ON cl.id = c.cliente_id
+WHERE c.estado = 'completada'
+GROUP BY cl.id, cl.nombre
+HAVING count(*) >= 2
+ORDER BY completadas DESC;
+```
 
-### 3. Query parametrizada (30 min)
+### 3. Subconsulta (60 min)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+Lista servicios que **nunca** se han agendado (`NOT EXISTS` o `LEFT JOIN … IS NULL`). Prefiere `EXISTS` y explica por qué en un comentario.
 
-### 4. Evidencia en git (45 min)
+### 4. Compara mentalmente con JOIN (30 min)
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+Reescribe una de las dos con puro JOIN. ¿Más legible? Anota preferencia.
 
-### 5. Commit (30 min)
-
-`feat(m09): ...` descriptivo.
+### 5. Commit (15 min)
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 3: Índices y EXPLAIN — PostgreSQL docs | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri: subconsultas; HAVING | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
+Marca la lección **solo si**:
+
+1. Una query con `HAVING` y otra con subconsulta (`IN` / `EXISTS` / escalar).
+2. Ambas ejecutadas con comentario de salida.
 3. Commit.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Usar `WHERE count(*) > 1` en lugar de `HAVING`.
+- Subconsulta correlacionada innecesariamente lenta sin mirar el plan (eso es L14; hoy solo correctness).
+- Clientes frecuentes incluyendo solo canceladas.
+
 ## Siguiente
 
 [L12 — Cinco consultas P2 comentadas](L12-cinco-consultas-p2-comentadas.md)

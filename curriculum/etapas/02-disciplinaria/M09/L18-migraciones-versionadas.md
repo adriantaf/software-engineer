@@ -5,61 +5,72 @@ orden: 18
 titulo: Migraciones versionadas
 horas: 5.0
 semana: 5
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Roles, permisos y esquema Agenda Ops — Herramienta elegida"
-evidencia: "migrations/ primera + segunda"
+lectura: "Práctica: migraciones en git; opcional herramienta (dbmate/flyway/prisma)"
+evidencia: migrations/ 001+002 aplicadas y documentadas
 ---
 
 # L18 — Migraciones versionadas
 
 **~5.0 h · Semana 5**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+El esquema es código. Si no está en git con orden, no existe.
 
 ## Objetivo
 
-Entregar `migrations/ primera + segunda` con SQL ejecutado (no solo leído).
+Dejar `migrations/` reproducible: 001 + 002 (y notas de 003 para L19).
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Elige convención (30 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Ya tienes numeración `001_`, `002_`. Documenta en `migrations/README.md` si más adelante usarás dbmate/flyway/prisma — **no hace falta migrar la herramienta hoy**.
 
-### 2. Trabajo en repo (150 min)
+### 2. Verifica idempotencia razonable (60 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+Reaplicar `001` no debe destruir datos (usamos `IF NOT EXISTS`). Prueba en una DB temporal o anota el riesgo.
 
-### 3. Query parametrizada (30 min)
+### 3. Simula máquina limpia (90 min)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+```bash
+docker compose down -v   # ¡borra volumen local de evidencia!
+docker compose up -d
+# aplicar 001, 002, seeds
+```
 
-### 4. Evidencia en git (45 min)
+Solo si puedes recrear seeds después. Si no quieres borrar, usa otro `POSTGRES_DB` / compose project name.
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+### 4. README “desde cero” (45 min)
 
-### 5. Commit (30 min)
+Lista ordenada de comandos en el README principal.
 
-`feat(m09): ...` descriptivo.
+### 5. Commit (15 min)
+
+```bash
+git commit -am "docs(m09): migraciones versionadas reproducibles"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 5: Roles, permisos y esquema Agenda Ops — Herramienta elegida | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Práctica: migraciones en git; opcional herramienta (dbmate/flyway/prisma) | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Al menos dos migraciones numeradas en git.
+2. README explica cómo aplicarlas en orden en máquina limpia.
+3. Commit si faltaba documentación.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Cambiar `001_init.sql` ya aplicado en prod/compañero sin nueva migración.
+- Migraciones solo en la cabeza / en un GUI.
+- Orden no determinista de archivos.
+
 ## Siguiente
 
 [L19 — Least privilege (P3)](L19-least-privilege-p3.md)

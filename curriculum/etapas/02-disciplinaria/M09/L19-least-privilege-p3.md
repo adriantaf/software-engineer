@@ -5,61 +5,75 @@ orden: 19
 titulo: Least privilege (P3)
 horas: 5.0
 semana: 5
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Roles, permisos y esquema Agenda Ops — hilos/seguridad.md"
-evidencia: "roles.md + rol app"
+lectura: "PG: roles / GRANT; Elmasri seguridad intro"
+evidencia: roles.md + 003_roles_app.sql — cierra P3
 ---
 
 # L19 — Least privilege (P3)
 
 **~5.0 h · Semana 5**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+El hilo de seguridad empieza aquí: la app no es dueña del clúster.
 
 ## Objetivo
 
-Entregar `roles.md + rol app` con SQL ejecutado (no solo leído).
+Aplicar `migrations/003_roles_app.sql` (ajustando password local) y completar `roles.md`.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura (40 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+[PG privileges](https://www.postgresql.org/docs/current/ddl-priv.html) — GRANT/REVOKE básicos.
 
-### 2. Trabajo en repo (150 min)
+### 2. Ajusta y aplica 003 (45 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+Edita la password del `CREATE ROLE` con tu `APP_DB_PASSWORD` **local**. Aplica el SQL.
 
-### 3. Query parametrizada (30 min)
+### 3. Prueba positiva (40 min)
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+```bash
+psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/agenda_ops" \
+  -c 'SELECT count(*) FROM citas;'
+```
 
-### 4. Evidencia en git (45 min)
+### 4. Prueba negativa (40 min)
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+```sql
+DROP TABLE citas;          -- debe fallar
+CREATE TABLE hack(x int);  -- debe fallar
+```
 
-### 5. Commit (30 min)
+Pega el error en `roles.md`.
 
-`feat(m09): ...` descriptivo.
+### 5. Commit (20 min) — sin secretos
+
+```bash
+git add projects/m09-bases-datos/roles.md projects/m09-bases-datos/migrations/003_roles_app.sql
+git commit -m "feat(m09): rol agenda_app least privilege"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 5: Roles, permisos y esquema Agenda Ops — hilos/seguridad.md | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | PG: roles / GRANT; Elmasri seguridad intro | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. Existe rol `agenda_app` (o equivalente) sin superuser.
+2. Demuestras SELECT/INSERT OK y DDL denegado (error pegado en `roles.md`).
+3. README marca P3 listo.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- App y migraciones con el mismo superuser.
+- GRANT ALL TABLES TO PUBLIC.
+- Password del rol app en el README.
+
 ## Siguiente
 
 [L20 — Reportes, seeds y cierre M09](L20-reportes-seeds-y-cierre-m09.md)

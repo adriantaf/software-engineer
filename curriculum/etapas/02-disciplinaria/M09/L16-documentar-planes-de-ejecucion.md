@@ -5,61 +5,66 @@ orden: 16
 titulo: Documentar planes de ejecución
 horas: 5.0
 semana: 4
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Transacciones e integridad — PG docs"
-evidencia: "explain-notas.md ≥2 queries"
+lectura: Repaso EXPLAIN + tu explain-notas.md
+evidencia: explain-notas.md completo — cierra P2
 ---
 
 # L16 — Documentar planes de ejecución
 
 **~5.0 h · Semana 4**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+La evidencia de P2 es legible por otro humano (tú en tres meses).
 
 ## Objetivo
 
-Entregar `explain-notas.md ≥2 queries` con SQL ejecutado (no solo leído).
+Cerrar `explain-notas.md` y la checklist P2 en el README.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Pulido del documento (90 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Relee `explain-notas.md`. Añade:
 
-### 2. Trabajo en repo (150 min)
+- Link relativo al `.sql`
+- Pregunta de negocio en una línea
+- Conclusión binaria: ¿mantenemos el índice? sí/no + cuándo revisarlo
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+### 2. Índice de sql/ (40 min)
 
-### 3. Query parametrizada (30 min)
+Tabla corta en README: archivo → pregunta.
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+### 3. Autorevisión P2 (40 min)
 
-### 4. Evidencia en git (45 min)
+Checklist ficha M09: joins/agregaciones + EXPLAIN comentado. Lista gaps si los hay (y ciérralos).
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+### 4. Commit (20 min)
 
-### 5. Commit (30 min)
-
-`feat(m09): ...` descriptivo.
+```bash
+git commit -am "docs(m09): cierra P2 explain y sql"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 4: Transacciones e integridad — PG docs | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Repaso EXPLAIN + tu explain-notas.md | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `explain-notas.md` tiene pregunta, SQL, antes, cambio, después, conclusión.
+2. README marca P2 (sql/ + explain) como listo.
+3. Commit de cierre P2.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Notas solo con screenshots ilegibles.
+- No enlazar el archivo SQL del reporte.
+- Cerrar P2 sin ≥5 queries de L12.
+
 ## Siguiente
 
 [L17 — Transacciones ACID](L17-transacciones-acid.md)

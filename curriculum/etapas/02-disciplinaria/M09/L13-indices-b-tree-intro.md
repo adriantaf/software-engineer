@@ -5,61 +5,78 @@ orden: 13
 titulo: Índices B-tree intro
 horas: 5.0
 semana: 4
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Transacciones e integridad — Elmasri índices"
-evidencia: "notas indice.md"
+lectura: "Elmasri: índices; PG docs Indexes / CREATE INDEX"
+evidencia: Índice nuevo documentado + \d citas
 ---
 
 # L13 — Índices B-tree intro
 
 **~5.0 h · Semana 4**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+Un índice no es un logro: es una apuesta sobre lecturas vs escrituras.
 
 ## Objetivo
 
-Entregar `notas indice.md` con SQL ejecutado (no solo leído).
+Entender B-tree en la práctica y dejar un índice justificado por una query tuya.
 
 ## Pasos
 
-### 1. Lectura (45 min)
+### 1. Lectura (50 min)
 
-Capítulo Elmasri indicado. Subraya definiciones (entidad, relación, dependencia funcional, ACID).
+Elmasri (índices) + [PG CREATE INDEX](https://www.postgresql.org/docs/current/sql-createindex.html) (solo B-tree por ahora).
 
-### 2. Trabajo en repo (150 min)
+### 2. Inventario actual (30 min)
 
-Ejecuta contra tu BD local. **Nunca** pegues contraseñas en git; usa `.env` ignorado y `README` con variables.
+```sql
+SELECT indexname, indexdef
+FROM pg_indexes
+WHERE tablename = 'citas';
+```
 
-### 3. Query parametrizada (30 min)
+Compara con lo que ya creó `001_init.sql`.
 
-Si aplica capa TS, muestra `$1` placeholders; si solo SQL, usa variables psql `\set`.
+### 3. Elige una query lenta potencial (60 min)
 
-### 4. Evidencia en git (45 min)
+Ej. filtrar por `estado` + rango de `inicia_en`. Diseña:
 
-Archivos `.sql` o migraciones + salida ejemplo en comentario o `samples/`.
+```sql
+CREATE INDEX IF NOT EXISTS idx_citas_estado_inicia
+  ON citas (estado, inicia_en);
+```
 
-### 5. Commit (30 min)
+Ponlo en `migrations/002_auditoria_y_indices.sql` (o archivo nuevo) si aún no está.
 
-`feat(m09): ...` descriptivo.
+### 4. Aplica y verifica (40 min)
+
+```bash
+psql "..." -f migrations/002_auditoria_y_indices.sql
+psql "..." -c '\d citas'
+```
+
+### 5. Commit (15 min)
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 4: Transacciones e integridad — Elmasri índices | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Elmasri: índices; PG docs Indexes / CREATE INDEX | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
+Marca la lección **solo si**:
+
+1. Creas (o justificas) al menos un índice adicional alineado a un reporte.
+2. Documentas en `explain-notas.md` o migración por qué existe.
 3. Commit.
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Indexar todas las columnas.
+- Índice único accidental que rompe inserts legítimos.
+- No saber qué es B-tree vs “magia del motor”.
+
 ## Siguiente
 
 [L14 — EXPLAIN ANALYZE en consultas reales](L14-explain-analyze-en-consultas-reales.md)

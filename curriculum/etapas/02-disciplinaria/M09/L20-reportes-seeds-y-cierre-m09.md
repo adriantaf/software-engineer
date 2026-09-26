@@ -5,61 +5,71 @@ orden: 20
 titulo: Reportes, seeds y cierre M09
 horas: 5.0
 semana: 5
-lectura: "*Fundamentos de BD* — Elmasri & Navathe (ed. ES): Roles, permisos y esquema Agenda Ops — Proyecto CRM"
-evidencia: "reportes.md + seeds + README"
+lectura: "Cierre: seeds + reportes de negocio"
+evidencia: seeds + reportes.md + README — cierra proyecto M09
 ---
 
 # L20 — Reportes, seeds y cierre M09
 
 **~5.0 h · Semana 5**
 
-Modelas y operas el esquema del producto con PostgreSQL real, parametrización y permisos mínimos.
+Cierras el **proyecto** de la materia: esquema reproducible, seeds y reportes útiles.
 
 ## Objetivo
 
-Entregar `reportes.md + seeds + README` con SQL ejecutado (no solo leído).
+Dejar `seeds/`, `reportes.md` y README en estado “otro humano levanta esto”.
 
 ## Pasos
 
-### 1. Seeds completos (90 min)
+### 1. Seeds realistas (75 min)
 
-Datos realistas en varios estados de cita.
+Amplía `seeds/001_demo.sql`: ≥5 clientes, ≥3 servicios, citas en varios estados (`programada`, `completada`, `no_show`, `cancelada`). Reaplica en DB limpia o tras truncate controlado.
 
-### 2. Dos reportes (60 min)
+### 2. Dos reportes (75 min)
 
-`reportes.md`: pregunta de negocio, SQL, ejemplo salida.
+Completa `reportes.md`. Ideas:
 
-### 3. Checklist P1–P3 y proyecto (60 min)
+1. No-shows de los últimos 30 días por cliente.
+2. Ingresos estimados (centavos) por servicio en citas `completada`.
 
-ER 3FN, sql/, explain, migrations, roles.md.
+Cada uno: pregunta → archivo SQL → salida → uso para el dueño.
 
-### 4. Dominio (30 min)
+### 3. Checklist total (45 min)
 
-Recrear BD solo con README en máquina limpia (simulación).
+P1 `er-agenda.md` · P2 `sql/` + `explain-notas.md` · P3 `migrations/` + `roles.md` · Proyecto seeds + reportes.
 
-### 5. Commit (30 min)
+### 4. Simulación máquina limpia (45 min)
 
-`docs(m09): cierre materia`.
+Sigue solo tu README (sin mirar las lecciones). Anota fricciones y arréglalas.
+
+### 5. Commit de cierre (15 min)
+
+```bash
+git add projects/m09-bases-datos
+git commit -m "docs(m09): cierre materia seeds y reportes"
+```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Semana 5: Roles, permisos y esquema Agenda Ops — Proyecto CRM | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
+| *Fundamentos de BD* — Elmasri & Navathe (ed. ES) | Cierre: seeds + reportes de negocio | [Tutorial PostgreSQL](https://www.postgresql.org/docs/current/tutorial.html) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M09](../../../bibliografia.md#m09-bases-de-datos) |
 
 
 ## Hecho cuando
 
-1. Artefacto pedido existe y fue ejecutado.
-2. Sin secretos en git.
-3. Commit.
+Marca la lección **solo si**:
+
+1. `seeds/001_demo.sql` (o ampliado) aplica limpio.
+2. `reportes.md` tiene ≥2 reportes con SQL + salida.
+3. Otro dev podría recrear la BD solo con tu README (lo simulas tú).
 
 ## Errores comunes
 
-- SQL concatenado estilo injection demo.
-- Usuario superuser para la app.
-- Migraciones solo en local sin historial.
+- Reportes sin pregunta de negocio.
+- Seeds con datos personales reales.
+- Marcar el proyecto en la UI sin `reportes.md`.
 
 ## Siguiente
 
