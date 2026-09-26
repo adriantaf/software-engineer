@@ -37,41 +37,81 @@ Al terminar debes poder:
 5. Empaquetar un servicio Node en Docker con volumen persistente y usuario no-root cuando sea posible.
 6. Documentar un playbook local reproducible para levantar API + base de datos.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Cada concepto del libro → **un comando o experimento** el mismo día en `projects/m11-so/`.
-- Piensa siempre en el stack que usarás en M17: Postgres en contenedor o local, API Node, variables en `.env` fuera de la imagen.
-- No memorices tablas del kernel: documenta **qué observaste** (`ps`, `top`, `df`, logs).
-- Lee [Cómo estudiar](../../como-estudiar.md) si aún no tienes la rutina de 20 h/semana.
+M11 usa lecciones L01–L16 (como M01): terminal, scripts y Docker con evidencia en `projects/m11-so/`.
+
+1. Orden **L01 → L16**; marca solo con “Hecho cuando” cumplido.
+2. Cada concepto del libro → **un comando o experimento** el mismo día.
+3. Piensa en el stack de **Agenda Ops** (API Node + Postgres en contenedor).
+4. Prácticas P1–P3 y playbook se distribuyen en las lecciones indicadas.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Procesos/permisos | 6–8 | Labs Linux + bitácora |
-| Scripts ops | 6–8 | Backup / rotación logs |
-| Docker | 4–6 | Imagen Node + volumen; user no-root |
-| Retro | 1 | Un permiso o señal que te salvó de un error |
+| Procesos / memoria / FS | 10–12 | 4 lecciones (~5 h c/u) |
+| Scripts ops (P2) | 4–6 | Backup, rotación, restore |
+| Docker + playbook (P3) | 4–6 | Imagen no-root, compose |
+| Retro | 1 | Permiso o señal que evitó un incidente |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica**. No saltes la lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la carpeta de evidencia:
-   ```bash
-   mkdir -p projects/m11-so/labs
-   ```
-2. Ejecuta y anota en `projects/m11-so/labs/dia1-comandos.md` (mínimo 10 líneas con salida resumida):
-   ```bash
-   ps aux | head
-   top -b -n 1 | head -20    # o htop si lo tienes
-   id
-   umask
-   ls -la /tmp | head
-   ```
-3. Crea un usuario o grupo de **práctica** (o usa un directorio propio) y un archivo con permisos `600`; prueba leerlo con otro usuario si puedes.
-4. Escribe en la misma nota **por qué `chmod 777` es casi siempre un error** en un servidor o volumen de datos.
-5. Haz un commit atómico, por ejemplo: `docs(m11): bitácora día 1 procesos y permisos`.
+### Semana 1 — Procesos, hilos y señales (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Procesos, permisos y bitácora día 1](M11/L01-procesos-permisos-y-bitacora-dia-1.md) | 5 |
+| L02 | [Proceso vs hilo y el runtime Node](M11/L02-proceso-vs-hilo-y-el-runtime-node.md) | 5 |
+| L03 | [Señales SIGTERM y apagado graceful](M11/L03-senales-sigterm-y-apagado-graceful.md) | 5 |
+| L04 | [Cierre semana 1 — práctica P1](M11/L04-cierre-semana-1-practica-p1.md) | 5 |
+
+### Semana 2 — Memoria y contenedores (cgroups) (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Memoria virtual y paginación (intuición)](M11/L05-memoria-virtual-y-paginacion-intuicion.md) | 5 |
+| L06 | [Observar RSS y CPU de Node](M11/L06-observar-rss-y-cpu-de-node.md) | 5 |
+| L07 | [OOM, ulimit y síntomas](M11/L07-oom-ulimit-y-sintomas.md) | 5 |
+| L08 | [cgroups y memoria en contenedores](M11/L08-cgroups-y-memoria-en-contenedores.md) | 5 |
+
+### Semana 3 — Archivos, permisos y scripts ops (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Sistema de archivos: inodos y espacio](M11/L09-sistema-de-archivos-inodos-y-espacio.md) | 5 |
+| L10 | [Permisos, usuarios y mínimo privilegio](M11/L10-permisos-usuarios-y-minimo-privilegio.md) | 5 |
+| L11 | [Script de backup automatizado (P2)](M11/L11-script-de-backup-automatizado-p2.md) | 5 |
+| L12 | [Rotación de logs y restore de prueba](M11/L12-rotacion-de-logs-y-restore-de-prueba.md) | 5 |
+
+### Semana 4 — Docker y playbook local (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Imágenes, contenedores y volúmenes](M11/L13-imagenes-contenedores-y-volumenes.md) | 5 |
+| L14 | [Dockerfile Node sin root (P3)](M11/L14-dockerfile-node-sin-root-p3.md) | 5 |
+| L15 | [docker compose: API y base de datos](M11/L15-docker-compose-api-y-base-de-datos.md) | 5 |
+| L16 | [Playbook local y cierre M11](M11/L16-playbook-local-y-cierre-m11.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES). Catálogo: [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos (por tema) | Alternativa / práctica |
+|--------|-----------|----------------------|-------------------------|
+| 1 | L01–L04 | **Procesos e hilos** + señales | `ps`, `top`, Node + SIGTERM |
+| 2 | L05–L08 | **Memoria** virtual, OOM, cgroups | RSS Node, límites Docker |
+| 3 | L09–L12 | **Sistema de archivos** + protección | Permisos, backup P2 |
+| 4 | L13–L16 | **Contenedores** + síntesis | Dockerfile, compose, playbook |
+
+**Regla:** un experimento documentado por semana en `projects/m11-so/`.
+
+
 
 ## Ejemplo — backup simple con rotación
 
@@ -135,18 +175,6 @@ Los secretos van en `.env` / secret manager del host, **no** en `docker build`.
 - Práctica P3: Dockerfile Node + volumen; usuario no-root documentado.
 - Proyecto: playbook en `projects/m11-so/playbook.md` (levantar, parar, backup, restore).
 
-## Lecturas
-
-Canon: *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES). Catálogo: [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos (Silberschatz, por tema) | Alternativa / práctica |
-|--------|-----------------------------------|-------------------------|
-| 1 | **Procesos e hilos** + scheduling (intro) | `ps`, `top`, experimento Node + señales |
-| 2 | **Memoria** (paginación, virtual) + por qué OOM | Observa RSS de un proceso Node bajo carga |
-| 3 | **Sistema de archivos** + I/O + protección | Labs lectura/escritura + permisos `600`/`750` |
-| 4 | **Concurrencia** intro (condiciones de carrera) + síntesis | Enlaza con contenedores y tu playbook M11 |
-
-**Regla:** un experimento de SO por semana documentado en `projects/m11-so/` (comando → qué viste → qué implica para tu stack).
 
 ## Prácticas
 
