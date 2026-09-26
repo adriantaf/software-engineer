@@ -14,7 +14,7 @@ practicas:
     titulo: Refactor de un módulo legacy tuyo
 proyecto:
   id: proj
-  titulo: Aplicar ≥5 patrones en el CRM con justificación
+  titulo: Aplicar ≥5 patrones en Agenda Ops con justificación
 ---
 
 # M14 — Patrones de software
@@ -37,34 +37,81 @@ Al terminar debes poder:
 5. Documentar ≥5 patrones aplicados con ADR o ficha en `projects/m14-patrones/`.
 6. Articular cuándo **no** usar Singleton u otros patrones sobrevalorados.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Un patrón por día: leer → implementar en TypeScript → test → párrafo “por qué aquí”.
-- Prioriza el dominio Agenda Ops: precios, recordatorios, estados de cita, parsing de horarios.
-- Si aún no tienes repo de producto, usa `projects/m14-patrones/src/` y enlaza desde el README cómo migrarás a M17.
-- Cada patrón sin justificación en markdown **no cuenta** para evidencia.
+M14 aplica patrones con justificación en el dominio **Agenda Ops**: L01–L16 en orden.
+
+1. Un patrón por lección: leer → implementar en TypeScript → test → ADR o nota.
+2. Marca la lección solo si cumples “Hecho cuando”.
+3. Evidencia en `projects/m14-patrones/` (o repo producto enlazado en README).
+4. Cada patrón sin justificación escrita **no cuenta** para el proyecto.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Lectura patrones | 6–8 | GoF selecto / Refactoring.Guru |
-| Implementar | 6–8 | Código + tests |
+| Lectura patrones | 6–8 | Lecciones de la semana (4× ~5 h) |
+| Implementar + tests | 6–8 | Código en `src/` |
 | ADR / fichas | 4–6 | Por qué cada patrón |
-| Retro | 1 | Un anti-patrón que cometiste |
+| Retro | 1 | Anti-patrón que evitaste |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No saltes la lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Prepara el espacio de trabajo:
-   ```bash
-   mkdir -p projects/m14-patrones/src projects/m14-patrones/adr
-   ```
-2. Implementa **Strategy** para calcular precio de servicio (tarifa base vs promoción) en `projects/m14-patrones/src/precio-strategy.ts`.
-3. Escribe al menos 2 tests (caso normal y promoción) con Vitest o el runner que uses en el plan.
-4. Crea `projects/m14-patrones/adr/001-strategy-precio.md` con contexto, decisión y **cuándo NO** usar Strategy aquí.
-5. Commit: `feat(m14): strategy de precios con tests`.
+### Semana 1 — Patrones creacionales y Strategy (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Entorno M14 y Strategy de precios](M14/L01-entorno-m14-y-strategy-de-precios.md) | 5 |
+| L02 | [Factory Method para notificadores de canal](M14/L02-factory-method-para-notificadores-de-canal.md) | 5 |
+| L03 | [Singleton: cuándo NO usarlo](M14/L03-singleton-cuando-no-usarlo.md) | 5 |
+| L04 | [Cierre semana 1 — creacionales y bitácora](M14/L04-cierre-semana-1-creacionales-y-bitacora.md) | 5 |
+
+### Semana 2 — Patrones estructurales y regresión (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Adapter para API de calendario externo](M14/L05-adapter-para-api-de-calendario-externo.md) | 5 |
+| L06 | [Decorator para logging de operaciones de cita](M14/L06-decorator-para-logging-de-operaciones-de-cita.md) | 5 |
+| L07 | [Facade para el flujo agendar cita](M14/L07-facade-para-el-flujo-agendar-cita.md) | 5 |
+| L08 | [Tests de regresión en API pública del módulo](M14/L08-tests-de-regresion-en-api-publica-del-modulo.md) | 5 |
+
+### Semana 3 — Patrones de comportamiento y P1 (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Observer para eventos de dominio](M14/L09-observer-para-eventos-de-dominio.md) | 5 |
+| L10 | [Command para acciones admin reversibles](M14/L10-command-para-acciones-admin-reversibles.md) | 5 |
+| L11 | [Cierre P1 — Strategy, Observer y Factory](M14/L11-cierre-p1-strategy-observer-y-factory.md) | 5 |
+| L12 | [Repaso comportamiento y anti-patrón propio](M14/L12-repaso-comportamiento-y-anti-patron-propio.md) | 5 |
+
+### Semana 4 — Repository, Service y proyecto (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Repository — interfaz Cita sin SQL](M14/L13-repository-interfaz-cita-sin-sql.md) | 5 |
+| L14 | [Service — capa aplicación de citas](M14/L14-service-capa-aplicacion-de-citas.md) | 5 |
+| L15 | [Refactor P3 — módulo legacy antes y después](M14/L15-refactor-p3-modulo-legacy-antes-y-despues.md) | 5 |
+| L16 | [Cierre M14 — cinco patrones e integración M17](M14/L16-cierre-m14-cinco-patrones-e-integracion-m17.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *Patrones de diseño* — GoF (ed. ES si hay). Alternativa: [Refactoring.Guru ES](https://refactoring.guru/es/design-patterns). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Patrones / capítulos | Alternativa |
+|--------|-----------|----------------------|-------------|
+| 1 | L01–L04 | **Creacionales** + Strategy precios | Refactoring.Guru Factory / Singleton (cuándo NO) |
+| 2 | L05–L08 | **Estructurales**: Adapter, Decorator, Facade | Tests de regresión en API pública |
+| 3 | L09–L12 | **Comportamiento**: Observer, Command; cierre P1 | Strategy + Observer + Factory documentados |
+| 4 | L13–L16 | **Repository / Service** + refactor P3 + ≥5 patrones | `projects/m14-patrones/README.md` |
+
+**Regla:** patrón sin justificación escrita = no cuenta.
+
+
 
 ## Ejemplo — Strategy (TypeScript)
 
@@ -124,18 +171,6 @@ export interface CitaRepository {
 - ADR resumen: ≥5 patrones con contexto Agenda Ops.
 - Plan de integración en repo M17 si el código vive en `projects/m14-patrones/`.
 
-## Lecturas
-
-Canon: *Patrones de diseño* — GoF (ed. ES si hay). Alternativa: [Refactoring.Guru ES](https://refactoring.guru/es/design-patterns). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Patrones / capítulos | Alternativa gratis |
-|--------|---------------------|--------------------|
-| 1 | **Creacionales** selectos: Factory, Singleton (cuándo NO) | Refactoring.Guru — Factory / Singleton |
-| 2 | **Estructurales**: Adapter, Decorator, Facade | Refactoring.Guru equivalentes |
-| 3 | **Comportamiento**: Strategy, Observer, Command (selecto) | Refactoring.Guru equivalentes |
-| 4 | **Repository / Service** en tu backend + ADR de 5 patrones | Código en `projects/m14-patrones/` + ADRs |
-
-**Regla:** patrón sin justificación escrita = no cuenta.
 
 ## Prácticas
 
