@@ -25,42 +25,79 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 
 **En resumen:** entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
 
-
 ## Objetivos de aprendizaje
 
-1. Modelo von Neumann a alto nivel.
-2. Memoria, CPU, bus, almacenamiento.
-3. Representación de datos.
-4. Relacionar el modelo con programas reales.
+Al terminar debes poder:
 
-## Cómo estudiar esta materia
+1. Explicar el modelo von Neumann y el flujo CPU–memoria–E/S a alto nivel.
+2. Describir jerarquía de memoria, caché y la diferencia RAM vs almacenamiento.
+3. Representar datos (binario, enteros, punto flotante) y reconocer overflow y pérdida de precisión.
+4. Relacionar el modelo con un programa real (`node`, syscalls, I/O) y medir comportamiento básico.
 
-- Dibuja más de lo que subrayas.
-- Cada concepto → “¿dónde lo veo cuando corro `node cli.js`?”.
-- No memorizes ciclos de reloj: entiende el flujo de datos.
+## Cómo estudiar esta materia (piloto de lecciones)
+
+M05 sigue el formato de lecciones cortas y completas (como M01): marcas una a una cuando cumples “Hecho cuando”.
+
+1. Abre las lecciones **en orden** (L01 → L12).
+2. Cada lección trae objetivo, pasos, lectura de libro y criterio “Hecho cuando”.
+3. Marca la lección en la UI solo si cumple ese criterio.
+4. Las **prácticas / proyecto** siguen exigiendo evidencia en `projects/m05-como-corre/`.
+5. **Dibuja más de lo que subrayas.** Cada concepto → “¿dónde lo veo cuando corro `node cli.js`?”.
+6. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Arquitectura | 6–8 | Diagrama + lectura Stallings |
-| Memoria / I/O | 6–8 | Labs de medición |
-| Documento | 4–6 | `projects/m05-como-corre/` |
+| Arquitectura / memoria | 6–8 | L01–L08, Stallings, diagramas |
+| Representación + medición | 6–8 | L09–L11, código y benchmarks |
+| Proyecto documental | 4–6 | `projects/m05-como-corre/` (L12) |
 | Retro | 1 | RAM vs disco en tus palabras |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No saltes la fila de lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Lee un capítulo corto de arquitectura (Stallings/Tanenbaum ES, intro).
-2. En papel, dibuja: CPU, RAM, disco, teclado/pantalla y flechas de datos.
-3. Escribe en `projects/m05-como-corre/diagrama.md` la explicación en tus palabras (máx. 1 página).
-4. Ejecuta en terminal:
-   ```bash
-   free -h   # o el equivalente en tu SO
-   df -h
-   ```
-5. Anota qué es “memoria usada” vs “disco usado”.
+### Semana 1 — Arquitectura y ciclo de instrucción (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L01 | [Modelo von Neumann e introducción](M05/L01-modelo-von-neumann-e-introduccion.md) | 5 |
+| L02 | [CPU, registros y ciclo de instrucción](M05/L02-cpu-registros-y-ciclo-instruccion.md) | 5 |
+| L03 | [Buses, E/S y periféricos](M05/L03-buses-es-y-perifericos.md) | 5 |
+| L04 | [Diagrama CPU–RAM–I/O (P1)](M05/L04-diagrama-cpu-ram-io-p1.md) | 5 |
+
+### Semana 2 — Memoria jerárquica y almacenamiento (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L05 | [Memoria principal y direccionamiento](M05/L05-memoria-principal-y-direccionamiento.md) | 5 |
+| L06 | [Jerarquía de memoria y caché](M05/L06-jerarquia-memoria-y-cache.md) | 5 |
+| L07 | [Disco vs RAM y persistencia](M05/L07-disco-vs-ram-y-persistencia.md) | 5 |
+| L08 | [Medición: `free`, `df` y observación del SO](M05/L08-medicion-free-df-y-so.md) | 5 |
+
+### Semana 3 — Representación de datos y proyecto (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L09 | [Binario, hex y conversiones](M05/L09-binario-hex-y-conversiones.md) | 5 |
+| L10 | [Enteros, complemento a dos y overflow](M05/L10-enteros-complemento-y-overflow.md) | 5 |
+| L11 | [Punto flotante y precisión (P2–P3)](M05/L11-punto-flotante-y-benchmark-io.md) | 5 |
+| L12 | [Documental “cómo corre `node`” y cierre](M05/L12-documental-como-corre-node-y-cierre.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *Organización y arquitectura de computadoras* — William Stallings (ed. ES). Alternativa: Tanenbaum *Estructura y organización…* (mismos temas). Catálogo: [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos / foco (Stallings, por título) |
+|--------|-----------|-------------------------------------------|
+| 1 | L01–L04 | Intro + **estructura/función del computador** + ciclo de instrucción + buses/E/S |
+| 2 | L05–L08 | **Memoria**: jerarquía, caché, interna y externa/disco + medición en terminal |
+| 3 | L09–L12 | **Representación de datos** + aritmética / overflow + proyecto “cómo corre `node`” |
+
+**Regla:** un diagrama actualizado por semana en `projects/m05-como-corre/`.
 
 ## Ejemplo — overflow de enteros (intuición)
 
@@ -72,41 +109,22 @@ console.log(casi + 1 === casi + 2); // true → perdiste precisión
 
 Reflexión: la representación finita siempre tiene límites.
 
-## Temario semanal
-
-| Semana | Temas |
-|--------|-------|
-| 1 | Arquitectura básica, ciclo de instrucción |
-| 2 | Memoria jerárquica, disco vs RAM |
-| 3 | Representación + proyecto |
-
-## Lecturas
-
-Canon: *Organización y arquitectura de computadoras* — William Stallings (ed. ES). Alternativa: Tanenbaum *Estructura y organización…* (mismos temas). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos (Stallings, por título) | Alternativa |
-|--------|-----------------------------------|-------------|
-| 1 | Intro + **estructura/función del computador** + ciclo de instrucción (caps. de introducción y buses/CPU según tu ed.) | Explicación M05 + diagrama propio CPU–RAM–I/O |
-| 2 | **Memoria**: jerarquía, caché, interna y externa/disco | Apuntes M05 + benchmark RAM vs disco de la práctica |
-| 3 | **Representación de datos** + aritmética / overflow (caps. de número y ALU) + proyecto “cómo corre `node`” | Misma ficha M05 + conversiones en código |
-
-**Regla:** un diagrama por semana en `projects/m05-como-corre/`.
-
 ## Prácticas
 
-1. **P1:** Diagrama + explicación de 1 página.
-2. **P2:** Conversiones y overflow; ejemplos en código.
-3. **P3:** Benchmark ingenuo: loop vs I/O de archivo; escribe por qué difieren.
+1. **P1:** Diagrama + explicación de 1 página (L04).
+2. **P2:** Conversiones y overflow; ejemplos en código (L09–L11).
+3. **P3:** Benchmark ingenuo: loop vs I/O de archivo; escribe por qué difieren (L11).
 
 ## Proyecto útil
 
-Documento `projects/m05-como-corre/README.md`: desde que escribes `node cli.js` hasta que ves output — procesos, memoria, syscalls a nivel conceptual.
+Documento en `projects/m05-como-corre/`: desde que escribes `node cli.js` hasta que ves output — procesos, memoria, syscalls a nivel conceptual (L12).
 
 ## Errores comunes
 
 - Decir “la nube es magia” sin ubicar CPU/RAM/disco.
 - Confundir almacenamiento (SSD) con memoria principal (RAM).
 - Medir rendimiento una sola vez sin repetir.
+- Marcar lecciones sin cumplir “Hecho cuando”.
 
 ## Evidencia de hecho
 
@@ -121,3 +139,4 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 - [ ] Explicas RAM vs disco a un principiante.
 - [ ] Sabes por qué “más hilos” no siempre = más rápido.
+- [ ] Ubicas representación finita detrás de bugs de precisión numérica.

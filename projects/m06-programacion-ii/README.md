@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-modelas un dominio con tipos serios, refactorizas con Código limpio y empaquetas algo reutilizable.
+Modelas un dominio con tipos serios, refactorizas con *Código limpio* y empaquetas algo reutilizable.
 
 ## Checklist (Evidencia de hecho)
 
@@ -18,7 +18,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Cómo usarla
 
 1. Abre la ficha **M06** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
+2. Sigue las lecciones **L01 → L20** en orden (tabla en la ficha).
 3. Deja aquí (o enlaza) los archivos/commits de la checklist.
 4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
 
