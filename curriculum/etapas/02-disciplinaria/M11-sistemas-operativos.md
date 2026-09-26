@@ -209,6 +209,10 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 - **P3 — Docker:** `projects/m11-so/Dockerfile` (o ruta documentada) + `docker-compose.yml` + nota de usuario no-root.
 - **Proyecto — Playbook:** `projects/m11-so/playbook.md` completo y enlazado desde `projects/m11-so/README.md`.
 
+## Siguiente
+
+**[M27 — Sistemas a bajo nivel](M27-sistemas-bajo-nivel.md)** (recomendado antes de seguir a M12 si quieres profundidad de sistemas). Luego M12 requerimientos / hilo Agenda Ops.
+
 ## Criterios de dominio
 
 - [ ] Explicas proceso vs hilo y qué hace una señal `SIGTERM` en tu API.

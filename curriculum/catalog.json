@@ -140,11 +140,21 @@
       "analogos": []
     },
     {
+      "id": "M27",
+      "slug": "M27-sistemas-bajo-nivel",
+      "titulo": "Sistemas a bajo nivel",
+      "etapa": "disciplinaria",
+      "orden": 12,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
       "id": "M12",
       "slug": "M12-requerimientos",
       "titulo": "Ingeniería de requerimientos",
       "etapa": "disciplinaria",
-      "orden": 12,
+      "orden": 13,
       "semanas": 3,
       "horas": 60,
       "analogos": []
@@ -154,7 +164,7 @@
       "slug": "M13-analisis-y-diseno",
       "titulo": "Análisis y diseño de software",
       "etapa": "disciplinaria",
-      "orden": 13,
+      "orden": 14,
       "semanas": 5,
       "horas": 100,
       "analogos": []
@@ -164,7 +174,7 @@
       "slug": "M14-patrones",
       "titulo": "Patrones de software",
       "etapa": "disciplinaria",
-      "orden": 14,
+      "orden": 15,
       "semanas": 4,
       "horas": 80,
       "analogos": []
@@ -174,7 +184,7 @@
       "slug": "M15-vv-calidad",
       "titulo": "Verificación, validación y calidad",
       "etapa": "disciplinaria",
-      "orden": 15,
+      "orden": 16,
       "semanas": 4,
       "horas": 80,
       "analogos": []
@@ -184,7 +194,7 @@
       "slug": "M16-ihc",
       "titulo": "Interacción humano-computadora",
       "etapa": "disciplinaria",
-      "orden": 16,
+      "orden": 17,
       "semanas": 3,
       "horas": 60,
       "analogos": []
@@ -194,7 +204,7 @@
       "slug": "M17-aplicaciones-web",
       "titulo": "Aplicaciones web full-stack",
       "etapa": "disciplinaria",
-      "orden": 17,
+      "orden": 18,
       "semanas": 8,
       "horas": 160,
       "analogos": []
@@ -204,7 +214,7 @@
       "slug": "M18-seguridad",
       "titulo": "Seguridad del software (AppSec)",
       "etapa": "disciplinaria",
-      "orden": 18,
+      "orden": 19,
       "semanas": 8,
       "horas": 160,
       "analogos": []
@@ -214,7 +224,7 @@
       "slug": "M19-nube-devops",
       "titulo": "Cómputo en la nube y DevOps",
       "etapa": "disciplinaria",
-      "orden": 19,
+      "orden": 20,
       "semanas": 4,
       "horas": 80,
       "analogos": []
@@ -224,7 +234,7 @@
       "slug": "M20-aplicaciones-moviles",
       "titulo": "Aplicaciones móviles",
       "etapa": "disciplinaria",
-      "orden": 20,
+      "orden": 21,
       "semanas": 5,
       "horas": 100,
       "analogos": []
@@ -234,7 +244,7 @@
       "slug": "M21-admin-proyectos",
       "titulo": "Administración de proyectos de software",
       "etapa": "terminal",
-      "orden": 21,
+      "orden": 22,
       "semanas": 3,
       "horas": 60,
       "analogos": []
@@ -244,7 +254,7 @@
       "slug": "M22-emprendimiento",
       "titulo": "Emprendimiento de negocios de software",
       "etapa": "terminal",
-      "orden": 22,
+      "orden": 23,
       "semanas": 6,
       "horas": 120,
       "analogos": []
@@ -254,7 +264,7 @@
       "slug": "M23-ia-datos",
       "titulo": "Ciencia de datos e IA aplicada",
       "etapa": "terminal",
-      "orden": 23,
+      "orden": 24,
       "semanas": 6,
       "horas": 120,
       "analogos": []
@@ -264,7 +274,7 @@
       "slug": "M24-tecnologias-emergentes",
       "titulo": "Tecnologías emergentes (electiva dirigida)",
       "etapa": "terminal",
-      "orden": 24,
+      "orden": 25,
       "semanas": 3,
       "horas": 60,
       "analogos": []
@@ -274,7 +284,7 @@
       "slug": "M25-ciberseguridad-aplicada",
       "titulo": "Ciberseguridad aplicada",
       "etapa": "terminal",
-      "orden": 25,
+      "orden": 26,
       "semanas": 6,
       "horas": 120,
       "analogos": []
@@ -284,7 +294,7 @@
       "slug": "M26-proyecto-integrador",
       "titulo": "Proyecto integrador / titulación interna",
       "etapa": "terminal",
-      "orden": 26,
+      "orden": 27,
       "semanas": 8,
       "horas": 160,
       "analogos": []

@@ -22,10 +22,10 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 - Inglés en paralelo (curso actual → B1 lectura técnica en 12–24 meses).
 - Si cursas universidad en paralelo: este plan **adelanta y profundiza**; no compite.
 
-## Estructura (3 etapas, 26 materias)
+## Estructura (3 etapas, 27 materias)
 
 1. [Etapa Básica](etapas/01-basica/README.md) — M01–M06 (~4–5 meses)
-2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 (~11–13 meses)
+2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 + **M27** (~12–14 meses)
 3. [Etapa Terminal](etapas/03-terminal/README.md) — M21–M26 (~7–9 meses)
 
 **Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo seguridad](hilos/seguridad.md)

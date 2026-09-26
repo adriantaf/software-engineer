@@ -12,7 +12,7 @@ Nivel real: **pre-junior** (amplitud sin profundidad). No junior todavía. Detal
 
 | Ruta | Contenido |
 |------|-----------|
-| `curriculum/` | Plan: 26 materias, pista ciberseguridad, SaaS Agenda Ops, labs, egreso |
+| `curriculum/` | Plan: 27 materias (incl. M27 bajo nivel), pista ciberseguridad, SaaS Agenda Ops, labs, egreso |
 | `academia/` | App web simple (Astro + Tailwind + DaisyUI) para seguir el plan y marcar progreso |
 | `progress.json` | Avance commiteable (sincroniza desde la UI) |
 | `projects/` | Evidencia y bitácoras |

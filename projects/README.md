@@ -17,6 +17,7 @@ Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado
 | M09 | [`m09-bases-datos/`](m09-bases-datos/) |
 | M10 | [`m10-redes/`](m10-redes/) |
 | M11 | [`m11-so/`](m11-so/) |
+| M27 | [`m27-bajo-nivel/`](m27-bajo-nivel/) |
 | M12 | [`m12-srs/`](m12-srs/) |
 | M13 | [`m13-diseno/`](m13-diseno/) |
 | M14 | [`m14-patrones/`](m14-patrones/) |

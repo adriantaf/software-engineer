@@ -19,6 +19,7 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 | M09 | Bases de datos | [→](#m09-bases-de-datos) |
 | M10 | Redes | [→](#m10-redes) |
 | M11 | Sistemas operativos | [→](#m11-sistemas-operativos) |
+| M27 | Sistemas a bajo nivel | [→](#m27-sistemas-a-bajo-nivel) |
 | M12 | Requerimientos | [→](#m12-requerimientos) |
 | M13 | Análisis y diseño | [→](#m13-analisis-y-diseno) |
 | M14 | Patrones | [→](#m14-patrones) |
@@ -100,6 +101,13 @@ Cada materia tiene **Lecturas** (mapa por semana) y cada lección nombra el libr
 - **Principal:** *Fundamentos de sistemas operativos* — Silberschatz, Galvin, Gagne (ed. ES)
 - **Gratis / apoyo:** labs de la ficha M11
 - **Ficha:** [M11](etapas/02-disciplinaria/M11-sistemas-operativos.md)
+
+
+## M27 — Sistemas a bajo nivel
+
+- **Principal:** *Computer Systems: A Programmer's Perspective* (CSAPP) — Bryant & O'Hallaron
+- **Gratis:** [Compiler Explorer](https://godbolt.org/) · docs GCC/Clang · `man gcc` / `man readelf`
+- **Ficha:** [M27](etapas/02-disciplinaria/M27-sistemas-bajo-nivel.md)
 
 ## M12 — Requerimientos
 

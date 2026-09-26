@@ -135,6 +135,10 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 - **P3 — Benchmark:** Loop vs I/O medido ≥3 veces; explicación.
 - **Proyecto — Cómo corre:** README desde `node cli.js` hasta el output.
 
+## Siguiente profundidad
+
+Cuando termines M11, continúa en **[M27 — Sistemas a bajo nivel](../02-disciplinaria/M27-sistemas-bajo-nivel.md)** (C, asm x86-64, linking). M05 es el mapa; M27 es bajar al terreno.
+
 ## Criterios de dominio
 
 - [ ] Explicas RAM vs disco a un principiante.

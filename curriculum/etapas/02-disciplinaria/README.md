@@ -2,7 +2,7 @@
 
 **Objetivo:** ciclo completo de software + sistemas + AppSec. Núcleo del egreso.
 
-**Duración:** ~11–13 meses @ ≥20 h/semana.
+**Duración:** ~12–14 meses @ ≥20 h/semana (incluye M27).
 
 | ID | Materia | Sem | h |
 |----|---------|-----|---|
@@ -11,6 +11,7 @@
 | M09 | [Bases de datos](M09-bases-de-datos.md) | 5 | 100 |
 | M10 | [Redes (+ seguridad)](M10-redes.md) | 5 | 100 |
 | M11 | [Sistemas operativos](M11-sistemas-operativos.md) | 4 | 80 |
+| M27 | [Sistemas a bajo nivel](M27-sistemas-bajo-nivel.md) | 5 | 100 |
 | M12 | [Ingeniería de requerimientos](M12-requerimientos.md) | 3 | 60 |
 | M13 | [Análisis y diseño](M13-analisis-y-diseno.md) | 5 | 100 |
 | M14 | [Patrones de software](M14-patrones.md) | 4 | 80 |
