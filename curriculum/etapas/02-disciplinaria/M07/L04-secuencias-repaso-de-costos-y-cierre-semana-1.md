@@ -2,7 +2,7 @@
 id: L04
 materia: M07
 orden: 4
-titulo: Secuencias: repaso de costos y cierre semana 1
+titulo: "Secuencias: repaso de costos y cierre semana 1"
 horas: 5.0
 semana: 1
 lectura: "Repaso cap. arrays/listas; anota 5 preguntas de entrevista con respuesta"

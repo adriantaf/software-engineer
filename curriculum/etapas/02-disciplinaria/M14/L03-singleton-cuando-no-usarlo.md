@@ -2,7 +2,7 @@
 id: L03
 materia: M14
 orden: 3
-titulo: Singleton: cuándo NO usarlo
+titulo: "Singleton: cuándo NO usarlo"
 horas: 5
 semana: 1
 lectura: "GoF Singleton + notas anti-patrón"

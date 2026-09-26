@@ -2,7 +2,7 @@
 id: L21
 materia: M18
 orden: 21
-titulo: SSRF: superficie en webhooks e integraciones
+titulo: "SSRF: superficie en webhooks e integraciones"
 horas: 5
 semana: 6
 lectura: "SSRF Prevention Cheat Sheet"

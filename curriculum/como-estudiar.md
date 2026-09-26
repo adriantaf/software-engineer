@@ -4,17 +4,17 @@ Esta guía es el manual de profesor. Léela una vez y vuelve cuando te atasques.
 
 ## Flujo rápido (cada materia)
 
-1. **Primera lección** (o **Día 1** si la materia aún no está desglosada) — hoy, 2–3 h.
+1. **Primera lección (L01)** — hoy, 2–3 h.
 2. **Semana tipo (20 h)** — reparte la semana (no improvises todo el bloque).
-3. **Lecciones / temario** en orden + **Lecturas** (solo esos capítulos).
+3. **Lecciones L01…Ln** en orden + **Lecturas** de cada lección (solo esos capítulos).
 4. **Práctica + proyecto** — marca en la UI solo si cumple **Evidencia de hecho**.
 5. Sigla en azul → [glosario](glosario.md).
 
 En cada ficha verás también **En resumen** (qué harás, en claro).
 
-### Piloto: lecciones tipo freeCodeCamp (M01)
+### Lecciones tipo freeCodeCamp (todas las materias)
 
-**M01** ya está partido en lecciones L01–L08. Cada una se marca como completada por su cuenta (objetivo + pasos + lectura + “Hecho cuando”). Las demás materias siguen el formato ficha + Día 1 hasta que las migremos igual.
+Cada materia está partida en lecciones **L01…Ln** (~4 por semana). Cada una se marca como completada por su cuenta (objetivo + pasos + lectura + “Hecho cuando”). Las prácticas y el proyecto de la ficha siguen exigiendo evidencia en `projects/`.
 
 ## Una semana de 20 horas (modelo)
 
@@ -31,8 +31,8 @@ Si un día solo tienes 2 h: **1 h práctica + 1 h proyecto**. No “ver videos�
 
 1. **Por qué existe** — contexto (para qué te sirve).
 2. **Objetivos** — qué debes poder hacer al terminar.
-3. **Lecciones** (si existen, p. ej. M01) o **Día 1** — haz la primera hoy, sin saltarte pasos.
-4. **Temario / lecciones siguientes** — avanza en orden.
+3. **Lecciones** — empieza por L01 hoy, sin saltarte pasos.
+4. **Lecciones siguientes** — avanza en orden (L02…Ln).
 5. **Lecturas** — sigue la tabla **semana → capítulos** o la lectura de cada lección (ver [bibliografía](bibliografia.md)). No elijas capítulos al azar. Si aparece una sigla en azul, ábrela en el [glosario](glosario.md).
 6. **Prácticas** — márcalas en la UI solo cuando existan archivos/evidencia.
 7. **Proyecto** — cierra la materia.

@@ -2,7 +2,7 @@
 id: L11
 materia: M20
 orden: 11
-titulo: Acciones permitidas: cancelar / atendida
+titulo: "Acciones permitidas: cancelar / atendida"
 horas: 5
 semana: 3
 lectura: "Mutations HTTP"

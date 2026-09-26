@@ -2,7 +2,7 @@
 id: L13
 materia: M10
 orden: 13
-titulo: Cookies: atributos y modelo de almacenamiento
+titulo: "Cookies: atributos y modelo de almacenamiento"
 horas: 5
 semana: 4
 lectura: "MDN Cookies (ES)"

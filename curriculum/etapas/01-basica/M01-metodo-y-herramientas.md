@@ -34,9 +34,9 @@ Al terminar debes poder:
 3. Hacer commits atómicos, ramas y PRs claros.
 4. Documentar decisiones (ADR) y leer documentación oficial.
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
-M01 es el **piloto** del formato tipo freeCodeCamp: lecciones cortas y completas que marcas una a una.
+M01 usa el formato de lecciones tipo freeCodeCamp: lecciones cortas y completas que marcas una a una.
 
 1. Abre las lecciones **en orden** (L01 → L08).
 2. Cada lección trae objetivo, pasos, lectura de libro y criterio “Hecho cuando”.

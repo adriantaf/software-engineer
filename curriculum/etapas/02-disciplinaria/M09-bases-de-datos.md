@@ -38,7 +38,7 @@ Al terminar debes poder:
 5. Versionar el esquema con migraciones reproducibles y seeds de demo.
 6. Crear un rol de aplicación con permisos mínimos (sin superuser).
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
 M09 sigue el formato de lecciones cortas y completas (como M01/M06): marcas una a una cuando cumples “Hecho cuando”.
 

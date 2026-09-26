@@ -34,7 +34,7 @@ Al terminar debes poder:
 3. Usar tipos avanzados útiles en TS (uniones, narrowing, generics básicos) y errores como parte del diseño.
 4. Empaquetar, versionar y documentar una librería pequeña con tests.
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
 M06 sigue el formato de lecciones cortas y completas (como M01): marcas una a una cuando cumples “Hecho cuando”.
 

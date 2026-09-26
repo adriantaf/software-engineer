@@ -2,7 +2,7 @@
 id: L22
 materia: M07
 orden: 22
-titulo: Benchmark P3: nativo vs propio
+titulo: "Benchmark P3: nativo vs propio"
 horas: 5.0
 semana: 6
 lectura: "Metodología benchmark"

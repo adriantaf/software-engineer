@@ -2,7 +2,7 @@
 id: L16
 materia: M20
 orden: 16
-titulo: AppSec móvil: no loguear PII ni tokens
+titulo: "AppSec móvil: no loguear PII ni tokens"
 horas: 5
 semana: 4
 lectura: "OWASP MASVS logging"

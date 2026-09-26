@@ -38,7 +38,7 @@ Al terminar debes poder:
 5. Resolver 2–3 problemas de programación dinámica con caso base y transición explícitos.
 6. Entregar un motor de autocomplete documentado (estructura de datos + complejidad de consulta).
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
 M08 sigue el formato de lecciones cortas y completas (como M01/M06): marcas una a una cuando cumples “Hecho cuando”.
 

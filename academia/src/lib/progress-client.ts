@@ -4,7 +4,7 @@ export type MateriaProgress = {
   status: 'bloqueada' | 'disponible' | 'en_curso' | 'completada';
   practicas: Record<string, boolean>;
   proyecto: boolean;
-  /** Lecciones marcadas (piloto M01+). */
+  /** Lecciones marcadas (L01…Ln por materia). */
   lecciones: Record<string, boolean>;
   completadoEn: string | null;
 };

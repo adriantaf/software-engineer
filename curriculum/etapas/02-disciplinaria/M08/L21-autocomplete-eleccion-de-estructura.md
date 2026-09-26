@@ -2,7 +2,7 @@
 id: L21
 materia: M08
 orden: 21
-titulo: Autocomplete: elección de estructura
+titulo: "Autocomplete: elección de estructura"
 horas: 5.0
 semana: 6
 lectura: "Trie / prefix map"

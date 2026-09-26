@@ -2,7 +2,7 @@
 id: L03
 materia: M19
 orden: 3
-titulo: Compose prod-like: API + Postgres + volúmenes
+titulo: "Compose prod-like: API + Postgres + volúmenes"
 horas: 5
 semana: 1
 lectura: "Compose file reference"

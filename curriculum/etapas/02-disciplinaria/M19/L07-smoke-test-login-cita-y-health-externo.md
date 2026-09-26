@@ -2,7 +2,7 @@
 id: L07
 materia: M19
 orden: 7
-titulo: Smoke test: login, cita y health externo
+titulo: "Smoke test: login, cita y health externo"
 horas: 5
 semana: 2
 lectura: "Runbook borrador"

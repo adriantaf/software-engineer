@@ -2,7 +2,7 @@
 id: L21
 materia: M07
 orden: 21
-titulo: Grafos: repaso y representación
+titulo: "Grafos: repaso y representación"
 horas: 5.0
 semana: 6
 lectura: "Repaso M03 + ED grafos"

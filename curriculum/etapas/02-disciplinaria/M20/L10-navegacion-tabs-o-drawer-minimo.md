@@ -2,7 +2,7 @@
 id: L10
 materia: M20
 orden: 10
-titulo: Navegación: tabs o drawer mínimo
+titulo: "Navegación: tabs o drawer mínimo"
 horas: 5
 semana: 3
 lectura: "Navigation container"

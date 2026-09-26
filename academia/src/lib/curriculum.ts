@@ -139,7 +139,7 @@ export type MateriaDoc = {
   toc: { id: string; text: string; level: number }[];
   slug: string;
   filepath: string;
-  /** Lecciones hijas (piloto M01); vacío si la materia aún no está desglosada. */
+  /** Lecciones hijas L01…Ln; vacío solo si la materia aún no tiene carpeta. */
   lecciones: LeccionMeta[];
 };
 

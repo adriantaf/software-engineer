@@ -2,7 +2,7 @@
 id: L13
 materia: M07
 orden: 13
-titulo: BST: inserción y búsqueda
+titulo: "BST: inserción y búsqueda"
 horas: 5.0
 semana: 4
 lectura: "ED: árboles binarios de búsqueda"

@@ -34,7 +34,7 @@ Al terminar debes poder:
 3. Representar datos (binario, enteros, punto flotante) y reconocer overflow y pérdida de precisión.
 4. Relacionar el modelo con un programa real (`node`, syscalls, I/O) y medir comportamiento básico.
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
 M05 sigue el formato de lecciones cortas y completas (como M01): marcas una a una cuando cumples “Hecho cuando”.
 

@@ -2,7 +2,7 @@
 id: L29
 materia: M18
 orden: 29
-titulo: Pipeline CI: lint, test, audit, anti-secretos
+titulo: "Pipeline CI: lint, test, audit, anti-secretos"
 horas: 5
 semana: 8
 lectura: "Secure SDLC + CI guides"

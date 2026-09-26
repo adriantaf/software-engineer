@@ -2,7 +2,7 @@
 id: L14
 materia: M20
 orden: 14
-titulo: Sin red: banner y reintento
+titulo: "Sin red: banner y reintento"
 horas: 5
 semana: 4
 lectura: "Connectivity plugins"

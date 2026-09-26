@@ -33,7 +33,7 @@ Al terminar debes poder:
 2. Explicar costo temporal y espacial en notación asintótica.
 3. Elegir estructura según caso de uso real y comparar con tipos nativos de JS/TS.
 
-## Cómo estudiar esta materia (piloto de lecciones)
+## Cómo estudiar esta materia (lecciones)
 
 M07 sigue el formato de lecciones cortas y completas (como M01/M06): marcas una a una cuando cumples “Hecho cuando”.
 

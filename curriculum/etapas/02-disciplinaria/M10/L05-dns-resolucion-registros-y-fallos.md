@@ -2,7 +2,7 @@
 id: L05
 materia: M10
 orden: 5
-titulo: DNS: resolución, registros y fallos
+titulo: "DNS: resolución, registros y fallos"
 horas: 5
 semana: 2
 lectura: "Tanenbaum — DNS + MDN DNS"

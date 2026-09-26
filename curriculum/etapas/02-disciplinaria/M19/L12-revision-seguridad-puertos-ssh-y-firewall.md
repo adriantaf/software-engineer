@@ -2,7 +2,7 @@
 id: L12
 materia: M19
 orden: 12
-titulo: Revisión seguridad: puertos, SSH y firewall
+titulo: "Revisión seguridad: puertos, SSH y firewall"
 horas: 5
 semana: 3
 lectura: "M18 + M11 seguridad host"

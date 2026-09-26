@@ -2,7 +2,7 @@
 id: L09
 materia: M11
 orden: 9
-titulo: Sistema de archivos: inodos y espacio
+titulo: "Sistema de archivos: inodos y espacio"
 horas: 5
 semana: 3
 lectura: "Silberschatz sistema de archivos"

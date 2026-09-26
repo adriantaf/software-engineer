@@ -2,7 +2,7 @@
 id: L14
 materia: M18
 orden: 14
-titulo: Mitigar SQLi: queries parametrizadas y permisos DB
+titulo: "Mitigar SQLi: queries parametrizadas y permisos DB"
 horas: 5
 semana: 4
 lectura: "SQLi Prevention Cheat Sheet"

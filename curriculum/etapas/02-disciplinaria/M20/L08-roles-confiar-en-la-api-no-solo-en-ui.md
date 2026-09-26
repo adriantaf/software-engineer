@@ -2,7 +2,7 @@
 id: L08
 materia: M20
 orden: 8
-titulo: Roles: confiar en la API, no solo en UI
+titulo: "Roles: confiar en la API, no solo en UI"
 horas: 5
 semana: 2
 lectura: "RBAC móvil"

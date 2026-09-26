@@ -2,7 +2,7 @@
 id: L08
 materia: M13
 orden: 8
-titulo: Secuencia: crear cita (P2)
+titulo: "Secuencia: crear cita (P2)"
 horas: 5
 semana: 2
 lectura: "Secuencia negocio"

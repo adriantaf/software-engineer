@@ -2,7 +2,7 @@
 id: L18
 materia: M07
 orden: 18
-titulo: Heap mínimo: insert y extractMin
+titulo: "Heap mínimo: insert y extractMin"
 horas: 5.0
 semana: 5
 lectura: "ED: priority queue"

@@ -2,7 +2,7 @@
 id: L15
 materia: M07
 orden: 15
-titulo: BST: mínimo, máximo y sucesor
+titulo: "BST: mínimo, máximo y sucesor"
 horas: 5.0
 semana: 4
 lectura: "ED: operaciones BST"

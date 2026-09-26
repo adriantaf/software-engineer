@@ -2,7 +2,7 @@
 id: L07
 materia: M13
 orden: 7
-titulo: Secuencia: autenticación y sesión
+titulo: "Secuencia: autenticación y sesión"
 horas: 5
 semana: 2
 lectura: "Mermaid sequence"

@@ -2,7 +2,7 @@
 id: L15
 materia: M11
 orden: 15
-titulo: docker compose: API y base de datos
+titulo: "docker compose: API y base de datos"
 horas: 5
 semana: 4
 lectura: "Compose file reference"
