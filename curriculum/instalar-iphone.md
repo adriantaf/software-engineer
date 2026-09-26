@@ -19,9 +19,18 @@ No hace falta App Store ni Cordova. El progreso sigue en este teléfono (`localS
 
 ## Offline
 
-- La primera visita (o un pase por las fichas) **cachea** HTML/CSS/JS e iconos.
-- Luego puedes estudiar sin Wi‑Fi/datos las páginas ya cacheadas.
-- Si publicamos una versión nueva, al volver online el service worker actualiza solo.
+- La primera visita cachea CSS/JS/iconos; las páginas se guardan al visitarlas (estrategia red primero).
+- Sin red puedes reabrir fichas ya visitadas.
+- Si hay versión nueva online, aparece el banner **Actualizar** (o el SW se refresca solo).
+
+## Chrome / PWA se quedó en contenido viejo
+
+Si Safari ya muestra el plan nuevo (p. ej. 27 materias) pero Chrome sigue en el viejo:
+
+1. Toca el banner **Actualizar** si aparece abajo.
+2. En Chrome: menú del sitio (candado / info) → **Borrar datos** / permisos del sitio `adriantaf.github.io`.
+3. Si instalaste la PWA: desinstálala y vuelve a abrir la URL, o **Instalar** de nuevo.
+4. Recarga; el home debe coincidir con Safari (materias y horas del plan).
 
 ## Limitaciones (iOS)
 
@@ -37,4 +46,4 @@ En Chrome: menú → **Instalar aplicación** / **Añadir a la pantalla de inici
 
 1. Borra el icono viejo y vuelve a **Añadir a pantalla de inicio**.
 2. Confirma que la URL es la de GitHub Pages (HTTPS).
-3. Abre **Guías → Cómo estudiar** online una vez para refrescar caché.
+3. Sigue la sección **Chrome / PWA se quedó en contenido viejo** si un navegador no refleja el deploy.

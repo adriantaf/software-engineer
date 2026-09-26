@@ -114,6 +114,20 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
       </div>
     </header>
 
+    <div
+      id="pwa-update"
+      class="fixed bottom-0 inset-x-0 z-50 border-t border-base-300 bg-base-100 px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+      hidden
+      role="status"
+    >
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <p class="text-sm m-0">Hay una versión nueva del plan (contenido o UI).</p>
+        <button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">
+          Actualizar
+        </button>
+      </div>
+    </div>
+
     <main class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0">
       <slot />
     </main>

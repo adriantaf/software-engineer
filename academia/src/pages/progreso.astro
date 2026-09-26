@@ -160,7 +160,7 @@ const today = new Date().toISOString().slice(0, 10);
     <table class="table table-sm sm:table-md">
       <thead>
         <tr>
-          <th>ID</th>
+          <th class="w-12">#</th>
           <th>Materia</th>
           <th>Etapa</th>
           <th>Estado</th>
@@ -168,14 +168,16 @@ const today = new Date().toISOString().slice(0, 10);
       </thead>
       <tbody>
         {
-          catalog.materias.map((m) => (
+          [...catalog.materias]
+            .sort((a, b) => a.orden - b.orden)
+            .map((m) => (
             <tr>
-              <td class="font-mono">
-                <a class="link" href={pathTo(`materia/${m.id}`)}>
-                  {m.id}
+              <td class="tabular-nums opacity-70">{m.orden}</td>
+              <td class="min-w-[10rem] break-words whitespace-normal">
+                <a class="link link-primary" href={pathTo(`materia/${m.id}`)}>
+                  {m.titulo}
                 </a>
               </td>
-              <td class="min-w-[10rem] break-words whitespace-normal">{m.titulo}</td>
               <td>{m.etapa}</td>
               <td><span class="badge whitespace-nowrap" data-row-status={m.id}>—</span></td>
             </tr>

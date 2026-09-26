@@ -47,7 +47,7 @@ const ultima = materias[materias.length - 1];
     <table class="table table-sm sm:table-md">
       <thead>
         <tr>
-          <th>ID</th>
+          <th class="w-12">#</th>
           <th>Materia</th>
           <th>Semanas</th>
           <th>Horas</th>
@@ -58,7 +58,7 @@ const ultima = materias[materias.length - 1];
         {
           materias.map((m) => (
             <tr class="hover">
-              <td class="font-mono">{m.id}</td>
+              <td class="tabular-nums opacity-70">{m.orden}</td>
               <td class="min-w-[10rem] break-words whitespace-normal">
                 <a class="link link-primary font-medium" href={pathTo(`materia/${m.id}`)}>
                   {m.titulo}
@@ -84,8 +84,15 @@ const ultima = materias[materias.length - 1];
         <div class="min-w-0">
           <p class="font-semibold m-0">Cierre de etapa</p>
           <p class="m-0 opacity-80 break-words">
-            Cuando termines {ultima ? `${ultima.id} (${ultima.titulo})` : 'la última materia'}, haz la
-            autoevaluación sin mirar las fichas.
+            Cuando termines{' '}
+            {ultima ? (
+              <>
+                <span class="opacity-70">#{ultima.orden}</span> {ultima.titulo}
+              </>
+            ) : (
+              'la última materia'
+            )}
+            , haz la autoevaluación sin mirar las fichas.
           </p>
           <a class="btn btn-primary btn-sm mt-3" href={pathTo(`etapa/${etapa.id}/examen`)}>
             Abrir autoevaluación

@@ -56,11 +56,29 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // Precache del build estático (fichas, CSS, JS, iconos).
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webp,woff2,webmanifest}'],
+        // Assets estáticos en precache; el HTML de navegación va NetworkFirst
+        // para no congelar el home en builds viejos (p. ej. Chrome PWA).
+        globPatterns: ['**/*.{js,css,svg,png,ico,webp,woff2,webmanifest}'],
         navigateFallback: `${base}index.html`,
         navigateFallbackDenylist: [/^\/api/],
         cleanupOutdatedCaches: true,
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'plan-pages',
+              networkTimeoutSeconds: 4,
+              expiration: {
+                maxEntries: 80,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+        ],
       },
       experimental: {
         // Astro genera rutas con trailing slash + index.html.
