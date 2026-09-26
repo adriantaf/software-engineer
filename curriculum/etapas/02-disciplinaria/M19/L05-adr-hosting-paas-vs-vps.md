@@ -13,25 +13,42 @@ evidencia: projects/m19-ops/adr-hosting.md
 
 **~5.0 h · Semana 2**
 
-Elige con criterios: costo, TLS, backups, tiempo.
+Evitas re-decidir cada semana.
 
 ## Objetivo
 
-`adr-hosting.md` con decisión y consecuencias para Agenda Ops.
+Documentar decisión de hosting para Agenda Ops con criterios costo, TLS, Postgres gestionado, DX.
+
+## Conceptos clave
+
+- PaaS
+- VPS+Docker
+- egress y region
 
 ## Pasos (hazlos en orden)
 
-### 1. Compara (60 min)
+### 1. ADR PaaS vs VPS (70–90 min)
 
-PaaS vs VPS tabla.
+```bash
+cat > projects/m19-ops/adr-hosting.md << 'EOF'
+# ADR hosting
+## Contexto
+Agenda Ops necesita HTTPS + Postgres managed o self-host.
+## Opciones
+A) PaaS  B) VPS
+## Decisión
+…
+## Consecuencias
+costo, SSH, backups, tiempo-a-staging
+EOF
+```
 
-### 2. ADR (70–90 min)
+### 2. Commit (15 min)
 
-Decisión alineada a tu staging M17 si ya existe.
-
-### 3. Commit
-
-`docs(m19): l05 adr hosting`
+```bash
+git add projects/m19-ops/adr-hosting.md
+git commit -m "docs(m19): L05 adr hosting paas vs vps"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +62,13 @@ Decisión alineada a tu staging M17 si ya existe.
 
 Marca la lección **solo si**:
 
-1. ADR firmada (artefacto: `projects/m19-ops/adr-hosting.md`).
-2. Proveedor elegido (artefacto: `projects/m19-ops/adr-hosting.md`).
-3. Riesgos listados (artefacto: `projects/m19-ops/adr-hosting.md`).
-4. Commit `docs(m19): L05 adr-hosting-paas-vs-vps`.
+1. Existe `projects/m19-ops/adr-hosting.md` con decisión PaaS vs VPS y consecuencias.
+2. Commit `docs(m19): L05 adr-hosting-paas-vs-vps`.
 
 ## Errores comunes
 
-- Sin ADR.
-- Elegir solo por tutorial viejo.
+- ADR sin costos/tiempo ni Agenda Ops.
+- Elegir VPS sin plan de backups.
 
 ## Siguiente
 

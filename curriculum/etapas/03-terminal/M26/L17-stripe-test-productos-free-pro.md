@@ -51,7 +51,7 @@ Describe cómo el `tenant_id` queda asociado al Customer/Subscription Stripe (ca
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l17 stripe-test-productos-free-pro"
 ```

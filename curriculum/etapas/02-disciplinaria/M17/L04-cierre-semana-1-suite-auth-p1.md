@@ -13,33 +13,46 @@ evidencia: projects/m17-agenda-ops/tests/auth.test.ts
 
 **~5.0 h · Semana 1**
 
-P1 es la puerta del CRUD. Hoy consolidas la suite auth.
+P1 es puerta para todo CRUD.
 
 ## Objetivo
 
-≥6 tests auth verdes (register, login, me, logout) y README con comando reproducible.
+Consolidar tests auth (register, login, me, logout) y marcar P1 parcial en README.
+
+## Conceptos clave
+
+- P1
+- suite auth
+- logout
 
 ## Pasos (hazlos en orden)
 
-### 1. Completa logout (40–50 min)
+### 1. Consolida suite auth (80–100 min)
 
-Invalida sesión/cookie. Test: tras logout, `/me` → 401.
+En `projects/m17-agenda-ops/tests/auth.test.ts` (o equivalente) cubre: register, login, me, logout, 401, password malo. Mínimo **6** tests.
 
-### 2. Suite y CI local (60–80 min)
+```ts
+// esqueleto
+it("login → me 200", async () => { /* ... */ });
+it("me sin cookie → 401", async () => { /* ... */ });
+it("logout invalida sesión", async () => { /* ... */ });
+```
+
+### 2. Documenta comando en README (20–30 min)
 
 ```bash
 npm test
+# anota en README la línea exacta que deja P1 verde
 ```
 
-Documenta en README: `npm test` / `npm run test:auth`. Enlaza P1 parcial.
+Marca P1 parcial en el checklist del README de `projects/m17-agenda-ops/`.
 
-### 3. Bitácora semana 1 (30 min)
+### 3. Commit cierre semana 1 (15 min)
 
-`docs/semana-01.md`: commits, gaps, decisión auth.
-
-### 4. Commit
-
-`test(m17): l04 suite auth cierre p1`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "test(m17): L04 suite auth P1 semana 1"
+```
 
 ## Lectura de esta lección
 
@@ -53,15 +66,15 @@ Documenta en README: `npm test` / `npm run test:auth`. Enlaza P1 parcial.
 
 Marca la lección **solo si**:
 
-1. Suite auth verde (artefacto: `projects/m17-agenda-ops/tests/auth.test.ts`).
-2. Logout documentado (artefacto: `projects/m17-agenda-ops/tests/auth.test.ts`).
-3. P1 parcial README (artefacto: `projects/m17-agenda-ops/tests/auth.test.ts`).
+1. Existe `projects/m17-agenda-ops/tests/auth.test.ts` (o equiv.) con ≥6 tests verdes.
+2. README documenta el comando exacto `npm test`.
+3. Checklist P1 parcial marcado en README (artefacto: `projects/m17-agenda-ops/tests/auth.test.ts`).
 4. Commit `docs(m17): L04 cierre-semana-1-suite-auth-p1`.
 
 ## Errores comunes
 
-- Auth sin tests.
-- Solo manual Postman.
+- Dar P1 por hecho solo con Postman manual.
+- Suite <6 casos o flaky.
 
 ## Siguiente
 

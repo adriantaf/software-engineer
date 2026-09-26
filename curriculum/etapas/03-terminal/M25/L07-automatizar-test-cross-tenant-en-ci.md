@@ -54,7 +54,7 @@ Pega salida del test (verde o rojo). Si rojo porque el bug existe: deja el test 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l07 automatizar-test-cross-tenant-en-ci"
 ```

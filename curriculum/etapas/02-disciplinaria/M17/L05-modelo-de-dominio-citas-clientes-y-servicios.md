@@ -13,29 +13,51 @@ evidencia: migraciones / entidades
 
 **~5.0 h · Semana 2**
 
-CRUD sin dominio coherente genera IDOR y huérfanos. Hoy alineas entidades a M13/M09.
+CRUD sin modelo coherente genera IDOR y datos huérfanos.
 
 ## Objetivo
 
-Migraciones + carpeta `domain/` (o equivalente) con reglas puras sin ORM.
+Alinear tablas y entidades con diseño M13: citas, clientes, servicios, relaciones y reglas en código dominio.
+
+## Conceptos clave
+
+- entidad
+- migración
+- dominio
 
 ## Pasos (hazlos en orden)
 
-### 1. Contrasta diseño (30 min)
+### 1. Cruza M13 + M09 (25–35 min)
 
-Abre diagrama M13 y migraciones M09. Lista diferencias a resolver hoy.
+```bash
+ls projects/m13-diseno/diagramas projects/m09-bases-datos/migrations
+rg -n "cita|cliente|servicio" projects/m13-diseno projects/m12-srs 2>/dev/null | head
+```
 
-### 2. Migraciones (70–90 min)
+### 2. Migraciones dominio (70–90 min)
 
-Asegura tablas `clientes`, `servicios`, `citas` con FKs, estados, duración/precio base. Aplica y `\dt`.
+Asegura tablas `clientes`, `servicios`, `citas` con FKs (negocio/usuario según diseño).
 
-### 3. Reglas de dominio (50–60 min)
+```bash
+npm run migrate
+# o psql "$DATABASE_URL" -c '\dt'
+```
 
-Funciones puras: `fin > inicio`, solapamiento, cancelación permitida. Tests unitarios sin DB si puedes.
+Evidencia: listado de tablas en nota breve en `docs/` o salida en README (sin datos reales).
 
-### 4. Commit
+### 3. Reglas en domain/ (50–60 min)
 
-`feat(m17): l05 dominio citas clientes servicios`
+```ts
+// src/domain/cita-rules.ts — puro, sin ORM
+export function assertHorario(inicio: Date, fin: Date) {
+  if (!(fin > inicio)) throw new Error("fin_debe_ser_despues_de_inicio");
+}
+```
+
+```bash
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L05 modelo dominio citas clientes servicios"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +71,14 @@ Funciones puras: `fin > inicio`, solapamiento, cancelación permitida. Tests uni
 
 Marca la lección **solo si**:
 
-1. Migraciones (artefacto: `migraciones / entidades`).
-2. domain/ con reglas (artefacto: `migraciones / entidades`).
-3. Commit (artefacto: `migraciones / entidades`).
+1. Migraciones aplicadas: tablas `clientes`, `servicios`, `citas` visibles.
+2. Reglas puras en `projects/m17-agenda-ops/src/domain/` (o equivalente).
+3. Commit `docs(m17): L05 modelo-de-dominio-citas-clientes-y-servicios`.
 
 ## Errores comunes
 
-- Lógica solo en controllers.
-- Sin FK.
+- Lógica de horario solo en controllers.
+- Tablas sin FK a cliente/servicio.
 
 ## Siguiente
 

@@ -61,7 +61,7 @@ Añade sección **Superficie** con 5 endpoints o entradas de datos (login, citas
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l01 inventario-de-activos-saas-prod-y-stagin"
 ```

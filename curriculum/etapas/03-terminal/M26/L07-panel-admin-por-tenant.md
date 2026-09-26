@@ -36,34 +36,29 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Inventario de rutas admin (25–35 min)
+
+En `projects/m26-capstone/memoria/panel-admin.md` lista rutas del panel (dashboard, citas, clientes, staff, billing).
+
+### 3. Prueba UI scoped (100–120 min)
+
+Login A: captura o anota IDs visibles. Login B: confirma que no ves recursos de A.
+
+Para ≥1 ruta API detrás del panel:
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+curl -s -H "Authorization: Bearer $TOKEN_A" "$API/admin/clientes" | jq 'length'
+curl -s -H "Authorization: Bearer $TOKEN_B" "$API/admin/clientes" | jq 'length'
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/panel-admin.md`.
+### 4. Nota de authz (25–35 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Verifica que cada pantalla filtra por tenant autenticado.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-02.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/panel-admin.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Staff vs owner: qué pantallas cambian. Bitácora semana-02.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l07 panel-admin-por-tenant"
 ```

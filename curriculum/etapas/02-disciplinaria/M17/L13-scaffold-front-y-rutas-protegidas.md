@@ -13,29 +13,46 @@ evidencia: front app + router
 
 **~5.0 h · Semana 4**
 
-Agenda Ops se usa desde el navegador a diario.
+Agenda Ops se usa desde navegador diario.
 
 ## Objetivo
 
-Front (`apps/web` o `client/`) con login, layout y redirect si no hay sesión.
+Crear front con login, layout panel, rutas protegidas redirect a login.
+
+## Conceptos clave
+
+- SPA
+- protected route
+- layout
 
 ## Pasos (hazlos en orden)
 
-### 1. Scaffold UI (60–80 min)
+### 1. Scaffold front (60–80 min)
 
-Router + página login + shell panel. `VITE_API_URL` / equivalente en `.env.example`.
+```bash
+mkdir -p projects/m17-agenda-ops/apps/web
+# Vite/Next según stack.md — TypeScript
+cd projects/m17-agenda-ops/apps/web && npm create vite@latest . -- --template react-ts
+```
 
-### 2. Protected routes (50–60 min)
+Documenta el comando real en `stack.md`.
 
-Sin sesión → `/login`. Con sesión → agenda.
+### 2. Rutas protegidas (60–80 min)
 
-### 3. CORS documentado (20 min)
+```ts
+// ProtectedRoute: si !session → redirect /login
+```
 
-Origen front permitido en API; nada de `*` en prod.
+```bash
+# sin cookie, /citas en browser → login
+```
 
-### 4. Commit
+### 3. Commit (15 min)
 
-`feat(m17): l13 scaffold front rutas protegidas`
+```bash
+git add projects/m17-agenda-ops/apps projects/m17-agenda-ops/stack.md
+git commit -m "feat(m17): L13 scaffold front rutas protegidas"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +66,13 @@ Origen front permitido en API; nada de `*` en prod.
 
 Marca la lección **solo si**:
 
-1. Front arranca (artefacto: `front app`).
-2. Redirect sin sesión (artefacto: `front app`).
-3. Commit (artefacto: `front app`).
+1. Front scaffold en `apps/web` (o ruta en stack.md) con rutas protegidas.
+2. Commit `docs(m17): L13 scaffold-front-y-rutas-protegidas`.
 
 ## Errores comunes
 
-- CORS `*` sin doc.
-- API_URL hardcode prod.
+- Rutas ‘protegidas’ solo ocultando links.
+- Front sin TypeScript / fuera de stack.md.
 
 ## Siguiente
 

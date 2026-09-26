@@ -13,21 +13,33 @@ evidencia: commit nav
 
 **~5.0 h · Semana 3**
 
-Agenda / Clientes (opcional) / Ajustes-logout.
+App usable sin laberinto de pantallas.
 
 ## Objetivo
 
-Navegación mínima usable con una mano.
+Estructura Citas / Perfil / logout accesible.
+
+## Conceptos clave
+
+- tabs
+- drawer
+- logout
 
 ## Pasos (hazlos en orden)
 
-### 1. Tabs/drawer (90–110 min)
+### 1. Tabs o drawer (60–80 min)
 
-### 2. Logout accesible (30 min)
+```dart
+// BottomNavigation: Citas | Clientes | Cuenta
+// o Drawer equivalente en RN
+```
 
-### 3. Commit
+### 2. Commit (15 min)
 
-`feat(m20): l10 navegacion tabs`
+```bash
+git add projects/m20-movil
+git commit -m "feat(m20): L10 navegacion tabs drawer"
+```
 
 ## Lectura de esta lección
 
@@ -41,14 +53,13 @@ Navegación mínima usable con una mano.
 
 Marca la lección **solo si**:
 
-1. Nav estable (artefacto: `commit nav`).
-2. Logout limpia token (artefacto: `commit nav`).
-3. Commit (artefacto: `commit nav`).
+1. Tabs o drawer mínimo con ≥2 destinos (artefacto: `commit nav`).
+2. Commit `docs(m20): L10 navegacion-tabs-o-drawer-minimo`.
 
 ## Errores comunes
 
-- Sin logout.
-- Back stack roto.
+- Nav sin destino Cuenta/Logout.
+- Tres navegadores distintos.
 
 ## Siguiente
 

@@ -13,25 +13,34 @@ evidencia: projects/m19-ops/runbook.md completo
 
 **~5.0 h · Semana 4**
 
-El proyecto M19 es el runbook.
+Proyecto único M19.
 
 ## Objetivo
 
-`runbook.md`: URLs, deploy, rollback, secretos, backup/restore, contacto.
+Unificar deploy, rollback, backup, restore, URLs, secretos (referencias), health.
+
+## Conceptos clave
+
+- runbook
+- handoff
 
 ## Pasos (hazlos en orden)
 
-### 1. Integra docs previas (90–110 min)
+### 1. Runbook completo (70–90 min)
 
-Enlaces relativos, no copies eternos desactualizados.
+Completa `projects/m19-ops/runbook.md`: deploy, rollback, logs, backup, restore, contactos, URLs (sin secretos).
 
-### 2. Ensayo lectura (30 min)
+```bash
+wc -l projects/m19-ops/runbook.md
+rg -n "Rollback|Backup|Health|Secrets" projects/m19-ops/runbook.md
+```
 
-Cronometra: ¿otro tú encuentra rollback en <5 min?
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m19): l15 runbook produccion`
+```bash
+git add projects/m19-ops/runbook.md
+git commit -m "docs(m19): L15 runbook produccion completo"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +54,13 @@ Cronometra: ¿otro tú encuentra rollback en <5 min?
 
 Marca la lección **solo si**:
 
-1. Runbook navegable (artefacto: `projects/m19-ops/runbook.md completo`).
-2. Enlaces internos (artefacto: `projects/m19-ops/runbook.md completo`).
-3. URLs prod/staging (artefacto: `projects/m19-ops/runbook.md completo`).
-4. Commit `docs(m19): L15 runbook-completo-de-produccion`.
+1. `projects/m19-ops/runbook.md` completo (deploy, rollback, backup, restore, URLs).
+2. Commit `docs(m19): L15 runbook-completo-de-produccion`.
 
 ## Errores comunes
 
-- Runbook disperso.
-- Sin restore.
+- Runbook genérico de internet.
+- Faltan URLs o dueños.
 
 ## Siguiente
 

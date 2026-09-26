@@ -13,23 +13,35 @@ evidencia: commit + nota en auth-storage.md
 
 **~5.0 h · Semana 1**
 
-401 → limpiar storage y volver a login.
+Auth móvil real no termina en login exitoso una vez.
 
 ## Objetivo
 
-Interceptor/wrapper HTTP con 401 global; mensajes de validación legibles.
+Manejar 401 global (logout), validación formulario, estados loading/error en login.
+
+## Conceptos clave
+
+- interceptor
+- navigator login
 
 ## Pasos (hazlos en orden)
 
-### 1. Interceptor (70–90 min)
+### 1. Interceptor 401 (70–90 min)
 
-### 2. Prueba (40 min)
+```ts
+// si response.status === 401 → clearSecureStorage(); navigate('Login');
+```
 
-Token inválido fuerza login. Evidencia en checklist.
+Mensajes de validación 400 legibles (campo email/password).
 
-### 3. Commit
+### 2. Prueba manual (30 min)
 
-`feat(m20): l04 flujo 401`
+```bash
+# 1) Login OK  2) Invalida token en storage  3) Pull lista → vuelve a Login
+# Anota en auth-storage.md
+git add projects/m20-movil/auth-storage.md
+git commit -m "feat(m20): L04 flujo 401 y validacion"
+```
 
 ## Lectura de esta lección
 
@@ -43,14 +55,13 @@ Token inválido fuerza login. Evidencia en checklist.
 
 Marca la lección **solo si**:
 
-1. 401 redirige login (artefacto: `commit`).
-2. Loading/error UI (artefacto: `commit`).
-3. Commit (artefacto: `commit`).
+1. 401 limpia storage y vuelve a Login; nota en auth-storage.md.
+2. Commit `docs(m20): L04 errores-de-validacion-y-flujo-401`.
 
 ## Errores comunes
 
-- Stack trace al usuario.
-- Ignorar 401.
+- 401 deja la sesión zombie.
+- Mensajes de error opacos (‘Error’).
 
 ## Siguiente
 

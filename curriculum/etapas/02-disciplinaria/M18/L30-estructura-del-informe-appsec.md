@@ -13,23 +13,58 @@ evidencia: projects/m18-appsec/informe-appsec.md (borrador)
 
 **~5.0 h · Semana 8**
 
-El entregable del proyecto es el informe.
+El entregable del proyecto es el informe: ejecutivo, alcance, hallazgos, mitigaciones, residual.
 
 ## Objetivo
 
-`informe-appsec.md` con ejecutivo, alcance, hallazgos, mitigaciones, residual.
+Borrador `projects/m18-appsec/informe-appsec.md` enlazando PoCs y commits (sin PII de partner).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Plantilla (30 min)
+### 1. Plantilla (25–35 min)
 
-### 2. Redacción (100–120 min)
+```bash
+cat > projects/m18-appsec/informe-appsec.md <<'EOF'
+# Informe AppSec — Agenda Ops
 
-Enlaza PoCs y commits fix. Sin datos reales del partner.
+## 1. Ejecutivo
+- …
 
-### 3. Commit
+## 2. Alcance y supuestos
+- Solo staging/local propio
+- Fuera de alcance: …
 
-`docs(m18): l30 informe appsec`
+## 3. Metodología
+STRIDE + OWASP Top 10 + PoC en API propia
+
+## 4. Hallazgos
+Tabla → ver findings-table.md (severidad, estado)
+
+## 5. Mitigaciones
+Commits / PRs: …
+
+## 6. Riesgo residual
+Top 3 con dueño/fecha
+
+## 7. Anexos
+- threat-model-v1.md
+- docs/auth-inventario.md
+- ci/
+EOF
+```
+### 2. Redacción con enlaces (90–110 min)
+
+Rellena §§1–6 con datos reales de tu P2/P3. Verifica que no hay secretos ni teléfonos reales.
+
+```bash
+rg -n 'password|Bearer |postgresql://|@gmail' projects/m18-appsec/informe-appsec.md || echo "sin secretos obvios"
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/informe-appsec.md
+git commit -m "docs(m18): l30 informe appsec"
+```
 
 ## Lectura de esta lección
 
@@ -45,8 +80,7 @@ Marca la lección **solo si**:
 
 1. Borrador ≥4 secciones (artefacto: `projects/m18-appsec/informe-appsec.md (borrador)`).
 2. Enlaces internos (artefacto: `projects/m18-appsec/informe-appsec.md (borrador)`).
-3. Sin jerga vacía (artefacto: `projects/m18-appsec/informe-appsec.md (borrador)`).
-4. Commit `docs(m18): L30 estructura-del-informe-appsec`.
+3. Commit `docs(m18): L30 estructura-del-informe-appsec`.
 
 ## Errores comunes
 

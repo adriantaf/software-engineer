@@ -13,25 +13,39 @@ evidencia: projects/m19-ops/cierre-m19.md
 
 **~5.0 h · Semana 4**
 
-Antes de vender el piloto, ops debe sobrevivir.
+Handoff a M20 (API staging HTTPS) y M22.
 
 ## Objetivo
 
-Checklist P1–P3 + criterios dominio + nota pre-demo comercial.
+Verificar P1–P3, criterios dominio, prod estable para trials.
+
+## Conceptos clave
+
+- checklist
+- dominio
 
 ## Pasos (hazlos en orden)
 
-### 1. Auditoría (50 min)
+### 1. Checklist pre-demo M22 (50–60 min)
 
-### 2. Pre-demo M22 (50–60 min)
+```bash
+cat > projects/m19-ops/cierre-m19.md << 'EOF'
+# Cierre M19
+- [ ] docker.md P1
+- [ ] deploy-log HTTPS P2
+- [ ] restore-test.md P3
+- [ ] runbook.md
+Handoff: URL staging para M20/M22
+EOF
+ls projects/m19-ops
+```
 
-Qué puede fallar en vivo; smoke del día.
+### 2. Commit (15 min)
 
-### 3. README final (30 min)
-
-### 4. Commit
-
-`docs(m19): l16 cierre pre-demo`
+```bash
+git add projects/m19-ops
+git commit -m "docs(m19): L16 cierre checklist pre-demo"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +59,13 @@ Qué puede fallar en vivo; smoke del día.
 
 Marca la lección **solo si**:
 
-1. P1–P3 OK (artefacto: `projects/m19-ops/cierre-m19.md`).
-2. cierre escrito (artefacto: `projects/m19-ops/cierre-m19.md`).
-3. README índice (artefacto: `projects/m19-ops/cierre-m19.md`).
-4. Commit `docs(m19): L16 cierre-m19-checklist-pre-demo-m22`.
+1. `projects/m19-ops/cierre-m19.md` checklist P1–P3 + handoff URL staging.
+2. Commit `docs(m19): L16 cierre-m19-checklist-pre-demo-m22`.
 
 ## Errores comunes
 
-- Prod inestable.
-- Sin restore probado.
+- Cerrar sin restore-test.
+- No dejar URL staging para M20/M22.
 
 ## Siguiente
 

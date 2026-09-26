@@ -37,34 +37,31 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Documenta resolución de tenant (30–40 min)
+
+En `projects/m26-capstone/memoria/tenancy-modelo.md`: subdomain vs header vs sesión — **cuál usas**.
+
+Diagrama request → middleware → `tenant_id`.
+
+### 3. Prueba el contexto en API (90–110 min)
+
+Muestra código o pseudo de dónde se setea el contexto. Verifica con dos tokens:
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+curl -s -H "Authorization: Bearer $TOKEN_A" "$API/me" | jq '{tenant_id, role}'
+curl -s -H "Authorization: Bearer $TOKEN_B" "$API/me" | jq '{tenant_id, role}'
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/tenancy-modelo.md`.
+Pega JSON redactado.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Límites de confianza (30–40 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Documenta cómo se resuelve tenant en API y UI. Diagrama request → tenant context.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-01.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/tenancy-modelo.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+≥5 bullets: qué el cliente no puede forjar, qué falla cerrado. Bitácora semana-01.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l03 modelo-tenant-id-y-resoluci-n-de-tenant"
 ```

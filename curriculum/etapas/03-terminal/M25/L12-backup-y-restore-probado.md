@@ -37,28 +37,29 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Documenta backup actual (20–30 min)
+
+En `projects/m25-ciber/hardening/restore-test.md`: provider, frecuencia, retención, dónde vive el artefacto (sin keys).
+
+### 3. Restore en entorno aislado (100–130 min)
+
+Restaura a DB/temporal **no prod**. Cronometra.
 
 ```bash
-mkdir -p projects/m25-ciber/hardening
+# ejemplo — adapta a tu provider; no uses prod
+# pg_restore -d agenda_ops_restore_test backup.dump
 ```
 
-Confirma que escribirás `projects/m25-ciber/hardening/restore-test.md`.
+Tabla: paso | comando/UI | minutos | resultado.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. RTO/RPO honestos (25–35 min)
 
-Ejecuta checks reales (`curl -I`, `pg_restore`, etc.) y pega **salida redactada** en el archivo de evidencia.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/hardening/restore-test.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Declara RPO/RTO medidos (no marketing). Gaps + próxima prueba. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l12 backup-y-restore-probado"
 ```

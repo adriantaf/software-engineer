@@ -36,34 +36,30 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Modelo dominio en memoria (25–35 min)
+
+En `projects/m26-capstone/memoria/clientes-servicios.md`: entidades Cliente y Servicio (campos, `tenant_id`, duración, precio).
+
+### 3. CRUD scoped + prueba cross-tenant (100–130 min)
+
+Crea cliente y servicio en A y en B. Verifica listados:
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+curl -s -H "Authorization: Bearer $TOKEN_A" "$API/clientes" | jq '[.[]|.id]'
+curl -s -H "Authorization: Bearer $TOKEN_B" "$API/clientes" | jq '[.[]|.id]'
+# sets disjuntos
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/clientes-servicios.md`.
+Documenta endpoints y status de un GET cruzado.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Captura o nota UI (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-CRUD clientes/servicios scoped; prueba A no lista clientes de B.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-03.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/clientes-servicios.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Enlace a ruta UI o screenshot path en repo. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l10 clientes-y-servicios-por-tenant"
 ```

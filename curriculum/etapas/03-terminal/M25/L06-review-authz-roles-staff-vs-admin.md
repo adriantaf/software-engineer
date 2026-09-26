@@ -37,30 +37,34 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Lista recursos y roles (20–30 min)
+
+En `projects/m25-ciber/review/authz-matrix.md` define roles: `owner`, `staff`, (opcional `platform`).
+
+Lista ≥8 recursos/acciones: citas CRUD, clientes, servicios, billing, invites, exports.
+
+### 3. Matriz recurso × rol × tenant (100–120 min)
+
+Tabla:
+
+| Recurso | owner | staff | cross-tenant | Evidencia |
+|---------|-------|-------|--------------|-----------|
+
+Marca allow/deny. Prueba ≥2 denegaciones con curl (status esperado 403/404).
 
 ```bash
-mkdir -p projects/m25-ciber/review
+curl -s -o /dev/null -w "%{http_code}" -H "Authorization: Bearer $TOKEN_STAFF" \
+  -X DELETE "$API/tenants/$TENANT_A/billing"
 ```
 
-Confirma que escribirás `projects/m25-ciber/review/authz-matrix.md`.
+### 4. Gaps abiertos (25–35 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-Trabaja en **tu** Agenda Ops desplegado. Registra comandos `curl` o Vitest/Jest con tokens de A y B.
-
-Actualiza `projects/m25-ciber/bitacora/semana-02.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/review/authz-matrix.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Sección **Gaps**: issues enlazados. Bitácora semana-02 con 5 líneas.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l06 review-authz-roles-staff-vs-admin"
 ```

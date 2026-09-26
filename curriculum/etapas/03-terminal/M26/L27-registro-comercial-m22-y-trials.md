@@ -36,34 +36,24 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Inventario comercial (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone
-```
+En `projects/m26-capstone/comercial.md` enlaza `projects/m22-bektor/` (demos, trials, pricing).
 
-Confirma que escribirás `projects/m26-capstone/comercial.md`.
+### 3. Estado honesto del pipeline (90–110 min)
 
-### 3. Laboratorio principal (100–130 min)
+Tabla: lead/demo/trial | fecha | resultado | siguiente paso.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+Números reales aunque sean cero — declara cero.
 
-Enlaza evidencia comercial; estado honesto.
+### 4. Puente a producto (25–35 min)
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-07.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/comercial.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Qué métrica del SaaS alimenta el discurso comercial. Bitácora semana-07.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l27 registro-comercial-m22-y-trials"
 ```

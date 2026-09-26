@@ -13,29 +13,51 @@ evidencia: projects/m17-agenda-ops/docs/permisos.md
 
 **~5.0 h · Semana 3**
 
-Roles sin matriz escrita se implementan a ojo.
+Roles sin matriz escrita se implementan inconsistente.
 
 ## Objetivo
 
-`docs/permisos.md`: acción × rol (cancelar, reportes, gestionar staff, CRUD).
+Documentar tabla acción×rol (cancelar cita, ver reportes, gestionar staff).
+
+## Conceptos clave
+
+- RBAC
+- owner
+- staff
 
 ## Pasos (hazlos en orden)
 
-### 1. Inventario de rutas (40 min)
+### 1. Redacta matriz owner/staff (60–80 min)
 
-Lista endpoints sensibles actuales.
+```bash
+mkdir -p projects/m17-agenda-ops/docs
+```
 
-### 2. Matriz (70–90 min)
+Crea `projects/m17-agenda-ops/docs/permisos.md`:
 
-Tabla Markdown: Owner / Staff / Anónimo → Allow/Deny. Enlaza a stories M12.
+```md
+| Acción | owner | staff |
+|--------|-------|-------|
+| CRUD citas propias negocio | sí | sí |
+| Borrar servicio | sí | no |
+| Invitar staff | sí | no |
+| Ver panel /admin | sí | no |
+```
 
-### 3. Gaps (30 min)
+### 2. Cruza con rutas API (40 min)
 
-Marca lo aún no enforced en API (L10 lo cierra).
+```bash
+rg -n "router\\.(get|post|patch|delete)|app\\.(get|post)" projects/m17-agenda-ops/src | head -40
+```
 
-### 4. Commit
+Marca en la matriz qué ruta aplica cada fila.
 
-`docs(m17): l09 matriz permisos owner staff`
+### 3. Commit (15 min)
+
+```bash
+git add projects/m17-agenda-ops/docs/permisos.md
+git commit -m "docs(m17): L09 matriz permisos owner staff"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +71,13 @@ Marca lo aún no enforced en API (L10 lo cierra).
 
 Marca la lección **solo si**:
 
-1. permisos.md (artefacto: `projects/m17-agenda-ops/docs/permisos.md`).
-2. Cobertura endpoints (artefacto: `projects/m17-agenda-ops/docs/permisos.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/permisos.md`).
+1. Existe `projects/m17-agenda-ops/docs/permisos.md` con matriz owner/staff y rutas.
+2. Commit `docs(m17): L09 matriz-de-permisos-owner-y-staff`.
 
 ## Errores comunes
 
-- Staff = owner.
-- Matriz vacía.
+- Matriz genérica sin rutas del piloto.
+- Permisos solo ‘en la cabeza’.
 
 ## Siguiente
 

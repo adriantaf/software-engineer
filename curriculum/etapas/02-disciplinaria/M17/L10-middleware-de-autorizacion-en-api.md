@@ -13,29 +13,51 @@ evidencia: authorize(role) middleware
 
 **~5.0 h · Semana 3**
 
-403 debe ser imposible de saltar desde el front.
+403 debe ser imposible de evitar desde el front.
 
 ## Objetivo
 
-Middleware `authorize(roles)` (o políticas) en handlers sensibles + tests 403/IDOR.
+Middleware que verifica rol y negocio en cada handler sensible.
+
+## Conceptos clave
+
+- middleware
+- 403
+- contexto usuario
 
 ## Pasos (hazlos en orden)
 
-### 1. Implementa middleware (80–100 min)
+### 1. Middleware authorize (80–100 min)
 
-Inyecta usuario de sesión; rechaza rol insuficiente; opcional: scope por `negocio_id`.
+```ts
+// src/middleware/authorize.ts
+export function authorize(...roles: Array<"owner"|"staff">) {
+  return (req, res, next) => {
+    const u = req.user; // inyectado por auth
+    if (!u || !roles.includes(u.rol)) return res.status(403).json({ error: "forbidden" });
+    next();
+  };
+}
+```
 
-### 2. Aplica a rutas (40 min)
+### 2. Aplica a rutas sensibles (40 min)
 
-Admin staff, borrar servicio, etc. según matriz.
+Ej.: `DELETE /servicios/:id` y `/admin/*` → `authorize("owner")`.
 
-### 3. Tests (40–50 min)
+```bash
+# staff cookie → 403 en acción owner
+curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n" \
+  -X DELETE http://localhost:3000/servicios/<id>
+# 403
+```
 
-Staff en acción owner → 403. Usuario A no lee cita de B si aplica.
+### 3. Tests IDOR/403 + commit (40–50 min)
 
-### 4. Commit
-
-`feat(m17): l10 middleware autorizacion`
+```bash
+npm test -- authz
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L10 middleware autorizacion"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +71,14 @@ Staff en acción owner → 403. Usuario A no lee cita de B si aplica.
 
 Marca la lección **solo si**:
 
-1. Middleware activo (artefacto: `authorize(role) middleware`).
-2. 403 tests (artefacto: `authorize(role) middleware`).
-3. Sin lógica duplicada (artefacto: `authorize(role) middleware`).
-4. Commit `docs(m17): L10 middleware-de-autorizacion-en-api`.
+1. Middleware `authorize(roles)` aplicado a rutas sensibles.
+2. Tests 403 (staff en acción owner) e IDOR básico si aplica.
+3. Commit `docs(m17): L10 middleware-de-autorizacion-en-api`.
 
 ## Errores comunes
 
-- Check solo en UI.
-- Hardcode user id.
+- Check de rol solo en el front.
+- Hardcodear `userId` en el middleware.
 
 ## Siguiente
 

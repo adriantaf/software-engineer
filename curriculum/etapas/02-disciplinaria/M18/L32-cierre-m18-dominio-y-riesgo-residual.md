@@ -13,25 +13,36 @@ evidencia: projects/m18-appsec/informe-appsec.md final + README
 
 **~5.0 h · Semana 8**
 
-Riesgo residual explícito > “somos seguros”.
+Riesgo residual explícito > “somos seguros”. Cierra P1–P3 y handoff a M19/M25.
 
 ## Objetivo
 
-Cierre P1–P3, criterios dominio, residual risk y handoff a M19/M25.
+`projects/m18-appsec/informe-appsec.md` final + README con residual top-3 y criterios de dominio.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Auditoría evidencias (50 min)
+### 1. Auditoría de evidencias (40–50 min)
 
-### 2. Residual (50–60 min)
+```bash
+ls -la projects/m18-appsec projects/m18-appsec/docs projects/m18-appsec/findings projects/m18-appsec/ci projects/m18-appsec/pocs
+test -f projects/m18-appsec/threat-model-v1.md && echo P1=ok
+wc -l projects/m18-appsec/findings-table.md
+test -f projects/m18-appsec/ci/ci-appsec.yml && echo P3=ok
+test -f projects/m18-appsec/docs/auth-inventario.md && echo auth=ok
+```
+### 2. Residual + handoff (50–60 min)
 
-Top 3 riesgos aceptados con dueño/fecha.
+```bash
+printf "\n## Riesgo residual (cierre)\n| Riesgo | Dueño | Fecha revisión |\n|--------|-------|----------------|\n| … | | |\n\n## Handoff\n- M19: secrets en PaaS, HTTPS, backups\n- M25: retest en trial\n" >> projects/m18-appsec/informe-appsec.md
+```
+### 3. README final (20–30 min)
 
-### 3. README final (30 min)
+Actualiza `projects/m18-appsec/README.md`: P1/P2/P3 ✅, enlace informe, residual.
 
-### 4. Commit
-
-`docs(m18): l32 cierre dominio residual`
+```bash
+git add projects/m18-appsec/README.md projects/m18-appsec/informe-appsec.md
+git commit -m "docs(m18): l32 cierre dominio residual"
+```
 
 ## Lectura de esta lección
 
@@ -47,9 +58,7 @@ Marca la lección **solo si**:
 
 1. Informe final (artefacto: `projects/m18-appsec/informe-appsec.md final`).
 2. P1–P3 verificables (artefacto: `projects/m18-appsec/informe-appsec.md final`).
-3. README índice (artefacto: `projects/m18-appsec/informe-appsec.md final`).
-4. Residual risk escrito (artefacto: `projects/m18-appsec/informe-appsec.md final`).
-5. Commit `docs(m18): L32 cierre-m18-dominio-y-riesgo-residual`.
+3. Commit `docs(m18): L32 cierre-m18-dominio-y-riesgo-residual`.
 
 ## Errores comunes
 

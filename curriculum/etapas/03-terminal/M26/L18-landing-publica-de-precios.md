@@ -36,34 +36,28 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Define copy de precios (25–35 min)
+
+En `projects/m26-capstone/memoria/landing-precios.md`: planes Free/Pro, precios MXN alineados a M22, CTA trial.
+
+### 3. Publica página en staging/prod (100–120 min)
+
+Ruta `/pricing` o landing marketing. Verifica en navegador:
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+curl -sI "https://TU-DOMINIO/pricing" | head -n 15
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/landing-precios.md`.
+Enlaza URL desde README capstone.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Coherencia con Stripe (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Página pública enlazada desde README capstone.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-05.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/landing-precios.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Tabla: texto landing ↔ price_id (sin secretos). Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l18 landing-p-blica-de-precios"
 ```

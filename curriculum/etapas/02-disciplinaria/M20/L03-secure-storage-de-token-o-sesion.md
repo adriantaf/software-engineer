@@ -13,27 +13,47 @@ evidencia: projects/m20-movil/auth-storage.md
 
 **~5.0 h · Semana 1**
 
-Keychain/Keystore — no SharedPreferences en claro.
+JWT en SharedPreferences plano es hallazgo M18.
 
 ## Objetivo
 
-`auth-storage.md` + implementación secure storage.
+Persistir access token con flutter_secure_storage o equivalente RN; documentar qué guardas.
+
+## Conceptos clave
+
+- secure storage
+- no password disk
 
 ## Pasos (hazlos en orden)
 
-### 1. Elige API (30 min)
+### 1. Elige secure storage (30 min)
 
-flutter_secure_storage / Keychain RN.
+```bash
+# Flutter: flutter_secure_storage
+# RN: react-native-keychain / expo-secure-store
+cat > projects/m20-movil/auth-storage.md << 'EOF'
+# Auth storage
+API: …  Dónde vive el token/sesión: Keychain/Keystore
+Nunca: SharedPreferences / AsyncStorage en claro
+EOF
+```
 
-### 2. Implementa (80–100 min)
+### 2. Implementa save/read/clear (80–100 min)
 
-Guarda/lee/borra token. Nunca loguees el valor.
+```ts
+// pseudocódigo RN
+await Keychain.setGenericPassword('session', token);
+// NUNCA console.log(token)
+```
 
-### 3. Doc (20 min)
+Tras login guarda; al logout borra.
 
-### 4. Commit
+### 3. Commit (15 min)
 
-`feat(m20): l03 secure storage`
+```bash
+git add projects/m20-movil
+git commit -m "feat(m20): L03 secure storage sesion"
+```
 
 ## Lectura de esta lección
 
@@ -47,15 +67,13 @@ Guarda/lee/borra token. Nunca loguees el valor.
 
 Marca la lección **solo si**:
 
-1. auth-storage.md (artefacto: `projects/m20-movil/auth-storage.md`).
-2. código referenciado (artefacto: `projects/m20-movil/auth-storage.md`).
-3. sin password claro (artefacto: `projects/m20-movil/auth-storage.md`).
-4. Commit `docs(m20): L03 secure-storage-de-token-o-sesion`.
+1. `projects/m20-movil/auth-storage.md` + implementación Keychain/Keystore (no texto claro).
+2. Commit `docs(m20): L03 secure-storage-de-token-o-sesion`.
 
 ## Errores comunes
 
-- Token en logs.
-- AsyncStorage plano.
+- Token en SharedPreferences/AsyncStorage en claro.
+- Loguear el token.
 
 ## Siguiente
 

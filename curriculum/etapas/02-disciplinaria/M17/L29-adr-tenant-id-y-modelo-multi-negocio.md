@@ -13,29 +13,44 @@ evidencia: projects/m17-agenda-ops/docs/adr-tenant-id.md
 
 **~5.0 h · Semana 8**
 
-M26 depende de esta decisión; el piloto es single-tenant con cableado listo.
+M26 depende de esta decisión; M17 la prepara.
 
 ## Objetivo
 
-`docs/adr-tenant-id.md`: dónde vive `tenant_id`/`negocio_id`, tablas, queries siempre filtradas.
+ADR: dónde va `tenant_id`/`negocio_id`, migración futura, queries siempre filtradas.
+
+## Conceptos clave
+
+- tenant_id
+- ADR
+- single-tenant piloto
 
 ## Pasos (hazlos en orden)
 
-### 1. Contexto (30 min)
+### 1. ADR tenant_id (70–90 min)
 
-Relee producto-saas fases multi-tenant.
+```bash
+cat > projects/m17-agenda-ops/docs/adr-tenant-id.md << 'EOF'
+# ADR: tenant_id / multi-negocio
+## Contexto
+Piloto single-tenant hoy; camino a SaaS.
+## Decisión
+Columna/negocio_id nullable ahora; queries siempre filtradas cuando presente.
+## Consecuencias
+...
+EOF
+```
 
-### 2. ADR (80–100 min)
+### 2. Marca código futuro (30 min)
 
-Opciones; decisión; consecuencias; lista de tablas; qué **no** harás en M17 (SaaS completo).
+```ts
+// TODO(tenant): filtrar por negocio_id en listados
+```
 
-### 3. Spot-check queries (30 min)
-
-Al menos un listado de citas documenta filtro por negocio.
-
-### 4. Commit
-
-`docs(m17): l29 adr tenant id`
+```bash
+git add projects/m17-agenda-ops/docs/adr-tenant-id.md
+git commit -m "docs(m17): L29 adr tenant_id multi-negocio"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +64,13 @@ Al menos un listado de citas documenta filtro por negocio.
 
 Marca la lección **solo si**:
 
-1. adr-tenant-id.md (artefacto: `projects/m17-agenda-ops/docs/adr-tenant-id.md`).
-2. Tablas listadas (artefacto: `projects/m17-agenda-ops/docs/adr-tenant-id.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/adr-tenant-id.md`).
+1. Existe `projects/m17-agenda-ops/docs/adr-tenant-id.md` con contexto/decisión/consecuencias.
+2. Commit `docs(m17): L29 adr-tenant-id-y-modelo-multi-negocio`.
 
 ## Errores comunes
 
-- Multi-tenant completo día 1.
-- Sin filtro en queries.
+- ADR genérico sin Agenda Ops.
+- Implementar multi-tenant completo sin necesidad.
 
 ## Siguiente
 

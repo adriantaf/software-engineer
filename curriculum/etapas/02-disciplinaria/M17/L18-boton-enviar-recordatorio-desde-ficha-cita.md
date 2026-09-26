@@ -13,29 +13,37 @@ evidencia: acción recordatorio
 
 **~5.0 h · Semana 5**
 
-Cierra el loop operativo: desde la ficha, abrir WhatsApp o registrar intento.
+Cierra loop operativo del negocio.
 
 ## Objetivo
 
-Acción en UI + log sanitizado (sin teléfono completo si puedes) + pasos de prueba manual.
+En UI de cita, acción que abre WhatsApp o registra intento según diseño.
+
+## Conceptos clave
+
+- acción usuario
+- auditoría ligera
+- opt-in
 
 ## Pasos (hazlos en orden)
 
-### 1. API/UI acción (80–100 min)
+### 1. Botón en ficha cita (70–90 min)
 
-Botón “Recordar por WhatsApp” genera link o abre ventana. Confirmación anti-spam.
+Acción “Enviar recordatorio” abre `wa.me` (window.open). No requiere WhatsApp Business API.
 
-### 2. Auditoría ligera (30 min)
+### 2. Evidencia (30 min)
 
-Tabla/log: citaId, userId, timestamp — no dump de mensaje con PII.
+```bash
+# captura redactada o nota en integracion-whatsapp.md con URL de ejemplo sin teléfono real
+echo "ej: https://wa.me/525500000000?text=..." >> projects/m17-agenda-ops/docs/integracion-whatsapp.md
+```
 
-### 3. Prueba manual (20 min)
+### 3. Commit (15 min)
 
-Pasos en `docs/integracion-whatsapp.md`.
-
-### 4. Commit
-
-`feat(m17): l18 boton recordatorio whatsapp`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L18 boton recordatorio whatsapp"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +57,13 @@ Pasos en `docs/integracion-whatsapp.md`.
 
 Marca la lección **solo si**:
 
-1. Acción en UI (artefacto: `acción recordatorio`).
-2. Log sanitizado (artefacto: `acción recordatorio`).
-3. Test manual pasos (artefacto: `acción recordatorio`).
-4. Commit `docs(m17): L18 boton-enviar-recordatorio-desde-ficha-cita`.
+1. Botón recordatorio en ficha cita abre wa.me; evidencia en doc WhatsApp.
+2. Commit `docs(m17): L18 boton-enviar-recordatorio-desde-ficha-cita`.
 
 ## Errores comunes
 
-- Spam sin confirmación.
-- Log con teléfono.
+- Botón que llama API Business inexistente.
+- Abrir wa.me con PII extra innecesaria.
 
 ## Siguiente
 

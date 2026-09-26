@@ -17,25 +17,34 @@ Reduce superficie antes de abrir al partner.
 
 ## Objetivo
 
-Helmet (o equivalente) + CORS restrictivo; `docs/seguridad-http.md`.
+Configurar headers básicos y CORS restrictivo a dominio front.
+
+## Conceptos clave
+
+- helmet
+- CORS
+- CSP intro
 
 ## Pasos (hazlos en orden)
 
-### 1. Headers (60–80 min)
+### 1. Headers seguridad (60–80 min)
 
-Activa en staging; verifica con curl/`securityheaders` mental checklist.
+```ts
+// helmet() o equivalentes: CSP básica, nosniff, frameguard
+```
 
-### 2. CORS (40 min)
+```bash
+curl -sSI https://TU-STAGING.example/health | rg -i 'content-security|x-frame|x-content-type|strict-transport'
+```
 
-Solo origen del front. Documenta preflight.
+### 2. CORS prod (40 min)
 
-### 3. Doc (20 min)
+Allowlist `CORS_ORIGIN` de staging/prod — no `*`. Documenta en `docs/deploy.md`.
 
-Valores y cómo probarlos.
-
-### 4. Commit
-
-`feat(m17): l26 headers cors seguridad`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L26 headers seguridad cors"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +58,13 @@ Valores y cómo probarlos.
 
 Marca la lección **solo si**:
 
-1. Headers activos prod (artefacto: `helmet o equivalente`).
-2. CORS no `*`.
-3. Doc (artefacto: `helmet o equivalente`).
-4. Commit `docs(m17): L26 headers-de-seguridad-y-cors-prod`.
+1. Headers de seguridad visibles en `curl -sSI`; CORS allowlist (no `*`).
+2. Commit `docs(m17): L26 headers-de-seguridad-y-cors-prod`.
 
 ## Errores comunes
 
-- CORS abierto.
-- CSP rota sin probar.
+- `Access-Control-Allow-Origin: *` en prod.
+- Sin `helmet`/equivalente y sin nota.
 
 ## Siguiente
 

@@ -13,51 +13,79 @@ evidencia: projects/m17-agenda-ops/stack.md + scaffold API
 
 **~5.0 h · Semana 1**
 
-Sin stack fijo, M17 se convierte en un tour de frameworks. Hoy clavas el monolito modular del piloto.
+Cambiar stack a mitad de materia sin ADR destruye velocidad.
 
 ## Objetivo
 
-Dejar `projects/m17-agenda-ops/` con TypeScript strict, Postgres conectado y `stack.md` inmutable (salvo ADR).
+Inicializar `projects/m17-agenda-ops/` con TypeScript strict, conexión Postgres y documentar stack fijo.
 
-## Por qué empieza así
+## Conceptos clave
 
-Cada lección siguiente asume `GET /health` 200 y un esquema alineado a M09 (clientes, servicios, citas).
+- scaffold
+- Postgres
+- monolito modular
 
 ## Pasos (hazlos en orden)
 
 ### 1. Revisa producto y diseño previo (30–40 min)
 
 ```bash
-cat curriculum/producto-saas.md | head -80
+cd /workspace   # o raíz del monorepo academia
+head -n 80 curriculum/producto-saas.md
 ls projects/m13-diseno projects/m09-bases-datos/migrations 2>/dev/null | head
 ```
 
-Anota en un scratch: endpoints Must del piloto (auth, citas, clientes, servicios, admin).
+Anota 5 endpoints Must del piloto: register, login, me, citas, clientes/servicios.
 
-### 2. Scaffold de carpetas (20 min)
+### 2. Scaffold de carpetas y toolchain (40–50 min)
 
 ```bash
 mkdir -p projects/m17-agenda-ops/{docs,src,tests,scripts,apps}
-cp projects/m17-agenda-ops/README.md /tmp/m17-readme.bak 2>/dev/null || true
+cd projects/m17-agenda-ops
+# Si aún no hay package.json:
+npm init -y
+npm install -D typescript tsx vitest @types/node
+npx tsc --init --strict --rootDir src --outDir dist --module nodenext --moduleResolution nodenext --target ES2022
 ```
 
-Inicializa el repo app (npm/pnpm) **dentro** de `projects/m17-agenda-ops/` o documenta monorepo. TypeScript `strict: true`.
+Confirma `strict: true` en `tsconfig.json`. Runtime Node LTS + framework HTTP alineado a M13 ADR 001.
 
-### 3. Documenta stack.md (40–50 min)
+### 3. Documenta stack.md inmutable (30–40 min)
 
-Crea `projects/m17-agenda-ops/stack.md` con: runtime, framework HTTP, ORM/query builder, front, test runner, por qué **no** cambiarás a mitad de materia.
+Completa `projects/m17-agenda-ops/stack.md` (ya hay plantilla). Ejemplo mínimo:
 
-### 4. Conecta Postgres y health (60–80 min)
+```md
+| Capa | Elección | Notas |
+|------|----------|-------|
+| Runtime | Node 22 LTS | |
+| API | Fastify / Express / Nest | TypeScript strict |
+| ORM | drizzle / prisma / knex | esquema M09 |
+| Front | React / Next | |
+| Tests | Vitest | |
+| Auth | Cookie HttpOnly | docs/auth.md |
+```
 
-Reusa Compose M09 o añade el tuyo. Variables en `.env.example` (sin secretos). Implementa `GET /health` que confirme proceso + (ideal) ping DB.
+Cambio de stack = ADR en `docs/`.
+
+### 4. Postgres + GET /health (60–80 min)
 
 ```bash
+cp projects/m17-agenda-ops/.env.example projects/m17-agenda-ops/.env
+# Edita DATABASE_URL / POSTGRES_* — .env NO va a git
+# Reusa Compose M09 o el tuyo; luego arranca la API
 curl -sS http://localhost:3000/health
+# Esperado JSON tipo {"ok":true,"db":"up"}
 ```
 
-### 5. Commit
+Si falla DB, anota el error en README **sin** password.
 
-`docs(m17): l01 scaffold stack health postgres`
+### 5. Commit (10–15 min)
+
+```bash
+git add projects/m17-agenda-ops
+git status   # .env NO debe aparecer
+git commit -m "docs(m17): L01 scaffold stack health postgres"
+```
 
 ## Lectura de esta lección
 
@@ -71,16 +99,16 @@ curl -sS http://localhost:3000/health
 
 Marca la lección **solo si**:
 
-1. Repo scaffold (artefacto: `projects/m17-agenda-ops/stack.md`).
-2. stack.md (artefacto: `projects/m17-agenda-ops/stack.md`).
-3. DB conecta local (artefacto: `projects/m17-agenda-ops/stack.md`).
-4. Health check (artefacto: `projects/m17-agenda-ops/stack.md`).
-5. Commit `docs(m17): L01 scaffold-agenda-ops-api-db-y-stack`.
+1. Existe `projects/m17-agenda-ops/` con TypeScript strict y carpetas `src/`/`tests/`/`docs/`.
+2. `projects/m17-agenda-ops/stack.md` lista runtime, API, ORM, front, tests y auth.
+3. `GET /health` responde 200 con DB up (anotado en README sin secrets).
+4. Commit `docs(m17): L01 scaffold-agenda-ops-api-db-y-stack`.
 
 ## Errores comunes
 
-- Stack sin documentar.
-- Secrets en repo.
+- Subir `.env` con passwords.
+- Cambiar framework sin ADR.
+- Health 200 sin ping a DB documentado.
 
 ## Siguiente
 

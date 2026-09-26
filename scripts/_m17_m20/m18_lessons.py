@@ -69,8 +69,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Existe `projects/m18-appsec/threat-model-v0.md` con actores y ≥5 activos.",
-      "Diagrama ASCII o Mermaid del piloto.",
-      "Comando anti-secretos ejecutado y anotado."
+      "Diagrama ASCII o Mermaid del piloto."
     ],
     "errores": [
       "Activos genéricos (“la DB”) sin tablas/campos.",
@@ -105,8 +104,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "≥4 boundaries documentados.",
-      "Pregunta de abuso por límite.",
-      "Enlace a diseño M13 si aplica."
+      "Pregunta de abuso por límite."
     ],
     "errores": [
       "Un solo boundary “internet”.",
@@ -136,8 +134,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Matriz ≥4 filas × 6 columnas.",
-      "≥3 amenazas priorizadas.",
-      "Lenguaje del dominio Agenda Ops."
+      "≥3 amenazas priorizadas."
     ],
     "errores": [
       "Copiar tabla de blog sin adaptar.",
@@ -167,8 +164,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Mapa 10 filas mínimo.",
-      "threat-model-v0 actualizado.",
-      "Commit semana 1."
+      "threat-model-v0 actualizado."
     ],
     "errores": [
       "Marcar ‘no aplica’ en todo.",
@@ -180,7 +176,7 @@ RAW = json.loads(r"""
     "semana": 2,
     "horas": 5,
     "lectura": "OWASP A07 + Authentication Cheat Sheet",
-    "evidencia": "projects/m18-appsec/auth-inventory.md",
+    "evidencia": "projects/m18-appsec/docs/auth-inventario.md",
     "objetivo": "Documentar flujo real de registro/login/logout de Agenda Ops: transporte, almacenamiento de sesión, rotación y recuperación de contraseña.",
     "porque": "No puedes endurecer lo que no has descrito. Esta lección es fotografía del estado antes de parches.",
     "conceptos": [
@@ -188,7 +184,7 @@ RAW = json.loads(r"""
       "Transporte HTTPS obligatorio.",
       "Mensajes de error uniformes."
     ],
-    "pasos_extra": "En `projects/m18-appsec/auth-inventory.md` describe paso a paso el happy path y 2 edge cases (password malo, usuario inexistente).\n\nCaptura (sin secretos) qué cookie/header usa la API. ¿El ID de usuario va en JWT payload? ¿Sesión en DB?\n\nLista endpoints: `POST /auth/login`, etc. Marca cuáles son públicos vs autenticados.",
+    "pasos_extra": "En `projects/m18-appsec/docs/auth-inventario.md` describe paso a paso el happy path y 2 edge cases (password malo, usuario inexistente).\n\nCaptura (sin secretos) qué cookie/header usa la API. ¿El ID de usuario va en JWT payload? ¿Sesión en DB?\n\nLista endpoints: `POST /auth/login`, etc. Marca cuáles son públicos vs autenticados.",
     "lectura_rows": [
       [
         "OWASP",
@@ -198,8 +194,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Inventario con endpoints reales.",
-      "Público vs autenticado claro.",
-      "Sin passwords en el doc."
+      "Público vs autenticado claro."
     ],
     "errores": [
       "Inventario teórico sin abrir el código.",
@@ -211,7 +206,7 @@ RAW = json.loads(r"""
     "semana": 2,
     "horas": 5,
     "lectura": "Password Storage Cheat Sheet",
-    "evidencia": "commit en repo producto + nota en projects/m18-appsec/auth-hashing.md",
+    "evidencia": "commit en repo producto + nota en projects/m18-appsec/docs/auth-hashing.md",
     "objetivo": "Verificar o implementar hashing con coste adecuado (bcrypt≥12 o argon2) y eliminar esquemas débiles (MD5/SHA plano).",
     "porque": "A07 empieza en la tabla `users`: un leak de DB no debe regalar contraseñas.",
     "conceptos": [
@@ -219,7 +214,7 @@ RAW = json.loads(r"""
       "Cost factor / memoria argon2.",
       "Nunca loguear `plain` password."
     ],
-    "pasos_extra": "Audita el servicio de registro/login en tu API de Agenda Ops (repo M17). Si hay `bcrypt`/`argon2`, documenta parámetros en `projects/m18-appsec/auth-hashing.md`.\n\nSi falta: implementa con lib madura, migra usuarios de prueba, añade test que el hash no es igual al plain.\n\n```bash\n# en repo producto\nnpm test -- --testPathPattern=auth 2>/dev/null || npm test\n```",
+    "pasos_extra": "Audita el servicio de registro/login en tu API de Agenda Ops (repo M17). Si hay `bcrypt`/`argon2`, documenta parámetros en `projects/m18-appsec/docs/auth-hashing.md`.\n\nSi falta: implementa con lib madura, migra usuarios de prueba, añade test que el hash no es igual al plain.\n\n```bash\n# en repo producto\nnpm test -- --testPathPattern=auth 2>/dev/null || npm test\n```",
     "lectura_rows": [
       [
         "OWASP",
@@ -229,8 +224,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Hashing correcto en código o ADR si ya estaba.",
-      "Test o script que verifica compare.",
-      "Doc de parámetros."
+      "Test o script que verifica compare."
     ],
     "errores": [
       "MD5/SHA1 para passwords.",
@@ -242,7 +236,7 @@ RAW = json.loads(r"""
     "semana": 2,
     "horas": 5,
     "lectura": "Session Management + JWT Cheat Sheets",
-    "evidencia": "projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)",
+    "evidencia": "projects/m18-appsec/docs/adr-sesion-vs-jwt.md (o enlace ADR M13)",
     "objetivo": "Decidir y documentar si Agenda Ops usa sesión en servidor, JWT firmado, o híbrido; consecuencias para XSS, logout y revocación.",
     "porque": "M13 pudo dejar la decisión abierta; M18 la cierra con ojos de seguridad.",
     "conceptos": [
@@ -250,7 +244,7 @@ RAW = json.loads(r"""
       "HttpOnly cookie vs Authorization header.",
       "Refresh token (si aplica)."
     ],
-    "pasos_extra": "Redacta `projects/m18-appsec/adr-sesion-vs-jwt.md`: contexto, decisión, alternativas rechazadas, impacto en móvil M20.\n\nPrueba manual: login → copiar token/cookie → logout → reutilizar credencial vieja (debe fallar).\n\nAnota resultado en la ADR.",
+    "pasos_extra": "Redacta `projects/m18-appsec/docs/adr-sesion-vs-jwt.md`: contexto, decisión, alternativas rechazadas, impacto en móvil M20.\n\nPrueba manual: login → copiar token/cookie → logout → reutilizar credencial vieja (debe fallar).\n\nAnota resultado en la ADR.",
     "lectura_rows": [
       [
         "M13",
@@ -260,8 +254,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "ADR con alternativas.",
-      "Prueba logout/reuse documentada.",
-      "Coherente con móvil futuro."
+      "Prueba logout/reuse documentada."
     ],
     "errores": [
       "JWT en localStorage sin plan anti-XSS.",
@@ -291,8 +284,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "threat-model-v1.md completo.",
-      "Tabla amenaza-control.",
-      "Listo para marcar P1 en UI."
+      "Tabla amenaza-control."
     ],
     "errores": [
       "Renombrar v0 sin cambios.",
@@ -304,7 +296,7 @@ RAW = json.loads(r"""
     "semana": 3,
     "horas": 5,
     "lectura": "OWASP Session Management + cookie flags",
-    "evidencia": "projects/m18-appsec/cookies-lab.md",
+    "evidencia": "projects/m18-appsec/pocs/cookies.md",
     "objetivo": "Inspeccionar cookies de sesión de Agenda Ops en DevTools y verificar flags; corregir configuración en el servidor.",
     "porque": "M10 estudió cookies; hoy aplicas flags en **tu** stack.",
     "conceptos": [
@@ -312,7 +304,7 @@ RAW = json.loads(r"""
       "Secure en HTTPS.",
       "HttpOnly vs JS legítimo."
     ],
-    "pasos_extra": "Login en staging/local. En `projects/m18-appsec/cookies-lab.md` tabla: nombre cookie, flags, lifetime, path.\n\nSi falta `Secure` o `HttpOnly` en cookie de sesión, parchea middleware/framework y captura antes/después (sin valor de cookie).\n\nPrueba: ¿JavaScript puede leer la cookie de sesión? Documenta.",
+    "pasos_extra": "Login en staging/local. En `projects/m18-appsec/pocs/cookies.md` tabla: nombre cookie, flags, lifetime, path.\n\nSi falta `Secure` o `HttpOnly` en cookie de sesión, parchea middleware/framework y captura antes/después (sin valor de cookie).\n\nPrueba: ¿JavaScript puede leer la cookie de sesión? Documenta.",
     "lectura_rows": [
       [
         "MDN",
@@ -322,8 +314,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Tabla de cookies real.",
-      "Parche o justificación documentada.",
-      "Prueba HttpOnly."
+      "Parche o justificación documentada."
     ],
     "errores": [
       "SameSite=None sin Secure.",
@@ -335,7 +326,7 @@ RAW = json.loads(r"""
     "semana": 3,
     "horas": 5,
     "lectura": "CSRF Prevention Cheat Sheet",
-    "evidencia": "fix + projects/m18-appsec/csrf-notes.md",
+    "evidencia": "fix + projects/m18-appsec/pocs/csrf-notes.md",
     "objetivo": "Identificar operaciones mutables (POST/PUT/DELETE) y aplicar token CSRF, SameSite estricto o patrón equivalente en Agenda Ops.",
     "porque": "Un atacante no necesita XSS si tu sesión acepta POST cross-site.",
     "conceptos": [
@@ -343,7 +334,7 @@ RAW = json.loads(r"""
       "Token sincronizado.",
       "API JSON + CORS no sustituye CSRF en cookies."
     ],
-    "pasos_extra": "Lista rutas que cambian estado (crear cita, cancelar, perfil). En `projects/m18-appsec/csrf-notes.md` indica protección por ruta.\n\nImplementa protección mínima en la ruta más crítica (ej. crear cita). Test manual con `curl` sin token (debe 403).\n\nReferencia OWASP CSRF sheet en el doc.",
+    "pasos_extra": "Lista rutas que cambian estado (crear cita, cancelar, perfil). En `projects/m18-appsec/pocs/csrf-notes.md` indica protección por ruta.\n\nImplementa protección mínima en la ruta más crítica (ej. crear cita). Test manual con `curl` sin token (debe 403).\n\nReferencia OWASP CSRF sheet en el doc.",
     "lectura_rows": [
       [
         "OWASP",
@@ -353,8 +344,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Lista rutas mutables.",
-      "≥1 ruta protegida.",
-      "curl sin token falla."
+      "≥1 ruta protegida."
     ],
     "errores": [
       "Confiar solo en CORS.",
@@ -366,7 +356,7 @@ RAW = json.loads(r"""
     "semana": 3,
     "horas": 5,
     "lectura": "Session fixation + logout best practices",
-    "evidencia": "projects/m18-appsec/session-lifecycle.md",
+    "evidencia": "projects/m18-appsec/docs/session-lifecycle.md",
     "objetivo": "Asegurar rotación de ID de sesión tras login y destrucción server-side en logout.",
     "porque": "Robar sesión fija es un clásico en apps que reutilizan el mismo session id.",
     "conceptos": [
@@ -374,7 +364,7 @@ RAW = json.loads(r"""
       "Invalidar en logout.",
       "Timeout por inactividad (idea)."
     ],
-    "pasos_extra": "Traza el ciclo en código. Documenta en `projects/m18-appsec/session-lifecycle.md`.\n\nPruebas: login dos veces ¿cambia id? logout ¿cookie inválida en siguiente request?\n\nSi usas JWT stateless, documenta blacklist/short TTL en su lugar.",
+    "pasos_extra": "Traza el ciclo en código. Documenta en `projects/m18-appsec/docs/session-lifecycle.md`.\n\nPruebas: login dos veces ¿cambia id? logout ¿cookie inválida en siguiente request?\n\nSi usas JWT stateless, documenta blacklist/short TTL en su lugar.",
     "lectura_rows": [
       [
         "OWASP",
@@ -384,8 +374,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Doc ciclo de vida.",
-      "Pruebas login/logout documentadas.",
-      "Commit si hubo fix."
+      "Pruebas login/logout documentadas."
     ],
     "errores": [
       "Logout solo borra cookie cliente.",
@@ -397,14 +386,14 @@ RAW = json.loads(r"""
     "semana": 3,
     "horas": 5,
     "lectura": "Repaso semana 3",
-    "evidencia": "projects/m18-appsec/checklist-cookies-csrf.md",
+    "evidencia": "projects/m18-appsec/docs/checklist-cookies-csrf.md",
     "objetivo": "Checklist binario ejecutable antes de cada deploy: cookies, CSRF, HTTPS, logout.",
     "porque": "Operacionalizas controles para M19 deploy y trials M22.",
     "conceptos": [
       "Checklist reproducible.",
       "Evidencia en staging."
     ],
-    "pasos_extra": "Crea `projects/m18-appsec/checklist-cookies-csrf.md` con ≥10 ítems Sí/No. Ejecútalo contra staging y pega resultado (fecha, URL).\n\nEnlaza issues/commits de la semana. Cierra con riesgo residual CSRF.",
+    "pasos_extra": "Crea `projects/m18-appsec/docs/checklist-cookies-csrf.md` con ≥10 ítems Sí/No. Ejecútalo contra staging y pega resultado (fecha, URL).\n\nEnlaza issues/commits de la semana. Cierra con riesgo residual CSRF.",
     "lectura_rows": [
       [
         "Ficha",
@@ -414,8 +403,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Checklist ejecutado.",
-      "Fecha y URL.",
-      "≥1 ítem corregido esta semana."
+      "Fecha y URL."
     ],
     "errores": [
       "Checklist nunca ejecutado.",
@@ -445,8 +433,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Finding documentado o prueba de mitigación.",
-      "Solo tu entorno.",
-      "Sin PII en el reporte."
+      "Solo tu entorno."
     ],
     "errores": [
       "SQLi en producción de terceros.",
@@ -475,7 +462,6 @@ RAW = json.loads(r"""
       ]
     ],
     "hecho": [
-      "Commit fix.",
       "Test de regresión.",
       "Finding actualizado a Cerrado."
     ],
@@ -507,8 +493,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "PoC documentada.",
-      "Contexto identificado.",
-      "Sin atacar usuarios reales."
+      "Contexto identificado."
     ],
     "errores": [
       "XSS persistente en prod sin aviso.",
@@ -538,7 +523,6 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "≥2 filas en findings-table.",
-      "Fix committed.",
       "Test o verificación manual repetible."
     ],
     "errores": [
@@ -569,8 +553,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "PoC con dos usuarios.",
-      "Impacto descrito.",
-      "Ruta exacta."
+      "Impacto descrito."
     ],
     "errores": [
       "Probar en datos de design partner real.",
@@ -582,7 +565,7 @@ RAW = json.loads(r"""
     "semana": 5,
     "horas": 5,
     "lectura": "Access Control Cheat Sheet",
-    "evidencia": "projects/m18-appsec/rbac-matrix.md",
+    "evidencia": "projects/m18-appsec/docs/rbac-matrix.md",
     "objetivo": "Matriz rol × recurso × acción para Agenda Ops y gaps entre SRS y código.",
     "porque": "Agenda Ops distingue dueño y staff; la API debe hacerlo explícito.",
     "conceptos": [
@@ -590,7 +573,7 @@ RAW = json.loads(r"""
       "403 vs 404.",
       "Principio mínimo privilegio."
     ],
-    "pasos_extra": "`projects/m18-appsec/rbac-matrix.md`: filas citas, clientes, configuración; columnas owner/staff/anónimo.\n\nPrueba un caso staff que no debe ver citas de otro tenant (futuro) o acción admin. Registra resultado.",
+    "pasos_extra": "`projects/m18-appsec/docs/rbac-matrix.md`: filas citas, clientes, configuración; columnas owner/staff/anónimo.\n\nPrueba un caso staff que no debe ver citas de otro tenant (futuro) o acción admin. Registra resultado.",
     "lectura_rows": [
       [
         "SRS",
@@ -600,8 +583,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Matriz completa.",
-      "≥1 prueba manual rol.",
-      "Gaps listados."
+      "≥1 prueba manual rol."
     ],
     "errores": [
       "Un solo rol ‘admin’.",
@@ -631,8 +613,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Rate limit activo.",
-      "Prueba documentada.",
-      "Mensaje usuario claro."
+      "Prueba documentada."
     ],
     "errores": [
       "Rate limit solo en front.",
@@ -662,8 +643,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "≥2 tests authz verdes.",
-      "findings-table ≥3 filas.",
-      "Commits referenciados."
+      "findings-table ≥3 filas."
     ],
     "errores": [
       "Tests que mockean auth siempre true.",
@@ -693,8 +673,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Doc SSRF con allowlist.",
-      "Riesgo nombrado.",
-      "Sin escanear terceros."
+      "Riesgo nombrado."
     ],
     "errores": [
       "curl a metadata cloud en prod.",
@@ -724,8 +703,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Checklist o prueba real.",
-      "Ruta almacenamiento.",
-      "Sin ejecución de uploads."
+      "Ruta almacenamiento."
     ],
     "errores": [
       "Guardar en `public/` con nombre usuario.",
@@ -737,7 +715,7 @@ RAW = json.loads(r"""
     "semana": 6,
     "horas": 5,
     "lectura": "Deserialization + API hardening",
-    "evidencia": "projects/m18-appsec/json-trust.md",
+    "evidencia": "projects/m18-appsec/docs/json-trust.md",
     "objetivo": "Auditar parsers JSON, `eval`, plantillas dinámicas y tipos inesperados en body de API.",
     "porque": "Node/TS rara vez hace Java deserialization, pero prototype pollution y lógica sí.",
     "conceptos": [
@@ -745,7 +723,7 @@ RAW = json.loads(r"""
       "Prototype pollution (idea).",
       "Tamaño body limit."
     ],
-    "pasos_extra": "`projects/m18-appsec/json-trust.md`: lista endpoints con body JSON; schema sí/no. Añade límite `express.json({ limit: '100kb' })` o equivalente.\n\nPrueba payload enorme o campos extra; documenta comportamiento.",
+    "pasos_extra": "`projects/m18-appsec/docs/json-trust.md`: lista endpoints con body JSON; schema sí/no. Añade límite `express.json({ limit: '100kb' })` o equivalente.\n\nPrueba payload enorme o campos extra; documenta comportamiento.",
     "lectura_rows": [
       [
         "OWASP",
@@ -755,8 +733,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Lista endpoints + validación.",
-      "Límite tamaño body.",
-      "≥1 mejora commitada."
+      "Límite tamaño body."
     ],
     "errores": [
       "Aceptar cualquier JSON.",
@@ -786,7 +763,6 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "≥5 filas completas o plan con 5.",
-      "Commits enlazados.",
       "Ningún secreto en tabla."
     ],
     "errores": [
@@ -799,7 +775,7 @@ RAW = json.loads(r"""
     "semana": 7,
     "horas": 5,
     "lectura": "OWASP A06 Vulnerable Components",
-    "evidencia": "projects/m18-appsec/deps-audit.md",
+    "evidencia": "projects/m18-appsec/docs/npm-audit.md",
     "objetivo": "Ejecutar auditoría de dependencias, triagear findings (prod vs dev), actualizar o documentar riesgo aceptado.",
     "porque": "Tu app hereda CVEs de `node_modules`.",
     "conceptos": [
@@ -807,7 +783,7 @@ RAW = json.loads(r"""
       "DevDependency vs runtime.",
       "Riesgo aceptado con fecha."
     ],
-    "pasos_extra": "```bash\ncd <repo Agenda Ops>\nnpm audit --omit=dev 2>/dev/null || npm audit\n```\n\nGuarda salida en `projects/m18-appsec/deps-audit.md`. Arregla al menos 1 high/critical o documenta por qué no aplica.",
+    "pasos_extra": "```bash\ncd <repo Agenda Ops>\nnpm audit --omit=dev 2>/dev/null || npm audit\n```\n\nGuarda salida en `projects/m18-appsec/docs/npm-audit.md`. Arregla al menos 1 high/critical o documenta por qué no aplica.",
     "lectura_rows": [
       [
         "OWASP",
@@ -817,8 +793,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Audit guardado.",
-      "≥1 acción tomada.",
-      "Fecha en doc."
+      "≥1 acción tomada."
     ],
     "errores": [
       "`npm audit fix --force` sin leer.",
@@ -830,7 +805,7 @@ RAW = json.loads(r"""
     "semana": 7,
     "horas": 5,
     "lectura": "Secrets Management Cheat Sheet",
-    "evidencia": "projects/m18-appsec/secrets-rotation.md",
+    "evidencia": "projects/m18-appsec/docs/rotacion-secretos.md",
     "objetivo": "Verificar que secretos viven fuera de git; plan de rotación para JWT/session secret y DB.",
     "porque": "Un commit con `.env` es incidente permanente (historial).",
     "conceptos": [
@@ -838,7 +813,7 @@ RAW = json.loads(r"""
       "Rotación sin downtime (idea).",
       "Pre-commit hooks."
     ],
-    "pasos_extra": "```bash\ngit log -p --all -S 'DATABASE_URL' | head -20\n```\n\n`projects/m18-appsec/secrets-rotation.md`: inventario (sin valores), dónde viven en local/staging, pasos rotar session secret.",
+    "pasos_extra": "```bash\ngit log -p --all -S 'DATABASE_URL' | head -20\n```\n\n`projects/m18-appsec/docs/rotacion-secretos.md`: inventario (sin valores), dónde viven en local/staging, pasos rotar session secret.",
     "lectura_rows": [
       [
         "OWASP",
@@ -848,8 +823,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Inventario sin valores.",
-      "grep historial ejecutado.",
-      "Plan rotación."
+      "grep historial ejecutado."
     ],
     "errores": [
       "Pegar secretos en issue.",
@@ -879,8 +853,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Headers visibles en staging.",
-      "Login sigue funcionando.",
-      "Commit."
+      "Login sigue funcionando."
     ],
     "errores": [
       "HSTS en localhost sin TLS.",
@@ -892,7 +865,7 @@ RAW = json.loads(r"""
     "semana": 7,
     "horas": 5,
     "lectura": "Content Security Policy Cheat Sheet",
-    "evidencia": "projects/m18-appsec/csp.md + commit opcional",
+    "evidencia": "projects/m18-appsec/docs/csp.md + commit opcional",
     "objetivo": "Diseñar política CSP mínima (default-src, script-src) y desplegar en report-only o estricta según tolerancia.",
     "porque": "CSP es red de seguridad ante XSS residual.",
     "conceptos": [
@@ -900,7 +873,7 @@ RAW = json.loads(r"""
       "report-uri / report-to.",
       "inline scripts legacy."
     ],
-    "pasos_extra": "`projects/m18-appsec/csp.md`: política propuesta, fuentes externas que usa tu front (CDN, analytics futuro).\n\nImplementa CSP report-only primero; anota violaciones en consola.",
+    "pasos_extra": "`projects/m18-appsec/docs/csp.md`: política propuesta, fuentes externas que usa tu front (CDN, analytics futuro).\n\nImplementa CSP report-only primero; anota violaciones en consola.",
     "lectura_rows": [
       [
         "OWASP",
@@ -910,8 +883,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Política escrita.",
-      "Prueba report-only o estricta.",
-      "Sin romper build."
+      "Prueba report-only o estricta."
     ],
     "errores": [
       "`unsafe-inline` everywhere.",
@@ -941,8 +913,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "CI documentado.",
-      "Audit en pipeline.",
-      "Run verde o excepciones justificadas."
+      "Audit en pipeline."
     ],
     "errores": [
       "CI que nunca falla.",
@@ -972,8 +943,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Borrador ≥4 secciones.",
-      "Enlaces internos.",
-      "Sin jerga vacía."
+      "Enlaces internos."
     ],
     "errores": [
       "Informe sin hallazgos reales.",
@@ -1003,8 +973,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "≥3 tests listados.",
-      "CI los ejecuta.",
-      "Todos verdes."
+      "CI los ejecuta."
     ],
     "errores": [
       "Tests skipped.",
@@ -1034,9 +1003,7 @@ RAW = json.loads(r"""
     ],
     "hecho": [
       "Informe final.",
-      "P1–P3 verificables.",
-      "README índice.",
-      "Residual risk escrito."
+      "P1–P3 verificables."
     ],
     "errores": [
       "Marcar dominio sin tests.",
@@ -1046,37 +1013,66 @@ RAW = json.loads(r"""
 ]
 """)
 
+
 BODIES: dict[int, str] = {}
+
 BODIES[1] = r"""
 # L01 — Activos, actores y datos sensibles en Agenda Ops
 
 **~5.0 h · Semana 1**
 
-Sin lista de activos, el threat model es decoración.
+Sin lista de activos, el threat model es decoración. Hoy arrancas P1 y el hilo OWASP.
 
 ## Objetivo
 
-Tablas de actores y ≥5 activos en `threat-model-v0.md` (PII, credenciales, citas, tokens, Postgres).
+Completar tablas Actores y ≥5 Activos en `projects/m18-appsec/threat-model-v0.md` (PII, credenciales, citas, tokens, Postgres).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Carpeta evidencia (15 min)
+### 1. Carpeta de evidencia (15 min)
+
+Crea la estructura si aún no existe:
 
 ```bash
-mkdir -p projects/m18-appsec/{pocs,fixes,tests,ci}
+mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}
+ls projects/m18-appsec
 ```
-
 ### 2. Actores y activos (80–100 min)
 
-Dueño, staff, cliente final, atacante anónimo. Activos con clasificación (confidencialidad). Diagrama: navegador → API → Postgres.
+Abre `projects/m18-appsec/threat-model-v0.md`. Completa **Actores** (dueño, staff, cliente final, atacante anónimo) y **Activos** (≥5) con confidencialidad. Diagrama: navegador → API → Postgres.
 
-### 3. Superficie JSON (30 min)
+```markdown
+## Actores
+| Actor | Objetivos | Capacidades |
+|-------|-----------|-------------|
+| Dueño (owner) | Gestionar negocio | CRUD total |
+| Staff | Operar citas | CRUD limitado |
+| Cliente final | Pedir cita | Solo sus datos |
+| Atacante anónimo | Robar PII / sesión | Sin credenciales |
 
-Marca qué campos salen en `/api/citas`. `git ls-files | rg -i 'env|secret|pem'`.
+## Activos (≥5)
+| Activo | Confidencialidad | Dónde vive |
+|--------|------------------|------------|
+| Teléfono cliente | Alta | `clientes.telefono` |
+| Hash password | Crítica | `users.password_hash` |
+| Notas de cita | Alta | `citas.notas` |
+| Cookie de sesión | Crítica | `Set-Cookie` |
+| Postgres | Crítica | volumen / hosting |
+```
+### 3. Superficie JSON + anti-secretos (30–40 min)
 
-### 4. Commit
+Marca qué campos salen en `GET /api/citas`. Ejecuta el barrido y anota rutas (sin pegar secretos):
 
-`docs(m18): l01 activos actores agenda ops`
+```bash
+git ls-files | rg -i 'env|secret|credential|\.pem' || true
+```
+### 4. Commit (10–15 min)
+
+```bash
+git add projects/m18-appsec/threat-model-v0.md
+git status   # sin .env
+git commit -m "docs(m18): l01 activos actores agenda ops"
+```
 """
 
 BODIES[2] = r"""
@@ -1084,25 +1080,45 @@ BODIES[2] = r"""
 
 **~5.0 h · Semana 1**
 
-Dibuja dónde termina la confianza: browser, CDN, API, DB, WhatsApp.
+M10 y M13 nombraron boundaries; hoy los operacionalizas para AppSec.
 
 ## Objetivo
 
-Diagrama de boundaries + 3 flujos (login, crear cita, deep-link WA) en el threat model.
+Documentar ≥4 límites y 3 flujos (login, crear cita, deep-link WA) en `projects/m18-appsec/trust-boundaries-appsec.md`.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Boundaries (60–70 min)
+### 1. Ancla M13 (20–30 min)
 
-ASCII/Mermaid: zonas Trusted/Untrusted. Cookies cruzan cuál frontera.
+```bash
+ls projects/m13-diseno/trust-boundaries.md 2>/dev/null || echo "(sin M13; parte de cero)"
+touch projects/m18-appsec/trust-boundaries-appsec.md
+```
+### 2. Tabla de límites (70–90 min)
 
-### 2. Flujos (60–70 min)
+Por cada límite: origen, destino, protocolo, autenticación, datos. Mínimo 4.
 
-Para cada flujo: datos en tránsito, autenticación requerida, qué falla si se omite authz.
+```markdown
+| Origen | Destino | Protocolo | Auth | Datos |
+|--------|---------|-----------|------|-------|
+| Browser | API | HTTPS | cookie/JWT | PII citas |
+| API | Postgres | TCP | user app | SQL |
+| API | SMTP futuro | TLS | API key | recordatorios |
+| Operador | Hosting | SSH/HTTPS | MFA | logs, .env |
+```
+### 3. Flujos + abuso (40–50 min)
 
-### 3. Commit
+Para login, crear cita y deep-link WA: datos en tránsito, auth requerida, fallo si se omite authz. Una pregunta de abuso por límite.
 
-`docs(m18): l02 trust boundaries`
+```bash
+printf "\n## Flujos\n- login:\n- crear cita:\n- deep-link WA:\n\n## Abuso por límite\n" >> projects/m18-appsec/trust-boundaries-appsec.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/trust-boundaries-appsec.md
+git commit -m "docs(m18): l02 trust boundaries"
+```
 """
 
 BODIES[3] = r"""
@@ -1110,25 +1126,51 @@ BODIES[3] = r"""
 
 **~5.0 h · Semana 1**
 
-STRIDE sobre **tu** CRM, no un ejemplo de blog.
+La matriz obliga a nombrar amenazas antes de buscar exploits al azar.
 
 ## Objetivo
 
-≥1 amenaza por letra STRIDE mapeada a citas/auth/admin.
+Matriz STRIDE ≥4×6 en `projects/m18-appsec/stride-matrix.md` (login, citas, admin) con ≥3 amenazas priorizadas.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Plantilla STRIDE (30 min)
+### 1. Plantilla STRIDE (25–35 min)
 
-Spoofing… Elevation — definición en una línea cada una.
+```bash
+cat > projects/m18-appsec/stride-matrix.md <<'EOF'
+# Matriz STRIDE — Agenda Ops
 
-### 2. Aplicación (90–110 min)
+| Componente | S | T | R | I | D | E |
+|------------|---|---|---|---|---|---|
+| Login | | | | | | |
+| Lista citas | | | | | | |
+| Detalle cita | | | | | | |
+| Admin usuarios | | | | | | |
+EOF
+```
+### 2. Relleno del dominio (90–110 min)
 
-Tabla: amenaza, componente, impacto, mitigación actual/gap. Incluye IDOR y XSS en notas de cliente.
+Frases concretas (no “hackeo”). Ejemplo Login/Spoofing: “fuerza bruta o credenciales robadas”. Incluye IDOR en detalle cita e XSS en notas.
 
-### 3. Commit
+```markdown
+| Componente | S | T | I |
+|------------|---|---|---|
+| Login | Fuerza bruta | Tamper cookie | Leak en error |
+| Detalle cita | — | PUT sin authz | IDOR lee notas |
+```
+### 3. Prioriza 3 celdas (30 min)
 
-`docs(m18): l03 stride crm citas`
+Marca las 3 amenazas de las semanas 2–5. Enlaza `threat-model-v0.md`.
+
+```bash
+printf "\n## Prioridades (rojas)\n1. ...\n2. ...\n3. ...\n" >> projects/m18-appsec/stride-matrix.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/stride-matrix.md
+git commit -m "docs(m18): l03 stride crm citas"
+```
 """
 
 BODIES[4] = r"""
@@ -1136,25 +1178,54 @@ BODIES[4] = r"""
 
 **~5.0 h · Semana 1**
 
-Consolida v0 y cruza con Top 10.
+Cierras la semana 1 con backlog de riesgo alineado a la industria.
 
 ## Objetivo
 
-`threat-model-v0.md` legible + mapa Top 10 → superficies Agenda Ops.
+Mapa Top 10 en `projects/m18-appsec/owasp-top10-map.md` + `threat-model-v0.md` con riesgo residual semana 1.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Redacta v0 (70–90 min)
+### 1. Lectura Top 10 (40–50 min)
 
-Activos, boundaries, STRIDE, supuestos (solo atacas tu staging).
+Lee OWASP Top 10 (2021) ES. Anota A01, A03, A07 como foco M18.
 
-### 2. Cruce OWASP (50–60 min)
+```bash
+curl -sI https://owasp.org/Top10/es/ | head -5
+```
+### 2. Mapa 10 filas (70–90 min)
 
-Tabla A01–A10 con estado preliminar.
+```bash
+cat > projects/m18-appsec/owasp-top10-map.md <<'EOF'
+# OWASP Top 10 → Agenda Ops
 
-### 3. Commit
+| Id | Ejemplo Agenda Ops | Mitigación | Semana |
+|----|--------------------|------------|--------|
+| A01 | GET /api/citas/:id cross-user | authz owner | 5 |
+| A02 | secretos en repo | .env + rotación | 7 |
+| A03 | búsqueda concat SQL | params/ORM | 4 |
+| A04 | sin rate limit login | 429 | 5 |
+| A05 | cookies sin flags | Secure/HttpOnly | 3 |
+| A06 | deps vulnerables | npm audit | 7 |
+| A07 | hash débil / sesión | bcrypt + rotate | 2 |
+| A08 | integridad build | CI firmada (idea) | 8 |
+| A09 | logs sin retención | política mínima | 8 |
+| A10 | SSRF webhook futuro | allowlist | 6 |
+EOF
+```
+### 3. Cierra threat-model-v0 (25–35 min)
 
-`docs(m18): l04 threat model v0 owasp`
+Sección **Riesgo residual semana 1** (3 bullets). Confirma P1 tras semana 2 auth.
+
+```bash
+printf "\n## Riesgo residual semana 1\n- Auth aún no endurecida\n- Access control por verificar\n- Deps sin audit\n" >> projects/m18-appsec/threat-model-v0.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/owasp-top10-map.md projects/m18-appsec/threat-model-v0.md
+git commit -m "docs(m18): l04 threat model v0 owasp"
+```
 """
 
 BODIES[5] = r"""
@@ -1162,25 +1233,67 @@ BODIES[5] = r"""
 
 **~5.0 h · Semana 2**
 
-Antes de endurecer, documentas qué hay en M17.
+Antes de endurecer, documentas qué hay en M17. Fotografía del estado auth.
 
 ## Objetivo
 
-`docs/auth-inventario.md`: mecanismo, almacenamiento token/sesión, endpoints auth.
+`projects/m18-appsec/docs/auth-inventario.md`: mecanismo, almacenamiento token/sesión, endpoints públicos vs autenticados.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inspección código (60–80 min)
+### 1. Inspección en el repo producto (40–50 min)
 
-Dónde se hashea, dónde se setea cookie, refresh o no.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'bcrypt|argon2|passport|jsonwebtoken|express-session|setCookie|Set-Cookie|sign\(|verify\(' \
+  -g '!node_modules' -g '!dist' | head -40
+```
+### 2. Inventario happy path + edges (70–90 min)
 
-### 2. Tabla riesgos (40–50 min)
+Describe paso a paso registro/login/logout y 2 edge cases (password malo, usuario inexistente). Sin passwords ni tokens reales.
 
-localStorage vs cookie; falta rotación; logout incompleto.
+```bash
+mkdir -p projects/m18-appsec/docs
+cat > projects/m18-appsec/docs/auth-inventario.md <<'EOF'
+# Inventario de autenticación — Agenda Ops
 
-### 3. Commit
+## Endpoints
+| Método | Ruta | Público | Notas |
+|--------|------|---------|-------|
+| POST | /auth/login | sí | |
+| POST | /auth/logout | auth | |
+| POST | /auth/register | ? | |
 
-`docs(m18): l05 inventario autenticacion`
+## Transporte / almacenamiento
+- Cookie: nombre=… · HttpOnly=… · Secure=… · SameSite=…
+- o `Authorization: Bearer …` (dónde se guarda en el cliente)
+
+## Edge cases
+1. Password malo → status/mensaje
+2. Usuario inexistente → ¿mismo mensaje genérico?
+
+## Riesgos preliminares
+- localStorage vs cookie
+- rotación de sesión
+- logout incompleto
+EOF
+```
+### 3. Verifica mensajes uniformes (20–30 min)
+
+```bash
+# Dos intentos; compara cuerpo (sin pegar tokens)
+curl -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"noexiste@test.local","password":"x"}' | head -c 200
+echo
+curl -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"wrong"}' | head -c 200
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/auth-inventario.md
+git commit -m "docs(m18): l05 inventario autenticacion"
+```
 """
 
 BODIES[6] = r"""
@@ -1188,29 +1301,66 @@ BODIES[6] = r"""
 
 **~5.0 h · Semana 2**
 
-Verifica cost factor y ausencia de hashes débiles.
+A07 empieza en la tabla `users`: un leak de DB no debe regalar contraseñas.
 
 ## Objetivo
 
-PoC o test: password nunca en MD5/SHA solo; bcrypt/argon2 con cost documentado; fix si hace falta.
+Password nunca en MD5/SHA solo; bcrypt (cost ≥12) o argon2id. Nota en `projects/m18-appsec/docs/auth-hashing.md` + test.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Auditoría (40 min)
+### 1. Auditoría de hashes débiles (30–40 min)
 
-Busca `md5|sha1|sha256\\(password` en el repo app.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'md5|sha1|sha256\(|createHash\(|crypto\.hash' -g '!node_modules' | rg -i 'pass|pwd|hash' || true
+rg -n 'bcrypt|argon2' -g '!node_modules' | head -20
+```
+### 2. Confirmación o fix (70–90 min)
 
-### 2. Fix/confirmación (70–90 min)
+Si falta: lib madura + cost documentado. Ejemplo bcrypt:
 
-Cost ≥12 bcrypt o argon2id razonable. Test verify round-trip.
+```ts
+import bcrypt from "bcrypt";
 
-### 3. Evidencia (20 min)
+const ROUNDS = 12; // documenta en docs/auth-hashing.md
 
-Entrada hallazgo o “N/A — ya conforme” con commit hash.
+export async function hashPassword(plain: string): Promise<string> {
+  return bcrypt.hash(plain, ROUNDS);
+}
 
-### 4. Commit
+export async function verifyPassword(plain: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(plain, hash);
+}
+```
 
-`fix(m18): l06 password hashing`
+```bash
+cat > projects/m18-appsec/docs/auth-hashing.md <<'EOF'
+# Password hashing
+- Algoritmo: bcrypt | argon2id
+- Parámetros: cost/rounds = …
+- Migación usuarios prueba: sí/no
+- Commit fix (si hubo): …
+EOF
+```
+### 3. Test round-trip (30–40 min)
+
+```bash
+npm test -- --testPathPattern=auth 2>/dev/null || npm test -- auth
+# o: node -e "..." con compare true/false
+```
+
+```ts
+// tests/security/password-hash.test.ts (ejemplo)
+expect(await verifyPassword("secret", await hashPassword("secret"))).toBe(true);
+expect(await hashPassword("secret")).not.toEqual("secret");
+```
+### 4. Commit (10 min)
+
+```bash
+git add -A
+git commit -m "fix(m18): l06 password hashing"
+```
 """
 
 BODIES[7] = r"""
@@ -1218,25 +1368,58 @@ BODIES[7] = r"""
 
 **~5.0 h · Semana 2**
 
-Elige o ratifica con ADR corto de seguridad.
+M13 pudo dejar la decisión abierta; M18 la cierra con ojos de seguridad.
 
 ## Objetivo
 
-`docs/adr-sesion-vs-jwt.md` + riesgos XSS/CSRF de la opción.
+ADR en `projects/m18-appsec/docs/adr-sesion-vs-jwt.md`: decisión, alternativas, impacto XSS/CSRF/móvil M20.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Compara (50 min)
+### 1. Compara en contexto (40–50 min)
 
-Tabla pros/contras en contexto panel+API same-site vs SPA cross-origin.
+Tabla pros/contras: panel+API same-site vs SPA cross-origin; revocación; HttpOnly vs `Authorization`.
 
-### 2. ADR (60–70 min)
+```bash
+mkdir -p projects/m18-appsec/docs
+cat > projects/m18-appsec/docs/adr-sesion-vs-jwt.md <<'EOF'
+# ADR — Sesión server-side vs JWT
 
-Decisión, mitigaciones obligatorias (HttpOnly, TTL, revoke).
+## Contexto
+Agenda Ops: panel web + API; móvil M20 futuro.
 
-### 3. Commit
+## Opciones
+| Opción | Revocación | XSS | CSRF | Móvil |
+|--------|------------|-----|------|-------|
+| Sesión + cookie HttpOnly | inmediata (DB) | mejor | riesgo CSRF | cookie jar |
+| JWT en memoria / header | short TTL / deny-list | si en storage, peor | menos CSRF | natural |
+| Híbrido | … | … | … | … |
 
-`docs(m18): l07 adr sesion jwt`
+## Decisión
+…
+
+## Consecuencias / mitigaciones obligatorias
+- HttpOnly / TTL / revoke / SameSite …
+EOF
+```
+### 2. Prueba logout/reuse (40–50 min)
+
+Login → copiar cookie/token → logout → reutilizar (debe fallar). Anota en la ADR.
+
+```bash
+# Ejemplo cookie de sesión (ajusta nombre/URL)
+curl -c /tmp/m18-cj -s -X POST localhost:3000/auth/login \
+  -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"***"}' -o /dev/null -w "%{http_code}\n"
+curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout -w "%{http_code}\n"
+curl -b /tmp/m18-cj -s localhost:3000/api/citas -w "\n%{http_code}\n" | tail -3
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/adr-sesion-vs-jwt.md
+git commit -m "docs(m18): l07 adr sesion jwt"
+```
 """
 
 BODIES[8] = r"""
@@ -1244,27 +1427,40 @@ BODIES[8] = r"""
 
 **~5.0 h · Semana 2**
 
-P1: threat model v1 revisado tras endurecer auth.
+P1 exige v1 revisado tras entender login; hoy entregas el hito.
 
 ## Objetivo
 
-`threat-model-v1.md` (o sección v1) con cambios vs v0 y residual risk auth.
+`projects/m18-appsec/threat-model-v1.md` con controles auth, tabla amenaza→control y residual.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Diff v0→v1 (40 min)
+### 1. Diff v0→v1 (30–40 min)
 
-Qué amenazas bajaron de severidad.
-
+```bash
+cp projects/m18-appsec/threat-model-v0.md projects/m18-appsec/threat-model-v1.md
+printf "\n## Controles auth (post L05–L07)\n| Amenaza | Control | Estado | Commit/issue |\n|---------|---------|--------|--------------|\n| Hash débil | bcrypt/argon2 | OK/TODO | |\n| Sesión robable | HttpOnly plan | | |\n| Sin revoke | ADR decisión | | |\n" >> projects/m18-appsec/threat-model-v1.md
+```
 ### 2. Redacción P1 (80–100 min)
 
-Incluye supuestos de staging. Enlace inventario + ADR.
+Enlaza `projects/m18-appsec/docs/auth-inventario.md` y ADR. Supuestos de staging. Tabla amenaza|control|estado legible sin abrir el código.
 
+```bash
+printf "\n## Enlaces\n- auth: docs/auth-inventario.md\n- ADR: docs/adr-sesion-vs-jwt.md\n\n## Residual auth\n- ...\n" >> projects/m18-appsec/threat-model-v1.md
+```
 ### 3. README P1 (15 min)
 
-### 4. Commit
+En `projects/m18-appsec/README.md` marca P1 entregado con fecha y ruta a `threat-model-v1.md`.
 
-`docs(m18): l08 threat model v1 p1`
+```bash
+rg -n "P1|threat-model-v1" projects/m18-appsec/README.md || printf "\n- **P1:** threat-model-v1.md $(date -I)\n" >> projects/m18-appsec/README.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/threat-model-v1.md projects/m18-appsec/README.md
+git commit -m "docs(m18): l08 threat model v1 p1"
+```
 """
 
 BODIES[9] = r"""
@@ -1272,29 +1468,57 @@ BODIES[9] = r"""
 
 **~5.0 h · Semana 3**
 
-Atributos correctos o sesión robable.
+Atributos correctos o sesión robable. Hoy aplicas flags en tu stack.
 
 ## Objetivo
 
-Checklist de cookie de sesión en staging/local documentado; fix flags faltantes.
+Tabla real de cookies en `projects/m18-appsec/pocs/cookies.md`; fix Secure/HttpOnly/SameSite si faltan.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inspección (40 min)
+### 1. Inspección Set-Cookie (30–40 min)
 
-DevTools / `Set-Cookie` en login.
+```bash
+curl -sI -X POST localhost:3000/auth/login \
+  -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"***"}' | rg -i 'set-cookie|HTTP/
+```
+### 2. Documenta + harden (70–90 min)
 
-### 2. Hardening (70–90 min)
+```bash
+cat > projects/m18-appsec/pocs/cookies.md <<'EOF'
+# Cookies lab
+| Nombre | HttpOnly | Secure | SameSite | Path | Max-Age |
+|--------|----------|--------|----------|------|---------|
+| sid? | | | | | |
 
-Secure (prod), HttpOnly, SameSite=Lax o Strict justificado.
+## Antes / después
+- Antes: …
+- Después: …
+## ¿JS puede leer la cookie de sesión?
+document.cookie → …
+EOF
+```
 
-### 3. Evidencia (20 min)
+Ejemplo Express / cookie-session:
 
-Captura headers redactados en `pocs/cookies.md`.
+```ts
+res.cookie("sid", sessionId, {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: "lax", // o "strict" si no hay cross-site legítimo
+  path: "/",
+});
+```
+### 3. Prueba HttpOnly (20 min)
 
-### 4. Commit
+En DevTools Console (sesión logueada): `document.cookie` no debe mostrar la cookie de sesión. Captura redactada en `pocs/cookies.md`.
+### 4. Commit (10 min)
 
-`fix(m18): l09 cookie flags`
+```bash
+git add projects/m18-appsec/pocs/cookies.md
+git commit -m "fix(m18): l09 cookie flags"
+```
 """
 
 BODIES[10] = r"""
@@ -1302,29 +1526,57 @@ BODIES[10] = r"""
 
 **~5.0 h · Semana 3**
 
-Si usas cookies de sesión, CSRF importa.
+Un atacante no necesita XSS si tu sesión acepta POST cross-site.
 
 ## Objetivo
 
-PoC CSRF (en tu app) o justificación SameSite+método; mitigación (token o SameSite estricto).
+Lista rutas mutables + protección en `projects/m18-appsec/pocs/csrf-notes.md`; ≥1 ruta crítica con token/SameSite; curl sin token → 403.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Analiza superficie (40 min)
+### 1. Inventario mutaciones (30–40 min)
 
-POST/PATCH/DELETE que cambian estado con cookie.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n "\.(post|put|patch|delete)\(" -g '*.ts' -g '!node_modules' | head -40
+cat > projects/m18-appsec/pocs/csrf-notes.md <<'EOF'
+# CSRF notes
+| Ruta | Método | Protección | Estado |
+|------|--------|------------|--------|
+| /api/citas | POST | | |
+| /api/citas/:id | PUT/DELETE | | |
+| /auth/logout | POST | | |
+EOF
+```
+### 2. Protege la ruta crítica (70–90 min)
 
-### 2. PoC controlada (60–80 min)
+Token sincronizado, double-submit o SameSite estricto + método seguro. Ejemplo chequeo:
 
-HTML local que intenta mutar. Documenta resultado.
+```ts
+// middleware mínimo (ilustrativo)
+export function requireCsrf(req, res, next) {
+  const token = req.headers["x-csrf-token"] || req.body?._csrf;
+  if (!token || token !== req.session?.csrfToken) {
+    return res.status(403).json({ error: "csrf" });
+  }
+  next();
+}
+```
+### 3. curl sin token (20–30 min)
 
-### 3. Mitiga (40 min)
+```bash
+# Con cookie de sesión válida pero sin CSRF → 403
+curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/citas \
+  -H 'content-type: application/json' -b /tmp/m18-cj \
+  -d '{"clienteId":"…","inicio":"2026-01-01T10:00:00Z"}'
+# esperado: 403
+```
+### 4. Commit (10 min)
 
-Token CSRF o política SameSite+JSON-only documentada.
-
-### 4. Commit
-
-`fix(m18): l10 csrf mitigacion`
+```bash
+git add projects/m18-appsec/pocs/csrf-notes.md
+git commit -m "fix(m18): l10 csrf mutaciones"
+```
 """
 
 BODIES[11] = r"""
@@ -1332,25 +1584,45 @@ BODIES[11] = r"""
 
 **~5.0 h · Semana 3**
 
-Login debe rotar session id; logout debe invalidar servidor.
+Robar sesión fija es clásico en apps que reutilizan el mismo session id.
 
 ## Objetivo
 
-Demo: session id cambia post-login; logout invalida; test o checklist.
+Ciclo de vida en `projects/m18-appsec/docs/session-lifecycle.md`: rotate post-login + destroy server-side en logout.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Prueba fijación (50–60 min)
+### 1. Traza el ciclo en código (40–50 min)
 
-Intenta fijar cookie pre-login (en tu local). Documenta.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'regenerate|session\.id|destroy|logout|revoke' -g '!node_modules' | head -30
+cat > projects/m18-appsec/docs/session-lifecycle.md <<'EOF'
+# Session lifecycle
+1. Pre-login id: …
+2. Post-login (¿rota?): …
+3. Logout server-side: …
+4. Request posterior con cookie vieja: esperado 401
+EOF
+```
+### 2. Pruebas login/logout (50–60 min)
 
-### 2. Logout servidor (50–60 min)
+```bash
+# Dos logins: ¿cambia el valor de Set-Cookie?
+curl -sI -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"***"}' | rg -i set-cookie
+# Logout + reuse (debe fallar)
+curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout
+curl -b /tmp/m18-cj -s -o /dev/null -w "%{http_code}\n" localhost:3000/api/citas
+```
 
-Almacén de sesiones: borrar id. JWT: blacklist/TTL corto documentado.
+Si JWT stateless: documenta deny-list o TTL corto en el mismo archivo.
+### 3. Commit (10–15 min)
 
-### 3. Commit
-
-`fix(m18): l11 session fixation logout`
+```bash
+git add projects/m18-appsec/docs/session-lifecycle.md
+git commit -m "fix(m18): l11 session lifecycle"
+```
 """
 
 BODIES[12] = r"""
@@ -1358,25 +1630,55 @@ BODIES[12] = r"""
 
 **~5.0 h · Semana 3**
 
-Cierra semana 3 con checklist firmada contra staging.
+Operacionalizas controles para M19 deploy y trials M22.
 
 ## Objetivo
 
-`docs/checklist-cookies-csrf.md` ejecutado en URL staging (o local prod-like).
+Checklist ≥10 ítems en `projects/m18-appsec/docs/checklist-cookies-csrf.md` ejecutado contra staging (fecha + URL).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Checklist (40 min)
+### 1. Escribe el checklist (40–50 min)
 
-Flags, CSRF, logout, HTTPS.
+```bash
+cat > projects/m18-appsec/docs/checklist-cookies-csrf.md <<'EOF'
+# Checklist cookies / CSRF — staging
 
-### 2. Ejecución fechada (70–90 min)
+Fecha: ____ · URL: ____
 
-Resultados Sí/No. Bugs → issues/hallazgos.
+| # | Ítem | Sí/No | Nota |
+|---|------|-------|------|
+| 1 | Cookie sesión HttpOnly | | |
+| 2 | Secure en HTTPS | | |
+| 3 | SameSite Lax/Strict | | |
+| 4 | Session id rota post-login | | |
+| 5 | Logout invalida server-side | | |
+| 6 | POST citas exige CSRF/equiv | | |
+| 7 | GET no muta estado | | |
+| 8 | Mensajes login genéricos | | |
+| 9 | HTTPS redirect (si aplica) | | |
+| 10 | Sin cookie sesión en document.cookie | | |
 
-### 3. Commit
+## Residual CSRF
+- …
 
-`docs(m18): l12 checklist cookies csrf staging`
+## Commits semana 3
+- …
+EOF
+```
+### 2. Ejecuta en staging/local (60–80 min)
+
+Marca Sí/No con evidencia (curl headers, captura redactada). Corrige ≥1 ítem No si aparece.
+
+```bash
+curl -sI https://<tu-staging>/ | rg -i 'strict-transport|set-cookie' || true
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/checklist-cookies-csrf.md
+git commit -m "docs(m18): l12 checklist cookies csrf"
+```
 """
 
 BODIES[13] = r"""
@@ -1384,25 +1686,44 @@ BODIES[13] = r"""
 
 **~5.0 h · Semana 4**
 
-Solo contra tu API. Busca concatenación SQL en búsquedas de cliente/cita.
+Solo contra tu API. P2 empieza con hallazgo real; SQLi sigue vivo en ORMs mal usados.
 
 ## Objetivo
 
-PoC SQLi o “no reproducible con ORM” con evidencia de query parametrizada.
+PoC o “no reproducible con ORM” en `projects/m18-appsec/findings/001-sqli.md` (sin PII real).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Caza (60 min)
+### 1. Caza concatenación SQL (50–60 min)
 
-`rg` de SQL string concat / `$query` peligrosos.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n "\$\{|query\(|\.query\(|execute\(|raw\(|sql`" -g '!node_modules' | head -50
+rg -n "SELECT.*\+|WHERE.*\+" -g '*.ts' -g '*.js' | head -20 || true
+```
+### 2. PoC controlada (60–80 min)
 
-### 2. PoC (60–80 min)
+Cuenta de prueba. Payload en búsqueda clientes/citas. **No** `DROP` en staging compartido.
 
-Payload en campo búsqueda; captura en `pocs/sqli.md`. Si ORM puro: documenta intento fallido.
+```bash
+mkdir -p projects/m18-appsec/findings projects/m18-appsec/pocs
+cat > projects/m18-appsec/findings/001-sqli.md <<'EOF'
+# Finding 001 — SQLi
+- Endpoint:
+- Payload (ejemplo): `' OR '1'='1`
+- Respuesta / impacto:
+- ¿ORM parametrizado? evidencia:
+- PII: ninguna en este reporte
+EOF
+# Ejemplo de prueba (ajusta query param)
+curl -sG "localhost:3000/api/clientes" --data-urlencode "q=' OR '1'='1" | head -c 400
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`docs(m18): l13 poc sqli`
+```bash
+git add projects/m18-appsec/findings/001-sqli.md
+git commit -m "docs(m18): l13 poc sqli"
+```
 """
 
 BODIES[14] = r"""
@@ -1410,25 +1731,53 @@ BODIES[14] = r"""
 
 **~5.0 h · Semana 4**
 
-Fix + least privilege del rol app en Postgres de Agenda Ops.
+Hallazgo sin fix no cuenta para P2.
 
 ## Objetivo
 
-Commit fix (si había) + nota de rol DB sin DDL; test de regresión en búsquedas de clientes/citas.
+Fix parametrizado + test de regresión; `001-sqli.md` → Cerrado con commit hash.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Parametriza (60–80 min)
+### 1. Parametriza la query (60–80 min)
 
-Reemplaza concat en la API del piloto. Test con payload previo → seguro.
+```ts
+// MAL
+// db.query(`SELECT * FROM clientes WHERE nombre LIKE '%${q}%'`)
 
-### 2. Permisos DB (40 min)
+// BIEN (pg)
+await db.query(
+  "SELECT id, nombre, telefono FROM clientes WHERE nombre ILIKE $1 LIMIT 50",
+  [`%${q}%`],
+);
+```
 
-Usuario app de Agenda Ops: DML limitado (sin DDL). Documenta en hallazgos.
+```sql
+-- Usuario app sin DDL (idea)
+-- CREATE ROLE agenda_app LOGIN PASSWORD '...';
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO agenda_app;
+-- (sin CREATE/DROP)
+```
+### 2. Test de regresión (40–50 min)
 
-### 3. Commit
+```ts
+// tests/security/sqli-search.test.ts
+it("rejects or safely handles SQLi-like search", async () => {
+  const res = await api.get("/api/clientes", { q: "' OR '1'='1" });
+  expect(res.status).not.toBe(500);
+  expect(String(res.body)).not.toMatch(/syntax error|pg_|SQL/i);
+});
+```
 
-`fix(m18): l14 sqli parametrizado`
+```bash
+npm test -- --testPathPattern=sqli || npm test -- security
+```
+### 3. Cierra finding (20 min)
+
+```bash
+printf "\n## Estado: Cerrado\n- Commit fix: \n- Test: \n" >> projects/m18-appsec/findings/001-sqli.md
+git add -A && git commit -m "fix(m18): l14 sqli parametrized"
+```
 """
 
 BODIES[15] = r"""
@@ -1436,25 +1785,41 @@ BODIES[15] = r"""
 
 **~5.0 h · Semana 4**
 
-Busca reflejo de input en HTML.
+XSS roba sesiones si las cookies son legibles por JS.
 
 ## Objetivo
 
-PoC XSS reflejado en tu UI o evidencia de escape; entrada en tabla hallazgos.
+PoC reflejado en `projects/m18-appsec/findings/002-xss-reflected.md` (solo tu cuenta de prueba; sin exfiltración externa).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Prueba (70–90 min)
+### 1. Localiza render de input (30–40 min)
 
-Payloads simples en nombre/búsqueda. Solo tu staging.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'dangerouslySetInnerHTML|innerHTML|\$\{.*q|searchParams|mensaje' -g '!node_modules' | head -30
+```
+### 2. PoC local (60–80 min)
 
-### 2. Documenta (40 min)
+Payloads: `<script>alert(1)</script>`, `<img src=x onerror=alert(1)>`. Solo impacto local.
 
-`pocs/xss-reflected.md` con pasos y resultado.
+```bash
+cat > projects/m18-appsec/findings/002-xss-reflected.md <<'EOF'
+# Finding 002 — XSS reflejado
+- Pantalla / query:
+- Payload:
+- ¿Ejecutó en el navegador? sí/no
+- Contexto (HTML text / attr / JS):
+EOF
+# Ejemplo
+curl -sG "localhost:3000/clientes" --data-urlencode "q=<script>alert(1)</script>" | rg -n 'script|onerror' | head
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`docs(m18): l15 poc xss reflejado`
+```bash
+git add projects/m18-appsec/findings/002-xss-reflected.md
+git commit -m "docs(m18): l15 poc xss reflected"
+```
 """
 
 BODIES[16] = r"""
@@ -1462,25 +1827,49 @@ BODIES[16] = r"""
 
 **~5.0 h · Semana 4**
 
-Notas de cita/cliente son candidatas clásicas.
+El CRM guarda texto que vuelve a listarse; ahí vive el stored XSS.
 
 ## Objetivo
 
-PoC stored XSS o fix escape/encoding; no confiar solo en CSP aún.
+Fix escape/sanitización; actualizar finding; filas SQLi+XSS en `projects/m18-appsec/findings-table.md`.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inserta payload (50 min)
+### 1. Stored en notas de cita (50–60 min)
 
-Guarda `<script>` en nota (seed/test user).
+```bash
+# Crea cita con payload en notas (cuenta prueba)
+curl -s -X POST localhost:3000/api/citas -H 'content-type: application/json' -b /tmp/m18-cj \
+  -d '{"clienteId":"…","inicio":"2026-01-02T10:00:00Z","notas":"<img src=x onerror=alert(1)>"}'
+# Lista y verifica escape en HTML
+```
+### 2. Fix + test (60–80 min)
 
-### 2. Verifica render (50–60 min)
+Usa textContent / escape del framework; evita `dangerouslySetInnerHTML` con input usuario.
 
-¿Ejecuta? Fix con escape del framework. Test.
+```ts
+// API: devolver texto; el front escapa al render
+// Test:
+it("escapes stored XSS in notas", async () => {
+  const payload = "<script>alert(1)</script>";
+  await createCita({ notas: payload });
+  const html = await renderListaCitas();
+  expect(html).not.toContain("<script>");
+  expect(html).toContain("&lt;script&gt;") // o equivalente escapado
+});
+```
+### 3. Tabla P2 (20–30 min)
 
-### 3. Commit
-
-`fix(m18): l16 xss almacenado escape`
+```bash
+cat > projects/m18-appsec/findings-table.md <<'EOF'
+# Findings P2
+| ID | OWASP | PoC | Commit fix | Test |
+|----|-------|-----|------------|------|
+| 001 | A03 | findings/001-sqli.md | | |
+| 002 | A03/XSS | findings/002-xss-reflected.md | | |
+EOF
+git add -A && git commit -m "fix(m18): l16 xss stored escape"
+```
 """
 
 BODIES[17] = r"""
@@ -1488,29 +1877,46 @@ BODIES[17] = r"""
 
 **~5.0 h · Semana 5**
 
-`GET /citas/:id` sin comprobar dueño = IDOR.
+Ocultar botones no basta: autorización server-side.
 
 ## Objetivo
 
-PoC cross-user + fix autorización + test automatizado.
+PoC cross-user en `projects/m18-appsec/findings/003-idor.md` con dos cuentas de prueba.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Dos usuarios (30 min)
+### 1. Dos usuarios de prueba (20–30 min)
 
-Owner A y B (o staff) con citas distintas.
+```bash
+# Login A y B; guarda cookies separadas
+curl -c /tmp/m18-a -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"a@test.local","password":"***"}' -o /dev/null
+curl -c /tmp/m18-b -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"b@test.local","password":"***"}' -o /dev/null
+```
+### 2. PoC IDOR (60–80 min)
 
-### 2. PoC (50–60 min)
+A crea cita → B intenta `GET/PUT /api/citas/:id`.
 
-Token A pide id de B. Documenta status code.
+```bash
+CITA_ID=…  # id creado por A
+curl -s -o /dev/null -w "%{http_code}\n" -b /tmp/m18-b localhost:3000/api/citas/$CITA_ID
+# esperado tras fix: 403 o 404 (no 200 con datos de A)
 
-### 3. Fix + test (60–80 min)
+cat > projects/m18-appsec/findings/003-idor.md <<'EOF'
+# Finding 003 — IDOR
+- Ruta: GET/PUT /api/citas/:id
+- Pasos:
+- Impacto:
+- Estado:
+EOF
+```
+### 3. Commit (10 min)
 
-Filtro por negocio/usuario. Test 403/404.
-
-### 4. Commit
-
-`fix(m18): l17 idor citas`
+```bash
+git add projects/m18-appsec/findings/003-idor.md
+git commit -m "docs(m18): l17 poc idor"
+```
 """
 
 BODIES[18] = r"""
@@ -1518,25 +1924,51 @@ BODIES[18] = r"""
 
 **~5.0 h · Semana 5**
 
-Matriz M17 debe cumplirse en servidor.
+Agenda Ops distingue dueño y staff; la API debe hacerlo explícito.
 
 ## Objetivo
 
-Tests 403 staff→admin; hallazgos si UI ocultaba y API no.
+Matriz rol×recurso×acción en `projects/m18-appsec/docs/rbac-matrix.md` + ≥1 prueba manual de gap.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Matriz vs código (40 min)
+### 1. Matriz RBAC (50–60 min)
 
-Diff permisos.md vs middleware.
+```bash
+cat > projects/m18-appsec/docs/rbac-matrix.md <<'EOF'
+# RBAC — Agenda Ops
+| Recurso / acción | Owner | Staff | Anónimo |
+|------------------|-------|-------|---------|
+| Listar citas | ✓ | ✓ (alcance) | ✗ |
+| Crear cita | ✓ | ✓ | ✗ |
+| Borrar cualquier cita | ✓ | ? | ✗ |
+| Configuración negocio | ✓ | ✗ | ✗ |
+| Gestionar usuarios | ✓ | ✗ | ✗ |
 
-### 2. Tests roles (80–100 min)
+## Gaps código vs SRS
+- …
+## Prueba manual
+- Actor: staff · Acción: … · Resultado HTTP: …
+EOF
+```
+### 2. Prueba staff vs owner (50–70 min)
 
-Cobertura de acciones Deny.
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -b /tmp/m18-staff \
+  -X PATCH localhost:3000/api/settings -H 'content-type: application/json' -d '{"tz":"UTC"}'
+# esperado: 403
+```
 
-### 3. Commit
+```ts
+// guard ilustrativo
+if (req.user.role !== "owner") return res.status(403).json({ error: "forbidden" });
+```
+### 3. Commit (10 min)
 
-`test(m18): l18 authz roles owner staff`
+```bash
+git add projects/m18-appsec/docs/rbac-matrix.md
+git commit -m "docs(m18): l18 rbac matrix"
+```
 """
 
 BODIES[19] = r"""
@@ -1544,25 +1976,46 @@ BODIES[19] = r"""
 
 **~5.0 h · Semana 5**
 
-Confirma o añade rate limit; mide 429.
+Sin rate limit, A07 y DoS ligero son triviales.
 
 ## Objetivo
 
-Evidencia 429 en login; hallazgo/fix documentado.
+Límite en login (+1 endpoint costoso); prueba 429 documentada; nota en findings.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Prueba carga ligera (50 min)
+### 1. Middleware o proxy (60–80 min)
 
-Script de N logins fallidos.
+```ts
+import rateLimit from "express-rate-limit";
 
-### 2. Ajuste (60–80 min)
+export const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "too_many_requests" },
+});
 
-Umbrales; no ban eterno sin doc.
+// app.post("/auth/login", loginLimiter, loginHandler);
+```
+### 2. Prueba de bloqueo (40–50 min)
 
-### 3. Commit
+```bash
+for i in $(seq 1 25); do
+  curl -s -o /dev/null -w "$i:%{http_code}\n" -X POST localhost:3000/auth/login \
+    -H 'content-type: application/json' \
+    -d '{"email":"owner@test.local","password":"wrong"}'
+done | tail -5
+# espera ver 429
 
-`fix(m18): l19 rate limit evidenciado`
+printf "\n## Rate limit login\n- window: 15m · max: 20\n- prueba: ver 429 tras N intentos\n- reset dev: reiniciar proceso / redis FLUSH\n" >> projects/m18-appsec/findings-table.md
+```
+### 3. Commit (10 min)
+
+```bash
+git add -A && git commit -m "fix(m18): l19 rate limit login"
+```
 """
 
 BODIES[20] = r"""
@@ -1570,25 +2023,46 @@ BODIES[20] = r"""
 
 **~5.0 h · Semana 5**
 
-P2 avanza con tests que fallen si vuelve el IDOR.
+P2 pide hallazgo→fix→test; hoy consolidas access control.
 
 ## Objetivo
 
-≥2 tests cross-user en CI local; tabla hallazgos con ≥3 filas PoC→fix→test.
+≥2 tests authz (cross-user + rol) + `projects/m18-appsec/findings-table.md` con ≥3 filas.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Escribe tests (90–110 min)
+### 1. Fixture dos usuarios (30–40 min)
 
-Usuario A no lee/edita recurso B.
+```ts
+// tests/security/authz-cross-user.test.ts
+async function login(email: string) { /* cookie jar / token */ }
 
-### 2. Tabla P2 (40 min)
+it("B cannot read A's cita", async () => {
+  const a = await login("a@test.local");
+  const b = await login("b@test.local");
+  const cita = await a.post("/api/citas", { /* … */ });
+  const res = await b.get(`/api/citas/${cita.id}`);
+  expect([403, 404]).toContain(res.status);
+});
 
-`hallazgos.md` columnas requeridas.
+it("staff cannot patch settings", async () => {
+  const staff = await login("staff@test.local");
+  const res = await staff.patch("/api/settings", { tz: "UTC" });
+  expect(res.status).toBe(403);
+});
+```
+### 2. Corre tests + actualiza tabla (60–80 min)
 
-### 3. Commit
+```bash
+npm test -- --testPathPattern=authz || npm test -- security
+# Actualiza findings-table: 001–003 + rate limit
+rg -n '^\|' projects/m18-appsec/findings-table.md
+```
+### 3. Commit (10 min)
 
-`test(m18): l20 cross-user p2 avance`
+```bash
+git add -A && git commit -m "test(m18): l20 authz cross-user"
+```
 """
 
 BODIES[21] = r"""
@@ -1596,23 +2070,57 @@ BODIES[21] = r"""
 
 **~5.0 h · Semana 6**
 
-¿La API fetcha URLs controladas por usuario?
+Aun sin feature URL, documentar el control evita sorpresas en M26.
 
 ## Objetivo
 
-Inventario SSRF (webhooks, previews, imports) + mitigación o N/A justificado.
+Doc SSRF + allowlist en `projects/m18-appsec/findings/004-ssrf.md`. Sin escanear terceros ni metadata cloud en prod.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Busca fetch/axios a URLs user-controlled (50 min)
+### 1. Busca fetch server-side (30–40 min)
 
-### 2. Documenta (60–70 min)
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'fetch\(|axios\.|got\(|request\(|http\.get' -g '!node_modules' | head -40
+```
+### 2. Diseño / PoC aislada (70–90 min)
 
-Allowlist, bloqueo link-local. PoC solo local.
+Si no hay feature: simula diseño. Si hay: prueba URL interna **solo en staging aislado**.
 
-### 3. Commit
+```bash
+cat > projects/m18-appsec/findings/004-ssrf.md <<'EOF'
+# Finding 004 — SSRF (superficie)
+## ¿Hay URL server-side hoy?
+- webhook / import / avatar: sí/no · ruta:
 
-`docs(m18): l21 superficie ssrf`
+## Riesgo ilustrativo
+`http://169.254.169.254/` (metadata) — **no probar en cloud compartido**
+
+## Allowlist propuesta
+- hosts: `hooks.stripe.com`, …
+- schemata: https only
+- bloqueo: link-local, RFC1918, localhost
+
+## Estado
+- N/A feature | Mitigado | Abierto
+EOF
+```
+
+```ts
+function assertSafeUrl(raw: string) {
+  const u = new URL(raw);
+  if (u.protocol !== "https:") throw new Error("scheme");
+  const allow = new Set(["hooks.example.com"]);
+  if (!allow.has(u.hostname)) throw new Error("host");
+}
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/findings/004-ssrf.md
+git commit -m "docs(m18): l21 ssrf superficie"
+```
 """
 
 BODIES[22] = r"""
@@ -1620,23 +2128,62 @@ BODIES[22] = r"""
 
 **~5.0 h · Semana 6**
 
-Si no hay uploads, documenta N/A; si hay, endurece.
+Un .php disfrazado de .jpg es folklore porque sigue pasando.
 
 ## Objetivo
 
-Política: tipos MIME, tamaño, path traversal, no ejecutar en mismo origen.
+Checklist o prueba real en `projects/m18-appsec/findings/005-upload.md`: tipo/tamaño, nombre aleatorio, fuera de webroot.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inventario (30 min)
+### 1. Superficie upload (30–40 min)
 
-### 2. Controles o N/A (80–100 min)
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'multer|formidable|multipart|upload|createWriteStream' -g '!node_modules' | head -30
+```
+### 2. Checklist / prueba (70–90 min)
 
-Evidencia en `docs/uploads.md`.
+```bash
+cat > projects/m18-appsec/findings/005-upload.md <<'EOF'
+# Finding 005 — Upload
+## ¿Hay upload hoy?
+- ruta / campo:
 
-### 3. Commit
+## Controles
+| Control | Sí/No |
+|---------|-------|
+| Allowlist MIME + magic bytes | |
+| Tamaño máximo | |
+| Nombre aleatorio (uuid) | |
+| Fuera de `public/` / webroot | |
+| No ejecutable por el server | |
 
-`docs(m18): l22 uploads seguros`
+## Prueba (si aplica)
+- archivo: `pocs/evil.jpg.html` o similar
+- resultado:
+EOF
+```
+
+```ts
+// multer sketch
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: "/var/agenda/uploads", // fuera de public
+    filename: (_req, _file, cb) => cb(null, `${crypto.randomUUID()}`),
+  }),
+  limits: { fileSize: 2_000_000 },
+  fileFilter: (_req, file, cb) => {
+    cb(null, ["image/png", "image/jpeg"].includes(file.mimetype));
+  },
+});
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/findings/005-upload.md
+git commit -m "docs(m18): l22 upload checklist"
+```
 """
 
 BODIES[23] = r"""
@@ -1644,23 +2191,53 @@ BODIES[23] = r"""
 
 **~5.0 h · Semana 6**
 
-`JSON.parse` de fuentes no confiables + prototipos / eval.
+Node rara vez hace Java deserialization, pero prototype pollution y lógica sí.
 
 ## Objetivo
 
-Grep de `eval|deserialize|yaml.load` peligroso; endurece parsers.
+`projects/m18-appsec/docs/json-trust.md`: endpoints + schema; límite de body; ≥1 mejora commitada.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Caza (50 min)
+### 1. Inventario JSON bodies (40–50 min)
 
-### 2. Hardening (60–70 min)
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n "express\.json|bodyParser|z\.object|Joi\.|safeParse" -g '!node_modules' | head -40
+cat > projects/m18-appsec/docs/json-trust.md <<'EOF'
+# JSON trust
+| Endpoint | Schema (zod/joi/…) | Límite body | Notas |
+|----------|--------------------|-------------|-------|
+| POST /auth/login | | | |
+| POST /api/citas | | | |
+EOF
+```
+### 2. Límite + rechazo campos extra (60–80 min)
 
-Schema validation en boundaries. Hallazgo o clean bill.
+```ts
+app.use(express.json({ limit: "100kb" }));
 
-### 3. Commit
+// zod: strip o strict
+const CitaInput = z.object({
+  clienteId: z.string().uuid(),
+  inicio: z.string().datetime(),
+  notas: z.string().max(2000).optional(),
+}).strict();
+```
 
-`fix(m18): l23 json boundaries`
+```bash
+# Payload enorme → 413
+python3 - <<'PY'
+print('{"x":"' + ('a'*200000) + '"}')
+PY | curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/citas \
+  -H 'content-type: application/json' -b /tmp/m18-cj --data-binary @-
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/json-trust.md
+git commit -m "fix(m18): l23 json trust limits"
+```
 """
 
 BODIES[24] = r"""
@@ -1668,23 +2245,40 @@ BODIES[24] = r"""
 
 **~5.0 h · Semana 6**
 
-P2 exige ≥5 hallazgos con PoC→fix→test.
+Mitad del módulo: P2 debe ser visible en git (≥5 hallazgos).
 
 ## Objetivo
 
-`hallazgos.md` con ≥5 filas completas; gaps explícitos.
+`projects/m18-appsec/findings-table.md` con ≥5 filas PoC→fix→test (o plan fechado); sin secretos.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Consolida (90–110 min)
+### 1. Auditoría de la tabla (40–50 min)
 
-Unifica L13–L23. Prioridad.
+```bash
+wc -l projects/m18-appsec/findings/*.md
+cat projects/m18-appsec/findings-table.md
+# Completa hasta ≥5 filas (001–005 + rate limit / headers si aplica)
+```
+### 2. Cierra gaps (80–100 min)
 
-### 2. README P2 (20 min)
+Cada fila: ID, OWASP, PoC, commit fix, test/link. Issues para abiertos con fecha semana 7–8.
 
-### 3. Commit
+```markdown
+| ID | OWASP | PoC | Commit fix | Test |
+|----|-------|-----|------------|------|
+| 001 | A03 | findings/001-sqli.md | abc123 | security/sqli |
+| 002 | XSS | findings/002-… | | |
+| 003 | A01 | findings/003-idor.md | | authz |
+| 004 | SSRF | findings/004-ssrf.md | n/a diseño | |
+| 005 | Upload | findings/005-upload.md | | |
+```
+### 3. Commit (10 min)
 
-`docs(m18): l24 hallazgos p2 consolidados`
+```bash
+git add projects/m18-appsec/findings-table.md
+git commit -m "docs(m18): l24 findings table p2"
+```
 """
 
 BODIES[25] = r"""
@@ -1692,27 +2286,43 @@ BODIES[25] = r"""
 
 **~5.0 h · Semana 7**
 
-A06: componentes vulnerables.
+A06: la cadena de deps es superficie. Hoy mides y remedias al menos un high/critical.
 
 ## Objetivo
 
-`npm audit` (o equivalente) corrido; severidades altas tratadas o aceptadas con justificación.
+Salida de audit en `projects/m18-appsec/docs/npm-audit.md` (+ mirror `projects/m18-appsec/deps-audit.md` si quieres); ≥1 remediación o justificación.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Audit (40 min)
+### 1. Corre audit (30–40 min)
 
 ```bash
-npm audit --json > projects/m18-appsec/docs/npm-audit.json || true
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+npm audit --omit=dev 2>/dev/null || npm audit
+npm audit --json > /tmp/m18-audit.json || true
+mkdir -p projects/m18-appsec/docs
+cp /tmp/m18-audit.json projects/m18-appsec/docs/npm-audit.json 2>/dev/null || true
 ```
+### 2. Documenta + remedia (70–90 min)
 
-### 2. Triage (70–90 min)
+```bash
+cat > projects/m18-appsec/docs/npm-audit.md <<'EOF'
+# npm audit — Agenda Ops
+Fecha:
+High/Critical:
+Acción (update / ignore justificado):
+Commit:
+EOF
+# Remedia al menos 1
+npm audit fix --omit=dev || true
+npm ls --depth=0 | head
+```
+### 3. Commit (10 min)
 
-Tabla: CVE, impacto en Agenda Ops, acción.
-
-### 3. Commit
-
-`docs(m18): l25 npm audit triage`
+```bash
+git add projects/m18-appsec/docs/npm-audit.md
+git commit -m "docs(m18): l25 npm audit"
+```
 """
 
 BODIES[26] = r"""
@@ -1720,25 +2330,51 @@ BODIES[26] = r"""
 
 **~5.0 h · Semana 7**
 
-Historial git no debe tener SESSION_SECRET real.
+Secretos en git son incidentes. Inventario (sin valores) + plan de rotación.
 
 ## Objetivo
 
-Inventario secretos; rotación documentada; grep limpio.
+`projects/m18-appsec/docs/rotacion-secretos.md`: inventario, dónde viven, pasos rotar session secret / DB URL.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Busca fugas (50 min)
+### 1. Busca secretos en historial (30–40 min)
 
-`git log -p | rg -i 'password|secret|api_key' | head` (cuidado output).
+```bash
+git log -p --all -S 'DATABASE_URL' 2>/dev/null | head -20 || true
+git ls-files | rg -i '\.env|credential|secret|\.pem' || true
+# gitleaks / trufflehog si los tienes instalados
+```
+### 2. Inventario + rotación (70–90 min)
 
-### 2. Proceso rotación (60–70 min)
+```bash
+cat > projects/m18-appsec/docs/rotacion-secretos.md <<'EOF'
+# Secretos y rotación
+| Secreto | Dónde (local/staging) | En git? | Rotar cómo |
+|---------|----------------------|---------|------------|
+| DATABASE_URL | .env / PaaS | no | … |
+| SESSION_SECRET | .env | no | reiniciar sesiones |
+| SMTP_KEY | … | | |
 
-`docs/rotacion-secretos.md` pasos staging.
+## Pasos rotar SESSION_SECRET (staging)
+1. Generar nuevo valor
+2. Deploy
+3. Invalidar sesiones previas
+4. Verificar login
+EOF
+```
 
-### 3. Commit
+```bash
+# Genera candidato (no lo commits)
+openssl rand -hex 32
+```
+### 3. Commit (10 min)
 
-`docs(m18): l26 secretos rotacion`
+```bash
+git add projects/m18-appsec/docs/rotacion-secretos.md
+git status   # .env no debe aparecer
+git commit -m "docs(m18): l26 rotacion secretos"
+```
 """
 
 BODIES[27] = r"""
@@ -1746,23 +2382,41 @@ BODIES[27] = r"""
 
 **~5.0 h · Semana 7**
 
-Confirma headers en staging; completa gaps M17.
+Headers baratos reducen XSS clickjacking y MIME sniffing.
 
 ## Objetivo
 
-Headers activos verificados; doc en appsec.
+Helmet (o equiv) en la API/front; captura `curl -I` en evidencia.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. curl -I (40 min)
+### 1. Baseline headers (20–30 min)
 
-### 2. Ajustes (60–80 min)
+```bash
+curl -sI localhost:3000/ | tee projects/m18-appsec/pocs/headers-before.txt | rg -i 'x-|content-security|strict-transport|referrer|permissions'|| true
+```
+### 2. Activa Helmet (60–80 min)
 
-X-Content-Type-Options, Frame, Referrer-Policy, etc.
+```ts
+import helmet from "helmet";
+app.use(helmet({
+  contentSecurityPolicy: false, // CSP en L28
+  frameguard: { action: "deny" },
+  noSniff: true,
+  referrerPolicy: { policy: "no-referrer" },
+}));
+```
 
-### 3. Commit
+```bash
+curl -sI localhost:3000/ | tee projects/m18-appsec/pocs/headers-after.txt
+diff -u projects/m18-appsec/pocs/headers-before.txt projects/m18-appsec/pocs/headers-after.txt || true
+```
+### 3. Commit (10 min)
 
-`fix(m18): l27 security headers`
+```bash
+git add projects/m18-appsec/pocs/headers-*.txt
+git commit -m "fix(m18): l27 security headers"
+```
 """
 
 BODIES[28] = r"""
@@ -1770,25 +2424,52 @@ BODIES[28] = r"""
 
 **~5.0 h · Semana 7**
 
-CSP report-only o enforce gradual.
+CSP report-only primero: observas violaciones sin romper el panel.
 
 ## Objetivo
 
-CSP que no rompa panel; documenta excepciones.
+Política en `projects/m18-appsec/docs/csp.md`; report-only en staging; anota violaciones.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Política borrador (50 min)
+### 1. Inventaria fuentes (30–40 min)
 
-default-src 'self'; script-src cuidadoso.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'cdn\.|googleapis|script src|link href' -g '*.html' -g '*.tsx' -g '*.jsx' | head -30
+cat > projects/m18-appsec/docs/csp.md <<'EOF'
+# CSP — Agenda Ops
+## Fuentes externas
+- …
 
-### 2. Prueba UI (70–90 min)
+## Política propuesta (report-only)
+default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none';
 
-Login, agenda, WA link. Ajusta.
+## Violaciones observadas
+- …
+EOF
+```
+### 2. Report-Only (60–80 min)
 
-### 3. Commit
+```ts
+app.use((_req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy-Report-Only",
+    "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'",
+  );
+  next();
+});
+```
 
-`feat(m18): l28 csp basica`
+```bash
+curl -sI localhost:3000/ | rg -i content-security-policy
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/csp.md
+git commit -m "docs(m18): l28 csp report-only"
+```
 """
 
 BODIES[29] = r"""
@@ -1796,25 +2477,56 @@ BODIES[29] = r"""
 
 **~5.0 h · Semana 8**
 
-P3: CI con lint+test+audit+grep secretos.
+P3: cada PR corre lint+test+audit (+ grep secretos).
 
 ## Objetivo
 
-Workflow verde documentado en `projects/m18-appsec/ci/`.
+Workflow documentado en `projects/m18-appsec/ci/ci-appsec.yml` (o enlace) + `projects/m18-appsec/ci/README.md` con run id.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Pipeline (100–120 min)
+### 1. Scaffold workflow (40–50 min)
 
-Enlace al workflow del repo app. Job anti-secretos básico.
+```bash
+mkdir -p projects/m18-appsec/ci
+cat > projects/m18-appsec/ci/ci-appsec.yml <<'EOF'
+# Copiar a .github/workflows/appsec.yml del repo producto
+name: appsec
+on: [pull_request, push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm audit --audit-level=high
+      - name: anti-secrets
+        run: |
+          ! git ls-files | rg -i '\.env$|id_rsa|\.pem$'
+EOF
+```
+### 2. Ejecuta en branch de prueba (60–80 min)
 
-### 2. Evidencia (30 min)
+Copia al repo producto, push, pega run id en `projects/m18-appsec/ci/README.md`.
 
-Log CI o script local reproducible.
+```bash
+cat > projects/m18-appsec/ci/README.md <<'EOF'
+# CI AppSec
+- Workflow: .github/workflows/appsec.yml
+- Run id / URL:
+- Jobs: lint, test, audit, anti-secrets
+EOF
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`ci(m18): l29 pipeline p3`
+```bash
+git add projects/m18-appsec/ci
+git commit -m "ci(m18): l29 pipeline p3"
+```
 """
 
 BODIES[30] = r"""
@@ -1822,23 +2534,58 @@ BODIES[30] = r"""
 
 **~5.0 h · Semana 8**
 
-El entregable del proyecto es el informe.
+El entregable del proyecto es el informe: ejecutivo, alcance, hallazgos, mitigaciones, residual.
 
 ## Objetivo
 
-`informe-appsec.md` con ejecutivo, alcance, hallazgos, mitigaciones, residual.
+Borrador `projects/m18-appsec/informe-appsec.md` enlazando PoCs y commits (sin PII de partner).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Plantilla (30 min)
+### 1. Plantilla (25–35 min)
 
-### 2. Redacción (100–120 min)
+```bash
+cat > projects/m18-appsec/informe-appsec.md <<'EOF'
+# Informe AppSec — Agenda Ops
 
-Enlaza PoCs y commits fix. Sin datos reales del partner.
+## 1. Ejecutivo
+- …
 
-### 3. Commit
+## 2. Alcance y supuestos
+- Solo staging/local propio
+- Fuera de alcance: …
 
-`docs(m18): l30 informe appsec`
+## 3. Metodología
+STRIDE + OWASP Top 10 + PoC en API propia
+
+## 4. Hallazgos
+Tabla → ver findings-table.md (severidad, estado)
+
+## 5. Mitigaciones
+Commits / PRs: …
+
+## 6. Riesgo residual
+Top 3 con dueño/fecha
+
+## 7. Anexos
+- threat-model-v1.md
+- docs/auth-inventario.md
+- ci/
+EOF
+```
+### 2. Redacción con enlaces (90–110 min)
+
+Rellena §§1–6 con datos reales de tu P2/P3. Verifica que no hay secretos ni teléfonos reales.
+
+```bash
+rg -n 'password|Bearer |postgresql://|@gmail' projects/m18-appsec/informe-appsec.md || echo "sin secretos obvios"
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/informe-appsec.md
+git commit -m "docs(m18): l30 informe appsec"
+```
 """
 
 BODIES[31] = r"""
@@ -1846,23 +2593,39 @@ BODIES[31] = r"""
 
 **~5.0 h · Semana 8**
 
-≥3 tests que fallen si reabres agujeros.
+≥3 tests que fallen si reabres agujeros (IDOR, XSS escape, authz rol u equivalentes).
 
 ## Objetivo
 
-Suite seguridad documentada: IDOR, XSS escape, authz rol (o equivalentes).
+Suite documentada en `projects/m18-appsec/docs/security-tests.md`; CI los corre.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Selecciona 3 (20 min)
+### 1. Selecciona 3 (20–30 min)
 
-### 2. Implementa/verde (100–120 min)
+```bash
+cat > projects/m18-appsec/docs/security-tests.md <<'EOF'
+# Security regression tests
+| # | Archivo | Protege |
+|---|---------|---------|
+| 1 | tests/security/authz-cross-user.test.ts | IDOR citas |
+| 2 | tests/security/xss-escape.test.ts | stored XSS notas |
+| 3 | tests/security/rbac-settings.test.ts | staff≠owner |
+EOF
+```
+### 2. Implementa / verde (100–120 min)
 
-Nombres claros `security.*.test.ts`.
+Nombres claros `security.*.test.ts` (o carpeta `tests/security/`).
 
-### 3. Commit
+```bash
+npm test -- --testPathPattern=security
+# Confirma que el workflow L29 incluye este pattern
+```
+### 3. Commit (10 min)
 
-`test(m18): l31 regresion seguridad`
+```bash
+git add -A && git commit -m "test(m18): l31 regresion seguridad"
+```
 """
 
 BODIES[32] = r"""
@@ -1870,24 +2633,35 @@ BODIES[32] = r"""
 
 **~5.0 h · Semana 8**
 
-Riesgo residual explícito > “somos seguros”.
+Riesgo residual explícito > “somos seguros”. Cierra P1–P3 y handoff a M19/M25.
 
 ## Objetivo
 
-Cierre P1–P3, criterios dominio, residual risk y handoff a M19/M25.
+`projects/m18-appsec/informe-appsec.md` final + README con residual top-3 y criterios de dominio.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Auditoría evidencias (50 min)
+### 1. Auditoría de evidencias (40–50 min)
 
-### 2. Residual (50–60 min)
+```bash
+ls -la projects/m18-appsec projects/m18-appsec/docs projects/m18-appsec/findings projects/m18-appsec/ci projects/m18-appsec/pocs
+test -f projects/m18-appsec/threat-model-v1.md && echo P1=ok
+wc -l projects/m18-appsec/findings-table.md
+test -f projects/m18-appsec/ci/ci-appsec.yml && echo P3=ok
+test -f projects/m18-appsec/docs/auth-inventario.md && echo auth=ok
+```
+### 2. Residual + handoff (50–60 min)
 
-Top 3 riesgos aceptados con dueño/fecha.
+```bash
+printf "\n## Riesgo residual (cierre)\n| Riesgo | Dueño | Fecha revisión |\n|--------|-------|----------------|\n| … | | |\n\n## Handoff\n- M19: secrets en PaaS, HTTPS, backups\n- M25: retest en trial\n" >> projects/m18-appsec/informe-appsec.md
+```
+### 3. README final (20–30 min)
 
-### 3. README final (30 min)
+Actualiza `projects/m18-appsec/README.md`: P1/P2/P3 ✅, enlace informe, residual.
 
-### 4. Commit
-
-`docs(m18): l32 cierre dominio residual`
+```bash
+git add projects/m18-appsec/README.md projects/m18-appsec/informe-appsec.md
+git commit -m "docs(m18): l32 cierre dominio residual"
+```
 """
 

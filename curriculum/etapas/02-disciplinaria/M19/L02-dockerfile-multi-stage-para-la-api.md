@@ -13,31 +13,59 @@ evidencia: Dockerfile en repo + projects/m19-ops/docker.md
 
 **~5.0 h · Semana 1**
 
-Imagen final sin devDependencies ni `.env`.
+Imagen pequeña y sin toolchain reduce superficie.
 
 ## Objetivo
 
-Dockerfile multi-stage + `.dockerignore`; build local exitoso.
+Escribir Dockerfile multi-stage: build TS/bundle y runtime slim sin devDependencies ni fuentes.
+
+## Conceptos clave
+
+- multi-stage
+- USER node
+- HEALTHCHECK
 
 ## Pasos (hazlos en orden)
 
-### 1. Escribe Dockerfile (90–110 min)
+### 1. Dockerfile multi-stage (90–110 min)
 
-Stages build/runtime. USER no-root. HEALTHCHECK a `/health`.
+En el repo de la API (`projects/m17-agenda-ops/` o ruta documentada):
 
-### 2. dockerignore (20 min)
+```dockerfile
+# syntax=docker/dockerfile:1
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build && npm prune --omit=dev
 
-`.env`, `node_modules`, tests pesados, keystores.
+FROM node:22-alpine AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+RUN addgroup -S app && adduser -S app -G app
+COPY --from=build /app /app
+USER app
+EXPOSE 3000
+HEALTHCHECK CMD wget -qO- http://127.0.0.1:3000/health || exit 1
+CMD ["node", "dist/index.js"]
+```
 
-### 3. Build (40 min)
+### 2. .dockerignore + build (40–50 min)
 
 ```bash
+printf '%s\n' .env node_modules .git '*.md' tests keystores >> .dockerignore
 docker build -t agenda-ops-api:dev .
 ```
 
-### 4. Commit
+Documenta en `projects/m19-ops/docker.md`.
 
-`feat(m19): l02 dockerfile multi-stage`
+### 3. Commit (15 min)
+
+```bash
+git add Dockerfile .dockerignore projects/m19-ops/docker.md
+git commit -m "feat(m19): L02 dockerfile multi-stage"
+```
 
 ## Lectura de esta lección
 
@@ -51,15 +79,14 @@ docker build -t agenda-ops-api:dev .
 
 Marca la lección **solo si**:
 
-1. Dockerfile multi-stage (artefacto: `Dockerfile en repo`).
-2. docker.md con comandos (artefacto: `Dockerfile en repo`).
-3. .dockerignore (artefacto: `Dockerfile en repo`).
-4. Commit `docs(m19): L02 dockerfile-multi-stage-para-la-api`.
+1. Dockerfile multi-stage + `.dockerignore` en el repo de la API.
+2. `projects/m19-ops/docker.md` documenta `docker build` exitoso.
+3. Commit `docs(m19): L02 dockerfile-multi-stage-para-la-api`.
 
 ## Errores comunes
 
-- COPY .env.
-- root en runtime.
+- `COPY .env` en la imagen.
+- Correr runtime como root.
 
 ## Siguiente
 

@@ -6,32 +6,58 @@ titulo: Secretos, .env y rotación
 horas: 5.0
 semana: 7
 lectura: Secrets Management Cheat Sheet
-evidencia: projects/m18-appsec/secrets-rotation.md
+evidencia: projects/m18-appsec/docs/rotacion-secretos.md
 ---
 
 # L26 — Secretos, .env y rotación
 
 **~5.0 h · Semana 7**
 
-Historial git no debe tener SESSION_SECRET real.
+Secretos en git son incidentes. Inventario (sin valores) + plan de rotación.
 
 ## Objetivo
 
-Inventario secretos; rotación documentada; grep limpio.
+`projects/m18-appsec/docs/rotacion-secretos.md`: inventario, dónde viven, pasos rotar session secret / DB URL.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Busca fugas (50 min)
+### 1. Busca secretos en historial (30–40 min)
 
-`git log -p | rg -i 'password|secret|api_key' | head` (cuidado output).
+```bash
+git log -p --all -S 'DATABASE_URL' 2>/dev/null | head -20 || true
+git ls-files | rg -i '\.env|credential|secret|\.pem' || true
+# gitleaks / trufflehog si los tienes instalados
+```
+### 2. Inventario + rotación (70–90 min)
 
-### 2. Proceso rotación (60–70 min)
+```bash
+cat > projects/m18-appsec/docs/rotacion-secretos.md <<'EOF'
+# Secretos y rotación
+| Secreto | Dónde (local/staging) | En git? | Rotar cómo |
+|---------|----------------------|---------|------------|
+| DATABASE_URL | .env / PaaS | no | … |
+| SESSION_SECRET | .env | no | reiniciar sesiones |
+| SMTP_KEY | … | | |
 
-`docs/rotacion-secretos.md` pasos staging.
+## Pasos rotar SESSION_SECRET (staging)
+1. Generar nuevo valor
+2. Deploy
+3. Invalidar sesiones previas
+4. Verificar login
+EOF
+```
 
-### 3. Commit
+```bash
+# Genera candidato (no lo commits)
+openssl rand -hex 32
+```
+### 3. Commit (10 min)
 
-`docs(m18): l26 secretos rotacion`
+```bash
+git add projects/m18-appsec/docs/rotacion-secretos.md
+git status   # .env no debe aparecer
+git commit -m "docs(m18): l26 rotacion secretos"
+```
 
 ## Lectura de esta lección
 
@@ -45,10 +71,9 @@ Inventario secretos; rotación documentada; grep limpio.
 
 Marca la lección **solo si**:
 
-1. Inventario sin valores (artefacto: `projects/m18-appsec/secrets-rotation.md`).
-2. grep historial ejecutado (artefacto: `projects/m18-appsec/secrets-rotation.md`).
-3. Plan rotación (artefacto: `projects/m18-appsec/secrets-rotation.md`).
-4. Commit `docs(m18): L26 secretos-env-y-rotacion`.
+1. Inventario sin valores (artefacto: `projects/m18-appsec/docs/rotacion-secretos.md`).
+2. grep historial ejecutado (artefacto: `projects/m18-appsec/docs/rotacion-secretos.md`).
+3. Commit `docs(m18): L26 secretos-env-y-rotacion`.
 
 ## Errores comunes
 

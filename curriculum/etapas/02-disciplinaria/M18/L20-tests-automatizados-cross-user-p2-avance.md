@@ -13,25 +13,46 @@ evidencia: tests en repo producto + projects/m18-appsec/findings-table.md
 
 **~5.0 h · Semana 5**
 
-P2 avanza con tests que fallen si vuelve el IDOR.
+P2 pide hallazgo→fix→test; hoy consolidas access control.
 
 ## Objetivo
 
-≥2 tests cross-user en CI local; tabla hallazgos con ≥3 filas PoC→fix→test.
+≥2 tests authz (cross-user + rol) + `projects/m18-appsec/findings-table.md` con ≥3 filas.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Escribe tests (90–110 min)
+### 1. Fixture dos usuarios (30–40 min)
 
-Usuario A no lee/edita recurso B.
+```ts
+// tests/security/authz-cross-user.test.ts
+async function login(email: string) { /* cookie jar / token */ }
 
-### 2. Tabla P2 (40 min)
+it("B cannot read A's cita", async () => {
+  const a = await login("a@test.local");
+  const b = await login("b@test.local");
+  const cita = await a.post("/api/citas", { /* … */ });
+  const res = await b.get(`/api/citas/${cita.id}`);
+  expect([403, 404]).toContain(res.status);
+});
 
-`hallazgos.md` columnas requeridas.
+it("staff cannot patch settings", async () => {
+  const staff = await login("staff@test.local");
+  const res = await staff.patch("/api/settings", { tz: "UTC" });
+  expect(res.status).toBe(403);
+});
+```
+### 2. Corre tests + actualiza tabla (60–80 min)
 
-### 3. Commit
+```bash
+npm test -- --testPathPattern=authz || npm test -- security
+# Actualiza findings-table: 001–003 + rate limit
+rg -n '^\|' projects/m18-appsec/findings-table.md
+```
+### 3. Commit (10 min)
 
-`test(m18): l20 cross-user p2 avance`
+```bash
+git add -A && git commit -m "test(m18): l20 authz cross-user"
+```
 
 ## Lectura de esta lección
 
@@ -47,7 +68,7 @@ Marca la lección **solo si**:
 
 1. ≥2 tests authz verdes (artefacto: `tests en repo producto`).
 2. findings-table ≥3 filas (artefacto: `tests en repo producto`).
-3. Commits referenciados (artefacto: `tests en repo producto`).
+3. Commit `docs(m18): L20 tests-automatizados-cross-user-p2-avance`.
 
 ## Errores comunes
 

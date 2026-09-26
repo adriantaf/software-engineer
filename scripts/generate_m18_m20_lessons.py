@@ -145,11 +145,11 @@ Relee la ficha M18: confirma que P1 (threat model v1) llegará tras semana 2 aut
         "Inventario de autenticación actual",
         2,
         "OWASP A07 + Authentication Cheat Sheet",
-        f"{PROJ18}/auth-inventory.md",
+        f"{PROJ18}/docs/auth-inventario.md",
         "Documentar flujo real de registro/login/logout de Agenda Ops: transporte, almacenamiento de sesión, rotación y recuperación de contraseña.",
         "No puedes endurecer lo que no has descrito. Esta lección es fotografía del estado antes de parches.",
         ["Credencial vs sesión vs token.", "Transporte HTTPS obligatorio.", "Mensajes de error uniformes."],
-        f"""En `{PROJ18}/auth-inventory.md` describe paso a paso el happy path y 2 edge cases (password malo, usuario inexistente).
+        f"""En `{PROJ18}/docs/auth-inventario.md` describe paso a paso el happy path y 2 edge cases (password malo, usuario inexistente).
 
 Captura (sin secretos) qué cookie/header usa la API. ¿El ID de usuario va en JWT payload? ¿Sesión en DB?
 

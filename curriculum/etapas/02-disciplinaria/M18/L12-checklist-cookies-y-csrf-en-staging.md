@@ -6,32 +6,62 @@ titulo: Checklist cookies y CSRF en staging
 horas: 5.0
 semana: 3
 lectura: Repaso semana 3
-evidencia: projects/m18-appsec/checklist-cookies-csrf.md
+evidencia: projects/m18-appsec/docs/checklist-cookies-csrf.md
 ---
 
 # L12 — Checklist cookies y CSRF en staging
 
 **~5.0 h · Semana 3**
 
-Cierra semana 3 con checklist firmada contra staging.
+Operacionalizas controles para M19 deploy y trials M22.
 
 ## Objetivo
 
-`docs/checklist-cookies-csrf.md` ejecutado en URL staging (o local prod-like).
+Checklist ≥10 ítems en `projects/m18-appsec/docs/checklist-cookies-csrf.md` ejecutado contra staging (fecha + URL).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Checklist (40 min)
+### 1. Escribe el checklist (40–50 min)
 
-Flags, CSRF, logout, HTTPS.
+```bash
+cat > projects/m18-appsec/docs/checklist-cookies-csrf.md <<'EOF'
+# Checklist cookies / CSRF — staging
 
-### 2. Ejecución fechada (70–90 min)
+Fecha: ____ · URL: ____
 
-Resultados Sí/No. Bugs → issues/hallazgos.
+| # | Ítem | Sí/No | Nota |
+|---|------|-------|------|
+| 1 | Cookie sesión HttpOnly | | |
+| 2 | Secure en HTTPS | | |
+| 3 | SameSite Lax/Strict | | |
+| 4 | Session id rota post-login | | |
+| 5 | Logout invalida server-side | | |
+| 6 | POST citas exige CSRF/equiv | | |
+| 7 | GET no muta estado | | |
+| 8 | Mensajes login genéricos | | |
+| 9 | HTTPS redirect (si aplica) | | |
+| 10 | Sin cookie sesión en document.cookie | | |
 
-### 3. Commit
+## Residual CSRF
+- …
 
-`docs(m18): l12 checklist cookies csrf staging`
+## Commits semana 3
+- …
+EOF
+```
+### 2. Ejecuta en staging/local (60–80 min)
+
+Marca Sí/No con evidencia (curl headers, captura redactada). Corrige ≥1 ítem No si aparece.
+
+```bash
+curl -sI https://<tu-staging>/ | rg -i 'strict-transport|set-cookie' || true
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/checklist-cookies-csrf.md
+git commit -m "docs(m18): l12 checklist cookies csrf"
+```
 
 ## Lectura de esta lección
 
@@ -45,10 +75,9 @@ Resultados Sí/No. Bugs → issues/hallazgos.
 
 Marca la lección **solo si**:
 
-1. Checklist ejecutado (artefacto: `projects/m18-appsec/checklist-cookies-csrf.md`).
-2. Fecha y URL (artefacto: `projects/m18-appsec/checklist-cookies-csrf.md`).
-3. ≥1 ítem corregido esta semana (artefacto: `projects/m18-appsec/checklist-cookies-csrf.md`).
-4. Commit `docs(m18): L12 checklist-cookies-y-csrf-en-staging`.
+1. Checklist ejecutado (artefacto: `projects/m18-appsec/docs/checklist-cookies-csrf.md`).
+2. Fecha y URL (artefacto: `projects/m18-appsec/docs/checklist-cookies-csrf.md`).
+3. Commit `docs(m18): L12 checklist-cookies-y-csrf-en-staging`.
 
 ## Errores comunes
 

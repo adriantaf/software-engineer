@@ -36,34 +36,24 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Bosqueja C4 ligero (30–40 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria
-```
+En `projects/m26-capstone/memoria/arquitectura.md`: contexto (actores) + contenedores (web, API, DB, Stripe, CI).
 
-Confirma que escribirás `projects/m26-capstone/memoria/arquitectura.md`.
+### 3. Diagrama deploy real (90–110 min)
 
-### 3. Laboratorio principal (100–130 min)
+Mermaid o imagen en repo: regiones, servicios, secretos (nombres). URLs prod/staging.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+Sección **Decisiones**: 5 ADRs cortas (tenancy, auth, billing, logs, mobile).
 
-Diagrama actualizado del SaaS en prod.
+### 4. Revisión de frescura (25–35 min)
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-07.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/arquitectura.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Fecha del diagrama = esta semana. Bitácora semana-07.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l25 memoria-arquitectura-y-diagramas"
 ```

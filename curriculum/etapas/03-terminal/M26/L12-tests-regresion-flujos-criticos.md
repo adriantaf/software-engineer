@@ -36,34 +36,26 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Elige suite mínima (25–35 min)
+
+En `projects/m26-capstone/tests-regresion.md`: lista tests (auth, citas CRUD, cross-tenant). Comando exacto.
+
+### 3. Corre en CI o documenta pipeline (100–120 min)
 
 ```bash
-mkdir -p projects/m26-capstone
+pnpm test   # o el comando real
 ```
 
-Confirma que escribirás `projects/m26-capstone/tests-regresion.md`.
+Pega resumen (passed/failed). Si CI: enlace a workflow verde. Si no: YAML propuesto + issue.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Política de merge (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Suite mínima en CI para citas + auth.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-03.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/tests-regresion.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Escribe: “no merge a main sin X verde”. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l12 tests-regresi-n-flujos-cr-ticos"
 ```

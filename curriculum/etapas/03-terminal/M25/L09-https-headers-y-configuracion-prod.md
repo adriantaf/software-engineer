@@ -37,28 +37,30 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Mide headers en staging/prod (30–40 min)
+
+En `projects/m25-ciber/hardening/headers.md` pega salida redactada:
 
 ```bash
-mkdir -p projects/m25-ciber/hardening
+curl -sI "https://TU-STAGING.example" | tee /tmp/headers.txt
 ```
 
-Confirma que escribirás `projects/m25-ciber/hardening/headers.md`.
+Tabla: HSTS | CSP | X-Content-Type-Options | X-Frame-Options | Referrer-Policy | Permissions-Policy.
 
-### 3. Laboratorio principal (100–130 min)
+### 3. TLS y redirects (80–100 min)
 
-Ejecuta checks reales (`curl -I`, `pg_restore`, etc.) y pega **salida redactada** en el archivo de evidencia.
+Verifica HTTPS obligatorio (http→https), certificado válido, no mixed content en panel.
 
-### 4. Criterio de calidad (30–45 min)
+Documenta URL exacta + fecha del check. Si falta header: issue + plan de fix (no solo “poner nginx”).
 
-Relee `projects/m25-ciber/hardening/headers.md`: ¿un mentor externo entendería el resultado sin preguntarte?
+### 4. Prioriza remediación (25–35 min)
 
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Top 3 gaps con dueño=tú y evidencia esperada. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l09 https-headers-y-configuraci-n-prod"
 ```

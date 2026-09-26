@@ -37,34 +37,24 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Lista riesgos P0–P2 (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone
-```
+En `projects/m26-capstone/riesgos.md` tabla: riesgo | impacto | probabilidad | mitigación | dueño | enlace M25 si aplica.
 
-Confirma que escribirás `projects/m26-capstone/riesgos.md`.
+### 3. Cubre dependencias críticas (90–110 min)
 
-### 3. Laboratorio principal (100–130 min)
+Filas mínimas: aislamiento cross-tenant, Stripe webhooks, hosting/DB, scope creep WhatsApp/móvil, restore backups, secretos.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+Cada P0 con mitigación accionable esta semana.
 
-`projects/m26-capstone/riesgos.md` con mitigaciones; enlaza review M25 si existe.
+### 4. Revisión con plan-8 (25–35 min)
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-01.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/riesgos.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Enlaza cada P0 a una semana del plan. Bitácora semana-01.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l04 riesgos-integrador-y-dependencias"
 ```

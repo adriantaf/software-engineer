@@ -6,32 +6,52 @@ titulo: Fijación de sesión y logout completo
 horas: 5.0
 semana: 3
 lectura: Session fixation + logout best practices
-evidencia: projects/m18-appsec/session-lifecycle.md
+evidencia: projects/m18-appsec/docs/session-lifecycle.md
 ---
 
 # L11 — Fijación de sesión y logout completo
 
 **~5.0 h · Semana 3**
 
-Login debe rotar session id; logout debe invalidar servidor.
+Robar sesión fija es clásico en apps que reutilizan el mismo session id.
 
 ## Objetivo
 
-Demo: session id cambia post-login; logout invalida; test o checklist.
+Ciclo de vida en `projects/m18-appsec/docs/session-lifecycle.md`: rotate post-login + destroy server-side en logout.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Prueba fijación (50–60 min)
+### 1. Traza el ciclo en código (40–50 min)
 
-Intenta fijar cookie pre-login (en tu local). Documenta.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'regenerate|session\.id|destroy|logout|revoke' -g '!node_modules' | head -30
+cat > projects/m18-appsec/docs/session-lifecycle.md <<'EOF'
+# Session lifecycle
+1. Pre-login id: …
+2. Post-login (¿rota?): …
+3. Logout server-side: …
+4. Request posterior con cookie vieja: esperado 401
+EOF
+```
+### 2. Pruebas login/logout (50–60 min)
 
-### 2. Logout servidor (50–60 min)
+```bash
+# Dos logins: ¿cambia el valor de Set-Cookie?
+curl -sI -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"***"}' | rg -i set-cookie
+# Logout + reuse (debe fallar)
+curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout
+curl -b /tmp/m18-cj -s -o /dev/null -w "%{http_code}\n" localhost:3000/api/citas
+```
 
-Almacén de sesiones: borrar id. JWT: blacklist/TTL corto documentado.
+Si JWT stateless: documenta deny-list o TTL corto en el mismo archivo.
+### 3. Commit (10–15 min)
 
-### 3. Commit
-
-`fix(m18): l11 session fixation logout`
+```bash
+git add projects/m18-appsec/docs/session-lifecycle.md
+git commit -m "fix(m18): l11 session lifecycle"
+```
 
 ## Lectura de esta lección
 
@@ -45,9 +65,9 @@ Almacén de sesiones: borrar id. JWT: blacklist/TTL corto documentado.
 
 Marca la lección **solo si**:
 
-1. Doc ciclo de vida (artefacto: `projects/m18-appsec/session-lifecycle.md`).
-2. Pruebas login/logout documentadas (artefacto: `projects/m18-appsec/session-lifecycle.md`).
-3. Commit si hubo fix (artefacto: `projects/m18-appsec/session-lifecycle.md`).
+1. Doc ciclo de vida (artefacto: `projects/m18-appsec/docs/session-lifecycle.md`).
+2. Pruebas login/logout documentadas (artefacto: `projects/m18-appsec/docs/session-lifecycle.md`).
+3. Commit `docs(m18): L11 fijacion-de-sesion-y-logout-completo`.
 
 ## Errores comunes
 

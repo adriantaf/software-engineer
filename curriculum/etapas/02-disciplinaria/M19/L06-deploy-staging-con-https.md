@@ -13,23 +13,40 @@ evidencia: projects/m19-ops/deploy-log.md
 
 **~5.0 h · Semana 2**
 
-Staging HTTPS estable usando la decisión del ADR.
+Primera URL pública del piloto.
 
 ## Objetivo
 
-URL HTTPS en `deploy-log.md`; secretos solo en el hosting.
+Desplegar staging con HTTPS forzado y variables en panel del host.
+
+## Conceptos clave
+
+- HTTP→HTTPS
+- env vars
+- build remoto
 
 ## Pasos (hazlos en orden)
 
-### 1. Deploy (100–130 min)
+### 1. Deploy staging HTTPS (90–120 min)
 
-Build, migraciones, env. Reusa o mejora M17 staging.
+Sigue el ADR. Inyecta secrets en el panel.
 
-### 2. Verifica TLS (30 min)
+```bash
+curl -sSI https://TU-STAGING.example/health | head -15
+```
 
-### 3. Commit
+### 2. deploy-log.md (30–40 min)
 
-`docs(m19): l06 deploy staging https`
+```bash
+cat > projects/m19-ops/deploy-log.md << 'EOF'
+# Deploy log
+| Fecha | Env | Versión/commit | URL | Resultado |
+|-------|-----|----------------|-----|-----------|
+| YYYY-MM-DD | staging | abc123 | https://… | OK health |
+EOF
+git add projects/m19-ops/deploy-log.md
+git commit -m "docs(m19): L06 deploy staging https"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +60,12 @@ Build, migraciones, env. Reusa o mejora M17 staging.
 
 Marca la lección **solo si**:
 
-1. URL HTTPS viva.
-2. deploy-log entrada (artefacto: `projects/m19-ops/deploy-log.md`).
-3. Sin secretos en repo (artefacto: `projects/m19-ops/deploy-log.md`).
-4. Commit `docs(m19): L06 deploy-staging-con-https`.
+1. `projects/m19-ops/deploy-log.md` con URL HTTPS staging y commit/versión.
 
 ## Errores comunes
 
-- HTTP plano.
-- TLS solo en front.
+- Deploy ‘OK’ sin URL en deploy-log.
+- Secrets en el Dockerfile.
 
 ## Siguiente
 

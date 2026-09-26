@@ -36,34 +36,24 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Recoge métricas v1 (30–40 min)
 
-```bash
-mkdir -p projects/m26-capstone
-```
+En `projects/m26-capstone/post-mortem-v1.md`: uptime/deploy count, tests, hallazgos seguridad, trials — lo que tengas.
 
-Confirma que escribirás `projects/m26-capstone/post-mortem-v1.md`.
+### 3. Post-mortem técnico (90–110 min)
 
-### 3. Laboratorio principal (100–130 min)
+Secciones: **Qué salió bien**, **Qué dolió**, **Deuda consciente**, **v1.1 (5 ítems con fecha)**.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+Sin blame theater; con owners.
 
-Qué quedó fuera y por qué.
+### 4. Cierre de alcance (25–35 min)
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-07.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/post-mortem-v1.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Lista features que quedaron out y por qué. Bitácora semana-07.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l28 m-tricas-y-post-mortem-t-cnico-v1"
 ```

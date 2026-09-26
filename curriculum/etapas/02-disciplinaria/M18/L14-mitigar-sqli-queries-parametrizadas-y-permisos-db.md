@@ -13,25 +13,53 @@ evidencia: commit fix + test en repo producto
 
 **~5.0 h · Semana 4**
 
-Fix + least privilege del rol app en Postgres de Agenda Ops.
+Hallazgo sin fix no cuenta para P2.
 
 ## Objetivo
 
-Commit fix (si había) + nota de rol DB sin DDL; test de regresión en búsquedas de clientes/citas.
+Fix parametrizado + test de regresión; `001-sqli.md` → Cerrado con commit hash.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Parametriza (60–80 min)
+### 1. Parametriza la query (60–80 min)
 
-Reemplaza concat en la API del piloto. Test con payload previo → seguro.
+```ts
+// MAL
+// db.query(`SELECT * FROM clientes WHERE nombre LIKE '%${q}%'`)
 
-### 2. Permisos DB (40 min)
+// BIEN (pg)
+await db.query(
+  "SELECT id, nombre, telefono FROM clientes WHERE nombre ILIKE $1 LIMIT 50",
+  [`%${q}%`],
+);
+```
 
-Usuario app de Agenda Ops: DML limitado (sin DDL). Documenta en hallazgos.
+```sql
+-- Usuario app sin DDL (idea)
+-- CREATE ROLE agenda_app LOGIN PASSWORD '...';
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO agenda_app;
+-- (sin CREATE/DROP)
+```
+### 2. Test de regresión (40–50 min)
 
-### 3. Commit
+```ts
+// tests/security/sqli-search.test.ts
+it("rejects or safely handles SQLi-like search", async () => {
+  const res = await api.get("/api/clientes", { q: "' OR '1'='1" });
+  expect(res.status).not.toBe(500);
+  expect(String(res.body)).not.toMatch(/syntax error|pg_|SQL/i);
+});
+```
 
-`fix(m18): l14 sqli parametrizado`
+```bash
+npm test -- --testPathPattern=sqli || npm test -- security
+```
+### 3. Cierra finding (20 min)
+
+```bash
+printf "\n## Estado: Cerrado\n- Commit fix: \n- Test: \n" >> projects/m18-appsec/findings/001-sqli.md
+git add -A && git commit -m "fix(m18): l14 sqli parametrized"
+```
 
 ## Lectura de esta lección
 
@@ -45,9 +73,9 @@ Usuario app de Agenda Ops: DML limitado (sin DDL). Documenta en hallazgos.
 
 Marca la lección **solo si**:
 
-1. Commit fix (artefacto: `commit fix`).
-2. Test de regresión (artefacto: `commit fix`).
-3. Finding actualizado a Cerrado (artefacto: `commit fix`).
+1. Test de regresión (artefacto: `commit fix`).
+2. Finding actualizado a Cerrado (artefacto: `commit fix`).
+3. Commit `docs(m18): L14 mitigar-sqli-queries-parametrizadas-y-permisos-d`.
 
 ## Errores comunes
 

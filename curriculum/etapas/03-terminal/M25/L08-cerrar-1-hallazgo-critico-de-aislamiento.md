@@ -37,30 +37,30 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Elige el hallazgo crítico (20–30 min)
+
+En `projects/m25-ciber/hallazgos/hallazgo-01.md`: título, severidad (Crítico/Alto), endpoint, tenants A/B, status observado vs esperado.
+
+### 3. Reproduce y fija (100–130 min)
+
+Secciones **Repro** (curl/test), **Root cause** (query sin `tenant_id`, middleware), **Fix** (PR link).
 
 ```bash
-mkdir -p projects/m25-ciber/hallazgos
+# antes/después — mismo request; redacta tokens
+curl -s -w "\n%{http_code}" -H "Authorization: Bearer $TOKEN_A" \
+  "$API/citas/$CITA_B_ID"
 ```
 
-Confirma que escribirás `projects/m25-ciber/hallazgos/hallazgo-01.md`.
+Merge el fix en la rama que deploya staging.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Evidencia de cierre (25–35 min)
 
-Trabaja en **tu** Agenda Ops desplegado. Registra comandos `curl` o Vitest/Jest con tokens de A y B.
-
-Actualiza `projects/m25-ciber/bitacora/semana-02.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/hallazgos/hallazgo-01.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+**Cierre**: test o curl post-fix → 403/404. Enlace issue+PR. Bitácora semana-02.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l08 cerrar-1-hallazgo-cr-tico-de-aislamiento"
 ```

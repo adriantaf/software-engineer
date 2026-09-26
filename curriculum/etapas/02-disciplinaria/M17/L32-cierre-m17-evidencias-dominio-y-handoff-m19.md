@@ -13,29 +13,43 @@ evidencia: projects/m17-agenda-ops/docs/nota-cierre-m17.md
 
 **~5.0 h · Semana 8**
 
-Cierras la materia más densa del bloque web: evidencias y handoff deploy.
+Cierras la materia más densa del plan disciplinario.
 
 ## Objetivo
 
-Auditar P1–P3, criterios de dominio, README final y `docs/nota-cierre-m17.md` → M19.
+Auditar P1–P3, proyecto piloto, criterios dominio, README final y handoff deploy M19.
+
+## Conceptos clave
+
+- cierre
+- handoff M19
+- dominio
 
 ## Pasos (hazlos en orden)
 
-### 1. Auditoría P1–P3 (50–60 min)
+### 1. Índice de evidencias (50–60 min)
 
-Tabla evidencias. Nada de “casi”.
+```bash
+cat > projects/m17-agenda-ops/docs/nota-cierre-m17.md << 'EOF'
+# Cierre M17
+## Artefactos
+- stack.md, docs/auth.md, permisos.md, ui-estados.md
+- integracion-whatsapp.md, deploy.md, smoke-test.md
+- owasp-mapa.md, adr-tenant-id.md, checklist-saas.md
+## Handoff M19
+Dockerfile pendiente / Compose / secrets → projects/m19-ops/
+EOF
+ls projects/m17-agenda-ops/docs
+```
 
-### 2. Criterios dominio (40 min)
+### 2. README proyecto + commit (40 min)
 
-Autoevaluación honesta con enlaces.
+Actualiza checklist P1–P3 del README. Enlace a M19.
 
-### 3. Handoff M19 (40 min)
-
-Dockerfile pendiente, secretos, URL staging, smoke — qué debe vivir en `projects/m19-ops/`.
-
-### 4. Commit
-
-`docs(m17): l32 cierre materia handoff m19`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "docs(m17): L32 cierre evidencias handoff m19"
+```
 
 ## Lectura de esta lección
 
@@ -49,16 +63,14 @@ Dockerfile pendiente, secretos, URL staging, smoke — qué debe vivir en `proje
 
 Marca la lección **solo si**:
 
-1. P1–P3 verificados (artefacto: `projects/m17-agenda-ops/docs/nota-cierre-m17.md`).
-2. HTTPS demo.
-3. Criterios dominio (artefacto: `projects/m17-agenda-ops/docs/nota-cierre-m17.md`).
-4. Handoff M19 (artefacto: `projects/m17-agenda-ops/docs/nota-cierre-m17.md`).
-5. Commit `docs(m17): L32 cierre-m17-evidencias-dominio-y-handoff-m19`.
+1. Existe `projects/m17-agenda-ops/docs/nota-cierre-m17.md` con índice de artefactos y handoff M19.
+2. README P1–P3 coherente con evidencias (artefacto: `projects/m17-agenda-ops/docs/nota-cierre-m17.md`).
+3. Commit `docs(m17): L32 cierre-m17-evidencias-dominio-y-handoff-m19`.
 
 ## Errores comunes
 
-- Marcar completo sin deploy.
-- Auth solo front.
+- Cerrar M17 sin listar gaps.
+- No mencionar handoff Docker/secrets a M19.
 
 ## Siguiente
 

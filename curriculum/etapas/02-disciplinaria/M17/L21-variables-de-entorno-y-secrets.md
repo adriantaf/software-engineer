@@ -13,31 +13,49 @@ evidencia: projects/m17-agenda-ops/.env.example
 
 **~5.0 h · Semana 6**
 
-Deploy seguro empieza por no commitear secretos.
+Deploy seguro empieza por no commitear secrets.
 
 ## Objetivo
 
-`.env.example` completo; validación de arranque si falta `DATABASE_URL`/`SESSION_SECRET`.
+Separar config: DATABASE_URL, SESSION_SECRET, etc. `.env.example` sin valores reales.
+
+## Conceptos clave
+
+- env
+- secrets
+- example
 
 ## Pasos (hazlos en orden)
 
-### 1. Inventario (30 min)
-
-Lista vars: DB, session, CORS origin, WhatsApp phone opcional.
-
-### 2. Example + validación (70–90 min)
-
-Fail-fast al boot con mensaje claro. Confirma `.gitignore` cubre `.env`.
-
-### 3. Grep anti-secretos (20 min)
+### 1. Inventaria vars (40–50 min)
 
 ```bash
-git ls-files | rg -i 'env|pem|secret' || true
+cat projects/m17-agenda-ops/.env.example
+rg -n "process\\.env|env\\." projects/m17-agenda-ops/src | head -40
 ```
 
-### 4. Commit
+Cada var en `.env.example` con comentario; **sin** valores secretos.
 
-`chore(m17): l21 env example y validacion`
+### 2. Separa secrets de config (40 min)
+
+```bash
+# ejemplo .env.example
+cat >> projects/m17-agenda-ops/.env.example << 'EOF'
+# DATABASE_URL=postgresql://app:changeme@localhost:5432/agenda_ops
+# SESSION_SECRET=change-me-min-32-chars
+# CORS_ORIGIN=http://localhost:5173
+EOF
+```
+
+Confirma `.env` en `.gitignore`.
+
+### 3. Commit (15 min)
+
+```bash
+git add projects/m17-agenda-ops/.env.example
+git status | grep -i '\\.env$' && echo 'FAIL: .env tracked' || true
+git commit -m "docs(m17): L21 env example secrets"
+```
 
 ## Lectura de esta lección
 
@@ -51,14 +69,13 @@ git ls-files | rg -i 'env|pem|secret' || true
 
 Marca la lección **solo si**:
 
-1. .env.example (artefacto: `projects/m17-agenda-ops/.env.example`).
-2. Validación arranque (artefacto: `projects/m17-agenda-ops/.env.example`).
-3. Commit (artefacto: `projects/m17-agenda-ops/.env.example`).
+1. `projects/m17-agenda-ops/.env.example` lista vars con comentarios; `.env` no tracked.
+2. Commit `docs(m17): L21 variables-de-entorno-y-secrets`.
 
 ## Errores comunes
 
-- .env en git.
-- Secrets en front.
+- Commitear `.env`.
+- Secrets horneados en código.
 
 ## Siguiente
 

@@ -36,34 +36,29 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Estado móvil M20 (25–35 min)
+
+En `projects/m26-capstone/mobile-gap.md`: ¿APK/app apunta a staging HTTPS? ¿misma API v1?
+
+### 3. Conecta o cierra el gap (100–120 min)
+
+**Conectado:** login + listar citas desde móvil contra staging; anota build/version.
+
+**Gap:** plan con fecha, qué falta (CORS, auth, store), impacto en egreso.
 
 ```bash
-mkdir -p projects/m26-capstone
+# verifica API alcanzable
+curl -sI "$API/health"
 ```
 
-Confirma que escribirás `projects/m26-capstone/mobile-gap.md`.
+### 4. Decisión explícita (20–30 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Estado conexión móvil; APK contra staging o plan con fecha.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-04.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/mobile-gap.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Una frase: incluido en demo pública / diferido. Bitácora semana-04.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l14 app-m-vil-m20-conectada-o-plan-cierre"
 ```

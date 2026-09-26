@@ -37,30 +37,33 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Dibuja el flujo authn (25–35 min)
+
+En `projects/m25-ciber/review/authn.md` secciones: **Login**, **Sesión/JWT**, **Logout/refresh**.
+
+Anota dónde vive `tenant_id` (claim, cookie, header, fila DB).
+
+### 3. Inspecciona tokens reales (90–110 min)
+
+Login como staff A en staging. Documenta (redactado):
 
 ```bash
-mkdir -p projects/m25-ciber/review
+# captura Set-Cookie o body de login — redacta signature/secret
+curl -s -D - -o /tmp/login.json -X POST "$API/auth/login" \
+  -H "Content-Type: application/json" \
+  -d '{"email":"staff-a@example.test","password":"$PASS"}'
 ```
 
-Confirma que escribirás `projects/m25-ciber/review/authn.md`.
+Tabla: cookie/token | HttpOnly | Secure | SameSite | expira | lleva tenant_id?
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Amenazas y gaps (30–40 min)
 
-Trabaja en **tu** Agenda Ops desplegado. Registra comandos `curl` o Vitest/Jest con tokens de A y B.
-
-Actualiza `projects/m25-ciber/bitacora/semana-02.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/review/authn.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+≥4 amenazas (token en localStorage, refresh eterno, tenant_id solo en client, logout incompleto). Cada una: severidad + mitigación. Bitácora semana-02.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l05 review-authn-sesi-n-y-tokens"
 ```

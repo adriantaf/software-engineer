@@ -13,25 +13,48 @@ evidencia: projects/m20-movil/demo-login-lista.md (inicio)
 
 **~5.0 h · Semana 1**
 
-Misma auth que la web: nada de mock eterno.
+Misma API que web M17.
 
 ## Objetivo
 
-Login UI → `POST /auth/login` staging/local documentado.
+Implementar login email/password contra HTTPS M19; errores claros sin stack trace.
+
+## Conceptos clave
+
+- POST login
+- 401 UX
+- timeout
 
 ## Pasos (hazlos en orden)
 
-### 1. Config API URL (30 min)
+### 1. Config API URL (30–40 min)
 
-Flavor dev/staging. No hardcode prod secrets.
+```dart
+// Flutter ejemplo — adapta a RN
+const apiBase = String.fromEnvironment('API_BASE', defaultValue: 'http://10.0.2.2:3000');
+```
+
+```bash
+# Dev: apunta a staging M19 o local documentado en demo-login-lista.md
+```
 
 ### 2. Pantalla login (90–110 min)
 
-Email/password; maneja errores red.
+Email/password → `POST /auth/login`. Muestra error de red/credenciales.
 
-### 3. Commit
+```bash
+# Prueba contra staging:
+curl -sS -X POST "$API_BASE/auth/login" -H 'content-type: application/json' \
+  -d '{"email":"owner@demo.local","password":"***"}'
+```
 
-`feat(m20): l02 login contra api`
+### 3. Commit (15 min)
+
+```bash
+echo "## Login" > projects/m20-movil/demo-login-lista.md
+git add projects/m20-movil
+git commit -m "feat(m20): L02 login contra api staging"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +68,14 @@ Email/password; maneja errores red.
 
 Marca la lección **solo si**:
 
-1. Login feliz (artefacto: `projects/m20-movil/demo-login-lista.md (inicio)`).
-2. 401 mensaje humano (artefacto: `projects/m20-movil/demo-login-lista.md (inicio)`).
-3. HTTPS.
-4. Commit `docs(m20): L02 pantalla-login-contra-api-staging`.
+1. Login UI contra API documentada en `projects/m20-movil/demo-login-lista.md`.
+2. Errores de red/credenciales visibles (artefacto: `projects/m20-movil/demo-login-lista.md (inicio)`).
+3. Commit `docs(m20): L02 pantalla-login-contra-api-staging`.
 
 ## Errores comunes
 
-- localhost en release.
-- Password en logs.
+- Mock eterno que nunca pega a staging.
+- Hardcodear secrets de prod.
 
 ## Siguiente
 

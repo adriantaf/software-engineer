@@ -58,7 +58,7 @@ Copia mentalmente [producto-saas](../../../producto-saas.md) y [egreso](../../..
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l01 alcance-saas-v1-congelado"
 ```

@@ -13,29 +13,52 @@ evidencia: .github/workflows en m17
 
 **~5.0 h · Semana 7**
 
-Deploy sin tests = regresión garantizada.
+Deploy sin tests es regresión garantizada.
 
 ## Objetivo
 
-Workflow CI o `npm run test:ci` documentado; suite auth+roles en verde.
+Asegurar que suite auth+roles corre en CI o script documentado `npm run test:ci`.
+
+## Conceptos clave
+
+- CI
+- regresión
+- auth tests
 
 ## Pasos (hazlos en orden)
 
-### 1. Pipeline (80–100 min)
+### 1. CI o script reproducible (70–90 min)
 
-GitHub Actions (u otro) con install + test. Secrets de CI ≠ prod.
+```yaml
+# .github/workflows/m17-auth.yml (si usas GH Actions)
+name: m17-auth
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test -- auth
+```
 
-### 2. README (20 min)
+Alternativa local documentada:
 
-Badge o instrucción. Enlace a m15 si reutilizas.
+```bash
+# scripts/ci-auth.sh
+set -euo pipefail
+npm ci
+npm test -- auth
+```
 
-### 3. Cierre semana 7 (20 min)
+### 2. Evidencia + commit (30 min)
 
-`docs/semana-07.md`.
-
-### 4. Commit
-
-`ci(m17): l28 tests auth en pipeline`
+```bash
+bash scripts/ci-auth.sh   # o mira el run verde en Actions
+git add .github/workflows projects/m17-agenda-ops/scripts 2>/dev/null || true
+git add projects/m17-agenda-ops
+git commit -m "ci(m17): L28 tests auth reproducibles"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +72,13 @@ Badge o instrucción. Enlace a m15 si reutilizas.
 
 Marca la lección **solo si**:
 
-1. CI verde (artefacto: `.github/workflows en m17`).
-2. Auth en pipeline (artefacto: `.github/workflows en m17`).
-3. Cierre semana 7 (artefacto: `.github/workflows en m17`).
-4. Commit `docs(m17): L28 tests-auth-en-ci-o-script-local-reproducible`.
+1. Workflow CI **o** `scripts/ci-auth.sh` deja suite auth verde de forma reproducible.
+2. Commit `docs(m17): L28 tests-auth-en-ci-o-script-local-reproducible`.
 
 ## Errores comunes
 
-- Tests skipped en CI.
-- Solo local.
+- ‘Corre en mi laptop’ sin script/CI.
+- CI que no ejecuta tests auth.
 
 ## Siguiente
 

@@ -37,28 +37,30 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Segundo hallazgo distinto (25–35 min)
+
+En `projects/m25-ciber/hallazgos/hallazgo-02.md`: debe ser **otro** vector (p.ej. listado, update, export) distinto a hallazgo-01.
+
+### 3. Fix + test (100–130 min)
+
+Repro, root cause, PR, test automatizado o curl post-fix.
 
 ```bash
-mkdir -p projects/m25-ciber/hallazgos
+# post-fix — mismo vector que el hallazgo-02
+curl -s -w "\n%{http_code}" -H "Authorization: Bearer $TOKEN_A" \
+  "$API/EXPORT_O_UPDATE_DE_B"
 ```
 
-Confirma que escribirás `projects/m25-ciber/hallazgos/hallazgo-02.md`.
+Actualiza `hallazgos/README.md` con tabla acumulada (≥2 cerrados).
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Regresión (25–35 min)
 
-No copies plantillas legales sin revisión; borrador técnico-operativo basta para el plan.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/hallazgos/hallazgo-02.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Confirma que hallazgo-01 sigue cerrado. Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l20 segundo-hallazgo-aislamiento-cerrado"
 ```

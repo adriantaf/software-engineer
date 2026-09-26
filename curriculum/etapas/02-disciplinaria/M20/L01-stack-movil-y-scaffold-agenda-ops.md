@@ -13,29 +13,56 @@ evidencia: projects/m20-movil/stack.md + repo-url.md
 
 **~5.0 h · Semana 1**
 
-Elige Flutter **o** RN y no mires atrás sin ADR.
+Un framework, un camino hasta M20 cierre.
 
 ## Objetivo
 
-Scaffold app + `stack-movil.md` + enlace en `projects/m20-movil/README.md`.
+Elegir Flutter o RN, documentar SDK, crear scaffold y enlazar repo.
+
+## Conceptos clave
+
+- Flutter vs RN
+- staging URL
+- lint
 
 ## Pasos (hazlos en orden)
 
-### 1. Decide stack (25 min)
+### 1. Decide Flutter o RN (25–35 min)
 
-Documenta por qué.
+```bash
+mkdir -p projects/m20-movil/docs
+cat > projects/m20-movil/stack-movil.md << 'EOF'
+# Stack móvil Agenda Ops
+- Elección: Flutter X.Y  **o** React Native X.Y
+- Por qué: …
+- SDK / JDK: …
+- No cambiar sin ADR
+EOF
+```
 
-### 2. Scaffold (90–110 min)
+### 2. Scaffold app (90–110 min)
 
-App corre en emulador/dispositivo. Carpetas `lib/` o `src/`.
+```bash
+# Flutter:
+# flutter create agenda_ops_app
+# React Native:
+# npx @react-native-community/cli init AgendaOpsApp
+```
 
-### 3. Evidencia (30 min)
+App corre en emulador/dispositivo. Deja el código en submódulo o `projects/m20-movil/app/` y enlázalo en README.
 
-README m20 apunta al repo/submódulo.
+### 3. Evidencia + commit (30 min)
 
-### 4. Commit
-
-`docs(m20): l01 scaffold stack movil`
+```bash
+cat > projects/m20-movil/repo-url.md << 'EOF'
+# Código móvil
+Repo / ruta: …
+Commit scaffold: …
+EOF
+# README m20 apunta a repo-url.md y stack-movil.md
+git add projects/m20-movil
+git commit -m "docs(m20): L01 scaffold stack movil"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +76,14 @@ README m20 apunta al repo/submódulo.
 
 Marca la lección **solo si**:
 
-1. stack.md (artefacto: `projects/m20-movil/stack.md`).
-2. scaffold commit (artefacto: `projects/m20-movil/stack.md`).
-3. repo-url (artefacto: `projects/m20-movil/stack.md`).
+1. Existen `projects/m20-movil/stack-movil.md` y `projects/m20-movil/repo-url.md`.
+2. Scaffold corre en emulador/dispositivo; README enlaza el código.
+3. Commit `docs(m20): L01 stack-movil-y-scaffold-agenda-ops`.
 
 ## Errores comunes
 
-- Cambiar stack semana 3.
-- Sin versión SDK.
+- Cambiar Flutter↔RN en semana 3 sin ADR.
+- Scaffold sin versión de SDK.
 
 ## Siguiente
 

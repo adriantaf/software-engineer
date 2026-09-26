@@ -13,25 +13,47 @@ evidencia: /clientes /servicios
 
 **~5.0 h · Semana 2**
 
-Servicios definen duración/precio; clientes son PII — trázalos al SRS.
+Servicios definen duración y precio base para citas.
 
 ## Objetivo
 
-CRUD `/clientes` y `/servicios` con auth y 404 coherente.
+CRUD completo clientes y servicios con autorización owner/staff según matriz preliminar.
+
+## Conceptos clave
+
+- CRUD
+- servicio
+- cliente
 
 ## Pasos (hazlos en orden)
 
-### 1. Endpoints (100–120 min)
+### 1. CRUD clientes (50–60 min)
 
-Create/read/update/(soft)delete. Validar teléfono/nombre. No mezclar clientes entre negocios.
+```bash
+curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/clientes \
+  -H 'content-type: application/json' \
+  -d '{"nombre":"Ana Demo","telefono":"+525500000000"}'
+curl -sS -b /tmp/ao.ck http://localhost:3000/clientes
+```
 
-### 2. Tests (40–50 min)
+### 2. CRUD servicios (50–60 min)
 
-Feliz + 404 + 401. Update servicio cambia duración usada en citas nuevas (documenta comportamiento).
+```bash
+curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/servicios \
+  -H 'content-type: application/json' \
+  -d '{"nombre":"Corte","duracionMin":30,"precioCentavos":25000}'
+curl -sS -b /tmp/ao.ck http://localhost:3000/servicios
+```
 
-### 3. Commit
+PATCH/DELETE según matriz (staff no borra si owner-only).
 
-`feat(m17): l07 crud clientes servicios`
+### 3. Tests + commit (40 min)
+
+```bash
+npm test -- clientes servicios
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L07 crud clientes y servicios"
+```
 
 ## Lectura de esta lección
 
@@ -45,14 +67,14 @@ Feliz + 404 + 401. Update servicio cambia duración usada en citas nuevas (docum
 
 Marca la lección **solo si**:
 
-1. CRUD ambos recursos (artefacto: `/clientes /servicios`).
-2. Tests (artefacto: `/clientes /servicios`).
-3. Commit (artefacto: `/clientes /servicios`).
+1. CRUD `/clientes` y `/servicios` autenticados.
+2. Tests mínimos create/list (+ delete owner-only si aplica).
+3. Commit `docs(m17): L07 crud-clientes-y-servicios`.
 
 ## Errores comunes
 
-- Mezclar cliente entre negocios.
-- Sin validación.
+- DELETE servicio sin chequear rol.
+- Teléfonos reales de clientes en seeds de test.
 
 ## Siguiente
 

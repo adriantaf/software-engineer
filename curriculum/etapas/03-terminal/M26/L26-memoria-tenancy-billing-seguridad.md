@@ -35,34 +35,24 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Outline de narrativa (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria
-```
+En `projects/m26-capstone/memoria/tenancy-billing-seguridad.md`: H2 Tenancy | Billing | Seguridad.
 
-Confirma que escribirás `projects/m26-capstone/memoria/tenancy-billing-seguridad.md`.
+### 3. Escribe para un tercero (100–120 min)
 
-### 3. Laboratorio principal (100–130 min)
+Cada H2: cómo funciona en **tu** producto + 2 evidencias (path test, URL, PR).
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+Un mentor debe entender sin tu voz en vivo. Enlaza L03, L17–L20, L21–L24.
 
-Un tercero entiende sin tu voz en vivo.
+### 4. Pasa el test del screenshot (25–35 min)
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-07.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/tenancy-billing-seguridad.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Si quitas tu cara del video, ¿el doc basta? Ajusta. Bitácora semana-07.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l26 memoria-tenancy-billing-seguridad"
 ```

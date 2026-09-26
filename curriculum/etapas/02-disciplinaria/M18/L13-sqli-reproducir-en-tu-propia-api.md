@@ -13,25 +13,44 @@ evidencia: projects/m18-appsec/findings/001-sqli.md
 
 **~5.0 h · Semana 4**
 
-Solo contra tu API. Busca concatenación SQL en búsquedas de cliente/cita.
+Solo contra tu API. P2 empieza con hallazgo real; SQLi sigue vivo en ORMs mal usados.
 
 ## Objetivo
 
-PoC SQLi o “no reproducible con ORM” con evidencia de query parametrizada.
+PoC o “no reproducible con ORM” en `projects/m18-appsec/findings/001-sqli.md` (sin PII real).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Caza (60 min)
+### 1. Caza concatenación SQL (50–60 min)
 
-`rg` de SQL string concat / `$query` peligrosos.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n "\$\{|query\(|\.query\(|execute\(|raw\(|sql`" -g '!node_modules' | head -50
+rg -n "SELECT.*\+|WHERE.*\+" -g '*.ts' -g '*.js' | head -20 || true
+```
+### 2. PoC controlada (60–80 min)
 
-### 2. PoC (60–80 min)
+Cuenta de prueba. Payload en búsqueda clientes/citas. **No** `DROP` en staging compartido.
 
-Payload en campo búsqueda; captura en `pocs/sqli.md`. Si ORM puro: documenta intento fallido.
+```bash
+mkdir -p projects/m18-appsec/findings projects/m18-appsec/pocs
+cat > projects/m18-appsec/findings/001-sqli.md <<'EOF'
+# Finding 001 — SQLi
+- Endpoint:
+- Payload (ejemplo): `' OR '1'='1`
+- Respuesta / impacto:
+- ¿ORM parametrizado? evidencia:
+- PII: ninguna en este reporte
+EOF
+# Ejemplo de prueba (ajusta query param)
+curl -sG "localhost:3000/api/clientes" --data-urlencode "q=' OR '1'='1" | head -c 400
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`docs(m18): l13 poc sqli`
+```bash
+git add projects/m18-appsec/findings/001-sqli.md
+git commit -m "docs(m18): l13 poc sqli"
+```
 
 ## Lectura de esta lección
 
@@ -47,8 +66,7 @@ Marca la lección **solo si**:
 
 1. Finding documentado o prueba de mitigación (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
 2. Solo tu entorno (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
-3. Sin PII en el reporte (artefacto: `projects/m18-appsec/findings/001-sqli.md`).
-4. Commit `docs(m18): L13 sqli-reproducir-en-tu-propia-api`.
+3. Commit `docs(m18): L13 sqli-reproducir-en-tu-propia-api`.
 
 ## Errores comunes
 

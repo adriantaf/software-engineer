@@ -37,28 +37,24 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Índice de playbooks (25–35 min)
 
-```bash
-mkdir -p projects/m25-ciber
-```
+En `projects/m25-ciber/runbook-incidentes.md` enlaza tabletops L21–L22 + hardening relevante.
 
-Confirma que escribirás `projects/m25-ciber/runbook-incidentes.md`.
+### 3. Runbook operable (100–120 min)
 
-### 3. Laboratorio principal (100–130 min)
+Secciones fijas: **Severidad**, **Contactos**, **Contención 15 min**, **Evidencia a preservar**, **Comunicación**, **Post-mortem**.
 
-Cada tabletop: línea de tiempo, decisiones, acciones con dueño y fecha.
+Cada sección con pasos numerados ejecutables a las 3 a.m.
 
-### 4. Criterio de calidad (30–45 min)
+### 4. Enlace desde ops (20–30 min)
 
-Relee `projects/m25-ciber/runbook-incidentes.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Añade link desde `projects/m25-ciber/README.md` o runbook M19. Bitácora semana-06.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l23 runbook-de-respuesta-incidentes"
 ```

@@ -13,29 +13,52 @@ evidencia: POST /auth/login + GET /me
 
 **~5.0 h · Semana 1**
 
-El panel necesita identidad servidor-confiable: cookie HttpOnly (preferida) o JWT en cookie documentada.
+El panel Agenda Ops necesita identidad servidor-confiable.
 
 ## Objetivo
 
-`POST /auth/login` + `GET /me` con 401 sin credencial; documentar elección en `docs/auth.md`.
+Login con cookie HttpOnly o JWT en cookie; `GET /me` devuelve 401 sin credencial.
+
+## Conceptos clave
+
+- sesión
+- 401
+- HttpOnly
 
 ## Pasos (hazlos en orden)
 
 ### 1. Decide sesión vs JWT-cookie (20–30 min)
 
-Escribe en `docs/auth.md`: opción, por qué, riesgos XSS/CSRF. Evita localStorage sin justificar.
+```bash
+mkdir -p projects/m17-agenda-ops/docs
+cat > projects/m17-agenda-ops/docs/auth.md << 'EOF'
+# Auth Agenda Ops
+- Mecanismo: cookie HttpOnly (preferido) / JWT-en-cookie
+- Secure / SameSite: ...
+- Riesgos XSS/CSRF y mitigación
+EOF
+```
 
-### 2. Implementa login + me (80–100 min)
+### 2. Implementa login + GET /me (80–100 min)
 
-Login verifica hash; setea cookie Secure/HttpOnly/SameSite (en local puedes relajar Secure documentándolo). `GET /me` lee sesión y devuelve id, email, rol — no el hash.
+Login verifica hash; setea cookie. `GET /me` → id, email, rol (sin hash).
 
-### 3. Tests 401/200 (40–50 min)
+```bash
+curl -sS -c /tmp/ao.ck -X POST http://localhost:3000/auth/login \
+  -H 'content-type: application/json' \
+  -d '{"email":"owner@demo.local","password":"Secreto123!"}'
+curl -sS -b /tmp/ao.ck http://localhost:3000/me
+curl -sS -o /tmp/me.out -w "%{http_code}" http://localhost:3000/me
+# sin cookie → 401
+```
 
-Login → me 200; request sin cookie → 401; password malo → 401 (sin filtrar “email existe” si puedes).
+### 3. Tests 401/200 + commit (40–50 min)
 
-### 4. Commit
-
-`feat(m17): l03 login sesion y me`
+```bash
+npm test -- auth
+git add projects/m17-agenda-ops/docs/auth.md projects/m17-agenda-ops
+git commit -m "feat(m17): L03 login sesion y me"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +72,16 @@ Login → me 200; request sin cookie → 401; password malo → 401 (sin filtrar
 
 Marca la lección **solo si**:
 
-1. Login+me (artefacto: `POST /auth/login`).
-2. 401 test (artefacto: `POST /auth/login`).
-3. auth.md (artefacto: `POST /auth/login`).
+1. `projects/m17-agenda-ops/docs/auth.md` documenta cookie HttpOnly o JWT-cookie.
+2. `POST /auth/login` + `GET /me` 200 con sesión; sin cookie → 401.
+3. Tests cubren login→me y 401 (artefacto: `POST /auth/login`).
 4. Commit `docs(m17): L03 login-sesion-y-get-me-protegido`.
 
 ## Errores comunes
 
-- JWT localStorage sin doc.
-- Me devuelve todo el row.
+- JWT en localStorage sin justificar XSS.
+- `GET /me` sin auth devuelve 200.
+- Devolver row completo con hash.
 
 ## Siguiente
 

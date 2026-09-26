@@ -13,23 +13,34 @@ evidencia: projects/m20-movil/README.md índice
 
 **~5.0 h · Semana 5**
 
-Cierra P1–P3 y criterios de dominio móvil.
+Cierras materia móvil antes de emprendimiento M22.
 
 ## Objetivo
 
-README índice + autoevaluación dominio + enlace artefacto.
+Verificar P1–P3, criterios dominio, enlaces evidencia.
+
+## Conceptos clave
+
+- README
+- dominio
 
 ## Pasos (hazlos en orden)
 
-### 1. Auditoría (50 min)
+### 1. README índice proyecto (50–60 min)
 
-### 2. Criterios dominio (50–60 min)
+```bash
+ls projects/m20-movil
+# README debe enlazar: stack-movil.md, auth-storage.md, demo-login-lista.md,
+# build-evidence.md, logging-policy.md, release-notes.md, repo-url.md
+rg -n "stack-movil|auth-storage|demo-login|build-evidence" projects/m20-movil/README.md
+```
 
-### 3. README final (30 min)
+### 2. Commit cierre (15 min)
 
-### 4. Commit
-
-`docs(m20): l20 cierre dominio`
+```bash
+git add projects/m20-movil
+git commit -m "docs(m20): L20 cierre dominio readme"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +54,13 @@ README índice + autoevaluación dominio + enlace artefacto.
 
 Marca la lección **solo si**:
 
-1. README completo (artefacto: `projects/m20-movil/README.md índice`).
-2. P1–P3 (artefacto: `projects/m20-movil/README.md índice`).
-3. Criterios con evidencia (artefacto: `projects/m20-movil/README.md índice`).
-4. Commit `docs(m20): L20 cierre-m20-dominio-y-readme-proyecto`.
+1. `projects/m20-movil/README.md` índice enlaza stack, auth-storage, demo, build, logging, release.
+2. Commit `docs(m20): L20 cierre-m20-dominio-y-readme-proyecto`.
 
 ## Errores comunes
 
-- README vacío.
-- Build solo emulador.
+- README sin enlaces a evidencias.
+- Código móvil sin URL/ruta.
 
 ## Siguiente
 

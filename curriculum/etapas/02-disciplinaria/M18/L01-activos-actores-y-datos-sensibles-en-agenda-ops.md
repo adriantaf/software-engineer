@@ -13,31 +13,58 @@ evidencia: projects/m18-appsec/threat-model-v0.md sección Activos
 
 **~5.0 h · Semana 1**
 
-Sin lista de activos, el threat model es decoración.
+Sin lista de activos, el threat model es decoración. Hoy arrancas P1 y el hilo OWASP.
 
 ## Objetivo
 
-Tablas de actores y ≥5 activos en `threat-model-v0.md` (PII, credenciales, citas, tokens, Postgres).
+Completar tablas Actores y ≥5 Activos en `projects/m18-appsec/threat-model-v0.md` (PII, credenciales, citas, tokens, Postgres).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Carpeta evidencia (15 min)
+### 1. Carpeta de evidencia (15 min)
+
+Crea la estructura si aún no existe:
 
 ```bash
-mkdir -p projects/m18-appsec/{pocs,fixes,tests,ci}
+mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}
+ls projects/m18-appsec
 ```
-
 ### 2. Actores y activos (80–100 min)
 
-Dueño, staff, cliente final, atacante anónimo. Activos con clasificación (confidencialidad). Diagrama: navegador → API → Postgres.
+Abre `projects/m18-appsec/threat-model-v0.md`. Completa **Actores** (dueño, staff, cliente final, atacante anónimo) y **Activos** (≥5) con confidencialidad. Diagrama: navegador → API → Postgres.
 
-### 3. Superficie JSON (30 min)
+```markdown
+## Actores
+| Actor | Objetivos | Capacidades |
+|-------|-----------|-------------|
+| Dueño (owner) | Gestionar negocio | CRUD total |
+| Staff | Operar citas | CRUD limitado |
+| Cliente final | Pedir cita | Solo sus datos |
+| Atacante anónimo | Robar PII / sesión | Sin credenciales |
 
-Marca qué campos salen en `/api/citas`. `git ls-files | rg -i 'env|secret|pem'`.
+## Activos (≥5)
+| Activo | Confidencialidad | Dónde vive |
+|--------|------------------|------------|
+| Teléfono cliente | Alta | `clientes.telefono` |
+| Hash password | Crítica | `users.password_hash` |
+| Notas de cita | Alta | `citas.notas` |
+| Cookie de sesión | Crítica | `Set-Cookie` |
+| Postgres | Crítica | volumen / hosting |
+```
+### 3. Superficie JSON + anti-secretos (30–40 min)
 
-### 4. Commit
+Marca qué campos salen en `GET /api/citas`. Ejecuta el barrido y anota rutas (sin pegar secretos):
 
-`docs(m18): l01 activos actores agenda ops`
+```bash
+git ls-files | rg -i 'env|secret|credential|\.pem' || true
+```
+### 4. Commit (10–15 min)
+
+```bash
+git add projects/m18-appsec/threat-model-v0.md
+git status   # sin .env
+git commit -m "docs(m18): l01 activos actores agenda ops"
+```
 
 ## Lectura de esta lección
 
@@ -53,8 +80,7 @@ Marca la lección **solo si**:
 
 1. Existe `projects/m18-appsec/threat-model-v0.md` con actores y ≥5 activos.
 2. Diagrama ASCII o Mermaid del piloto (artefacto: `projects/m18-appsec/threat-model-v0.md sección Activos`).
-3. Comando anti-secretos ejecutado y anotado (artefacto: `projects/m18-appsec/threat-model-v0.md sección Activos`).
-4. Commit `docs(m18): L01 activos-actores-y-datos-sensibles-en-agenda-ops`.
+3. Commit `docs(m18): L01 activos-actores-y-datos-sensibles-en-agenda-ops`.
 
 ## Errores comunes
 

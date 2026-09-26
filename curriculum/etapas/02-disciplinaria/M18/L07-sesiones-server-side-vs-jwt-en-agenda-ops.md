@@ -6,32 +6,65 @@ titulo: Sesiones server-side vs JWT en Agenda Ops
 horas: 5.0
 semana: 2
 lectura: Session Management + JWT Cheat Sheets
-evidencia: projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)
+evidencia: projects/m18-appsec/docs/adr-sesion-vs-jwt.md (o enlace ADR M13)
 ---
 
 # L07 — Sesiones server-side vs JWT en Agenda Ops
 
 **~5.0 h · Semana 2**
 
-Elige o ratifica con ADR corto de seguridad.
+M13 pudo dejar la decisión abierta; M18 la cierra con ojos de seguridad.
 
 ## Objetivo
 
-`docs/adr-sesion-vs-jwt.md` + riesgos XSS/CSRF de la opción.
+ADR en `projects/m18-appsec/docs/adr-sesion-vs-jwt.md`: decisión, alternativas, impacto XSS/CSRF/móvil M20.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Compara (50 min)
+### 1. Compara en contexto (40–50 min)
 
-Tabla pros/contras en contexto panel+API same-site vs SPA cross-origin.
+Tabla pros/contras: panel+API same-site vs SPA cross-origin; revocación; HttpOnly vs `Authorization`.
 
-### 2. ADR (60–70 min)
+```bash
+mkdir -p projects/m18-appsec/docs
+cat > projects/m18-appsec/docs/adr-sesion-vs-jwt.md <<'EOF'
+# ADR — Sesión server-side vs JWT
 
-Decisión, mitigaciones obligatorias (HttpOnly, TTL, revoke).
+## Contexto
+Agenda Ops: panel web + API; móvil M20 futuro.
 
-### 3. Commit
+## Opciones
+| Opción | Revocación | XSS | CSRF | Móvil |
+|--------|------------|-----|------|-------|
+| Sesión + cookie HttpOnly | inmediata (DB) | mejor | riesgo CSRF | cookie jar |
+| JWT en memoria / header | short TTL / deny-list | si en storage, peor | menos CSRF | natural |
+| Híbrido | … | … | … | … |
 
-`docs(m18): l07 adr sesion jwt`
+## Decisión
+…
+
+## Consecuencias / mitigaciones obligatorias
+- HttpOnly / TTL / revoke / SameSite …
+EOF
+```
+### 2. Prueba logout/reuse (40–50 min)
+
+Login → copiar cookie/token → logout → reutilizar (debe fallar). Anota en la ADR.
+
+```bash
+# Ejemplo cookie de sesión (ajusta nombre/URL)
+curl -c /tmp/m18-cj -s -X POST localhost:3000/auth/login \
+  -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"***"}' -o /dev/null -w "%{http_code}\n"
+curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout -w "%{http_code}\n"
+curl -b /tmp/m18-cj -s localhost:3000/api/citas -w "\n%{http_code}\n" | tail -3
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/adr-sesion-vs-jwt.md
+git commit -m "docs(m18): l07 adr sesion jwt"
+```
 
 ## Lectura de esta lección
 
@@ -45,10 +78,9 @@ Decisión, mitigaciones obligatorias (HttpOnly, TTL, revoke).
 
 Marca la lección **solo si**:
 
-1. ADR con alternativas (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
-2. Prueba logout/reuse documentada (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
-3. Coherente con móvil futuro (artefacto: `projects/m18-appsec/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
-4. Commit `docs(m18): L07 sesiones-server-side-vs-jwt-en-agenda-ops`.
+1. ADR con alternativas (artefacto: `projects/m18-appsec/docs/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
+2. Prueba logout/reuse documentada (artefacto: `projects/m18-appsec/docs/adr-sesion-vs-jwt.md (o enlace ADR M13)`).
+3. Commit `docs(m18): L07 sesiones-server-side-vs-jwt-en-agenda-ops`.
 
 ## Errores comunes
 

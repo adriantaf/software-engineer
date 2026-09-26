@@ -13,25 +13,40 @@ evidencia: projects/m17-agenda-ops/docs/owasp-mapa.md
 
 **~5.0 h · Semana 7**
 
-M18 profundiza; hoy ubicas huecos con honestidad.
+M18 profundiza; hoy ubicas huecos.
 
 ## Objetivo
 
-`docs/owasp-mapa.md` ≥8 filas: riesgo → mitigación actual / gap M18.
+Tabla: cada riesgo → mitigación actual o gap hacia M18.
+
+## Conceptos clave
+
+- OWASP
+- gap
+- mitigación
 
 ## Pasos (hazlos en orden)
 
-### 1. Recorre Top 10 (50–60 min)
+### 1. Mapa OWASP Top 10 (80–100 min)
 
-Para cada ítem, ¿dónde pega en citas/auth/admin?
+```bash
+cat > projects/m17-agenda-ops/docs/owasp-mapa.md << 'EOF'
+# OWASP Top 10 → Agenda Ops
+| Riesgo | ¿Aplica? | Control en piloto | Gap |
+|--------|----------|-------------------|-----|
+| A01 Broken Access Control | sí | authorize()+tests 403 | |
+| A02 Cryptographic Failures | sí | bcrypt + HTTPS | |
+EOF
+```
 
-### 2. Tabla (70–90 min)
+Cubre al menos A01–A05 con evidencia (ruta de test o doc).
 
-Columnas: ID OWASP, superficie Agenda Ops, estado (ok/parcial/gap), evidencia (test/commit).
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m17): l25 mapa owasp piloto`
+```bash
+git add projects/m17-agenda-ops/docs/owasp-mapa.md
+git commit -m "docs(m17): L25 mapa owasp top10"
+```
 
 ## Lectura de esta lección
 
@@ -45,14 +60,13 @@ Columnas: ID OWASP, superficie Agenda Ops, estado (ok/parcial/gap), evidencia (t
 
 Marca la lección **solo si**:
 
-1. owasp-mapa.md (artefacto: `projects/m17-agenda-ops/docs/owasp-mapa.md`).
-2. Gaps M18 (artefacto: `projects/m17-agenda-ops/docs/owasp-mapa.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/owasp-mapa.md`).
+1. `projects/m17-agenda-ops/docs/owasp-mapa.md` cubre ≥A01–A05 con control o gap.
+2. Commit `docs(m17): L25 mapa-owasp-top-10-en-el-piloto`.
 
 ## Errores comunes
 
-- Marcar todo mitigado.
-- Ignorar auth.
+- Tabla OWASP vacía o copy-paste sin controles del repo.
+- Ignorar Broken Access Control.
 
 ## Siguiente
 

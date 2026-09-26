@@ -13,25 +13,56 @@ evidencia: projects/m18-appsec/ci-appsec.yml snippet o enlace workflow
 
 **~5.0 h · Semana 8**
 
-P3: CI con lint+test+audit+grep secretos.
+P3: cada PR corre lint+test+audit (+ grep secretos).
 
 ## Objetivo
 
-Workflow verde documentado en `projects/m18-appsec/ci/`.
+Workflow documentado en `projects/m18-appsec/ci/ci-appsec.yml` (o enlace) + `projects/m18-appsec/ci/README.md` con run id.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Pipeline (100–120 min)
+### 1. Scaffold workflow (40–50 min)
 
-Enlace al workflow del repo app. Job anti-secretos básico.
+```bash
+mkdir -p projects/m18-appsec/ci
+cat > projects/m18-appsec/ci/ci-appsec.yml <<'EOF'
+# Copiar a .github/workflows/appsec.yml del repo producto
+name: appsec
+on: [pull_request, push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm audit --audit-level=high
+      - name: anti-secrets
+        run: |
+          ! git ls-files | rg -i '\.env$|id_rsa|\.pem$'
+EOF
+```
+### 2. Ejecuta en branch de prueba (60–80 min)
 
-### 2. Evidencia (30 min)
+Copia al repo producto, push, pega run id en `projects/m18-appsec/ci/README.md`.
 
-Log CI o script local reproducible.
+```bash
+cat > projects/m18-appsec/ci/README.md <<'EOF'
+# CI AppSec
+- Workflow: .github/workflows/appsec.yml
+- Run id / URL:
+- Jobs: lint, test, audit, anti-secrets
+EOF
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`ci(m18): l29 pipeline p3`
+```bash
+git add projects/m18-appsec/ci
+git commit -m "ci(m18): l29 pipeline p3"
+```
 
 ## Lectura de esta lección
 
@@ -47,8 +78,7 @@ Marca la lección **solo si**:
 
 1. CI documentado (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
 2. Audit en pipeline (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
-3. Run verde o excepciones justificadas (artefacto: `projects/m18-appsec/ci-appsec.yml snippet o enlace workflow`).
-4. Commit `docs(m18): L29 pipeline-ci-lint-test-audit-anti-secretos`.
+3. Commit `docs(m18): L29 pipeline-ci-lint-test-audit-anti-secretos`.
 
 ## Errores comunes
 

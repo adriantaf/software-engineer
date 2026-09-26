@@ -13,23 +13,39 @@ evidencia: projects/m20-movil/demo-login-lista.md
 
 **~5.0 h · Semana 2**
 
-P1: lista real del día/negocio.
+P1 M20: login + lista evidenciada.
 
 ## Objetivo
 
-Pantalla lista con `Authorization`/cookie según API; datos seed visibles.
+GET citas con token; mostrar fecha, cliente, servicio, estado.
+
+## Conceptos clave
+
+- Authorization header
+- JSON parse
+- orden
 
 ## Pasos (hazlos en orden)
 
-### 1. Fetch lista (90–110 min)
+### 1. GET /citas autenticado (80–100 min)
 
-### 2. UI fila cita (40 min)
+```bash
+# Misma cookie/Bearer que web — documenta el esquema en stack-movil.md
+curl -sS -b /tmp/st.ck "$API_BASE/citas"
+```
 
-Hora, cliente, estado.
+Lista en UI con fecha/cliente/servicio.
 
-### 3. Commit
+### 2. Evidencia P1 (30 min)
 
-`feat(m20): l05 lista citas`
+```bash
+cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+## Lista citas
+Fecha demo: …  API: staging …  Resultado: OK
+EOF
+git add projects/m20-movil/demo-login-lista.md
+git commit -m "feat(m20): L05 lista citas autenticada"
+```
 
 ## Lectura de esta lección
 
@@ -43,14 +59,13 @@ Hora, cliente, estado.
 
 Marca la lección **solo si**:
 
-1. Lista con datos reales API (artefacto: `projects/m20-movil/demo-login-lista.md`).
-2. commit hash en doc (artefacto: `projects/m20-movil/demo-login-lista.md`).
-3. token adjunto (artefacto: `projects/m20-movil/demo-login-lista.md`).
+1. `projects/m20-movil/demo-login-lista.md` registra lista de citas contra API real (P1).
+2. Commit `docs(m20): L05 lista-de-citas-autenticada`.
 
 ## Errores comunes
 
-- Mock JSON.
-- Datos inventados.
+- Lista desde JSON local fingiendo API.
+- Sin auth header/cookie.
 
 ## Siguiente
 

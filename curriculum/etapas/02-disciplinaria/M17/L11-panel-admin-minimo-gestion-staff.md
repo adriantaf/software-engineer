@@ -13,29 +13,38 @@ evidencia: ruta /admin o equivalente
 
 **~5.0 h · Semana 3**
 
-El dueño administra su equipo aquí — feo pero claro.
+El dueño del negocio administra su equipo aquí.
 
 ## Objetivo
 
-Ruta admin: listar/crear staff solo owner; `docs/ui-admin.md`.
+Pantalla admin: listar staff, invitar o crear staff (según SRS), solo owner.
+
+## Conceptos clave
+
+- admin
+- invitación
+- UX claro
 
 ## Pasos (hazlos en orden)
 
-### 1. API admin si falta (40–50 min)
+### 1. Ruta /admin mínima (70–90 min)
 
-Endpoints alineados a matriz.
+UI o API: listar staff, invitar/desactivar. Solo owner.
 
-### 2. UI mínima (80–100 min)
+```bash
+curl -sS -b /tmp/ao.ck http://localhost:3000/admin/staff
+curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n" http://localhost:3000/admin/staff
+# 403
+```
 
-Lista + formulario. Errores 403 visibles. Sin CSS hero.
+### 2. Evidencia + commit (40 min)
 
-### 3. Doc (20 min)
+Anota URL/ruta en `docs/permisos.md` o captura redactada en `docs/`.
 
-`docs/ui-admin.md` con pasos de demo.
-
-### 4. Commit
-
-`feat(m17): l11 panel admin staff`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L11 panel admin staff"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +58,13 @@ Lista + formulario. Errores 403 visibles. Sin CSS hero.
 
 Marca la lección **solo si**:
 
-1. Admin usable (artefacto: `ruta /admin o equivalente`).
-2. Owner-only verificado (artefacto: `ruta /admin o equivalente`).
-3. ui-admin.md (artefacto: `ruta /admin o equivalente`).
-4. Commit `docs(m17): L11 panel-admin-minimo-gestion-staff`.
+1. Ruta `/admin` (o equiv.) lista/gestiona staff; staff recibe 403.
+2. Commit `docs(m17): L11 panel-admin-minimo-gestion-staff`.
 
 ## Errores comunes
 
-- Admin sin auth.
-- Confundir roles.
+- Admin usable por staff.
+- Invitar staff sin audit/nota.
 
 ## Siguiente
 

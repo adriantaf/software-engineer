@@ -245,22 +245,38 @@ def enrich_errores(spec: dict) -> list[str]:
 
 
 def default_m25_m26_labs(materia: str, evidencia: str, pasos_extra: str) -> list[tuple[str, str, str]]:
-    """Ensure thin generator labs still have ≥3 concrete timed steps."""
+    """Fallback labs without redundant mkdir (overlays should cover M25/M26)."""
     chunks = split_pasos(pasos_extra)
-    parent = str(Path(evidencia).parent)
-    mkdir = f"""```bash
-mkdir -p {parent}
-```"""
-    lab_body = "\n\n".join(chunks) if chunks else f"Produce el entregable `{evidencia}` con contenido verificable (no placeholder)."
+    # Drop chunks that are only mkdir scaffolding
+    chunks = [
+        c
+        for c in chunks
+        if "mkdir -p" not in c or len(c.strip().splitlines()) > 4
+    ]
+    lab_body = (
+        "\n\n".join(chunks)
+        if chunks
+        else f"Produce el entregable `{evidencia}` con contenido verificable (comandos, IDs redactados, conclusión)."
+    )
     return [
-        ("Prepara carpetas", "15–25 min", mkdir + f"\n\nConfirma que escribirás `{evidencia}`."),
-        ("Laboratorio principal", "100–130 min", lab_body),
+        (
+            "Laboratorio principal",
+            "100–130 min",
+            lab_body + f"\n\nEscribe el resultado en `{evidencia}`.",
+        ),
+        (
+            "Prueba o demo mínima",
+            "40–60 min",
+            f"""Ejecuta un comando o flujo que demuestre el entregable (curl, test, captura redactada).
+
+Documenta el resultado al final de `{evidencia}` (status HTTP, conteo, o enlace a PR).""",
+        ),
         (
             "Criterio de calidad",
-            "30–45 min",
+            "25–35 min",
             f"""Relee `{evidencia}`: ¿un mentor externo entendería el resultado sin preguntarte?
 
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.""",
+Bitácora de la semana: 5 líneas de horas y bloqueos.""",
         ),
     ]
 

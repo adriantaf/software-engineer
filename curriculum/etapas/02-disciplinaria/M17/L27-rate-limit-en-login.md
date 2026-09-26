@@ -13,29 +13,42 @@ evidencia: rate limit middleware
 
 **~5.0 h · Semana 7**
 
-Piloto en internet ⇒ mínimo anti-fuerza bruta.
+Piloto público en internet necesita mínimo anti-fuerza bruta.
 
 ## Objetivo
 
-Rate limit login → 429 documentado; no romper CI.
+Limitar intentos login por IP/usuario con respuesta 429 documentada.
+
+## Conceptos clave
+
+- rate limit
+- 429
+- login
 
 ## Pasos (hazlos en orden)
 
-### 1. Middleware (70–90 min)
+### 1. Rate limit login (70–90 min)
 
-Por IP y/o email; ventana corta; mensaje claro.
+```ts
+// p.ej. 5 intentos / 15 min por IP+email en POST /auth/login → 429
+```
 
-### 2. Prueba (40 min)
+```bash
+for i in $(seq 1 8); do
+  curl -sS -o /dev/null -w "%{http_code}\\n" -X POST http://localhost:3000/auth/login \
+    -H 'content-type: application/json' \
+    -d '{"email":"owner@demo.local","password":"wrong"}'
+done
+# últimos → 429
+```
 
-N intentos → 429. Config de test con umbral bajo.
+### 2. Tests + commit (40 min)
 
-### 3. Doc (15 min)
-
-Úsalo en owasp-mapa (A07).
-
-### 4. Commit
-
-`feat(m17): l27 rate limit login`
+```bash
+npm test -- rate-limit
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L27 rate limit login"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +62,13 @@ N intentos → 429. Config de test con umbral bajo.
 
 Marca la lección **solo si**:
 
-1. Rate limit (artefacto: `rate limit middleware`).
-2. 429 test o manual (artefacto: `rate limit middleware`).
-3. Commit (artefacto: `rate limit middleware`).
+1. `POST /auth/login` responde 429 tras ráfaga; test o script lo demuestra.
+2. Commit `docs(m17): L27 rate-limit-en-login`.
 
 ## Errores comunes
 
-- Sin límite.
-- Lockout permanente sin doc.
+- Rate limit solo en memoria sin doc de multi-instancia.
+- 429 sin test.
 
 ## Siguiente
 

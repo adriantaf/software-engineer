@@ -37,34 +37,31 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Esqueleto de 8 sprints (30–40 min)
 
-```bash
-mkdir -p projects/m26-capstone
-```
+En `projects/m26-capstone/plan-8-semanas.md` tabla:
 
-Confirma que escribirás `projects/m26-capstone/plan-8-semanas.md`.
+| Semana | Entregable | Demo | Riesgo |
+|--------|------------|------|--------|
 
-### 3. Laboratorio principal (100–130 min)
+Una fila por semana 1–8. Fechas reales.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+### 3. Checklist de egreso honesto (90–110 min)
 
-`plan-8-semanas.md` con 8 sprints, entregable y fecha demo pública. `egreso-checklist.md` estado actual sin autoengaño.
+Crea/actualiza `projects/m26-capstone/egreso-checklist.md` copiando ítems de [egreso](../../../egreso.md).
 
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-01.md`.
+Columnas: ítem | estado (hecho/parcial/no) | evidencia (path/URL) | gap.
 
-### 4. Criterio de calidad (30–45 min)
+Marca en rojo lo que aún es “no” — sin autoengaño.
 
-Relee `projects/m26-capstone/plan-8-semanas.md`: ¿un mentor externo entendería el resultado sin preguntarte?
+### 4. Bitácora semana 1 (20–30 min)
 
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+`bitacora/semana-01.md`: horas plan vs real; 1 dependencia bloqueante.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l02 plan-8-semanas-y-egreso-checklist-honest"
 ```

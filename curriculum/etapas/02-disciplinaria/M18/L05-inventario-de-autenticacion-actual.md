@@ -6,32 +6,74 @@ titulo: Inventario de autenticación actual
 horas: 5.0
 semana: 2
 lectura: OWASP A07 + Authentication Cheat Sheet
-evidencia: projects/m18-appsec/auth-inventory.md
+evidencia: projects/m18-appsec/docs/auth-inventario.md
 ---
 
 # L05 — Inventario de autenticación actual
 
 **~5.0 h · Semana 2**
 
-Antes de endurecer, documentas qué hay en M17.
+Antes de endurecer, documentas qué hay en M17. Fotografía del estado auth.
 
 ## Objetivo
 
-`docs/auth-inventario.md`: mecanismo, almacenamiento token/sesión, endpoints auth.
+`projects/m18-appsec/docs/auth-inventario.md`: mecanismo, almacenamiento token/sesión, endpoints públicos vs autenticados.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inspección código (60–80 min)
+### 1. Inspección en el repo producto (40–50 min)
 
-Dónde se hashea, dónde se setea cookie, refresh o no.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'bcrypt|argon2|passport|jsonwebtoken|express-session|setCookie|Set-Cookie|sign\(|verify\(' \
+  -g '!node_modules' -g '!dist' | head -40
+```
+### 2. Inventario happy path + edges (70–90 min)
 
-### 2. Tabla riesgos (40–50 min)
+Describe paso a paso registro/login/logout y 2 edge cases (password malo, usuario inexistente). Sin passwords ni tokens reales.
 
-localStorage vs cookie; falta rotación; logout incompleto.
+```bash
+mkdir -p projects/m18-appsec/docs
+cat > projects/m18-appsec/docs/auth-inventario.md <<'EOF'
+# Inventario de autenticación — Agenda Ops
 
-### 3. Commit
+## Endpoints
+| Método | Ruta | Público | Notas |
+|--------|------|---------|-------|
+| POST | /auth/login | sí | |
+| POST | /auth/logout | auth | |
+| POST | /auth/register | ? | |
 
-`docs(m18): l05 inventario autenticacion`
+## Transporte / almacenamiento
+- Cookie: nombre=… · HttpOnly=… · Secure=… · SameSite=…
+- o `Authorization: Bearer …` (dónde se guarda en el cliente)
+
+## Edge cases
+1. Password malo → status/mensaje
+2. Usuario inexistente → ¿mismo mensaje genérico?
+
+## Riesgos preliminares
+- localStorage vs cookie
+- rotación de sesión
+- logout incompleto
+EOF
+```
+### 3. Verifica mensajes uniformes (20–30 min)
+
+```bash
+# Dos intentos; compara cuerpo (sin pegar tokens)
+curl -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"noexiste@test.local","password":"x"}' | head -c 200
+echo
+curl -s -X POST localhost:3000/auth/login -H 'content-type: application/json' \
+  -d '{"email":"owner@test.local","password":"wrong"}' | head -c 200
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/docs/auth-inventario.md
+git commit -m "docs(m18): l05 inventario autenticacion"
+```
 
 ## Lectura de esta lección
 
@@ -45,10 +87,9 @@ localStorage vs cookie; falta rotación; logout incompleto.
 
 Marca la lección **solo si**:
 
-1. Inventario con endpoints reales (artefacto: `projects/m18-appsec/auth-inventory.md`).
-2. Público vs autenticado claro (artefacto: `projects/m18-appsec/auth-inventory.md`).
-3. Sin passwords en el doc (artefacto: `projects/m18-appsec/auth-inventory.md`).
-4. Commit `docs(m18): L05 inventario-de-autenticacion-actual`.
+1. Inventario con endpoints reales (artefacto: `projects/m18-appsec/docs/auth-inventario.md`).
+2. Público vs autenticado claro (artefacto: `projects/m18-appsec/docs/auth-inventario.md`).
+3. Commit `docs(m18): L05 inventario-de-autenticacion-actual`.
 
 ## Errores comunes
 

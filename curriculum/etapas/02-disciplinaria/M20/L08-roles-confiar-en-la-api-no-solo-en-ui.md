@@ -13,23 +13,36 @@ evidencia: nota rbac en demo-login-lista.md
 
 **~5.0 h · Semana 2**
 
-Ocultar botón ≠ autorización.
+Doble fuente de verdad mata proyectos.
 
 ## Objetivo
 
-Staff no ejecuta acción owner aunque parchee la UI; demo + nota.
+Probar cuenta staff vs owner; ocultar acciones que API niega con 403.
+
+## Conceptos clave
+
+- 403 handling
+- roles
 
 ## Pasos (hazlos en orden)
 
-### 1. Lee rol de `/me` (40 min)
+### 1. Confía en API para RBAC (50–60 min)
 
-### 2. UI condicional + prueba API (80–100 min)
+```bash
+# staff token → acción owner debe fallar 403 aunque el botón exista
+curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n" "$API_BASE/admin/staff"
+```
 
-Forzar llamada staff a endpoint owner → 403 manejado.
+### 2. Nota rbac (30 min)
 
-### 3. Commit
-
-`feat(m20): l08 roles confiar api`
+```bash
+cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+## RBAC
+UI puede ocultar; autorización real = API 403. Probado: …
+EOF
+git add projects/m20-movil/demo-login-lista.md
+git commit -m "docs(m20): L08 roles confiar en api"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +56,13 @@ Forzar llamada staff a endpoint owner → 403 manejado.
 
 Marca la lección **solo si**:
 
-1. Prueba rol documentada (artefacto: `nota rbac en demo-login-lista.md`).
-2. 403 UX (artefacto: `nota rbac en demo-login-lista.md`).
-3. Sin lógica secreta solo UI (artefacto: `nota rbac en demo-login-lista.md`).
-4. Commit `docs(m20): L08 roles-confiar-en-la-api-no-solo-en-ui`.
+1. Nota RBAC: UI puede ocultar; 403 de API verificado (staff vs owner).
+2. Commit `docs(m20): L08 roles-confiar-en-la-api-no-solo-en-ui`.
 
 ## Errores comunes
 
-- Admin hardcoded en app.
-- Ignorar 403.
+- Ocultar botón y creer que es seguridad.
+- Ignorar 403 de la API.
 
 ## Siguiente
 

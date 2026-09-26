@@ -37,28 +37,32 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Define umbrales (20–30 min)
+
+En `projects/m25-ciber/abuso/rate-limit.md`: endpoint login (y opcional signup/webhook) → req/min → respuesta (429).
+
+### 3. Prueba o implementa límite (100–120 min)
+
+Dispara ráfaga controlada contra staging:
 
 ```bash
-mkdir -p projects/m25-ciber/abuso
+for i in $(seq 1 30); do
+  curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/auth/login" \
+    -H "Content-Type: application/json" \
+    -d '{"email":"nope@test","password":"x"}'
+done | sort | uniq -c
 ```
 
-Confirma que escribirás `projects/m25-ciber/abuso/rate-limit.md`.
+Documenta códigos observados. Si no hay 429: implementa o configura WAF/middleware y re-prueba.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Abuso adyacente (25–35 min)
 
-Bitácora semana 4 en `projects/m25-ciber/bitacora/semana-04.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/abuso/rate-limit.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Nota 3 vectores (credential stuffing, brute invite, webhook flood) + estado. Bitácora semana-04.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l14 rate-limit-login-y-abuso-b-sico"
 ```

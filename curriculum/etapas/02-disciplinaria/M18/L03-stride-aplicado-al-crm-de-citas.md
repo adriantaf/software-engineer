@@ -13,25 +13,51 @@ evidencia: projects/m18-appsec/stride-matrix.md
 
 **~5.0 h · Semana 1**
 
-STRIDE sobre **tu** CRM, no un ejemplo de blog.
+La matriz obliga a nombrar amenazas antes de buscar exploits al azar.
 
 ## Objetivo
 
-≥1 amenaza por letra STRIDE mapeada a citas/auth/admin.
+Matriz STRIDE ≥4×6 en `projects/m18-appsec/stride-matrix.md` (login, citas, admin) con ≥3 amenazas priorizadas.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Plantilla STRIDE (30 min)
+### 1. Plantilla STRIDE (25–35 min)
 
-Spoofing… Elevation — definición en una línea cada una.
+```bash
+cat > projects/m18-appsec/stride-matrix.md <<'EOF'
+# Matriz STRIDE — Agenda Ops
 
-### 2. Aplicación (90–110 min)
+| Componente | S | T | R | I | D | E |
+|------------|---|---|---|---|---|---|
+| Login | | | | | | |
+| Lista citas | | | | | | |
+| Detalle cita | | | | | | |
+| Admin usuarios | | | | | | |
+EOF
+```
+### 2. Relleno del dominio (90–110 min)
 
-Tabla: amenaza, componente, impacto, mitigación actual/gap. Incluye IDOR y XSS en notas de cliente.
+Frases concretas (no “hackeo”). Ejemplo Login/Spoofing: “fuerza bruta o credenciales robadas”. Incluye IDOR en detalle cita e XSS en notas.
 
-### 3. Commit
+```markdown
+| Componente | S | T | I |
+|------------|---|---|---|
+| Login | Fuerza bruta | Tamper cookie | Leak en error |
+| Detalle cita | — | PUT sin authz | IDOR lee notas |
+```
+### 3. Prioriza 3 celdas (30 min)
 
-`docs(m18): l03 stride crm citas`
+Marca las 3 amenazas de las semanas 2–5. Enlaza `threat-model-v0.md`.
+
+```bash
+printf "\n## Prioridades (rojas)\n1. ...\n2. ...\n3. ...\n" >> projects/m18-appsec/stride-matrix.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/stride-matrix.md
+git commit -m "docs(m18): l03 stride crm citas"
+```
 
 ## Lectura de esta lección
 
@@ -47,8 +73,7 @@ Marca la lección **solo si**:
 
 1. Matriz ≥4 filas × 6 columnas (artefacto: `projects/m18-appsec/stride-matrix.md`).
 2. ≥3 amenazas priorizadas (artefacto: `projects/m18-appsec/stride-matrix.md`).
-3. Lenguaje del dominio Agenda Ops (artefacto: `projects/m18-appsec/stride-matrix.md`).
-4. Commit `docs(m18): L03 stride-aplicado-al-crm-de-citas`.
+3. Commit `docs(m18): L03 stride-aplicado-al-crm-de-citas`.
 
 ## Errores comunes
 

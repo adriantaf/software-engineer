@@ -13,29 +13,44 @@ evidencia: campo estado + UI
 
 **~5.0 h · Semana 5**
 
-Staff y owner deben ver el mismo estado en API y UI.
+Staff y owner deben ver el mismo estado.
 
 ## Objetivo
 
-Estados pendiente/confirmada/cancelada/atendida coherentes; tests de transición.
+Estados confirmada/pendiente/cancelada visibles y coherentes API↔UI.
+
+## Conceptos clave
+
+- estado
+- sincronización
+- cancelación
 
 ## Pasos (hazlos en orden)
 
-### 1. Modelo de estados (30 min)
+### 1. Estados de cita (60–80 min)
 
-Diagrama ASCII de transiciones permitidas.
+```sql
+-- enum o check: pendiente | confirmada | cancelada | atendida
+ALTER TABLE citas ADD COLUMN estado TEXT NOT NULL DEFAULT 'pendiente';
+```
 
-### 2. API + UI (90–110 min)
+API PATCH `/citas/:id/estado` con authz.
 
-PATCH estado con auth; UI refleja; cancelar respeta matriz.
+### 2. UI + tests (50–60 min)
 
-### 3. Tests (30–40 min)
+```bash
+curl -sS -b /tmp/ao.ck -X PATCH http://localhost:3000/citas/<id>/estado \
+  -H 'content-type: application/json' \
+  -d '{"estado":"confirmada"}'
+npm test -- citas
+```
 
-Transición ilegal → 400/409; sin auth → 401.
+### 3. Commit (15 min)
 
-### 4. Commit
-
-`feat(m17): l19 estados confirmacion cita`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L19 confirmacion estados cita"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +64,13 @@ Transición ilegal → 400/409; sin auth → 401.
 
 Marca la lección **solo si**:
 
-1. Estados en API/UI (artefacto: `campo estado`).
-2. Tests (artefacto: `campo estado`).
-3. Commit (artefacto: `campo estado`).
+1. Campo/enum `estado` en citas + PATCH autenticado; tests verdes.
+2. Commit `docs(m17): L19 confirmacion-de-cita-y-estados`.
 
 ## Errores comunes
 
-- Estado solo en front.
-- Cancelar sin auth.
+- Estados libres sin check/enum.
+- Transiciones sin authz.
 
 ## Siguiente
 

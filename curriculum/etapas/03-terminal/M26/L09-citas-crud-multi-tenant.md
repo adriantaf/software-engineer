@@ -36,34 +36,34 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Matriz CRUD citas (25–35 min)
+
+En `projects/m26-capstone/memoria/citas-crud.md` tabla create/read/update/cancel × status esperado por tenant.
+
+### 3. Implementa/verifica flujos + aislamiento (100–130 min)
+
+Ejecuta create/edit/cancel en A y B. Ningún hardcode de un solo design partner.
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+# create en A
+curl -s -X POST "$API/citas" -H "Authorization: Bearer $TOKEN_A" \
+  -H "Content-Type: application/json" \
+  -d '{"servicio_id":"…","cliente_id":"…","starts_at":"2026-10-01T16:00:00Z"}'
+
+# A intenta leer cita de B → 403/404
+curl -s -w "%{http_code}" -H "Authorization: Bearer $TOKEN_A" "$API/citas/$CITA_B"
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/citas-crud.md`.
+Pega status codes en la memoria.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Test mínimo (30–40 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Flujos crear/editar/cancelar citas; ningún hardcode del design partner único.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-03.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/citas-crud.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Añade o enlaza test de regresión. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l09 citas-crud-multi-tenant"
 ```

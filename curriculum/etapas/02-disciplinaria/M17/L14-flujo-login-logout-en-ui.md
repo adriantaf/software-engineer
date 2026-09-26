@@ -13,29 +13,38 @@ evidencia: páginas login
 
 **~5.0 h · Semana 4**
 
-Primera impresión del piloto: labels claros, error de credencial, logout limpio.
+Primera impresión del piloto.
 
 ## Objetivo
 
-Form login accesible + logout que limpia sesión en cliente y servidor.
+Form login con labels, errores de credencial, logout que limpia sesión.
+
+## Conceptos clave
+
+- login UI
+- error auth
+- logout
 
 ## Pasos (hazlos en orden)
 
-### 1. Form (70–90 min)
+### 1. Página login (60–80 min)
 
-Labels, autocomplete, mensaje 401 en español. No meter token en querystring.
+Form email/password → `POST /auth/login` (credentials include). Maneja error 401 visible.
 
-### 2. Logout (30–40 min)
+### 2. Logout limpia sesión (40–50 min)
 
-Botón visible; limpia cookie/estado; redirect login.
+```bash
+# DevTools → Application → Cookies: tras logout la cookie de sesión desaparece
+```
 
-### 3. Checklist manual (20 min)
+Botón logout → `POST /auth/logout` + redirect `/login`.
 
-`docs/ui-login-checklist.md` con 5 pasos.
+### 3. Commit (15 min)
 
-### 4. Commit
-
-`feat(m17): l14 login logout ui`
+```bash
+git add projects/m17-agenda-ops/apps
+git commit -m "feat(m17): L14 login logout UI"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +58,13 @@ Botón visible; limpia cookie/estado; redirect login.
 
 Marca la lección **solo si**:
 
-1. Login/logout (artefacto: `páginas login`).
-2. Errores visibles (artefacto: `páginas login`).
-3. Sin password en state (artefacto: `páginas login`).
-4. Commit `docs(m17): L14 flujo-login-logout-en-ui`.
+1. UI login/logout funcional; cookie de sesión desaparece tras logout.
+2. Commit `docs(m17): L14 flujo-login-logout-en-ui`.
 
 ## Errores comunes
 
-- Alert genérico.
-- Token en querystring.
+- Logout solo limpia estado React y deja cookie.
+- Form sin mensaje de 401.
 
 ## Siguiente
 

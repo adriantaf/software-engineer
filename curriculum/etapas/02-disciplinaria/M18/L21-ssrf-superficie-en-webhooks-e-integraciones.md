@@ -13,23 +13,57 @@ evidencia: projects/m18-appsec/findings/004-ssrf.md
 
 **~5.0 h · Semana 6**
 
-¿La API fetcha URLs controladas por usuario?
+Aun sin feature URL, documentar el control evita sorpresas en M26.
 
 ## Objetivo
 
-Inventario SSRF (webhooks, previews, imports) + mitigación o N/A justificado.
+Doc SSRF + allowlist en `projects/m18-appsec/findings/004-ssrf.md`. Sin escanear terceros ni metadata cloud en prod.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Busca fetch/axios a URLs user-controlled (50 min)
+### 1. Busca fetch server-side (30–40 min)
 
-### 2. Documenta (60–70 min)
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'fetch\(|axios\.|got\(|request\(|http\.get' -g '!node_modules' | head -40
+```
+### 2. Diseño / PoC aislada (70–90 min)
 
-Allowlist, bloqueo link-local. PoC solo local.
+Si no hay feature: simula diseño. Si hay: prueba URL interna **solo en staging aislado**.
 
-### 3. Commit
+```bash
+cat > projects/m18-appsec/findings/004-ssrf.md <<'EOF'
+# Finding 004 — SSRF (superficie)
+## ¿Hay URL server-side hoy?
+- webhook / import / avatar: sí/no · ruta:
 
-`docs(m18): l21 superficie ssrf`
+## Riesgo ilustrativo
+`http://169.254.169.254/` (metadata) — **no probar en cloud compartido**
+
+## Allowlist propuesta
+- hosts: `hooks.stripe.com`, …
+- schemata: https only
+- bloqueo: link-local, RFC1918, localhost
+
+## Estado
+- N/A feature | Mitigado | Abierto
+EOF
+```
+
+```ts
+function assertSafeUrl(raw: string) {
+  const u = new URL(raw);
+  if (u.protocol !== "https:") throw new Error("scheme");
+  const allow = new Set(["hooks.example.com"]);
+  if (!allow.has(u.hostname)) throw new Error("host");
+}
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/findings/004-ssrf.md
+git commit -m "docs(m18): l21 ssrf superficie"
+```
 
 ## Lectura de esta lección
 
@@ -45,8 +79,7 @@ Marca la lección **solo si**:
 
 1. Doc SSRF con allowlist (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
 2. Riesgo nombrado (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
-3. Sin escanear terceros (artefacto: `projects/m18-appsec/findings/004-ssrf.md`).
-4. Commit `docs(m18): L21 ssrf-superficie-en-webhooks-e-integraciones`.
+3. Commit `docs(m18): L21 ssrf-superficie-en-webhooks-e-integraciones`.
 
 ## Errores comunes
 

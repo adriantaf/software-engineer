@@ -37,28 +37,24 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Escenario cross-tenant en prod (30–40 min)
 
-```bash
-mkdir -p projects/m25-ciber/tabletop
-```
+En `projects/m25-ciber/tabletop/cross-tenant-incident.md`: cliente B reporta ver datos de A. Define detección inicial.
 
-Confirma que escribirás `projects/m25-ciber/tabletop/cross-tenant-incident.md`.
+### 3. Timeline de contención (90–110 min)
 
-### 3. Laboratorio principal (100–130 min)
+T+0 … T+120: verificar, deshabilitar endpoint/feature flag, notificar, rotar si aplica, comunicar.
 
-Cada tabletop: línea de tiempo, decisiones, acciones con dueño y fecha.
+Roles: tú = on-call. Sin copiar blog genérico — usa tus URLs/servicios.
 
-### 4. Criterio de calidad (30–45 min)
+### 4. Acciones y dueños (25–35 min)
 
-Relee `projects/m25-ciber/tabletop/cross-tenant-incident.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Checklist ≥8 acciones con evidencia esperada. Bitácora semana-06.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l22 tabletop-acceso-cross-tenant-en-prod"
 ```

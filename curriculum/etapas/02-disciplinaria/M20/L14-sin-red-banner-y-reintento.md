@@ -13,21 +13,33 @@ evidencia: captura offline
 
 **~5.0 h · Semana 4**
 
-Modo avión no debe colgar la app.
+Dueño en campo pierde señal a menudo.
 
 ## Objetivo
 
-Banner offline + botón reintentar.
+Detectar offline o fallo DNS; banner y botón reintentar.
+
+## Conceptos clave
+
+- offline
+- retry
 
 ## Pasos (hazlos en orden)
 
-### 1. Detecta conectividad (50 min)
+### 1. Banner offline (60–80 min)
 
-### 2. UX (70–90 min)
+```dart
+// connectivity_plus / NetInfo → banner "Sin red" + botón Reintentar
+```
 
-### 3. Commit
+### 2. Prueba avión (30 min)
 
-`feat(m20): l14 offline banner`
+```bash
+# Activa modo avión → banner visible → reintento al volver
+echo "Offline OK $(date -I)" >> projects/m20-movil/demo-login-lista.md
+git add projects/m20-movil
+git commit -m "feat(m20): L14 banner sin red reintento"
+```
 
 ## Lectura de esta lección
 
@@ -41,15 +53,13 @@ Banner offline + botón reintentar.
 
 Marca la lección **solo si**:
 
-1. Modo avión probado (artefacto: `captura offline`).
-2. Reintento (artefacto: `captura offline`).
-3. Captura (artefacto: `captura offline`).
-4. Commit `docs(m20): L14 sin-red-banner-y-reintento`.
+1. Banner offline + reintento demostrado (modo avión) (artefacto: `captura offline`).
+2. Commit `docs(m20): L14 sin-red-banner-y-reintento`.
 
 ## Errores comunes
 
 - Crash sin red.
-- Loop infinito retry.
+- Sin botón reintentar.
 
 ## Siguiente
 

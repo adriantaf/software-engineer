@@ -13,21 +13,37 @@ evidencia: projects/m20-movil/build-evidence.md
 
 **~5.0 h · Semana 5**
 
-P3: artefacto instalable.
+Emulador no basta para P3.
 
 ## Objetivo
 
-APK/AAB (o IPA si aplica) + comandos en `build-evidence.md`.
+Generar APK/AAB o IPA test; SHA commit y dispositivo prueba.
+
+## Conceptos clave
+
+- release
+- minify opcional
 
 ## Pasos (hazlos en orden)
 
-### 1. Build release (100–130 min)
+### 1. Build release (80–110 min)
 
-### 2. Instala en dispositivo real (40 min)
+```bash
+# Flutter: flutter build apk --release
+# RN: cd android && ./gradlew assembleRelease
+ls -lh **/app-release.apk 2>/dev/null || ls -lh **/outputs/apk/release/*
+```
 
-### 3. Commit
+### 2. Documenta artefacto (30 min)
 
-`build(m20): l18 release artifact`
+```bash
+cat >> projects/m20-movil/build-evidence.md << 'EOF'
+## Release
+Fecha: …  Hash/archivo: app-release.apk  Instalado en dispositivo: sí/no
+EOF
+git add projects/m20-movil/build-evidence.md
+git commit -m "docs(m20): L18 build release apk"
+```
 
 ## Lectura de esta lección
 
@@ -41,14 +57,13 @@ APK/AAB (o IPA si aplica) + comandos en `build-evidence.md`.
 
 Marca la lección **solo si**:
 
-1. Artefacto generado (artefacto: `projects/m20-movil/build-evidence.md`).
-2. Dispositivo real (artefacto: `projects/m20-movil/build-evidence.md`).
-3. SHA commit (artefacto: `projects/m20-movil/build-evidence.md`).
+1. `projects/m20-movil/build-evidence.md` con artefacto release e instalación.
+2. Commit `docs(m20): L18 build-release-apk-o-artefacto`.
 
 ## Errores comunes
 
-- Solo debug.
-- API localhost.
+- Solo debug APK como ‘release’.
+- Artefacto no instalado en dispositivo.
 
 ## Siguiente
 

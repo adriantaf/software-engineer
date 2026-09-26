@@ -37,28 +37,34 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Inventario de tipos de dato (25–35 min)
 
-```bash
-mkdir -p projects/m25-ciber
-```
+En `projects/m25-ciber/clasificacion-datos.md` crea tabla:
 
-Confirma que escribirás `projects/m25-ciber/clasificacion-datos.md`.
+| Tipo | Ejemplos | Tabla/campo (si sabes) | Quién accede | Retención |
+|------|----------|------------------------|--------------|-----------|
 
-### 3. Laboratorio principal (100–130 min)
+Filas mínimas: PII cliente (nombre/tel), credenciales, `tenant_id`, metadata billing Stripe, logs de app, backups.
 
-`projects/m25-ciber/clasificacion-datos.md`: por tipo de dato, ¿en qué tabla/campo?, ¿quién accede?, retención esperada.
+### 3. Flujos entre componentes (90–110 min)
 
-### 4. Criterio de calidad (30–45 min)
+Añade sección **Flujos** con 4 diagramas en prosa (o mermaid):
 
-Relee `projects/m25-ciber/clasificacion-datos.md`: ¿un mentor externo entendería el resultado sin preguntarte?
+1. Login → sesión → `tenant_id`
+2. Crear cita → DB
+3. Webhook Stripe → actualización plan
+4. Export/soporte → datos salientes
 
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Marca dónde un leak cruzaría tenants.
+
+### 4. Reglas de minimización (30–40 min)
+
+Sección **Reglas**: ≥5 bullets (qué no loguear, qué no exportar por defecto, retención demo). Bitácora `bitacora/semana-01.md`.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l02 clasificaci-n-de-datos-por-tenant"
 ```

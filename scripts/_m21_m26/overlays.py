@@ -298,10 +298,13 @@ def evidencia_for(materia: str, orden: int, fallback: str) -> str:
 
 
 def lab_overlay(materia: str, orden: int) -> list[tuple[str, str, str]] | None:
+    """Prefer concrete labs (no redundant mkdir); fall back to hand-written L01/specials."""
+    from .concrete_labs import M25_CONCRETE, M26_CONCRETE
+
     if materia == "M25":
-        return M25_LABS.get(orden)
+        return M25_CONCRETE.get(orden) or M25_LABS.get(orden)
     if materia == "M26":
-        return M26_LABS.get(orden)
+        return M26_CONCRETE.get(orden) or M26_LABS.get(orden)
     return None
 
 

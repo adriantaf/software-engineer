@@ -13,27 +13,42 @@ evidencia: projects/m19-ops/restore-test.md
 
 **~5.0 h · Semana 4**
 
-P3: restore real documentado.
+Un restore nunca probado no cuenta.
 
 ## Objetivo
 
-`restore-test.md` con fecha, tamaño dump, tiempo, resultado.
+Restaurar dump en DB de prueba, verificar citas visibles, registrar tiempo y resultado.
+
+## Conceptos clave
+
+- restore
+- RTO idea
+- vacuum
 
 ## Pasos (hazlos en orden)
 
-### 1. Entorno aislado (40 min)
+### 1. Restore aislado (80–100 min)
 
-DB temporal/local.
+```bash
+# entorno scratch — NO prod
+createdb agenda_restore_test || true
+gunzip -c backups/agenda-XXXX.sql.gz | psql "postgresql://…/agenda_restore_test"
+psql "postgresql://…/agenda_restore_test" -c 'SELECT count(*) FROM citas;'
+```
 
-### 2. Restore (80–100 min)
+### 2. restore-test.md (30–40 min)
 
-`pg_restore` / pipe. Verifica conteo citas seed.
-
-### 3. Registra (20 min)
-
-### 4. Commit
-
-`docs(m19): l14 restore test p3`
+```bash
+cat > projects/m19-ops/restore-test.md << 'EOF'
+# Restore test
+Fecha: YYYY-MM-DD
+Dump usado: agenda-….sql.gz
+Destino: DB aislada …
+Resultado: OK — count citas = N
+EOF
+git add projects/m19-ops/restore-test.md
+git commit -m "docs(m19): L14 prueba restore aislado"
+```
 
 ## Lectura de esta lección
 
@@ -47,15 +62,13 @@ DB temporal/local.
 
 Marca la lección **solo si**:
 
-1. Restore real documentado (artefacto: `projects/m19-ops/restore-test.md`).
-2. Verificación datos (artefacto: `projects/m19-ops/restore-test.md`).
-3. Fecha (artefacto: `projects/m19-ops/restore-test.md`).
-4. Commit `docs(m19): L14 prueba-de-restore-en-entorno-aislado`.
+1. `projects/m19-ops/restore-test.md` con fecha, dump usado y resultado real.
+2. Commit `docs(m19): L14 prueba-de-restore-en-entorno-aislado`.
 
 ## Errores comunes
 
-- Solo teoría.
-- Restore sobre prod.
+- Restore probado en prod.
+- Afirmar OK sin `SELECT count`.
 
 ## Siguiente
 

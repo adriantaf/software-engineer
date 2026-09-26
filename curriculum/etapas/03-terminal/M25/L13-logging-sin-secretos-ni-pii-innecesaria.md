@@ -37,28 +37,33 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Audita logs recientes (30–40 min)
 
-```bash
-mkdir -p projects/m25-ciber/logging
+En `projects/m25-ciber/logging/politica-logs.md` pega **2** ejemplos redactados: uno inseguro (PII/token) y uno seguro.
+
+```text
+# INSEGURO (ejemplo a capturar y redactar)
+{"msg":"login","authorization":"Bearer eyJ…","email":"ana@…"}
+# SEGURO
+{"msg":"login_ok","request_id":"req_…","tenant_id":"t_…","user_id":"u_…"}
 ```
 
-Confirma que escribirás `projects/m25-ciber/logging/politica-logs.md`.
+Fuentes: app logs, access logs, errores.
 
-### 3. Laboratorio principal (100–130 min)
+### 3. Escribe la política (80–100 min)
 
-Bitácora semana 4 en `projects/m25-ciber/bitacora/semana-04.md`.
+Secciones: **Qué se loguea**, **Qué nunca** (Authorization, passwords, bodies de pago), **Retención**, **Quién accede**, **correlation id**.
 
-### 4. Criterio de calidad (30–45 min)
+≥8 reglas concretas ligadas a tu stack.
 
-Relee `projects/m25-ciber/logging/politica-logs.md`: ¿un mentor externo entendería el resultado sin preguntarte?
+### 4. Ejemplo de cambio (30–40 min)
 
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Si encontraste fuga: PR o issue. Si no: checklist de revisión trimestral. Bitácora `semana-04.md`.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l13 logging-sin-secretos-ni-pii-innecesaria"
 ```

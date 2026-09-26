@@ -37,28 +37,29 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Inventario de exports (25–35 min)
+
+En `projects/m25-ciber/privacidad/exports.md`: CSV/PDF/admin dumps, quién puede, qué columnas.
+
+### 3. Minimiza un export real (90–110 min)
+
+Toma un export de soporte o admin. Propón columna set mínimo (sin teléfonos/notas si no hacen falta).
+
+Si hay endpoint: verifica que staff de A no exporta B.
 
 ```bash
-mkdir -p projects/m25-ciber/privacidad
+curl -s -H "Authorization: Bearer $TOKEN_A" \
+  "$API/exports/clientes" | head -c 400
 ```
 
-Confirma que escribirás `projects/m25-ciber/privacidad/exports.md`.
+### 4. Política soporte (30–40 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-No copies plantillas legales sin revisión; borrador técnico-operativo basta para el plan.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/privacidad/exports.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Checklist de 6 pasos antes de pedir dump completo. Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l18 minimizaci-n-en-exports-y-soporte"
 ```

@@ -13,25 +13,48 @@ evidencia: projects/m19-ops/runbook.md sección rollback
 
 **~5.0 h · Semana 3**
 
-Sabes qué versión corre y cómo volver atrás.
+A las 11 p.m. solo cuenta el runbook.
 
 ## Objetivo
 
-Sección runbook: versión, dónde están logs, procedimiento rollback ensayado en seco.
+Documentar dónde ver logs, cómo identificar versión y rollback a imagen/tag anterior.
+
+## Conceptos clave
+
+- rollback
+- tag git
+- logs PaaS
 
 ## Pasos (hazlos en orden)
 
-### 1. Versionado (40 min)
+### 1. Rollback + versión (60–80 min)
 
-Tag/git sha visible en `/health` o header.
+```bash
+mkdir -p projects/m19-ops
+cat > projects/m19-ops/runbook.md << 'EOF'
+# Runbook (borrador)
+## Versión desplegada
+Cómo ver commit/tag en runtime (header, /health.version, o CLI PaaS).
+## Rollback
+1. Redeploy imagen/tag anterior
+2. Verificar /health
+3. Anotar en deploy-log.md
+## Logs
+comando CLI o URL del provider
+EOF
+```
 
-### 2. Rollback dry-run (70–90 min)
+```bash
+# ejemplo
+# fly releases / render releases / docker compose images
+```
 
-Documenta pasos sin necesariamente tumbar prod si riesgoso — al menos staging.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m19): l10 logs rollback version`
+```bash
+git add projects/m19-ops/runbook.md
+git commit -m "docs(m19): L10 logs rollback version"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +68,13 @@ Documenta pasos sin necesariamente tumbar prod si riesgoso — al menos staging.
 
 Marca la lección **solo si**:
 
-1. Rollback documentado (artefacto: `projects/m19-ops/runbook.md sección rollback`).
-2. Versión en runbook (artefacto: `projects/m19-ops/runbook.md sección rollback`).
-3. Prueba o simulacro (artefacto: `projects/m19-ops/runbook.md sección rollback`).
-4. Commit `docs(m19): L10 logs-rollback-y-version-desplegada`.
+1. `projects/m19-ops/runbook.md` tiene secciones versión, logs y rollback.
+2. Commit `docs(m19): L10 logs-rollback-y-version-desplegada`.
 
 ## Errores comunes
 
-- Rollback ‘redeploy main’ sin tag.
-- Sin logs.
+- Rollback ‘reiniciar el server’ sin versión pinneada.
+- Logs inaccesibles documentados.
 
 ## Siguiente
 

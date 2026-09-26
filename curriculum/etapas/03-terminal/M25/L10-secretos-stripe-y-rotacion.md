@@ -37,28 +37,34 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Inventario de secretos Stripe (25–35 min)
+
+En `projects/m25-ciber/hardening/stripe-secrets.md` tabla:
+
+| Secreto | Ambiente | Dónde vive | Rotación |
+|---------|----------|------------|----------|
+
+Incluye `sk_test`/`sk_live`, `pk_*`, webhook signing secret. **Nunca** pegues valores.
+
+### 3. Busca fugas en repo e historial (90–110 min)
+
+Busca patrones sin imprimir valores:
 
 ```bash
-mkdir -p projects/m25-ciber/hardening
+rg -n "sk_live|sk_test|whsec_" --glob '!.git' . || true
+rg -n "STRIPE_" .env.example apps/ || true
 ```
 
-Confirma que escribirás `projects/m25-ciber/hardening/stripe-secrets.md`.
+Documenta hallazgos (path + tipo). Si hay key en git: plan de rotación + `.gitignore`/secret scanning.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Plan de rotación (30–40 min)
 
-Ejecuta checks reales (`curl -I`, `pg_restore`, etc.) y pega **salida redactada** en el archivo de evidencia.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/hardening/stripe-secrets.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Checklist de 6 pasos para rotar webhook secret en staging. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l10 secretos-stripe-y-rotaci-n"
 ```

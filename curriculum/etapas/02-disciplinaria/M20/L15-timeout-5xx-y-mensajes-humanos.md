@@ -13,21 +13,36 @@ evidencia: nota en demo doc
 
 **~5.0 h · Semana 4**
 
-Timeouts explícitos; “servidor no disponible” > stacktrace.
+No todo es ‘algo salió mal’.
 
 ## Objetivo
 
-Timeouts HTTP + mensajes mapeados; sin filtrar detalles internos.
+Configurar timeout cliente; distinguir 5xx de error usuario.
+
+## Conceptos clave
+
+- timeout
+- 5xx
 
 ## Pasos (hazlos en orden)
 
-### 1. Timeouts (40 min)
+### 1. Timeouts y 5xx (60–80 min)
 
-### 2. Mapeo errores (70–90 min)
+```ts
+// timeout 10–15s → mensaje "El servidor no respondió"
+// 502/503 → "Estamos reiniciando — reintenta"
+```
 
-### 3. Commit
+### 2. Nota + commit (30 min)
 
-`feat(m20): l15 timeouts mensajes`
+```bash
+cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+## Timeouts / 5xx
+Mensajes humanos documentados; no stack traces al usuario.
+EOF
+git add projects/m20-movil
+git commit -m "feat(m20): L15 timeout 5xx mensajes humanos"
+```
 
 ## Lectura de esta lección
 
@@ -41,15 +56,13 @@ Timeouts HTTP + mensajes mapeados; sin filtrar detalles internos.
 
 Marca la lección **solo si**:
 
-1. Timeout configurado (artefacto: `nota en demo doc`).
-2. 5xx mensaje (artefacto: `nota en demo doc`).
-3. Log dev sin PII (artefacto: `nota en demo doc`).
-4. Commit `docs(m20): L15 timeout-5xx-y-mensajes-humanos`.
+1. Timeouts/5xx muestran mensajes humanos (sin stack traces).
+2. Commit `docs(m20): L15 timeout-5xx-y-mensajes-humanos`.
 
 ## Errores comunes
 
-- Sin timeout.
-- Stack al usuario.
+- Mostrar stack trace al usuario.
+- Timeout infinito.
 
 ## Siguiente
 

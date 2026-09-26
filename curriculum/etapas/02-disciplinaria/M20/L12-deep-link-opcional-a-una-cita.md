@@ -13,21 +13,36 @@ evidencia: projects/m20-movil/deep-link.md
 
 **~5.0 h · Semana 3**
 
-Opcional pero útil: `agendaops://citas/:id`.
+Preparación recordatorios WhatsApp futuro.
 
 ## Objetivo
 
-Deep link documentado **o** N/A con justificación en README.
+Configurar esquema o ruta para abrir detalle desde URL/notificación futura.
+
+## Conceptos clave
+
+- deep link
+- routing
 
 ## Pasos (hazlos en orden)
 
-### 1. Decide (20 min)
+### 1. Deep link cita (60–80 min)
 
-### 2. Implementa o N/A (90–110 min)
+```bash
+# Android intent-filter / iOS universal link — scheme agendaops://cita/<id>
+cat > projects/m20-movil/deep-link.md << 'EOF'
+# Deep links
+Scheme: agendaops://cita/:id
+Prueba: adb shell am start -a android.intent.action.VIEW -d "agendaops://cita/UUID"
+EOF
+```
 
-### 3. Commit
+### 2. Commit (15 min)
 
-`feat(m20): l12 deep link cita`
+```bash
+git add projects/m20-movil/deep-link.md
+git commit -m "feat(m20): L12 deep link cita"
+```
 
 ## Lectura de esta lección
 
@@ -41,14 +56,13 @@ Deep link documentado **o** N/A con justificación en README.
 
 Marca la lección **solo si**:
 
-1. Doc deep link (artefacto: `projects/m20-movil/deep-link.md`).
-2. Prueba manual o N/A justificado (artefacto: `projects/m20-movil/deep-link.md`).
-3. Commit config (artefacto: `projects/m20-movil/deep-link.md`).
+1. Existe `projects/m20-movil/deep-link.md` con scheme y comando de prueba.
+2. Commit `docs(m20): L12 deep-link-opcional-a-una-cita`.
 
 ## Errores comunes
 
-- Deep link sin auth.
-- Abrir cita de otro user.
+- Deep link sin documentación de prueba.
+- Abrir http genérico sin ruta.
 
 ## Siguiente
 

@@ -36,34 +36,30 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Endpoint webhook en deploy (30–40 min)
+
+En `projects/m26-capstone/memoria/webhooks-stripe.md`: URL pública staging/prod, eventos suscritos (`checkout.session.completed`, etc.).
+
+### 3. Verifica firma e idempotencia (100–120 min)
+
+Confirma verificación de firma Stripe en código desplegado. Prueba evento (CLI o dashboard):
 
 ```bash
-mkdir -p projects/m26-capstone/memoria
+# ejemplo Stripe CLI — solo test mode
+stripe listen --forward-to localhost:3000/api/webhooks/stripe
+stripe trigger checkout.session.completed
 ```
 
-Confirma que escribirás `projects/m26-capstone/memoria/webhooks-stripe.md`.
+Documenta: replay del mismo event id no duplica side effects.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Logs seguros (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Webhook URL pública; firma verificada; log sin payload completo de tarjeta.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-05.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/memoria/webhooks-stripe.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Qué se loguea (tipo evento, id) y qué no (PAN). Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l20 webhooks-stripe-verificados-en-deploy"
 ```

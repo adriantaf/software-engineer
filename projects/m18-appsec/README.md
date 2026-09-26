@@ -12,17 +12,20 @@ Amenazas → PoC en **tu** app → fix → test. Solo staging/local propio.
 projects/m18-appsec/
 ├── README.md
 ├── threat-model-v0.md / threat-model-v1.md   # P1
-├── hallazgos.md                              # P2 ≥5
+├── findings-table.md                         # P2 ≥5
 ├── informe-appsec.md                         # Proyecto
 ├── docs/
-│   ├── auth-inventario.md
+│   ├── auth-inventario.md                    # L05
+│   ├── auth-hashing.md / adr-sesion-vs-jwt.md
 │   ├── checklist-cookies-csrf.md
 │   ├── rotacion-secretos.md
-│   └── npm-audit.md
-├── pocs/          # pasos PoC (sin secretos)
+│   ├── npm-audit.md / csp.md / json-trust.md
+│   └── security-tests.md
+├── findings/      # 001-sqli.md … 005-upload.md
+├── pocs/          # cookies.md, csrf-notes.md, headers-*.txt
 ├── fixes/         # notas → commits del repo app
 ├── tests/         # o enlaces a tests security.*
-└── ci/            # workflow o script P3
+└── ci/            # ci-appsec.yml + README (P3)
 ```
 
 ## Lecciones → artefactos

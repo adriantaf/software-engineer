@@ -17,25 +17,42 @@ Detecta config rota antes de la demo.
 
 ## Objetivo
 
-`docs/smoke-test.md` con corrida fechada: login + crear cita (+ health).
+Script o checklist: register/login/crear cita en staging.
+
+## Conceptos clave
+
+- smoke
+- staging
+- regresión manual
 
 ## Pasos (hazlos en orden)
 
-### 1. Escribe checklist/script (50 min)
+### 1. Smoke script (60–80 min)
 
-Pasos curl o Playwright mínimo contra staging.
+```bash
+cat > projects/m17-agenda-ops/docs/smoke-test.md << 'EOF'
+# Smoke post-deploy
+1. GET /health → 200
+2. POST /auth/login (user demo staging)
+3. POST /citas → 201
+4. GET /citas → incluye la cita
+Fecha: YYYY-MM-DD  Resultado: OK/FAIL
+EOF
+```
 
-### 2. Ejecuta y registra (60–80 min)
+```bash
+BASE=https://TU-STAGING.example
+curl -sS "$BASE/health"
+curl -sS -c /tmp/st.ck -X POST "$BASE/auth/login" -H 'content-type: application/json' \
+  -d '{"email":"owner@demo.local","password":"FROM_SECRET_MANAGER"}'
+```
 
-Fecha, resultado, fallos. No uses datos del partner real.
+### 2. Registra resultado + commit (30 min)
 
-### 3. Cierre semana 6 (20 min)
-
-Enlace smoke desde README.
-
-### 4. Commit
-
-`docs(m17): l24 smoke test staging`
+```bash
+git add projects/m17-agenda-ops/docs/smoke-test.md
+git commit -m "docs(m17): L24 smoke test post-deploy"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +66,13 @@ Enlace smoke desde README.
 
 Marca la lección **solo si**:
 
-1. smoke-test.md (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
-2. Corrida fechada (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
-3. Cierre semana 6 (artefacto: `projects/m17-agenda-ops/docs/smoke-test.md`).
-4. Commit `docs(m17): L24 smoke-test-post-deploy`.
+1. `projects/m17-agenda-ops/docs/smoke-test.md` con health+login+cita y fecha/resultado.
+2. Commit `docs(m17): L24 smoke-test-post-deploy`.
 
 ## Errores comunes
 
-- Smoke solo health.
-- Olvidar auth.
+- Smoke sin fecha/resultado.
+- Password de staging pegado en markdown.
 
 ## Siguiente
 

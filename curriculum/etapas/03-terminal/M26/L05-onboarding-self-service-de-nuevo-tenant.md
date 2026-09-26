@@ -37,34 +37,30 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Mapea el flujo signup (25–35 min)
+
+En `projects/m26-capstone/onboarding.md`: pasos UI/API desde “crear negocio” hasta primer login staff.
+
+### 3. Ejecuta onboarding de un tenant nuevo (100–120 min)
+
+En staging: crea tenant C (o re-crea A limpio) **sin** SQL manual si el producto ya lo permite.
+
+Documenta: URLs, IDs, tiempo, qué aún es manual (gap explícito).
 
 ```bash
-mkdir -p projects/m26-capstone
+# ejemplo — adapta endpoint real
+curl -s -X POST "$API/tenants" -H "Content-Type: application/json" \
+  -d '{"name":"Barbería Demo C","owner_email":"owner-c@example.test"}'
 ```
 
-Confirma que escribirás `projects/m26-capstone/onboarding.md`.
+### 4. Criterio self-service (25–35 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Implementa o documenta gap: nuevo negocio sin tu intervención manual. Dos tenants con nombres reales ficticios.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-02.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/onboarding.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+PASS si un tercero podría completar sin tu SSH. Si no: lista tareas para cerrar gap. Bitácora semana-02.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l05 onboarding-self-service-de-nuevo-tenant"
 ```

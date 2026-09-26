@@ -13,23 +13,37 @@ evidencia: projects/m20-movil/release-notes.md
 
 **~5.0 h · Semana 5**
 
-Misma cuenta: web y móvil ven las mismas citas.
+Proyecto M20 demuestra canal móvil del CRM.
 
 ## Objetivo
 
-`demo-login-lista.md` + release notes; paridad auth demostrada.
+Notas versión; misma cuenta web y móvil ven mismas citas.
+
+## Conceptos clave
+
+- paridad
+- demo
 
 ## Pasos (hazlos en orden)
 
-### 1. Demo cruzada (80–100 min)
+### 1. Release notes + demo cruzada (50–60 min)
 
-Crea cita en web → aparece en app (refresh).
+```bash
+cat > projects/m20-movil/release-notes.md << 'EOF'
+# Release notes móvil
+- Login + lista citas (misma API que web)
+- Secure storage
+- Build: ver build-evidence.md
+Demo cruzada: misma cita visible en web staging y app.
+EOF
+```
 
-### 2. Release notes (40 min)
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m20): l19 demo cruzada release notes`
+```bash
+git add projects/m20-movil/release-notes.md
+git commit -m "docs(m20): L19 release notes demo cruzada"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +57,13 @@ Crea cita en web → aparece en app (refresh).
 
 Marca la lección **solo si**:
 
-1. release-notes (artefacto: `projects/m20-movil/release-notes.md`).
-2. Demo cruzada documentada (artefacto: `projects/m20-movil/release-notes.md`).
-3. Mismas citas (artefacto: `projects/m20-movil/release-notes.md`).
-4. Commit `docs(m20): L19 release-notes-y-demo-cruzada-con-web`.
+1. Existe `projects/m20-movil/release-notes.md` con demo cruzada web↔app.
+2. Commit `docs(m20): L19 release-notes-y-demo-cruzada-con-web`.
 
 ## Errores comunes
 
-- Cuentas distintas sin explicar.
-- Datos mock.
+- Release notes genéricas sin Agenda Ops.
+- Demo web y app con datos distintos sin notarlo.
 
 ## Siguiente
 

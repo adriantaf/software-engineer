@@ -13,21 +13,33 @@ evidencia: capturas P2
 
 **~5.0 h · Semana 4**
 
-“No hay citas” + CTA, no pantalla muerta.
+P2 pide estados vacío/error.
 
 ## Objetivo
 
-Empty state con copy del design partner (agendar primera cita).
+UI cuando no hay citas semana; CTA coherente con producto.
+
+## Conceptos clave
+
+- empty state
+- copy
 
 ## Pasos (hazlos en orden)
 
-### 1. Copy (30 min)
+### 1. Empty state útil (50–60 min)
 
-### 2. UI (70–90 min)
+Copy: “No hay citas hoy — crea la primera en la web o aquí”. CTA claro.
 
-### 3. Commit
+### 2. Evidencia P2 (30 min)
 
-`feat(m20): l13 empty state`
+```bash
+cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+## Lista vacía
+Copy: …  Captura: …
+EOF
+git add projects/m20-movil/demo-login-lista.md
+git commit -m "feat(m20): L13 lista vacia copy util"
+```
 
 ## Lectura de esta lección
 
@@ -41,15 +53,13 @@ Empty state con copy del design partner (agendar primera cita).
 
 Marca la lección **solo si**:
 
-1. Copy útil (artefacto: `capturas P2`).
-2. Captura (artefacto: `capturas P2`).
-3. Sin crash (artefacto: `capturas P2`).
-4. Commit `docs(m20): L13 lista-vacia-con-copy-util`.
+1. Empty state con copy útil documentado en demo-login-lista.md.
+2. Commit `docs(m20): L13 lista-vacia-con-copy-util`.
 
 ## Errores comunes
 
-- Lista vacía en blanco.
-- Texto lorem.
+- Vacío = pantalla blanca.
+- Copy técnico (‘array length 0’).
 
 ## Siguiente
 

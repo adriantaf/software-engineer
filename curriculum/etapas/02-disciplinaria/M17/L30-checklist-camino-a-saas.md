@@ -17,21 +17,37 @@ Transparencia > checkboxes mentirosos.
 
 ## Objetivo
 
-`docs/checklist-saas.md` con Sí/No/Parcial + plan de gaps.
+Completar checklist ficha: tablas, roles, HTTPS, tests — gaps honestos.
+
+## Conceptos clave
+
+- checklist
+- gap
+- SaaS
 
 ## Pasos (hazlos en orden)
 
-### 1. Copia criterios ficha (20 min)
+### 1. Checklist SaaS (70–90 min)
 
-Auth, CRUD, roles, WhatsApp, HTTPS, tests, tenant ADR.
+```bash
+cat > projects/m17-agenda-ops/docs/checklist-saas.md << 'EOF'
+# Camino a SaaS
+- [ ] Aislamiento tenant en queries
+- [ ] Billing (out of scope piloto)
+- [ ] Backups (→ M19)
+- [ ] Observabilidad
+- [ ] Onboarding self-serve
+EOF
+```
 
-### 2. Evalúa con evidencia (80–100 min)
+Marca hecho/gap con enlace a evidencia.
 
-Cada ítem enlaza commit/URL/doc. Fechas para gaps.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m17): l30 checklist camino saas`
+```bash
+git add projects/m17-agenda-ops/docs/checklist-saas.md
+git commit -m "docs(m17): L30 checklist camino saas"
+```
 
 ## Lectura de esta lección
 
@@ -45,14 +61,13 @@ Cada ítem enlaza commit/URL/doc. Fechas para gaps.
 
 Marca la lección **solo si**:
 
-1. checklist-saas.md (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
-2. Gaps con plan (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/checklist-saas.md`).
+1. Existe `projects/m17-agenda-ops/docs/checklist-saas.md` con ítems marcados o gaps enlazados.
+2. Commit `docs(m17): L30 checklist-camino-a-saas`.
 
 ## Errores comunes
 
-- Todo Sí falso.
-- Sin fecha para gaps.
+- Checklist todo OK sin enlaces a evidencia.
+- Olvidar backups → M19.
 
 ## Siguiente
 

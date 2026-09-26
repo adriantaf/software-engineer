@@ -13,23 +13,35 @@ evidencia: commit si API expone
 
 **~5.0 h · Semana 3**
 
-Mutaciones con confirmación y manejo 403.
+Solo acciones que el backend autoriza.
 
 ## Objetivo
 
-Cambiar estado desde móvil respetando matriz.
+Llamar PATCH/POST que la API expone; deshabilitar si 403.
+
+## Conceptos clave
+
+- mutation
+- optimistic UI opcional
 
 ## Pasos (hazlos en orden)
 
-### 1. Acciones (100–120 min)
+### 1. Acciones cancelar/atendida (70–90 min)
 
-Confirm dialog. Optimistic UI opcional + rollback.
+```bash
+curl -sS -b /tmp/st.ck -X PATCH "$API_BASE/citas/<id>/estado" \
+  -H 'content-type: application/json' \
+  -d '{"estado":"cancelada"}'
+```
 
-### 2. Prueba roles (30 min)
+Botones solo si el rol/API lo permiten; maneja 403.
 
-### 3. Commit
+### 2. Commit (15 min)
 
-`feat(m20): l11 acciones estado cita`
+```bash
+git add projects/m20-movil
+git commit -m "feat(m20): L11 acciones cancelar atendida"
+```
 
 ## Lectura de esta lección
 
@@ -43,14 +55,13 @@ Confirm dialog. Optimistic UI opcional + rollback.
 
 Marca la lección **solo si**:
 
-1. Acción o gap documentado (artefacto: `commit si API expone`).
-2. 403 manejado (artefacto: `commit si API expone`).
-3. Commit (artefacto: `commit si API expone`).
+1. Acciones cancelar/atendida llaman API; 403 manejado (artefacto: `commit si API expone`).
+2. Commit `docs(m20): L11 acciones-permitidas-cancelar-atendida`.
 
 ## Errores comunes
 
-- Reglas negocio solo en app.
-- Silenciar errores.
+- Cambiar estado solo en memoria local.
+- No manejar 403.
 
 ## Siguiente
 

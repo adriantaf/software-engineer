@@ -17,25 +17,39 @@ Piloto invisible no es piloto.
 
 ## Objetivo
 
-URL staging + `docs/deploy.md` paso a paso (build, env, migraciones).
+Desplegar API+front o API primero en staging con build reproducible.
+
+## Conceptos clave
+
+- deploy
+- staging
+- build
 
 ## Pasos (hazlos en orden)
 
-### 1. Elige PaaS (20 min)
+### 1. Elige PaaS y despliega (90–120 min)
 
-Render/Fly/Railway/etc. Anota límites free tier.
+Fly/Render/Railway/etc. Build desde Dockerfile o buildpack. Secrets en el panel, no en git.
 
-### 2. Deploy (100–130 min)
+```bash
+# ejemplo genérico — sustituye por CLI real
+# fly launch / render blueprint / railway up
+curl -sS https://TU-STAGING.example/health
+```
 
-Build reproducible; secrets en panel; migra DB staging.
+### 2. Documenta URL (30 min)
 
-### 3. Documenta (30 min)
+```bash
+mkdir -p projects/m17-agenda-ops/docs
+echo "Staging: https://TU-STAGING.example" > projects/m17-agenda-ops/docs/deploy.md
+```
 
-URL en README (staging). `docs/deploy.md`.
+### 3. Commit (15 min)
 
-### 4. Commit
-
-`docs(m17): l22 deploy staging paas`
+```bash
+git add projects/m17-agenda-ops/docs/deploy.md
+git commit -m "docs(m17): L22 deploy staging paas"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +63,13 @@ URL en README (staging). `docs/deploy.md`.
 
 Marca la lección **solo si**:
 
-1. Staging URL (artefacto: `URL staging`).
-2. deploy.md (artefacto: `URL staging`).
-3. Build CI opcional (artefacto: `URL staging`).
-4. Commit `docs(m17): L22 deploy-staging-en-paas`.
+1. `projects/m17-agenda-ops/docs/deploy.md` incluye URL staging alcanzable.
+2. Commit `docs(m17): L22 deploy-staging-en-paas`.
 
 ## Errores comunes
 
-- Deploy manual sin doc.
-- Solo localhost.
+- URL staging solo en chat, no en `docs/deploy.md`.
+- Secrets en variables del Dockerfile.
 
 ## Siguiente
 

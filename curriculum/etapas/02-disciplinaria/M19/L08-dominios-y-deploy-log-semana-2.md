@@ -13,23 +13,37 @@ evidencia: projects/m19-ops/dominios.md
 
 **~5.0 h · Semana 2**
 
-Dominio/DNS y bitácora de deploys.
+Trials M22 necesitan URL estable.
 
 ## Objetivo
 
-`deploy-log.md` con fechas, versiones, dominio; cierre semana 2.
+Registrar subdominios staging (y prod planificado); enlazar con deploy-log.
+
+## Conceptos clave
+
+- CNAME
+- cert automático
 
 ## Pasos (hazlos en orden)
 
-### 1. DNS/docs (50–60 min)
+### 1. Dominios (50–60 min)
 
-### 2. Log histórico (50 min)
+```bash
+cat > projects/m19-ops/dominios.md << 'EOF'
+# Dominios
+| Uso | FQDN | DNS | TLS |
+|-----|------|-----|-----|
+| API staging | api-staging.… | CNAME → PaaS | managed |
+EOF
+```
 
-Al menos 2 entradas (aunque una sea re-deploy).
+### 2. Actualiza deploy-log semana 2 (30 min)
 
-### 3. Commit
-
-`docs(m19): l08 dominios deploy-log`
+```bash
+echo "| $(date -I) | staging | … | https://… | DNS OK |" >> projects/m19-ops/deploy-log.md
+git add projects/m19-ops/dominios.md projects/m19-ops/deploy-log.md
+git commit -m "docs(m19): L08 dominios deploy-log semana2"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +57,13 @@ Al menos 2 entradas (aunque una sea re-deploy).
 
 Marca la lección **solo si**:
 
-1. dominios.md (artefacto: `projects/m19-ops/dominios.md`).
-2. Cert OK (artefacto: `projects/m19-ops/dominios.md`).
-3. deploy-log actualizado (artefacto: `projects/m19-ops/dominios.md`).
-4. Commit `docs(m19): L08 dominios-y-deploy-log-semana-2`.
+1. `projects/m19-ops/dominios.md` + fila nueva en `deploy-log.md`.
+2. Commit `docs(m19): L08 dominios-y-deploy-log-semana-2`.
 
 ## Errores comunes
 
-- IP directa sin nombre.
-- Cert expirado ignorado.
+- Dominio sin TLS.
+- DNS apuntando a IP efímera sin nota.
 
 ## Siguiente
 

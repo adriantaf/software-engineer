@@ -36,34 +36,26 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Checklist pre-demo (30–40 min)
+
+En `projects/m26-capstone/hardening-final.md` tabla: headers | secretos | errores | rate-limit | cross-tenant CI | cada uno con link evidencia.
+
+### 3. Cierra los rojos (100–120 min)
+
+Todo ítem rojo → fix o waiver. Re-verifica:
 
 ```bash
-mkdir -p projects/m26-capstone
+curl -sI "https://TU-PROD-O-STAGING" | rg -i "strict-transport|content-security|x-frame"
 ```
 
-Confirma que escribirás `projects/m26-capstone/hardening-final.md`.
+### 4. Go/no-go demo pública (20–30 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Checklist firmado con evidencia links.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-06.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/hardening-final.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Frase explícita + fecha. Bitácora semana-06.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l24 hardening-final-pre-demo-p-blica"
 ```

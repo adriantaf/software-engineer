@@ -13,27 +13,40 @@ evidencia: projects/m18-appsec/threat-model-v1.md
 
 **~5.0 h · Semana 2**
 
-P1: threat model v1 revisado tras endurecer auth.
+P1 exige v1 revisado tras entender login; hoy entregas el hito.
 
 ## Objetivo
 
-`threat-model-v1.md` (o sección v1) con cambios vs v0 y residual risk auth.
+`projects/m18-appsec/threat-model-v1.md` con controles auth, tabla amenaza→control y residual.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Diff v0→v1 (40 min)
+### 1. Diff v0→v1 (30–40 min)
 
-Qué amenazas bajaron de severidad.
-
+```bash
+cp projects/m18-appsec/threat-model-v0.md projects/m18-appsec/threat-model-v1.md
+printf "\n## Controles auth (post L05–L07)\n| Amenaza | Control | Estado | Commit/issue |\n|---------|---------|--------|--------------|\n| Hash débil | bcrypt/argon2 | OK/TODO | |\n| Sesión robable | HttpOnly plan | | |\n| Sin revoke | ADR decisión | | |\n" >> projects/m18-appsec/threat-model-v1.md
+```
 ### 2. Redacción P1 (80–100 min)
 
-Incluye supuestos de staging. Enlace inventario + ADR.
+Enlaza `projects/m18-appsec/docs/auth-inventario.md` y ADR. Supuestos de staging. Tabla amenaza|control|estado legible sin abrir el código.
 
+```bash
+printf "\n## Enlaces\n- auth: docs/auth-inventario.md\n- ADR: docs/adr-sesion-vs-jwt.md\n\n## Residual auth\n- ...\n" >> projects/m18-appsec/threat-model-v1.md
+```
 ### 3. README P1 (15 min)
 
-### 4. Commit
+En `projects/m18-appsec/README.md` marca P1 entregado con fecha y ruta a `threat-model-v1.md`.
 
-`docs(m18): l08 threat model v1 p1`
+```bash
+rg -n "P1|threat-model-v1" projects/m18-appsec/README.md || printf "\n- **P1:** threat-model-v1.md $(date -I)\n" >> projects/m18-appsec/README.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/threat-model-v1.md projects/m18-appsec/README.md
+git commit -m "docs(m18): l08 threat model v1 p1"
+```
 
 ## Lectura de esta lección
 
@@ -49,8 +62,7 @@ Marca la lección **solo si**:
 
 1. threat-model-v1.md completo (artefacto: `projects/m18-appsec/threat-model-v1.md`).
 2. Tabla amenaza-control (artefacto: `projects/m18-appsec/threat-model-v1.md`).
-3. Listo para marcar P1 en UI (artefacto: `projects/m18-appsec/threat-model-v1.md`).
-4. Commit `docs(m18): L08 threat-model-v1-post-autenticacion-p1`.
+3. Commit `docs(m18): L08 threat-model-v1-post-autenticacion-p1`.
 
 ## Errores comunes
 

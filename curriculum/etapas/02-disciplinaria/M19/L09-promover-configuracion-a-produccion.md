@@ -13,23 +13,37 @@ evidencia: projects/m19-ops/ambientes.md actualizado
 
 **~5.0 h · Semana 3**
 
-Prod ≠ staging con el mismo secret.
+Prod es para design partner, no laboratorio.
 
 ## Objetivo
 
-Ambiente prod (o “prod-candidato”) con secretos y URL distintos documentados.
+Desplegar prod con misma imagen que staging y distintas env vars; documentar diferencias.
+
+## Conceptos clave
+
+- promoción imagen
+- separación datos
 
 ## Pasos (hazlos en orden)
 
-### 1. Checklist promoción (40 min)
+### 1. Checklist promoción a prod (60–80 min)
 
-### 2. Configura prod (100–120 min)
+```bash
+cat >> projects/m19-ops/ambientes.md << 'EOF'
+## Promoción staging → prod
+1. Migraciones aplicadas
+2. Secrets distintos a staging
+3. Smoke health+login
+4. Rollback plan listo
+EOF
+```
 
-Migraciones cuidadosas. Smoke mínimo.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m19): l09 promover produccion`
+```bash
+git add projects/m19-ops/ambientes.md
+git commit -m "docs(m19): L09 promover config a produccion"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +57,13 @@ Migraciones cuidadosas. Smoke mínimo.
 
 Marca la lección **solo si**:
 
-1. Prod URL (artefacto: `projects/m19-ops/ambientes.md actualizado`).
-2. Diff documentado (artefacto: `projects/m19-ops/ambientes.md actualizado`).
-3. Datos separados (artefacto: `projects/m19-ops/ambientes.md actualizado`).
-4. Commit `docs(m19): L09 promover-configuracion-a-produccion`.
+1. `projects/m19-ops/ambientes.md` incluye checklist de promoción a prod.
+2. Commit `docs(m19): L09 promover-configuracion-a-produccion`.
 
 ## Errores comunes
 
-- Migrar en prod primero.
-- Misma DB staging/prod.
+- Promover con mismos secrets que staging.
+- Sin plan de rollback.
 
 ## Siguiente
 

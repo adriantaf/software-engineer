@@ -13,21 +13,33 @@ evidencia: commit pantalla detalle
 
 **~5.0 h · Semana 3**
 
-Tap en fila → detalle con datos API.
+Lista sin detalle no sirve al dueño en campo.
 
 ## Objetivo
 
-Detalle: cliente, servicio, estado, notas (escapadas).
+Navegar a detalle con id; mostrar campos completos de la cita.
+
+## Conceptos clave
+
+- route args
+- fetch by id
 
 ## Pasos (hazlos en orden)
 
-### 1. Ruta detalle (90–110 min)
+### 1. Detalle de cita (70–90 min)
 
-### 2. 404/403 UX (30 min)
+```bash
+curl -sS -b /tmp/st.ck "$API_BASE/citas/<id>"
+```
 
-### 3. Commit
+Pantalla: cliente, servicio, horario, estado. Tap desde lista.
 
-`feat(m20): l09 detalle cita`
+### 2. Commit (15 min)
+
+```bash
+git add projects/m20-movil
+git commit -m "feat(m20): L09 pantalla detalle cita"
+```
 
 ## Lectura de esta lección
 
@@ -41,14 +53,13 @@ Detalle: cliente, servicio, estado, notas (escapadas).
 
 Marca la lección **solo si**:
 
-1. Detalle coincide API (artefacto: `commit pantalla detalle`).
-2. Loading en detalle (artefacto: `commit pantalla detalle`).
-3. Commit (artefacto: `commit pantalla detalle`).
+1. Pantalla detalle de cita navegable desde la lista (artefacto: `commit pantalla detalle`).
+2. Commit `docs(m20): L09 pantalla-detalle-de-cita`.
 
 ## Errores comunes
 
-- Detalle mock.
-- IDOR no manejado.
+- Detalle sin id real (solo mock).
+- PII extra en la pantalla.
 
 ## Siguiente
 

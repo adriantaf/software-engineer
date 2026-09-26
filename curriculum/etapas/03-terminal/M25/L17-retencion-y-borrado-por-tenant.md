@@ -37,28 +37,34 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Política de retención (30–40 min)
 
-```bash
-mkdir -p projects/m25-ciber/privacidad
+En `projects/m25-ciber/privacidad/retencion.md`:
+
+| Dato | Retención | Base | Cómo se borra |
+|------|-----------|------|---------------|
+
+Citas, logs, backups, tenants demo, exports temporales.
+
+### 3. Borrado de tenant demo (90–110 min)
+
+Describe (o ejecuta en staging) borrado de un tenant de prueba: tablas afectadas, orden, qué queda en backups.
+
+```sql
+-- ejemplo de inventario — adapta schemas
+-- SELECT count(*) FROM citas WHERE tenant_id = $1;
 ```
 
-Confirma que escribirás `projects/m25-ciber/privacidad/retencion.md`.
+**No** borres prod real de un cliente.
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Gaps legales vs técnicos (25–35 min)
 
-No copies plantillas legales sin revisión; borrador técnico-operativo basta para el plan.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/privacidad/retencion.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+3 bullets: qué es decisión técnica hoy vs qué requiere abogado. Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l17 retenci-n-y-borrado-por-tenant"
 ```

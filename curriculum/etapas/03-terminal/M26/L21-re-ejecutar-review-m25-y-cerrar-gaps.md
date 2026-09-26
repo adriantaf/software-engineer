@@ -36,34 +36,28 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Relee security-review M25 (30–40 min)
+
+En `projects/m26-capstone/seguridad-m25.md` índice de hallazgos abiertos vs cerrados desde `projects/m25-ciber/security-review.md`.
+
+### 3. Cierra gaps bloqueantes (100–120 min)
+
+Lista P0/P1. Cada uno: issue, fix o waiver firmado con riesgo residual.
+
+Re-corre test cross-tenant:
 
 ```bash
-mkdir -p projects/m26-capstone
+pnpm test -- aislamiento   # adapta
 ```
 
-Confirma que escribirás `projects/m26-capstone/seguridad-m25.md`.
+### 4. Handoff a demo pública (25–35 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-Enlaza informe M25; lista issues abiertos y cierre.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-06.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/seguridad-m25.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Qué debe estar verde antes del video. Bitácora semana-06.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l21 re-ejecutar-review-m25-y-cerrar-gaps"
 ```

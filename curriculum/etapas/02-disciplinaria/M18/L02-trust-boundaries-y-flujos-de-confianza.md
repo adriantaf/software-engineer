@@ -13,25 +13,45 @@ evidencia: projects/m18-appsec/trust-boundaries-appsec.md
 
 **~5.0 h · Semana 1**
 
-Dibuja dónde termina la confianza: browser, CDN, API, DB, WhatsApp.
+M10 y M13 nombraron boundaries; hoy los operacionalizas para AppSec.
 
 ## Objetivo
 
-Diagrama de boundaries + 3 flujos (login, crear cita, deep-link WA) en el threat model.
+Documentar ≥4 límites y 3 flujos (login, crear cita, deep-link WA) en `projects/m18-appsec/trust-boundaries-appsec.md`.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Boundaries (60–70 min)
+### 1. Ancla M13 (20–30 min)
 
-ASCII/Mermaid: zonas Trusted/Untrusted. Cookies cruzan cuál frontera.
+```bash
+ls projects/m13-diseno/trust-boundaries.md 2>/dev/null || echo "(sin M13; parte de cero)"
+touch projects/m18-appsec/trust-boundaries-appsec.md
+```
+### 2. Tabla de límites (70–90 min)
 
-### 2. Flujos (60–70 min)
+Por cada límite: origen, destino, protocolo, autenticación, datos. Mínimo 4.
 
-Para cada flujo: datos en tránsito, autenticación requerida, qué falla si se omite authz.
+```markdown
+| Origen | Destino | Protocolo | Auth | Datos |
+|--------|---------|-----------|------|-------|
+| Browser | API | HTTPS | cookie/JWT | PII citas |
+| API | Postgres | TCP | user app | SQL |
+| API | SMTP futuro | TLS | API key | recordatorios |
+| Operador | Hosting | SSH/HTTPS | MFA | logs, .env |
+```
+### 3. Flujos + abuso (40–50 min)
 
-### 3. Commit
+Para login, crear cita y deep-link WA: datos en tránsito, auth requerida, fallo si se omite authz. Una pregunta de abuso por límite.
 
-`docs(m18): l02 trust boundaries`
+```bash
+printf "\n## Flujos\n- login:\n- crear cita:\n- deep-link WA:\n\n## Abuso por límite\n" >> projects/m18-appsec/trust-boundaries-appsec.md
+```
+### 4. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/trust-boundaries-appsec.md
+git commit -m "docs(m18): l02 trust boundaries"
+```
 
 ## Lectura de esta lección
 
@@ -47,8 +67,7 @@ Marca la lección **solo si**:
 
 1. ≥4 boundaries documentados (artefacto: `projects/m18-appsec/trust-boundaries-appsec.md`).
 2. Pregunta de abuso por límite (artefacto: `projects/m18-appsec/trust-boundaries-appsec.md`).
-3. Enlace a diseño M13 si aplica (artefacto: `projects/m18-appsec/trust-boundaries-appsec.md`).
-4. Commit `docs(m18): L02 trust-boundaries-y-flujos-de-confianza`.
+3. Commit `docs(m18): L02 trust-boundaries-y-flujos-de-confianza`.
 
 ## Errores comunes
 

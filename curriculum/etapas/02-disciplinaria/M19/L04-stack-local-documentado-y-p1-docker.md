@@ -13,27 +13,40 @@ evidencia: projects/m19-ops/docker.md completo
 
 **~5.0 h · Semana 1**
 
-P1: imágenes + instrucciones en `docker.md`.
+Cierra semana 1 con P1 listo para marcar.
 
 ## Objetivo
 
-`projects/m19-ops/docker.md` con build/up/down y enlace al Dockerfile del producto.
+Consolidar instrucciones un comando, troubleshooting y evidencia de login/cita en contenedores.
+
+## Conceptos clave
+
+- reproducibilidad
+- logs compose
 
 ## Pasos (hazlos en orden)
 
-### 1. Documenta (60–70 min)
+### 1. Cierra docker.md P1 (60–80 min)
 
-Comandos copy-paste. Troubleshooting puerto ocupado.
+```bash
+cat >> projects/m19-ops/docker.md << 'EOF'
+## Comandos
+- build: `docker build -t agenda-ops-api:dev .`
+- up: `docker compose up -d`
+- down: `docker compose down`
+- logs: `docker compose logs -f api`
+EOF
+```
 
-### 2. Evidencia P1 (40 min)
+### 2. Verifica end-to-end local (40 min)
 
-`docker images` / `compose ps` anotados sin secretos.
-
-### 3. README (20 min)
-
-### 4. Commit
-
-`docs(m19): l04 p1 docker documentado`
+```bash
+docker compose down && docker compose up -d --build
+curl -sS http://localhost:3000/health
+# login smoke local (cookie) — anota OK en docker.md
+git add projects/m19-ops/docker.md
+git commit -m "docs(m19): L04 docker.md P1 completo"
+```
 
 ## Lectura de esta lección
 
@@ -47,14 +60,13 @@ Comandos copy-paste. Troubleshooting puerto ocupado.
 
 Marca la lección **solo si**:
 
-1. docker.md completo (artefacto: `projects/m19-ops/docker.md completo`).
-2. Smoke test anotado (artefacto: `projects/m19-ops/docker.md completo`).
-3. Commit P1 (artefacto: `projects/m19-ops/docker.md completo`).
+1. `projects/m19-ops/docker.md` completo (build/up/down/logs) — P1.
+2. Commit `docs(m19): L04 stack-local-documentado-y-p1-docker`.
 
 ## Errores comunes
 
-- Solo README vacío.
-- Imagen sin healthcheck.
+- docker.md sin comandos copy-pasteables.
+- Marcar P1 sin `compose up` real.
 
 ## Siguiente
 

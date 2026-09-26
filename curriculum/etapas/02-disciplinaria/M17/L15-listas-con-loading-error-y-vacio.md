@@ -13,25 +13,41 @@ evidencia: projects/m17-agenda-ops/docs/ui-estados.md
 
 **~5.0 h · Semana 4**
 
-P2 exige los tres estados UX en agenda/listas.
+P2 exige documentación de estados.
 
 ## Objetivo
 
-Agenda del día (o lista citas) con loading/error/vacío; `docs/ui-estados.md`.
+Implementar agenda del día y listas con tres estados UX obligatorios.
+
+## Conceptos clave
+
+- loading
+- empty
+- error boundary
 
 ## Pasos (hazlos en orden)
 
-### 1. Implementa estados (90–110 min)
+### 1. Estados de lista (70–90 min)
 
-Skeleton/spinner; error con reintento; vacío con CTA “Nueva cita”.
+Loading skeleton/spinner; error con reintento; vacío con CTA “Crear cita”.
 
-### 2. Documenta (40 min)
+### 2. Documenta ui-estados.md (30–40 min)
 
-`docs/ui-estados.md`: pantalla → cómo forzar cada estado (throttle, API down, seed vacío).
+```bash
+cat > projects/m17-agenda-ops/docs/ui-estados.md << 'EOF'
+# UI estados (P2)
+| Vista | loading | error | vacío |
+|-------|---------|-------|-------|
+| /citas | … | … | … |
+EOF
+```
 
-### 3. Commit
+### 3. Commit (15 min)
 
-`feat(m17): l15 ui estados loading error vacio`
+```bash
+git add projects/m17-agenda-ops/docs/ui-estados.md projects/m17-agenda-ops/apps
+git commit -m "feat(m17): L15 listas loading error vacio"
+```
 
 ## Lectura de esta lección
 
@@ -45,14 +61,13 @@ Skeleton/spinner; error con reintento; vacío con CTA “Nueva cita”.
 
 Marca la lección **solo si**:
 
-1. ui-estados.md (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
-2. 3 estados en UI (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/ui-estados.md`).
+1. Existe `projects/m17-agenda-ops/docs/ui-estados.md` con loading/error/vacío para listas.
+2. Commit `docs(m17): L15 listas-con-loading-error-y-vacio`.
 
 ## Errores comunes
 
-- Spinner eterno.
-- Lista vacía sin CTA.
+- Spinner eterno sin timeout/error.
+- Vacío idéntico a error.
 
 ## Siguiente
 

@@ -6,36 +6,64 @@ titulo: CSRF en formularios y mutaciones state-changing
 horas: 5.0
 semana: 3
 lectura: CSRF Prevention Cheat Sheet
-evidencia: fix + projects/m18-appsec/csrf-notes.md
+evidencia: fix + projects/m18-appsec/pocs/csrf-notes.md
 ---
 
 # L10 — CSRF en formularios y mutaciones state-changing
 
 **~5.0 h · Semana 3**
 
-Si usas cookies de sesión, CSRF importa.
+Un atacante no necesita XSS si tu sesión acepta POST cross-site.
 
 ## Objetivo
 
-PoC CSRF (en tu app) o justificación SameSite+método; mitigación (token o SameSite estricto).
+Lista rutas mutables + protección en `projects/m18-appsec/pocs/csrf-notes.md`; ≥1 ruta crítica con token/SameSite; curl sin token → 403.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Analiza superficie (40 min)
+### 1. Inventario mutaciones (30–40 min)
 
-POST/PATCH/DELETE que cambian estado con cookie.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n "\.(post|put|patch|delete)\(" -g '*.ts' -g '!node_modules' | head -40
+cat > projects/m18-appsec/pocs/csrf-notes.md <<'EOF'
+# CSRF notes
+| Ruta | Método | Protección | Estado |
+|------|--------|------------|--------|
+| /api/citas | POST | | |
+| /api/citas/:id | PUT/DELETE | | |
+| /auth/logout | POST | | |
+EOF
+```
+### 2. Protege la ruta crítica (70–90 min)
 
-### 2. PoC controlada (60–80 min)
+Token sincronizado, double-submit o SameSite estricto + método seguro. Ejemplo chequeo:
 
-HTML local que intenta mutar. Documenta resultado.
+```ts
+// middleware mínimo (ilustrativo)
+export function requireCsrf(req, res, next) {
+  const token = req.headers["x-csrf-token"] || req.body?._csrf;
+  if (!token || token !== req.session?.csrfToken) {
+    return res.status(403).json({ error: "csrf" });
+  }
+  next();
+}
+```
+### 3. curl sin token (20–30 min)
 
-### 3. Mitiga (40 min)
+```bash
+# Con cookie de sesión válida pero sin CSRF → 403
+curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/citas \
+  -H 'content-type: application/json' -b /tmp/m18-cj \
+  -d '{"clienteId":"…","inicio":"2026-01-01T10:00:00Z"}'
+# esperado: 403
+```
+### 4. Commit (10 min)
 
-Token CSRF o política SameSite+JSON-only documentada.
-
-### 4. Commit
-
-`fix(m18): l10 csrf mitigacion`
+```bash
+git add projects/m18-appsec/pocs/csrf-notes.md
+git commit -m "fix(m18): l10 csrf mutaciones"
+```
 
 ## Lectura de esta lección
 
@@ -51,8 +79,7 @@ Marca la lección **solo si**:
 
 1. Lista rutas mutables (artefacto: `fix`).
 2. ≥1 ruta protegida (artefacto: `fix`).
-3. curl sin token falla (artefacto: `fix`).
-4. Commit `docs(m18): L10 csrf-en-formularios-y-mutaciones-state-changing`.
+3. Commit `docs(m18): L10 csrf-en-formularios-y-mutaciones-state-changing`.
 
 ## Errores comunes
 

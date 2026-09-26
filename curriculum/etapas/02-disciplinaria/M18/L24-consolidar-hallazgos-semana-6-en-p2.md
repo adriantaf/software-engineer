@@ -13,23 +13,40 @@ evidencia: projects/m18-appsec/findings-table.md actualizado
 
 **~5.0 h · Semana 6**
 
-P2 exige ≥5 hallazgos con PoC→fix→test.
+Mitad del módulo: P2 debe ser visible en git (≥5 hallazgos).
 
 ## Objetivo
 
-`hallazgos.md` con ≥5 filas completas; gaps explícitos.
+`projects/m18-appsec/findings-table.md` con ≥5 filas PoC→fix→test (o plan fechado); sin secretos.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Consolida (90–110 min)
+### 1. Auditoría de la tabla (40–50 min)
 
-Unifica L13–L23. Prioridad.
+```bash
+wc -l projects/m18-appsec/findings/*.md
+cat projects/m18-appsec/findings-table.md
+# Completa hasta ≥5 filas (001–005 + rate limit / headers si aplica)
+```
+### 2. Cierra gaps (80–100 min)
 
-### 2. README P2 (20 min)
+Cada fila: ID, OWASP, PoC, commit fix, test/link. Issues para abiertos con fecha semana 7–8.
 
-### 3. Commit
+```markdown
+| ID | OWASP | PoC | Commit fix | Test |
+|----|-------|-----|------------|------|
+| 001 | A03 | findings/001-sqli.md | abc123 | security/sqli |
+| 002 | XSS | findings/002-… | | |
+| 003 | A01 | findings/003-idor.md | | authz |
+| 004 | SSRF | findings/004-ssrf.md | n/a diseño | |
+| 005 | Upload | findings/005-upload.md | | |
+```
+### 3. Commit (10 min)
 
-`docs(m18): l24 hallazgos p2 consolidados`
+```bash
+git add projects/m18-appsec/findings-table.md
+git commit -m "docs(m18): l24 findings table p2"
+```
 
 ## Lectura de esta lección
 
@@ -44,8 +61,8 @@ Unifica L13–L23. Prioridad.
 Marca la lección **solo si**:
 
 1. ≥5 filas completas o plan con 5 (artefacto: `projects/m18-appsec/findings-table.md actualizado`).
-2. Commits enlazados (artefacto: `projects/m18-appsec/findings-table.md actualizado`).
-3. Ningún secreto en tabla (artefacto: `projects/m18-appsec/findings-table.md actualizado`).
+2. Ningún secreto en tabla (artefacto: `projects/m18-appsec/findings-table.md actualizado`).
+3. Commit `docs(m18): L24 consolidar-hallazgos-semana-6-en-p2`.
 
 ## Errores comunes
 

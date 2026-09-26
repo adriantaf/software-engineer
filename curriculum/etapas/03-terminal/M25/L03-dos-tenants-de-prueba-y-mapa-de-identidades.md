@@ -37,28 +37,34 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Define dos negocios ficticios (20–30 min)
+
+En `projects/m25-ciber/tenants-prueba.md`:
+
+| Tenant | Negocio | Email staff | Rol | Notas |
+|--------|---------|-------------|-----|-------|
+
+Tres filas: A (barbería), B (clínica), opcional owner platform. **Sin** passwords en claro.
+
+### 3. Crea o anota IDs reales (90–110 min)
+
+En staging (preferido) o local con seed: crea tenants A y B.
+
+Documenta UUIDs/`tenant_id`, user ids, y un recurso de cada uno (`cita_a_id`, `cita_b_id`).
 
 ```bash
-mkdir -p projects/m25-ciber
+# ejemplo — adapta a tu CLI/API; no pegues tokens
+curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq '.[].id'
 ```
 
-Confirma que escribirás `projects/m25-ciber/tenants-prueba.md`.
+### 4. Mapa de identidades (30–40 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-`projects/m25-ciber/tenants-prueba.md`: nombres de negocio ficticios, emails de prueba, roles. Sin contraseñas en claro.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/tenants-prueba.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Sección **Mapa**: usuario → roles → tenant. Confirma que A no tiene membership en B. Bitácora semana-01.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l03 dos-tenants-de-prueba-y-mapa-de-identida"
 ```

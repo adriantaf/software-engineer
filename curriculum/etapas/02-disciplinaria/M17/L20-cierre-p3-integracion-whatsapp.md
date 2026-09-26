@@ -13,29 +13,38 @@ evidencia: integracion-whatsapp.md completo
 
 **~5.0 h · Semana 5**
 
-P3 no inventa API oficial sin credencial: documenta gaps.
+P3 no sustituye API oficial si no está configurada — documenta gaps.
 
 ## Objetivo
 
-`integracion-whatsapp.md` completo + checklist P3 en README + capturas.
+Completar doc P3: capturas, límites legales/opt-in, qué no hace la integración.
+
+## Conceptos clave
+
+- P3
+- opt-in
+- gap
 
 ## Pasos (hazlos en orden)
 
-### 1. Completa doc (60–70 min)
+### 1. Cierra doc P3 (50–60 min)
 
-Plantilla, botón, opt-in, límites legales, gaps.
+Completa `projects/m17-agenda-ops/docs/integracion-whatsapp.md`: flujo, límites (manual), riesgos PII en URL, captura demo.
 
-### 2. Capturas (30 min)
+### 2. Checklist README (30 min)
 
-Flujo recordatorio (datos seed).
+```bash
+rg -n "P3|WhatsApp" projects/m17-agenda-ops/README.md
+```
 
-### 3. README P3 (20 min)
+Marca P3 si el botón + doc existen.
 
-Checklist Sí/Parcial/No.
+### 3. Commit (15 min)
 
-### 4. Commit
-
-`docs(m17): l20 cierre p3 whatsapp`
+```bash
+git add projects/m17-agenda-ops/docs/integracion-whatsapp.md projects/m17-agenda-ops/README.md
+git commit -m "docs(m17): L20 cierre P3 whatsapp"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +58,13 @@ Checklist Sí/Parcial/No.
 
 Marca la lección **solo si**:
 
-1. P3 checklist (artefacto: `integracion-whatsapp.md completo`).
-2. Capturas (artefacto: `integracion-whatsapp.md completo`).
-3. Gaps honestos (artefacto: `integracion-whatsapp.md completo`).
-4. Commit `docs(m17): L20 cierre-p3-integracion-whatsapp`.
+1. `projects/m17-agenda-ops/docs/integracion-whatsapp.md` completo; P3 marcado en README.
+2. Commit `docs(m17): L20 cierre-p3-integracion-whatsapp`.
 
 ## Errores comunes
 
-- Prometer API sin credencial.
-- Sin opt-in.
+- Marcar P3 sin botón + doc.
+- Doc genérico sin flujo del piloto.
 
 ## Siguiente
 

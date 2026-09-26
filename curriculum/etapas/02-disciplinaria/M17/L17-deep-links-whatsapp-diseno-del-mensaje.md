@@ -13,29 +13,48 @@ evidencia: projects/m17-agenda-ops/docs/integracion-whatsapp.md
 
 **~5.0 h · Semana 5**
 
-Canal que el design partner ya usa: wa.me con plantilla mínima de PII.
+Canal que el design partner ya usa.
 
 ## Objetivo
 
-`docs/integracion-whatsapp.md` con plantilla, placeholders y ejemplo URL-encoded.
+Definir plantilla mensaje recordatorio/confirmación con placeholders y enlace wa.me.
+
+## Conceptos clave
+
+- deep link
+- plantilla
+- PII mínima
 
 ## Pasos (hazlos en orden)
 
-### 1. Diseña mensaje (50–60 min)
+### 1. Diseña mensaje wa.me (50–60 min)
 
-Ej.: “Hola {nombre}, te recordamos tu cita el {fecha} a las {hora}”. Sin notas clínicas sensibles.
+```bash
+# plantilla (sin PII real en git):
+# https://wa.me/52XXXXXXXXXX?text=Hola%20...%20cita%20...
+```
 
-### 2. Construye deep link (40 min)
+Documenta en `projects/m17-agenda-ops/docs/integracion-whatsapp.md` campos: nombre, fecha, deep link ficha.
 
-Documenta `https://wa.me/52XXXXXXXXXX?text=...` y límites (no es API oficial).
+### 2. Helper URL encoder (40–50 min)
 
-### 3. Opt-in (30 min)
+```ts
+export function whatsappReminderUrl(phoneE164: string, text: string) {
+  const n = phoneE164.replace(/\\D/g, "");
+  return `https://wa.me/${n}?text=${encodeURIComponent(text)}`;
+}
+```
 
-Cómo el negocio obtiene consentimiento; qué no harás (spam).
+```bash
+npm test -- whatsapp
+```
 
-### 4. Commit
+### 3. Commit (15 min)
 
-`docs(m17): l17 diseno deep link whatsapp`
+```bash
+git add projects/m17-agenda-ops
+git commit -m "docs(m17): L17 deep links whatsapp mensaje"
+```
 
 ## Lectura de esta lección
 
@@ -49,14 +68,13 @@ Cómo el negocio obtiene consentimiento; qué no harás (spam).
 
 Marca la lección **solo si**:
 
-1. Doc plantilla (artefacto: `projects/m17-agenda-ops/docs/integracion-whatsapp.md`).
-2. Sin secrets (artefacto: `projects/m17-agenda-ops/docs/integracion-whatsapp.md`).
-3. Commit (artefacto: `projects/m17-agenda-ops/docs/integracion-whatsapp.md`).
+1. `projects/m17-agenda-ops/docs/integracion-whatsapp.md` define plantilla wa.me + helper testeado.
+2. Commit `docs(m17): L17 deep-links-whatsapp-diseno-del-mensaje`.
 
 ## Errores comunes
 
-- API keys en front.
-- Teléfono en logs.
+- Pegar teléfonos reales en el repo.
+- Texto wa.me sin `encodeURIComponent`.
 
 ## Siguiente
 

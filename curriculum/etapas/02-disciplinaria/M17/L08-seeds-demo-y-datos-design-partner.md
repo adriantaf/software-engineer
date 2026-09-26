@@ -13,29 +13,47 @@ evidencia: projects/m17-agenda-ops/scripts/seed.ts
 
 **~5.0 h · Semana 2**
 
-Demo reproducible > “en mi máquina hay datos”.
+Demo reproducible evita ‘en mi máquina sí’.
 
 ## Objetivo
 
-`scripts/seed.ts` (o SQL) idempotente: negocio, owner, staff, citas ejemplo — sin PII real.
+Script seed con negocio piloto, owner, staff, citas ejemplo para demo.
+
+## Conceptos clave
+
+- seed
+- demo
+- idempotencia
 
 ## Pasos (hazlos en orden)
 
-### 1. Diseño seed (25 min)
+### 1. Script seed reproducible (70–90 min)
 
-Usuarios test `owner@agenda.test` / `staff@agenda.test` con passwords solo en `.env.example` como placeholders.
+```ts
+// projects/m17-agenda-ops/scripts/seed.ts
+// owner demo + 2 staff + 5 clientes + 3 servicios + citas fake
+// SOLO datos sintéticos — sin PII real del design partner
+```
 
-### 2. Script idempotente (80–100 min)
+```bash
+npx tsx scripts/seed.ts
+# o: npm run seed
+```
 
-Correr dos veces no duplica. README: cómo seedear y limpiar.
+### 2. Documenta en README (20 min)
 
-### 3. Cierre semana 2 (30 min)
+```bash
+rg -n "seed" projects/m17-agenda-ops/README.md || echo "añade sección Seed"
+```
 
-`docs/semana-02.md` + captura de `\dt` o conteos.
+Incluye emails demo y password **solo** en `.env.example` como placeholders, no secretos de staging.
 
-### 4. Commit
+### 3. Commit (15 min)
 
-`feat(m17): l08 seeds demo design partner`
+```bash
+git add projects/m17-agenda-ops/scripts/seed.ts projects/m17-agenda-ops/README.md
+git commit -m "feat(m17): L08 seeds demo design partner"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +67,14 @@ Correr dos veces no duplica. README: cómo seedear y limpiar.
 
 Marca la lección **solo si**:
 
-1. Seed corre (artefacto: `projects/m17-agenda-ops/scripts/seed.ts`).
-2. README creds test (artefacto: `projects/m17-agenda-ops/scripts/seed.ts`).
-3. Cierre semana 2 (artefacto: `projects/m17-agenda-ops/scripts/seed.ts`).
-4. Commit `docs(m17): L08 seeds-demo-y-datos-design-partner`.
+1. Existe `projects/m17-agenda-ops/scripts/seed.ts` (o script documentado).
+2. README incluye comando seed; datos solo sintéticos (artefacto: `projects/m17-agenda-ops/scripts/seed.ts`).
+3. Commit `docs(m17): L08 seeds-demo-y-datos-design-partner`.
 
 ## Errores comunes
 
-- Datos reales en git.
-- Seed no repetible.
+- Seeds con PII real del design partner en git.
+- Seed no reproducible (falta comando).
 
 ## Siguiente
 

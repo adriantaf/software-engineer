@@ -13,23 +13,62 @@ evidencia: projects/m18-appsec/findings/005-upload.md
 
 **~5.0 h · Semana 6**
 
-Si no hay uploads, documenta N/A; si hay, endurece.
+Un .php disfrazado de .jpg es folklore porque sigue pasando.
 
 ## Objetivo
 
-Política: tipos MIME, tamaño, path traversal, no ejecutar en mismo origen.
+Checklist o prueba real en `projects/m18-appsec/findings/005-upload.md`: tipo/tamaño, nombre aleatorio, fuera de webroot.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Inventario (30 min)
+### 1. Superficie upload (30–40 min)
 
-### 2. Controles o N/A (80–100 min)
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'multer|formidable|multipart|upload|createWriteStream' -g '!node_modules' | head -30
+```
+### 2. Checklist / prueba (70–90 min)
 
-Evidencia en `docs/uploads.md`.
+```bash
+cat > projects/m18-appsec/findings/005-upload.md <<'EOF'
+# Finding 005 — Upload
+## ¿Hay upload hoy?
+- ruta / campo:
 
-### 3. Commit
+## Controles
+| Control | Sí/No |
+|---------|-------|
+| Allowlist MIME + magic bytes | |
+| Tamaño máximo | |
+| Nombre aleatorio (uuid) | |
+| Fuera de `public/` / webroot | |
+| No ejecutable por el server | |
 
-`docs(m18): l22 uploads seguros`
+## Prueba (si aplica)
+- archivo: `pocs/evil.jpg.html` o similar
+- resultado:
+EOF
+```
+
+```ts
+// multer sketch
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: "/var/agenda/uploads", // fuera de public
+    filename: (_req, _file, cb) => cb(null, `${crypto.randomUUID()}`),
+  }),
+  limits: { fileSize: 2_000_000 },
+  fileFilter: (_req, file, cb) => {
+    cb(null, ["image/png", "image/jpeg"].includes(file.mimetype));
+  },
+});
+```
+### 3. Commit (10 min)
+
+```bash
+git add projects/m18-appsec/findings/005-upload.md
+git commit -m "docs(m18): l22 upload checklist"
+```
 
 ## Lectura de esta lección
 
@@ -45,8 +84,7 @@ Marca la lección **solo si**:
 
 1. Checklist o prueba real (artefacto: `projects/m18-appsec/findings/005-upload.md`).
 2. Ruta almacenamiento (artefacto: `projects/m18-appsec/findings/005-upload.md`).
-3. Sin ejecución de uploads (artefacto: `projects/m18-appsec/findings/005-upload.md`).
-4. Commit `docs(m18): L22 subida-de-archivos-segura`.
+3. Commit `docs(m18): L22 subida-de-archivos-segura`.
 
 ## Errores comunes
 

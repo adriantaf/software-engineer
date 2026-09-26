@@ -13,23 +13,37 @@ evidencia: projects/m20-movil/logging-policy.md
 
 **~5.0 h · Semana 4**
 
-MASVS logging: nada de tokens en Logcat.
+Un logcat filtrado filtra tokens.
 
 ## Objetivo
 
-`docs/logging-policy.md` + grep limpio de logs sensibles.
+Revisar print/debug; política de logs en dev vs release.
+
+## Conceptos clave
+
+- PII
+- tokens
+- crash reports
 
 ## Pasos (hazlos en orden)
 
-### 1. Política (30 min)
+### 1. Política de logging (50–60 min)
 
-### 2. Audita logs (80–100 min)
+```bash
+cat > projects/m20-movil/logging-policy.md << 'EOF'
+# Logging móvil
+Prohibido: tokens, passwords, teléfonos completos, bodies de auth.
+Permitido: request id, status code, ruta sin query sensible.
+EOF
+rg -n "console\\.(log|debug)|print\\(|Log\\." projects/m20-movil/app 2>/dev/null | head || true
+```
 
-Quita prints de responses con PII.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`fix(m20): l16 no log pii tokens`
+```bash
+git add projects/m20-movil/logging-policy.md
+git commit -m "docs(m20): L16 logging policy appsec"
+```
 
 ## Lectura de esta lección
 
@@ -43,14 +57,13 @@ Quita prints de responses con PII.
 
 Marca la lección **solo si**:
 
-1. Política escrita (artefacto: `projects/m20-movil/logging-policy.md`).
-2. Sin token en logs (artefacto: `projects/m20-movil/logging-policy.md`).
-3. Commit limpieza si hubo (artefacto: `projects/m20-movil/logging-policy.md`).
+1. Existe `projects/m20-movil/logging-policy.md`; sin logs de tokens/PII en código revisado.
+2. Commit `docs(m20): L16 appsec-movil-no-loguear-pii-ni-tokens`.
 
 ## Errores comunes
 
-- console.log(token).
-- Sentry con PII.
+- `console.log` del Bearer token.
+- Telemetría con teléfono completo.
 
 ## Siguiente
 

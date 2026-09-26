@@ -13,29 +13,50 @@ evidencia: POST/GET /citas
 
 **~5.0 h · Semana 2**
 
-Core del piloto: `POST/GET /citas` con auth y reglas de horario.
+Core del piloto Agenda Ops.
 
 ## Objetivo
 
-Crear/listar citas; 201/400/409; listado filtrable por fecha; 401 sin auth.
+Endpoints crear/listar citas con auth, validación fin>inicio, no pasado sin override documentado.
+
+## Conceptos clave
+
+- REST
+- 409 solapamiento
+- paginación
 
 ## Pasos (hazlos en orden)
 
-### 1. Contratos OpenAPI o tabla (20 min)
+### 1. POST /citas autenticado (70–90 min)
 
-Documenta body: clienteId, servicioId, inicio, notas. Errores esperados.
+```bash
+curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/citas \
+  -H 'content-type: application/json' \
+  -d '{"clienteId":"...","servicioId":"...","inicio":"2026-10-01T15:00:00Z","fin":"2026-10-01T15:30:00Z"}'
+# 201
+curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/citas \
+  -H 'content-type: application/json' \
+  -d '{"clienteId":"...","servicioId":"...","inicio":"2026-10-01T16:00:00Z","fin":"2026-10-01T15:00:00Z"}'
+# 400 horario
+```
 
-### 2. Implementa endpoints (90–110 min)
+### 2. GET /citas + reglas (50–60 min)
 
-Validación + regla solapamiento → 409. Listar exige sesión y filtra por negocio.
+Listar con filtro fecha; 401 sin auth; 409 si documentas solapamiento.
 
-### 3. Tests (40–50 min)
+```bash
+curl -sS -b /tmp/ao.ck "http://localhost:3000/citas?desde=2026-10-01&hasta=2026-10-02"
+curl -sS -o /dev/null -w "%{http_code}\n" http://localhost:3000/citas
+# 401
+```
 
-201 feliz; 400 fin≤inicio; 409 solape; 401 sin cookie.
+### 3. Tests + commit (40 min)
 
-### 4. Commit
-
-`feat(m17): l06 api citas crear listar`
+```bash
+npm test -- citas
+git add projects/m17-agenda-ops
+git commit -m "feat(m17): L06 api citas crear y listar"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +70,14 @@ Validación + regla solapamiento → 409. Listar exige sesión y filtra por nego
 
 Marca la lección **solo si**:
 
-1. POST/GET citas (artefacto: `POST/GET /citas`).
-2. Reglas testeadas (artefacto: `POST/GET /citas`).
-3. 401 sin auth (artefacto: `POST/GET /citas`).
-4. Commit `docs(m17): L06 api-citas-crear-y-listar-con-reglas`.
+1. `POST /citas` y `GET /citas` con auth; 401 sin sesión.
+2. Tests 201, 400 horario y (si aplica) 409 solapamiento (artefacto: `POST/GET /citas`).
+3. Commit `docs(m17): L06 api-citas-crear-y-listar-con-reglas`.
 
 ## Errores comunes
 
-- Listar sin auth.
-- Timezone ignorada.
+- Listar citas sin autenticación.
+- Ignorar timezone / guardar strings locales ambiguos.
 
 ## Siguiente
 

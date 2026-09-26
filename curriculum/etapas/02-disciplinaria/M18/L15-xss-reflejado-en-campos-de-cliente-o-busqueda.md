@@ -13,25 +13,41 @@ evidencia: projects/m18-appsec/findings/002-xss-reflected.md
 
 **~5.0 h · Semana 4**
 
-Busca reflejo de input en HTML.
+XSS roba sesiones si las cookies son legibles por JS.
 
 ## Objetivo
 
-PoC XSS reflejado en tu UI o evidencia de escape; entrada en tabla hallazgos.
+PoC reflejado en `projects/m18-appsec/findings/002-xss-reflected.md` (solo tu cuenta de prueba; sin exfiltración externa).
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Prueba (70–90 min)
+### 1. Localiza render de input (30–40 min)
 
-Payloads simples en nombre/búsqueda. Solo tu staging.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'dangerouslySetInnerHTML|innerHTML|\$\{.*q|searchParams|mensaje' -g '!node_modules' | head -30
+```
+### 2. PoC local (60–80 min)
 
-### 2. Documenta (40 min)
+Payloads: `<script>alert(1)</script>`, `<img src=x onerror=alert(1)>`. Solo impacto local.
 
-`pocs/xss-reflected.md` con pasos y resultado.
+```bash
+cat > projects/m18-appsec/findings/002-xss-reflected.md <<'EOF'
+# Finding 002 — XSS reflejado
+- Pantalla / query:
+- Payload:
+- ¿Ejecutó en el navegador? sí/no
+- Contexto (HTML text / attr / JS):
+EOF
+# Ejemplo
+curl -sG "localhost:3000/clientes" --data-urlencode "q=<script>alert(1)</script>" | rg -n 'script|onerror' | head
+```
+### 3. Commit (10 min)
 
-### 3. Commit
-
-`docs(m18): l15 poc xss reflejado`
+```bash
+git add projects/m18-appsec/findings/002-xss-reflected.md
+git commit -m "docs(m18): l15 poc xss reflected"
+```
 
 ## Lectura de esta lección
 
@@ -47,8 +63,7 @@ Marca la lección **solo si**:
 
 1. PoC documentada (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
 2. Contexto identificado (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
-3. Sin atacar usuarios reales (artefacto: `projects/m18-appsec/findings/002-xss-reflected.md`).
-4. Commit `docs(m18): L15 xss-reflejado-en-campos-de-cliente-o-busqueda`.
+3. Commit `docs(m18): L15 xss-reflejado-en-campos-de-cliente-o-busqueda`.
 
 ## Errores comunes
 

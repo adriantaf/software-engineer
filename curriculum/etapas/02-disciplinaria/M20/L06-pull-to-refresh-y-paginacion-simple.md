@@ -13,23 +13,36 @@ evidencia: commit UI
 
 **~5.0 h · Semana 2**
 
-El dueño tira hacia abajo para ver el día actualizado.
+Dueño espera gesto natural en móvil.
 
 ## Objetivo
 
-Refresh gestual + paginación o “cargar más” si la API lo soporta.
+Refrescar lista; soportar query page/limit si la API lo expone.
+
+## Conceptos clave
+
+- refresh
+- pagination
 
 ## Pasos (hazlos en orden)
 
-### 1. Refresh (50–60 min)
+### 1. Pull-to-refresh (50–60 min)
 
-### 2. Paginación (60–80 min)
+```dart
+// RefreshIndicator onRefresh: () => controller.reload()
+```
 
-Si no hay cursor API: documenta límite y TODO.
+### 2. Paginación simple (50–60 min)
 
-### 3. Commit
+```bash
+# API: GET /citas?cursor=… o ?page=2 — documenta contrato
+curl -sS -b /tmp/st.ck "$API_BASE/citas?limit=20"
+```
 
-`feat(m20): l06 refresh paginacion`
+```bash
+git add projects/m20-movil
+git commit -m "feat(m20): L06 pull-to-refresh paginacion"
+```
 
 ## Lectura de esta lección
 
@@ -43,14 +56,13 @@ Si no hay cursor API: documenta límite y TODO.
 
 Marca la lección **solo si**:
 
-1. Refresh funciona (artefacto: `commit UI`).
-2. Sin crash lista vacía loading (artefacto: `commit UI`).
-3. Commit `docs(m20): L06 pull-to-refresh-y-paginacion-simple`.
+1. Pull-to-refresh funciona; paginación o `limit` documentada.
+2. Commit `docs(m20): L06 pull-to-refresh-y-paginacion-simple`.
 
 ## Errores comunes
 
-- Refresh sin indicador.
-- Duplicar fetch infinito.
+- Refresh que no vuelve a pedir red.
+- Paginación infinita sin fin.
 
 ## Siguiente
 

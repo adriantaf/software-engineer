@@ -13,29 +13,40 @@ evidencia: projects/m17-agenda-ops/docs/demo-script.md
 
 **~5.0 h · Semana 8**
 
-Validación real del MVP en 10 minutos.
+Validación real del MVP.
 
 ## Objetivo
 
-`docs/demo-script.md` + URL HTTPS + creds **test** + capturas/video opcional.
+Guion demo: onboarding, cita, WhatsApp, roles. URL staging y creds test.
+
+## Conceptos clave
+
+- demo
+- partner
+- staging
 
 ## Pasos (hazlos en orden)
 
-### 1. Guion (50–60 min)
+### 1. Guion demo grabable (50–60 min)
 
-Onboarding → cita → recordatorio WA → roles. Tiempos por bloque.
+```bash
+cat > projects/m17-agenda-ops/docs/demo-script.md << 'EOF'
+# Demo design partner (≤8 min)
+1. Login owner
+2. Crear cita
+3. Recordatorio WhatsApp
+4. Rol staff 403 admin
+EOF
+```
 
-### 2. Ensayo en staging (60–80 min)
+### 2. Ensayo + nota (40–50 min)
 
-Arregla roturas. Anota minutos reales.
+Cronometra. Anota URL staging y usuario demo (password en gestor, no en git).
 
-### 3. Empaqueta evidencia (20 min)
-
-Capturas secuenciales o link video privado.
-
-### 4. Commit
-
-`docs(m17): l31 demo script design partner`
+```bash
+git add projects/m17-agenda-ops/docs/demo-script.md
+git commit -m "docs(m17): L31 demo script design partner"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +60,13 @@ Capturas secuenciales o link video privado.
 
 Marca la lección **solo si**:
 
-1. demo-script.md (artefacto: `projects/m17-agenda-ops/docs/demo-script.md`).
-2. URL HTTPS.
-3. Credenciales test only (artefacto: `projects/m17-agenda-ops/docs/demo-script.md`).
-4. Commit `docs(m17): L31 demo-grabable-para-design-partner`.
+1. Existe `projects/m17-agenda-ops/docs/demo-script.md` con guion ≤8 min y URL staging.
+2. Commit `docs(m17): L31 demo-grabable-para-design-partner`.
 
 ## Errores comunes
 
-- Demo en localhost.
-- Datos partner real.
+- Guion de 30 minutos impracticable.
+- Password demo en el markdown.
 
 ## Siguiente
 

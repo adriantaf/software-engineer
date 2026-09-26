@@ -13,33 +13,42 @@ evidencia: HTTPS + /health
 
 **~5.0 h · Semana 6**
 
-El design partner no debe ver “No seguro”.
+Design partner no debe ver “no seguro”.
 
 ## Objetivo
 
-HTTPS en staging; `/health` usable por monitor/deploy script.
+Forzar HTTPS en prod/staging y health check para monitor.
+
+## Conceptos clave
+
+- TLS
+- HSTS
+- health
 
 ## Pasos (hazlos en orden)
 
-### 1. Verifica TLS (40 min)
+### 1. Fuerza HTTPS (40–50 min)
 
 ```bash
-curl -vI https://TU-STAGING/health
+curl -sSI https://TU-STAGING.example/health | head -20
+# sin -k; certificado válido
+curl -sS -o /dev/null -w "%{http_code}\n" http://TU-STAGING.example/health
+# redirect 301/308 a https o rechazo
 ```
 
-Cert válido; redirige HTTP→HTTPS si aplica.
+### 2. Health externo (40 min)
 
-### 2. Health útil (50–60 min)
+```bash
+curl -sS https://TU-STAGING.example/health
+# pega JSON (sin secrets) en docs/deploy.md
+```
 
-Incluye status DB o documenta por qué no. Wire al platform healthcheck.
+### 3. Commit (15 min)
 
-### 3. Notas HSTS (20 min)
-
-Opcional en staging; plan para prod.
-
-### 4. Commit
-
-`feat(m17): l23 https y health`
+```bash
+git add projects/m17-agenda-ops/docs/deploy.md
+git commit -m "docs(m17): L23 https y health checks"
+```
 
 ## Lectura de esta lección
 
@@ -53,14 +62,13 @@ Opcional en staging; plan para prod.
 
 Marca la lección **solo si**:
 
-1. HTTPS activo.
-2. Health remoto (artefacto: `HTTPS`).
-3. Commit (artefacto: `HTTPS`).
+1. HTTPS válido en staging; `GET /health` externo 200 documentado en deploy.md.
+2. Commit `docs(m17): L23 https-y-health-checks`.
 
 ## Errores comunes
 
-- HTTP prod.
-- Health sin DB check documentado.
+- Usar `curl -k` como ‘HTTPS OK’.
+- Health solo en localhost.
 
 ## Siguiente
 

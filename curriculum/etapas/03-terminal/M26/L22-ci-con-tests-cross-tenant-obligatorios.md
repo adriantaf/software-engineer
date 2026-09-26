@@ -35,34 +35,28 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Localiza el job CI (25–35 min)
+
+En `projects/m26-capstone/ci-cross-tenant.md`: path del workflow + nombre del job que corre tests de aislamiento.
+
+### 3. Haz el test obligatorio (100–120 min)
+
+PR de prueba: rompe a propósito el assert o salta el test — el CI debe fallar. Luego restaura.
+
+Documenta: required check en branch protection (o issue si no tienes permisos).
 
 ```bash
-mkdir -p projects/m26-capstone
+gh run list --limit 5   # si usas GitHub Actions
 ```
 
-Confirma que escribirás `projects/m26-capstone/ci-cross-tenant.md`.
+### 4. Política escrita (20–30 min)
 
-### 3. Laboratorio principal (100–130 min)
-
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
-
-PR no pasa sin test aislamiento.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-06.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/ci-cross-tenant.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+“Merge bloqueado si cross-tenant rojo”. Bitácora semana-06.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l22 ci-con-tests-cross-tenant-obligatorios"
 ```

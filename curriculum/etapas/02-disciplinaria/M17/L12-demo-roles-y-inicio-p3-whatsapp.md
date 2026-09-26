@@ -13,29 +13,46 @@ evidencia: projects/m17-agenda-ops/docs/demo-roles.md
 
 **~5.0 h · Semana 3**
 
-Evidencia reproducible para el design partner.
+P3 requiere evidencia reproducible para el design partner.
 
 ## Objetivo
 
-`docs/demo-roles.md` con usuarios test y acción bloqueada; anotar inicio P3 WhatsApp.
+Grabar o documentar pasos demo: owner vs staff en acción bloqueada.
+
+## Conceptos clave
+
+- demo
+- roles
+- evidencia
 
 ## Pasos (hazlos en orden)
 
-### 1. Script demo (50–60 min)
+### 1. Guion demo roles (50–60 min)
 
-Pasos numerados: login owner → OK; login staff → 403 en admin.
+```bash
+cat > projects/m17-agenda-ops/docs/demo-roles.md << 'EOF'
+# Demo roles
+1. Login owner → /admin OK
+2. Login staff → /admin 403 / UI oculta
+3. Ambos crean cita
+EOF
+```
 
-### 2. Evidencia (40 min)
+### 2. Ejecuta y anota (40–50 min)
 
-Capturas o log HTTP (sin cookies completas). Enlace a tests 403.
+```bash
+npm run seed
+# recorre el guion con dos sesiones/cookies
+```
 
-### 3. Kickoff WhatsApp (30 min)
+### 3. Kickoff P3 WhatsApp (30 min) + commit
 
-Sección en doc: deep-link vs API oficial; qué harás en L17–L20.
+Crea borrador `docs/integracion-whatsapp.md` (enlace wa.me, sin API Business obligatoria).
 
-### 4. Commit
-
-`docs(m17): l12 demo roles inicio p3`
+```bash
+git add projects/m17-agenda-ops/docs
+git commit -m "docs(m17): L12 demo roles inicio whatsapp"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +66,14 @@ Sección en doc: deep-link vs API oficial; qué harás en L17–L20.
 
 Marca la lección **solo si**:
 
-1. demo-roles.md (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
-2. Staff bloqueado demo (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
-3. Cierre semana 3 (artefacto: `projects/m17-agenda-ops/docs/demo-roles.md`).
-4. Commit `docs(m17): L12 demo-roles-y-inicio-p3-whatsapp`.
+1. Existe `projects/m17-agenda-ops/docs/demo-roles.md` con guion owner vs staff.
+2. Borrador `projects/m17-agenda-ops/docs/integracion-whatsapp.md`.
+3. Commit `docs(m17): L12 demo-roles-y-inicio-p3-whatsapp`.
 
 ## Errores comunes
 
-- Demo sin script.
-- Cuentas prod.
+- Demo sin contraste owner/staff.
+- Prometer WhatsApp Business API sin scope.
 
 ## Siguiente
 

@@ -13,23 +13,37 @@ evidencia: projects/m20-movil/build-evidence.md (prep)
 
 **~5.0 h · Semana 5**
 
-Keystore ≠ git.
+P3 requiere build instalable real.
 
 ## Objetivo
 
-Keystore local + `.gitignore`; doc de firmado en `build-evidence.md` borrador.
+Crear keystore local ignorado; documentar variables CI futuras.
+
+## Conceptos clave
+
+- keystore
+- gradle signing
 
 ## Pasos (hazlos en orden)
 
-### 1. Genera keystore (50–60 min)
+### 1. Keystore fuera del repo (60–80 min)
 
-### 2. Config signing (70–90 min)
+```bash
+# keytool -genkey ... (local)
+# NUNCA commits de *.jks / *.keystore
+printf '%s\n' '*.jks' '*.keystore' 'key.properties' >> .gitignore
+cat > projects/m20-movil/build-evidence.md << 'EOF'
+# Build evidence (prep)
+Keystore: ubicación local / CI secret (NO en git)
+EOF
+```
 
-Sin passwords en repo.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m20): l17 keystore fuera repo`
+```bash
+git add .gitignore projects/m20-movil/build-evidence.md
+git commit -m "docs(m20): L17 keystore fuera del repo"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +57,13 @@ Sin passwords en repo.
 
 Marca la lección **solo si**:
 
-1. Keystore fuera git (artefacto: `projects/m20-movil/build-evidence.md (prep)`).
-2. gitignore (artefacto: `projects/m20-movil/build-evidence.md (prep)`).
-3. Doc comando (artefacto: `projects/m20-movil/build-evidence.md (prep)`).
-4. Commit `docs(m20): L17 firma-android-y-keystore-fuera-del-repo`.
+1. `projects/m20-movil/build-evidence.md` prep + keystore en `.gitignore`.
+2. Commit `docs(m20): L17 firma-android-y-keystore-fuera-del-repo`.
 
 ## Errores comunes
 
-- Keystore commiteado.
-- Password en gradle commiteado.
+- Commitear `.jks` / `key.properties`.
+- Password del keystore en el README.
 
 ## Siguiente
 

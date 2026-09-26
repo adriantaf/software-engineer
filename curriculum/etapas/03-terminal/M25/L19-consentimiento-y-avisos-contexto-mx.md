@@ -37,28 +37,24 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Localiza avisos actuales (20–30 min)
 
-```bash
-mkdir -p projects/m25-ciber/privacidad
-```
+En `projects/m25-ciber/privacidad/aviso-borrador.md`: URLs de landing/panel donde debería vivir aviso/privacidad.
 
-Confirma que escribirás `projects/m25-ciber/privacidad/aviso-borrador.md`.
+### 3. Borrador técnico-operativo (100–120 min)
 
-### 3. Laboratorio principal (100–130 min)
+Redacta aviso **corto** (no copies plantilla legal genérica): qué datos, para qué, con quién (Stripe), retención, contacto.
 
-No copies plantillas legales sin revisión; borrador técnico-operativo basta para el plan.
+Marca claramente: *borrador técnico del plan — no es asesoría legal*.
 
-### 4. Criterio de calidad (30–45 min)
+### 4. Enlaces en producto (25–35 min)
 
-Relee `projects/m25-ciber/privacidad/aviso-borrador.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Issue/PR para linkear aviso desde footer o signup. Bitácora semana-05.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l19 consentimiento-y-avisos-contexto-mx"
 ```

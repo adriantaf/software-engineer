@@ -13,23 +13,39 @@ evidencia: ≥3 tests en repo producto
 
 **~5.0 h · Semana 8**
 
-≥3 tests que fallen si reabres agujeros.
+≥3 tests que fallen si reabres agujeros (IDOR, XSS escape, authz rol u equivalentes).
 
 ## Objetivo
 
-Suite seguridad documentada: IDOR, XSS escape, authz rol (o equivalentes).
+Suite documentada en `projects/m18-appsec/docs/security-tests.md`; CI los corre.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Selecciona 3 (20 min)
+### 1. Selecciona 3 (20–30 min)
 
-### 2. Implementa/verde (100–120 min)
+```bash
+cat > projects/m18-appsec/docs/security-tests.md <<'EOF'
+# Security regression tests
+| # | Archivo | Protege |
+|---|---------|---------|
+| 1 | tests/security/authz-cross-user.test.ts | IDOR citas |
+| 2 | tests/security/xss-escape.test.ts | stored XSS notas |
+| 3 | tests/security/rbac-settings.test.ts | staff≠owner |
+EOF
+```
+### 2. Implementa / verde (100–120 min)
 
-Nombres claros `security.*.test.ts`.
+Nombres claros `security.*.test.ts` (o carpeta `tests/security/`).
 
-### 3. Commit
+```bash
+npm test -- --testPathPattern=security
+# Confirma que el workflow L29 incluye este pattern
+```
+### 3. Commit (10 min)
 
-`test(m18): l31 regresion seguridad`
+```bash
+git add -A && git commit -m "test(m18): l31 regresion seguridad"
+```
 
 ## Lectura de esta lección
 
@@ -45,8 +61,7 @@ Marca la lección **solo si**:
 
 1. ≥3 tests listados (artefacto: `≥3 tests en repo producto`).
 2. CI los ejecuta (artefacto: `≥3 tests en repo producto`).
-3. Todos verdes (artefacto: `≥3 tests en repo producto`).
-4. Commit `docs(m18): L31 tests-de-regresion-de-seguridad-3`.
+3. Commit `docs(m18): L31 tests-de-regresion-de-seguridad-3`.
 
 ## Errores comunes
 

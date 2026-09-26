@@ -60,7 +60,7 @@ Sección **Resultado**: PASS / FAIL. Si FAIL, abre issue y enlázalo. No “arre
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l04 primera-prueba-manual-cross-tenant"
 ```

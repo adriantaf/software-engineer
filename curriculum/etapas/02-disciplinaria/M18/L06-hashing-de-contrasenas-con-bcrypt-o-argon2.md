@@ -6,36 +6,73 @@ titulo: Hashing de contraseñas con bcrypt o argon2
 horas: 5.0
 semana: 2
 lectura: Password Storage Cheat Sheet
-evidencia: commit en repo producto + nota en projects/m18-appsec/auth-hashing.md
+evidencia: commit en repo producto + nota en projects/m18-appsec/docs/auth-hashing.md
 ---
 
 # L06 — Hashing de contraseñas con bcrypt o argon2
 
 **~5.0 h · Semana 2**
 
-Verifica cost factor y ausencia de hashes débiles.
+A07 empieza en la tabla `users`: un leak de DB no debe regalar contraseñas.
 
 ## Objetivo
 
-PoC o test: password nunca en MD5/SHA solo; bcrypt/argon2 con cost documentado; fix si hace falta.
+Password nunca en MD5/SHA solo; bcrypt (cost ≥12) o argon2id. Nota en `projects/m18-appsec/docs/auth-hashing.md` + test.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Auditoría (40 min)
+### 1. Auditoría de hashes débiles (30–40 min)
 
-Busca `md5|sha1|sha256\\(password` en el repo app.
+```bash
+cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+rg -n 'md5|sha1|sha256\(|createHash\(|crypto\.hash' -g '!node_modules' | rg -i 'pass|pwd|hash' || true
+rg -n 'bcrypt|argon2' -g '!node_modules' | head -20
+```
+### 2. Confirmación o fix (70–90 min)
 
-### 2. Fix/confirmación (70–90 min)
+Si falta: lib madura + cost documentado. Ejemplo bcrypt:
 
-Cost ≥12 bcrypt o argon2id razonable. Test verify round-trip.
+```ts
+import bcrypt from "bcrypt";
 
-### 3. Evidencia (20 min)
+const ROUNDS = 12; // documenta en docs/auth-hashing.md
 
-Entrada hallazgo o “N/A — ya conforme” con commit hash.
+export async function hashPassword(plain: string): Promise<string> {
+  return bcrypt.hash(plain, ROUNDS);
+}
 
-### 4. Commit
+export async function verifyPassword(plain: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(plain, hash);
+}
+```
 
-`fix(m18): l06 password hashing`
+```bash
+cat > projects/m18-appsec/docs/auth-hashing.md <<'EOF'
+# Password hashing
+- Algoritmo: bcrypt | argon2id
+- Parámetros: cost/rounds = …
+- Migación usuarios prueba: sí/no
+- Commit fix (si hubo): …
+EOF
+```
+### 3. Test round-trip (30–40 min)
+
+```bash
+npm test -- --testPathPattern=auth 2>/dev/null || npm test -- auth
+# o: node -e "..." con compare true/false
+```
+
+```ts
+// tests/security/password-hash.test.ts (ejemplo)
+expect(await verifyPassword("secret", await hashPassword("secret"))).toBe(true);
+expect(await hashPassword("secret")).not.toEqual("secret");
+```
+### 4. Commit (10 min)
+
+```bash
+git add -A
+git commit -m "fix(m18): l06 password hashing"
+```
 
 ## Lectura de esta lección
 
@@ -51,8 +88,7 @@ Marca la lección **solo si**:
 
 1. Hashing correcto en código o ADR si ya estaba (artefacto: `commit en repo producto`).
 2. Test o script que verifica compare (artefacto: `commit en repo producto`).
-3. Doc de parámetros (artefacto: `commit en repo producto`).
-4. Commit `docs(m18): L06 hashing-de-contrasenas-con-bcrypt-o-argon2`.
+3. Commit `docs(m18): L06 hashing-de-contrasenas-con-bcrypt-o-argon2`.
 
 ## Errores comunes
 

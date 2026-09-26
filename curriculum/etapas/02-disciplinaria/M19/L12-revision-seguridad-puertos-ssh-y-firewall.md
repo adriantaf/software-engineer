@@ -13,23 +13,42 @@ evidencia: projects/m19-ops/security-host.md
 
 **~5.0 h · Semana 3**
 
-Si VPS: SSH keys, ufw/security group. Si PaaS: documenta superficie.
+Deploy sin postura de host revierte M18.
 
 ## Objetivo
 
-Checklist host harden; sin SSH password abierto al mundo.
+Checklist puertos expuestos, SSH (clave, no password), firewall si VPS.
+
+## Conceptos clave
+
+- firewall
+- SSH
+- least privilege
 
 ## Pasos (hazlos en orden)
 
-### 1. Inventario puertos (40 min)
+### 1. Revisión host (70–90 min)
 
-### 2. Hardening/doc (70–90 min)
+```bash
+# Si VPS (ejemplos — adapta; no abras 0.0.0.0:5432 al mundo):
+# sudo ufw status
+# ss -tulpn | head
+cat > projects/m19-ops/security-host.md << 'EOF'
+# Host security
+| Control | Estado | Notas |
+|---------|--------|-------|
+| SSH keys only | | |
+| Firewall | | DB no pública |
+| Updates | | |
+EOF
+```
 
-`docs/host-security.md`.
+### 2. Commit (15 min)
 
-### 3. Commit
-
-`docs(m19): l12 host security`
+```bash
+git add projects/m19-ops/security-host.md
+git commit -m "docs(m19): L12 seguridad puertos ssh firewall"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +62,13 @@ Checklist host harden; sin SSH password abierto al mundo.
 
 Marca la lección **solo si**:
 
-1. Checklist completo (artefacto: `projects/m19-ops/security-host.md`).
-2. SSH seguro o N/A PaaS (artefacto: `projects/m19-ops/security-host.md`).
-3. Sin Postgres público (artefacto: `projects/m19-ops/security-host.md`).
-4. Commit `docs(m19): L12 revision-seguridad-puertos-ssh-y-firewall`.
+1. Existe `projects/m19-ops/security-host.md` (SSH, firewall, DB no pública).
+2. Commit `docs(m19): L12 revision-seguridad-puertos-ssh-y-firewall`.
 
 ## Errores comunes
 
-- SSH password root.
-- 22 abierto al mundo sin necesidad.
+- Postgres expuesto a 0.0.0.0.
+- SSH con password root.
 
 ## Siguiente
 

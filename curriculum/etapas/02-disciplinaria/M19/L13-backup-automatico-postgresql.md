@@ -13,29 +13,50 @@ evidencia: projects/m19-ops/backup.md
 
 **~5.0 h · Semana 4**
 
-Backup que no corre no existe.
+P3 sin backup es teatro.
 
 ## Objetivo
 
-`backup.md` + script/cron `pg_dump` (o snapshot proveedor) con retención.
+Automatizar pg_dump o backup gestionado; retención y ubicación segura.
+
+## Conceptos clave
+
+- pg_dump
+- cron
+- cifrado opcional
 
 ## Pasos (hazlos en orden)
 
-### 1. Script dump (80–100 min)
+### 1. Script backup Postgres (80–100 min)
 
 ```bash
-pg_dump "$DATABASE_URL" -Fc -f backup.dump
+cat > projects/m19-ops/scripts/pg_dump_daily.sh << 'EOF'
+#!/usr/bin/env bash
+set -euo pipefail
+: "${DATABASE_URL:?}"
+STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+OUT="backups/agenda-${STAMP}.sql.gz"
+mkdir -p backups
+pg_dump "$DATABASE_URL" | gzip > "$OUT"
+echo "wrote $OUT"
+EOF
+chmod +x projects/m19-ops/scripts/pg_dump_daily.sh
 ```
 
-Almacena fuera del contenedor efímero.
+### 2. Documenta backup.md (40 min)
 
-### 2. Automatiza (40 min)
-
-Cron/GitHub scheduled/PaaS job. Documenta.
-
-### 3. Commit
-
-`feat(m19): l13 backup postgres`
+```bash
+cat > projects/m19-ops/backup.md << 'EOF'
+# Backup
+- Comando: `scripts/pg_dump_daily.sh`
+- Destino: object storage / volumen cifrado
+- Retención: 7–30 días
+- Cron: …
+EOF
+# añade backups/ a .gitignore
+git add projects/m19-ops/scripts/pg_dump_daily.sh projects/m19-ops/backup.md
+git commit -m "feat(m19): L13 backup automatico postgresql"
+```
 
 ## Lectura de esta lección
 
@@ -49,15 +70,13 @@ Cron/GitHub scheduled/PaaS job. Documenta.
 
 Marca la lección **solo si**:
 
-1. Procedimiento escrito (artefacto: `projects/m19-ops/backup.md`).
-2. Job programado o gestionado (artefacto: `projects/m19-ops/backup.md`).
-3. Tamaño estimado (artefacto: `projects/m19-ops/backup.md`).
-4. Commit `docs(m19): L13 backup-automatico-postgresql`.
+1. `projects/m19-ops/scripts/pg_dump_daily.sh` + `projects/m19-ops/backup.md`.
+2. Commit `docs(m19): L13 backup-automatico-postgresql`.
 
 ## Errores comunes
 
-- Backup manual olvidado.
-- Dump en repo git.
+- Dumps con PII en el repo git.
+- Backup sin retención ni destino.
 
 ## Siguiente
 

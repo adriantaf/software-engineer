@@ -6,32 +6,58 @@ titulo: Autorización por rol owner vs staff
 horas: 5.0
 semana: 5
 lectura: Access Control Cheat Sheet
-evidencia: projects/m18-appsec/rbac-matrix.md
+evidencia: projects/m18-appsec/docs/rbac-matrix.md
 ---
 
 # L18 — Autorización por rol owner vs staff
 
 **~5.0 h · Semana 5**
 
-Matriz M17 debe cumplirse en servidor.
+Agenda Ops distingue dueño y staff; la API debe hacerlo explícito.
 
 ## Objetivo
 
-Tests 403 staff→admin; hallazgos si UI ocultaba y API no.
+Matriz rol×recurso×acción en `projects/m18-appsec/docs/rbac-matrix.md` + ≥1 prueba manual de gap.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. Matriz vs código (40 min)
+### 1. Matriz RBAC (50–60 min)
 
-Diff permisos.md vs middleware.
+```bash
+cat > projects/m18-appsec/docs/rbac-matrix.md <<'EOF'
+# RBAC — Agenda Ops
+| Recurso / acción | Owner | Staff | Anónimo |
+|------------------|-------|-------|---------|
+| Listar citas | ✓ | ✓ (alcance) | ✗ |
+| Crear cita | ✓ | ✓ | ✗ |
+| Borrar cualquier cita | ✓ | ? | ✗ |
+| Configuración negocio | ✓ | ✗ | ✗ |
+| Gestionar usuarios | ✓ | ✗ | ✗ |
 
-### 2. Tests roles (80–100 min)
+## Gaps código vs SRS
+- …
+## Prueba manual
+- Actor: staff · Acción: … · Resultado HTTP: …
+EOF
+```
+### 2. Prueba staff vs owner (50–70 min)
 
-Cobertura de acciones Deny.
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" -b /tmp/m18-staff \
+  -X PATCH localhost:3000/api/settings -H 'content-type: application/json' -d '{"tz":"UTC"}'
+# esperado: 403
+```
 
-### 3. Commit
+```ts
+// guard ilustrativo
+if (req.user.role !== "owner") return res.status(403).json({ error: "forbidden" });
+```
+### 3. Commit (10 min)
 
-`test(m18): l18 authz roles owner staff`
+```bash
+git add projects/m18-appsec/docs/rbac-matrix.md
+git commit -m "docs(m18): l18 rbac matrix"
+```
 
 ## Lectura de esta lección
 
@@ -45,10 +71,9 @@ Cobertura de acciones Deny.
 
 Marca la lección **solo si**:
 
-1. Matriz completa (artefacto: `projects/m18-appsec/rbac-matrix.md`).
-2. ≥1 prueba manual rol (artefacto: `projects/m18-appsec/rbac-matrix.md`).
-3. Gaps listados (artefacto: `projects/m18-appsec/rbac-matrix.md`).
-4. Commit `docs(m18): L18 autorizacion-por-rol-owner-vs-staff`.
+1. Matriz completa (artefacto: `projects/m18-appsec/docs/rbac-matrix.md`).
+2. ≥1 prueba manual rol (artefacto: `projects/m18-appsec/docs/rbac-matrix.md`).
+3. Commit `docs(m18): L18 autorizacion-por-rol-owner-vs-staff`.
 
 ## Errores comunes
 

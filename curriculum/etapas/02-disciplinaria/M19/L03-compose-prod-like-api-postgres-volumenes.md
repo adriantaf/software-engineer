@@ -13,25 +13,57 @@ evidencia: compose.yml + projects/m19-ops/docker.md
 
 **~5.0 h · Semana 1**
 
-Compose que imita prod: red interna, volumen datos, env file.
+P1 M19 es stack local idéntico en espíritu a prod.
 
 ## Objetivo
 
-`compose.yml` (o `compose.prod.yml`) API+Postgres; `docker compose up` documentado.
+Orquestar API y PostgreSQL con volúmenes persistentes, red interna y healthchecks.
+
+## Conceptos clave
+
+- depends_on healthy
+- volumen db-data
+- puerto 5432 no publicado
 
 ## Pasos (hazlos en orden)
 
-### 1. Compose (80–100 min)
+### 1. compose prod-like (80–100 min)
 
-Depends_on healthy; puerto solo lo necesario; secrets via env_file no bakeado.
+```yaml
+# compose.yml (ejemplo)
+services:
+  db:
+    image: postgres:16-alpine
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    env_file: [.env]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+  api:
+    build: .
+    depends_on:
+      db: { condition: service_healthy }
+    env_file: [.env]
+    ports: ["3000:3000"]
+volumes:
+  pgdata:
+```
 
-### 2. Prueba (50–60 min)
+### 2. Up + health (50–60 min)
 
-Up → health → login smoke local.
+```bash
+docker compose up -d --build
+curl -sS http://localhost:3000/health
+docker compose ps
+```
 
-### 3. Commit
+Pega comandos en `projects/m19-ops/docker.md`.
 
-`feat(m19): l03 compose prod-like`
+### 3. Commit (15 min)
+
+```bash
+git add compose.yml projects/m19-ops/docker.md
+git commit -m "feat(m19): L03 compose prod-like"
+```
 
 ## Lectura de esta lección
 
@@ -45,15 +77,14 @@ Up → health → login smoke local.
 
 Marca la lección **solo si**:
 
-1. Compose levanta stack (artefacto: `compose.yml`).
-2. Healthcheck OK (artefacto: `compose.yml`).
-3. Postgres con volumen (artefacto: `compose.yml`).
-4. Commit `docs(m19): L03 compose-prod-like-api-postgres-volumenes`.
+1. `compose.yml` (o `compose.prod.yml`) API+Postgres con volumen.
+2. `docker compose up` + `/health` 200 documentados en docker.md.
+3. Commit `docs(m19): L03 compose-prod-like-api-postgres-volumenes`.
 
 ## Errores comunes
 
-- 5432:5432 público.
-- password en compose commiteado.
+- Publicar puerto 5432 al host en prod-like.
+- Secrets bakeados en la imagen.
 
 ## Siguiente
 

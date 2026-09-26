@@ -35,34 +35,22 @@ Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Guion demo semana 4 (25–35 min)
 
-```bash
-mkdir -p projects/m26-capstone/demos
-```
+En `projects/m26-capstone/demos/semana-04.md`: vertical completo — onboarding o login, cita, contraste tenants, mención billing si listo.
 
-Confirma que escribirás `projects/m26-capstone/demos/semana-04.md`.
+### 3. Ejecuta flujos completos (100–120 min)
 
-### 3. Laboratorio principal (100–130 min)
+Graba o documenta con timestamps. Dos tenants. Anexa bugs encontrados como issues.
 
-```bash
-mkdir -p projects/m26-capstone/memoria projects/m26-capstone/demos projects/m26-capstone/bitacora
-```
+### 4. Comparación vs semana 2 (20–30 min)
 
-Cita de punta a punta en dos tenants.
-
-Registra horas y bloqueos en `projects/m26-capstone/bitacora/semana-04.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m26-capstone/demos/semana-04.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Qué mejoró. Bitácora semana-04.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m26): l16 demo-interna-semana-4-flujos-completos"
 ```

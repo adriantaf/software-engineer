@@ -13,23 +13,40 @@ evidencia: projects/m19-ops/monitoring.md
 
 **~5.0 h · Semana 3**
 
-Uptime mínimo: ping health + alerta humana.
+No necesitas Datadog para el piloto; sí necesitas saber si está caído.
 
 ## Objetivo
 
-`docs/monitoreo.md`: qué miras, cada cuánto, a quién avisas.
+Configurar healthcheck externo o calendario de revisión manual; definir qué hacer si cae.
+
+## Conceptos clave
+
+- uptime
+- on-call manual
 
 ## Pasos (hazlos en orden)
 
-### 1. Define señales (40 min)
+### 1. Monitoreo mínimo (60–80 min)
 
-### 2. Configura check (70–90 min)
+```bash
+cat > projects/m19-ops/monitoring.md << 'EOF'
+# Monitoreo
+- Check: GET /health cada 5 min (UptimeRobot/Cron/… )
+- Alerta: email/Telegram si 2 fallos
+- Manual: revisar logs tras deploy
+EOF
+```
 
-Cron externo, Better Uptime free, o script. Evidencia.
+```bash
+curl -sS https://TU-STAGING.example/health
+```
 
-### 3. Commit
+### 2. Commit (15 min)
 
-`docs(m19): l11 monitoreo minimo`
+```bash
+git add projects/m19-ops/monitoring.md
+git commit -m "docs(m19): L11 monitoreo alertas manuales"
+```
 
 ## Lectura de esta lección
 
@@ -43,15 +60,13 @@ Cron externo, Better Uptime free, o script. Evidencia.
 
 Marca la lección **solo si**:
 
-1. Monitoreo definido (artefacto: `projects/m19-ops/monitoring.md`).
-2. Contacto (artefacto: `projects/m19-ops/monitoring.md`).
-3. health prod (artefacto: `projects/m19-ops/monitoring.md`).
-4. Commit `docs(m19): L11 monitoreo-minimo-y-alertas-manuales`.
+1. Existe `projects/m19-ops/monitoring.md` con check `/health` y canal de alerta.
+2. Commit `docs(m19): L11 monitoreo-minimo-y-alertas-manuales`.
 
 ## Errores comunes
 
-- Asumir siempre up.
-- Alertas sin acción.
+- Monitoreo = ‘miro de vez en cuando’.
+- Alertas al canal equivocado sin dueño.
 
 ## Siguiente
 

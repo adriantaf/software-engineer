@@ -13,21 +13,33 @@ evidencia: captura en demo-login-lista.md
 
 **~5.0 h · Semana 2**
 
-Loading/error/vacío también en móvil.
+Red móvil es lenta; la UI debe comunicarlo.
 
 ## Objetivo
 
-Tres estados implementados; capturas en evidencia P2 parcial.
+Skeleton o spinner, deshabilitar doble tap, error con reintento.
+
+## Conceptos clave
+
+- loading
+- error retry
 
 ## Pasos (hazlos en orden)
 
-### 1. Estados (90–110 min)
+### 1. Estados loading/error (60–80 min)
 
-### 2. Capturas (30 min)
+Spinner inicial; banner error con “Reintentar”; no lista fantasma.
 
-### 3. Commit
+### 2. Captura en demo doc (30 min)
 
-`feat(m20): l07 estados carga lista`
+```bash
+cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+## Estados carga
+loading: …  error: … (captura redactada opcional)
+EOF
+git add projects/m20-movil/demo-login-lista.md
+git commit -m "feat(m20): L07 estados carga lista"
+```
 
 ## Lectura de esta lección
 
@@ -41,15 +53,13 @@ Tres estados implementados; capturas en evidencia P2 parcial.
 
 Marca la lección **solo si**:
 
-1. Tres estados UI (artefacto: `captura en demo-login-lista.md`).
-2. Reintento (artefacto: `captura en demo-login-lista.md`).
-3. Capturas (artefacto: `captura en demo-login-lista.md`).
-4. Commit `docs(m20): L07 estados-de-carga-en-lista`.
+1. Estados loading/error documentados en demo-login-lista.md.
+2. Commit `docs(m20): L07 estados-de-carga-en-lista`.
 
 ## Errores comunes
 
-- Pantalla blanca.
-- Carga infinita.
+- Error silencioso (lista vacía falsa).
+- Loading eterno.
 
 ## Siguiente
 

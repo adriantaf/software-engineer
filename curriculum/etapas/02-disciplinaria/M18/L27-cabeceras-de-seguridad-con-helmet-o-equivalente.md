@@ -13,23 +13,41 @@ evidencia: commit headers + captura curl
 
 **~5.0 h · Semana 7**
 
-Confirma headers en staging; completa gaps M17.
+Headers baratos reducen XSS clickjacking y MIME sniffing.
 
 ## Objetivo
 
-Headers activos verificados; doc en appsec.
+Helmet (o equiv) en la API/front; captura `curl -I` en evidencia.
 
-## Pasos (hazlos en orden)
+## Pasos
 
-### 1. curl -I (40 min)
+### 1. Baseline headers (20–30 min)
 
-### 2. Ajustes (60–80 min)
+```bash
+curl -sI localhost:3000/ | tee projects/m18-appsec/pocs/headers-before.txt | rg -i 'x-|content-security|strict-transport|referrer|permissions'|| true
+```
+### 2. Activa Helmet (60–80 min)
 
-X-Content-Type-Options, Frame, Referrer-Policy, etc.
+```ts
+import helmet from "helmet";
+app.use(helmet({
+  contentSecurityPolicy: false, // CSP en L28
+  frameguard: { action: "deny" },
+  noSniff: true,
+  referrerPolicy: { policy: "no-referrer" },
+}));
+```
 
-### 3. Commit
+```bash
+curl -sI localhost:3000/ | tee projects/m18-appsec/pocs/headers-after.txt
+diff -u projects/m18-appsec/pocs/headers-before.txt projects/m18-appsec/pocs/headers-after.txt || true
+```
+### 3. Commit (10 min)
 
-`fix(m18): l27 security headers`
+```bash
+git add projects/m18-appsec/pocs/headers-*.txt
+git commit -m "fix(m18): l27 security headers"
+```
 
 ## Lectura de esta lección
 
@@ -45,7 +63,7 @@ Marca la lección **solo si**:
 
 1. Headers visibles en staging (artefacto: `commit headers`).
 2. Login sigue funcionando (artefacto: `commit headers`).
-3. Commit (artefacto: `commit headers`).
+3. Commit `docs(m18): L27 cabeceras-de-seguridad-con-helmet-o-equivalente`.
 
 ## Errores comunes
 

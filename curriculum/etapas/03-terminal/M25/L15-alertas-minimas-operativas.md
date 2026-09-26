@@ -37,28 +37,36 @@ Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o 
 
 Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
 
-### 2. Prepara carpetas (15–25 min)
+### 2. Elige señales que te despiertan (25–35 min)
+
+En `projects/m25-ciber/alertas/minimas.md` tabla:
+
+| Señal | Umbral | Canal | Dueño | Acción |
+|-------|--------|-------|-------|--------|
+
+Mínimo: 5xx spike, disco/DB, failed logins, webhook Stripe fallando.
+
+### 3. Configura o documenta canal (90–110 min)
+
+Deja al menos **un** canal real (email, Slack webhook, provider alert). Prueba con un evento falso o synthetic.
 
 ```bash
-mkdir -p projects/m25-ciber/alertas
+# ejemplo synthetic — adapta a tu provider
+curl -s -X POST "$ALERT_WEBHOOK_URL" \
+  -H "Content-Type: application/json" \
+  -d '{"text":"m25 synthetic alert — safe to ignore"}'
 ```
 
-Confirma que escribirás `projects/m25-ciber/alertas/minimas.md`.
+Pega evidencia (screenshot path o mensaje redactado).
 
-### 3. Laboratorio principal (100–130 min)
+### 4. Runbook de 5 líneas por alerta (25–35 min)
 
-Bitácora semana 4 en `projects/m25-ciber/bitacora/semana-04.md`.
-
-### 4. Criterio de calidad (30–45 min)
-
-Relee `projects/m25-ciber/alertas/minimas.md`: ¿un mentor externo entendería el resultado sin preguntarte?
-
-Añade enlace a issue/PR/URL de staging si aplica. Bitácora de la semana: 5 líneas de horas y bloqueos.
+Por cada señal: qué mirar primero. Bitácora semana-04.
 
 ### 5. Commit atómico (15 min)
 
 ```bash
-git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+git add projects/
 git status
 git commit -m "docs(m25): l15 alertas-m-nimas-operativas"
 ```
