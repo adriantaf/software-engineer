@@ -48,7 +48,7 @@ Una materia **no** está terminada porque leíste el Markdown. Está terminada c
 - El proyecto cumple los requisitos mínimos de la ficha.
 - Puedes explicar los criterios de dominio **sin mirar el tutorial**.
 
-Luego marcas el checkbox en el plan y actualizas `progress.json` (commit semanal).
+Luego marcas el checkbox en el plan. Cada semana: **check-in** en la página Progreso (horas reales + hecho / bloqueo / siguiente), exporta el JSON a `progress.json` y haz commit.
 
 ## Cuando no entiendas algo
 

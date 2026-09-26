@@ -68,6 +68,12 @@ export function rewriteCurriculumHref(href: string, fromCurriculumFile: string):
     const materia = curriculumRel.match(/^etapas\/[^/]+\/(M\d{2})-[^/]+\.md$/i);
     if (materia) return `${pathTo(`materia/${materia[1]}`)}${hash}`;
 
+    const examen = curriculumRel.match(/^etapas\/([^/]+)\/examen\.md$/i);
+    if (examen) {
+      const etapa = getCatalog().etapas.find((e) => e.slug === examen[1]);
+      if (etapa) return `${pathTo(`etapa/${etapa.id}/examen`)}${hash}`;
+    }
+
     if (/\.md$/i.test(curriculumRel)) {
       return `${GITHUB_BLOB}/curriculum/${curriculumRel}${hash}`;
     }
@@ -292,6 +298,17 @@ export function loadMarkdownPage(relativePath: string): { title: string; html: s
     content.match(/^#\s+(.+)$/m)?.[1] ||
     relativePath;
   return { title, html };
+}
+
+/** Autoevaluación de cierre de etapa (`etapas/<slug>/examen.md`). */
+export function loadEtapaExamen(etapaId: string): { title: string; html: string; rel: string } | null {
+  const etapa = getEtapa(etapaId);
+  if (!etapa) return null;
+  const rel = `etapas/${etapa.slug}/examen.md`;
+  const filepath = path.join(curriculumRoot, rel);
+  if (!fs.existsSync(filepath)) return null;
+  const page = loadMarkdownPage(rel);
+  return { ...page, rel };
 }
 
 export function getProgressSeed() {

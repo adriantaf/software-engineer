@@ -9,6 +9,17 @@ export type MateriaProgress = {
   completadoEn: string | null;
 };
 
+/** Check-in semanal (ritmo + retrospectiva corta). */
+export type WeeklyCheckIn = {
+  /** ISO date YYYY-MM-DD (día del check-in). */
+  fecha: string;
+  /** Horas reales estudiadas esa semana. */
+  horas: number;
+  hecho: string;
+  bloqueo: string;
+  siguiente: string;
+};
+
 export type ProgressState = {
   estudiante: string;
   inicio: string;
@@ -19,7 +30,10 @@ export type ProgressState = {
   /** Última lección abierta dentro de una materia con lecciones. */
   lastLeccionId?: string;
   materias: Record<string, MateriaProgress>;
+  /** @deprecated preferir checkIns; se conserva por compatibilidad de export. */
   notas: string[];
+  /** Historial de check-ins semanales (más reciente primero). */
+  checkIns: WeeklyCheckIn[];
 };
 
 function defaultMateria(): MateriaProgress {
@@ -41,7 +55,22 @@ function emptyState(materiaId = 'M01'): ProgressState {
     lastMateriaId: materiaId,
     materias: {},
     notas: [],
+    checkIns: [],
   };
+}
+
+function normalizeProgress(raw: ProgressState): ProgressState {
+  const state: ProgressState = {
+    ...emptyState(raw.materiaActual || 'M01'),
+    ...raw,
+    notas: Array.isArray(raw.notas) ? raw.notas : [],
+    checkIns: Array.isArray(raw.checkIns) ? raw.checkIns : [],
+    materias: raw.materias ?? {},
+  };
+  if (!Number.isFinite(state.horasSemanalesMeta) || state.horasSemanalesMeta <= 0) {
+    state.horasSemanalesMeta = 20;
+  }
+  return state;
 }
 
 export function loadProgress(): ProgressState | null {
@@ -49,15 +78,16 @@ export function loadProgress(): ProgressState | null {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (!raw) return null;
   try {
-    return JSON.parse(raw) as ProgressState;
+    return normalizeProgress(JSON.parse(raw) as ProgressState);
   } catch {
     return null;
   }
 }
 
 export function saveProgress(state: ProgressState) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-  window.dispatchEvent(new CustomEvent('academia-progress', { detail: state }));
+  const normalized = normalizeProgress(state);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+  window.dispatchEvent(new CustomEvent('academia-progress', { detail: normalized }));
 }
 
 export function initProgressFromSeed() {
@@ -192,6 +222,36 @@ export function markMateriaCompletada(materiaId: string, done: boolean) {
   state.lastMateriaId = materiaId;
   saveProgress(state);
   return state;
+}
+
+export function setHorasSemanalesMeta(horas: number) {
+  const state = loadProgress() ?? emptyState();
+  const n = Math.round(Number(horas));
+  state.horasSemanalesMeta = Number.isFinite(n) && n > 0 ? Math.min(n, 80) : 20;
+  saveProgress(state);
+  return state;
+}
+
+export function addWeeklyCheckIn(input: Omit<WeeklyCheckIn, 'fecha'> & { fecha?: string }) {
+  const state = loadProgress() ?? emptyState();
+  const entry: WeeklyCheckIn = {
+    fecha: input.fecha || new Date().toISOString().slice(0, 10),
+    horas: Math.max(0, Math.round(Number(input.horas) || 0)),
+    hecho: (input.hecho || '').trim(),
+    bloqueo: (input.bloqueo || '').trim(),
+    siguiente: (input.siguiente || '').trim(),
+  };
+  const prev = Array.isArray(state.checkIns) ? state.checkIns : [];
+  // Un check-in por fecha: reemplaza si ya existe ese día.
+  state.checkIns = [entry, ...prev.filter((c) => c.fecha !== entry.fecha)].slice(0, 52);
+  saveProgress(state);
+  return state;
+}
+
+export function listWeeklyCheckIns(limit = 8): WeeklyCheckIn[] {
+  const state = loadProgress();
+  const list = state?.checkIns ?? [];
+  return list.slice(0, limit);
 }
 
 export function exportProgressJson(): string {
