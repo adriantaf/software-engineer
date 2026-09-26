@@ -18,8 +18,8 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Cómo usarla
 
 1. Abre la ficha **M02** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
-3. Deja aquí (o enlaza) los archivos/commits de la checklist.
+2. Sigue las lecciones **L01 → L24** en orden (cuatro por semana).
+3. Deja aquí (o enlaza) los archivos/commits de la checklist (`m02-katas/`, `m02-habits/`).
 4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
 
 ## Enlaces
