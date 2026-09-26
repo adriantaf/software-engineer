@@ -37,33 +37,121 @@ Al terminar debes poder:
 5. Entregar memoria técnica (arquitectura, tenancy, billing, seguridad).
 6. Demostrar el producto en video público y cumplir la rúbrica de egreso.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md), [producto-saas.md](../../producto-saas.md) y [egreso.md](../../egreso.md) en la semana 1.
-- **Congela alcance** semana 1: MVP de la spec, no features infinitas.
-- Cada semana: demo interna con **≥2 tenants** distintos.
-- Billing y cross-tenant **no** se aplazan a la semana 8.
-- Trabaja en `projects/m26-capstone/`; enlaza repos de app si viven aparte.
+M26 es el **capstone**: Agenda Ops SaaS en **producción** con L01–L32 (máxima profundidad del plan), evidencia en `projects/m26-capstone/` y repos de aplicación.
+
+1. Orden **L01 → L32**; congela alcance en semana 1 y respétalo.
+2. Cada semana: demo interna con **≥2 tenants** distintos.
+3. Billing (Stripe test) y cross-tenant **no** se aplazan a la semana 8.
+4. Memoria y video deben explicar **tu** tenancy real a un tercero.
+5. [egreso.md](../../egreso.md) + [producto-saas](../../producto-saas.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Build SaaS | 8–10 | Tenancy + features |
-| Billing/sec | 4–6 | Stripe test + tests cross-tenant |
-| Memoria/demo | 4–6 | Video + rúbrica egreso |
+| Build SaaS (lecciones) | 10–12 | 4× ~5 h features/ops/billing |
+| Seguridad / billing | 4–6 | M25 + Stripe webhooks |
+| Memoria / demo | 4–6 | Video + rúbrica egreso |
 | Retro | 1 | Gaps honestos |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **un entregable del sprint** (test, página, doc memoria).
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Abre o crea `projects/m26-capstone/` y alinea `projects/m26-capstone/alcance.md` con [producto-saas.md](../../producto-saas.md).
-2. Marca el checklist de [egreso.md](../../egreso.md) en `projects/m26-capstone/egreso-checklist.md` (estado actual honesto).
-3. Plan de **8 sprints** en `projects/m26-capstone/plan-8-semanas.md` con fecha de demo pública.
-4. Stripe test: cuenta + productos/planes Free/Pro creados (wire parcial OK si está documentado).
-5. Crea dos tenants de prueba nombrados (no “tenant1” genérico sin datos).
-6. Commit, por ejemplo: `docs(m26): alcance congelado + plan 8 semanas`.
+### Semana 1 — Alcance congelado y modelo tenancy (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Alcance SaaS v1 congelado](M26/L01-alcance-saas-v1-congelado.md) | 5 |
+| L02 | [Plan 8 semanas y egreso-checklist honesto](M26/L02-plan-8-semanas-y-egreso-checklist-honesto.md) | 5 |
+| L03 | [Modelo tenant_id y resolución de tenant](M26/L03-modelo-tenant-id-y-resolucion-de-tenant.md) | 5 |
+| L04 | [Riesgos integrador y dependencias](M26/L04-riesgos-integrador-y-dependencias.md) | 5 |
+
+### Semana 2 — Onboarding y dos tenants demo (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Onboarding self-service de nuevo tenant](M26/L05-onboarding-self-service-de-nuevo-tenant.md) | 5 |
+| L06 | [Seeds y datos demo por tenant](M26/L06-seeds-y-datos-demo-por-tenant.md) | 5 |
+| L07 | [Panel admin por tenant](M26/L07-panel-admin-por-tenant.md) | 5 |
+| L08 | [Demo interna semana 2 — dos tenants](M26/L08-demo-interna-semana-2-dos-tenants.md) | 5 |
+
+### Semana 3 — Features críticas — citas y catálogo (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Citas CRUD multi-tenant](M26/L09-citas-crud-multi-tenant.md) | 5 |
+| L10 | [Clientes y servicios por tenant](M26/L10-clientes-y-servicios-por-tenant.md) | 5 |
+| L11 | [Staff y permisos mínimos](M26/L11-staff-y-permisos-minimos.md) | 5 |
+| L12 | [Tests regresión flujos críticos](M26/L12-tests-regresion-flujos-criticos.md) | 5 |
+
+### Semana 4 — Integraciones, móvil y métricas (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Notificaciones o WhatsApp si en alcance](M26/L13-notificaciones-o-whatsapp-si-en-alcance.md) | 5 |
+| L14 | [App móvil M20 conectada o plan cierre](M26/L14-app-movil-m20-conectada-o-plan-cierre.md) | 5 |
+| L15 | [Métricas M22 en producto](M26/L15-metricas-m22-en-producto.md) | 5 |
+| L16 | [Demo interna semana 4 — flujos completos](M26/L16-demo-interna-semana-4-flujos-completos.md) | 5 |
+
+### Semana 5 — Stripe test y landing de precios (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L17 | [Stripe test — productos Free/Pro](M26/L17-stripe-test-productos-free-pro.md) | 5 |
+| L18 | [Landing pública de precios](M26/L18-landing-publica-de-precios.md) | 5 |
+| L19 | [Checkout test end-to-end](M26/L19-checkout-test-end-to-end.md) | 5 |
+| L20 | [Webhooks Stripe verificados en deploy](M26/L20-webhooks-stripe-verificados-en-deploy.md) | 5 |
+
+### Semana 6 — M25 vigente, CI y ops (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L21 | [Re-ejecutar review M25 y cerrar gaps](M26/L21-re-ejecutar-review-m25-y-cerrar-gaps.md) | 5 |
+| L22 | [CI con tests cross-tenant obligatorios](M26/L22-ci-con-tests-cross-tenant-obligatorios.md) | 5 |
+| L23 | [Backups prod y runbook ops](M26/L23-backups-prod-y-runbook-ops.md) | 5 |
+| L24 | [Hardening final pre-demo pública](M26/L24-hardening-final-pre-demo-publica.md) | 5 |
+
+### Semana 7 — Memoria técnica y comercial (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L25 | [Memoria — arquitectura y diagramas](M26/L25-memoria-arquitectura-y-diagramas.md) | 5 |
+| L26 | [Memoria — tenancy, billing, seguridad](M26/L26-memoria-tenancy-billing-seguridad.md) | 5 |
+| L27 | [Registro comercial M22 y trials](M26/L27-registro-comercial-m22-y-trials.md) | 5 |
+| L28 | [Métricas y post-mortem técnico v1](M26/L28-metricas-y-post-mortem-tecnico-v1.md) | 5 |
+
+### Semana 8 — Demo pública y egreso (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L29 | [Video demo público multi-tenant](M26/L29-video-demo-publico-multi-tenant.md) | 5 |
+| L30 | [Checklist egreso con evidencia enlazada](M26/L30-checklist-egreso-con-evidencia-enlazada.md) | 5 |
+| L31 | [README capstone índice maestro](M26/L31-readme-capstone-indice-maestro.md) | 5 |
+| L32 | [Cierre integrador y handoff v1.1](M26/L32-cierre-integrador-y-handoff-v1-1.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: memoria propia + [producto-saas](../../producto-saas.md) + [egreso](../../egreso.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Lectura / relectura | Uso |
+|--------|-----------|---------------------|-----|
+| 1 | L01–L04 | producto-saas + egreso | `alcance.md`, tenancy |
+| 2 | L05–L08 | SRS M12 / diseño M13 | Onboarding tenants |
+| 3 | L09–L12 | ADRs API M17 | CRUD multi-tenant |
+| 4 | L13–L16 | M24 go/no-go, M20 README | Integraciones |
+| 5 | L17–L20 | Stripe Checkout + webhooks | Landing + test mode |
+| 6 | L21–L24 | Informe M25 | CI cross-tenant |
+| 7 | L25–L28 | Métricas M22 | Memoria v1 |
+| 8 | L29–L32 | Checklist egreso | Video + README capstone |
+
+**Regla:** cada semana demo ≥2 tenants; producción o staging público acordado.
+
+
 
 ## Ejemplo — criterio de aislamiento (idea)
 
@@ -75,73 +163,7 @@ Automatiza al menos un caso en CI.
 
 Regla: el egreso exige explicar **IDOR cross-tenant** y cómo lo evitas.
 
-## Temario semanal
 
-### Semana 1 — Alcance, tenancy y riesgos (~20 h)
-
-- `alcance.md` congelado: in/out scope SaaS v1.
-- Modelo `tenant_id` en datos y middleware de resolución de tenant.
-- Riesgos y dependencias (Stripe, hosting, M25 pendiente).
-- Práctica P1 entregable: plan 8 semanas + alcance firmado por ti.
-
-### Semana 2 — Multi-tenant y onboarding (~20 h)
-
-- Registro de nuevo negocio (tenant) sin intervención manual tuya.
-- Seeds o wizard mínimo; datos aislados por tenant.
-- Demo: tenant A y B con nombres y datos distintos.
-
-### Semana 3 — Features críticas del vertical (~20 h)
-
-- Citas, clientes, servicios, admin — paridad razonable con piloto M17.
-- Nada de hardcode del negocio piloto único.
-- Tests de regresión en flujos críticos.
-
-### Semana 4 — Features críticas (cont.) + integraciones (~20 h)
-
-- WhatsApp / notificaciones si están en alcance congelado.
-- App móvil M20 conectada o gap documentado con plan de cierre.
-- Métricas mínimas (M22) registradas.
-
-### Semana 5 — Stripe test y landing de precios (~20 h)
-
-- Landing pública con planes Free/Pro.
-- Checkout test mode; webhooks con verificación de firma.
-- Usuario de prueba completa flujo de suscripción test.
-
-### Semana 6 — Hardening, CI y M25 (~20 h)
-
-- Security review M25 vigente; tests cross-tenant en pipeline.
-- Backups, secretos, headers prod.
-- Cierre de issues críticos de aislamiento.
-
-### Semana 7 — Memoria técnica y métricas (~20 h)
-
-- Práctica P2: memoria v1 en `projects/m26-capstone/memoria/` (tenancy, billing, seguridad, ops).
-- Registro comercial / trials (M22) referenciado.
-- Diagramas de arquitectura actualizados.
-
-### Semana 8 — Demo, video y egreso (~20 h)
-
-- Práctica P3: video público multi-tenant (sin tutorial de fondo).
-- Demo en vivo opcional; checklist egreso completo.
-- Post-mortem honesto: qué queda para v1.1.
-
-## Lecturas
-
-Canon: memoria técnica propia + [producto-saas](../../producto-saas.md) + rúbrica [egreso](../../egreso.md). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Lectura / relectura | Uso |
-|--------|---------------------|-----|
-| 1 | [producto-saas.md](../../producto-saas.md) completo + egreso | `alcance.md` congelado |
-| 2 | SRS (M12) + diseño (M13) — gaps multi-tenant | Onboarding tenant |
-| 3 | Docs Stripe **test mode** (Checkout / Customer) | Productos Free/Pro |
-| 4 | ADRs de tenancy del repo | Features críticas |
-| 5 | Stripe Checkout + webhooks (test) | Landing precios |
-| 6 | Informe M25 + OWASP access control | Tests cross-tenant + CI |
-| 7 | Plantilla memoria + métricas M22 | Memoria v1 |
-| 8 | Checklist egreso | Demo + video |
-
-**Regla:** cada semana demo con ≥2 tenants; billing y seguridad no se aplazan.
 
 ## Prácticas
 
