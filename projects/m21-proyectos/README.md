@@ -18,7 +18,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Cómo usarla
 
 1. Abre la ficha **M21** en el plan.
-2. Haz el **Día 1** y sigue **Semana tipo**.
+2. Sigue las lecciones **L01–L12** en orden (3 semanas × 4).
 3. Deja aquí (o enlaza) los archivos/commits de la checklist.
 4. Marca prácticas/proyecto en la UI solo cuando exista la evidencia.
 

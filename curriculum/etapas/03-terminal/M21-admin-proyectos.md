@@ -38,32 +38,71 @@ Al terminar debes poder:
 5. Identificar riesgos técnicos y de producto (seguridad, dependencia de un solo design partner, scope creep) con mitigaciones accionables.
 6. Definir “hecho” (Definition of Done) que incluya evidencia en `projects/` y CI verde cuando aplique.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) y la [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) — es corta; léela entera una vez.
-- Adapta Scrum a **equipo de uno**: tú eres dev y “product owner” hasta que tengas clientes; el backlog es el producto, no tareas de la universidad.
-- Cada viernes (o fin de sprint): 30 min de retrospectiva escrita en `projects/m21-proyectos/`.
-- Un issue de seguridad o multi-tenant en el backlog vale tanto como una feature visible.
+M21 opera **Agenda Ops** como proyecto real en el repo: L01–L12 (3 semanas × 4 lecciones).
+
+1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
+2. Issues y milestones en el **repo producto**, evidencia de gestión en `projects/m21-proyectos/`.
+3. Estima en rangos; documenta desviaciones en sprints, no las borres.
+4. Cada sprint: meta única, retrospectiva escrita, ≥1 issue de seguridad/multi-tenant visible en backlog.
+5. [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Roadmap | 6–8 | Trimestre Agenda Ops |
-| Sprints | 6–8 | Meta/hecho/aprendizaje |
-| Riesgos | 4–6 | Mitigaciones |
+| Roadmap / backlog | 6–8 | 4 lecciones (~5 h c/u) |
+| Sprints + métricas flujo | 6–8 | Registros honestos en `sprints/` |
+| Riesgos + tablero | 4–6 | `riesgos.md`, `board.md` vivo |
 | Retro | 1 | Estimación vs real |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** con artefacto en git. No saltes la lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. `mkdir -p projects/m21-proyectos/sprints`.
-2. En GitHub (o herramienta elegida), crea milestones para las próximas 4 semanas: ej. “M21-S1 Roadmap”, “M21-S2 Sprint 1”, etc.
-3. Mueve **5 issues reales** del repo Agenda Ops al backlog priorizado; **al menos uno** debe ser seguridad o `tenant_id` (ej. “test cross-tenant”, “rotar secretos”, “documentar DoD”).
-4. Escribe `projects/m21-proyectos/definition-of-done.md`: qué debe cumplir un issue para cerrarse (PR, test, doc, deploy staging si aplica).
-5. Borrador de `projects/m21-proyectos/roadmap-trimestre.md` con 3–5 objetivos del trimestre (multi-tenant, staging estable, primeros trials).
-6. Enlaza el tablero en `projects/m21-proyectos/board.md` (URL o captura semanal).
+### Semana 1 — Roadmap y backlog (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Entorno M21, Scrum de uno y Definition of Done](M21/L01-entorno-m21-scrum-de-uno-y-definition-of-done.md) | 5 |
+| L02 | [Milestones y cinco issues reales del producto](M21/L02-milestones-y-cinco-issues-reales-del-producto.md) | 5 |
+| L03 | [Roadmap trimestral alineado a producto-saas](M21/L03-roadmap-trimestral-alineado-a-producto-saas.md) | 5 |
+| L04 | [Backlog refinado y criterios de aceptación](M21/L04-backlog-refinado-y-criterios-de-aceptacion.md) | 5 |
+
+### Semana 2 — Sprints y métricas de flujo (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Sprint planning — meta única del sprint 1](M21/L05-sprint-planning-meta-unica-del-sprint-1.md) | 5 |
+| L06 | [Ejecutar sprint 1 y registro honesto](M21/L06-ejecutar-sprint-1-y-registro-honesto.md) | 5 |
+| L07 | [Estimación en rangos y métricas de flujo](M21/L07-estimacion-en-rangos-y-metricas-de-flujo.md) | 5 |
+| L08 | [Sprint 2 documentado y avance P2](M21/L08-sprint-2-documentado-y-avance-p2.md) | 5 |
+
+### Semana 3 — Riesgos, dependencias y cierre (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Matriz de riesgos del producto y del proyecto](M21/L09-matriz-de-riesgos-del-producto-y-del-proyecto.md) | 5 |
+| L10 | [Riesgos de seguridad, privacidad y multi-tenant](M21/L10-riesgos-de-seguridad-privacidad-y-multi-tenant.md) | 5 |
+| L11 | [Tablero vivo, sprints 3–4 y DoD en práctica](M21/L11-tablero-vivo-sprints-3-4-y-dod-en-practica.md) | 5 |
+| L12 | [Cierre M21 — P1–P3, dominio y handoff comercial](M21/L12-cierre-m21-p1-p3-dominio-y-handoff-comercial.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf). Preparación comercial → M22. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Lectura | Entrega ligada |
+|--------|-----------|---------|----------------|
+| 1 | L01–L04 | Scrum completa — roles, eventos, artefactos | `roadmap-trimestre.md`, DoD, board |
+| 2 | L05–L08 | Sprint Planning, Review, Retro | `sprints/sprint-01.md`, `sprint-02.md`, flujo |
+| 3 | L09–L12 | Riesgos + métricas simples | `riesgos.md`, sprints 3–4, cierre |
+
+**Regla:** estima en rangos; si fallas, documenta el porqué en el sprint, no lo borres.
+
+
 
 ## Ejemplo — entrada de sprint (honesta)
 
@@ -81,43 +120,7 @@ Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa
 **Estimación:** 24–32 h · **Real:** ~38 h (migración manual de filas piloto).
 ```
 
-## Temario semanal
 
-### Semana 1 — Roadmap y backlog (~20 h)
-
-- Visión trimestral de Agenda Ops vs [producto-saas](../../producto-saas.md).
-- Priorización: impacto en design partner y camino a ≥2 tenants (M26).
-- Backlog refinado: historias pequeñas, criterios de aceptación.
-- Milestones y etiquetas (feature, bug, security, ops).
-- Entregable: `roadmap-trimestre.md` revisable.
-
-### Semana 2 — Sprints y métricas de flujo (~20 h)
-
-- Sprint planning: meta única por sprint, WIP limitado.
-- Daily implícito: nota de 3 líneas en bitácora si trabajas solo.
-- Review: demo a ti mismo o mentor con checklist.
-- Retrospectiva: qué mantener / cambiar / probar.
-- Documentar **4 sprints** (pueden solaparse semanas calendario si ya venías iterando; deben ser registros distintos).
-
-### Semana 3 — Riesgos, dependencias y cierre (~20 h)
-
-- Matriz de riesgos: probabilidad, impacto, mitigación, dueño, fecha revisión.
-- Riesgos de seguridad obligatorios: secretos, IDOR cross-tenant, backup sin restore, dependencia de un solo host.
-- Dependencias externas: proveedor PaaS, Stripe (M26), APIs LLM (M23).
-- Tablero “vivo”: sin issues zombie de hace 2 meses sin etiqueta.
-- Handoff a M22: issues de “demo comercial” en el backlog.
-
-## Lecturas
-
-Canon: [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf). Preparación Lean Startup → M22. Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Lectura | Entrega |
-|--------|---------|---------|
-| 1 | Guía Scrum completa — roles, eventos, artefactos | `projects/m21-proyectos/roadmap-trimestre.md` |
-| 2 | Misma guía: Sprint + Definition of Done | Plan de 2–3 sprints + 2 registros en `sprints/` |
-| 3 | Notas de riesgos + métricas simples (throughput, carry-over) | `riesgos.md` + tablero actualizado |
-
-**Regla:** estima en rangos; si fallas, documenta el porqué en el sprint, no lo borres.
 
 ## Prácticas
 
