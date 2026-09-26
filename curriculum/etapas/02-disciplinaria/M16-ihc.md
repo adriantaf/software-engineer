@@ -14,7 +14,7 @@ practicas:
     titulo: Iteración de UI basada en hallazgos
 proyecto:
   id: proj
-  titulo: Informe de usabilidad del CRM
+  titulo: Informe de usabilidad del piloto Agenda Ops
 ---
 
 # M16 — Interacción humano-computadora
@@ -37,35 +37,71 @@ Al terminar debes poder:
 5. Iterar la UI (prototipo o implementación) y documentar antes/después.
 6. Redactar informe de usabilidad enlazado a `projects/m16-ihc/` para guiar M17.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Usa el prototipo o UI parcial de Agenda Ops; si no existe, wireframes en Figma/HTML estático en `projects/m16-ihc/prototipo/`.
-- Cada heurística violada → captura o descripción + propuesta de fix.
-- Tests con personas reales (design partner, conocidos del sub-vertical); no solo auto-evaluación.
-- Coordina con SRS M12: las tareas del test deben ser historias Must del MVP.
+M16 pone al usuario del piloto **Agenda Ops** en el centro: L01–L12.
+
+1. Usa prototipo o UI parcial; si no existe, HTML estático en `projects/m16-ihc/prototipo/`.
+2. Tests con personas reales (design partner o usuarios del sub-vertical); no solo auto-evaluación.
+3. Tareas del test alineadas al SRS M12 (historias Must).
+4. Marca lecciones al cumplir “Hecho cuando”.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Heurísticas | 6–8 | Auditoría Nielsen sobre tu UI |
-| Tests usuarios | 6–8 | 5 sesiones con guion |
-| Iteración | 4–6 | Cambios + informe |
+| Heurísticas | 6–8 | 4 lecciones semana 1 |
+| Tests usuarios | 6–8 | Guion + 5 sesiones (semana 2) |
+| Iteración | 4–6 | Fixes + informe (semana 3) |
 | Retro | 1 | Hallazgo que te sorprendió |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** con artefacto en git.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la carpeta de evidencia:
-   ```bash
-   mkdir -p projects/m16-ihc/heuristicas projects/m16-ihc/sesiones
-   ```
-2. Recorre la UI del piloto (o wireframe) como usuario nuevo: intenta agendar una cita sin ayuda.
-3. Lista al menos 10 fricciones en `projects/m16-ihc/heuristicas/fricciones-dia1.md`.
-4. Aplica 3 heurísticas de Nielsen explícitamente (número + nombre + evidencia) en `projects/m16-ihc/heuristicas/auditoria-v0.md`.
-5. Define 3 tareas para el test futuro (p. ej. “crear cliente”, “bloquear horario”, “ver agenda del día”).
-6. Commit: `docs(m16): auditoría heurística inicial`.
+### Semana 1 — Heurísticas y evaluación experta (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Recorrido persona nueva y fricciones día 1](M16/L01-recorrido-persona-nueva-y-fricciones-dia-1.md) | 5 |
+| L02 | [Auditoría Nielsen — tres heurísticas profundas](M16/L02-auditoria-nielsen-tres-heuristicas-profundas.md) | 5 |
+| L03 | [Estados vacío, carga y error en agenda](M16/L03-estados-vacio-carga-y-error-en-agenda.md) | 5 |
+| L04 | [auditoria-v1 y cierre P1 heurísticas](M16/L04-auditoria-v1-y-cierre-p1-heuristicas.md) | 5 |
+
+### Semana 2 — Prototipo y tests con usuarios (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Prototipo navegable y tareas del SRS](M16/L05-prototipo-navegable-y-tareas-del-srs.md) | 5 |
+| L06 | [Guion de test de usabilidad 15–30 min](M16/L06-guion-de-test-de-usabilidad-15-30-min.md) | 5 |
+| L07 | [Sesiones 1–3 — notas de participantes](M16/L07-sesiones-1-3-notas-de-participantes.md) | 5 |
+| L08 | [Sesiones 4–5 y resumen agregado P2](M16/L08-sesiones-4-5-y-resumen-agregado-p2.md) | 5 |
+
+### Semana 3 — Iteración e informe (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Priorizar top 5 hallazgos](M16/L09-priorizar-top-5-hallazgos.md) | 5 |
+| L10 | [Iteración UI — antes y después](M16/L10-iteracion-ui-antes-y-despues.md) | 5 |
+| L11 | [Informe de usabilidad para stakeholders](M16/L11-informe-de-usabilidad-para-stakeholders.md) | 5 |
+| L12 | [Cierre M16 — handoff M17 y criterios dominio](M16/L12-cierre-m16-handoff-m17-y-criterios-dominio.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: [heurísticas Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos (Krug) / recursos | Alternativa |
+|--------|-----------|----------------------------|-------------|
+| 1 | L01–L04 | Usabilidad y escaneo + estados UI | NN/g heurísticas |
+| 2 | L05–L08 | Navegación, formularios, test de pasillo | `projects/m16-ihc/prototipo/` |
+| 3 | L09–L12 | Iteración → `informe-usabilidad.md` | Handoff UX a M17 |
+
+**Regla:** prototipo → test con personas reales → cambios documentados.
+
+
 
 ## Ejemplo — fila de hallazgo con severidad
 
@@ -106,17 +142,6 @@ Al final: ¿qué fue lo más confuso? (2 min)
 - Informe final para stakeholders del piloto.
 - Entregable: `projects/m16-ihc/informe-usabilidad.md`.
 
-## Lecturas
-
-Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: heurísticas Nielsen (NN/g). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos (Krug) | Alternativa |
-|--------|------------------|-------------|
-| 1 | Usabilidad y escaneo de páginas | [Heurísticas Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/) (artículo) |
-| 2 | Navegación y diseño de formularios + guion de test | Prototipo Agenda Ops en `projects/m16-ihc/prototipo/` |
-| 3 | Tests con usuarios (test de pasillo) → informe | Guía NN/g testing cualitativo (selecto) |
-
-**Regla:** prototipo → test con personas reales → cambios documentados.
 
 ## Prácticas
 
