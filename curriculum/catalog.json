@@ -1,0 +1,303 @@
+{
+  "programa": "Ingeniería de Software — Plan personal",
+  "fuentes": [],
+  "ritmoHorasSemana": 20,
+  "etapas": [
+    {
+      "id": "basica",
+      "orden": 1,
+      "titulo": "Etapa Básica",
+      "slug": "01-basica",
+      "duracionMeses": "4-5",
+      "objetivo": "Pensar como ingeniero, programar con solidez y bases matemáticas útiles."
+    },
+    {
+      "id": "disciplinaria",
+      "orden": 2,
+      "titulo": "Etapa Disciplinaria",
+      "slug": "02-disciplinaria",
+      "duracionMeses": "11-13",
+      "objetivo": "Ciclo completo de software, sistemas y producto en producción."
+    },
+    {
+      "id": "terminal",
+      "orden": 3,
+      "titulo": "Etapa Terminal",
+      "slug": "03-terminal",
+      "duracionMeses": "7-9",
+      "objetivo": "Liderazgo técnico, ciberseguridad aplicada, emprendimiento e egreso demostrable."
+    }
+  ],
+  "materias": [
+    {
+      "id": "M01",
+      "slug": "M01-metodo-y-herramientas",
+      "titulo": "Método, Git, Linux y documentación",
+      "etapa": "basica",
+      "orden": 1,
+      "semanas": 2,
+      "horas": 40,
+      "analogos": []
+    },
+    {
+      "id": "M02",
+      "slug": "M02-programacion-i",
+      "titulo": "Programación I (TypeScript)",
+      "etapa": "basica",
+      "orden": 2,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M03",
+      "slug": "M03-matematicas-discretas",
+      "titulo": "Matemáticas discretas",
+      "etapa": "basica",
+      "orden": 3,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M04",
+      "slug": "M04-probabilidad-estadistica",
+      "titulo": "Probabilidad y estadística aplicada",
+      "etapa": "basica",
+      "orden": 4,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": []
+    },
+    {
+      "id": "M05",
+      "slug": "M05-organizacion-computadoras",
+      "titulo": "Organización de computadoras",
+      "etapa": "basica",
+      "orden": 5,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": []
+    },
+    {
+      "id": "M06",
+      "slug": "M06-programacion-ii",
+      "titulo": "Programación II (OO, tipos y errores)",
+      "etapa": "basica",
+      "orden": 6,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M07",
+      "slug": "M07-estructuras-de-datos",
+      "titulo": "Estructuras de datos",
+      "etapa": "disciplinaria",
+      "orden": 7,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M08",
+      "slug": "M08-analisis-de-algoritmos",
+      "titulo": "Análisis de algoritmos",
+      "etapa": "disciplinaria",
+      "orden": 8,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M09",
+      "slug": "M09-bases-de-datos",
+      "titulo": "Bases de datos",
+      "etapa": "disciplinaria",
+      "orden": 9,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M10",
+      "slug": "M10-redes",
+      "titulo": "Redes de computadoras",
+      "etapa": "disciplinaria",
+      "orden": 10,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M11",
+      "slug": "M11-sistemas-operativos",
+      "titulo": "Sistemas operativos",
+      "etapa": "disciplinaria",
+      "orden": 11,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": []
+    },
+    {
+      "id": "M27",
+      "slug": "M27-sistemas-bajo-nivel",
+      "titulo": "Sistemas a bajo nivel",
+      "etapa": "disciplinaria",
+      "orden": 12,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M12",
+      "slug": "M12-requerimientos",
+      "titulo": "Ingeniería de requerimientos",
+      "etapa": "disciplinaria",
+      "orden": 13,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": []
+    },
+    {
+      "id": "M13",
+      "slug": "M13-analisis-y-diseno",
+      "titulo": "Análisis y diseño de software",
+      "etapa": "disciplinaria",
+      "orden": 14,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M14",
+      "slug": "M14-patrones",
+      "titulo": "Patrones de software",
+      "etapa": "disciplinaria",
+      "orden": 15,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": []
+    },
+    {
+      "id": "M15",
+      "slug": "M15-vv-calidad",
+      "titulo": "Verificación, validación y calidad",
+      "etapa": "disciplinaria",
+      "orden": 16,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": []
+    },
+    {
+      "id": "M16",
+      "slug": "M16-ihc",
+      "titulo": "Interacción humano-computadora",
+      "etapa": "disciplinaria",
+      "orden": 17,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": []
+    },
+    {
+      "id": "M17",
+      "slug": "M17-aplicaciones-web",
+      "titulo": "Aplicaciones web full-stack",
+      "etapa": "disciplinaria",
+      "orden": 18,
+      "semanas": 8,
+      "horas": 160,
+      "analogos": []
+    },
+    {
+      "id": "M18",
+      "slug": "M18-seguridad",
+      "titulo": "Seguridad del software (AppSec)",
+      "etapa": "disciplinaria",
+      "orden": 19,
+      "semanas": 8,
+      "horas": 160,
+      "analogos": []
+    },
+    {
+      "id": "M19",
+      "slug": "M19-nube-devops",
+      "titulo": "Cómputo en la nube y DevOps",
+      "etapa": "disciplinaria",
+      "orden": 20,
+      "semanas": 4,
+      "horas": 80,
+      "analogos": []
+    },
+    {
+      "id": "M20",
+      "slug": "M20-aplicaciones-moviles",
+      "titulo": "Aplicaciones móviles",
+      "etapa": "disciplinaria",
+      "orden": 21,
+      "semanas": 5,
+      "horas": 100,
+      "analogos": []
+    },
+    {
+      "id": "M21",
+      "slug": "M21-admin-proyectos",
+      "titulo": "Administración de proyectos de software",
+      "etapa": "terminal",
+      "orden": 22,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": []
+    },
+    {
+      "id": "M22",
+      "slug": "M22-emprendimiento",
+      "titulo": "Emprendimiento de negocios de software",
+      "etapa": "terminal",
+      "orden": 23,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M23",
+      "slug": "M23-ia-datos",
+      "titulo": "Ciencia de datos e IA aplicada",
+      "etapa": "terminal",
+      "orden": 24,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M24",
+      "slug": "M24-tecnologias-emergentes",
+      "titulo": "Tecnologías emergentes (electiva dirigida)",
+      "etapa": "terminal",
+      "orden": 25,
+      "semanas": 3,
+      "horas": 60,
+      "analogos": []
+    },
+    {
+      "id": "M25",
+      "slug": "M25-ciberseguridad-aplicada",
+      "titulo": "Ciberseguridad aplicada",
+      "etapa": "terminal",
+      "orden": 26,
+      "semanas": 6,
+      "horas": 120,
+      "analogos": []
+    },
+    {
+      "id": "M26",
+      "slug": "M26-proyecto-integrador",
+      "titulo": "Proyecto integrador / titulación interna",
+      "etapa": "terminal",
+      "orden": 27,
+      "semanas": 8,
+      "horas": 160,
+      "analogos": []
+    }
+  ]
+}

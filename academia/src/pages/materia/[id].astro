@@ -1,0 +1,280 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return getCatalog().materias.map((m) => ({ params: { id: m.id } }));
+}
+
+const { id } = Astro.params;
+const materia = loadMateria(id!);
+if (!materia) throw new Error(`Materia ${id} no encontrada`);
+const etapa = getEtapa(materia.etapa)!;
+const catalog = getCatalog();
+const idx = catalog.materias.findIndex((m) => m.id === materia.id);
+const prev = catalog.materias[idx - 1];
+const next = catalog.materias[idx + 1];
+const hasLecciones = materia.lecciones.length > 0;
+const firstLeccion = materia.lecciones[0];
+const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
+---
+
+<Layout title={`${materia.id} ${materia.titulo}`}>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
+      <li><a href={pathTo()}>Inicio</a></li>
+      <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
+      <li>{materia.id}</li>
+    </ul>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6 min-w-0">
+    <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
+      <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
+        <header class="mb-4 pb-4 border-b border-base-300">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="badge badge-primary">{materia.id}</span>
+            <span class="badge badge-outline">{materia.semanas} sem · {materia.horas} h</span>
+            {
+              hasLecciones && (
+                <span class="badge badge-secondary badge-outline">
+                  {materia.lecciones.length} lecciones
+                </span>
+              )
+            }
+          </div>
+          <p class="text-sm opacity-70 m-0">
+            Sigla en azul →
+            <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
+            (primera vez: expansión entre paréntesis).
+          </p>
+        </header>
+
+        {
+          hasLecciones && firstLeccion && (
+            <div role="alert" class="alert alert-info mb-5 text-sm">
+              <span>
+                Empieza por{' '}
+                <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
+                  {firstLeccion.id} — {firstLeccion.titulo}
+                </a>
+                . Marca cada lección al cumplir “Hecho cuando”.
+              </span>
+            </div>
+          )
+        }
+
+        {
+          hasDia1 && (
+            <div role="alert" class="alert alert-info mb-5 text-sm">
+              <span>
+                Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
+              </span>
+            </div>
+          )
+        }
+
+        <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
+      </div>
+    </article>
+
+    <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+      {
+        hasLecciones && (
+          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="Lecciones">
+            <div class="card-body gap-2 p-4 min-w-0">
+              <h2 class="card-title text-base">Lecciones</h2>
+              <p class="text-xs opacity-70 m-0">Marca al terminar cada una.</p>
+              <div class="max-h-80 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-1">
+                {materia.lecciones.map((l) => (
+                  <label class="checklist-item cursor-pointer items-start gap-2 py-1.5">
+                    <input
+                      type="checkbox"
+                      class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
+                      data-leccion={l.id}
+                      data-materia={materia.id}
+                    />
+                    <a
+                      class="label-text text-sm leading-snug link link-hover min-w-0"
+                      href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                    >
+                      <span class="font-mono text-xs opacity-70">{l.id}</span>
+                      {' '}
+                      {l.titulo}
+                    </a>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </nav>
+        )
+      }
+
+      {
+        materia.toc.length > 0 && (
+          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="En esta ficha">
+            <div class="card-body gap-2 p-4 min-w-0">
+              <h2 class="card-title text-base">En esta ficha</h2>
+              <div class="max-h-64 overflow-y-auto overflow-x-hidden min-w-0 pr-1">
+                <ul class="flex flex-col gap-0.5 m-0 p-0 list-none">
+                  {materia.toc.map((item) => (
+                    <li class="min-w-0">
+                      <a
+                        class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200"
+                        href={`#${item.id}`}
+                      >
+                        {item.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a class="link link-primary text-sm pt-1" href={pathTo('docs/glosario')}>
+                Abrir glosario →
+              </a>
+            </div>
+          </nav>
+        )
+      }
+
+      <div class="card bg-base-100 border border-base-300 overflow-hidden min-w-0">
+        <div class="card-body gap-3 p-4 min-w-0">
+          <h2 class="card-title text-base">Tu progreso</h2>
+          <p class="text-xs opacity-70 m-0">
+            Se guarda en este navegador. Exporta desde Progreso.
+          </p>
+
+          <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0">Prácticas</p>
+          {
+            materia.practicas.length === 0 ? (
+              <p class="text-sm m-0">Sin checklist en frontmatter.</p>
+            ) : (
+              materia.practicas.map((p) => (
+                <label class="checklist-item cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
+                    data-practica={p.id}
+                    data-materia={materia.id}
+                  />
+                  <span class="label-text text-sm">{p.titulo}</span>
+                </label>
+              ))
+            )
+          }
+
+          {
+            materia.proyecto && (
+              <>
+                <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Proyecto</p>
+                <label class="checklist-item cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-secondary checkbox-sm mt-0.5 shrink-0"
+                    data-proyecto
+                    data-materia={materia.id}
+                  />
+                  <span class="label-text text-sm">{materia.proyecto.titulo}</span>
+                </label>
+              </>
+            )
+          }
+
+          <p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Materia</p>
+          <label class="checklist-item cursor-pointer">
+            <input
+              type="checkbox"
+              class="checkbox checkbox-success checkbox-sm mt-0.5 shrink-0"
+              data-completa
+              data-materia={materia.id}
+            />
+            <span class="label-text text-sm font-medium">Completada</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex gap-2 w-full min-w-0">
+        {
+          prev && (
+            <a class="btn btn-outline btn-sm flex-1 truncate" href={pathTo(`materia/${prev.id}`)}>
+              ← {prev.id}
+            </a>
+          )
+        }
+        {
+          next && (
+            <a class="btn btn-primary btn-sm flex-1 truncate" href={pathTo(`materia/${next.id}`)}>
+              {next.id} →
+            </a>
+          )
+        }
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    import {
+      loadProgress,
+      togglePractica,
+      toggleProyecto,
+      setLeccion,
+      markMateriaCompletada,
+      touchMateria,
+    } from '../../lib/progress-client';
+
+    const materiaIdPage = document.querySelector('[data-completa]')?.getAttribute('data-materia');
+    if (materiaIdPage) touchMateria(materiaIdPage);
+
+    function syncUI() {
+      const materiaId = document.querySelector('[data-completa]')?.getAttribute('data-materia');
+      if (!materiaId) return;
+      const m = loadProgress()?.materias?.[materiaId];
+      document.querySelectorAll('[data-practica]').forEach((el) => {
+        const id = el.getAttribute('data-practica')!;
+        (el as HTMLInputElement).checked = Boolean(m?.practicas?.[id]);
+      });
+      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+        const id = el.getAttribute('data-leccion')!;
+        el.checked = Boolean(m?.lecciones?.[id]);
+      });
+      const proj = document.querySelector('[data-proyecto]') as HTMLInputElement | null;
+      if (proj) proj.checked = Boolean(m?.proyecto);
+      const comp = document.querySelector('[data-completa]') as HTMLInputElement | null;
+      if (comp) comp.checked = m?.status === 'completada';
+    }
+
+    document.querySelectorAll('[data-practica]').forEach((el) => {
+      el.addEventListener('change', () => {
+        const materiaId = el.getAttribute('data-materia')!;
+        const practicaId = el.getAttribute('data-practica')!;
+        togglePractica(materiaId, practicaId);
+        syncUI();
+      });
+    });
+
+    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+      el.addEventListener('change', () => {
+        const materiaId = el.getAttribute('data-materia')!;
+        const leccionId = el.getAttribute('data-leccion')!;
+        setLeccion(materiaId, leccionId, el.checked);
+        syncUI();
+      });
+    });
+
+    document.querySelector('[data-proyecto]')?.addEventListener('change', (e) => {
+      const el = e.currentTarget as HTMLInputElement;
+      toggleProyecto(el.getAttribute('data-materia')!);
+      syncUI();
+    });
+
+    document.querySelector('[data-completa]')?.addEventListener('change', (e) => {
+      const el = e.currentTarget as HTMLInputElement;
+      markMateriaCompletada(el.getAttribute('data-materia')!, el.checked);
+      syncUI();
+    });
+
+    syncUI();
+    window.addEventListener('academia-progress', syncUI);
+  </script>
+</Layout>

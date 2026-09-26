@@ -1,0 +1,6 @@
+.env
+*.env.local
+pgdata/
+*.log
+samples/raw/
+.psql_history

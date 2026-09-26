@@ -1,0 +1,48 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCatalog, getEtapa, loadEtapaExamen } from '../../../lib/curriculum';
+import { pathTo } from '../../../lib/paths';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const e of getCatalog().etapas) {
+    const exam = loadEtapaExamen(e.id);
+    if (exam) paths.push({ params: { id: e.id }, props: { exam } });
+  }
+  return paths;
+}
+
+const { id } = Astro.params;
+const etapa = getEtapa(id!);
+const { exam } = Astro.props;
+if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
+---
+
+<Layout title={`Autoevaluación · ${etapa.titulo}`}>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
+      <li><a href={pathTo()}>Inicio</a></li>
+      <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
+      <li>Autoevaluación</li>
+    </ul>
+  </div>
+
+  <div class="alert mb-6 text-sm sm:text-base">
+    <div>
+      <p class="font-semibold m-0">Autoevaluación de etapa (sin mirar fichas)</p>
+      <p class="m-0 opacity-80">
+        Es formativa: escribe o graba, luego compara. No hay nota automática. Si no apruebas el
+        criterio de la página, refuerza la etapa antes de avanzar.
+      </p>
+    </div>
+  </div>
+
+  <article class="card bg-base-100 border border-base-300 overflow-hidden">
+    <div class="card-body p-4 sm:p-6 min-w-0 prose-academia" set:html={exam.html} />
+  </article>
+
+  <div class="mt-6 flex flex-wrap gap-2">
+    <a class="btn btn-outline btn-sm" href={pathTo(`etapa/${etapa.id}`)}>← Volver a {etapa.titulo}</a>
+    <a class="btn btn-primary btn-sm" href={pathTo('progreso')}>Check-in semanal →</a>
+  </div>
+</Layout>

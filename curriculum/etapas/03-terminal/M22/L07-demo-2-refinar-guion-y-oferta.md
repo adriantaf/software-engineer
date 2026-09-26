@@ -1,0 +1,79 @@
+---
+id: L07
+materia: M22
+orden: 7
+titulo: Demo 2 — refinar guion y oferta
+horas: 5
+semana: 2
+lectura: "Lean — pivot del mensaje"
+evidencia: "projects/m22-bektor/demos/demo-02.md + oferta-saas.md"
+---
+
+# L07 — Demo 2 — refinar guion y oferta
+
+**~5 h · Semana 2**
+
+## Objetivo
+
+Segunda conversación; actualizar guion u oferta según objeción #1 observada.
+
+## Por qué importa
+
+Build-measure-learn en ventas: el mensaje es código que refactorizas.
+
+## Conceptos
+
+- Objeción Excel/WhatsApp.
+- Iteración mensaje.
+- Evidencia en git.
+
+## Pasos (hazlos en orden)
+
+### 1. Lectura dirigida (60–90 min)
+
+Lee la sección indicada en la ficha de la materia y subraya solo lo que vas a **probar** hoy en terminal o en `projects/`.
+
+### 2. Carpeta de evidencia (15–20 min)
+
+Crea o actualiza la carpeta del proyecto de la materia. Cada lección añade una sección en la bitácora semanal o un archivo dedicado; no disperses notas sueltas.
+
+### 3. Laboratorio / trabajo documental (90–120 min)
+
+Documenta `projects/m22-bektor/demos/demo-02.md`. Tras la call, edita **una** sección de `guion-demo-5min.md` o `oferta-saas.md` con cambio justificado (commit separado).
+
+Nota en bitácora: ¿la objeción es precio, tiempo o confianza?
+
+### 4. Conexión con el plan (30–45 min)
+
+Escribe un párrafo en la bitácora: cómo lo de hoy afecta al piloto **Agenda Ops** (M12 en adelante) o a la API que desplegarás en M17/M19. Si aún no tienes SRS, usa el escenario del [producto del plan](../../../producto-saas.md) (citas, clientes, panel).
+
+### 5. Commit atómico (15 min)
+
+```bash
+git add projects/
+git status
+git commit -m "docs(m22): l07 demo-2-refinar-guion-y-oferta"
+```
+
+## Lectura de esta lección
+
+| Fuente | Qué leer | Alternativa |
+|--------|----------|-------------|
+| Ries | Pivot mensaje | ../M21-admin-proyectos.md backlog |
+| Catálogo | Entrada M22 | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
+
+
+## Hecho cuando
+
+1. demo-02.md.
+2. Cambio guion/oferta commiteado.
+3. Objeción clasificada.
+
+## Errores comunes
+
+- Ignorar feedback.
+- 10 demos idénticas sin aprendizaje.
+
+## Siguiente
+
+[L08 — Demos 3–4 y anti-patrones agencia](L08-demos-3-4-y-anti-patrones-agencia.md)

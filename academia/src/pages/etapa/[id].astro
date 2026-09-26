@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCatalog, getEtapa, getMateriasByEtapa, loadEtapaExamen } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return getCatalog().etapas.map((e) => ({ params: { id: e.id } }));
+}
+
+const { id } = Astro.params;
+const etapa = getEtapa(id!);
+if (!etapa) {
+  throw new Error('Etapa no encontrada');
+}
+const materias = getMateriasByEtapa(etapa.id);
+const tieneExamen = Boolean(loadEtapaExamen(etapa.id));
+const ultima = materias[materias.length - 1];
+---
+
+<Layout title={etapa.titulo}>
+  <div class="breadcrumbs text-sm mb-4">
+    <ul>
+      <li><a href={pathTo()}>Dashboard</a></li>
+      <li>{etapa.titulo}</li>
+    </ul>
+  </div>
+
+  <div class="card bg-base-100 border border-base-300 mb-6 overflow-hidden">
+    <div class="card-body min-w-0">
+      <div class="badge badge-primary">Etapa {etapa.orden}</div>
+      <h1 class="card-title text-2xl sm:text-3xl break-words">{etapa.titulo}</h1>
+      <p class="break-words">{etapa.objetivo}</p>
+      <p class="text-sm opacity-70">Duración estimada: {etapa.duracionMeses} meses @ ≥20 h/semana</p>
+      {
+        tieneExamen && (
+          <div class="mt-2">
+            <a class="btn btn-outline btn-sm" href={pathTo(`etapa/${etapa.id}/examen`)}>
+              Autoevaluación de etapa →
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="overflow-x-auto max-w-full rounded-box border border-base-300 bg-base-100">
+    <table class="table table-sm sm:table-md">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Materia</th>
+          <th>Semanas</th>
+          <th>Horas</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          materias.map((m) => (
+            <tr class="hover">
+              <td class="font-mono">{m.id}</td>
+              <td class="min-w-[10rem] break-words whitespace-normal">
+                <a class="link link-primary font-medium" href={pathTo(`materia/${m.id}`)}>
+                  {m.titulo}
+                </a>
+              </td>
+              <td>{m.semanas}</td>
+              <td>{m.horas}</td>
+              <td>
+                <span class="badge badge-ghost whitespace-nowrap" data-status={m.id}>
+                  —
+                </span>
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+
+  {
+    tieneExamen && (
+      <div class="alert mt-6 text-sm sm:text-base">
+        <div class="min-w-0">
+          <p class="font-semibold m-0">Cierre de etapa</p>
+          <p class="m-0 opacity-80 break-words">
+            Cuando termines {ultima ? `${ultima.id} (${ultima.titulo})` : 'la última materia'}, haz la
+            autoevaluación sin mirar las fichas.
+          </p>
+          <a class="btn btn-primary btn-sm mt-3" href={pathTo(`etapa/${etapa.id}/examen`)}>
+            Abrir autoevaluación
+          </a>
+        </div>
+      </div>
+    )
+  }
+
+  <script>
+    import { loadProgress } from '../../lib/progress-client';
+
+    const map: Record<string, string> = {
+      completada: 'badge-success',
+      en_curso: 'badge-warning',
+      disponible: 'badge-info',
+      bloqueada: 'badge-ghost',
+    };
+
+    function refresh() {
+      const p = loadProgress();
+      document.querySelectorAll('[data-status]').forEach((el) => {
+        const id = el.getAttribute('data-status')!;
+        const status = p?.materias?.[id]?.status ?? 'disponible';
+        el.className = `badge ${map[status] ?? 'badge-ghost'}`;
+        el.textContent = status.replace('_', ' ');
+      });
+    }
+    refresh();
+    window.addEventListener('academia-progress', refresh);
+  </script>
+</Layout>
