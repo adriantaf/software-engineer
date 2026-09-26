@@ -27,7 +27,6 @@ El proyecto autocomplete enlaza con el catálogo de clientes/servicios de [Agend
 
 **En resumen:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
 
-
 ## Objetivos de aprendizaje
 
 Al terminar debes poder:
@@ -39,35 +38,100 @@ Al terminar debes poder:
 5. Resolver 2–3 problemas de programación dinámica con caso base y transición explícitos.
 6. Entregar un motor de autocomplete documentado (estructura de datos + complejidad de consulta).
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (piloto de lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) si aún no tienes la rutina de 20 h/semana.
-- **4–5 problemas por semana** con editorial solo después de 30–45 min atascado.
-- Después de cada solución: escribe complejidad temporal y espacial en Markdown (`projects/m08-algoritmos/`).
-- Clasifica cada problema por **patrón** (hash, two pointers, graph, DP…) en un índice `projects/m08-algoritmos/indice-patrones.md`.
-- No copies soluciones completas: entiende el invariante y reescribe sin mirar.
+M08 sigue el formato de lecciones cortas y completas (como M01/M06): marcas una a una cuando cumples “Hecho cuando”.
+
+1. Abre las lecciones **en orden** (L01 → L24).
+2. Cada lección trae objetivo, pasos, lectura y criterio “Hecho cuando”.
+3. Marca la lección en la UI solo si cumple ese criterio.
+4. **4–5 problemas por semana** con editorial solo después de 30–45 min atascado.
+5. Clasifica cada problema en `projects/m08-algoritmos/indice-patrones.md`.
+6. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Teoría CLRS | 6–8 | Caps. según tabla Lecturas |
+| Teoría CLRS | 6–8 | Caps. según tabla Lecturas (L01–L04, …) |
 | Problemas | 6–8 | 2–3 problemas con bitácora |
 | Proyecto | 4–6 | Autocomplete / búsqueda |
 | Retro | 1 | Un patrón que aún no sale sin pistas |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No saltes la fila de lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la carpeta de evidencia:
-   ```bash
-   mkdir -p projects/m08-algoritmos/problems projects/m08-algoritmos/sorts
-   ```
-2. Reescribe **binary search** en TypeScript con tests de bordes (array vacío, un elemento, objetivo ausente, duplicados si aplica).
-3. En `projects/m08-algoritmos/binary-search-analisis.md`, justifica **O(log n)** en peor caso (3–5 frases).
-4. Resuelve **2** problemas fáciles de arrays (p. ej. two sum, max subarray intro) sin mirar la solución primero; guarda en `projects/m08-algoritmos/problems/`.
-5. Commit atómico, por ejemplo: `feat(m08): binary search + 2 problemas arrays`.
+### Semana 1 — Complejidad y análisis (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L01 | [Entorno y binary search con invariante](M08/L01-entorno-y-binary-search-con-invariante.md) | 5 |
+| L02 | [Notación asintótica Θ, O y Ω](M08/L02-notacion-asintotica-o-y.md) | 5 |
+| L03 | [Análisis de bucles y recursión simple](M08/L03-analisis-de-bucles-y-recursion-simple.md) | 5 |
+| L04 | [Tres problemas con complejidad escrita](M08/L04-tres-problemas-con-complejidad-escrita.md) | 5 |
+
+### Semana 2 — Ordenamiento (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L05 | [Insertion sort implementado](M08/L05-insertion-sort-implementado.md) | 5 |
+| L06 | [Merge sort y estabilidad](M08/L06-merge-sort-y-estabilidad.md) | 5 |
+| L07 | [Quicksort y peor caso](M08/L07-quicksort-y-peor-caso.md) | 5 |
+| L08 | [Tabla P2 sorts en README](M08/L08-tabla-p2-sorts-en-readme.md) | 5 |
+
+### Semana 3 — Búsqueda, hashing y two pointers (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L09 | [Hash maps en problemas de conteo](M08/L09-hash-maps-en-problemas-de-conteo.md) | 5 |
+| L10 | [Two pointers en arrays ordenados](M08/L10-two-pointers-en-arrays-ordenados.md) | 5 |
+| L11 | [Sliding window](M08/L11-sliding-window.md) | 5 |
+| L12 | [Índice de patrones (5+ entradas)](M08/L12-indice-de-patrones-5-entradas.md) | 5 |
+
+### Semana 4 — Árboles y grafos intro (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L13 | [BFS repaso y cola](M08/L13-bfs-repaso-y-cola.md) | 5 |
+| L14 | [DFS y componentes](M08/L14-dfs-y-componentes.md) | 5 |
+| L15 | [Caminos en grafos no ponderados](M08/L15-caminos-en-grafos-no-ponderados.md) | 5 |
+| L16 | [Problemas de grafos semana 4](M08/L16-problemas-de-grafos-semana-4.md) | 5 |
+
+### Semana 5 — Programación dinámica intro (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L17 | [Memoización top-down](M08/L17-memoizacion-top-down.md) | 5 |
+| L18 | [Programación dinámica bottom-up](M08/L18-programacion-dinamica-bottom-up.md) | 5 |
+| L19 | [Tres problemas DP (P3)](M08/L19-tres-problemas-dp-p3.md) | 5 |
+| L20 | [Patrones DP y transiciones](M08/L20-patrones-dp-y-transiciones.md) | 5 |
+
+### Semana 6 — Proyecto autocomplete (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|----|
+| L21 | [Autocomplete: elección de estructura](M08/L21-autocomplete-eleccion-de-estructura.md) | 5 |
+| L22 | [Implementación trie o índice](M08/L22-implementacion-trie-o-indice.md) | 5 |
+| L23 | [Dataset Agenda Ops y demo CLI](M08/L23-dataset-agenda-ops-y-demo-cli.md) | 5 |
+| L24 | [Cierre M08 y evidencias](M08/L24-cierre-m08-y-evidencias.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Alternativa: VisuAlgo + enunciados propios. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos (CLRS, por tema) |
+|--------|-----------|---------------------------|
+| 1 | L01–L04 | **Crecimiento / notación asintótica** (Θ, O, Ω) |
+| 2 | L05–L08 | **Ordenamiento** (insertion, merge, quick — según tu ed.) |
+| 3 | L09–L12 | **Búsqueda**, hashing, two pointers / sliding window |
+| 4 | L13–L16 | **Árboles y grafos** intro (BFS/DFS, caminos) |
+| 5 | L17–L20 | **Programación dinámica** intro |
+| 6 | L21–L24 | Proyecto autocomplete: estructura + complejidad documentada |
+
+**Regla:** cada problema entregado lleva enunciado, complejidad, código, **3 casos de prueba** (incl. borde).
 
 ## Ejemplo — binary search con invariante
 
@@ -86,70 +150,15 @@ export function binarySearch(a: number[], t: number): number {
 
 Regla: el invariante es “si `t` está, está en `[lo, hi]`”. Cada iteración reduce el intervalo a la mitad → O(log n).
 
-## Temario semanal
-
-### Semana 1 — Complejidad y análisis (~20 h)
-
-- Notación Θ, O, Ω; funciones comunes (log n, n log n, n²).
-- Análisis de bucles anidados y recursión simple (árbol de llamadas).
-- Binary search y variantes (lower bound intro).
-- Bitácora: 3 problemas con complejidad escrita en voz alta.
-
-### Semana 2 — Ordenamiento (~20 h)
-
-- Comparación de algoritmos: insertion, merge, quick, heap (según tu edición CLRS).
-- Estabilidad, peor caso vs promedio de quicksort.
-- Práctica P2: implementa ≥2 sorts en `projects/m08-algoritmos/sorts/` + tabla Big-O en README.
-- VisuAlgo Sorting como apoyo visual (no sustituto de implementar).
-
-### Semana 3 — Búsqueda, hashing y two pointers (~20 h)
-
-- Hash maps para conteos y lookup O(1) amortizado.
-- Two pointers y sliding window en arrays/strings.
-- Problemas clasificados en `indice-patrones.md` (mín. 5 entradas esta semana).
-
-### Semana 4 — Árboles y grafos intro (~20 h)
-
-- BFS/DFS; representación lista de adyacencia.
-- Caminos en grafos no ponderados; intro a Dijkstra si el tiempo alcanza.
-- Conecta con M07: cuándo un heap o un hash cambia la solución.
-
-### Semana 5 — Programación dinámica intro (~20 h)
-
-- Memoización top-down vs bottom-up.
-- 3 problemas clásicos (p. ej. escalones, mochila 0/1 simplificada, LCS intro) con **caso base** explícito.
-- Práctica P3: cada problema en carpeta propia con explicación del estado DP.
-
-### Semana 6 — Proyecto autocomplete (~20 h)
-
-- Trie, prefix map o índice invertido según tu dataset (documenta la elección).
-- Integración con dominio Agenda Ops: nombres de clientes o servicios (dataset de prueba en repo).
-- Demo CLI o endpoint mínimo + README de complejidad de búsqueda por prefijo.
-
-## Lecturas
-
-Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Alternativa: VisuAlgo + enunciados propios. Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos (CLRS, por tema) | Alternativa |
-|--------|---------------------------|-------------|
-| 1 | **Crecimiento / notación asintótica** (Θ, O, Ω) | Notas M08 + justificar Big-O de 5 funciones tuyas |
-| 2 | **Ordenamiento** (heapsort/mergesort/quicksort — los que cubra tu ed.) | VisuAlgo Sorting + implementar 2 |
-| 3 | **Búsqueda**, hashing, two pointers / sliding window (notas M08) | Problemas filtrados (fácil→medio) |
-| 4 | **Árboles y grafos** intro (BFS/DFS, caminos) | VisuAlgo Graph |
-| 5 | **Programación dinámica** intro (1–2 problemas clásicos en libro) | Editorial propia en Markdown |
-| 6 | Proyecto autocomplete: estructura + complejidad documentada | — |
-
-**Regla:** cada problema entregado lleva enunciado, complejidad, código, **3 casos de prueba** (incl. borde).
-
 ## Prácticas
 
-1. **P1 — 15 problemas:** Carpeta `projects/m08-algoritmos/problems/` con subcarpetas o archivos por problema; clasificación por patrón en `indice-patrones.md`.
-2. **P2 — Sorts:** ≥2 ordenamientos en `projects/m08-algoritmos/sorts/` + análisis Big-O comparado en `projects/m08-algoritmos/sorts/README.md`.
-3. **P3 — DP intro:** 3 problemas en `projects/m08-algoritmos/dp/` con caso base y transición explicados en Markdown.
+1. **P1 — 15 problemas:** `projects/m08-algoritmos/problems/` + `indice-patrones.md` — L04–L16 y cierre L24.
+2. **P2 — Sorts:** ≥2 ordenamientos en `sorts/` — L05–L08.
+3. **P3 — DP intro:** 3 problemas en `dp/` — L19–L20.
 
 ## Proyecto útil
 
-**Autocomplete / búsqueda para tu producto:** en `projects/m08-algoritmos/autocomplete/` (o ruta documentada en `projects/m08-algoritmos/README.md`):
+**Autocomplete / búsqueda para tu producto:** en `projects/m08-algoritmos/autocomplete/`:
 
 - Dataset de prueba (CSV/JSON) de clientes o servicios tipo Agenda Ops.
 - API o CLI que responda a prefijos con latencia razonable en tu máquina.
@@ -161,6 +170,7 @@ Canon: *Introducción a los algoritmos* — Cormen et al. (CLRS, ed. ES). Altern
 - Confundir **promedio** con **peor caso** al justificar quicksort.
 - DP sin caso base o con estados mal definidos.
 - Autocomplete que escanea O(n) toda la lista sin documentar que es aceptable solo en demo pequeño.
+- Marcar lecciones sin cumplir “Hecho cuando”.
 
 ## Evidencia de hecho
 
