@@ -26,7 +26,7 @@ Es el lenguaje de estructuras de datos, bases de datos y algoritmos. Aquí la ha
 **En resumen:** lógica, conjuntos y grafos no son adorno: los usas al razonar algoritmos y modelos. Demuestras a mano y codeas lo esencial.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Lógica proposicional y predicados básicos.
 2. Conjuntos, relaciones, funciones.
@@ -51,7 +51,7 @@ Es el lenguaje de estructuras de datos, bases de datos y algoritmos. Aquí la ha
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Crea `projects/m03-discretas/README.md` con el índice de temas.
 2. En papel (o Markdown), escribe la tabla de verdad de `P ∧ Q`, `P ∨ Q`, `¬P`, `P → Q`.
@@ -76,7 +76,7 @@ export function interseccion<T>(a: Set<T>, b: Set<T>): Set<T> {
 }
 ```
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

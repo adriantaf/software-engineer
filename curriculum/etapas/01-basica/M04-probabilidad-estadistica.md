@@ -26,7 +26,7 @@ Métricas de producto, calidad de software y (más adelante) ML necesitan intuic
 **En resumen:** usas datos para preguntar mejor (no solo calcular). Simulas, describes un CSV y escribes un informe que un negocio entendería.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Probabilidad básica y variables aleatorias discretas.
 2. Media, mediana, varianza, correlaciones simples.
@@ -50,7 +50,7 @@ Métricas de producto, calidad de software y (más adelante) ML necesitan intuic
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Crea `projects/m04-stats/`.
 2. Simula 10_000 lanzamientos de moneda y estima P(cara):
@@ -77,7 +77,7 @@ export function mediana(xs: number[]): number {
 }
 ```
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

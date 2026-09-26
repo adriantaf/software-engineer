@@ -26,7 +26,7 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 **En resumen:** entiendes qué pasa cuando corres `node`: CPU, RAM, disco. Dejas de tratar la máquina como magia.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Modelo von Neumann a alto nivel.
 2. Memoria, CPU, bus, almacenamiento.
@@ -50,7 +50,7 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Lee un capítulo corto de arquitectura (Stallings/Tanenbaum ES, intro).
 2. En papel, dibuja: CPU, RAM, disco, teclado/pantalla y flechas de datos.
@@ -72,7 +72,7 @@ console.log(casi + 1 === casi + 2); // true → perdiste precisión
 
 Reflexión: la representación finita siempre tiene límites.
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

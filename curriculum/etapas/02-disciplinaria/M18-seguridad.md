@@ -26,7 +26,7 @@ Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer C
 **En resumen:** amenazas → PoC en **tu** app → fix → test. Las siglas azules están en el glosario.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Hacer threat modeling ligero (STRIDE) de tu producto.
 2. Explicar y mitigar el OWASP Top 10 en código real.
@@ -51,7 +51,7 @@ Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer C
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Dibuja tu CRM (aunque esté a medias): actores, trust boundaries, datos sensibles.
 2. Lista 5 activos (credenciales, PII, tokens, DB, admin).
@@ -81,7 +81,7 @@ export async function verifyPassword(plain: string, hash: string): Promise<boole
 
 Si `GET /api/citas/123` devuelve la cita **sin comprobar** que pertenece al usuario autenticado, tienes IDOR. Fix: autorización por `userId`/rol en el servidor, no solo ocultar botones en el front.
 
-## Temario (8 semanas)
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

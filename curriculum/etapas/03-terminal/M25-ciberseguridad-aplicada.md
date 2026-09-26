@@ -26,7 +26,7 @@ proyecto:
 **En resumen:** ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Inventariar activos y superficie del SaaS desplegado.
 2. Security review con **pruebas de aislamiento entre tenants**.
@@ -51,7 +51,7 @@ proyecto:
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Inventario: URLs, webhooks Stripe, DB, secrets CI.
 2. Crea (si no existen) **dos tenants de prueba**.
@@ -71,7 +71,7 @@ Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa
 [ ] Webhooks Stripe verificados (firma)
 ```
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

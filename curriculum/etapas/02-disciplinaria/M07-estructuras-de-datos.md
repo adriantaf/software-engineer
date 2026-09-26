@@ -25,7 +25,7 @@ Elegir mal una estructura te cuesta latencia y dinero. Aquí las **implementas**
 **En resumen:** implementas estructuras a mano para elegir bien (no solo usar `Array`). Mides y documentas trade-offs.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 1. Implementar lista, pila, cola, hash, árbol.
 2. Explicar costo temporal/espacial.
 3. Elegir estructura según caso de uso real.
@@ -45,7 +45,7 @@ Elegir mal una estructura te cuesta latencia y dinero. Aquí las **implementas**
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 1. Crea `projects/m07-estructuras/`.
 2. Implementa una pila tipada en TS con `push`/`pop`/`peek`.
 3. Escribe 4 tests Vitest.
@@ -61,7 +61,7 @@ export class Stack<T> {
 }
 ```
 
-## Temario
+## Temario semanal
 Arrays, listas, pilas, colas, hash tables, árboles, heaps intro, grafos (repaso M03).
 
 ## Lecturas

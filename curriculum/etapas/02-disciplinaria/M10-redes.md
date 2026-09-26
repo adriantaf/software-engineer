@@ -26,7 +26,7 @@ Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “
 **En resumen:** sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Explicar capas (modelo simplificado) y el viaje DNS → TCP → TLS → HTTP.
 2. Usar `curl`, leer headers y status codes con criterio.
@@ -50,7 +50,7 @@ Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Ejecuta y anota:
    ```bash
@@ -69,7 +69,7 @@ curl -sI https://tu-dominio.ejemplo | sed -n '1,30p'
 
 Busca (cuando tengas producto): `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`. Si faltan, anótalo para M18.
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

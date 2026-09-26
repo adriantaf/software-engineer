@@ -26,7 +26,7 @@ Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tool
 **En resumen:** aprendes TypeScript de verdad con katas, un script real y tests. El cierre es una CLI de hábitos que puedes enseñar.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Dominar tipos básicos, funciones, arrays, objetos, asincronía.
 2. Leer errores del compilador y corregirlos sin pánico.
@@ -51,7 +51,7 @@ Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tool
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Crea el proyecto:
    ```bash
@@ -88,7 +88,7 @@ test("suma positivos", () => {
 });
 ```
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|

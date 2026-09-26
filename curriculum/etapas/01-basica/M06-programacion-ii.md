@@ -26,7 +26,7 @@ Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 mese
 **En resumen:** modelas un dominio con tipos serios, refactorizas con Código limpio y empaquetas algo reutilizable.
 
 
-## Objetivos
+## Objetivos de aprendizaje
 
 1. Encapsulación, composición vs herencia, interfaces.
 2. Tipos avanzados útiles en TS (uniones, generics básicos).
@@ -50,7 +50,7 @@ Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 mese
 
 Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
 
-## Día 1 (2–3 h)
+## Día 1 (2–3 h) — hazlo hoy
 
 1. Elige un dominio simple: inventario o biblioteca.
 2. Sin framework, modela en TS:
@@ -84,7 +84,7 @@ export function prestar(libro: { prestado: boolean }): Result<void> {
 }
 ```
 
-## Temario
+## Temario semanal
 
 | Semana | Temas |
 |--------|-------|
