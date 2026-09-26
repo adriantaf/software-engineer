@@ -37,36 +37,70 @@ Al terminar debes poder:
 5. Priorizar con MoSCoW (o equivalente) y decir “no” con alternativa.
 6. Incluir al menos tres RNF de seguridad/privacidad trazables a historias y tests futuros.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Elige **un** sub-vertical (barbería, consultorio, taller…) y no lo cambies en estas tres semanas.
-- Cada sesión: entrevista o story → criterio de aceptación → línea en el SRS (`projects/m12-srs/`).
-- Lee [producto-saas.md](../../producto-saas.md) una vez al inicio; el SRS debe alinearse con el piloto single-tenant, no con el SaaS multi-tenant completo.
-- La “lectura” principal es la plantilla del repo, rellenada con evidencia real o simulación seria.
+M12 arranca el hilo de producto **Agenda Ops** ([producto-saas.md](../../producto-saas.md)): L01–L12 en orden.
+
+1. Elige **un** sub-vertical y no lo cambies en estas tres semanas.
+2. Cada sesión: entrevista o story → criterio → línea en el SRS (`projects/m12-srs/`).
+3. Seguridad y privacidad entran como RNF y criterios 401/403, no “luego en M18”.
+4. Marca lecciones solo con evidencia en git.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Entrevistas | 6–8 | Guion + notas + síntesis |
-| Stories + RNF | 6–8 | Aceptación + seguridad/privacidad |
-| SRS v1 | 4–6 | Plantilla llenada + priorización MVP |
-| Retro | 1 | Un “no” dicho con alternativa documentada |
+| Elicitación / stories | 10–12 | Lecciones L01–L08 |
+| SRS y freeze | 6–8 | L09–L12, `srs-v1.md` |
+| Retro | 1 | Un “no” con alternativa documentada |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** (guion, notas o stories). No saltes la plantilla SRS.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la estructura de evidencia:
-   ```bash
-   mkdir -p projects/m12-srs/entrevistas
-   cp projects/m12-srs/plantilla.md projects/m12-srs/srs-borrador.md
-   ```
-2. Elige el sub-vertical de tu design partner (un negocio real o personaje documentado con seriedad).
-3. Escribe `projects/m12-srs/entrevistas/guion-v1.md` con al menos 10 preguntas abiertas (flujo de citas, clientes, roles, qué duele hoy).
-4. Realiza la entrevista (presencial, llamada o simulación con guion y notas timestamp) y guarda `projects/m12-srs/entrevistas/notas-YYYY-MM-DD.md`.
-5. Lista **5 problemas observados** (sin proponer pantallas todavía) en `projects/m12-srs/problemas.md`.
-6. Commit: `docs(m12): guion y notas de entrevista inicial`.
+### Semana 1 — Elicitación y contexto Agenda Ops (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Design partner y guion de entrevista](M12/L01-design-partner-y-guion-de-entrevista.md) | 5 |
+| L02 | [Entrevista y notas timestamp](M12/L02-entrevista-y-notas-timestamp.md) | 5 |
+| L03 | [Problemas observados y glosario](M12/L03-problemas-observados-y-glosario.md) | 5 |
+| L04 | [Stakeholders y contexto Agenda Ops](M12/L04-stakeholders-y-contexto-agenda-ops.md) | 5 |
+
+### Semana 2 — Historias y RNF (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Formato user story y trazabilidad](M12/L05-formato-user-story-y-trazabilidad.md) | 5 |
+| L06 | [Criterios de aceptación verificables](M12/L06-criterios-de-aceptacion-verificables.md) | 5 |
+| L07 | [Historias de vacío, duplicados y conflicto](M12/L07-historias-de-vacio-duplicados-y-conflicto.md) | 5 |
+| L08 | [RNF seguridad, privacidad y P2](M12/L08-rnf-seguridad-privacidad-y-p2.md) | 5 |
+
+### Semana 3 — SRS v1 y freeze (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Alcance MVP y MoSCoW](M12/L09-alcance-mvp-y-moscow.md) | 5 |
+| L10 | [Requisitos funcionales en SRS](M12/L10-requisitos-funcionales-en-srs.md) | 5 |
+| L11 | [SRS v1, freeze y P3](M12/L11-srs-v1-freeze-y-p3.md) | 5 |
+| L12 | [Revisión M13 y cierre M12](M12/L12-revision-m13-y-cierre-m12.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: plantilla IEEE 830 adaptada en el repo + [producto-saas.md](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Lectura obligatoria | Entrega ligada |
+|--------|-----------|--------------------|----------------|
+| 1 | L01–L04 | [`plantilla.md`](../../../projects/m12-srs/plantilla.md) + entrevistas | guion, notas, problemas, contexto SRS |
+| 2 | L05–L08 | Plantilla **funcionales + RNF** | `stories.md` (≥8) + RNF trazables |
+| 3 | L09–L12 | MoSCoW + freeze MVP 4 semanas | `projects/m12-srs/srs-v1.md` |
+
+**Regla:** la lectura es la plantilla rellenada con evidencia de entrevistas y decisiones explícitas.
+
+
 
 ## Ejemplo — historia con seguridad y criterio verificable
 
@@ -111,17 +145,6 @@ y campos PII mínimos necesarios.
 - Supuestos, fuera de alcance explícito (multi-tenant, billing, IA).
 - Revisión de coherencia con M13 (diseño) y M17 (implementación).
 
-## Lecturas
-
-Canon: plantilla IEEE 830 adaptada en el repo + [producto-saas.md](../../producto-saas.md). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Lectura obligatoria | Entrega ligada |
-|--------|--------------------|----------------|
-| 1 | [`projects/m12-srs/plantilla.md`](../../../projects/m12-srs/plantilla.md) (estructura) + notas de entrevista | `guion-v1.md` + `notas-*.md` + `problemas.md` |
-| 2 | Misma plantilla: secciones **funcionales** + **RNF** (seguridad, privacidad, performance) | `stories.md` (≥8) + borrador SRS |
-| 3 | Priorización MVP (MoSCoW) + freeze de alcance 4 semanas de build | `projects/m12-srs/srs-v1.md` firmado por ti (fecha en el doc) |
-
-**Regla:** no hay novela de libro esta materia: la lectura es la plantilla + rellenar con evidencia de entrevistas y decisiones explícitas.
 
 ## Prácticas
 
