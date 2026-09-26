@@ -7,7 +7,7 @@ semanas: 4
 horas: 80
 practicas:
   - id: p1
-    titulo: Pirámide de tests en el CRM
+    titulo: Pirámide de tests en Agenda Ops
   - id: p2
     titulo: CI en GitHub Actions (lint + test + audit)
   - id: p3
@@ -38,39 +38,81 @@ Al terminar debes poder:
 6. Aplicar checklist de code review con ítems de seguridad y calidad.
 7. Medir coverage útil en lógica de negocio, no en archivos boilerplate.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Cada bug encontrado → test de regresión el mismo día (regla del plan).
-- Trabaja sobre código real o spike en `projects/m15-calidad/` que refleje endpoints del SRS M12.
-- Lee docs oficiales de Vitest / Testing Library el día que los uses.
-- La CI debe ser **obligatoria** para merge; no “corro tests a mano cuando me acuerdo”.
+M15 deja la calidad del piloto **Agenda Ops** automatizada: L01–L16.
+
+1. Cada bug encontrado → test de regresión el mismo día (regla del plan).
+2. Trabaja sobre spike en `projects/m15-calidad/` o el repo M17 cuando exista.
+3. CI debe ser obligatoria para merge; no “corro tests a mano cuando me acuerdo”.
+4. Marca lecciones al cumplir “Hecho cuando”.
+5. [Cómo estudiar](../../como-estudiar.md) y [hilo seguridad](../../hilos/seguridad.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Tests | 6–8 | Unit + integration en dominio/API |
+| Tests | 6–8 | Lecciones unit/API de la semana |
 | CI | 6–8 | Workflow Actions lint+test+audit |
-| Review | 4–6 | Checklist aplicada en un PR real o simulado |
-| Retro | 1 | Bug → test de regresión documentado |
+| Review | 4–6 | Checklist en PR real o simulado |
+| Retro | 1 | Bug → test documentado |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica**. No saltes la lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea evidencia:
-   ```bash
-   mkdir -p projects/m15-calidad/tests projects/m15-calidad/.github/workflows
-   ```
-2. Elige una función de dominio (p. ej. `crearCita`, validar solapamiento, calcular duración).
-3. Escribe 5 tests en `projects/m15-calidad/tests/`:
-   - Camino feliz
-   - Regla de negocio violada (duplicado, horario inválido)
-   - Sin autenticación (401) si es capa HTTP
-   - IDOR o acceso cross-rol (403)
-   - Input inválido (400)
-4. Documenta la pirámide objetivo en `projects/m15-calidad/piramide.md` (qué va en cada capa).
-5. Commit: `test(m15): cinco casos iniciales dominio/auth`.
+### Semana 1 — Pirámide y tests de dominio (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Entorno M15 y pirámide de tests](M15/L01-entorno-m15-y-piramide-de-tests.md) | 5 |
+| L02 | [Tests unitarios puros de reglas de cita](M15/L02-tests-unitarios-puros-de-reglas-de-cita.md) | 5 |
+| L03 | [Qué no testear y carpetas de coverage](M15/L03-que-no-testear-y-carpetas-de-coverage.md) | 5 |
+| L04 | [Cierre semana 1 — suite dominio y bitácora](M15/L04-cierre-semana-1-suite-dominio-y-bitacora.md) | 5 |
+
+### Semana 2 — Integración, fakes y API (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Fake repositorio y reloj para tests rápidos](M15/L05-fake-repositorio-y-reloj-para-tests-rapidos.md) | 5 |
+| L06 | [Tests de integración con persistencia](M15/L06-tests-de-integracion-con-persistencia.md) | 5 |
+| L07 | [Tests HTTP de API — auth y validación](M15/L07-tests-http-de-api-auth-y-validacion.md) | 5 |
+| L08 | [IDOR y roles — casos 403](M15/L08-idor-y-roles-casos-403.md) | 5 |
+
+### Semana 3 — CI en GitHub Actions (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Workflow GitHub Actions — esqueleto](M15/L09-workflow-github-actions-esqueleto.md) | 5 |
+| L10 | [Lint y formato en pipeline](M15/L10-lint-y-formato-en-pipeline.md) | 5 |
+| L11 | [npm audit y política de dependencias](M15/L11-npm-audit-y-politica-de-dependencias.md) | 5 |
+| L12 | [Badge README y artefacto de test](M15/L12-badge-readme-y-artefacto-de-test.md) | 5 |
+
+### Semana 4 — Review, regresión y cierre (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Checklist de code review](M15/L13-checklist-de-code-review.md) | 5 |
+| L14 | [Review simulado en PR o notas](M15/L14-review-simulado-en-pr-o-notas.md) | 5 |
+| L15 | [Política bug → test el mismo día](M15/L15-politica-bug-test-el-mismo-dia.md) | 5 |
+| L16 | [Cierre M15 — pipeline, coverage dominio, dominio](M15/L16-cierre-m15-pipeline-coverage-dominio-dominio.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *Código limpio* (cap. pruebas) + *El programador pragmático* (testing) + docs Vitest. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos / docs | Alternativa |
+|--------|-----------|------------------|-------------|
+| 1 | L01–L04 | *Código limpio* **cap. 9** + `piramide.md` | [Vitest](https://vitest.dev) |
+| 2 | L05–L08 | Mocks/fakes + tests HTTP 401/403 | OWASP Auth (selecto) |
+| 3 | L09–L12 | GitHub Actions + lint + `npm audit` | Workflow en repo |
+| 4 | L13–L16 | Checklist review + regresiones + cierre | OWASP Testing Guide (selecto) |
+
+**Regla:** un bug encontrado → test de regresión el mismo día.
+
+
 
 ## Ejemplo — tabla de casos mínimos (crear cita)
 
@@ -133,18 +175,6 @@ Ajusta rutas si el código vive en monorepo; documenta en `projects/m15-calidad/
 - Política: bug encontrado → test el mismo día.
 - Changelog o notas de versión si aplicas semver en el piloto.
 
-## Lecturas
-
-Canon: *Código limpio* (cap. pruebas) + *El programador pragmático* (testing y acoplamiento) + docs Vitest / Testing Library. Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos / docs | Alternativa |
-|--------|------------------|-------------|
-| 1 | *Código limpio* **cap. 9** (pruebas) + tu `piramide.md` | [Vitest](https://vitest.dev) getting started |
-| 2 | Mocks/fakes: docs Vitest mocking + notas pragmáticas | Testing Library si hay UI |
-| 3 | GitHub Actions *Quickstart* + checklist review propia | Workflow en el repo |
-| 4 | Coverage útil + `npm audit` + tests de seguridad mínimos | OWASP Testing Guide (selecto) |
-
-**Regla:** un bug encontrado → test de regresión el mismo día.
 
 ## Prácticas
 
