@@ -38,34 +38,90 @@ Al terminar debes poder:
 6. Escribir ADRs que defiendan monolito modular frente a microservicios prematuros.
 7. Entregar un paquete enlazado en `projects/m13-diseno/` listo para el scaffold M17.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Abre el SRS cada sesión: cada diagrama debe responder a un requisito o RNF concreto.
-- Si un diagrama no cambia una decisión, bórralo (regla del plan).
-- Usa Mermaid en Markdown dentro del repo; evita herramientas propietarias sin export.
-- Relaciona decisiones con [producto-saas.md](../../producto-saas.md) (piloto single-tenant, camino a `tenant_id` documentado, no implementado aún).
+M13 traduce el SRS de **Agenda Ops** a diseño implementable: L01–L20.
+
+1. Abre `projects/m12-srs/srs-v1.md` cada sesión.
+2. Si un diagrama no cambia una decisión, bórralo.
+3. Mermaid en Markdown dentro del repo.
+4. Marca lecciones al cumplir “Hecho cuando” en `projects/m13-diseno/`.
+5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Flujos | 6–8 | Casos de uso + escenarios |
-| Diagramas | 6–8 | Clases / secuencia en Mermaid |
-| Arquitectura | 4–6 | Capas + trust boundaries + ADR |
+| Flujos / diagramas | 10–12 | 4 lecciones de la semana |
+| Arquitectura + ADRs | 6–8 | Capas, boundaries, decisiones |
 | Retro | 1 | Por qué monolito modular ahora |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** con artefacto en git.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. Crea la carpeta de diseño:
-   ```bash
-   mkdir -p projects/m13-diseno/diagramas projects/m13-diseno/adr
-   ```
-2. Lee `projects/m12-srs/srs-v1.md` y lista módulos del piloto: auth, citas, clientes, servicios, admin.
-3. Dibuja en `projects/m13-diseno/diagramas/trust-boundaries.md` tres zonas: **navegador** | **API** | **DB**; marca qué datos cruzan cada límite.
-4. Escribe `projects/m13-diseno/adr/001-monolito-modular.md`: decisión de monolito modular ahora, no microservicios; consecuencias + revisión futura en M19.
-5. Commit: `docs(m13): trust boundaries y ADR 001`.
+### Semana 1 — Del SRS a casos de uso (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Trust boundaries y ADR 001](M13/L01-trust-boundaries-y-adr-001.md) | 5 |
+| L02 | [Actores y casos de uso prioritarios](M13/L02-actores-y-casos-de-uso-prioritarios.md) | 5 |
+| L03 | [Escenarios alternos y errores](M13/L03-escenarios-alternos-y-errores.md) | 5 |
+| L04 | [Cierre P1 flujos principales](M13/L04-cierre-p1-flujos-principales.md) | 5 |
+
+### Semana 2 — Modelo y UML práctico (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Diagrama de clases del dominio](M13/L05-diagrama-de-clases-del-dominio.md) | 5 |
+| L06 | [Cardinalidades y persistencia futura](M13/L06-cardinalidades-y-persistencia-futura.md) | 5 |
+| L07 | [Secuencia: autenticación y sesión](M13/L07-secuencia-autenticacion-y-sesion.md) | 5 |
+| L08 | [Secuencia: crear cita (P2)](M13/L08-secuencia-crear-cita-p2.md) | 5 |
+
+### Semana 3 — Arquitectura en capas (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Arquitectura en capas](M13/L09-arquitectura-en-capas.md) | 5 |
+| L10 | [DTOs, validación y frontera HTTP](M13/L10-dtos-validacion-y-frontera-http.md) | 5 |
+| L11 | [Componentes y despliegue (C4 ligero)](M13/L11-componentes-y-despliegue-c4-ligero.md) | 5 |
+| L12 | [Boundaries actualizados y amenazas](M13/L12-boundaries-actualizados-y-amenazas.md) | 5 |
+
+### Semana 4 — ADRs de diseño (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L13 | [Plantilla ADR y decisiones de diseño](M13/L13-plantilla-adr-y-decisiones-de-diseno.md) | 5 |
+| L14 | [ADR persistencia y modelo de datos](M13/L14-adr-persistencia-y-modelo-de-datos.md) | 5 |
+| L15 | [Extensibilidad tenant_id sin implementar](M13/L15-extensibilidad-tenant-id-sin-implementar.md) | 5 |
+| L16 | [ADR auth y sesión](M13/L16-adr-auth-y-sesion.md) | 5 |
+
+### Semana 5 — Paquete para M17 (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L17 | [Índice del paquete de diseño](M13/L17-indice-del-paquete-de-diseno.md) | 5 |
+| L18 | [Endpoints y módulos previstos M17](M13/L18-endpoints-y-modulos-previstos-m17.md) | 5 |
+| L19 | [Checklist listo para scaffold](M13/L19-checklist-listo-para-scaffold.md) | 5 |
+| L20 | [Cierre M13 — trazabilidad y dominio](M13/L20-cierre-m13-trazabilidad-y-dominio.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: *UML y patrones* — Larman (ed. ES) **o** guía UML en español + ADRs. Apoyo: *Código limpio* (módulos). Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Capítulos / secciones | Alternativa |
+|--------|-----------|----------------------|-------------|
+| 1 | L01–L04 | Casos de uso desde SRS Agenda Ops | `casos-de-uso.md` |
+| 2 | L05–L08 | UML clases y secuencia | Mermaid en `diagramas/` |
+| 3 | L09–L12 | Capas + trust boundaries | `arquitectura.md` |
+| 4 | L13–L16 | ADRs (plantilla M01) | `projects/m13-diseno/adr/` |
+| 5 | L17–L20 | Paquete + [producto-saas.md](../../producto-saas.md) | README índice M13 |
+
+**Regla:** cada diagrama debe trazarse a un requisito del SRS.
+
+
 
 ## Ejemplo — capas y dónde vive la autorización
 
@@ -130,19 +186,6 @@ sequenceDiagram
 - Repaso con [producto-saas.md](../../producto-saas.md): piloto vs SaaS futuro.
 - Pulido y eliminación de diagramas huérfanos.
 
-## Lecturas
-
-Canon: *UML y patrones* — Larman (ed. ES) **o** guía UML en español + ADRs. Apoyo: *Código limpio* (diseño de módulos). Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Capítulos / secciones | Alternativa |
-|--------|----------------------|-------------|
-| 1 | Casos de uso / escenarios (Larman: requisitos → casos de uso) | Lista de casos desde SRS Agenda Ops |
-| 2 | **UML práctico**: clases, secuencia (solo lo que usarás) | Diagramas Mermaid en `projects/m13-diseno/` |
-| 3 | Arquitectura en **capas** + trust boundaries | `trust-boundaries.md` + `arquitectura.md` |
-| 4 | **ADRs** (plantilla M01) — 2+ decisiones de diseño | `projects/m13-diseno/adr/` |
-| 5 | Integración del paquete + [producto-saas.md](../../producto-saas.md) | Índice README del proyecto M13 |
-
-**Regla:** cada diagrama debe usarse en una decisión; si no se usa, bórralo.
 
 ## Prácticas
 
