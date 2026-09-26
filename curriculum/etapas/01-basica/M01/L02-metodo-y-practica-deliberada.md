@@ -13,7 +13,7 @@ evidencia: "projects/m01-diario/semana-0001.md con plan de la semana (bloques de
 
 **~2 h · Semana 1**
 
-Ya tienes entorno. Ahora instalas el **sistema de estudio** que usarás en las 26 materias.
+Ya tienes entorno. Ahora instalas el **sistema de estudio** que usarás en las 27 materias.
 
 ## Objetivo
 
