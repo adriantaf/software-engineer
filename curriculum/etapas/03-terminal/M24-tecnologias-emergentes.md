@@ -38,32 +38,70 @@ Al terminar debes poder:
 5. Descartar candidatos con argumentos sólidos (tanto vale un “no” bien fundado).
 6. Relacionar el spike con el backlog M21 sin prometer features no validadas.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md): el spike debe resolver una duda **del producto**, no un tutorial ajeno.
-- Sin fuente primaria (docs oficiales del vendor o RFC estándar) el candidato no entra a la matriz.
-- El spike vive en rama corta o carpeta `projects/m24-emergentes/spike/`; no merges código experimental a prod sin go explícito.
-- Incluye en la matriz: ¿nuevos secretos?, ¿datos de clientes salen del perímetro?, ¿vendor lock-in?
+M24 es **evaluación disciplinada** de tecnologías emergentes para Agenda Ops: L01–L12 (formato M01), evidencia en `projects/m24-emergentes/`.
+
+1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
+2. **Fuentes primarias** (docs oficiales) antes de puntuar la matriz.
+3. El spike vive aislado; no merges a prod sin go explícito en `go-no-go.md`.
+4. Un “no” bien argumentado vale igual que un “go” si el spike midió costo/riesgo.
+5. [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Research | 6–8 | 3 candidatos |
-| Criterios | 6–8 | Matriz adopción |
-| Spike | 4–6 | PoC + decisión |
+| Lecciones research/spike | 10–12 | 4× ~5 h (lectura + `projects/m24-emergentes/`) |
+| Matriz / PoC (P2–P3) | 6–8 | Criterios + spike acotado |
 | Retro | 1 | Qué descartaste y por qué |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección** con archivo en git. No saltes la lectura del vendor.
 
-## Día 1 (2–3 h) — hazlo hoy
+## Lecciones
 
-1. `mkdir -p projects/m24-emergentes/research projects/m24-emergentes/spike`.
-2. Elige **tres** candidatos alineados a Agenda Ops (ej. WhatsApp Cloud API, WebSockets/SSE para calendario, cola managed para recordatorios). Anótalo en `projects/m24-emergentes/candidatos.md`.
-3. Por cada uno, abre la doc oficial y guarda enlaces + 5 bullets en `projects/m24-emergentes/research/candidato-1.md` (y 2, 3).
-4. Borrador de `projects/m24-emergentes/matriz-adopcion.md` con filas vacías para puntuar después.
-5. Elige **uno** para el spike de la semana 3; escribe hipótesis en `projects/m24-emergentes/spike/hipotesis.md` (“Si X, entonces reducimos no-shows / latencia / costo soporte”).
-6. Define alcance **fuera** del spike (qué no harás) para no inflar la semana.
+### Semana 1 — Research de tres candidatos (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L01 | [Estructura M24 y tres candidatos al producto](M24/L01-estructura-m24-y-tres-candidatos-al-producto.md) | 5 |
+| L02 | [Research candidato 1 — fuentes primarias](M24/L02-research-candidato-1-fuentes-primarias.md) | 5 |
+| L03 | [Research candidatos 2 y 3](M24/L03-research-candidatos-2-y-3.md) | 5 |
+| L04 | [Cierre research semana 1 y backlog M21](M24/L04-cierre-research-semana-1-y-backlog-m21.md) | 5 |
+
+### Semana 2 — Matriz, costo y plan de spike (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L05 | [Matriz de adopción y pesos](M24/L05-matriz-de-adopcion-y-pesos.md) | 5 |
+| L06 | [Costo, operación y vendor lock-in](M24/L06-costo-operacion-y-vendor-lock-in.md) | 5 |
+| L07 | [Threat sketch del candidato para spike](M24/L07-threat-sketch-del-candidato-para-spike.md) | 5 |
+| L08 | [Plan del spike — hipótesis, alcance y éxito](M24/L08-plan-del-spike-hipotesis-alcance-y-exito.md) | 5 |
+
+### Semana 3 — Spike, medición y go/no-go (~20 h)
+
+| ID | Lección | ~h |
+|----|---------|-----|
+| L09 | [Scaffold del spike y entorno aislado](M24/L09-scaffold-del-spike-y-entorno-aislado.md) | 5 |
+| L10 | [Flujo mínimo demostrable](M24/L10-flujo-minimo-demostrable.md) | 5 |
+| L11 | [Medición contra la hipótesis](M24/L11-medicion-contra-la-hipotesis.md) | 5 |
+| L12 | [Go/no-go, cierre M24 y handoff](M24/L12-go-no-go-cierre-m24-y-handoff.md) | 5 |
+
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
+
+Canon: **docs oficiales** de los tres candidatos + notas de la matriz. Ver [bibliografía](../../bibliografia.md).
+
+| Semana | Lecciones | Lectura | Entrega |
+|--------|-----------|---------|---------|
+| 1 | L01–L04 | 3× docs vendor + 1 crítica/candidato | `research/candidato-*.md` (P1) |
+| 2 | L05–L08 | Pricing, webhooks, threat sketch | `matriz-adopcion.md` + `spike/plan.md` (P2) |
+| 3 | L09–L12 | Quickstart spike + changelog seguridad | `spike/` + `go-no-go.md` (P3) |
+
+**Regla:** sin fuente primaria no entra a la matriz; spike con hipótesis medible.
+
+
 
 ## Ejemplo — filas de matriz (extracto)
 
@@ -75,40 +113,7 @@ Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa
 | Fit M26 | Alto si trial pide WhatsApp | Medio | … |
 | Decisión spike | **Go** | No esta fase | Descartado: … |
 
-## Temario semanal
 
-### Semana 1 — Research (~20 h)
-
-- Tres tecnologías; por cada una: problema que resuelve, límites, licencia/precio, madurez.
-- Una fuente crítica o limitación (issues conocidos, rate limits, regiones no soportadas).
-- Comparación preliminar sin spike aún.
-- Entregable: `research/candidato-*.md` completos.
-
-### Semana 2 — Criterios y selección (~20 h)
-
-- Matriz ponderada (define pesos: seguridad y valor ICP ≥ hype).
-- Análisis de dependencia: ¿qué pasa si el vendor cambia precios?
-- Threat sketch del candidato elegido (1 página en `spike/threat-sketch.md`).
-- Plan del spike: entradas, salidas, tiempo máximo, criterio de éxito.
-
-### Semana 3 — Spike y go/no-go (~20 h)
-
-- PoC mínimo: un flujo demostrable (ej. webhook recibido, evento en UI, mensaje de prueba).
-- Medición contra hipótesis (aunque falle).
-- `projects/m24-emergentes/go-no-go.md`: decisión, próximos pasos si go, qué archivar si no.
-- Actualizar backlog M21 con issue derivado o comentario “descartado hasta …”.
-
-## Lecturas
-
-Canon: research notes + docs oficiales citadas en la matriz. Ver [bibliografía](../../bibliografia.md).
-
-| Semana | Lectura | Entrega |
-|--------|---------|---------|
-| 1 | 3 fuentes primarias por candidato + 1 crítica/limitación cada una | `research/candidato-1.md` … `3.md` |
-| 2 | Criterios de adopción + threat model ligero del elegido | `matriz-adopcion.md` + `spike/threat-sketch.md` |
-| 3 | Docs del spike + changelog/seguridad de la dependencia | `spike/` + `go-no-go.md` |
-
-**Regla:** sin fuente primaria (docs oficiales) no entra a la matriz.
 
 ## Prácticas
 
