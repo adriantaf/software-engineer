@@ -15,7 +15,9 @@ const catalog = getCatalog();
 const idx = catalog.materias.findIndex((m) => m.id === materia.id);
 const prev = catalog.materias[idx - 1];
 const next = catalog.materias[idx + 1];
-const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
+const hasLecciones = materia.lecciones.length > 0;
+const firstLeccion = materia.lecciones[0];
+const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
@@ -34,6 +36,13 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
           <div class="flex flex-wrap items-center gap-2 mb-2">
             <span class="badge badge-primary">{materia.id}</span>
             <span class="badge badge-outline">{materia.semanas} sem · {materia.horas} h</span>
+            {
+              hasLecciones && (
+                <span class="badge badge-secondary badge-outline">
+                  {materia.lecciones.length} lecciones
+                </span>
+              )
+            }
           </div>
           <p class="text-sm opacity-70 m-0">
             Sigla en azul →
@@ -41,6 +50,20 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
             (primera vez: expansión entre paréntesis).
           </p>
         </header>
+
+        {
+          hasLecciones && firstLeccion && (
+            <div role="alert" class="alert alert-info mb-5 text-sm">
+              <span>
+                Empieza por{' '}
+                <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
+                  {firstLeccion.id} — {firstLeccion.titulo}
+                </a>
+                . Marca cada lección al cumplir “Hecho cuando”.
+              </span>
+            </div>
+          )
+        }
 
         {
           hasDia1 && (
@@ -57,6 +80,37 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
     </article>
 
     <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+      {
+        hasLecciones && (
+          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="Lecciones">
+            <div class="card-body gap-2 p-4 min-w-0">
+              <h2 class="card-title text-base">Lecciones</h2>
+              <p class="text-xs opacity-70 m-0">Marca al terminar cada una.</p>
+              <div class="max-h-80 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-1">
+                {materia.lecciones.map((l) => (
+                  <label class="checklist-item cursor-pointer items-start gap-2 py-1.5">
+                    <input
+                      type="checkbox"
+                      class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
+                      data-leccion={l.id}
+                      data-materia={materia.id}
+                    />
+                    <a
+                      class="label-text text-sm leading-snug link link-hover min-w-0"
+                      href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                    >
+                      <span class="font-mono text-xs opacity-70">{l.id}</span>
+                      {' '}
+                      {l.titulo}
+                    </a>
+                  </label>
+                ))}
+              </div>
+            </div>
+          </nav>
+        )
+      }
+
       {
         materia.toc.length > 0 && (
           <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="En esta ficha">
@@ -164,6 +218,7 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
       loadProgress,
       togglePractica,
       toggleProyecto,
+      setLeccion,
       markMateriaCompletada,
       touchMateria,
     } from '../../lib/progress-client';
@@ -179,6 +234,10 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
         const id = el.getAttribute('data-practica')!;
         (el as HTMLInputElement).checked = Boolean(m?.practicas?.[id]);
       });
+      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+        const id = el.getAttribute('data-leccion')!;
+        el.checked = Boolean(m?.lecciones?.[id]);
+      });
       const proj = document.querySelector('[data-proyecto]') as HTMLInputElement | null;
       if (proj) proj.checked = Boolean(m?.proyecto);
       const comp = document.querySelector('[data-completa]') as HTMLInputElement | null;
@@ -190,6 +249,15 @@ const hasDia1 = /día\s*1|dia\s*1/i.test(materia.bodyHtml);
         const materiaId = el.getAttribute('data-materia')!;
         const practicaId = el.getAttribute('data-practica')!;
         togglePractica(materiaId, practicaId);
+        syncUI();
+      });
+    });
+
+    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+      el.addEventListener('change', () => {
+        const materiaId = el.getAttribute('data-materia')!;
+        const leccionId = el.getAttribute('data-leccion')!;
+        setLeccion(materiaId, leccionId, el.checked);
         syncUI();
       });
     });

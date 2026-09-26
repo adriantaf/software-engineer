@@ -1,0 +1,201 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import {
+  getCatalog,
+  getEtapa,
+  listLecciones,
+  loadLeccion,
+  loadMateria,
+} from '../../../../lib/curriculum';
+import { pathTo } from '../../../../lib/paths';
+
+export function getStaticPaths() {
+  const paths: { params: { id: string; lid: string } }[] = [];
+  for (const m of getCatalog().materias) {
+    for (const l of listLecciones(m.id)) {
+      paths.push({ params: { id: m.id, lid: l.id } });
+    }
+  }
+  return paths;
+}
+
+const { id, lid } = Astro.params;
+const materia = loadMateria(id!);
+const leccion = loadLeccion(id!, lid!);
+if (!materia || !leccion) throw new Error(`Lección ${id}/${lid} no encontrada`);
+const etapa = getEtapa(materia.etapa)!;
+const all = listLecciones(materia.id);
+const idx = all.findIndex((l) => l.id === leccion.id);
+const prev = all[idx - 1];
+const next = all[idx + 1];
+---
+
+<Layout title={`${leccion.id} ${leccion.titulo} · ${materia.id}`}>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
+      <li><a href={pathTo()}>Inicio</a></li>
+      <li><a href={pathTo(`etapa/${etapa.id}`)}>{etapa.titulo}</a></li>
+      <li><a href={pathTo(`materia/${materia.id}`)}>{materia.id}</a></li>
+      <li>{leccion.id}</li>
+    </ul>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-6 min-w-0">
+    <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
+      <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
+        <header class="mb-4 pb-4 border-b border-base-300">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="badge badge-primary">{materia.id}</span>
+            <span class="badge badge-secondary">{leccion.id}</span>
+            {
+              leccion.semana > 0 && (
+                <span class="badge badge-outline">Semana {leccion.semana}</span>
+              )
+            }
+            {
+              leccion.horas > 0 && (
+                <span class="badge badge-outline">~{leccion.horas} h</span>
+              )
+            }
+          </div>
+          <p class="text-sm opacity-70 m-0">
+            Lección {idx + 1} de {all.length} ·{' '}
+            <a class="link link-primary" href={pathTo(`materia/${materia.id}`)}>
+              Ficha {materia.id}
+            </a>
+          </p>
+        </header>
+
+        <div class="prose-academia materia-body min-w-0" set:html={leccion.bodyHtml} />
+
+        <div class="flex flex-wrap gap-2 mt-8 pt-4 border-t border-base-300">
+          {
+            prev ? (
+              <a
+                class="btn btn-outline btn-sm"
+                href={pathTo(`materia/${materia.id}/leccion/${prev.id}`)}
+              >
+                ← {prev.id}
+              </a>
+            ) : (
+              <a class="btn btn-outline btn-sm" href={pathTo(`materia/${materia.id}`)}>
+                ← Ficha {materia.id}
+              </a>
+            )
+          }
+          <label class="btn btn-secondary btn-sm gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              class="checkbox checkbox-sm checkbox-primary"
+              data-leccion={leccion.id}
+              data-materia={materia.id}
+            />
+            Marcar lección hecha
+          </label>
+          {
+            next ? (
+              <a
+                class="btn btn-primary btn-sm ml-auto"
+                href={pathTo(`materia/${materia.id}/leccion/${next.id}`)}
+              >
+                {next.id} →
+              </a>
+            ) : (
+              <a
+                class="btn btn-primary btn-sm ml-auto"
+                href={pathTo(`materia/${materia.id}`)}
+              >
+                Cerrar ficha {materia.id} →
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </article>
+
+    <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+      <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="Lecciones">
+        <div class="card-body gap-2 p-4 min-w-0">
+          <h2 class="card-title text-base">Lecciones · {materia.id}</h2>
+          <div class="max-h-96 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-0.5">
+            {
+              all.map((l) => (
+                <div class="flex items-start gap-2 py-1 min-w-0">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
+                    data-leccion={l.id}
+                    data-materia={materia.id}
+                  />
+                  <a
+                    class:list={[
+                      'text-sm leading-snug link link-hover min-w-0',
+                      l.id === leccion.id && 'font-semibold text-primary',
+                    ]}
+                    href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                  >
+                    <span class="font-mono text-xs opacity-70">{l.id}</span>
+                    {' '}
+                    {l.titulo}
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </nav>
+
+      {
+        (leccion.lectura || leccion.evidencia) && (
+          <div class="card bg-base-100 border border-base-300 overflow-hidden min-w-0">
+            <div class="card-body gap-2 p-4 text-sm min-w-0">
+              <h2 class="card-title text-base">Recordatorio</h2>
+              {leccion.lectura && (
+                <p class="m-0">
+                  <span class="font-semibold">Lectura:</span> {leccion.lectura}
+                </p>
+              )}
+              {leccion.evidencia && (
+                <p class="m-0">
+                  <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
+                </p>
+              )}
+            </div>
+          </div>
+        )
+      }
+    </aside>
+  </div>
+
+  <script>
+    import { loadProgress, setLeccion, touchMateria } from '../../../../lib/progress-client';
+
+    const materiaId = document.querySelector('[data-materia]')?.getAttribute('data-materia');
+    const leccionIdPage = document
+      .querySelector('article input[data-leccion]')
+      ?.getAttribute('data-leccion');
+    if (materiaId && leccionIdPage) touchMateria(materiaId, leccionIdPage);
+
+    function syncUI() {
+      const mid = document.querySelector('[data-materia]')?.getAttribute('data-materia');
+      if (!mid) return;
+      const m = loadProgress()?.materias?.[mid];
+      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+        const id = el.getAttribute('data-leccion')!;
+        el.checked = Boolean(m?.lecciones?.[id]);
+      });
+    }
+
+    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+      el.addEventListener('change', () => {
+        const mid = el.getAttribute('data-materia')!;
+        const lid = el.getAttribute('data-leccion')!;
+        setLeccion(mid, lid, el.checked);
+        syncUI();
+      });
+    });
+
+    syncUI();
+    window.addEventListener('academia-progress', syncUI);
+  </script>
+</Layout>

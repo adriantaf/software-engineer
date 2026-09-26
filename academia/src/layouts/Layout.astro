@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { getCatalog } from '../lib/curriculum';
+import { getCatalog, getLeccionesCatalog } from '../lib/curriculum';
 import { pathTo } from '../lib/paths';
 
 interface Props {
@@ -11,7 +11,8 @@ interface Props {
 const { title = 'Plan', description = 'Plan personal de ingeniería de software' } = Astro.props;
 const fullTitle = title === 'Plan' ? 'Plan de Ingeniería de Software' : `${title} · Plan`;
 const catalogIds = getCatalog().materias.map((m) => m.id);
-const continuarFallback = pathTo('materia/M01');
+const leccionesCatalog = getLeccionesCatalog();
+const continuarFallback = pathTo('materia/M01/leccion/L01');
 ---
 
 <!doctype html>
@@ -117,28 +118,39 @@ const continuarFallback = pathTo('materia/M01');
     </footer>
 
     <script type="application/json" id="catalog-ids" set:html={JSON.stringify(catalogIds)} />
+    <script type="application/json" id="lecciones-catalog" set:html={JSON.stringify(leccionesCatalog)} />
 
     <script>
-      import { initProgressFromSeed, resolveContinueMateriaId } from '../lib/progress-client';
+      import { initProgressFromSeed, resolveContinuePath } from '../lib/progress-client';
       import { pathTo } from '../lib/paths';
 
       initProgressFromSeed();
 
       function syncContinuar() {
         const raw = document.getElementById('catalog-ids')?.textContent;
+        const lecRaw = document.getElementById('lecciones-catalog')?.textContent;
         let ids: string[] = [];
+        let leccionesByMateria: Record<string, string[]> = {};
         try {
           ids = raw ? (JSON.parse(raw) as string[]) : [];
         } catch {
           ids = ['M01'];
         }
-        const id = resolveContinueMateriaId(ids);
-        const href = pathTo(`materia/${id}`);
+        try {
+          leccionesByMateria = lecRaw
+            ? (JSON.parse(lecRaw) as Record<string, string[]>)
+            : {};
+        } catch {
+          leccionesByMateria = {};
+        }
+        const rel = resolveContinuePath(ids, leccionesByMateria);
+        const href = pathTo(rel);
+        const materiaId = rel.split('/')[1] ?? 'M01';
         const narrow = window.matchMedia('(max-width: 1023px)').matches;
         document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((a) => {
           a.href = href;
           // En móvil el label corto evita que pelee con el brand.
-          a.textContent = narrow || id === 'M01' ? 'Continuar' : `Continuar ${id}`;
+          a.textContent = narrow || materiaId === 'M01' ? 'Continuar' : `Continuar ${materiaId}`;
         });
       }
 
