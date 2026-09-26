@@ -19,7 +19,7 @@ La universidad lista temas y examina memoria. Aquí el estándar es otro.
 
 ## Qué sí hacemos
 
-- Día 1 concreto en cada materia.
+- Día 1 concreto en cada materia (o lecciones L01… cuando la materia ya esté desglosada, como M01).
 - Labs y productos útiles (**SaaS Agenda Ops**, AppSec real).
 - Rúbrica de egreso pública y exigente.
 - Ritmo sostenible (≥20 h/sem) alineado a inglés y a tu carrera si la cursas en paralelo.

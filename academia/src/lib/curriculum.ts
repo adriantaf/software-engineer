@@ -58,6 +58,13 @@ export function rewriteCurriculumHref(href: string, fromCurriculumFile: string):
     const route = CURRICULUM_PAGE_ROUTES[curriculumRel];
     if (route) return `${pathTo(route)}${hash}`;
 
+    const leccion = curriculumRel.match(
+      /^etapas\/[^/]+\/(M\d{2})\/(L\d{2})-[^/]+\.md$/i,
+    );
+    if (leccion) {
+      return `${pathTo(`materia/${leccion[1]}/leccion/${leccion[2]}`)}${hash}`;
+    }
+
     const materia = curriculumRel.match(/^etapas\/[^/]+\/(M\d{2})-[^/]+\.md$/i);
     if (materia) return `${pathTo(`materia/${materia[1]}`)}${hash}`;
 
@@ -132,6 +139,26 @@ export type MateriaDoc = {
   toc: { id: string; text: string; level: number }[];
   slug: string;
   filepath: string;
+  /** Lecciones hijas (piloto M01); vacío si la materia aún no está desglosada. */
+  lecciones: LeccionMeta[];
+};
+
+export type LeccionMeta = {
+  id: string;
+  materiaId: string;
+  orden: number;
+  titulo: string;
+  horas: number;
+  semana: number;
+  lectura: string;
+  evidencia: string;
+  slug: string;
+  filepath: string;
+};
+
+export type LeccionDoc = LeccionMeta & {
+  bodyHtml: string;
+  toc: { id: string; text: string; level: number }[];
 };
 
 let catalogCache: Catalog | null = null;
@@ -163,6 +190,68 @@ function etapaFolder(etapaId: string): string {
   return path.join(curriculumRoot, 'etapas', etapa.slug);
 }
 
+function leccionesDir(materiaId: string, etapaId: string): string {
+  return path.join(etapaFolder(etapaId), materiaId);
+}
+
+/** Lista lecciones de una materia (carpeta `etapas/.../MXX/L*.md`), ordenadas. */
+export function listLecciones(materiaId: string): LeccionMeta[] {
+  const meta = getMateriaMeta(materiaId);
+  if (!meta) return [];
+  const dir = leccionesDir(materiaId, meta.etapa);
+  if (!fs.existsSync(dir)) return [];
+  const files = fs
+    .readdirSync(dir)
+    .filter((f) => /^L\d{2}-.+\.md$/i.test(f))
+    .sort();
+  const out: LeccionMeta[] = [];
+  for (const file of files) {
+    const filepath = path.join(dir, file);
+    const raw = fs.readFileSync(filepath, 'utf8');
+    const { data } = matter(raw);
+    const idMatch = file.match(/^(L\d{2})-/i);
+    const id = String(data.id ?? idMatch?.[1] ?? file);
+    out.push({
+      id,
+      materiaId,
+      orden: Number(data.orden ?? out.length + 1),
+      titulo: String(data.titulo ?? id),
+      horas: Number(data.horas ?? 0),
+      semana: Number(data.semana ?? 0),
+      lectura: String(data.lectura ?? ''),
+      evidencia: String(data.evidencia ?? ''),
+      slug: file.replace(/\.md$/i, ''),
+      filepath,
+    });
+  }
+  return out.sort((a, b) => a.orden - b.orden);
+}
+
+/** Mapa materiaId → ids de lección en orden (para Continuar en el cliente). */
+export function getLeccionesCatalog(): Record<string, string[]> {
+  const map: Record<string, string[]> = {};
+  for (const m of getCatalog().materias) {
+    const lecs = listLecciones(m.id);
+    if (lecs.length) map[m.id] = lecs.map((l) => l.id);
+  }
+  return map;
+}
+
+export function loadLeccion(materiaId: string, leccionId: string): LeccionDoc | null {
+  const list = listLecciones(materiaId);
+  const meta = list.find((l) => l.id.toUpperCase() === leccionId.toUpperCase());
+  if (!meta) return null;
+  const raw = fs.readFileSync(meta.filepath, 'utf8');
+  const { content } = matter(raw);
+  const rel = path.relative(curriculumRoot, meta.filepath);
+  const bodyHtml = renderCurriculumMarkdown(content, rel);
+  return {
+    ...meta,
+    bodyHtml,
+    toc: extractToc(bodyHtml).filter((t) => t.level === 2),
+  };
+}
+
 export function loadMateria(id: string): MateriaDoc | null {
   const meta = getMateriaMeta(id);
   if (!meta) return null;
@@ -173,6 +262,7 @@ export function loadMateria(id: string): MateriaDoc | null {
   const practicas = Array.isArray(data.practicas) ? data.practicas : [];
   const proyecto = data.proyecto ?? null;
   const bodyHtml = renderCurriculumMarkdown(content, path.relative(curriculumRoot, filepath));
+  const lecciones = listLecciones(meta.id);
   return {
     id: String(data.id ?? meta.id),
     titulo: String(data.titulo ?? meta.titulo),
@@ -188,6 +278,7 @@ export function loadMateria(id: string): MateriaDoc | null {
     ),
     slug: meta.slug,
     filepath,
+    lecciones,
   };
 }
 

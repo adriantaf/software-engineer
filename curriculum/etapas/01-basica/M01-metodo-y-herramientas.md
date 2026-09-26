@@ -23,8 +23,7 @@ proyecto:
 
 Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de todo el plan: terminal, Git limpio y bitácora.
 
-**En resumen:** hoy configuras tu entorno, haces commits claros en **este** repo y escribes una decisión corta (ADR). No es un curso de Git de 8 horas: es hábito.
-
+**En resumen:** configuras tu entorno, practicas shell y Git en **este** repo, escribes un ADR corto y dejas bitácora. No es un curso de Git de 8 horas: es hábito.
 
 ## Objetivos de aprendizaje
 
@@ -35,100 +34,57 @@ Al terminar debes poder:
 3. Hacer commits atómicos, ramas y PRs claros.
 4. Documentar decisiones (ADR) y leer documentación oficial.
 
-## Cómo estudiar esta materia
+## Cómo estudiar esta materia (piloto de lecciones)
 
-- Lee [Cómo estudiar](../../como-estudiar.md) si aún no lo hiciste.
-- Cada día: terminal abierta + este repo clonado.
-- No veas un curso de Git de 8 horas: practica comandos en **este** repo.
-- La bitácora semanal es parte del aprendizaje, no un adorno.
+M01 es el **piloto** del formato tipo freeCodeCamp: lecciones cortas y completas que marcas una a una.
+
+1. Abre las lecciones **en orden** (L01 → L08).
+2. Cada lección trae objetivo, pasos, lectura de libro y criterio “Hecho cuando”.
+3. Marca la lección en la UI solo si cumple ese criterio.
+4. Las **prácticas / proyecto** de abajo siguen exigiendo evidencia en `projects/`.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |
 |--------|-------|-----------|
-| Método + shell | 6–8 | Terminal, docs, bitácora |
-| Git en este repo | 6–8 | Commits atómicos, ramas, diff |
-| Proyecto diario | 4–6 | `projects/m01-diario/` + `progress.json` |
+| Método + shell | 6–8 | L01–L04, docs, bitácora |
+| Git en este repo | 6–8 | L05–L07, commits atómicos, ramas |
+| Proyecto diario | 4–6 | `projects/m01-diario/` + ADR (L08) |
 | Retro | 1 | Qué bloqueó / qué sigue |
 
-Si un día solo tienes 2 h: **práctica + proyecto**. La fila de Lecturas de esa semana no se salta.
+Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No saltes la fila de lectura de esa lección.
 
-## Día 1 (2–3 h) — hazlo hoy
-
-1. Abre la terminal. Comprueba versiones:
-   ```bash
-   git --version
-   node --version
-   ```
-2. Si falta algo, instálalo (Node LTS + Git). En Windows preferible WSL2.
-3. Clona o abre este repo y crea la carpeta de evidencia:
-   ```bash
-   mkdir -p projects/m01-diario
-   ```
-4. Escribe `projects/m01-diario/entorno.md` con: SO, versiones de Git/Node, editor.
-5. Haz **un** commit atómico, por ejemplo:
-   ```bash
-   git add projects/m01-diario/entorno.md
-   git commit -m "docs(m01): registrar entorno de desarrollo"
-   ```
-6. Lee solo los capítulos 1–2 de *Pro Git* (o la guía oficial) y anota 5 comandos nuevos.
-
-## Ejemplo — mensaje de commit bueno vs malo
-
-```text
-malo:  update
-malo:  cambios
-bueno: docs(m01): añadir bitácora de la semana 0001
-bueno: chore(m01): aliases de git en .bashrc
-```
-
-Regla: el mensaje dice **qué** cambió y **por qué** importa.
-
-## Ejemplo — plantilla ADR (P3)
-
-Crea `projects/m01-diario/adr-001-typescript.md`:
-
-```markdown
-# ADR 001 — TypeScript como lenguaje principal
-
-## Contexto
-Necesito un lenguaje profundo para web, APIs e IA tooling.
-
-## Decisión
-Usar TypeScript en modo strict para el plan.
-
-## Consecuencias
-+ Tipos y mejor tooling
-+ Escala a React/Node
-− Curva inicial vs JS puro
-```
-
-## Temario semanal
+## Lecciones
 
 ### Semana 1 — Método + Linux (~20 h)
 
-- Deliberate practice vs consumo pasivo.
-- Regla 40/30/30 (teoría / práctica / proyecto).
-- Shell: `cd`, `ls`, `pwd`, `mkdir`, `rm`, `cp`, `mv`, `chmod`, redirecciones, pipes.
-- Editores: VS Code / Cursor; extensiones mínimas.
-- Cómo leer docs oficiales (MDN, Node, Astro).
+| ID | Lección | ~h |
+|----|---------|----|
+| L01 | [Entorno y primer commit](M01/L01-entorno-y-primer-commit.md) | 2.5 |
+| L02 | [Método y práctica deliberada](M01/L02-metodo-y-practica-deliberada.md) | 2 |
+| L03 | [Shell: navegación y archivos](M01/L03-shell-navegacion-y-archivos.md) | 3 |
+| L04 | [Shell: pipes, permisos y docs](M01/L04-shell-pipes-permisos-y-docs.md) | 3 |
 
 ### Semana 2 — Git + escritura técnica (~20 h)
 
-- `status`, `add`, `commit`, `diff`, `log`, `branch`, `merge`, `rebase` (intro), `stash`.
-- Mensajes de commit: qué y por qué.
-- Issues y PRs como conversación.
-- ADR de 1 página.
-- Bitácora semanal en este repo.
+| ID | Lección | ~h |
+|----|---------|----|
+| L05 | [Git fundamentos](M01/L05-git-fundamentos.md) | 3 |
+| L06 | [Commits atómicos y mensajes](M01/L06-commits-atomicos-y-mensajes.md) | 2.5 |
+| L07 | [Ramas, merge y stash](M01/L07-ramas-merge-y-stash.md) | 3 |
+| L08 | [ADR, bitácora y cierre](M01/L08-adr-bitacora-y-cierre.md) | 3 |
 
-## Lecturas
+Empieza por **L01** hoy.
+
+## Lecturas (mapa rápido)
 
 Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo: [bibliografía](../../bibliografia.md).
 
-| Semana | Capítulos / secciones | Alternativa gratis |
-|--------|----------------------|--------------------|
-| 1 | *Pro Git* **cap. 1** (Introducción) + [Cómo estudiar](../../como-estudiar.md); práctica shell (man/`--help` de `cd` `ls` `grep` `chmod`) | Misma URL ES + man pages |
-| 2 | *Pro Git* **caps. 2–3** (Fundamentos de Git; Ramas en Git) — haz los ejemplos en este repo | Misma URL ES |
+| Semana | Lecciones | Capítulos / foco |
+|--------|-----------|------------------|
+| 1 | L01–L04 | Cap. 1 + man/`--help` + [Cómo estudiar](../../como-estudiar.md) |
+| 2 | L05–L08 | Caps. 2–3 (fundamentos y ramas) — ejemplos en este repo |
 
 **Regla:** no leas más allá del cap. 3 en M01. Servidor remoto (cap. 4) llega cuando uses GitHub con remoto.
 
@@ -147,10 +103,10 @@ Canon: [*Pro Git*](https://git-scm.com/book/es/v2) (Chacon & Straub). Catálogo:
 
 ## Errores comunes
 
-- Instalar 15 herramientas el día 1 y no hacer ningún commit.
+- Instalar 15 herramientas en L01 y no hacer ningún commit.
 - Usar solo la GUI de GitHub Desktop sin entender `status`/`diff`.
 - Commits gigantes (“todo el portafolio”) que no se pueden revisar.
-- Copiar aliases de internet sin saber qué hacen.
+- Marcar lecciones sin cumplir “Hecho cuando”.
 
 ## Evidencia de hecho
 

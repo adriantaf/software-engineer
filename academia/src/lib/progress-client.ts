@@ -1,5 +1,14 @@
 const STORAGE_KEY = 'academia-progress-v1';
 
+export type MateriaProgress = {
+  status: 'bloqueada' | 'disponible' | 'en_curso' | 'completada';
+  practicas: Record<string, boolean>;
+  proyecto: boolean;
+  /** Lecciones marcadas (piloto M01+). */
+  lecciones: Record<string, boolean>;
+  completadoEn: string | null;
+};
+
 export type ProgressState = {
   estudiante: string;
   inicio: string;
@@ -7,24 +16,19 @@ export type ProgressState = {
   materiaActual: string;
   /** Última ficha abierta (para Continuar). */
   lastMateriaId?: string;
-  materias: Record<
-    string,
-    {
-      status: 'bloqueada' | 'disponible' | 'en_curso' | 'completada';
-      practicas: Record<string, boolean>;
-      proyecto: boolean;
-      completadoEn: string | null;
-    }
-  >;
+  /** Última lección abierta dentro de una materia con lecciones. */
+  lastLeccionId?: string;
+  materias: Record<string, MateriaProgress>;
   notas: string[];
 };
 
-function defaultMateria() {
+function defaultMateria(): MateriaProgress {
   return {
-    status: 'disponible' as const,
-    practicas: {} as Record<string, boolean>,
+    status: 'disponible',
+    practicas: {},
+    lecciones: {},
     proyecto: false,
-    completadoEn: null as string | null,
+    completadoEn: null,
   };
 }
 
@@ -69,17 +73,22 @@ export function initProgressFromSeed() {
 }
 
 export function ensureMateria(state: ProgressState, id: string) {
-  if (!state.materias[id]) state.materias[id] = defaultMateria();
+  if (!state.materias[id]) {
+    state.materias[id] = defaultMateria();
+  } else if (!state.materias[id].lecciones) {
+    state.materias[id].lecciones = {};
+  }
   return state.materias[id];
 }
 
 /** Marca la materia como visitada (Continuar + en_curso). */
-export function touchMateria(materiaId: string) {
+export function touchMateria(materiaId: string, leccionId?: string) {
   const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);
   if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
   state.materiaActual = materiaId;
   state.lastMateriaId = materiaId;
+  if (leccionId) state.lastLeccionId = leccionId;
   saveProgress(state);
   return state;
 }
@@ -104,6 +113,30 @@ export function resolveContinueMateriaId(catalogIds: string[]): string {
   return ids[0] ?? 'M01';
 }
 
+/**
+ * Ruta relativa (sin base) para Continuar.
+ * Si la materia tiene lecciones, apunta a la primera incompleta (o la última visitada incompleta).
+ */
+export function resolveContinuePath(
+  catalogIds: string[],
+  leccionesByMateria: Record<string, string[]> = {},
+): string {
+  const materiaId = resolveContinueMateriaId(catalogIds);
+  const lessonIds = leccionesByMateria[materiaId] ?? [];
+  if (!lessonIds.length) return `materia/${materiaId}`;
+
+  const state = loadProgress();
+  const done = state?.materias?.[materiaId]?.lecciones ?? {};
+  const lastL = state?.lastLeccionId;
+  if (lastL && lessonIds.includes(lastL) && !done[lastL]) {
+    return `materia/${materiaId}/leccion/${lastL}`;
+  }
+  for (const lid of lessonIds) {
+    if (!done[lid]) return `materia/${materiaId}/leccion/${lid}`;
+  }
+  return `materia/${materiaId}`;
+}
+
 export function togglePractica(materiaId: string, practicaId: string) {
   const state = loadProgress() ?? emptyState(materiaId);
   const m = ensureMateria(state, materiaId);
@@ -111,6 +144,31 @@ export function togglePractica(materiaId: string, practicaId: string) {
   if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
   state.materiaActual = materiaId;
   state.lastMateriaId = materiaId;
+  saveProgress(state);
+  return state;
+}
+
+export function toggleLeccion(materiaId: string, leccionId: string) {
+  const state = loadProgress() ?? emptyState(materiaId);
+  const m = ensureMateria(state, materiaId);
+  m.lecciones[leccionId] = !m.lecciones[leccionId];
+  if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
+  state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
+  state.lastLeccionId = leccionId;
+  saveProgress(state);
+  return state;
+}
+
+/** Fija el estado de una lección (preferible al toggle cuando el checkbox ya cambió en el DOM). */
+export function setLeccion(materiaId: string, leccionId: string, done: boolean) {
+  const state = loadProgress() ?? emptyState(materiaId);
+  const m = ensureMateria(state, materiaId);
+  m.lecciones[leccionId] = done;
+  if (m.status === 'disponible' || m.status === 'bloqueada') m.status = 'en_curso';
+  state.materiaActual = materiaId;
+  state.lastMateriaId = materiaId;
+  state.lastLeccionId = leccionId;
   saveProgress(state);
   return state;
 }
