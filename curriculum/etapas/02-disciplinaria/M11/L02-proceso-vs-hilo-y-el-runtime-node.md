@@ -37,7 +37,7 @@ kill $PID
 
 Anota qué ves y qué significa para “Node es single-threaded” (JS en un hilo; pool de libuv aparte).
 
-### 3. Agenda Ops (30 min)
+### 3. Vitrina (30 min)
 
 ¿Dónde pondrías CPU-bound (reporte pesado)? ¿Worker thread, job queue, o otro servicio? 6–8 líneas.
 

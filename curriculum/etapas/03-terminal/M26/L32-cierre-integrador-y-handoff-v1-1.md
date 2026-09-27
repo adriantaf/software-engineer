@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Carta de cierre (30–40 min)
 
-En `projects/m26-capstone/cierre.md`: qué es Agenda Ops hoy (3 párrafos), para quién, URL.
+En `projects/m26-capstone/cierre.md`: qué es Vitrina hoy (3 párrafos), para quién, URL.
 
 ### 3. Handoff v1.1 (90–110 min)
 

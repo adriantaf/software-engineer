@@ -36,7 +36,7 @@ proyecto:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M25 es **ciberseguridad aplicada** al SaaS Agenda Ops: L01–L24, evidencia en `projects/m25-ciber/` y fixes en el repo del producto.
+M25 es **ciberseguridad aplicada** al SaaS Vitrina: L01–L24, evidencia en `projects/m25-ciber/` y fixes en el repo del producto.
 
 1. Orden **L01 → L24**; prioriza **IDOR cross-tenant** sobre hallazgos cosméticos.
 2. Solo atacas **tus** ambientes prod/staging acordados.

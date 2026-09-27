@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Tu aplicación no flota en el vacío: corre sobre un kernel, con procesos, memoria, archivos y permisos. Un contenedor mal configurado o un backup que nunca probaste restaurar se convierten en incidentes reales cuando llega el piloto de [Agenda Ops](../../producto-saas.md) (M17). Esta materia enlaza con el [hilo de seguridad](../../hilos/seguridad.md): least privilege en el host y en la imagen.
+Tu aplicación no flota en el vacío: corre sobre un kernel, con procesos, memoria, archivos y permisos. Un contenedor mal configurado o un backup que nunca probaste restaurar se convierten en incidentes reales cuando llega el piloto de [Vitrina](../../producto-saas.md) (M17). Esta materia enlaza con el [hilo de seguridad](../../hilos/seguridad.md): least privilege en el host y en la imagen.
 
 **En resumen:** administras procesos, permisos y un contenedor sin abusar de root ni meter secretos en la imagen.
 
@@ -43,7 +43,7 @@ M11 usa lecciones L01–L16 (como M01): terminal, scripts y Docker con evidencia
 
 1. Orden **L01 → L16**; marca solo con “Hecho cuando” cumplido.
 2. Cada concepto del libro → **un comando o experimento** el mismo día.
-3. Piensa en el stack de **Agenda Ops** (API Node + Postgres en contenedor).
+3. Piensa en el stack de **Vitrina** (API Node + Postgres en contenedor).
 4. Prácticas P1–P3 y playbook se distribuyen en las lecciones indicadas.
 5. [Cómo estudiar](../../como-estudiar.md).
 
@@ -159,7 +159,7 @@ Los secretos van en `.env` / secret manager del host, **no** en `docker build`.
 - Memoria virtual y paginación (intuición); por qué aparece OOM.
 - Observar RSS/CPU de tu API o de `node` bajo carga ligera.
 - Límites: `ulimit` intro; relación con contenedores (cgroups, alto nivel).
-- Nota: qué harías si el piloto Agenda Ops se queda sin RAM en un VPS pequeño.
+- Nota: qué harías si el piloto Vitrina se queda sin RAM en un VPS pequeño.
 
 ### Semana 3 — Sistema de archivos, I/O y permisos (~20 h)
 
@@ -211,7 +211,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 ## Siguiente
 
-**[M27 — Sistemas a bajo nivel](M27-sistemas-bajo-nivel.md)** (recomendado antes de seguir a M12 si quieres profundidad de sistemas). Luego M12 requerimientos / hilo Agenda Ops.
+**[M27 — Sistemas a bajo nivel](M27-sistemas-bajo-nivel.md)** (recomendado antes de seguir a M12 si quieres profundidad de sistemas). Luego M12 requerimientos / hilo Vitrina.
 
 ## Criterios de dominio
 

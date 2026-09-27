@@ -13,11 +13,11 @@ evidencia: projects/m20-movil/release-notes.md
 
 **~5.0 h · Semana 5**
 
-Proyecto M20 demuestra canal móvil del CRM.
+Proyecto M20 demuestra canal móvil de Vitrina.
 
 ## Objetivo
 
-Notas versión; misma cuenta web y móvil ven mismas citas.
+Notas versión; misma cuenta web y móvil ven mismas pedidos.
 
 ## Conceptos clave
 
@@ -31,10 +31,10 @@ Notas versión; misma cuenta web y móvil ven mismas citas.
 ```bash
 cat > projects/m20-movil/release-notes.md << 'EOF'
 # Release notes móvil
-- Login + lista citas (misma API que web)
+- Login + lista pedidos (misma API que web)
 - Secure storage
 - Build: ver build-evidence.md
-Demo cruzada: misma cita visible en web staging y app.
+Demo cruzada: misma pedido visible en web staging y app.
 EOF
 ```
 
@@ -62,7 +62,7 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- Release notes genéricas sin Agenda Ops.
+- Release notes genéricas sin Vitrina.
 - Demo web y app con datos distintos sin notarlo.
 
 ## Siguiente

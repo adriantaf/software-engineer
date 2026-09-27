@@ -40,7 +40,7 @@ Tabla de cobertura al inicio del archivo:
 
 - Elimina UC duplicados o “nice to have” sin traza.
 - Unifica nombres (Cliente vs Customer).
-- Asegura que login y crear cita tienen alternos.
+- Asegura que login y crear pedido tienen alternos.
 
 ### 3. Bitácora semana 1 (40–50 min)
 

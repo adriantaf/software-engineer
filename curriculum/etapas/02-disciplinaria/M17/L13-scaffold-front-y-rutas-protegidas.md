@@ -13,7 +13,7 @@ evidencia: front app + router
 
 **~5.0 h · Semana 4**
 
-Agenda Ops se usa desde navegador diario.
+Vitrina se usa desde navegador diario.
 
 ## Objetivo
 
@@ -30,9 +30,9 @@ Crear front con login, layout panel, rutas protegidas redirect a login.
 ### 1. Scaffold front (60–80 min)
 
 ```bash
-mkdir -p projects/m17-agenda-ops/apps/web
+mkdir -p projects/m17-vitrina/apps/web
 # Vite/Next según stack.md — TypeScript
-cd projects/m17-agenda-ops/apps/web && npm create vite@latest . -- --template react-ts
+cd projects/m17-vitrina/apps/web && npm create vite@latest . -- --template react-ts
 ```
 
 Documenta el comando real en `stack.md`.
@@ -44,13 +44,13 @@ Documenta el comando real en `stack.md`.
 ```
 
 ```bash
-# sin cookie, /citas en browser → login
+# sin cookie, /pedidos en browser → login
 ```
 
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/apps projects/m17-agenda-ops/stack.md
+git add projects/m17-vitrina/apps projects/m17-vitrina/stack.md
 git commit -m "feat(m17): L13 scaffold front rutas protegidas"
 ```
 

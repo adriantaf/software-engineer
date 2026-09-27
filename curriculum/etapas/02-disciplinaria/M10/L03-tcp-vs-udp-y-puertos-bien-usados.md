@@ -6,14 +6,14 @@ titulo: TCP vs UDP y puertos bien usados
 horas: 5.0
 semana: 1
 lectura: "Tanenbaum: capa de transporte — TCP, UDP, puertos"
-evidencia: "semana-01.md: tabla protocolo/puerto/ejemplo Agenda Ops"
+evidencia: "semana-01.md: tabla protocolo/puerto/ejemplo Vitrina"
 ---
 
 # L03 — TCP vs UDP y puertos bien usados
 
 **~5.0 h · Semana 1**
 
-Agenda Ops hablará HTTP sobre TCP/443. DNS suele ir por UDP/53. Hoy dejas la tabla que evita confusiones en M11/M19.
+Vitrina hablará HTTP sobre TCP/443. DNS suele ir por UDP/53. Hoy dejas la tabla que evita confusiones en M11/M19.
 
 ## Objetivo
 
@@ -34,7 +34,7 @@ ss -tuln | head -40
 
 Marca 3 sockets que reconozcas (ssh, docker, node, postgres…). Si no hay nada interesante, arranca algo de M09 y vuelve a listar.
 
-### 3. Tabla Agenda Ops (60 min)
+### 3. Tabla Vitrina (60 min)
 
 | Protocolo | Puerto | Quién | Notas |
 |-----------|--------|-------|-------|

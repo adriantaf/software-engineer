@@ -1,4 +1,4 @@
-# Trust boundaries — Agenda Ops (piloto)
+# Trust boundaries — Vitrina (piloto)
 
 Completa en **L01** (y actualiza en **L12**).
 

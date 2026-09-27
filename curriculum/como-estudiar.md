@@ -83,7 +83,7 @@ Luego marcas el checkbox en el plan. Cada semana: **check-in** en la página Pro
 ## Inglés y la universidad
 
 - Inglés: sigue tu curso; aquí usamos libros en español hasta B1 lectura técnica.
-- Si cursas carrera en paralelo: este plan **adelanta y profundiza**. Cuando la U vea “Bases de datos”, tú ya construyes el esquema del CRM aquí.
+- Si cursas carrera en paralelo: este plan **adelanta y profundiza**. Cuando la U vea “Bases de datos”, tú ya construyes el esquema de **Vitrina** (menú/pedidos) aquí.
 
 ## Siguiente paso ahora
 

@@ -6,7 +6,7 @@ titulo: ADR tenant_id y modelo multi-negocio
 horas: 5.0
 semana: 8
 lectura: producto-saas multi-tenant
-evidencia: projects/m17-agenda-ops/docs/adr-tenant-id.md
+evidencia: projects/m17-vitrina/docs/adr-tenant-id.md
 ---
 
 # L29 — ADR tenant_id y modelo multi-negocio
@@ -30,7 +30,7 @@ ADR: dónde va `tenant_id`/`negocio_id`, migración futura, queries siempre filt
 ### 1. ADR tenant_id (70–90 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/adr-tenant-id.md << 'EOF'
+cat > projects/m17-vitrina/docs/adr-tenant-id.md << 'EOF'
 # ADR: tenant_id / multi-negocio
 ## Contexto
 Piloto single-tenant hoy; camino a SaaS.
@@ -48,7 +48,7 @@ EOF
 ```
 
 ```bash
-git add projects/m17-agenda-ops/docs/adr-tenant-id.md
+git add projects/m17-vitrina/docs/adr-tenant-id.md
 git commit -m "docs(m17): L29 adr tenant_id multi-negocio"
 ```
 
@@ -64,12 +64,12 @@ git commit -m "docs(m17): L29 adr tenant_id multi-negocio"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/adr-tenant-id.md` con contexto/decisión/consecuencias.
+1. Existe `projects/m17-vitrina/docs/adr-tenant-id.md` con contexto/decisión/consecuencias.
 2. Commit `docs(m17): L29 adr-tenant-id-y-modelo-multi-negocio`.
 
 ## Errores comunes
 
-- ADR genérico sin Agenda Ops.
+- ADR genérico sin Vitrina.
 - Implementar multi-tenant completo sin necesidad.
 
 ## Siguiente

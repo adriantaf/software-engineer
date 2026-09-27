@@ -13,7 +13,7 @@ evidencia: projects/m13-diseno/diagramas/trust-boundaries.md + adr/001-monolito-
 
 **~5.0 h · Semana 1**
 
-El SRS de Agenda Ops dice *qué*; hoy marcas *dónde* deja de confiarse el sistema y decides monolito modular antes de dibujar 40 cajas.
+El SRS de Vitrina dice *qué*; hoy marcas *dónde* deja de confiarse el sistema y decides monolito modular antes de dibujar 40 cajas.
 
 ## Objetivo
 
@@ -33,7 +33,7 @@ cat projects/m13-diseno/README.md
 ls projects/m12-srs
 ```
 
-Si aún no tienes `projects/m12-srs/srs-v1.md`, usa `projects/m12-srs/plantilla.md` + [producto-saas.md](../../../producto-saas.md) (citas, clientes, owner/staff). Anota 3 requisitos Must que toquen auth o datos ajenos.
+Si aún no tienes `projects/m12-srs/srs-v1.md`, usa `projects/m12-srs/plantilla.md` + [producto-saas.md](../../../producto-saas.md) (pedidos, clientes, owner/staff). Anota 3 requisitos Must que toquen auth o datos ajenos.
 
 ### 2. Crea carpetas (10 min)
 
@@ -58,11 +58,11 @@ Tabla **Qué cruza cada límite**:
 
 | Límite | Datos / credenciales | Quién valida |
 |--------|----------------------|--------------|
-| Browser → API | Cookie de sesión, JSON de cita | API: sesión + rol |
+| Browser → API | Cookie de sesión, JSON de pedido | API: sesión + rol |
 | API → DB | user_id, cliente_id, slot | API + constraints DB |
 | API → Mail | email, texto sin PII extra | API (no el browser) |
 
-**Nota de amenaza (alto nivel):** cookie robada → sesión hijack (HttpOnly, Secure, SameSite); IDOR `GET /citas/:id` de otro negocio → 403 en API, no solo en UI.
+**Nota de amenaza (alto nivel):** cookie robada → sesión hijack (HttpOnly, Secure, SameSite); IDOR `GET /pedidos/:id` de otro negocio → 403 en API, no solo en UI.
 
 Ajusta nombres a tu SRS; no inventes microservicios.
 
@@ -71,19 +71,19 @@ Ajusta nombres a tu SRS; no inventes microservicios.
 Crea `projects/m13-diseno/adr/001-monolito-modular.md` siguiendo la plantilla de M01:
 
 ```markdown
-# ADR 001 — Monolito modular para el piloto Agenda Ops
+# ADR 001 — Monolito modular para el piloto Vitrina
 
 ## Contexto
-Un design partner, un deploy, equipo de uno. Necesito auth + citas + clientes
+Un design partner, un deploy, equipo de uno. Necesito auth + pedidos + clientes
 sin ops de N servicios.
 
 ## Decisión
 Monolito modular: un proceso API + un front, módulos internos
-(auth, citas, clientes) con fronteras claras de código.
+(auth, pedidos, clientes) con fronteras claras de código.
 
 ## Consecuencias
 + Deploy simple; traces end-to-end fáciles
-+ Transacciones locales (crear cita) sin saga
++ Transacciones locales (crear pedido) sin saga
 − Riesgo de “ball of mud” si no cuidamos capas (mitigar en M13 L09+)
 − Multi-tenant real llega después (tenant_id en M15/M17 path)
 ```
@@ -109,14 +109,14 @@ git commit -m "docs(m13): trust boundaries y ADR 001 monolito modular"
 Marca la lección **solo si**:
 
 1. Existe `projects/m13-diseno/diagramas/trust-boundaries.md` con Mermaid (navegador | API | DB) y datos que cruzan cada límite.
-2. Existe `projects/m13-diseno/adr/001-monolito-modular.md` con contexto Agenda Ops, decisión y ≥3 consecuencias.
+2. Existe `projects/m13-diseno/adr/001-monolito-modular.md` con contexto Vitrina, decisión y ≥3 consecuencias.
 3. Commit `docs(m13): trust boundaries y ADR 001 monolito modular`.
 
 ## Errores comunes
 
 - Dibujar microservicios “porque es moderno” sin problema que lo justifique.
 - Boundary sin listar qué dato o credencial cruza (cookie, JSON, SQL).
-- ADR genérico copiado sin mencionar citas/clientes/roles del piloto.
+- ADR genérico copiado sin mencionar pedidos/clientes/roles del piloto.
 
 ## Siguiente
 

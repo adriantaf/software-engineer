@@ -17,7 +17,7 @@ M19 empieza donde M18 dejó: nada de secretos en git antes de empaquetar.
 
 ## Objetivo
 
-Crear inventario de secretos sin valores y definir URLs/objetivo de staging y prod para Agenda Ops.
+Crear inventario de secretos sin valores y definir URLs/objetivo de staging y prod para Vitrina.
 
 ## Conceptos clave
 
@@ -49,7 +49,7 @@ EOF
 Cruza con M17:
 
 ```bash
-cat projects/m17-agenda-ops/.env.example
+cat projects/m17-vitrina/.env.example
 ```
 
 ### 3. ambientes.md staging vs prod (30–40 min)

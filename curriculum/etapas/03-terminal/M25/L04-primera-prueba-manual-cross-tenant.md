@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Testing Guide — information gathering_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Prepara IDs de prueba (20–30 min)
 
@@ -43,12 +43,12 @@ Usa tenants A/B de L03. Anota en `aislamiento/prueba-manual-01.md`: `tenant_a_id
 
 ### 3. Prueba manual IDOR (90–110 min)
 
-Autenticado como A, pide recurso de B (GET cita / cliente). Documenta:
+Autenticado como A, pide recurso de B (GET pedido / cliente). Documenta:
 
 ```bash
 # ejemplo — adapta a tu API; redacta tokens
 curl -s -o /tmp/a.json -w "%{http_code}" -H "Authorization: Bearer $TOKEN_A" \
-  "$API/citas/$CITA_B_ID"
+  "$API/pedidos/$CITA_B_ID"
 ```
 
 Pega status + fragmento de body **redactado**. Espera 403/404; si 200 con datos de B → hallazgo crítico.
@@ -81,7 +81,7 @@ Marca la lección **solo si**:
 
 1. Existe el entregable: `projects/m25-ciber/aislamiento/prueba-manual-01.md`.
 2. Sin secretos en markdown.
-3. Conexión Agenda Ops escrita en bitácora.
+3. Conexión Vitrina escrita en bitácora.
 4. Commit `docs(m25): l04 …` en el historial.
 
 ## Errores comunes

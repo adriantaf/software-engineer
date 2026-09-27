@@ -55,7 +55,7 @@ curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n" \
 
 ```bash
 npm test -- authz
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L10 middleware autorizacion"
 ```
 

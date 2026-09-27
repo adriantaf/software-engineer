@@ -42,7 +42,7 @@ Anota en `projects/m23-ia/bitacora-m23.md`: qué **no** enviarás a la API (PII,
 
 Confirma rutas bajo `projects/m23-ia/metricas`.
 
-Crea `projects/m23-ia/metricas/query-agregada.sql` (o `.ts` script) contra schema Agenda Ops o fixture documentado.
+Crea `projects/m23-ia/metricas/query-agregada.sql` (o `.ts` script) contra schema Vitrina o fixture documentado.
 
 ### 3. Laboratorio principal (90–120 min)
 

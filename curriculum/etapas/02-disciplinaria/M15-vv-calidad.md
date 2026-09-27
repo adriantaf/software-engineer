@@ -7,7 +7,7 @@ semanas: 4
 horas: 80
 practicas:
   - id: p1
-    titulo: Pirámide de tests en Agenda Ops
+    titulo: Pirámide de tests en Vitrina
   - id: p2
     titulo: CI en GitHub Actions (lint + test + audit)
   - id: p3
@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Sin pruebas automatizadas, cada cambio en Agenda Ops es apuesta. La calidad no es un departamento: es pirámide de tests, integración continua y revisiones que incluyen **auth, IDOR y validación de entrada** ([hilo seguridad](../../hilos/seguridad.md)). Esta materia prepara el pipeline que M17 mantendrá verde y que M18 endurecerá con tests de regresión AppSec.
+Sin pruebas automatizadas, cada cambio en Vitrina es apuesta. La calidad no es un departamento: es pirámide de tests, integración continua y revisiones que incluyen **auth, IDOR y validación de entrada** ([hilo seguridad](../../hilos/seguridad.md)). Esta materia prepara el pipeline que M17 mantendrá verde y que M18 endurecerá con tests de regresión AppSec.
 
 **En resumen:** la calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad.
 
@@ -30,7 +30,7 @@ Sin pruebas automatizadas, cada cambio en Agenda Ops es apuesta. La calidad no e
 
 Al terminar debes poder:
 
-1. Diseñar una pirámide de tests (unitarios, integración, pocos E2E) para el dominio de citas/clientes.
+1. Diseñar una pirámide de tests (unitarios, integración, pocos E2E) para el dominio de pedidos/clientes.
 2. Escribir tests de dominio y API que fallen ante reglas de negocio rotas.
 3. Incluir casos de seguridad mínimos: sin auth, IDOR, input inválido.
 4. Configurar CI en GitHub Actions: lint, test, audit de dependencias.
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M15 deja la calidad del piloto **Agenda Ops** automatizada: L01–L16.
+M15 deja la calidad del piloto **Vitrina** automatizada: L01–L16.
 
 1. Cada bug encontrado → test de regresión el mismo día (regla del plan).
 2. Trabaja sobre spike en `projects/m15-calidad/` o el repo M17 cuando exista.
@@ -66,7 +66,7 @@ Si un día solo tienes 2 h: **una lección práctica**. No saltes la lectura de 
 | ID | Lección | ~h |
 |----|---------|-----|
 | L01 | [Entorno M15 y pirámide de tests](M15/L01-entorno-m15-y-piramide-de-tests.md) | 5 |
-| L02 | [Tests unitarios puros de reglas de cita](M15/L02-tests-unitarios-puros-de-reglas-de-cita.md) | 5 |
+| L02 | [Tests unitarios puros de reglas de pedido](M15/L02-tests-unitarios-puros-de-reglas-de-pedido.md) | 5 |
 | L03 | [Qué no testear y carpetas de coverage](M15/L03-que-no-testear-y-carpetas-de-coverage.md) | 5 |
 | L04 | [Cierre semana 1 — suite dominio y bitácora](M15/L04-cierre-semana-1-suite-dominio-y-bitacora.md) | 5 |
 
@@ -114,14 +114,14 @@ Canon: *Código limpio* (cap. pruebas) + *El programador pragmático* (testing) 
 
 
 
-## Ejemplo — tabla de casos mínimos (crear cita)
+## Ejemplo — tabla de casos mínimos (crear pedido)
 
 | Caso | Entrada | Esperado |
 |------|---------|----------|
-| Feliz | slot libre, usuario owner | 201 + cita |
+| Feliz | slot libre, usuario owner | 201 + pedido |
 | Duplicado | mismo slot | 409 o error dominio |
 | Sin auth | sin cookie/token | 401 |
-| IDOR | cita de otro negocio/usuario | 403 |
+| IDOR | pedido de otro negocio/usuario | 403 |
 | Inválido | fin antes de inicio | 400 |
 
 ## Ejemplo — workflow CI mínimo (esquema)
@@ -149,7 +149,7 @@ Ajusta rutas si el código vive en monorepo; documenta en `projects/m15-calidad/
 
 ### Semana 1 — Pirámide y tests de dominio (~20 h)
 
-- Unit tests puros: reglas de citas, precios, validaciones.
+- Unit tests puros: reglas de pedidos, precios, validaciones.
 - Qué no testear (framework, detalles de ORM sin valor).
 - Coverage en carpetas `domain/` o equivalente.
 - Entregable: suite inicial + `piramide.md`.
@@ -195,7 +195,7 @@ Ajusta rutas si el código vive en monorepo; documenta en `projects/m15-calidad/
 - Tests que solo assertan mocks (cero confianza).
 - CI opcional o saltable con `--no-verify` habitual.
 - Cero tests de auth/IDOR “porque es piloto”.
-- Perseguir 100 % coverage en DTOs y cero en reglas de citas.
+- Perseguir 100 % coverage en DTOs y cero en reglas de pedidos.
 - No pinchar versiones en CI y builds flaky sin investigar.
 
 ## Evidencia de hecho

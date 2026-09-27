@@ -6,7 +6,7 @@ titulo: Checklist camino a SaaS
 horas: 5.0
 semana: 8
 lectura: Ficha M17 checklist
-evidencia: projects/m17-agenda-ops/docs/checklist-saas.md
+evidencia: projects/m17-vitrina/docs/checklist-saas.md
 ---
 
 # L30 — Checklist camino a SaaS
@@ -30,7 +30,7 @@ Completar checklist ficha: tablas, roles, HTTPS, tests — gaps honestos.
 ### 1. Checklist SaaS (70–90 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/checklist-saas.md << 'EOF'
+cat > projects/m17-vitrina/docs/checklist-saas.md << 'EOF'
 # Camino a SaaS
 - [ ] Aislamiento tenant en queries
 - [ ] Billing (out of scope piloto)
@@ -45,7 +45,7 @@ Marca hecho/gap con enlace a evidencia.
 ### 2. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/checklist-saas.md
+git add projects/m17-vitrina/docs/checklist-saas.md
 git commit -m "docs(m17): L30 checklist camino saas"
 ```
 
@@ -61,7 +61,7 @@ git commit -m "docs(m17): L30 checklist camino saas"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/checklist-saas.md` con ítems marcados o gaps enlazados.
+1. Existe `projects/m17-vitrina/docs/checklist-saas.md` con ítems marcados o gaps enlazados.
 2. Commit `docs(m17): L30 checklist-camino-a-saas`.
 
 ## Errores comunes

@@ -10,8 +10,8 @@
 ## Cómo demostrar
 
 1. Conectar como `agenda_app`.
-2. `SELECT` / `INSERT` en `citas` → OK.
-3. `DROP TABLE citas` o `CREATE TABLE x()` → **debe fallar**.
+2. `SELECT` / `INSERT` en `orders` → OK.
+3. `DROP TABLE pedidos` o `CREATE TABLE x()` → **debe fallar**.
 4. Pegar aquí el error (sin password):
 
 ```

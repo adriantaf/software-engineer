@@ -14,14 +14,14 @@ practicas:
     titulo: SRS v1 con requisitos de seguridad
 proyecto:
   id: proj
-  titulo: SRS de Agenda Ops (piloto single-tenant)
+  titulo: SRS de Vitrina (piloto single-tenant)
 ---
 
 # M12 — Ingeniería de requerimientos
 
 ## Por qué existe
 
-Construir sin requisitos es adivinar. A partir de esta materia el producto del plan deja de ser abstracto: documentas **Agenda Ops** ([producto-saas.md](../../producto-saas.md)) — citas, clientes y panel para un negocio de servicios local. Los requisitos **no funcionales de seguridad y privacidad** entran desde el SRS, no como parche en M18 ([hilo seguridad](../../hilos/seguridad.md)).
+Construir sin requisitos es adivinar. A partir de esta materia el producto del plan deja de ser abstracto: documentas **Vitrina** ([producto-saas.md](../../producto-saas.md)) — pedidos, clientes y panel para un local QSR o barra de bebidass local. Los requisitos **no funcionales de seguridad y privacidad** entran desde el SRS, no como parche en M18 ([hilo seguridad](../../hilos/seguridad.md)).
 
 **En resumen:** congelas qué construir: entrevistas, stories y un SRS con seguridad; no pantallas bonitas primero.
 
@@ -39,7 +39,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M12 arranca el hilo de producto **Agenda Ops** ([producto-saas.md](../../producto-saas.md)): L01–L12 en orden.
+M12 arranca el hilo de producto **Vitrina** ([producto-saas.md](../../producto-saas.md)): L01–L12 en orden.
 
 1. Elige **un** sub-vertical y no lo cambies en estas tres semanas.
 2. Cada sesión: entrevista o story → criterio → línea en el SRS (`projects/m12-srs/`).
@@ -59,14 +59,14 @@ Si un día solo tienes 2 h: **una lección** (guion, notas o stories). No saltes
 
 ## Lecciones
 
-### Semana 1 — Elicitación y contexto Agenda Ops (~20 h)
+### Semana 1 — Elicitación y contexto Vitrina (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
 | L01 | [Design partner y guion de entrevista](M12/L01-design-partner-y-guion-de-entrevista.md) | 5 |
 | L02 | [Entrevista y notas timestamp](M12/L02-entrevista-y-notas-timestamp.md) | 5 |
 | L03 | [Problemas observados y glosario](M12/L03-problemas-observados-y-glosario.md) | 5 |
-| L04 | [Stakeholders y contexto Agenda Ops](M12/L04-stakeholders-y-contexto-agenda-ops.md) | 5 |
+| L04 | [Stakeholders y contexto Vitrina](M12/L04-stakeholders-y-contexto-vitrina.md) | 5 |
 
 ### Semana 2 — Historias y RNF (~20 h)
 
@@ -126,22 +126,22 @@ y campos PII mínimos necesarios.
 
 ### Semana 1 — Elicitación y contexto (~20 h)
 
-- Stakeholders del piloto Agenda Ops: dueño, staff, cliente final (indirecto).
+- Stakeholders del piloto Vitrina: dueño, staff, cliente final (indirecto).
 - Técnicas: entrevista semiestructurada, observación del flujo actual (WhatsApp, libreta).
-- Glosario del dominio: cita, servicio, cliente, no-show, recordatorio.
+- Glosario del dominio: pedido, servicio, cliente, pedido abandonado, recordatorio.
 - Entregable: guion + notas + lista de problemas en `projects/m12-srs/`.
 
 ### Semana 2 — Historias y trazabilidad (~20 h)
 
 - Formato user story + criterios Given/When/Then o lista numerada verificable.
-- Historias de error y vacío (sin citas, cliente duplicado, horario inválido).
+- Historias de error y vacío (sin pedidos, cliente duplicado, horario inválido).
 - RNF: seguridad, privacidad, rendimiento mínimo, disponibilidad razonable para piloto.
 - ≥8 stories con criterios; mapa story → sección del SRS.
 
 ### Semana 3 — SRS v1 y freeze de alcance (~20 h)
 
 - Completar [`plantilla.md`](../../../projects/m12-srs/plantilla.md) → `srs-v1.md`.
-- Priorización MoSCoW del MVP de 4 semanas de build (auth, citas, clientes, admin básico).
+- Priorización MoSCoW del MVP de 4 semanas de build (auth, pedidos, clientes, admin básico).
 - Supuestos, fuera de alcance explícito (multi-tenant, billing, IA).
 - Revisión de coherencia con M13 (diseño) y M17 (implementación).
 
@@ -154,7 +154,7 @@ y campos PII mínimos necesarios.
 
 ## Proyecto útil
 
-**SRS de Agenda Ops (piloto):** el documento en `projects/m12-srs/srs-v1.md` es la fuente de verdad para M13 (diseño) y M17 (build). Debe incluir:
+**SRS de Vitrina (piloto):** el documento en `projects/m12-srs/srs-v1.md` es la fuente de verdad para M13 (diseño) y M17 (build). Debe incluir:
 
 - Alcance MVP acotado y lista de “no haremos todavía”.
 - Roles owner/staff y reglas de acceso a datos sensibles.
@@ -175,7 +175,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 - **P1 — Entrevista:** `projects/m12-srs/entrevistas/notas-*.md` + `guion-v1.md`.
 - **P2 — Stories:** `projects/m12-srs/stories.md` (≥8 stories con criterios).
 - **P3 — SRS:** `projects/m12-srs/srs-v1.md` con ≥3 RNF seguridad/privacidad.
-- **Proyecto — SRS Agenda Ops:** carpeta `projects/m12-srs/` lista (README actualizado si añades índice) para M13/M17.
+- **Proyecto — SRS Vitrina:** carpeta `projects/m12-srs/` lista (README actualizado si añades índice) para M13/M17.
 
 ## Criterios de dominio
 

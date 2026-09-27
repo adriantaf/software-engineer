@@ -13,7 +13,7 @@ evidencia: docs/anti-singleton.md + ejemplo DI vs global
 
 **~5.0 h · Semana 1**
 
-Aprender patrones incluye rechazarlos. Hoy documentas por qué Agenda Ops no necesita Singleton de “AppContext”.
+Aprender patrones incluye rechazarlos. Hoy documentas por qué Vitrina no necesita Singleton de “AppContext”.
 
 ## Objetivo
 

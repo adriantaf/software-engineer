@@ -21,7 +21,7 @@ Completar dos demos más; registrar tentación de vender ‘proyecto a medida’
 
 ## Por qué empieza así
 
-El pivote Bektor→Agenda Ops es decisión de negocio; documentar qué **no** vendes.
+El pivote Bektor→Vitrina es decisión de negocio; documentar qué **no** vendes.
 
 Conceptos que debes poder explicar al cerrar:
 
@@ -36,13 +36,13 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — perseverancia vs pivot_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
 Confirma rutas bajo `projects/m22-bektor/demos`.
 
-Crea demo-03 y demo-04. Escribe `projects/m22-bektor/pivote-bektor-agenda-ops.md` borrador: qué dejaste de vender (lista) y por qué SaaS gana.
+Crea demo-03 y demo-04. Escribe `projects/m22-bektor/pivote-bektor-vitrina.md` borrador: qué dejaste de vender (lista) y por qué SaaS gana.
 
 ### 3. Laboratorio principal (90–120 min)
 
@@ -62,7 +62,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — perseverancia vs pivot | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — perseverancia vs pivot | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

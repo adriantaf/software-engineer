@@ -25,7 +25,7 @@ Borrador `projects/m18-appsec/informe-appsec.md` enlazando PoCs y commits (sin P
 
 ```bash
 cat > projects/m18-appsec/informe-appsec.md <<'EOF'
-# Informe AppSec — Agenda Ops
+# Informe AppSec — Vitrina
 
 ## 1. Ejecutivo
 - …

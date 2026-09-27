@@ -1,4 +1,4 @@
-# Inventario de autenticación — Agenda Ops
+# Inventario de autenticación — Vitrina
 
 ## Endpoints
 | Método | Ruta | Público | Notas |

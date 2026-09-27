@@ -29,7 +29,7 @@ Escribir Dockerfile multi-stage: build TS/bundle y runtime slim sin devDependenc
 
 ### 1. Dockerfile multi-stage (90–110 min)
 
-En el repo de la API (`projects/m17-agenda-ops/` o ruta documentada):
+En el repo de la API (`projects/m17-vitrina/` o ruta documentada):
 
 ```dockerfile
 # syntax=docker/dockerfile:1
@@ -55,7 +55,7 @@ CMD ["node", "dist/index.js"]
 
 ```bash
 printf '%s\n' .env node_modules .git '*.md' tests keystores >> .dockerignore
-docker build -t agenda-ops-api:dev .
+docker build -t vitrina-api:dev .
 ```
 
 Documenta en `projects/m19-ops/docker.md`.

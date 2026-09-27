@@ -5,7 +5,7 @@ orden: 5
 titulo: Diagrama de clases del dominio
 horas: 5.0
 semana: 2
-lectura: "Larman: modelo de dominio; entidades Agenda Ops"
+lectura: "Larman: modelo de dominio; entidades Vitrina"
 evidencia: projects/m13-diseno/diagramas/clases.md (Mermaid classDiagram)
 ---
 
@@ -13,7 +13,7 @@ evidencia: projects/m13-diseno/diagramas/clases.md (Mermaid classDiagram)
 
 **~5.0 h · Semana 2**
 
-Traduces UC a cosas que existen: Cliente, Servicio, Cita, Usuario. Sin UML decorativo.
+Traduces UC a cosas que existen: Cliente, Servicio, Pedido, Usuario. Sin UML decorativo.
 
 ## Objetivo
 
@@ -23,12 +23,12 @@ Traduces UC a cosas que existen: Cliente, Servicio, Cita, Usuario. Sin UML decor
 
 ### 1. Lista entidades Must (30–40 min)
 
-Desde `casos-de-uso.md` y, si existe, `projects/m09-bases-datos/er-agenda.md`:
+Desde `casos-de-uso.md` y, si existe, `projects/m09-bases-datos/er-vitrina.md`:
 
 - Usuario (rol owner/staff)
 - Cliente
 - Servicio
-- Cita
+- Pedido
 - (Opcional) Negocio stub si ya pensaste single-tenant explícito
 
 ### 2. Escribe el Mermaid (70–90 min)
@@ -53,18 +53,18 @@ classDiagram
     +duracionMin: number
     +precioBase: number
   }
-  class Cita {
+  class Pedido {
     +id: string
     +inicio: datetime
     +fin: datetime
     +estado: agendada|cancelada
   }
-  Usuario "1" --> "*" Cita : agenda
-  Cliente "1" --> "*" Cita
-  Servicio "1" --> "*" Cita
+  Usuario "1" --> "*" Pedido : agenda
+  Cliente "1" --> "*" Pedido
+  Servicio "1" --> "*" Pedido
 ```
 
-Añade una tabla **Trazabilidad** (clase → UC / historia). Ejemplo: `Cita` → UC-03, UC-04.
+Añade una tabla **Trazabilidad** (clase → UC / historia). Ejemplo: `Pedido` → UC-03, UC-04.
 
 ### 3. Atributos honestos (40 min)
 
@@ -89,7 +89,7 @@ git commit -m "docs(m13): diagrama de clases del dominio"
 
 Marca la lección **solo si**:
 
-1. `diagramas/clases.md` incluye Mermaid con ≥4 clases del MVP (p. ej. Usuario, Cliente, Servicio, Cita).
+1. `diagramas/clases.md` incluye Mermaid con ≥4 clases del MVP (p. ej. Usuario, Cliente, Servicio, Pedido).
 2. Cada clase tiene atributos que implementarás en M17 (no “campos por estética”).
 3. Commit `docs(m13): diagrama de clases del dominio`.
 

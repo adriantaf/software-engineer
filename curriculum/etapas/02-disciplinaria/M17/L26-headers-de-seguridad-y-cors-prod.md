@@ -42,7 +42,7 @@ curl -sSI https://TU-STAGING.example/health | rg -i 'content-security|x-frame|x-
 Allowlist `CORS_ORIGIN` de staging/prod — no `*`. Documenta en `docs/deploy.md`.
 
 ```bash
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L26 headers seguridad cors"
 ```
 

@@ -1,4 +1,4 @@
-# Definition of Done — Agenda Ops (M21)
+# Definition of Done — Vitrina (M21)
 
 Checklist mínima para cerrar un issue. Adapta; no borres el ítem de seguridad.
 

@@ -17,7 +17,7 @@ evidencia: Ejemplo PK compuesta + eliminación de dependencia parcial
 
 ## Objetivo
 
-Explicar 2FN con un ejemplo del dominio (líneas de cita o staff+día) y justificar por qué tu esquema actual cumple o qué cambiarías.
+Explicar 2FN con un ejemplo del dominio (líneas de pedido o staff+día) y justificar por qué tu esquema actual cumple o qué cambiarías.
 
 ## Pasos
 
@@ -29,7 +29,7 @@ Dependencia funcional y 2FN en Elmasri.
 
 Imagina tabla `cita_detalle` con PK `(cita_id, servicio_id)` y columnas `nombre_servicio`, `precio_serv`. `nombre_servicio` depende solo de `servicio_id` → viola 2FN.
 
-Escríbelo en `er-agenda.md` con la descomposición correcta (tabla `servicios` + hechos de la cita).
+Escríbelo en `er-vitrina.md` con la descomposición correcta (tabla `servicios` + hechos de la pedido).
 
 ### 3. Tu esquema real (60 min)
 
@@ -37,7 +37,7 @@ Revisa PKs de `001_init.sql`. Con surrogate keys, 2FN suele cumplirse si no repi
 
 ### 4. Mini ejercicio SQL (45 min)
 
-Inserta un servicio y una cita; actualiza el nombre del servicio; verifica que las citas históricas **siguen** viendo el nombre nuevo vía JOIN (trade-off que verás en L08 — snapshot de precio).
+Inserta un servicio y una pedido; actualiza el nombre del servicio; verifica que las pedidos históricas **siguen** viendo el nombre nuevo vía JOIN (trade-off que verás en L08 — snapshot de precio).
 
 ### 5. Commit (15 min)
 
@@ -59,7 +59,7 @@ Marca la lección **solo si**:
 
 1. Documentas un caso con PK compuesta que viola 2FN (inventado o histórico).
 2. Muestras tablas resultantes en 2FN.
-3. Actualizas la fila 2FN en `er-agenda.md`.
+3. Actualizas la fila 2FN en `er-vitrina.md`.
 
 ## Errores comunes
 

@@ -33,7 +33,7 @@ Consentimiento: sí
 Perfil: staff de … (anónimo)
 Tarea 1: …
 Obstáculos:
-Citas textuales:
+Pedidos textuales:
 ```
 
 ### 3. Commit parcial el mismo día
@@ -52,7 +52,7 @@ Citas textuales:
 
 Marca la lección **solo si**:
 
-1. Tres archivos de sesión con consentimiento anotado, tareas y citas textuales relevantes.
+1. Tres archivos de sesión con consentimiento anotado, tareas y pedidos textuales relevantes.
 2. Sin PII innecesaria (usa P1/P2/P3).
 3. Commit `docs(m16): sesiones 1-3 usabilidad`.
 

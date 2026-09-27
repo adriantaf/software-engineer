@@ -29,7 +29,7 @@ curl -sI https://example.com | sed -n '1,40p'
 
 Busca: `Strict-Transport-Security`, `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`.
 
-### 2. Checklist Agenda Ops (75 min)
+### 2. Checklist Vitrina (75 min)
 
 En `labs/security-headers.md`, para cada header: valor propuesto + riesgo si falta. CSP en modo report-only primero está bien — documéntalo.
 
@@ -56,7 +56,7 @@ git commit -m "docs(m10): l16 security headers"
 
 Marca la lección **solo si**:
 
-1. `labs/security-headers.md` con checklist de headers y valores iniciales para Agenda Ops.
+1. `labs/security-headers.md` con checklist de headers y valores iniciales para Vitrina.
 2. `curl -sI` contra un sitio real anotando cuáles faltan.
 3. Commit `docs(m10): l16 security headers`.
 

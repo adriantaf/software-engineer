@@ -7,7 +7,7 @@ semanas: 8
 horas: 160
 practicas:
   - id: p1
-    titulo: Threat model STRIDE del CRM (documento)
+    titulo: Threat model STRIDE de Vitrina (documento)
   - id: p2
     titulo: Reproducir y corregir ≥5 hallazgos OWASP en tu app
   - id: p3
@@ -36,7 +36,7 @@ Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer C
 
 ## Cómo estudiar esta materia (lecciones)
 
-M18 es la **capa B** de AppSec con lecciones L01–L32 (formato M01): amenaza → PoC en **tu** Agenda Ops → fix → test.
+M18 es la **capa B** de AppSec con lecciones L01–L32 (formato M01): amenaza → PoC en **tu** Vitrina → fix → test.
 
 1. Orden **L01 → L32**; marca solo con “Hecho cuando” cumplido.
 2. **Solo** atacas localhost/staging que controlas.
@@ -61,9 +61,9 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L01 | [Activos, actores y datos sensibles en Agenda Ops](M18/L01-activos-actores-y-datos-sensibles-en-agenda-ops.md) | 5 |
+| L01 | [Activos, actores y datos sensibles en Vitrina](M18/L01-activos-actores-y-datos-sensibles-en-vitrina.md) | 5 |
 | L02 | [Trust boundaries y flujos de confianza](M18/L02-trust-boundaries-y-flujos-de-confianza.md) | 5 |
-| L03 | [STRIDE aplicado al CRM de citas](M18/L03-stride-aplicado-al-crm-de-citas.md) | 5 |
+| L03 | [STRIDE aplicado a Vitrina](M18/L03-stride-aplicado-a-vitrina.md) | 5 |
 | L04 | [Threat model v0 y lectura OWASP Top 10](M18/L04-threat-model-v0-y-lectura-owasp-top-10.md) | 5 |
 
 ### Semana 2 — Autenticación: hashing, sesiones y JWT (~20 h)
@@ -72,7 +72,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 |----|---------|-----|
 | L05 | [Inventario de autenticación actual](M18/L05-inventario-de-autenticacion-actual.md) | 5 |
 | L06 | [Hashing de contraseñas con bcrypt o argon2](M18/L06-hashing-de-contrasenas-con-bcrypt-o-argon2.md) | 5 |
-| L07 | [Sesiones server-side vs JWT en Agenda Ops](M18/L07-sesiones-server-side-vs-jwt-en-agenda-ops.md) | 5 |
+| L07 | [Sesiones server-side vs JWT en Vitrina](M18/L07-sesiones-server-side-vs-jwt-en-vitrina.md) | 5 |
 | L08 | [Threat model v1 post-autenticación (P1)](M18/L08-threat-model-v1-post-autenticacion-p1.md) | 5 |
 
 ### Semana 3 — Cookies, CSRF y ciclo de sesión (~20 h)
@@ -84,7 +84,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 | L11 | [Fijación de sesión y logout completo](M18/L11-fijacion-de-sesion-y-logout-completo.md) | 5 |
 | L12 | [Checklist cookies y CSRF en staging](M18/L12-checklist-cookies-y-csrf-en-staging.md) | 5 |
 
-### Semana 4 — Inyección: SQLi y XSS en Agenda Ops (~20 h)
+### Semana 4 — Inyección: SQLi y XSS en Vitrina (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
@@ -97,7 +97,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L17 | [IDOR en citas y recursos por ID](M18/L17-idor-en-citas-y-recursos-por-id.md) | 5 |
+| L17 | [IDOR en pedidos y recursos por ID](M18/L17-idor-en-pedidos-y-recursos-por-id.md) | 5 |
 | L18 | [Autorización por rol owner vs staff](M18/L18-autorizacion-por-rol-owner-vs-staff.md) | 5 |
 | L19 | [Rate limiting en login y endpoints sensibles](M18/L19-rate-limiting-en-login-y-endpoints-sensibles.md) | 5 |
 | L20 | [Tests automatizados cross-user (P2 avance)](M18/L20-tests-automatizados-cross-user-p2-avance.md) | 5 |
@@ -118,7 +118,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 | L25 | [npm audit y cadena de dependencias](M18/L25-npm-audit-y-cadena-de-dependencias.md) | 5 |
 | L26 | [Secretos, .env y rotación](M18/L26-secretos-env-y-rotacion.md) | 5 |
 | L27 | [Cabeceras de seguridad con Helmet o equivalente](M18/L27-cabeceras-de-seguridad-con-helmet-o-equivalente.md) | 5 |
-| L28 | [CSP básica sin romper Agenda Ops](M18/L28-csp-basica-sin-romper-agenda-ops.md) | 5 |
+| L28 | [CSP básica sin romper Vitrina](M18/L28-csp-basica-sin-romper-vitrina.md) | 5 |
 
 ### Semana 8 — Secure SDLC, informe y tests de regresión (~20 h)
 
@@ -135,12 +135,12 @@ Empieza por **L01** hoy.
 
 Canon: **OWASP Top 10** + Cheat Sheets. Ver [bibliografía](../../bibliografia.md#m18-seguridad-appsec) y [hilo seguridad](../../hilos/seguridad.md).
 
-| Semana | Lecciones | Lectura OWASP / recurso | Enfoque Agenda Ops |
+| Semana | Lecciones | Lectura OWASP / recurso | Enfoque Vitrina |
 |--------|-----------|-------------------------|-------------------|
 | 1 | L01–L04 | STRIDE / Threat Modeling | Activos, boundaries, mapa Top 10 |
 | 2 | L05–L08 | **A07** Auth + Password Storage | Hashing, sesión/JWT, threat model v1 (P1) |
 | 3 | L09–L12 | CSRF + Session Management | Cookies, CSRF, checklist staging |
-| 4 | L13–L16 | **A03** Injection + XSS Prevention | SQLi/XSS en citas y clientes |
+| 4 | L13–L16 | **A03** Injection + XSS Prevention | SQLi/XSS en pedidos y clientes |
 | 5 | L17–L20 | **A01** Access Control + Rate Limit | IDOR, roles, tests cross-user |
 | 6 | L21–L24 | SSRF, File Upload, API hardening | Hallazgos P2 ≥5 |
 | 7 | L25–L28 | **A06** + Secrets + Headers + CSP | audit, rotación, Helmet, CSP |
@@ -167,7 +167,7 @@ export async function verifyPassword(plain: string, hash: string): Promise<boole
 
 ## Ejemplo — IDOR (qué buscar)
 
-Si `GET /api/citas/123` devuelve la cita **sin comprobar** que pertenece al usuario autenticado, tienes IDOR. Fix: autorización por `userId`/rol en el servidor, no solo ocultar botones en el front.
+Si `GET /api/pedidos/123` devuelve la pedido **sin comprobar** que pertenece al usuario autenticado, tienes IDOR. Fix: autorización por `userId`/rol en el servidor, no solo ocultar botones en el front.
 
 
 

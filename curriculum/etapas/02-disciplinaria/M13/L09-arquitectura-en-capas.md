@@ -49,7 +49,7 @@ src/
   infrastructure/
 ```
 
-Enlaza a módulos: `citas`, `clientes`, `auth`.
+Enlaza a módulos: `orders`, `clientes`, `auth`.
 
 ### 3. Dibuja dependencias (40 min)
 
@@ -59,7 +59,7 @@ Mermaid `flowchart TB` de capas; flechas solo hacia abajo (o inward).
 
 ```bash
 git add projects/m13-diseno/arquitectura.md
-git commit -m "docs(m13): arquitectura en capas Agenda Ops"
+git commit -m "docs(m13): arquitectura en capas Vitrina"
 ```
 
 ## Lectura de esta lección
@@ -75,8 +75,8 @@ git commit -m "docs(m13): arquitectura en capas Agenda Ops"
 Marca la lección **solo si**:
 
 1. `arquitectura.md` describe ≥4 capas con responsabilidad y ejemplo de archivo futuro.
-2. Queda explícito que autorización/reglas de cita no viven solo en React.
-3. Commit `docs(m13): arquitectura en capas Agenda Ops`.
+2. Queda explícito que autorización/reglas de pedido no viven solo en React.
+3. Commit `docs(m13): arquitectura en capas Vitrina`.
 
 ## Errores comunes
 

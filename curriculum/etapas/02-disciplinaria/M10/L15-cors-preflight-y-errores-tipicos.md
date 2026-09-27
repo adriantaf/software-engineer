@@ -17,7 +17,7 @@ CORS no autentica usuarios: solo relaja same-origin en el browser. Hoy lo config
 
 ## Objetivo
 
-Documentar preflight y una política CORS para panel+API de Agenda Ops.
+Documentar preflight y una política CORS para panel+API de Vitrina.
 
 ## Pasos
 

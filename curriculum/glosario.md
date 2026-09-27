@@ -46,7 +46,7 @@ Tip: usa el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salta desde cualquier 
 
 <h2 id="crm">CRM</h2>
 
-**gestión de relación con clientes.** Sistema para clientes, contactos y seguimiento. En este plan el producto es Agenda Ops (citas/ops).
+**gestión de relación con clientes.** Sistema para clientes, contactos y seguimiento. En este plan el producto **no** es un SaaS de menú/pedidos: es **Vitrina** (menú + pedidos).
 
 <h2 id="crud">CRUD</h2>
 
@@ -235,6 +235,10 @@ Tip: usa el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salta desde cualquier 
 <h2 id="ux">UX</h2>
 
 **experiencia de usuario.** Cómo se siente usar el producto de punta a punta (flujo, claridad, fricción).
+
+<h2 id="vitrina">Vitrina</h2>
+
+**SaaS vertical del plan.** Menú digital + pedidos (WhatsApp / pago al recoger; checkout online opcional) para QSR y barras de bebidas. Spec: [producto-saas.md](producto-saas.md).
 
 <h2 id="vps">VPS</h2>
 

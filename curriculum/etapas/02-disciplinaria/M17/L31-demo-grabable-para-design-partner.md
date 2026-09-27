@@ -6,7 +6,7 @@ titulo: Demo grabable para design partner
 horas: 5.0
 semana: 8
 lectura: Guion demo 10 min
-evidencia: projects/m17-agenda-ops/docs/demo-script.md
+evidencia: projects/m17-vitrina/docs/demo-script.md
 ---
 
 # L31 — Demo grabable para design partner
@@ -17,7 +17,7 @@ Validación real del MVP.
 
 ## Objetivo
 
-Guion demo: onboarding, cita, WhatsApp, roles. URL staging y creds test.
+Guion demo: onboarding, pedido, WhatsApp, roles. URL staging y creds test.
 
 ## Conceptos clave
 
@@ -30,10 +30,10 @@ Guion demo: onboarding, cita, WhatsApp, roles. URL staging y creds test.
 ### 1. Guion demo grabable (50–60 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/demo-script.md << 'EOF'
+cat > projects/m17-vitrina/docs/demo-script.md << 'EOF'
 # Demo design partner (≤8 min)
 1. Login owner
-2. Crear cita
+2. Crear pedido
 3. Recordatorio WhatsApp
 4. Rol staff 403 admin
 EOF
@@ -44,7 +44,7 @@ EOF
 Cronometra. Anota URL staging y usuario demo (password en gestor, no en git).
 
 ```bash
-git add projects/m17-agenda-ops/docs/demo-script.md
+git add projects/m17-vitrina/docs/demo-script.md
 git commit -m "docs(m17): L31 demo script design partner"
 ```
 
@@ -60,7 +60,7 @@ git commit -m "docs(m17): L31 demo script design partner"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/demo-script.md` con guion ≤8 min y URL staging.
+1. Existe `projects/m17-vitrina/docs/demo-script.md` con guion ≤8 min y URL staging.
 2. Commit `docs(m17): L31 demo-grabable-para-design-partner`.
 
 ## Errores comunes

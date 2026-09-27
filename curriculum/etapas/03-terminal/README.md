@@ -13,4 +13,4 @@
 | M25 | [Ciberseguridad aplicada](M25-ciberseguridad-aplicada.md) | 6 | 120 |
 | M26 | [Proyecto integrador SaaS](M26-proyecto-integrador.md) | 8 | 160 |
 
-Producto: [Agenda Ops](../../producto-saas.md). Cierra con [egreso](../../egreso.md) y [examen](examen.md).
+Producto: [Vitrina](../../producto-saas.md). Cierra con [egreso](../../egreso.md) y [examen](examen.md).

@@ -1,6 +1,6 @@
 # M23 — Ciencia de datos e IA aplicada
 
-Evidencia de métricas SaaS, LLM evaluado y RAG **por tenant** para Agenda Ops.
+Evidencia de métricas SaaS, LLM evaluado y RAG **por tenant** para Vitrina.
 
 ## En resumen
 

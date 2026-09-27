@@ -6,7 +6,7 @@ titulo: Joins inner y left
 horas: 5.0
 semana: 3
 lectura: Elmasri SQL joins + PG tutorial Queries
-evidencia: sql/joins-citas-cliente.sql ejecutado
+evidencia: sql/joins-pedidos-cliente.sql ejecutado
 ---
 
 # L09 — Joins inner y left
@@ -17,7 +17,7 @@ Los reportes del salón son JOINs. Hoy ejecutas los dos patrones básicos contra
 
 ## Objetivo
 
-Completar y correr `sql/joins-citas-cliente.sql` con datos reales (aunque sean seeds mínimos).
+Completar y correr `sql/joins-pedidos-cliente.sql` con datos reales (aunque sean seeds mínimos).
 
 ## Pasos
 
@@ -27,7 +27,7 @@ Si no hay filas:
 
 ```bash
 psql "..." -f seeds/001_demo.sql
-psql "..." -c 'SELECT count(*) FROM citas;'
+psql "..." -c 'SELECT count(*) FROM pedidos;'
 ```
 
 ### 2. Lectura SQL (40 min)
@@ -36,11 +36,11 @@ Elmasri: joins. Alternativa: [PG tutorial — Queries](https://www.postgresql.or
 
 ### 3. Ejecuta el scaffold (60 min)
 
-Abre `sql/joins-citas-cliente.sql`. Corre cada query. Ajusta columnas si tu esquema diverge.
+Abre `sql/joins-pedidos-cliente.sql`. Corre cada query. Ajusta columnas si tu esquema diverge.
 
 ### 4. Añade un tercer join útil (45 min)
 
-Ejemplo: citas `completada` de la última semana con teléfono del cliente (para recordatorio manual). Guárdalo en el mismo archivo o en `sql/joins-completadas-recientes.sql`.
+Ejemplo: pedidos `completada` de la última semana con teléfono del cliente (para recordatorio manual). Guárdalo en el mismo archivo o en `sql/joins-completadas-recientes.sql`.
 
 ### 5. Evidencia + commit (30 min)
 
@@ -60,7 +60,7 @@ Marca la lección **solo si**:
 
 1. Ejecutaste INNER y LEFT JOIN del archivo (o el tuyo equivalente).
 2. Hay comentario con salida de ejemplo en el `.sql` o en `samples/`.
-3. Commit `feat(m09): joins citas cliente`.
+3. Commit `feat(m09): joins pedidos cliente`.
 
 ## Errores comunes
 

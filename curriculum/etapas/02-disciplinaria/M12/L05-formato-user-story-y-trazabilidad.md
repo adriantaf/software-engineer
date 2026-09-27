@@ -32,7 +32,7 @@ Arrancar `stories.md` con historias trazables.
 
 ### 2. Escribe ≥4 (90 min)
 
-Cobertura mínima: agendar cita, ver agenda del día, alta de cliente, cancelar/reagendar. Lenguaje del glosario.
+Cobertura mínima: agendar pedido, ver agenda del día, alta de cliente, cancelar/reagendar. Lenguaje del glosario.
 
 ### 3. Mapa (30 min)
 

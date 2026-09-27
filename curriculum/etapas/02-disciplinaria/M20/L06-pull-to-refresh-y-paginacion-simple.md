@@ -35,8 +35,8 @@ Refrescar lista; soportar query page/limit si la API lo expone.
 ### 2. Paginación simple (50–60 min)
 
 ```bash
-# API: GET /citas?cursor=… o ?page=2 — documenta contrato
-curl -sS -b /tmp/st.ck "$API_BASE/citas?limit=20"
+# API: GET /pedidos?cursor=… o ?page=2 — documenta contrato
+curl -sS -b /tmp/st.ck "$API_BASE/pedidos?limit=20"
 ```
 
 ```bash

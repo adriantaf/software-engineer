@@ -21,7 +21,7 @@ Estimar costo mensual a 10 / 100 tenants y documentar dependencia del vendor (mi
 
 ## Por qué empieza así
 
-Agenda Ops es SaaS; un canal de mensajería caro por conversación puede matar margen.
+Vitrina es SaaS; un canal de mensajería caro por conversación puede matar margen.
 
 Conceptos que debes poder explicar al cerrar:
 

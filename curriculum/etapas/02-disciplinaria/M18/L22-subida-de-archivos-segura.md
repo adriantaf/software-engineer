@@ -24,7 +24,7 @@ Checklist o prueba real en `projects/m18-appsec/findings/005-upload.md`: tipo/ta
 ### 1. Superficie upload (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'multer|formidable|multipart|upload|createWriteStream' -g '!node_modules' | head -30
 ```
 ### 2. Checklist / prueba (70–90 min)

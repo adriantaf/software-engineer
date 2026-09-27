@@ -35,7 +35,7 @@ Automatizar 403 (P1 capa API completa).
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Código limpio* (pruebas) + Vitest docs | 403: IDOR de cita ajena y rol staff vs owner | [Vitest](https://vitest.dev/) |
+| *Código limpio* (pruebas) + Vitest docs | 403: IDOR de pedido ajena y rol staff vs owner | [Vitest](https://vitest.dev/) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M15](../../../bibliografia.md#m15-v-v-y-calidad) |
 
 
@@ -43,7 +43,7 @@ Automatizar 403 (P1 capa API completa).
 
 Marca la lección **solo si**:
 
-1. Test: usuario A no lee/modifica cita de B → 403 (o 404 documentado).
+1. Test: usuario A no lee/modifica pedido de B → 403 (o 404 documentado).
 2. Test: rol insuficiente → 403.
 3. Commit `test(m15): idor y roles 403`.
 

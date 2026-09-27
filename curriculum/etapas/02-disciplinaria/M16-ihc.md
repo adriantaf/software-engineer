@@ -14,16 +14,16 @@ practicas:
     titulo: Iteración de UI basada en hallazgos
 proyecto:
   id: proj
-  titulo: Informe de usabilidad del piloto Agenda Ops
+  titulo: Informe de usabilidad del piloto Vitrina
 ---
 
 # M16 — Interacción humano-computadora
 
 ## Por qué existe
 
-Una UI confusa en Agenda Ops genera soporte eterno y abandono del piloto: el dueño del negocio no tiene paciencia para “adivinar” tu producto. La usabilidad no es solo estética: estados vacíos, errores claros y flujos cortos para agendar citas impactan retención. Los errores de UX tampoco deben **filtrar datos ajenos** (mostrar IDs internos, mensajes que revelan existencia de recursos prohibidos).
+Una UI confusa en Vitrina genera soporte eterno y abandono del piloto: el dueño del negocio no tiene paciencia para “adivinar” tu producto. La usabilidad no es solo estética: estados vacíos, errores claros y flujos cortos para agendar pedidos impactan retención. Los errores de UX tampoco deben **filtrar datos ajenos** (mostrar IDs internos, mensajes que revelan existencia de recursos prohibidos).
 
-**En resumen:** dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada sobre el piloto Agenda Ops.
+**En resumen:** dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada sobre el piloto Vitrina.
 
 
 ## Objetivos de aprendizaje
@@ -31,7 +31,7 @@ Una UI confusa en Agenda Ops genera soporte eterno y abandono del piloto: el due
 Al terminar debes poder:
 
 1. Evaluar una UI con las heurísticas de Nielsen (u equivalente) con severidad y recomendación.
-2. Preparar un guion de test de usabilidad de 15–30 minutos para tareas del piloto (crear cita, ver agenda).
+2. Preparar un guion de test de usabilidad de 15–30 minutos para tareas del piloto (crear pedido, ver agenda).
 3. Facilitar al menos 5 sesiones con consentimiento básico y notas estructuradas.
 4. Priorizar hallazgos (impacto × frecuencia) y traducirlos a cambios concretos.
 5. Iterar la UI (prototipo o implementación) y documentar antes/después.
@@ -39,7 +39,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M16 pone al usuario del piloto **Agenda Ops** en el centro: L01–L12.
+M16 pone al usuario del piloto **Vitrina** en el centro: L01–L12.
 
 1. Usa prototipo o UI parcial; si no existe, HTML estático en `projects/m16-ihc/prototipo/`.
 2. Tests con personas reales (design partner o usuarios del sub-vertical); no solo auto-evaluación.
@@ -66,7 +66,7 @@ Si un día solo tienes 2 h: **una lección** con artefacto en git.
 |----|---------|-----|
 | L01 | [Recorrido persona nueva y fricciones día 1](M16/L01-recorrido-persona-nueva-y-fricciones-dia-1.md) | 5 |
 | L02 | [Auditoría Nielsen — tres heurísticas profundas](M16/L02-auditoria-nielsen-tres-heuristicas-profundas.md) | 5 |
-| L03 | [Estados vacío, carga y error en agenda](M16/L03-estados-vacio-carga-y-error-en-agenda.md) | 5 |
+| L03 | [Estados vacío, carga y error en agenda](M16/L03-estados-vacio-carga-y-error-en-menu.md) | 5 |
 | L04 | [auditoria-v1 y cierre P1 heurísticas](M16/L04-auditoria-v1-y-cierre-p1-heuristicas.md) | 5 |
 
 ### Semana 2 — Prototipo y tests con usuarios (~20 h)
@@ -108,14 +108,14 @@ Canon: *No me hagas pensar* — Steve Krug (ed. ES). Alternativa: [heurísticas 
 | ID | Heurística | Hallazgo | Severidad | Fix propuesto |
 |----|------------|----------|-----------|---------------|
 | H-03 | Prevención de errores | Fecha pasada permitida en formulario | Alta | Validación inline + deshabilitar pasado |
-| H-07 | Flexibilidad | Staff no puede deshacer cita cancelada por error | Media | Confirmación + papelera 24 h |
+| H-07 | Flexibilidad | Staff no puede deshacer pedido cancelada por error | Media | Confirmación + papelera 24 h |
 
 ## Ejemplo — guion de sesión (extracto)
 
 ```text
-Contexto: piloto Agenda Ops para [sub-vertical]. No me defiendas; piensa en voz alta.
-Tarea 1: Agenda una cita nueva para un cliente que no existe (15 min).
-Tarea 2: Encuentra las citas de hoy y cancela una (10 min).
+Contexto: piloto Vitrina para [sub-vertical]. No me defiendas; piensa en voz alta.
+Tarea 1: Agenda una pedido nueva para un cliente que no existe (15 min).
+Tarea 2: Encuentra las pedidos de hoy y cancela una (10 min).
 Al final: ¿qué fue lo más confuso? (2 min)
 ```
 
@@ -125,7 +125,7 @@ Al final: ¿qué fue lo más confuso? (2 min)
 
 - Las 10 heurísticas de Nielsen (lectura + aplicación).
 - Escaneo de páginas: jerarquía visual, CTAs, formularios.
-- Estados vacíos, carga y error en flujos de citas.
+- Estados vacíos, carga y error en flujos de pedidos.
 - Entregable: `projects/m16-ihc/heuristicas/auditoria-v1.md` con severidad.
 
 ### Semana 2 — Prototipo y tests con usuarios (~20 h)
@@ -151,7 +151,7 @@ Al final: ¿qué fue lo más confuso? (2 min)
 
 ## Proyecto útil
 
-**Informe de usabilidad del piloto Agenda Ops** (`projects/m16-ihc/informe-usabilidad.md`):
+**Informe de usabilidad del piloto Vitrina** (`projects/m16-ihc/informe-usabilidad.md`):
 
 - Resumen ejecutivo para el design partner (1 página).
 - Método, participantes, tareas, hallazgos principales.
@@ -161,7 +161,7 @@ Al final: ¿qué fue lo más confuso? (2 min)
 ## Errores comunes
 
 - Diseñar solo para ti (desarrollador con atajos de teclado).
-- Ignorar estados de carga, error y vacío en agenda/citas.
+- Ignorar estados de carga, error y vacío en agenda/pedidos.
 - Tests sin guion (sesiones que no reproducen tareas del SRS).
 - Mostrar IDs internos o datos de otros clientes en mensajes de error.
 - Informe sin cambios concretos (“haríamos mejoras”).

@@ -27,7 +27,7 @@ Matriz de trazabilidad + autoevaluación de criterios de dominio de la ficha.
 
 | Historia SRS | UC | Diagrama / ADR |
 |--------------|----|----------------|
-| H-cita-01 | UC-03 | secuencia-crear-cita, ADR 002 |
+| H-pedido-01 | UC-03 | secuencia-crear-pedido, ADR 002 |
 
 Borra artefactos huérfanos o enlázalos.
 

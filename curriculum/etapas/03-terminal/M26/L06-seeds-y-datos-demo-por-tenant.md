@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Diseña seeds A/B (25–35 min)
 
-En `projects/m26-capstone/demo-tenants.md`: negocio A vs B, 3 clientes, 3 servicios, 5 citas cada uno — PII ficticia.
+En `projects/m26-capstone/demo-tenants.md`: negocio A vs B, 3 clientes, 3 servicios, 5 pedidos cada uno — PII ficticia.
 
 ### 3. Script seed idempotente (100–120 min)
 
@@ -49,7 +49,7 @@ Implementa o documenta comando:
 pnpm seed:demo   # o npm run db:seed:demo
 ```
 
-Debe poder re-correrse sin duplicar basura. Verifica que citas de A no aparecen en queries de B.
+Debe poder re-correrse sin duplicar basura. Verifica que pedidos de A no aparecen en queries de B.
 
 ### 4. Evidencia de aislamiento en seed (25–35 min)
 

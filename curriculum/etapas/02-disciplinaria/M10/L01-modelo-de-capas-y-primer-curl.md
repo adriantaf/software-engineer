@@ -57,9 +57,9 @@ curl -v http://example.com -o /dev/null 2>&1 | head -40
 
 ¿Hay redirección a HTTPS? Anótalo.
 
-### 4. Agenda Ops (20 min)
+### 4. Vitrina (20 min)
 
-Párrafo: cuando el panel de Agenda Ops llame a `https://api…/citas`, ¿qué capas deben funcionar antes de que el JSON exista?
+Párrafo: cuando el panel de Vitrina llame a `https://api…/pedidos`, ¿qué capas deben funcionar antes de que el JSON exista?
 
 ### 5. Commit (15 min)
 

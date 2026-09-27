@@ -17,7 +17,7 @@ Evitas re-decidir cada semana.
 
 ## Objetivo
 
-Documentar decisión de hosting para Agenda Ops con criterios costo, TLS, Postgres gestionado, DX.
+Documentar decisión de hosting para Vitrina con criterios costo, TLS, Postgres gestionado, DX.
 
 ## Conceptos clave
 
@@ -33,7 +33,7 @@ Documentar decisión de hosting para Agenda Ops con criterios costo, TLS, Postgr
 cat > projects/m19-ops/adr-hosting.md << 'EOF'
 # ADR hosting
 ## Contexto
-Agenda Ops necesita HTTPS + Postgres managed o self-host.
+Vitrina necesita HTTPS + Postgres managed o self-host.
 ## Opciones
 A) PaaS  B) VPS
 ## Decisión
@@ -67,7 +67,7 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- ADR sin costos/tiempo ni Agenda Ops.
+- ADR sin costos/tiempo ni Vitrina.
 - Elegir VPS sin plan de backups.
 
 ## Siguiente

@@ -2,7 +2,7 @@
 
 ## Construye (fin de semana)
 
-Núcleo del **SaaS** (auth + tenancy + deploy HTTPS + tests + backup restore), desde cero o desde Agenda Ops, sin curso paso a paso.
+Núcleo del **SaaS** (auth + tenancy + deploy HTTPS + tests + backup restore), desde cero o desde Vitrina, sin curso paso a paso.
 
 ## Explica (video 10–15 min)
 

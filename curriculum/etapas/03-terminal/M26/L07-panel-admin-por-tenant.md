@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Inventario de rutas admin (25–35 min)
 
-En `projects/m26-capstone/memoria/panel-admin.md` lista rutas del panel (dashboard, citas, clientes, staff, billing).
+En `projects/m26-capstone/memoria/panel-admin.md` lista rutas del panel (dashboard, pedidos, clientes, staff, billing).
 
 ### 3. Prueba UI scoped (100–120 min)
 

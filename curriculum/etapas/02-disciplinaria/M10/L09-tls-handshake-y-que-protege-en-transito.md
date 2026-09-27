@@ -13,7 +13,7 @@ evidencia: labs/tls-handshake.md
 
 **~5.0 h · Semana 3**
 
-Sin TLS, cookies de sesión de Agenda Ops viajan en claro. Con TLS mal entendido, crees que ya terminaste AppSec.
+Sin TLS, cookies de sesión de Vitrina viajan en claro. Con TLS mal entendido, crees que ya terminaste AppSec.
 
 ## Objetivo
 

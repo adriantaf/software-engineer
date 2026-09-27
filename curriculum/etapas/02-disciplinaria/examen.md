@@ -16,7 +16,7 @@ Sin tutorial abierto. Usa tu CRM como contexto.
 
 ## Diagnostica
 
-`GET /api/citas/7` devuelve la cita de otro usuario. ¿Causa raíz y fix?
+`GET /api/pedidos/7` devuelve la pedido de otro usuario. ¿Causa raíz y fix?
 
 ## Criterio
 

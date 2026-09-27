@@ -41,7 +41,7 @@ M10 sigue el formato de lecciones completas (como M01): marcas una a una en la U
 2. Cada lección trae objetivo, pasos, lectura y criterio “Hecho cuando”.
 3. Marca la lección solo si cumple ese criterio.
 4. Las **prácticas / proyecto** exigen evidencia en `projects/m10-redes/`.
-5. Relaciona labs con el piloto **Agenda Ops** (M12+) y la API de M17.
+5. Relaciona labs con el piloto **Vitrina** (M12+) y la API de M17.
 6. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)

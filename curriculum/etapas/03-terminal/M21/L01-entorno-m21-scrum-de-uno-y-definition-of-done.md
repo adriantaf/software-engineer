@@ -13,11 +13,11 @@ evidencia: projects/m21-proyectos/definition-of-done.md
 
 **~5 h · Semana 1**
 
-Agenda Ops se gestiona en el mismo repo. Hoy entregas **`projects/m21-proyectos/definition-of-done.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M21.
+Vitrina se gestiona en el mismo repo. Hoy entregas **`projects/m21-proyectos/definition-of-done.md`**. Sin ese artefacto en git, la lección no cuenta para el dominio de M21.
 
 ## Objetivo
 
-Crear la carpeta de evidencia, leer Scrum adaptado a un solo dev-owner y redactar Definition of Done usable en issues reales de Agenda Ops.
+Crear la carpeta de evidencia, leer Scrum adaptado a un solo dev-owner y redactar Definition of Done usable en issues reales de Vitrina.
 
 ## Por qué empieza así
 
@@ -36,7 +36,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre la [Guía Scrum 2020 (ES)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf) y lee **solo** lo nombrado hoy: _Guía Scrum 2020 (ES) — roles y eventos_.
 
-Subraya 3–5 frases que puedas aplicar en Agenda Ops (no resúmenes genéricos). Anótalas en `projects/m21-proyectos/bitacora-m21.md` bajo fecha de hoy.
+Subraya 3–5 frases que puedas aplicar en Vitrina (no resúmenes genéricos). Anótalas en `projects/m21-proyectos/bitacora-m21.md` bajo fecha de hoy.
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 

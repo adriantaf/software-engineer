@@ -5,7 +5,7 @@ orden: 10
 titulo: Clientes y servicios por tenant
 horas: 5.0
 semana: 3
-lectura: Modelo dominio Agenda Ops
+lectura: Modelo dominio Vitrina
 evidencia: projects/m26-capstone/memoria/clientes-servicios.md
 ---
 
@@ -32,7 +32,7 @@ Conceptos que debes poder explicar al cerrar:
 
 ### 1. Lectura concreta de la fuente (40–60 min)
 
-Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md) según: _Modelo dominio Agenda Ops_.
+Relee [producto-saas](../../../producto-saas.md) y/o [egreso](../../../egreso.md) según: _Modelo dominio Vitrina_.
 
 Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de egreso toca esta lección.
 
@@ -70,7 +70,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Memoria propia + producto-saas + egreso | Modelo dominio Agenda Ops | [Rúbrica de egreso](../../../egreso.md) |
+| Memoria propia + producto-saas + egreso | Modelo dominio Vitrina | [Rúbrica de egreso](../../../egreso.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M26](../../../bibliografia.md#m26-proyecto-integrador) |
 
 

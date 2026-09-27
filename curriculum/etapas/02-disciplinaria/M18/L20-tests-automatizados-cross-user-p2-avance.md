@@ -27,11 +27,11 @@ P2 pide hallazgo→fix→test; hoy consolidas access control.
 // tests/security/authz-cross-user.test.ts
 async function login(email: string) { /* cookie jar / token */ }
 
-it("B cannot read A's cita", async () => {
+it("B cannot read A's pedido", async () => {
   const a = await login("a@test.local");
   const b = await login("b@test.local");
-  const cita = await a.post("/api/citas", { /* … */ });
-  const res = await b.get(`/api/citas/${cita.id}`);
+  const pedido = await a.post("/api/pedidos", { /* … */ });
+  const res = await b.get(`/api/pedidos/${pedido.id}`);
   expect([403, 404]).toContain(res.status);
 });
 

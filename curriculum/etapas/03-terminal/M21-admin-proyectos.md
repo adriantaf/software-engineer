@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Agenda Ops ya es código, deploy y seguridad; sin **gestión explícita**, tus 20 h/semana se diluyen en “arreglar cositas” sin avanzar hacia multi-tenant, trials (M22) ni egreso (M26). Esta materia te obliga a planificar en el **mismo repo** donde vive el producto: roadmap priorizado, sprints con retrospectiva honesta y riesgos — incluidos los de [seguridad](../../hilos/seguridad.md) y aislamiento entre tenants.
+Vitrina ya es código, deploy y seguridad; sin **gestión explícita**, tus 20 h/semana se diluyen en “arreglar cositas” sin avanzar hacia multi-tenant, trials (M22) ni egreso (M26). Esta materia te obliga a planificar en el **mismo repo** donde vive el producto: roadmap priorizado, sprints con retrospectiva honesta y riesgos — incluidos los de [seguridad](../../hilos/seguridad.md) y aislamiento entre tenants.
 
 No es teoría de gestión desconectada: es operar tu SaaS como un proyecto real con un solo desarrollador principal (tú) y un mentor ocasional.
 
@@ -31,7 +31,7 @@ No es teoría de gestión desconectada: es operar tu SaaS como un proyecto real 
 
 Al terminar debes poder:
 
-1. Redactar un roadmap trimestral de Agenda Ops alineado con [producto-saas](../../producto-saas.md) (piloto → tenants → billing → FAQ M23).
+1. Redactar un roadmap trimestral de Vitrina alineado con [producto-saas](../../producto-saas.md) (piloto → tenants → billing → FAQ M23).
 2. Planificar y cerrar sprints de 1–2 semanas con meta, entregables, hecho real y aprendizaje.
 3. Estimar en **rangos** (optimista/realista/pesimista) y documentar desviaciones sin autoengaño.
 4. Mantener un tablero de issues/milestones (GitHub Projects, Linear, o markdown estructurado) visible y actualizado.
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M21 opera **Agenda Ops** como proyecto real en el repo: L01–L12 (3 semanas × 4 lecciones).
+M21 opera **Vitrina** como proyecto real en el repo: L01–L12 (3 semanas × 4 lecciones).
 
 1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
 2. Issues y milestones en el **repo producto**, evidencia de gestión en `projects/m21-proyectos/`.

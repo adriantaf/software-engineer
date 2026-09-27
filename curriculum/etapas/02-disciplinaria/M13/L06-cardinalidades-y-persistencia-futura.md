@@ -25,10 +25,10 @@ Actualizar `diagramas/clases.md` con cardinalidades y un mapa clase→tabla cohe
 
 ```bash
 ls projects/m09-bases-datos/migrations 2>/dev/null
-cat projects/m09-bases-datos/er-agenda.md 2>/dev/null | head -80
+cat projects/m09-bases-datos/er-vitrina.md 2>/dev/null | head -80
 ```
 
-Si no hay M09 aún, asume tablas `usuarios`, `clientes`, `servicios`, `citas` como en el scaffold típico.
+Si no hay M09 aún, asume tablas `usuarios`, `clientes`, `servicios`, `orders` como en el scaffold típico.
 
 ### 2. Anota multiplicidades (50–60 min)
 
@@ -36,9 +36,9 @@ Ejemplo piloto:
 
 | Asociación | Multiplicidad | Regla |
 |------------|---------------|-------|
-| Cliente–Cita | 1 a * | toda cita tiene un cliente |
-| Servicio–Cita | 1 a * | MVP: un servicio por cita |
-| Usuario–Cita | 1 a * | quién la creó / staff asignado |
+| Cliente–Pedido | 1 a * | toda pedido tiene un cliente |
+| Servicio–Pedido | 1 a * | MVP: un servicio por pedido |
+| Usuario–Pedido | 1 a * | quién la creó / staff asignado |
 
 Actualiza el Mermaid (`"1" --> "*"`).
 
@@ -51,7 +51,7 @@ Añade a `clases.md`:
 
 | Clase | Tabla | FK |
 |-------|-------|-----|
-| Cita | citas | cliente_id, servicio_id, usuario_id |
+| Pedido | pedidos | cliente_id, servicio_id, usuario_id |
 | … | … | … |
 
 Índices probables: (inicio), (cliente_id), unique parcial anti-doble-booking (decidir en ADR persistencia).
@@ -82,9 +82,9 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- Cita *—* Servicio sin aclarar si una cita es un solo servicio (MVP).
+- Pedido *—* Servicio sin aclarar si una pedido es un solo servicio (MVP).
 - Cardinalidades que contradicen el ER de M09.
-- “N:N citas-servicios” sin tabla puente pensada.
+- “N:N pedidos-servicios” sin tabla puente pensada.
 
 ## Siguiente
 

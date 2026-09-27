@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Qué problema de Agenda Ops enfrentas y qué restricciones tienes (equipo de uno, piloto single-tenant, etc.).
+Qué problema de Vitrina enfrentas y qué restricciones tienes (equipo de uno, piloto single-tenant, etc.).
 
 ## Decisión
 

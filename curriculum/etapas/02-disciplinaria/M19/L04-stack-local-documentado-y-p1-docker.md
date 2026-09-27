@@ -17,7 +17,7 @@ Cierra semana 1 con P1 listo para marcar.
 
 ## Objetivo
 
-Consolidar instrucciones un comando, troubleshooting y evidencia de login/cita en contenedores.
+Consolidar instrucciones un comando, troubleshooting y evidencia de login/pedido en contenedores.
 
 ## Conceptos clave
 
@@ -31,7 +31,7 @@ Consolidar instrucciones un comando, troubleshooting y evidencia de login/cita e
 ```bash
 cat >> projects/m19-ops/docker.md << 'EOF'
 ## Comandos
-- build: `docker build -t agenda-ops-api:dev .`
+- build: `docker build -t vitrina-api:dev .`
 - up: `docker compose up -d`
 - down: `docker compose down`
 - logs: `docker compose logs -f api`

@@ -7,7 +7,7 @@ Archivo SQL: `sql/explain-reporte-diario.sql`
 Pregunta de negocio:
 
 ```
-(escribe aquí: p. ej. citas completadas por día la última semana)
+(escribe aquí: p. ej. pedidos completadas por día la última semana)
 ```
 
 ## Plan (antes de índice)

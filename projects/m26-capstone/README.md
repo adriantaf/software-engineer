@@ -1,6 +1,6 @@
 # M26 — Proyecto integrador (capstone)
 
-Evidencia de egreso: Agenda Ops SaaS multi-tenant en producción.
+Evidencia de egreso: Vitrina SaaS multi-tenant en producción.
 
 ## En resumen
 
@@ -36,7 +36,7 @@ projects/m26-capstone/
   memoria/                  ← P2
     tenancy-modelo.md
     panel-admin.md
-    citas-crud.md
+    pedidos-crud.md
     clientes-servicios.md
     roles.md
     stripe-productos.md

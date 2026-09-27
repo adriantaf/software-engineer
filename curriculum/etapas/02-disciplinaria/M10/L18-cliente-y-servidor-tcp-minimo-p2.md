@@ -57,7 +57,7 @@ kill %1
 
 ### 4. Diagrama (45 min)
 
-`diagrama-request.md`: eco TCP (L18) vs `GET /api/citas` (DNS→TCP→TLS→HTTP). Relaciona puertos.
+`diagrama-request.md`: eco TCP (L18) vs `GET /api/pedidos` (DNS→TCP→TLS→HTTP). Relaciona puertos.
 
 ### 5. Commit (15 min)
 

@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-Aplicas pocos patrones con justificación (no nombres de adorno) en el dominio del piloto **Agenda Ops** (citas, precios, notificaciones).
+Aplicas pocos patrones con justificación (no nombres de adorno) en el dominio del piloto **Vitrina** (pedidos, precios, notificaciones).
 
 ## Arranque rápido (L01)
 
@@ -23,7 +23,7 @@ src/
   pricing/          ← Strategy (L01)
   notify/           ← Factory (L02)
   calendar/         ← Adapter (L05)
-  citas/            ← Decorator, Facade, Repository, Service
+  pedidos/            ← Decorator, Facade, Repository, Service
   events/           ← Observer (L09)
   admin/            ← Command (L10)
   index.ts          ← API pública (L08)

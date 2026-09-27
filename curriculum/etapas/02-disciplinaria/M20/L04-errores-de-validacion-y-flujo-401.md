@@ -65,4 +65,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L05 — Lista de citas autenticada](L05-lista-de-citas-autenticada.md)
+[L05 — Lista de pedidos autenticada](L05-lista-de-pedidos-autenticada.md)

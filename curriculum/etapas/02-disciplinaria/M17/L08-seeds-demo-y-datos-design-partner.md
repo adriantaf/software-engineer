@@ -6,7 +6,7 @@ titulo: Seeds demo y datos design partner
 horas: 5.0
 semana: 2
 lectura: Fixtures reproducibles
-evidencia: projects/m17-agenda-ops/scripts/seed.ts
+evidencia: projects/m17-vitrina/scripts/seed.ts
 ---
 
 # L08 — Seeds demo y datos design partner
@@ -17,7 +17,7 @@ Demo reproducible evita ‘en mi máquina sí’.
 
 ## Objetivo
 
-Script seed con negocio piloto, owner, staff, citas ejemplo para demo.
+Script seed con negocio piloto, owner, staff, pedidos ejemplo para demo.
 
 ## Conceptos clave
 
@@ -30,8 +30,8 @@ Script seed con negocio piloto, owner, staff, citas ejemplo para demo.
 ### 1. Script seed reproducible (70–90 min)
 
 ```ts
-// projects/m17-agenda-ops/scripts/seed.ts
-// owner demo + 2 staff + 5 clientes + 3 servicios + citas fake
+// projects/m17-vitrina/scripts/seed.ts
+// owner demo + 2 staff + 5 clientes + 3 servicios + pedidos fake
 // SOLO datos sintéticos — sin PII real del design partner
 ```
 
@@ -43,7 +43,7 @@ npx tsx scripts/seed.ts
 ### 2. Documenta en README (20 min)
 
 ```bash
-rg -n "seed" projects/m17-agenda-ops/README.md || echo "añade sección Seed"
+rg -n "seed" projects/m17-vitrina/README.md || echo "añade sección Seed"
 ```
 
 Incluye emails demo y password **solo** en `.env.example` como placeholders, no secretos de staging.
@@ -51,7 +51,7 @@ Incluye emails demo y password **solo** en `.env.example` como placeholders, no 
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/scripts/seed.ts projects/m17-agenda-ops/README.md
+git add projects/m17-vitrina/scripts/seed.ts projects/m17-vitrina/README.md
 git commit -m "feat(m17): L08 seeds demo design partner"
 ```
 
@@ -67,8 +67,8 @@ git commit -m "feat(m17): L08 seeds demo design partner"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/scripts/seed.ts` (o script documentado).
-2. README incluye comando seed; datos solo sintéticos (artefacto: `projects/m17-agenda-ops/scripts/seed.ts`).
+1. Existe `projects/m17-vitrina/scripts/seed.ts` (o script documentado).
+2. README incluye comando seed; datos solo sintéticos (artefacto: `projects/m17-vitrina/scripts/seed.ts`).
 3. Commit `docs(m17): L08 seeds-demo-y-datos-design-partner`.
 
 ## Errores comunes

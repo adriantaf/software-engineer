@@ -6,7 +6,7 @@ titulo: Tests HTTP de API — auth y validación
 horas: 5.0
 semana: 2
 lectura: Supertest/fetch contra app; 401 y 400
-evidencia: tests/http/ login/citas 401 y 400
+evidencia: tests/http/ login/pedidos 401 y 400
 ---
 
 # L07 — Tests HTTP de API — auth y validación
@@ -45,7 +45,7 @@ Tabla de la ficha M15: feliz opcional hoy; 401 y 400 obligatorios.
 
 Marca la lección **solo si**:
 
-1. App mínima (Express/Fastify/Hono o spike) con ruta protegida de citas.
+1. App mínima (Express/Fastify/Hono o spike) con ruta protegida de pedidos.
 2. Tests automatizados: sin cookie/token → 401; body inválido → 400.
 3. Commit `test(m15): http auth y validacion`.
 

@@ -24,14 +24,14 @@ Lista rutas mutables + protección en `projects/m18-appsec/pocs/csrf-notes.md`; 
 ### 1. Inventario mutaciones (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n "\.(post|put|patch|delete)\(" -g '*.ts' -g '!node_modules' | head -40
 cat > projects/m18-appsec/pocs/csrf-notes.md <<'EOF'
 # CSRF notes
 | Ruta | Método | Protección | Estado |
 |------|--------|------------|--------|
-| /api/citas | POST | | |
-| /api/citas/:id | PUT/DELETE | | |
+| /api/pedidos | POST | | |
+| /api/pedidos/:id | PUT/DELETE | | |
 | /auth/logout | POST | | |
 EOF
 ```
@@ -53,7 +53,7 @@ export function requireCsrf(req, res, next) {
 
 ```bash
 # Con cookie de sesión válida pero sin CSRF → 403
-curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/citas \
+curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/pedidos \
   -H 'content-type: application/json' -b /tmp/m18-cj \
   -d '{"clienteId":"…","inicio":"2026-01-01T10:00:00Z"}'
 # esperado: 403

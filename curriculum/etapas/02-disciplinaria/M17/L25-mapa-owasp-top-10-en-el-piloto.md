@@ -6,7 +6,7 @@ titulo: Mapa OWASP Top 10 en el piloto
 horas: 5.0
 semana: 7
 lectura: OWASP Top 10 overview
-evidencia: projects/m17-agenda-ops/docs/owasp-mapa.md
+evidencia: projects/m17-vitrina/docs/owasp-mapa.md
 ---
 
 # L25 — Mapa OWASP Top 10 en el piloto
@@ -30,8 +30,8 @@ Tabla: cada riesgo → mitigación actual o gap hacia M18.
 ### 1. Mapa OWASP Top 10 (80–100 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/owasp-mapa.md << 'EOF'
-# OWASP Top 10 → Agenda Ops
+cat > projects/m17-vitrina/docs/owasp-mapa.md << 'EOF'
+# OWASP Top 10 → Vitrina
 | Riesgo | ¿Aplica? | Control en piloto | Gap |
 |--------|----------|-------------------|-----|
 | A01 Broken Access Control | sí | authorize()+tests 403 | |
@@ -44,7 +44,7 @@ Cubre al menos A01–A05 con evidencia (ruta de test o doc).
 ### 2. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/owasp-mapa.md
+git add projects/m17-vitrina/docs/owasp-mapa.md
 git commit -m "docs(m17): L25 mapa owasp top10"
 ```
 
@@ -60,7 +60,7 @@ git commit -m "docs(m17): L25 mapa owasp top10"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/owasp-mapa.md` cubre ≥A01–A05 con control o gap.
+1. `projects/m17-vitrina/docs/owasp-mapa.md` cubre ≥A01–A05 con control o gap.
 2. Commit `docs(m17): L25 mapa-owasp-top-10-en-el-piloto`.
 
 ## Errores comunes

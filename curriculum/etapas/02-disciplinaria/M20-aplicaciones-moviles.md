@@ -7,23 +7,23 @@ semanas: 5
 horas: 100
 practicas:
   - id: p1
-    titulo: "App cliente: login + lista de citas"
+    titulo: "App cliente: login + lista de pedidos"
   - id: p2
     titulo: Estados vacíos/error + storage seguro de sesión
   - id: p3
     titulo: Build instalable (APK o equivalente)
 proyecto:
   id: proj
-  titulo: App móvil del CRM conectada al backend
+  titulo: App móvil de Vitrina conectada al backend
 ---
 
 # M20 — Aplicaciones móviles
 
 ## Por qué existe
 
-El dueño del negocio de servicios — tu ICP de [Agenda Ops](../../producto-saas.md) — no administra citas desde un escritorio todo el día. Vive en WhatsApp y en el teléfono. Una app móvil **cliente** (owner/staff) que habla con la **misma API** que la web demuestra que entiendes auth en cliente móvil, manejo de red inestable y distribución instalable, sin duplicar reglas de negocio en el dispositivo.
+El dueño del local QSR o barra de bebidass — tu ICP de [Vitrina](../../producto-saas.md) — no administra pedidos desde un escritorio todo el día. Vive en WhatsApp y en el teléfono. Una app móvil **cliente** (owner/staff) que habla con la **misma API** que la web demuestra que entiendes auth en cliente móvil, manejo de red inestable y distribución instalable, sin duplicar reglas de negocio en el dispositivo.
 
-No es reemplazar la web admin completa en M17; es el canal móvil mínimo viable: login, lista de citas, detalle, estados claros.
+No es reemplazar la web admin completa en M17; es el canal móvil mínimo viable: login, lista de pedidos, detalle, estados claros.
 
 **En resumen:** el dueño vive en el teléfono: misma auth que la web, sesión segura, build instalable.
 
@@ -32,15 +32,15 @@ No es reemplazar la web admin completa en M17; es el canal móvil mínimo viable
 Al terminar debes poder:
 
 1. Elegir **un** stack móvil (Flutter o React Native) y justificarlo en una nota corta.
-2. Implementar login contra la API real de Agenda Ops (mismos endpoints que la web).
+2. Implementar login contra la API real de Vitrina (mismos endpoints que la web).
 3. Persistir tokens o sesión con **secure storage** del framework, no en `SharedPreferences` en texto plano para secretos largos.
-4. Mostrar lista y detalle de citas con estados de carga, vacío y error (incl. 401 → logout).
+4. Mostrar lista y detalle de pedidos con estados de carga, vacío y error (incl. 401 → logout).
 5. Manejar red lenta o caída sin crashear (timeouts, reintento razonable, mensajes al usuario).
 6. Generar un build instalable (APK Android o equivalente) y probarlo en dispositivo físico.
 
 ## Cómo estudiar esta materia (lecciones)
 
-M20 construye la app **cliente** de Agenda Ops contra la API de M17/M19: L01–L20, evidencia en `projects/m20-movil/`.
+M20 construye la app **cliente** de Vitrina contra la API de M17/M19: L01–L20, evidencia en `projects/m20-movil/`.
 
 1. **Un** stack (Flutter **o** RN); no cambies a mitad.
 2. API **staging HTTPS** de M19; no mocks eternos.
@@ -65,16 +65,16 @@ Si un día solo tienes 2 h: **una lección** con UI o build verificable.
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L01 | [Stack móvil y scaffold Agenda Ops](M20/L01-stack-movil-y-scaffold-agenda-ops.md) | 5 |
+| L01 | [Stack móvil y scaffold Vitrina](M20/L01-stack-movil-y-scaffold-vitrina.md) | 5 |
 | L02 | [Pantalla login contra API staging](M20/L02-pantalla-login-contra-api-staging.md) | 5 |
 | L03 | [Secure storage de token o sesión](M20/L03-secure-storage-de-token-o-sesion.md) | 5 |
 | L04 | [Errores de validación y flujo 401](M20/L04-errores-de-validacion-y-flujo-401.md) | 5 |
 
-### Semana 2 — Lista de citas y roles (~20 h)
+### Semana 2 — Lista de pedidos y roles (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L05 | [Lista de citas autenticada](M20/L05-lista-de-citas-autenticada.md) | 5 |
+| L05 | [Lista de pedidos autenticada](M20/L05-lista-de-pedidos-autenticada.md) | 5 |
 | L06 | [Pull-to-refresh y paginación simple](M20/L06-pull-to-refresh-y-paginacion-simple.md) | 5 |
 | L07 | [Estados de carga en lista](M20/L07-estados-de-carga-en-lista.md) | 5 |
 | L08 | [Roles: confiar en la API, no solo en UI](M20/L08-roles-confiar-en-la-api-no-solo-en-ui.md) | 5 |
@@ -83,10 +83,10 @@ Si un día solo tienes 2 h: **una lección** con UI o build verificable.
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L09 | [Pantalla detalle de cita](M20/L09-pantalla-detalle-de-cita.md) | 5 |
+| L09 | [Pantalla detalle de pedido](M20/L09-pantalla-detalle-de-pedido.md) | 5 |
 | L10 | [Navegación: tabs o drawer mínimo](M20/L10-navegacion-tabs-o-drawer-minimo.md) | 5 |
 | L11 | [Acciones permitidas: cancelar / atendida](M20/L11-acciones-permitidas-cancelar-atendida.md) | 5 |
-| L12 | [Deep link opcional a una cita](M20/L12-deep-link-opcional-a-una-cita.md) | 5 |
+| L12 | [Deep link opcional a una pedido](M20/L12-deep-link-opcional-a-un-pedido.md) | 5 |
 
 ### Semana 4 — Vacío, error, red y logging (~20 h)
 
@@ -116,7 +116,7 @@ Canon: documentación oficial de **Flutter** o **React Native** (el stack elegid
 |--------|-----------|----------------|---------|
 | 1 | L01–L04 | Get started + HTTP + secure storage | Login staging, 401 |
 | 2 | L05–L08 | Listas, refresh, async | P1 login+lista |
-| 3 | L09–L12 | Navegación, detalle, deep links | Detalle cita |
+| 3 | L09–L12 | Navegación, detalle, deep links | Detalle pedido |
 | 4 | L13–L16 | Errores / conectividad / MASVS logging | P2 estados + storage |
 | 5 | L17–L20 | Release build | P3 APK + demo web |
 
@@ -147,11 +147,11 @@ En web guardaste el JWT en cookie HttpOnly o memoria según M18; en móvil el eq
 
 ## Proyecto útil
 
-**App móvil Agenda Ops** enlazada en `projects/m20-movil/README.md`:
+**App móvil Vitrina** enlazada en `projects/m20-movil/README.md`:
 
 - Repo o submódulo con el código.
-- Misma sesión que la web: login en web y comprobar que la app con las mismas credenciales ve las mismas citas (o explicar diferencia si usas roles distintos).
-- Objetivo demo: dueño abre el teléfono y ve el día de citas en 10 segundos.
+- Misma sesión que la web: login en web y comprobar que la app con las mismas credenciales ve las mismas pedidos (o explicar diferencia si usas roles distintos).
+- Objetivo demo: dueño abre el teléfono y ve el día de pedidos en 10 segundos.
 
 ## Errores comunes
 

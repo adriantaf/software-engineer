@@ -1,4 +1,4 @@
-# Ambientes Agenda Ops
+# Ambientes Vitrina
 
 | | Staging | Prod |
 |--|---------|------|

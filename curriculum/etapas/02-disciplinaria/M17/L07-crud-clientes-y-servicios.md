@@ -13,7 +13,7 @@ evidencia: /clientes /servicios
 
 **~5.0 h · Semana 2**
 
-Servicios definen duración y precio base para citas.
+Servicios definen duración y precio base para pedidos.
 
 ## Objetivo
 
@@ -51,7 +51,7 @@ PATCH/DELETE según matriz (staff no borra si owner-only).
 
 ```bash
 npm test -- clientes servicios
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L07 crud clientes y servicios"
 ```
 

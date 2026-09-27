@@ -14,14 +14,14 @@ practicas:
     titulo: RAG por tenant (sin mezclar datos ni PII innecesaria)
 proyecto:
   id: proj
-  titulo: Asistente FAQ scoped por tenant (Agenda Ops)
+  titulo: Asistente FAQ scoped por tenant (Vitrina)
 ---
 
 # M23 — Ciencia de datos e IA aplicada
 
 ## Por qué existe
 
-“IA en el SaaS” sin workflow ni límites es humo. En Agenda Ops la IA útil responde preguntas del **dueño o staff** sobre *su* negocio — horarios, servicios, políticas — usando documentación **de ese tenant**, con evaluación de calidad y costos controlados ([producto-saas](../../producto-saas.md)). Mezclar FAQs de la barbería A con la clínica B es fallo de producto y de seguridad ([hilo seguridad](../../hilos/seguridad.md)).
+“IA en el SaaS” sin workflow ni límites es humo. En Vitrina la IA útil responde preguntas del **dueño o staff** sobre *su* negocio — horarios, servicios, políticas — usando documentación **de ese tenant**, con evaluación de calidad y costos controlados ([producto-saas](../../producto-saas.md)). Mezclar FAQs de la barbería A con la clínica B es fallo de producto y de seguridad ([hilo seguridad](../../hilos/seguridad.md)).
 
 Esta materia cubre métricas accionables del SaaS (por `tenant_id`), integración LLM con rúbrica, y RAG aislado con prueba de que el tenant A no lee corpus del B.
 
@@ -31,7 +31,7 @@ Esta materia cubre métricas accionables del SaaS (por `tenant_id`), integració
 
 Al terminar debes poder:
 
-1. Definir y calcular métricas SaaS básicas (activación, citas/semana, trials) **agregadas por tenant** sin exportar PII innecesaria.
+1. Definir y calcular métricas SaaS básicas (activación, pedidos/semana, trials) **agregadas por tenant** sin exportar PII innecesaria.
 2. Construir un pipeline reproducible (script o job) que genere CSV o vistas para análisis.
 3. Integrar una API LLM con prompts versionados, límites de tokens y registro de costo estimado.
 4. Evaluar respuestas con una rúbrica (correcto / parcial / incorrecto / alucinación) sobre un set fijo de preguntas.
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M23 añade métricas, LLM evaluado y RAG **por tenant** a Agenda Ops: L01–L24 (6 semanas × 4).
+M23 añade métricas, LLM evaluado y RAG **por tenant** a Vitrina: L01–L24 (6 semanas × 4).
 
 1. Orden **L01 → L24**; escribe `politica-datos-llm.md` **antes** de pegar datos en APIs.
 2. No envíes PII, dumps crudos ni secretos a proveedores LLM.
@@ -157,7 +157,7 @@ En aplicación: el `tenant_id` viene de la sesión autenticada, no de un paráme
 
 ## Proyecto útil
 
-**Asistente FAQ por tenant** integrado en Agenda Ops (staging mínimo): el owner pregunta “¿cuál es la política de cancelación?” y recibe respuesta basada solo en docs de su negocio. Documentación en `projects/m23-ia/faq-asistente/README.md`.
+**Asistente FAQ por tenant** integrado en Vitrina (staging mínimo): el owner pregunta “¿cuál es la política de cancelación?” y recibe respuesta basada solo en docs de su negocio. Documentación en `projects/m23-ia/faq-asistente/README.md`.
 
 ## Errores comunes
 

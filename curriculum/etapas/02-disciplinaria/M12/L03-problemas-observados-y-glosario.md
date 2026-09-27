@@ -33,7 +33,7 @@ Prohibido: soluciones (“app con calendario”).
 
 ### 2. Glosario (60 min)
 
-Términos mínimos: Cliente, Servicio, Cita, No-show, Recordatorio, Staff, Owner, Bloqueo de horario, Nota privada, Adelanto (si aplica). Definición en 1–2 frases del partner.
+Términos mínimos: Cliente, Servicio, Pedido, No-show, Recordatorio, Staff, Owner, Bloqueo de horario, Nota privada, Adelanto (si aplica). Definición en 1–2 frases del partner.
 
 ### 3. Commit (15 min)
 
@@ -46,7 +46,7 @@ git commit -m "docs(m12): l03 problemas y glosario"
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| IEEE 830 adaptada (repo) | Problema ≠ solución; glosario cita/servicio/cliente/no-show | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| IEEE 830 adaptada (repo) | Problema ≠ solución; glosario pedido/servicio/cliente/pedido abandonado | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
@@ -66,4 +66,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L04 — Stakeholders y contexto Agenda Ops](L04-stakeholders-y-contexto-agenda-ops.md)
+[L04 — Stakeholders y contexto Vitrina](L04-stakeholders-y-contexto-vitrina.md)

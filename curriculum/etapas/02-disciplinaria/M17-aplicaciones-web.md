@@ -14,18 +14,18 @@ practicas:
     titulo: Integración WhatsApp deep-links + panel admin con roles
 proyecto:
   id: proj
-  titulo: MVP Agenda Ops (piloto) listo para multi-tenant
+  titulo: MVP Vitrina (piloto) listo para multi-tenant
 ---
 
 # M17 — Aplicaciones web full-stack
 
 ## Por qué existe
 
-Aquí nace el **piloto web** de [Agenda Ops](../../producto-saas.md): citas, clientes, servicios y admin para **un** negocio de servicios (design partner), no un CRUD genérico. Auth, roles y validación van desde el MVP — no “después en M18”. El modelo de datos debe **poder** llevar `tenant_id` en M26 sin reescribir todo.
+Aquí nace el **piloto web** de [Vitrina](../../producto-saas.md): pedidos, clientes, servicios y admin para **un** local QSR o barra de bebidass (design partner), no un CRUD genérico. Auth, roles y validación van desde el MVP — no “después en M18”. El modelo de datos debe **poder** llevar `tenant_id` en M26 sin reescribir todo.
 
 Esta materia integra M09 (esquema), M12–M13 (requerimientos/diseño), M15 (tests) y prepara M19 (deploy) y M18 (AppSec).
 
-**En resumen:** nace el piloto web de Agenda Ops: auth real, CRUD de citas, roles y base para multi-tenant.
+**En resumen:** nace el piloto web de Vitrina: auth real, CRUD de pedidos, roles y base para multi-tenant.
 
 
 ## Objetivos de aprendizaje
@@ -35,19 +35,19 @@ Al terminar debes poder:
 1. Diseñar y exponer una API REST con validación de entrada y códigos HTTP coherentes.
 2. Implementar registro/login con hash de contraseña y sesión o JWT **validada en servidor**.
 3. Proteger rutas en front y API; manejar loading, error y vacío en UI.
-4. CRUD de citas, clientes y servicios alineado al SRS del piloto.
+4. CRUD de pedidos, clientes y servicios alineado al SRS del piloto.
 5. Panel admin con roles owner/staff y autorización en cada endpoint sensible.
 6. Deep-links WhatsApp para recordatorios o confirmaciones (sin sustituir la API).
 7. Desplegar el piloto en HTTPS con checklist documentado hacia multi-tenant.
 
 ## Cómo estudiar esta materia (lecciones)
 
-M17 construye el **MVP web Agenda Ops** con profundidad: L01–L32 (8 semanas × 4 lecciones).
+M17 construye el **MVP web Vitrina** con profundidad: L01–L32 (8 semanas × 4 lecciones).
 
 1. Lee [producto-saas.md](../../producto-saas.md) y el paquete M13 antes de la semana 2.
 2. **Vertical slices:** cada semana una historia completa (API + UI + test mínimo cuando aplique).
 3. Cada endpoint sensible: test 401/403 antes de pulir CSS.
-4. Evidencia en `projects/m17-agenda-ops/`; stack fijo en `stack.md`.
+4. Evidencia en `projects/m17-vitrina/`; stack fijo en `stack.md`.
 5. [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)
@@ -67,17 +67,17 @@ Si un día solo tienes 2 h: **una lección** con commit demostrable.
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L01 | [Scaffold Agenda Ops — API, DB y stack](M17/L01-scaffold-agenda-ops-api-db-y-stack-md.md) | 5 |
+| L01 | [Scaffold Vitrina — API, DB y stack](M17/L01-scaffold-vitrina-api-db-y-stack-md.md) | 5 |
 | L02 | [Registro con hash de contraseña](M17/L02-registro-con-hash-de-contrasena.md) | 5 |
 | L03 | [Login, sesión y GET /me protegido](M17/L03-login-sesion-y-get-me-protegido.md) | 5 |
 | L04 | [Cierre semana 1 — suite auth P1](M17/L04-cierre-semana-1-suite-auth-p1.md) | 5 |
 
-### Semana 2 — CRUD citas, clientes y servicios (~20 h)
+### Semana 2 — CRUD pedidos, clientes y servicios (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L05 | [Modelo de dominio citas, clientes y servicios](M17/L05-modelo-de-dominio-citas-clientes-y-servicios.md) | 5 |
-| L06 | [API citas — crear y listar con reglas](M17/L06-api-citas-crear-y-listar-con-reglas.md) | 5 |
+| L05 | [Modelo de dominio pedidos, clientes y servicios](M17/L05-modelo-de-dominio-menu-pedidos-y-categorias.md) | 5 |
+| L06 | [API pedidos — crear y listar con reglas](M17/L06-api-pedidos-crear-y-listar-con-reglas.md) | 5 |
 | L07 | [CRUD clientes y servicios](M17/L07-crud-clientes-y-servicios.md) | 5 |
 | L08 | [Seeds demo y datos design partner](M17/L08-seeds-demo-y-datos-design-partner.md) | 5 |
 
@@ -97,15 +97,15 @@ Si un día solo tienes 2 h: **una lección** con commit demostrable.
 | L13 | [Scaffold front y rutas protegidas](M17/L13-scaffold-front-y-rutas-protegidas.md) | 5 |
 | L14 | [Flujo login/logout en UI](M17/L14-flujo-login-logout-en-ui.md) | 5 |
 | L15 | [Listas con loading, error y vacío](M17/L15-listas-con-loading-error-y-vacio.md) | 5 |
-| L16 | [Formularios citas y clientes accesibles](M17/L16-formularios-citas-y-clientes-accesibles.md) | 5 |
+| L16 | [Formularios pedidos y clientes accesibles](M17/L16-formularios-pedidos-y-menu-accesibles.md) | 5 |
 
 ### Semana 5 — WhatsApp e integración (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
 | L17 | [Deep links WhatsApp — diseño del mensaje](M17/L17-deep-links-whatsapp-diseno-del-mensaje.md) | 5 |
-| L18 | [Botón enviar recordatorio desde ficha cita](M17/L18-boton-enviar-recordatorio-desde-ficha-cita.md) | 5 |
-| L19 | [Confirmación de cita y estados](M17/L19-confirmacion-de-cita-y-estados.md) | 5 |
+| L18 | [Botón enviar recordatorio desde ficha pedido](M17/L18-boton-enviar-recordatorio-desde-ficha-pedido.md) | 5 |
+| L19 | [Confirmación de pedido y estados](M17/L19-confirmacion-de-pedido-y-estados.md) | 5 |
 | L20 | [Cierre P3 integración WhatsApp](M17/L20-cierre-p3-integracion-whatsapp.md) | 5 |
 
 ### Semana 6 — Deploy HTTPS y smoke tests (~20 h)
@@ -144,7 +144,7 @@ Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [product
 | Semana | Lecciones | Lectura | Alternativa |
 |--------|-----------|---------|-------------|
 | 1 | L01–L04 | MDN auth/cookies + ADR sesión M13 | OWASP Auth Cheat Sheet |
-| 2 | L05–L08 | SRS M12 + modelo citas M13/M09 | — |
+| 2 | L05–L08 | SRS M12 + modelo pedidos M13/M09 | — |
 | 3 | L09–L12 | Control de acceso / `permisos.md` | OWASP Access Control |
 | 4 | L13–L16 | MDN forms/a11y + handoff M16 | `ui-estados.md` |
 | 5 | L17–L20 | WhatsApp / deep links (docs oficiales) | `integracion-whatsapp.md` |
@@ -158,7 +158,7 @@ Canon: MDN Web Docs (ES) + docs del framework + OWASP Top 10 overview + [product
 
 ## Stack sugerido
 
-TypeScript + Node (Express/Fastify/Hono) + PostgreSQL + React, Astro islands o similar. El stack exacto vive en `projects/m17-agenda-ops/stack.md`; no cambies a mitad de materia sin ADR.
+TypeScript + Node (Express/Fastify/Hono) + PostgreSQL + React, Astro islands o similar. El stack exacto vive en `projects/m17-vitrina/stack.md`; no cambies a mitad de materia sin ADR.
 
 ## Ejemplo — test de auth mínimo
 
@@ -182,16 +182,16 @@ Regla: la autorización se prueba en el **servidor**, no solo ocultando botones.
 - Validación de payload (Zod/class-validator/etc.).
 - Práctica P1 inicio: suite de tests auth en verde.
 
-### Semana 2 — CRUD citas y clientes (~20 h)
+### Semana 2 — CRUD pedidos y clientes (~20 h)
 
-- Endpoints REST citas/clientes/servicios según SRS M12.
-- Reglas de negocio mínimas (no citas en el pasado sin override, etc.).
+- Endpoints REST menú/pedidos/categorías según SRS M12.
+- Reglas de negocio mínimas (no pedidos en el pasado sin override, etc.).
 - Seeds o fixtures para demo con design partner.
 - Paginación o filtros simples en listados.
 
 ### Semana 3 — Roles owner/staff (~20 h)
 
-- Matriz de permisos: quién cancela citas, quién ve reportes.
+- Matriz de permisos: quién cancela pedidos, quién ve reportes.
 - Middleware de autorización por rol en API.
 - Panel admin básico (aunque sea feo pero claro).
 - Práctica P3 inicio: demo de staff bloqueado en acción de owner.
@@ -201,12 +201,12 @@ Regla: la autorización se prueba en el **servidor**, no solo ocultando botones.
 - Rutas protegidas; redirect a login.
 - Estados loading / error / vacío en listas y formularios.
 - Formularios accesibles (labels, errores de validación visibles).
-- Práctica P2: capturas o notas en `projects/m17-agenda-ops/docs/ui-estados.md`.
+- Práctica P2: capturas o notas en `projects/m17-vitrina/docs/ui-estados.md`.
 
 ### Semana 5 — WhatsApp e integración (~20 h)
 
 - Deep links o plantillas oficiales según docs del proveedor (sin secretos en front).
-- Flujo: recordatorio o confirmación desde ficha de cita.
+- Flujo: recordatorio o confirmación desde ficha de pedido.
 - Log de envíos o intentos (sin PII en logs de prod).
 
 ### Semana 6 — Deploy HTTPS (~20 h)
@@ -230,7 +230,7 @@ Regla: la autorización se prueba en el **servidor**, no solo ocultando botones.
 ## Checklist camino a multi-tenant (cierre M17)
 
 - [ ] Tablas de negocio sin hardcodear “el único negocio” en el código
-- [ ] Documentado dónde irá `tenant_id` (`projects/m17-agenda-ops/docs/adr-tenant-id.md` o similar)
+- [ ] Documentado dónde irá `tenant_id` (`projects/m17-vitrina/docs/adr-tenant-id.md` o similar)
 - [ ] Roles claros (owner/staff) dentro del negocio piloto
 - [ ] HTTPS en deploy
 - [ ] Tests de auth/roles en CI o script local reproducible
@@ -238,16 +238,16 @@ Regla: la autorización se prueba en el **servidor**, no solo ocultando botones.
 
 ## Prácticas
 
-1. **P1 — API auth:** Registro/login + validación; tests 401/403 en `projects/m17-agenda-ops/`; evidencia en README.
-2. **P2 — Front:** Rutas protegidas; loading/error/vacío documentados en `projects/m17-agenda-ops/docs/ui-estados.md`.
-3. **P3 — Admin + WhatsApp:** Roles owner/staff demostrables + deep-link o flujo WhatsApp en `projects/m17-agenda-ops/docs/integracion-whatsapp.md`.
+1. **P1 — API auth:** Registro/login + validación; tests 401/403 en `projects/m17-vitrina/`; evidencia en README.
+2. **P2 — Front:** Rutas protegidas; loading/error/vacío documentados en `projects/m17-vitrina/docs/ui-estados.md`.
+3. **P3 — Admin + WhatsApp:** Roles owner/staff demostrables + deep-link o flujo WhatsApp en `projects/m17-vitrina/docs/integracion-whatsapp.md`.
 
 ## Proyecto útil
 
-**Agenda Ops — piloto web** en `projects/m17-agenda-ops/`:
+**Vitrina — piloto web** en `projects/m17-vitrina/`:
 
 - README con URL de staging/prod, credenciales demo **solo** de entorno de prueba.
-- CRUD citas/clientes/servicios usable por un design partner real.
+- CRUD menú/pedidos/categorías usable por un design partner real.
 - Admin con roles; integración WhatsApp mínima.
 - Enlace al ADR multi-tenant y al checklist de cierre.
 
@@ -258,15 +258,15 @@ No es el SaaS multi-tenant completo (eso es M26); es la base sólida con auth y 
 - Auth solo en el front (botones ocultos sin check en API).
 - JWT en `localStorage` sin entender el riesgo XSS (documenta tu elección).
 - Deploy HTTP “temporal” que nunca se corrige.
-- MVP eterno sin deploy; mezclar branding agencia con producto Agenda Ops.
+- MVP eterno sin deploy; mezclar branding agencia con producto Vitrina.
 - Olvidar validación server-side y confiar en el formulario.
 
 ## Evidencia de hecho
 
 Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
-- **P1 — API auth:** Tests auth + README en `projects/m17-agenda-ops/README.md`.
-- **P2 — Front:** `projects/m17-agenda-ops/docs/ui-estados.md` (o capturas en repo).
+- **P1 — API auth:** Tests auth + README en `projects/m17-vitrina/README.md`.
+- **P2 — Front:** `projects/m17-vitrina/docs/ui-estados.md` (o capturas en repo).
 - **P3 — Admin:** Demo roles + `integracion-whatsapp.md`.
 - **Proyecto — Piloto:** Deploy HTTPS + checklist camino a SaaS marcado o gaps documentados.
 

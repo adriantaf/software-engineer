@@ -17,7 +17,7 @@ Huella y pinning son herramientas de **confianza extra**, no magia. Hoy las docu
 
 ## Objetivo
 
-Calcular fingerprint y escribir cuándo el pinning tiene sentido (y cuándo no) para Agenda Ops.
+Calcular fingerprint y escribir cuándo el pinning tiene sentido (y cuándo no) para Vitrina.
 
 ## Pasos
 

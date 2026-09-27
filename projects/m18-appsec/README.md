@@ -1,6 +1,6 @@
 # M18 — Seguridad del software (AppSec)
 
-Carpeta de **evidencia** AppSec sobre **tu** Agenda Ops. Si no está en git (aquí o con enlace claro), no cuenta.
+Carpeta de **evidencia** AppSec sobre **tu** Vitrina. Si no está en git (aquí o con enlace claro), no cuenta.
 
 ## En resumen
 
@@ -51,12 +51,12 @@ projects/m18-appsec/
 ## Cómo usarla
 
 1. Abre la ficha **M18** y L01.
-2. Trabaja siempre sobre el repo de Agenda Ops (M17); aquí dejas el rastro AppSec.
+2. Trabaja siempre sobre el repo de Vitrina (M17); aquí dejas el rastro AppSec.
 3. Marca prácticas solo con evidencia enlazada.
 
 ## Enlaces
 
 - Ficha: `curriculum/etapas/02-disciplinaria/M18-seguridad.md`
 - Hilo: `curriculum/hilos/seguridad.md`
-- App: `projects/m17-agenda-ops/`
+- App: `projects/m17-vitrina/`
 - Plan: `/materia/M18/`

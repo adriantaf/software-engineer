@@ -42,7 +42,7 @@ curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n" http://localhost:3000
 Anota URL/ruta en `docs/permisos.md` o captura redactada en `docs/`.
 
 ```bash
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L11 panel admin staff"
 ```
 

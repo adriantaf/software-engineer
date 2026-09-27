@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Elige métricas M22 (25–35 min)
 
-En `projects/m26-capstone/metricas.md`: trials, activación (1ª cita), conversion Free→Pro — definiciones.
+En `projects/m26-capstone/metricas.md`: trials, activación (1ª pedido), conversion Free→Pro — definiciones.
 
 ### 3. Hazlas visibles (100–120 min)
 

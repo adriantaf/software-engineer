@@ -1,6 +1,6 @@
 # M09 — Bases de datos
 
-Carpeta de **evidencia** + scaffold SQL de Agenda Ops. Si no está en git (aquí o con enlace claro), no cuenta.
+Carpeta de **evidencia** + scaffold SQL de Vitrina. Si no está en git (aquí o con enlace claro), no cuenta.
 
 ## En resumen
 
@@ -29,7 +29,7 @@ projects/m09-bases-datos/
 ├── README.md
 ├── docker-compose.yml
 ├── .env.example
-├── er-agenda.md          # P1 — modelo + 3FN
+├── er-vitrina.md          # P1 — modelo + 3FN
 ├── glosario.md
 ├── explain-notas.md      # P2 — planes
 ├── roles.md              # P3 — least privilege
@@ -44,15 +44,15 @@ projects/m09-bases-datos/
 
 | Semana | Lecciones | Qué debe existir aquí |
 |--------|-----------|------------------------|
-| 1 | L01–L04 | Compose/.env, `er-agenda.md` borrador, `glosario.md` |
+| 1 | L01–L04 | Compose/.env, `er-vitrina.md` borrador, `glosario.md` |
 | 2 | L05–L08 | ER hasta 3FN + nota de desnormalización |
 | 3 | L09–L12 | `sql/` con joins, agg, subqueries (≥5 archivos al cierre P2) |
 | 4 | L13–L16 | Índices + `explain-notas.md` |
-| 5 | L17–L20 | `transaccion-cita.sql`, migraciones 002/003, `roles.md`, seeds, `reportes.md` |
+| 5 | L17–L20 | `transaccion-pedido.sql`, migraciones 002/003, `roles.md`, seeds, `reportes.md` |
 
 ## Checklist (Evidencia de hecho)
 
-- **P1 — ER:** `er-agenda.md` hasta 3FN enlazado desde este README.
+- **P1 — ER:** `er-vitrina.md` hasta 3FN enlazado desde este README.
 - **P2 — SQL:** `sql/` + `explain-notas.md`.
 - **P3 — Migraciones:** `migrations/` + `roles.md` con least privilege demostrable.
 - **Proyecto — Esquema:** `seeds/` + `reportes.md` con ≥2 reportes útiles.

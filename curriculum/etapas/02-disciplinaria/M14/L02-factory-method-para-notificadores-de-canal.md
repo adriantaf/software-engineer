@@ -13,7 +13,7 @@ evidencia: src/notify/ factory + tests + ADR
 
 **~5.0 h · Semana 1**
 
-El piloto avisará por email o link de WhatsApp. El service de citas no debe importar detalles de cada canal.
+El piloto avisará por email o link de WhatsApp. El service de pedidos no debe importar detalles de cada canal.
 
 ## Objetivo
 

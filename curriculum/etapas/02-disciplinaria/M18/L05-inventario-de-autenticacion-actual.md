@@ -24,7 +24,7 @@ Antes de endurecer, documentas qué hay en M17. Fotografía del estado auth.
 ### 1. Inspección en el repo producto (40–50 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'bcrypt|argon2|passport|jsonwebtoken|express-session|setCookie|Set-Cookie|sign\(|verify\(' \
   -g '!node_modules' -g '!dist' | head -40
 ```
@@ -35,7 +35,7 @@ Describe paso a paso registro/login/logout y 2 edge cases (password malo, usuari
 ```bash
 mkdir -p projects/m18-appsec/docs
 cat > projects/m18-appsec/docs/auth-inventario.md <<'EOF'
-# Inventario de autenticación — Agenda Ops
+# Inventario de autenticación — Vitrina
 
 ## Endpoints
 | Método | Ruta | Público | Notas |

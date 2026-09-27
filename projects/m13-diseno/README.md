@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-Traduces el SRS de Agenda Ops a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
+Traduces el SRS de Vitrina a diseño usable: flujos, diagramas y ADRs que el yo-de-M17 pueda seguir.
 
 ## Estructura esperada
 
@@ -20,7 +20,7 @@ projects/m13-diseno/
     trust-boundaries.md     ← P3
     clases.md               ← P2
     secuencia-auth.md
-    secuencia-crear-cita.md ← P2
+    secuencia-crear-pedido.md ← P2
     c4-contenedores.md
   adr/
     README.md

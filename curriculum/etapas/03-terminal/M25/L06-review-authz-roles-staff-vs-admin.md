@@ -35,13 +35,13 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP — Identity / Authorization testing_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Lista recursos y roles (20–30 min)
 
 En `projects/m25-ciber/review/authz-matrix.md` define roles: `owner`, `staff`, (opcional `platform`).
 
-Lista ≥8 recursos/acciones: citas CRUD, clientes, servicios, billing, invites, exports.
+Lista ≥8 recursos/acciones: pedidos CRUD, clientes, servicios, billing, invites, exports.
 
 ### 3. Matriz recurso × rol × tenant (100–120 min)
 

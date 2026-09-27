@@ -14,16 +14,16 @@ practicas:
     titulo: Demo pública / video del producto multi-tenant
 proyecto:
   id: proj
-  titulo: Agenda Ops SaaS en producción + egreso
+  titulo: Vitrina SaaS en producción + egreso
 ---
 
 # M26 — Proyecto integrador (SaaS)
 
 ## Por qué existe
 
-Cierre del plan de ingeniería de software. El egreso interno es un **SaaS vertical en producción** — [Agenda Ops](../../producto-saas.md) multi-tenant — no un CRUD suelto ni un portafolio de tutoriales. Integra M17 (piloto), M19 (ops), M22 (comercial), M25 (security review) y la rúbrica de [egreso.md](../../egreso.md).
+Cierre del plan de ingeniería de software. El egreso interno es un **SaaS vertical en producción** — [Vitrina](../../producto-saas.md) multi-tenant — no un CRUD suelto ni un portafolio de tutoriales. Integra M17 (piloto), M19 (ops), M22 (comercial), M25 (security review) y la rúbrica de [egreso.md](../../egreso.md).
 
-**En resumen:** cierras el plan con Agenda Ops en producción: ≥2 tenants, Stripe test, evidencia de egreso.
+**En resumen:** cierras el plan con Vitrina en producción: ≥2 tenants, Stripe test, evidencia de egreso.
 
 
 ## Objetivos de aprendizaje
@@ -39,7 +39,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M26 es el **capstone**: Agenda Ops SaaS en **producción** con L01–L32 (máxima profundidad del plan), evidencia en `projects/m26-capstone/` y repos de aplicación.
+M26 es el **capstone**: Vitrina SaaS en **producción** con L01–L32 (máxima profundidad del plan), evidencia en `projects/m26-capstone/` y repos de aplicación.
 
 1. Orden **L01 → L32**; congela alcance en semana 1 y respétalo.
 2. Cada semana: demo interna con **≥2 tenants** distintos.
@@ -78,11 +78,11 @@ Si un día solo tienes 2 h: **un entregable del sprint** (test, página, doc mem
 | L07 | [Panel admin por tenant](M26/L07-panel-admin-por-tenant.md) | 5 |
 | L08 | [Demo interna semana 2 — dos tenants](M26/L08-demo-interna-semana-2-dos-tenants.md) | 5 |
 
-### Semana 3 — Features críticas — citas y catálogo (~20 h)
+### Semana 3 — Features críticas — pedidos y catálogo (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L09 | [Citas CRUD multi-tenant](M26/L09-citas-crud-multi-tenant.md) | 5 |
+| L09 | [Pedidos CRUD multi-tenant](M26/L09-pedidos-crud-multi-tenant.md) | 5 |
 | L10 | [Clientes y servicios por tenant](M26/L10-clientes-y-servicios-por-tenant.md) | 5 |
 | L11 | [Staff y permisos mínimos](M26/L11-staff-y-permisos-minimos.md) | 5 |
 | L12 | [Tests regresión flujos críticos](M26/L12-tests-regresion-flujos-criticos.md) | 5 |
@@ -157,7 +157,7 @@ Canon: memoria propia + [producto-saas](../../producto-saas.md) + [egreso](../..
 
 ```text
 Como usuario del tenant A con token válido:
-  GET /api/citas/{id-de-cita-del-tenant-B} → debe ser 403 o 404, nunca 200 con datos ajenos.
+  GET /api/pedidos/{id-de-pedido-del-tenant-B} → debe ser 403 o 404, nunca 200 con datos ajenos.
 Automatiza al menos un caso en CI.
 ```
 
@@ -173,7 +173,7 @@ Regla: el egreso exige explicar **IDOR cross-tenant** y cómo lo evitas.
 
 ## Proyecto útil
 
-**Agenda Ops SaaS en producción + egreso** — evidencia central en `projects/m26-capstone/README.md`:
+**Vitrina SaaS en producción + egreso** — evidencia central en `projects/m26-capstone/README.md`:
 
 - URL de producción (o staging público acordado) con ≥2 tenants demo.
 - Enlaces a repos de aplicación, infra y memoria.
@@ -182,7 +182,7 @@ Regla: el egreso exige explicar **IDOR cross-tenant** y cómo lo evitas.
 
 ## Entregables
 
-1. **SaaS en producción** (Agenda Ops) con ≥2 tenants demo.
+1. **SaaS en producción** (Vitrina) con ≥2 tenants demo.
 2. Landing de precios + checkout Stripe **test mode**.
 3. Memoria técnica (arquitectura, tenancy, billing, seguridad).
 4. App móvil/desktop conectada (o justificación fuerte documentada; por defecto se espera conexión).

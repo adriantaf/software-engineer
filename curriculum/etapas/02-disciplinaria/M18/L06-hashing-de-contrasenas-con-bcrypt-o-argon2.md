@@ -24,7 +24,7 @@ Password nunca en MD5/SHA solo; bcrypt (cost ≥12) o argon2id. Nota en `project
 ### 1. Auditoría de hashes débiles (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'md5|sha1|sha256\(|createHash\(|crypto\.hash' -g '!node_modules' | rg -i 'pass|pwd|hash' || true
 rg -n 'bcrypt|argon2' -g '!node_modules' | head -20
 ```
@@ -97,4 +97,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L07 — Sesiones server-side vs JWT en Agenda Ops](L07-sesiones-server-side-vs-jwt-en-agenda-ops.md)
+[L07 — Sesiones server-side vs JWT en Vitrina](L07-sesiones-server-side-vs-jwt-en-vitrina.md)

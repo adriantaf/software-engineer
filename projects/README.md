@@ -23,7 +23,7 @@ Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado
 | M14 | [`m14-patrones/`](m14-patrones/) |
 | M15 | [`m15-calidad/`](m15-calidad/) |
 | M16 | [`m16-ihc/`](m16-ihc/) |
-| M17 | [`m17-agenda-ops/`](m17-agenda-ops/) |
+| M17 | [`m17-vitrina/`](m17-vitrina/) |
 | M18 | [`m18-appsec/`](m18-appsec/) |
 | M19 | [`m19-ops/`](m19-ops/) |
 | M20 | [`m20-movil/`](m20-movil/) |

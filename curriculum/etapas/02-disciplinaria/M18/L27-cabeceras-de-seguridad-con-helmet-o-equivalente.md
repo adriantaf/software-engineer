@@ -72,4 +72,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L28 — CSP básica sin romper Agenda Ops](L28-csp-basica-sin-romper-agenda-ops.md)
+[L28 — CSP básica sin romper Vitrina](L28-csp-basica-sin-romper-vitrina.md)

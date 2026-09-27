@@ -21,9 +21,9 @@ proyecto:
 
 ## Por qué existe
 
-El SRS de Agenda Ops (M12) describe *qué*; esta materia define *cómo* lo estructuras para que M17 no sea un monolito caótico. Marcar **trust boundaries** (navegador, API, base de datos) evita confiar en el cliente HTTP para autorización ([hilo seguridad](../../hilos/seguridad.md)). El paquete de diseño es el mapa que el “yo de M17” seguirá sin reinventar arquitectura cada semana.
+El SRS de Vitrina (M12) describe *qué*; esta materia define *cómo* lo estructuras para que M17 no sea un monolito caótico. Marcar **trust boundaries** (navegador, API, base de datos) evita confiar en el cliente HTTP para autorización ([hilo seguridad](../../hilos/seguridad.md)). El paquete de diseño es el mapa que el “yo de M17” seguirá sin reinventar arquitectura cada semana.
 
-**En resumen:** traduces el SRS a diseño usable: flujos, diagramas y ADRs que puedas implementar en el piloto Agenda Ops.
+**En resumen:** traduces el SRS a diseño usable: flujos, diagramas y ADRs que puedas implementar en el piloto Vitrina.
 
 
 ## Objetivos de aprendizaje
@@ -32,7 +32,7 @@ Al terminar debes poder:
 
 1. Derivar casos de uso y flujos principales desde `projects/m12-srs/srs-v1.md`.
 2. Modelar dominio mínimo (entidades y relaciones) sin UML decorativo.
-3. Dibujar diagramas de clases y al menos una secuencia crítica (p. ej. crear cita con auth).
+3. Dibujar diagramas de clases y al menos una secuencia crítica (p. ej. crear pedido con auth).
 4. Definir arquitectura en capas (HTTP → aplicación → dominio → infraestructura).
 5. Documentar trust boundaries y dónde se valida identidad y autorización.
 6. Escribir ADRs que defiendan monolito modular frente a microservicios prematuros.
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M13 traduce el SRS de **Agenda Ops** a diseño implementable: L01–L20.
+M13 traduce el SRS de **Vitrina** a diseño implementable: L01–L20.
 
 1. Abre `projects/m12-srs/srs-v1.md` cada sesión.
 2. Si un diagrama no cambia una decisión, bórralo.
@@ -76,7 +76,7 @@ Si un día solo tienes 2 h: **una lección** con artefacto en git.
 | L05 | [Diagrama de clases del dominio](M13/L05-diagrama-de-clases-del-dominio.md) | 5 |
 | L06 | [Cardinalidades y persistencia futura](M13/L06-cardinalidades-y-persistencia-futura.md) | 5 |
 | L07 | [Secuencia: autenticación y sesión](M13/L07-secuencia-autenticacion-y-sesion.md) | 5 |
-| L08 | [Secuencia: crear cita (P2)](M13/L08-secuencia-crear-cita-p2.md) | 5 |
+| L08 | [Secuencia: crear pedido (P2)](M13/L08-secuencia-crear-pedido-p2.md) | 5 |
 
 ### Semana 3 — Arquitectura en capas (~20 h)
 
@@ -113,7 +113,7 @@ Canon: *UML y patrones* — Larman (ed. ES) **o** guía UML en español + ADRs. 
 
 | Semana | Lecciones | Capítulos / secciones | Alternativa |
 |--------|-----------|----------------------|-------------|
-| 1 | L01–L04 | Casos de uso desde SRS Agenda Ops | `casos-de-uso.md` |
+| 1 | L01–L04 | Casos de uso desde SRS Vitrina | `casos-de-uso.md` |
 | 2 | L05–L08 | UML clases y secuencia | Mermaid en `diagramas/` |
 | 3 | L09–L12 | Capas + trust boundaries | `arquitectura.md` |
 | 4 | L13–L16 | ADRs (plantilla M01) | `projects/m13-diseno/adr/` |
@@ -132,7 +132,7 @@ HTTP controllers  →  application services  →  domain  →  infrastructure (D
                     no solo ocultando botones en React/Astro
 ```
 
-## Ejemplo — fragmento Mermaid (secuencia crear cita)
+## Ejemplo — fragmento Mermaid (secuencia crear pedido)
 
 ```mermaid
 sequenceDiagram
@@ -140,12 +140,12 @@ sequenceDiagram
   participant API as API
   participant S as CitaService
   participant DB as PostgreSQL
-  U->>API: POST /citas (cookie/session)
+  U->>API: POST /pedidos (cookie/session)
   API->>API: validar sesión + rol
   API->>S: crearCita(dto, userId)
-  S->>DB: INSERT cita
+  S->>DB: INSERT pedido
   DB-->>S: ok
-  S-->>API: Cita
+  S-->>API: Pedido
   API-->>U: 201 + JSON
 ```
 
@@ -154,7 +154,7 @@ sequenceDiagram
 ### Semana 1 — Del SRS a casos de uso (~20 h)
 
 - Actores: owner, staff, sistema (recordatorios futuros).
-- Casos de uso prioritarios alineados al MVP del SRS (login, CRUD citas/clientes, admin roles).
+- Casos de uso prioritarios alineados al MVP del SRS (login, CRUD pedidos/clientes, admin roles).
 - Escenarios alternos y de error (401, 403, conflicto de horario).
 - Entregable: `projects/m13-diseno/casos-de-uso.md`.
 
@@ -162,7 +162,7 @@ sequenceDiagram
 
 - Diagrama de clases del dominio (solo entidades que implementarás en M17).
 - Relaciones y cardinalidades coherentes con M09 (FKs futuras).
-- Una secuencia crítica (auth o crear cita) en Mermaid.
+- Una secuencia crítica (auth o crear pedido) en Mermaid.
 - Entregable: `projects/m13-diseno/diagramas/clases.md` + `secuencia-*.md`.
 
 ### Semana 3 — Arquitectura en capas (~20 h)
@@ -189,13 +189,13 @@ sequenceDiagram
 
 ## Prácticas
 
-1. **P1 — Flujos:** `projects/m13-diseno/casos-de-uso.md` con flujos principales del piloto Agenda Ops.
+1. **P1 — Flujos:** `projects/m13-diseno/casos-de-uso.md` con flujos principales del piloto Vitrina.
 2. **P2 — UML:** Diagrama de clases + al menos una secuencia crítica en `projects/m13-diseno/diagramas/`.
 3. **P3 — Boundaries:** `projects/m13-diseno/diagramas/trust-boundaries.md` con límites y notas de amenaza (alto nivel).
 
 ## Proyecto útil
 
-**Paquete de diseño Agenda Ops:** todo en `projects/m13-diseno/`:
+**Paquete de diseño Vitrina:** todo en `projects/m13-diseno/`:
 
 - Enlace explícito a `projects/m12-srs/srs-v1.md`.
 - Diagramas + ADRs + arquitectura en capas.
@@ -207,7 +207,7 @@ sequenceDiagram
 - Diagramas que nadie lee y no coinciden con el SRS.
 - Confiar en el front para autorización (ocultar rutas sin chequeo en API).
 - Modelar 40 entidades el día 1; mejor las del MVP Must.
-- ADRs genéricos copiados sin contexto de Agenda Ops.
+- ADRs genéricos copiados sin contexto de Vitrina.
 
 ## Evidencia de hecho
 

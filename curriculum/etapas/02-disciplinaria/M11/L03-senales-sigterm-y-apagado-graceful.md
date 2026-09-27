@@ -13,7 +13,7 @@ evidencia: labs/sigterm-node.md + app/graceful-server.js
 
 **~5.0 h · Semana 1**
 
-En deploy (M19) el orquestador envía SIGTERM. Si lo ignoras, cortas citas a medias.
+En deploy (M19) el orquestador envía SIGTERM. Si lo ignoras, cortas pedidos a medias.
 
 ## Objetivo
 

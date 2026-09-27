@@ -14,14 +14,14 @@ practicas:
     titulo: Migraciones, transacciones y least privilege
 proyecto:
   id: proj
-  titulo: Esquema del CRM/POS con seeds y reportes
+  titulo: Esquema de Vitrina/POS con seeds y reportes
 ---
 
 # M09 — Bases de datos
 
 ## Por qué existe
 
-Los datos son el corazón del producto. Un esquema mal modelado te persigue en cada feature; un solo usuario `postgres` para la app y concatenar SQL son incidentes de seguridad evitables. Esta materia diseña el **esquema de Agenda Ops / CRM** con SQL real, índices, transacciones y migraciones versionadas.
+Los datos son el corazón del producto. Un esquema mal modelado te persigue en cada feature; un solo usuario `postgres` para la app y concatenar SQL son incidentes de seguridad evitables. Esta materia diseña el **esquema de Vitrina** (menú + pedidos) con SQL real, índices, transacciones y migraciones versionadas.
 
 Seguridad desde el día 1: **queries parametrizadas + least privilege** ([hilo](../../hilos/seguridad.md)).
 
@@ -31,10 +31,10 @@ Seguridad desde el día 1: **queries parametrizadas + least privilege** ([hilo](
 
 Al terminar debes poder:
 
-1. Modelar entidades del dominio (cliente, servicio, cita, usuario) en ER y normalizar hasta 3FN con justificación.
+1. Modelar entidades del dominio (categoría, ítem, pedido, cliente, usuario) en ER y normalizar hasta 3FN con justificación.
 2. Escribir SQL de joins, agregaciones y subconsultas contra PostgreSQL.
 3. Leer un plan de ejecución con `EXPLAIN` y decidir cuándo añadir un índice.
-4. Aplicar transacciones ACID en operaciones multi-paso (p. ej. crear cita + auditoría).
+4. Aplicar transacciones ACID en operaciones multi-paso (p. ej. crear pedido + auditoría).
 5. Versionar el esquema con migraciones reproducibles y seeds de demo.
 6. Crear un rol de aplicación con permisos mínimos (sin superuser).
 
@@ -67,7 +67,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 | ID | Lección | ~h |
 |----|---------|----|
 | L01 | [PostgreSQL local y carpeta de evidencia](M09/L01-postgresql-local-y-carpeta-de-evidencia.md) | 5 |
-| L02 | [Entidades Cliente, Servicio, Cita](M09/L02-entidades-cliente-servicio-cita.md) | 5 |
+| L02 | [Entidades Categoría, Ítem y Pedido](M09/L02-entidades-categoria-item-pedido.md) | 5 |
 | L03 | [Cardinalidades y reglas de negocio](M09/L03-cardinalidades-y-reglas-de-negocio.md) | 5 |
 | L04 | [Glosario alineado al dominio](M09/L04-glosario-alineado-al-dominio.md) | 5 |
 
@@ -128,7 +128,7 @@ Canon: *Fundamentos de sistemas de bases de datos* — Elmasri & Navathe (ed. ES
 ```ts
 // Bien: parámetros. Mal: `WHERE id = ${id}` concatenado.
 await db.query(
-  "SELECT * FROM citas WHERE id = $1 AND negocio_id = $2",
+  "SELECT * FROM pedidos WHERE id = $1 AND negocio_id = $2",
   [citaId, negocioId]
 );
 ```
@@ -137,21 +137,21 @@ Regla: el identificador de negocio/tenant en el `WHERE` es autorización, no sol
 
 ## Prácticas
 
-1. **P1 — ER:** `er-agenda.md` hasta 3FN — L01–L08.
+1. **P1 — ER:** `er-vitrina.md` hasta 3FN — L01–L08.
 2. **P2 — SQL:** `sql/` + `explain-notas.md` — L09–L16.
 3. **P3 — Migraciones:** `migrations/` + `roles.md` — L17–L19.
 
 ## Proyecto útil
 
-**Esquema CRM / Agenda Ops con seeds y reportes:** todo bajo `projects/m09-bases-datos/`.
+**Esquema CRM / Vitrina con seeds y reportes:** todo bajo `projects/m09-bases-datos/`.
 
-Ya hay un **scaffold** listo para L01: `docker-compose.yml`, `.env.example`, `migrations/001_init.sql` (clientes / servicios / citas + `tenant_id`), plantillas `er-agenda.md`, `sql/`, `seeds/`, `roles.md`, `reportes.md`.
+Ya hay un **scaffold** listo para L01: `docker-compose.yml`, `.env.example`, `migrations/001_init.sql` (clientes / servicios / pedidos + `tenant_id`), plantillas `er-vitrina.md`, `sql/`, `seeds/`, `roles.md`, `reportes.md`.
 
 Tu trabajo:
 
 - Completar ER hasta 3FN y las lecciones L01→L20 (no reescribir el scaffold desde cero).
 - Migraciones adicionales (auditoría, índices, rol app) reproducibles en máquina limpia.
-- Seeds realistas (clientes, servicios, citas en distintos estados).
+- Seeds realistas (clientes, servicios, pedidos en distintos estados).
 - Dos reportes SQL en `reportes.md` (pregunta de negocio + query + ejemplo de salida).
 - README con `docker compose up` (o PG nativo) sin secretos en git.
 
@@ -170,7 +170,7 @@ Piensa en M17: `tenant_id` ya está preparado; no implementes multi-tenant aún.
 
 Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
-- **P1 — ER:** `projects/m09-bases-datos/er-agenda.md` (hasta 3FN) enlazado en README.
+- **P1 — ER:** `projects/m09-bases-datos/er-vitrina.md` (hasta 3FN) enlazado en README.
 - **P2 — SQL:** `projects/m09-bases-datos/sql/` + `explain-notas.md`.
 - **P3 — Migraciones:** `projects/m09-bases-datos/migrations/` + `roles.md` con least privilege demostrable.
 - **Proyecto — Esquema:** Seeds + `reportes.md` con ≥2 reportes útiles.

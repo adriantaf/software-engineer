@@ -29,7 +29,7 @@ Llamar PATCH/POST que la API expone; deshabilitar si 403.
 ### 1. Acciones cancelar/atendida (70–90 min)
 
 ```bash
-curl -sS -b /tmp/st.ck -X PATCH "$API_BASE/citas/<id>/estado" \
+curl -sS -b /tmp/st.ck -X PATCH "$API_BASE/pedidos/<id>/estado" \
   -H 'content-type: application/json' \
   -d '{"estado":"cancelada"}'
 ```
@@ -65,4 +65,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L12 — Deep link opcional a una cita](L12-deep-link-opcional-a-una-cita.md)
+[L12 — Deep link opcional a una pedido](L12-deep-link-opcional-a-una-pedido.md)

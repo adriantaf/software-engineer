@@ -20,7 +20,7 @@ La universidad lista temas y examina memoria. Aquí el estándar es otro.
 ## Qué sí hacemos
 
 - Día 1 concreto en cada materia: lecciones L01…Ln con pasos ejecutables (mismo estándar en todo el catálogo).
-- Labs y productos útiles (**SaaS Agenda Ops**, AppSec real).
+- Labs y productos útiles (**SaaS Vitrina**, AppSec real).
 - Rúbrica de egreso pública y exigente.
 - Ritmo sostenible (≥20 h/sem) alineado a inglés y a tu carrera si la cursas en paralelo.
 

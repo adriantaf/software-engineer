@@ -17,13 +17,13 @@ El cliente (y tú en soporte) leen el status antes que el JSON. Hoy eliges códi
 
 ## Objetivo
 
-Tabla de status para Agenda Ops + inspección de cabeceras con `curl -sI`.
+Tabla de status para Vitrina + inspección de cabeceras con `curl -sI`.
 
 ## Pasos
 
 ### 1. Inventario de códigos (60 min)
 
-En `labs/status-codes.md` documenta al menos: 200, 201, 204, 301/302, 400, 401, 403, 404, 409, 422, 429, 500, 502/503. Una frase de cuándo aplica a citas/clientes.
+En `labs/status-codes.md` documenta al menos: 200, 201, 204, 301/302, 400, 401, 403, 404, 409, 422, 429, 500, 502/503. Una frase de cuándo aplica a pedidos/clientes.
 
 ### 2. Labs cabeceras (60 min)
 
@@ -37,7 +37,7 @@ Marca `Content-Type`, `Location`, `Cache-Control` / `Age` si aparecen.
 
 ### 3. Matriz producto (45 min)
 
-Escenarios: cita duplicada en mismo slot → ¿409?; token ausente → 401; staff sin permiso a notas privadas → 403; validación de horario → 422.
+Escenarios: pedido duplicada en mismo slot → ¿409?; token ausente → 401; staff sin permiso a notas privadas → 403; validación de horario → 422.
 
 ### 4. Commit (15 min)
 
@@ -58,7 +58,7 @@ git commit -m "docs(m10): l07 status codes"
 
 Marca la lección **solo si**:
 
-1. `labs/status-codes.md` con ≥8 códigos y cuándo los usaría Agenda Ops (401/403/404/409/422/429…).
+1. `labs/status-codes.md` con ≥8 códigos y cuándo los usaría Vitrina (401/403/404/409/422/429…).
 2. Labs `curl -sI` anotando status + 3 cabeceras relevantes.
 3. Commit `docs(m10): l07 status codes`.
 

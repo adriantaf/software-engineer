@@ -29,7 +29,7 @@ Usa el extracto de la ficha M16 como base y adáptalo a tu sub-vertical.
 
 ### 2. Criterios de éxito por tarea (40 min)
 
-Observable: “creó la cita sin ayuda del facilitador”.
+Observable: “creó la pedido sin ayuda del facilitador”.
 
 ### 3. Piloto contigo mismo (30 min) — cronometra
 

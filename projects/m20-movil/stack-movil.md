@@ -1,4 +1,4 @@
-# Stack móvil — Agenda Ops (M20)
+# Stack móvil — Vitrina (M20)
 
 | Decisión | Valor |
 |----------|-------|

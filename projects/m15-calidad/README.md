@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-La calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad en el piloto **Agenda Ops**.
+La calidad deja de ser opcional: pirámide de tests, CI y reviews que incluyen seguridad en el piloto **Vitrina**.
 
 ## Arranque rápido (L01)
 

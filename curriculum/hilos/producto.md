@@ -1,6 +1,6 @@
-# Hilo transversal — Producto (Agenda Ops)
+# Hilo transversal — Producto (Vitrina)
 
-El currículo no son materias sueltas: desde M12 construyes un **SaaS vertical** (citas/ops para negocios de servicio en Ensenada). Spec completa: [producto-saas.md](../producto-saas.md).
+El currículo no son materias sueltas: desde M12 construyes un **SaaS vertical** (menú + pedidos para QSR y barras de bebidas). Spec completa: [producto-saas.md](../producto-saas.md).
 
 ## Mapa de artefactos
 
@@ -11,23 +11,24 @@ El currículo no son materias sueltas: desde M12 construyes un **SaaS vertical**
 | [M14](../etapas/02-disciplinaria/M14-patrones.md) | ≥5 patrones justificados en el código | [`projects/m14-patrones/`](../../projects/m14-patrones/) |
 | [M15](../etapas/02-disciplinaria/M15-vv-calidad.md) | CI verde + tests de dominio/auth | [`projects/m15-calidad/`](../../projects/m15-calidad/) |
 | [M16](../etapas/02-disciplinaria/M16-ihc.md) | Informe usabilidad + iteración UI | [`projects/m16-ihc/`](../../projects/m16-ihc/) |
-| [M17](../etapas/02-disciplinaria/M17-aplicaciones-web.md) | **Piloto** web (1 negocio) + ADR `tenant_id` | [`projects/m17-agenda-ops/`](../../projects/m17-agenda-ops/) |
+| [M17](../etapas/02-disciplinaria/M17-aplicaciones-web.md) | **Piloto** web (1 local) + ADR `tenant_id` | [`projects/m17-vitrina/`](../../projects/m17-vitrina/) |
 | [M18](../etapas/02-disciplinaria/M18-seguridad.md) | Threat model + hardening + tests | [`projects/m18-appsec/`](../../projects/m18-appsec/) |
 | [M19](../etapas/02-disciplinaria/M19-nube-devops.md) | Deploy, secrets, backup/restore | [`projects/m19-ops/`](../../projects/m19-ops/) |
-| [M20](../etapas/02-disciplinaria/M20-aplicaciones-moviles.md) | App cliente misma auth | [`projects/m20-movil/`](../../projects/m20-movil/) |
+| [M20](../etapas/02-disciplinaria/M20-aplicaciones-moviles.md) | App staff/cliente misma auth | [`projects/m20-movil/`](../../projects/m20-movil/) |
 | [M21](../etapas/03-terminal/M21-admin-proyectos.md) | Roadmap + sprints del SaaS | [`projects/m21-proyectos/`](../../projects/m21-proyectos/) |
 | [M22](../etapas/03-terminal/M22-emprendimiento.md) | 10 demos/trials + pricing Free/Pro | [`projects/m22-bektor/`](../../projects/m22-bektor/) |
-| [M23](../etapas/03-terminal/M23-ia-datos.md) | FAQ/RAG **por tenant** | [`projects/m23-ia/`](../../projects/m23-ia/) |
+| [M23](../etapas/03-terminal/M23-ia-datos.md) | FAQ/RAG **por tenant** (menú/políticas) | [`projects/m23-ia/`](../../projects/m23-ia/) |
 | [M24](../etapas/03-terminal/M24-tecnologias-emergentes.md) | Spike go/no-go (opcional al core) | [`projects/m24-emergentes/`](../../projects/m24-emergentes/) |
 | [M25](../etapas/03-terminal/M25-ciberseguridad-aplicada.md) | Security review cross-tenant | [`projects/m25-ciber/`](../../projects/m25-ciber/) |
-| [M26](../etapas/03-terminal/M26-proyecto-integrador.md) | SaaS en prod + Stripe test + egreso | [`projects/m26-capstone/`](../../projects/m26-capstone/) |
+| [M26](../etapas/03-terminal/M26-proyecto-integrador.md) | SaaS en prod + Stripe test + temas + egreso | [`projects/m26-capstone/`](../../projects/m26-capstone/) |
 
 ## Reglas de oro del hilo
 
 1. Cada materia **deja un artefacto** que la siguiente puede abrir sin adivinar.
-2. El piloto (M17) es un negocio; el SaaS (M26) son **≥2 tenants**.
+2. El piloto (M17) es un local; el SaaS (M26) son **≥2 tenants**.
 3. Seguridad y `tenant_id` no se “dejan para el final” — ver [hilo seguridad](seguridad.md).
 4. Comercial (M22) y técnico (M17–M26) se alimentan: demos reales sobre el producto real.
+5. El menú es el núcleo; la landing y el marketplace de temas no sustituyen pedidos ni aislamiento.
 
 ## Cómo usarlo
 

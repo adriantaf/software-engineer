@@ -14,14 +14,14 @@ practicas:
     titulo: Pricing MXN (Free/Pro) + propuesta escrita
 proyecto:
   id: proj
-  titulo: Bektor pivoteado a Agenda Ops (SaaS)
+  titulo: Bektor pivoteado a Vitrina (SaaS)
 ---
 
 # M22 — Emprendimiento de negocios de software
 
 ## Por qué existe
 
-Bektor como “hacemos de todo digital” no cerró ventas repetibles. El plan pivota a **Agenda Ops**: suscripción mensual a software de citas y clientes para negocios de servicio en Ensenada y alrededores ([producto-saas](../../producto-saas.md)). M22 no es marketing abstracto: es **conversaciones reales** con dueños de barberías, clínicas o talleres, demos sobre el producto que ya desplegaste (M17–M19), aprendizaje documentado y pricing en MXN que puedas defender sin inventar.
+Bektor como “hacemos de todo digital” no cerró ventas repetibles. El plan pivota a **Vitrina**: suscripción mensual a software de pedidos y clientes para locales QSR o barras de bebidas en Ensenada y alrededores ([producto-saas](../../producto-saas.md)). M22 no es marketing abstracto: es **conversaciones reales** con dueños de barberías, clínicas o talleres, demos sobre el producto que ya desplegaste (M17–M19), aprendizaje documentado y pricing en MXN que puedas defender sin inventar.
 
 El checkout Stripe en producción llega en M26; aquí vendes el **trial** y la propuesta de valor, no promesas de seguridad “nivel banco” sin el trabajo de M18/M25.
 
@@ -36,11 +36,11 @@ Al terminar debes poder:
 3. Ejecutar y documentar **10** demos o intentos de trial con negocios reales (aunque digan que no).
 4. Redactar planes Free/Pro en MXN alineados con [producto-saas](../../producto-saas.md) y con lo que viste en el mercado local.
 5. Capturar objeciones recurrentes y ajustar mensaje o producto (build-measure-learn).
-6. Documentar el pivote Bektor → Agenda Ops como decisión de negocio, no solo rebranding.
+6. Documentar el pivote Bektor → Vitrina como decisión de negocio, no solo rebranding.
 
 ## Cómo estudiar esta materia (lecciones)
 
-M22 vende **suscripción Agenda Ops** con conversaciones reales: L01–L24 (6 semanas × 4 lecciones).
+M22 vende **suscripción Vitrina** con conversaciones reales: L01–L24 (6 semanas × 4 lecciones).
 
 1. Orden **L01 → L24**; cada lectura Lean → **acción** (demo, lista, pricing).
 2. ICP **único** seis semanas; pivote solo documentado al final.
@@ -65,7 +65,7 @@ Si un día solo tienes 2 h: **una lección** (demo o outreach documentado). No s
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L01 | [Lean Startup aplicado a Agenda Ops — carpeta y visión](M22/L01-lean-startup-aplicado-a-agenda-ops-carpeta-y-vision.md) | 5 |
+| L01 | [Lean Startup aplicado a Vitrina — carpeta y visión](M22/L01-lean-startup-aplicado-a-vitrina-carpeta-y-vision.md) | 5 |
 | L02 | [ICP único — sub-vertical fijado por escrito](M22/L02-icp-unico-sub-vertical-fijado-por-escrito.md) | 5 |
 | L03 | [Oferta SaaS en un párrafo](M22/L03-oferta-saas-en-un-parrafo.md) | 5 |
 | L04 | [Outreach 20 contactos y guion demo 5 min](M22/L04-outreach-20-contactos-y-guion-demo-5-min.md) | 5 |
@@ -104,7 +104,7 @@ Si un día solo tienes 2 h: **una lección** (demo o outreach documentado). No s
 | L17 | [Outreach semana 5 — lote de cinco contactos](M22/L17-outreach-semana-5-lote-de-cinco-contactos.md) | 5 |
 | L18 | [Demos 9–10 — cerrar P2](M22/L18-demos-9-10-cerrar-p2.md) | 5 |
 | L19 | [Landing de precios y enlace en evidencia](M22/L19-landing-de-precios-y-enlace-en-evidencia.md) | 5 |
-| L20 | [Pivote Bektor → Agenda Ops — narrativa completa](M22/L20-pivote-bektor-agenda-ops-narrativa-completa.md) | 5 |
+| L20 | [Pivote Bektor → Vitrina — narrativa completa](M22/L20-pivote-bektor-vitrina-narrativa-completa.md) | 5 |
 
 ### Semana 6 — Cierre comercial de la materia (~20 h)
 
@@ -140,7 +140,7 @@ Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../
 # Demo 03 — Barbería [nombre], 2026-05-12
 
 - **Contacto:** … · **Canal:** visita / WhatsApp / llamada
-- **Mostrado:** staging URL, flujo cita, recordatorio manual
+- **Mostrado:** staging URL, flujo pedido, recordatorio manual
 - **Objeción principal:** “Ya uso Excel”
 - **Respuesta probada:** …
 - **Siguiente paso:** trial desde el lunes / rechazó / follow-up 2026-05-19
@@ -157,7 +157,7 @@ Canon: *El método Lean Startup* — Eric Ries (ed. ES). Ver [bibliografía](../
 
 ## Proyecto útil
 
-**Bektor → Agenda Ops** documentado en `projects/m22-bektor/pivote-bektor-agenda-ops.md` más artefactos comerciales (oferta, pricing, métricas, demos). Enlaza la landing de precios del repo del producto cuando exista.
+**Bektor → Vitrina** documentado en `projects/m22-bektor/pivote-bektor-vitrina.md` más artefactos comerciales (oferta, pricing, métricas, demos). Enlaza la landing de precios del repo del producto cuando exista.
 
 ## Errores comunes
 
@@ -174,7 +174,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 - **P1 — Oferta:** `projects/m22-bektor/oferta-saas.md`.
 - **P2 — 10 demos:** `projects/m22-bektor/demos/` con 10 fichas o índice equivalente.
 - **P3 — Pricing:** `projects/m22-bektor/pricing.md`.
-- **Proyecto — Pivote:** `projects/m22-bektor/pivote-bektor-agenda-ops.md` + `projects/m22-bektor/README.md` actualizado.
+- **Proyecto — Pivote:** `projects/m22-bektor/pivote-bektor-vitrina.md` + `projects/m22-bektor/README.md` actualizado.
 
 ## Criterios de dominio
 

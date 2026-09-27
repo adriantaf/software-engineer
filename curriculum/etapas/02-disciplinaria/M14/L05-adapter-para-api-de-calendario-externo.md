@@ -61,4 +61,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L06 — Decorator para logging de operaciones de cita](L06-decorator-para-logging-de-operaciones-de-cita.md)
+[L06 — Decorator para logging de operaciones de pedido](L06-decorator-para-logging-de-operaciones-de-pedido.md)

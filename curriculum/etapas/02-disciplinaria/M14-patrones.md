@@ -14,16 +14,16 @@ practicas:
     titulo: Refactor de un módulo legacy tuyo
 proyecto:
   id: proj
-  titulo: Aplicar ≥5 patrones en Agenda Ops con justificación
+  titulo: Aplicar ≥5 patrones en Vitrina con justificación
 ---
 
 # M14 — Patrones de software
 
 ## Por qué existe
 
-Los patrones son vocabulario compartido entre ingenieros: aceleran revisiones y ADRs. Mal usados se convierten en **cargo cult** (clases llamadas `Factory` que solo hacen `new`). En esta materia aplicas patrones **en el código del piloto Agenda Ops** (o en un módulo de práctica que luego integrarás en M17), siempre con justificación escrita en `projects/m14-patrones/`.
+Los patrones son vocabulario compartido entre ingenieros: aceleran revisiones y ADRs. Mal usados se convierten en **cargo cult** (clases llamadas `Factory` que solo hacen `new`). En esta materia aplicas patrones **en el código del piloto Vitrina** (o en un módulo de práctica que luego integrarás en M17), siempre con justificación escrita en `projects/m14-patrones/`.
 
-**En resumen:** aplicas pocos patrones con justificación (no nombres de adorno) en el dominio de citas, precios o notificaciones.
+**En resumen:** aplicas pocos patrones con justificación (no nombres de adorno) en el dominio de pedidos, precios o notificaciones.
 
 
 ## Objetivos de aprendizaje
@@ -39,7 +39,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M14 aplica patrones con justificación en el dominio **Agenda Ops**: L01–L16 en orden.
+M14 aplica patrones con justificación en el dominio **Vitrina**: L01–L16 en orden.
 
 1. Un patrón por lección: leer → implementar en TypeScript → test → ADR o nota.
 2. Marca la lección solo si cumples “Hecho cuando”.
@@ -74,8 +74,8 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 | ID | Lección | ~h |
 |----|---------|-----|
 | L05 | [Adapter para API de calendario externo](M14/L05-adapter-para-api-de-calendario-externo.md) | 5 |
-| L06 | [Decorator para logging de operaciones de cita](M14/L06-decorator-para-logging-de-operaciones-de-cita.md) | 5 |
-| L07 | [Facade para el flujo agendar cita](M14/L07-facade-para-el-flujo-agendar-cita.md) | 5 |
+| L06 | [Decorator para logging de operaciones de pedido](M14/L06-decorator-para-logging-de-operaciones-de-pedido.md) | 5 |
+| L07 | [Facade para el flujo agendar pedido](M14/L07-facade-para-el-flujo-crear-pedido.md) | 5 |
 | L08 | [Tests de regresión en API pública del módulo](M14/L08-tests-de-regresion-en-api-publica-del-modulo.md) | 5 |
 
 ### Semana 3 — Patrones de comportamiento y P1 (~20 h)
@@ -91,8 +91,8 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L13 | [Repository — interfaz Cita sin SQL](M14/L13-repository-interfaz-cita-sin-sql.md) | 5 |
-| L14 | [Service — capa aplicación de citas](M14/L14-service-capa-aplicacion-de-citas.md) | 5 |
+| L13 | [Repository — interfaz Pedido sin SQL](M14/L13-repository-interfaz-pedido-sin-sql.md) | 5 |
+| L14 | [Service — capa aplicación de pedidos](M14/L14-service-capa-aplicacion-de-pedidos.md) | 5 |
 | L15 | [Refactor P3 — módulo legacy antes y después](M14/L15-refactor-p3-modulo-legacy-antes-y-despues.md) | 5 |
 | L16 | [Cierre M14 — cinco patrones e integración M17](M14/L16-cierre-m14-cinco-patrones-e-integracion-m17.md) | 5 |
 
@@ -135,8 +135,8 @@ export function totalServicio(base: number, estrategia: CalculoPrecio): number {
 
 ```ts
 export interface CitaRepository {
-  findById(id: string, negocioId: string): Promise<Cita | null>;
-  save(cita: Cita): Promise<void>;
+  findById(id: string, negocioId: string): Promise<Pedido | null>;
+  save(pedido: Pedido): Promise<void>;
 }
 // La implementación Postgres vive en infrastructure; el dominio no importa SQL.
 ```
@@ -154,13 +154,13 @@ export interface CitaRepository {
 
 - Adapter para integrar librería de terceros con tu interfaz de dominio.
 - Decorator para añadir logging o métricas sin ensuciar el core.
-- Facade para simplificar un subsistema (p. ej. “agendar cita” que coordina validación + persistencia).
+- Facade para simplificar un subsistema (p. ej. “agendar pedido” que coordina validación + persistencia).
 - Tests de regresión en comportamiento público.
 
 ### Semana 3 — Patrones de comportamiento (~20 h)
 
-- Strategy (precios, políticas de no-show).
-- Observer (eventos de dominio: cita creada → auditoría o recordatorio futuro).
+- Strategy (precios, políticas de pedido abandonado).
+- Observer (eventos de dominio: pedido creada → auditoría o recordatorio futuro).
 - Command (opcional: cola de acciones admin reversibles).
 - Cierre P1: Strategy + Observer + Factory documentados con tests.
 
@@ -168,7 +168,7 @@ export interface CitaRepository {
 
 - Repository + Service en backend alineado a M13.
 - Refactor P3: módulo legacy propio (antes/después + diff en notas).
-- ADR resumen: ≥5 patrones con contexto Agenda Ops.
+- ADR resumen: ≥5 patrones con contexto Vitrina.
 - Plan de integración en repo M17 si el código vive en `projects/m14-patrones/`.
 
 
@@ -180,7 +180,7 @@ export interface CitaRepository {
 
 ## Proyecto útil
 
-**≥5 patrones justificados en Agenda Ops:** entrega en `projects/m14-patrones/`:
+**≥5 patrones justificados en Vitrina:** entrega en `projects/m14-patrones/`:
 
 - Índice `README.md` listando patrón → archivo → ADR.
 - Código ejecutable y tests verdes.
@@ -206,6 +206,6 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 ## Criterios de dominio
 
 - [ ] 5 patrones aplicados con justificación escrita y enlace al código.
-- [ ] Explicas un patrón que **rechazaste** para Agenda Ops y por qué.
+- [ ] Explicas un patrón que **rechazaste** para Vitrina y por qué.
 - [ ] Los tests cubren el comportamiento público, no detalles internos frágiles.
 - [ ] Repository no filtra SQL al dominio.

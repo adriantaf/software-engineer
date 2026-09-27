@@ -13,7 +13,7 @@ evidencia: projects/m18-appsec/docs/rbac-matrix.md
 
 **~5.0 h · Semana 5**
 
-Agenda Ops distingue dueño y staff; la API debe hacerlo explícito.
+Vitrina distingue dueño y staff; la API debe hacerlo explícito.
 
 ## Objetivo
 
@@ -25,12 +25,12 @@ Matriz rol×recurso×acción en `projects/m18-appsec/docs/rbac-matrix.md` + ≥1
 
 ```bash
 cat > projects/m18-appsec/docs/rbac-matrix.md <<'EOF'
-# RBAC — Agenda Ops
+# RBAC — Vitrina
 | Recurso / acción | Owner | Staff | Anónimo |
 |------------------|-------|-------|---------|
-| Listar citas | ✓ | ✓ (alcance) | ✗ |
-| Crear cita | ✓ | ✓ | ✗ |
-| Borrar cualquier cita | ✓ | ? | ✗ |
+| Listar pedidos | ✓ | ✓ (alcance) | ✗ |
+| Crear pedido | ✓ | ✓ | ✗ |
+| Borrar cualquier pedido | ✓ | ? | ✗ |
 | Configuración negocio | ✓ | ✗ | ✗ |
 | Gestionar usuarios | ✓ | ✗ | ✗ |
 

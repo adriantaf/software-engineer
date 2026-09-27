@@ -4,7 +4,7 @@ Carpeta de **evidencia** + labs de red/HTTP/TLS del producto. Si no está en git
 
 ## En resumen
 
-Sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto (Agenda Ops).
+Sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto (Vitrina).
 
 ## Arranque rápido
 

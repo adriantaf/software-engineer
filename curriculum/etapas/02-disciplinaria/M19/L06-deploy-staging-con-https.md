@@ -69,4 +69,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L07 — Smoke test: login, cita y health externo](L07-smoke-test-login-cita-y-health-externo.md)
+[L07 — Smoke test: login, pedido y health externo](L07-smoke-test-login-pedido-y-health-externo.md)

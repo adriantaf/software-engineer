@@ -35,7 +35,7 @@ Mismo `EXPLAIN (ANALYZE, BUFFERS)`. Pega en la sección después.
 
 ### 4. Criterio de éxito (30 min)
 
-Si con seeds pequeños no hay diferencia, dilo honestamente y explica qué pasaríacon 100k citas (orden de magnitud).
+Si con seeds pequeños no hay diferencia, dilo honestamente y explica qué pasaríacon 100k pedidos (orden de magnitud).
 
 ### 5. Commit (15 min)
 

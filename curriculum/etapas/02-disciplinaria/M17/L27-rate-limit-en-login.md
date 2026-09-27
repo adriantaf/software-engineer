@@ -46,7 +46,7 @@ done
 
 ```bash
 npm test -- rate-limit
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L27 rate limit login"
 ```
 

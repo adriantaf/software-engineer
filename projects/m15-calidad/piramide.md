@@ -1,4 +1,4 @@
-# Pirámide de tests — Agenda Ops (M15)
+# Pirámide de tests — Vitrina (M15)
 
 Completa en **L01** y actualiza al cerrar cada semana.
 

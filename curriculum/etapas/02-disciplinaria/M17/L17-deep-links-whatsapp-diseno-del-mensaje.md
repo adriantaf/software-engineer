@@ -6,7 +6,7 @@ titulo: Deep links WhatsApp — diseño del mensaje
 horas: 5.0
 semana: 5
 lectura: Docs proveedor WhatsApp
-evidencia: projects/m17-agenda-ops/docs/integracion-whatsapp.md
+evidencia: projects/m17-vitrina/docs/integracion-whatsapp.md
 ---
 
 # L17 — Deep links WhatsApp — diseño del mensaje
@@ -34,7 +34,7 @@ Definir plantilla mensaje recordatorio/confirmación con placeholders y enlace w
 # https://wa.me/52XXXXXXXXXX?text=Hola%20...%20cita%20...
 ```
 
-Documenta en `projects/m17-agenda-ops/docs/integracion-whatsapp.md` campos: nombre, fecha, deep link ficha.
+Documenta en `projects/m17-vitrina/docs/integracion-whatsapp.md` campos: nombre, fecha, deep link ficha.
 
 ### 2. Helper URL encoder (40–50 min)
 
@@ -52,7 +52,7 @@ npm test -- whatsapp
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "docs(m17): L17 deep links whatsapp mensaje"
 ```
 
@@ -68,7 +68,7 @@ git commit -m "docs(m17): L17 deep links whatsapp mensaje"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/integracion-whatsapp.md` define plantilla wa.me + helper testeado.
+1. `projects/m17-vitrina/docs/integracion-whatsapp.md` define plantilla wa.me + helper testeado.
 2. Commit `docs(m17): L17 deep-links-whatsapp-diseno-del-mensaje`.
 
 ## Errores comunes
@@ -78,4 +78,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L18 — Botón enviar recordatorio desde ficha cita](L18-boton-enviar-recordatorio-desde-ficha-cita.md)
+[L18 — Botón enviar recordatorio desde ficha pedido](L18-boton-enviar-recordatorio-desde-ficha-pedido.md)

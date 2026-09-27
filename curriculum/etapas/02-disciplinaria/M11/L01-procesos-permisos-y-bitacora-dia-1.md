@@ -13,7 +13,7 @@ evidencia: projects/m11-so/labs/dia1-comandos.md
 
 **~5.0 h · Semana 1**
 
-Agenda Ops correrá en un VPS o contenedor. Hoy lees procesos e identidad como lo harás en un incidente.
+Vitrina correrá en un VPS o contenedor. Hoy lees procesos e identidad como lo harás en un incidente.
 
 ## Objetivo
 
@@ -73,7 +73,7 @@ git commit -m "docs(m11): l01 procesos y permisos dia1"
 Marca la lección **solo si**:
 
 1. `labs/dia1-comandos.md` con salidas anotadas de `ps`, `id`, `umask` y un archivo `chmod 600`.
-2. Párrafo: por qué `chmod 777` es inaceptable para datos de clientes Agenda Ops.
+2. Párrafo: por qué `chmod 777` es inaceptable para datos de clientes Vitrina.
 3. Commit `docs(m11): l01 procesos y permisos dia1`.
 
 ## Errores comunes

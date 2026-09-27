@@ -55,8 +55,8 @@ npm test -- auth
 
 ```bash
 bash scripts/ci-auth.sh   # o mira el run verde en Actions
-git add .github/workflows projects/m17-agenda-ops/scripts 2>/dev/null || true
-git add projects/m17-agenda-ops
+git add .github/workflows projects/m17-vitrina/scripts 2>/dev/null || true
+git add projects/m17-vitrina
 git commit -m "ci(m17): L28 tests auth reproducibles"
 ```
 

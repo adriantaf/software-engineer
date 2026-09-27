@@ -45,7 +45,7 @@ tracepath example.com | head -20
 
 Tabla: hop | RTT aprox | nota (timeout / ISP / destino). Relaciona “salto” con “router que decide”.
 
-### 4. Hipótesis Agenda Ops (25 min)
+### 4. Hipótesis Vitrina (25 min)
 
 Si el panel no alcanza la API: ¿fallo DNS, IP inalcanzable, o app? Criterio de triage en 4 bullets.
 
@@ -76,7 +76,7 @@ Marca la lección **solo si**:
 
 - Confundir IP privada (`10.`, `192.168.`) con “no hay internet”.
 - Pegar traceroute completo sin interpretar timeouts.
-- Olvidar que el API de Agenda Ops tendrá IP pública *y* ruta interna en compose.
+- Olvidar que el API de Vitrina tendrá IP pública *y* ruta interna en compose.
 
 ## Siguiente
 

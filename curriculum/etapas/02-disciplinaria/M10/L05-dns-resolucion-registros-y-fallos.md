@@ -13,7 +13,7 @@ evidencia: labs/semana-02-dns.md con dig/host
 
 **~5.0 h · Semana 2**
 
-Antes de TCP hay un nombre. Si DNS miente o tarda, Agenda Ops “no carga” aunque la API esté viva.
+Antes de TCP hay un nombre. Si DNS miente o tarda, Vitrina “no carga” aunque la API esté viva.
 
 ## Objetivo
 

@@ -82,4 +82,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L08 — Secuencia: crear cita (P2)](L08-secuencia-crear-cita-p2.md)
+[L08 — Secuencia: crear pedido (P2)](L08-secuencia-crear-pedido-p2.md)

@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Agenda Ops no necesita adoptar cada moda (blockchain, “serverless por moda”, IoT sin caso de uso). Un ingeniero senior **evalúa** antes de meter una dependencia en producción: costo, riesgo operativo, superficie de ataque y encaje con el producto. M24 es esa disciplina aplicada a **tres candidatos** y un **spike** de una semana con decisión go/no-go escrita — por ejemplo recordatorios por WhatsApp Business API, cola realtime para disponibilidad de citas, o edge para latencia en Baja California.
+Vitrina no necesita adoptar cada moda (blockchain, “serverless por moda”, IoT sin caso de uso). Un ingeniero senior **evalúa** antes de meter una dependencia en producción: costo, riesgo operativo, superficie de ataque y encaje con el producto. M24 es esa disciplina aplicada a **tres candidatos** y un **spike** de una semana con decisión go/no-go escrita — por ejemplo recordatorios por WhatsApp Business API, cola realtime para disponibilidad de pedidos, o edge para latencia en Baja California.
 
 No es obligatorio llevar el spike a M26; es obligatorio **pensar** antes de acumular deuda.
 
@@ -32,7 +32,7 @@ No es obligatorio llevar el spike a M26; es obligatorio **pensar** antes de acum
 Al terminar debes poder:
 
 1. Investigar tres tecnologías con **fuentes primarias** (docs oficiales) y al menos una crítica o limitación conocida.
-2. Construir una matriz de adopción con costo, riesgo, valor para Agenda Ops, fit y **seguridad**.
+2. Construir una matriz de adopción con costo, riesgo, valor para Vitrina, fit y **seguridad**.
 3. Ejecutar un spike acotado (≤1 semana de esfuerzo documentado) con alcance explícito.
 4. Redactar go/no-go con criterios medibles, no intuición.
 5. Descartar candidatos con argumentos sólidos (tanto vale un “no” bien fundado).
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M24 es **evaluación disciplinada** de tecnologías emergentes para Agenda Ops: L01–L12 (formato M01), evidencia en `projects/m24-emergentes/`.
+M24 es **evaluación disciplinada** de tecnologías emergentes para Vitrina: L01–L12 (formato M01), evidencia en `projects/m24-emergentes/`.
 
 1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
 2. **Fuentes primarias** (docs oficiales) antes de puntuar la matriz.
@@ -129,7 +129,7 @@ Canon: **docs oficiales** de los tres candidatos + notas de la matriz. Ver [bibl
 
 - Elegir tecnología por Twitter sin leer límites de la API.
 - Spike sin hipótesis medible (“jugué con X” no basta).
-- Meter el PoC directo en prod de Agenda Ops.
+- Meter el PoC directo en prod de Vitrina.
 - Ignorar seguridad de webhooks (firma, replay) en integraciones messaging.
 - Adoptar tres cosas a la vez en lugar de un spike enfocado.
 

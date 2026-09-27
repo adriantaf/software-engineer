@@ -13,7 +13,7 @@ evidencia: sql/subq-clientes-frecuentes.sql
 
 **~5.0 h · Semana 3**
 
-“Clientes con más de 2 citas completadas” pide filtrar **grupos**, no filas.
+“Clientes con más de 2 pedidos completadas” pide filtrar **grupos**, no filas.
 
 ## Objetivo
 
@@ -29,7 +29,7 @@ Subconsultas escalares, `IN`/`EXISTS`, y `HAVING`.
 
 ```sql
 SELECT cl.nombre, count(*) AS completadas
-FROM citas c
+FROM pedidos c
 JOIN clientes cl ON cl.id = c.cliente_id
 WHERE c.estado = 'completada'
 GROUP BY cl.id, cl.nombre

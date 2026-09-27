@@ -17,7 +17,7 @@ Vendes suscripción SaaS, no agencia. Hoy entregas **`projects/m22-bektor/pricin
 
 ## Objetivo
 
-Cerrar borrador Free/Pro MXN con límites (calendarios, citas/mes, staff) alineados al código actual.
+Cerrar borrador Free/Pro MXN con límites (calendarios, pedidos/mes, staff) alineados al código actual.
 
 ## Por qué empieza así
 
@@ -36,7 +36,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _producto-saas + límites técnicos_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
@@ -62,7 +62,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | producto-saas + límites técnicos | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | producto-saas + límites técnicos | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

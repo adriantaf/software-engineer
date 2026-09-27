@@ -21,7 +21,7 @@ Dejar `projects/m09-bases-datos/` usable: Compose (o nativo), conexión document
 
 ## Por qué empieza así
 
-M09 diseña el esquema de **Agenda Ops**. Cada lección siguiente asume que puedes pegarle SQL a una instancia local.
+M09 diseña el esquema de **Vitrina**. Cada lección siguiente asume que puedes pegarle SQL a una instancia local.
 
 ## Pasos (hazlos en orden)
 
@@ -81,7 +81,7 @@ psql "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POST
 psql "..." -c '\dt'
 ```
 
-Debes ver `clientes`, `servicios`, `citas`.
+Debes ver `clientes`, `servicios`, `orders`.
 
 ### 6. Commit (15 min)
 
@@ -115,4 +115,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L02 — Entidades Cliente, Servicio, Cita](L02-entidades-cliente-servicio-cita.md)
+[L02 — Entidades Cliente, Servicio, Pedido](L02-entidades-cliente-servicio-pedido.md)

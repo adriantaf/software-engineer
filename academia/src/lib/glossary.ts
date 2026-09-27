@@ -312,7 +312,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'crm',
     term: 'CRM',
     expansion: 'gestión de relación con clientes',
-    definition: 'Sistema para clientes, contactos y seguimiento. En este plan el producto es Agenda Ops (citas/ops).',
+    definition: 'Sistema para clientes, contactos y seguimiento. En este plan el producto es Vitrina (menú/pedidos).',
   },
   {
     id: 'semver',

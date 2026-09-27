@@ -1,6 +1,6 @@
 # M25 — Ciberseguridad aplicada
 
-Security review del SaaS multi-tenant Agenda Ops. Bug #1: **IDOR cross-tenant**.
+Security review del SaaS multi-tenant Vitrina. Bug #1: **IDOR cross-tenant**.
 
 ## En resumen
 

@@ -1,6 +1,6 @@
 # M12 — Ingeniería de requerimientos
 
-Carpeta de **evidencia** del SRS de **Agenda Ops** (piloto single-tenant). Si no está en git, no cuenta.
+Carpeta de **evidencia** del SRS de **Vitrina** (piloto single-tenant). Si no está en git, no cuenta.
 
 ## En resumen
 
@@ -44,7 +44,7 @@ projects/m12-srs/
 - **P1 — Entrevista:** `entrevistas/guion-v1.md` + `notas-*.md`.
 - **P2 — Stories:** `stories.md` (≥8 con criterios).
 - **P3 — SRS:** `srs-v1.md` con ≥3 RNF seguridad/privacidad.
-- **Proyecto — SRS Agenda Ops:** carpeta lista para M13/M17.
+- **Proyecto — SRS Vitrina:** carpeta lista para M13/M17.
 
 ## Enlaces
 

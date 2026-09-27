@@ -32,11 +32,11 @@ curl -sI https://owasp.org/Top10/es/ | head -5
 
 ```bash
 cat > projects/m18-appsec/owasp-top10-map.md <<'EOF'
-# OWASP Top 10 → Agenda Ops
+# OWASP Top 10 → Vitrina
 
-| Id | Ejemplo Agenda Ops | Mitigación | Semana |
+| Id | Ejemplo Vitrina | Mitigación | Semana |
 |----|--------------------|------------|--------|
-| A01 | GET /api/citas/:id cross-user | authz owner | 5 |
+| A01 | GET /api/pedidos/:id cross-user | authz owner | 5 |
 | A02 | secretos en repo | .env + rotación | 7 |
 | A03 | búsqueda concat SQL | params/ORM | 4 |
 | A04 | sin rate limit login | 429 | 5 |

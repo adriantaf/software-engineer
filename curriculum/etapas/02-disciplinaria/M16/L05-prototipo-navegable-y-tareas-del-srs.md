@@ -23,14 +23,14 @@ Sin prototipo, las sesiones inventan la UI. Hoy lo dejas clicable.
 
 ### 1. Pantallas mínimas (90–120 min)
 
-HTML estático o Figma prototype: Login, Agenda del día, Nueva cita, Confirmación/error.
+HTML estático o Figma prototype: Login, Agenda del día, Nueva pedido, Confirmación/error.
 
 ### 2. tareas-srs.md (40 min)
 
 | Tarea test | Historia SRS |
 |------------|--------------|
-| Agendar cita cliente nuevo | H-cita-01 |
-| Cancelar cita de hoy | H-cita-02 |
+| Agendar pedido cliente nuevo | H-pedido-01 |
+| Cancelar pedido de hoy | H-pedido-02 |
 
 ### 3. Commit
 
@@ -48,7 +48,7 @@ HTML estático o Figma prototype: Login, Agenda del día, Nueva cita, Confirmaci
 
 Marca la lección **solo si**:
 
-1. Prototipo navegable (HTML/Figma) cubriendo login → agenda → crear cita (mínimo).
+1. Prototipo navegable (HTML/Figma) cubriendo login → agenda → crear pedido (mínimo).
 2. `prototipo/tareas-srs.md` mapea tareas de test a historias Must.
 3. Commit `feat(m16): prototipo navegable y tareas SRS`.
 

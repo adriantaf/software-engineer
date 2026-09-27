@@ -14,14 +14,14 @@ practicas:
     titulo: Backup automático de BD + restore probado
 proyecto:
   id: proj
-  titulo: Runbook de producción del SaaS Agenda Ops
+  titulo: Runbook de producción del SaaS Vitrina
 ---
 
 # M19 — Cómputo en la nube y DevOps
 
 ## Por qué existe
 
-El piloto de [Agenda Ops](../../producto-saas.md) que construiste en M17–M18 no es producto mientras solo corre en tu laptop. Un SaaS real necesita **ambientes separados**, **secretos fuera del código**, **HTTPS**, **dominio estable** y la certeza de que puedes **recuperar la base de datos** si algo falla. Esta materia es el puente entre “demo que funciona” y “servicio que otro dueño de negocio puede usar sin llamarte a las 11 p.m.”.
+El piloto de [Vitrina](../../producto-saas.md) que construiste en M17–M18 no es producto mientras solo corre en tu laptop. Un SaaS real necesita **ambientes separados**, **secretos fuera del código**, **HTTPS**, **dominio estable** y la certeza de que puedes **recuperar la base de datos** si algo falla. Esta materia es el puente entre “demo que funciona” y “servicio que otro dueño de negocio puede usar sin llamarte a las 11 p.m.”.
 
 También prepara el camino multi-tenant: staging es donde pruebas `tenant_id` y migraciones sin tocar clientes; prod es donde vive el design partner y, después, los trials de M22.
 
@@ -31,7 +31,7 @@ También prepara el camino multi-tenant: staging es donde pruebas `tenant_id` y 
 
 Al terminar debes poder:
 
-1. Empaquetar la API y el front de Agenda Ops en imágenes Docker **multi-stage** (imagen final pequeña, sin toolchain de build).
+1. Empaquetar la API y el front de Vitrina en imágenes Docker **multi-stage** (imagen final pequeña, sin toolchain de build).
 2. Orquestar servicios con Compose (app + PostgreSQL + volúmenes) de forma reproducible en tu máquina y en el hosting.
 3. Diferenciar **staging** y **prod** (URLs, variables, credenciales) sin duplicar lógica de negocio.
 4. Configurar TLS y dominio en un PaaS o VPS siguiendo la documentación del proveedor.
@@ -40,7 +40,7 @@ Al terminar debes poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M19 lleva **Agenda Ops** fuera de tu laptop: L01–L16 con evidencia en `projects/m19-ops/` y en el repo del producto.
+M19 lleva **Vitrina** fuera de tu laptop: L01–L16 con evidencia en `projects/m19-ops/` y en el repo del producto.
 
 1. Orden **L01 → L16**; cada lección termina en commit de infra o doc ops.
 2. Trabaja sobre el **repo real** del piloto; no un hello-world Docker aparte.
@@ -75,7 +75,7 @@ Si un día solo tienes 2 h: **una lección** (Dockerfile, deploy-log o restore).
 |----|---------|-----|
 | L05 | [ADR hosting: PaaS vs VPS](M19/L05-adr-hosting-paas-vs-vps.md) | 5 |
 | L06 | [Deploy staging con HTTPS](M19/L06-deploy-staging-con-https.md) | 5 |
-| L07 | [Smoke test: login, cita y health externo](M19/L07-smoke-test-login-cita-y-health-externo.md) | 5 |
+| L07 | [Smoke test: login, pedido y health externo](M19/L07-smoke-test-login-pedido-y-health-externo.md) | 5 |
 | L08 | [Dominios y deploy-log semana 2](M19/L08-dominios-y-deploy-log-semana-2.md) | 5 |
 
 ### Semana 3 — Producción, logs y rollback (~20 h)
@@ -149,7 +149,7 @@ La imagen final no debe contener `.env` ni claves: solo variables inyectadas al 
 
 ## Proyecto útil
 
-**Runbook de producción de Agenda Ops** en `projects/m19-ops/runbook.md` (puede enlazar archivos del repo del app):
+**Runbook de producción de Vitrina** en `projects/m19-ops/runbook.md` (puede enlazar archivos del repo del app):
 
 - URLs staging/prod, versiones desplegadas.
 - Cómo desplegar, rollback y rotar secretos.

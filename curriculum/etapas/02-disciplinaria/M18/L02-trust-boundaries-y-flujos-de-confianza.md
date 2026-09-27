@@ -17,7 +17,7 @@ M10 y M13 nombraron boundaries; hoy los operacionalizas para AppSec.
 
 ## Objetivo
 
-Documentar ≥4 límites y 3 flujos (login, crear cita, deep-link WA) en `projects/m18-appsec/trust-boundaries-appsec.md`.
+Documentar ≥4 límites y 3 flujos (login, crear pedido, deep-link WA) en `projects/m18-appsec/trust-boundaries-appsec.md`.
 
 ## Pasos
 
@@ -34,17 +34,17 @@ Por cada límite: origen, destino, protocolo, autenticación, datos. Mínimo 4.
 ```markdown
 | Origen | Destino | Protocolo | Auth | Datos |
 |--------|---------|-----------|------|-------|
-| Browser | API | HTTPS | cookie/JWT | PII citas |
+| Browser | API | HTTPS | cookie/JWT | PII pedidos |
 | API | Postgres | TCP | user app | SQL |
 | API | SMTP futuro | TLS | API key | recordatorios |
 | Operador | Hosting | SSH/HTTPS | MFA | logs, .env |
 ```
 ### 3. Flujos + abuso (40–50 min)
 
-Para login, crear cita y deep-link WA: datos en tránsito, auth requerida, fallo si se omite authz. Una pregunta de abuso por límite.
+Para login, crear pedido y deep-link WA: datos en tránsito, auth requerida, fallo si se omite authz. Una pregunta de abuso por límite.
 
 ```bash
-printf "\n## Flujos\n- login:\n- crear cita:\n- deep-link WA:\n\n## Abuso por límite\n" >> projects/m18-appsec/trust-boundaries-appsec.md
+printf "\n## Flujos\n- login:\n- crear pedido:\n- deep-link WA:\n\n## Abuso por límite\n" >> projects/m18-appsec/trust-boundaries-appsec.md
 ```
 ### 4. Commit (10 min)
 
@@ -76,4 +76,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L03 — STRIDE aplicado al CRM de citas](L03-stride-aplicado-al-crm-de-citas.md)
+[L03 — STRIDE aplicado al SaaS de menú/pedidos](L03-stride-aplicado-al-crm-de-pedidos.md)
