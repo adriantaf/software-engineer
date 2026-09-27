@@ -23,6 +23,8 @@ Configurar el entorno mínimo (Git + Node + editor) y dejar constancia en git de
 
 Sin entorno y sin hábito de commit, el resto del plan se diluye en “luego lo configuro”. Hoy instalas poco y **demuestras** con un archivo + un commit.
 
+Hoy usas Git como **receta** (`status` → `add` → `commit`): no hace falta entender staging ni el historial todavía. La lectura del cap. 1 va **al final** para nombrar lo que ya corriste. En **L05–L07** el libro sí manda primero; aquí el Día 1 prioriza evidencia en este repo.
+
 ## Pasos (hazlos en orden)
 
 ### 1. Terminal y versiones (15–20 min)
@@ -86,7 +88,7 @@ git config --global user.email "tu@email.com"
 
 ### 5. Lectura corta (30–40 min)
 
-Lee *Pro Git* **capítulo 1** (Introducción). No te pierdas en servidores remotos todavía.
+Lee *Pro Git* **capítulo 1** (Introducción). No te pierdas en servidores remotos todavía. Vas a reconocer `status` / `add` / `commit` que ya corriste.
 
 Anota **5 comandos o ideas nuevas** al final de `entorno.md` (o en una sección `## Notas Pro Git`).
 
