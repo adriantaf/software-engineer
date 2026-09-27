@@ -136,7 +136,10 @@ body.nav-drawer-open {
   right: 0;
   bottom: 0;
   top: 3.5rem; /* bajo header min-h-14 */
+  /* svh/dvh: en iOS la barra de Safari no debe comerse el scroll interno */
+  height: calc(100svh - 3.5rem);
   height: calc(100dvh - 3.5rem);
+  max-height: calc(100svh - 3.5rem);
   max-height: calc(100dvh - 3.5rem);
   z-index: 55;
   display: flex;
@@ -188,16 +191,16 @@ body.nav-drawer-open {
 }
 
 .nav-drawer__scroll {
-  flex: 1;
+  flex: 1 1 auto;
   min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  padding: 0.75rem 1rem max(1.25rem, env(safe-area-inset-bottom));
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  /* Extra abajo: home indicator + barra Safari */
+  padding: 0.75rem 1rem max(2.5rem, calc(env(safe-area-inset-bottom) + 1.5rem));
+  /* block (no flex): en iOS, details abierto dentro de flex se encoge y recorta ítems */
+  display: block;
 }
 
 .nav-drawer__label {
@@ -257,11 +260,22 @@ body.nav-drawer-open {
 }
 
 .nav-drawer__details {
+  display: block;
   margin-top: 0.75rem;
   border: 1px solid var(--color-base-300, #e5e7eb);
   border-radius: 0.75rem;
   background: var(--color-base-100, #fff);
-  overflow: hidden;
+  /* visible + sin max-height: no recortar Glosario… al abrir en iOS */
+  overflow: visible;
+  flex-shrink: 0;
+  height: auto;
+  max-height: none;
+}
+
+.nav-drawer__details[open] {
+  overflow: visible;
+  height: auto;
+  max-height: none;
 }
 
 .nav-drawer__summary {
@@ -299,11 +313,24 @@ body.nav-drawer-open {
 }
 
 .nav-drawer__list--nested {
+  display: flex;
+  flex-direction: column;
   padding: 0 0.35rem 0.5rem;
   border-top: 1px solid var(--color-base-300, #e5e7eb);
+  overflow: visible;
+  height: auto;
+  max-height: none;
+  flex-shrink: 0;
 }
 
 .nav-drawer__list--nested a {
   font-weight: 450;
   font-size: 0.95rem;
+}
+
+.nav-drawer__label,
+.nav-drawer__list,
+.nav-drawer__details {
+  width: 100%;
+  flex-shrink: 0;
 }
