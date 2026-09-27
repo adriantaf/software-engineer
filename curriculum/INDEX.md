@@ -36,6 +36,7 @@ Ver también:
 
 - [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
 - [Instalar en iPhone (PWA)](instalar-iphone.md) — icono + offline
+- [Sincronizar progreso](sincronizar-progreso.md) — Google + Firebase (móvil ↔ laptop)
 - [Glosario](glosario.md) — siglas con definición en español
 - [Bibliografía](bibliografia.md) — libros + alternativa gratis
 - [Producto SaaS](producto-saas.md)

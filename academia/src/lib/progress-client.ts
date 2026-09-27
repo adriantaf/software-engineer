@@ -34,6 +34,8 @@ export type ProgressState = {
   notas: string[];
   /** Historial de check-ins semanales (más reciente primero). */
   checkIns: WeeklyCheckIn[];
+  /** Epoch ms — para merge cloud / local. */
+  updatedAt?: number;
 };
 
 function defaultMateria(): MateriaProgress {
@@ -84,9 +86,13 @@ export function loadProgress(): ProgressState | null {
   }
 }
 
-export function saveProgress(state: ProgressState) {
-  const normalized = normalizeProgress(state);
+export function saveProgress(state: ProgressState, opts?: { emit?: boolean }) {
+  const normalized = normalizeProgress({
+    ...state,
+    updatedAt: Date.now(),
+  });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+  if (opts?.emit === false) return;
   window.dispatchEvent(new CustomEvent('academia-progress', { detail: normalized }));
 }
 

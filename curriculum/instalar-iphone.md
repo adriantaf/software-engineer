@@ -2,7 +2,7 @@
 
 Este plan es una **PWA**: se puede añadir a la pantalla de inicio y usar muchas fichas **sin red** (después de la primera carga).
 
-No hace falta App Store ni Cordova. El progreso sigue en este teléfono (`localStorage`).
+No hace falta App Store ni Cordova. El progreso puede sincronizarse entre iPhone y laptop con **Google** (ver [Sincronizar progreso](sincronizar-progreso.md)). Sin login, queda solo en este teléfono (`localStorage`).
 
 ## Requisitos
 

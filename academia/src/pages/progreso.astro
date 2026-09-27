@@ -132,7 +132,9 @@ const today = new Date().toISOString().slice(0, 10);
     <div class="card-body min-w-0 p-4 sm:p-6">
       <h2 class="card-title">Exportar / importar</h2>
       <p class="text-sm opacity-70 m-0 mb-2">
-        Incluye check-ins. Pega en <code>progress.json</code> y haz commit semanal.
+        Respaldo manual (incluye check-ins). Para sync automática entre dispositivos usa
+        <a class="link link-primary" href={pathTo('docs/sincronizar-progreso')}>Entrar con Google</a>.
+        También puedes pegar en <code>progress.json</code> y hacer commit semanal.
       </p>
       <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-48 w-full max-w-full min-w-0 overflow-x-auto"></textarea>
       <div class="card-actions justify-end flex-wrap">

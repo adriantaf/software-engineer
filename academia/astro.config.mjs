@@ -26,7 +26,7 @@ export default defineConfig({
         name: 'Plan de Ingeniería de Software',
         short_name: 'Plan',
         description:
-          'Plan personal de ingeniería de software, con fichas, glosario y progreso local.',
+          'Plan personal de ingeniería de software, con fichas, glosario y progreso sincronizado con Google (opcional).',
         lang: 'es',
         start_url: base,
         scope: base,

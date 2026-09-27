@@ -86,6 +86,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
                 >
                   <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
                   <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
+                  <li><a href={pathTo('docs/sincronizar-progreso')}>Sincronizar progreso</a></li>
                   <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
                   <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
                   <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
@@ -106,7 +107,28 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
           </ul>
         </nav>
 
-        <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto lg:ml-0">
+          <div id="auth-sync" class="flex items-center gap-1 min-w-0">
+            <button
+              type="button"
+              id="auth-google-btn"
+              class="btn btn-ghost btn-sm px-2"
+              hidden
+              title="Sincronizar progreso con Google"
+            >
+              Entrar
+            </button>
+            <button
+              type="button"
+              id="auth-account-btn"
+              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[9rem]"
+              hidden
+              title="Cuenta sincronizada"
+            >
+              <img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden />
+              <span id="auth-sync-label" class="text-xs truncate">Sync</span>
+            </button>
+          </div>
           <a
             class="btn btn-ghost btn-sm hidden sm:inline-flex"
             href={pathTo('buscar')}
@@ -147,6 +169,20 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
         </div>
 
         <div class="nav-drawer__scroll">
+          <p class="nav-drawer__label">Cuenta</p>
+          <ul class="nav-drawer__list">
+            <li>
+              <button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>
+                Entrar con Google (sync)
+              </button>
+            </li>
+            <li>
+              <button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>
+                Cerrar sesión
+              </button>
+            </li>
+          </ul>
+
           <p class="nav-drawer__label">Estudiar</p>
           <ul class="nav-drawer__list">
             <li><a href={pathTo()}>Inicio</a></li>
@@ -162,6 +198,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
             <ul class="nav-drawer__list nav-drawer__list--nested">
               <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
               <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
+              <li><a href={pathTo('docs/sincronizar-progreso')}>Sincronizar progreso</a></li>
               <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
               <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
               <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
@@ -217,8 +254,80 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
     <script>
       import { initProgressFromSeed, resolveContinuePath } from '../lib/progress-client';
       import { pathTo } from '../lib/paths';
+      import {
+        onSyncStatus,
+        signInWithGoogle,
+        signOutGoogle,
+        startProgressSync,
+      } from '../lib/progress-sync';
+      import { isFirebaseConfigured } from '../lib/firebase';
 
       initProgressFromSeed();
+      startProgressSync();
+
+      function initAuthUi() {
+        const btn = document.getElementById('auth-google-btn') as HTMLButtonElement | null;
+        const accountBtn = document.getElementById('auth-account-btn') as HTMLButtonElement | null;
+        const label = document.getElementById('auth-sync-label');
+        const avatar = document.getElementById('auth-avatar') as HTMLImageElement | null;
+        const drawerIn = document.getElementById('auth-google-btn-drawer') as HTMLButtonElement | null;
+        const drawerOut = document.getElementById('auth-signout-drawer') as HTMLButtonElement | null;
+
+        if (!isFirebaseConfigured()) {
+          btn?.setAttribute('hidden', '');
+          accountBtn?.setAttribute('hidden', '');
+          drawerIn?.setAttribute('hidden', '');
+          drawerOut?.setAttribute('hidden', '');
+          return;
+        }
+
+        btn?.addEventListener('click', () => void signInWithGoogle());
+        drawerIn?.addEventListener('click', () => void signInWithGoogle());
+        accountBtn?.addEventListener('click', () => {
+          if (confirm('¿Cerrar sesión de Google? El progreso local se conserva.')) {
+            void signOutGoogle();
+          }
+        });
+        drawerOut?.addEventListener('click', () => void signOutGoogle());
+
+        onSyncStatus(({ status, user }) => {
+          const configured = isFirebaseConfigured();
+          if (!configured) return;
+
+          if (!user) {
+            btn?.removeAttribute('hidden');
+            accountBtn?.setAttribute('hidden', '');
+            drawerIn?.removeAttribute('hidden');
+            drawerOut?.setAttribute('hidden', '');
+            if (btn) {
+              btn.disabled = status === 'syncing';
+              btn.textContent = status === 'syncing' ? '…' : 'Entrar';
+            }
+            return;
+          }
+
+          btn?.setAttribute('hidden', '');
+          accountBtn?.removeAttribute('hidden');
+          drawerIn?.setAttribute('hidden', '');
+          drawerOut?.removeAttribute('hidden');
+
+          const name = user.displayName?.split(' ')[0] || 'Cuenta';
+          if (label) {
+            label.textContent =
+              status === 'syncing' ? 'Sync…' : status === 'error' ? 'Error sync' : name;
+          }
+          if (avatar) {
+            if (user.photoURL) {
+              avatar.src = user.photoURL;
+              avatar.hidden = false;
+            } else {
+              avatar.hidden = true;
+            }
+          }
+        });
+      }
+
+      initAuthUi();
 
       function syncContinuar() {
         const raw = document.getElementById('catalog-ids')?.textContent;
