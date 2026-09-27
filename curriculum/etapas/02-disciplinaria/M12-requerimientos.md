@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Construir sin requisitos es adivinar. A partir de esta materia el producto del plan deja de ser abstracto: documentas **Vitrina** ([producto-saas.md](../../producto-saas.md)) — pedidos, clientes y panel para un local QSR o barra de bebidass local. Los requisitos **no funcionales de seguridad y privacidad** entran desde el SRS, no como parche en M18 ([hilo seguridad](../../hilos/seguridad.md)).
+Construir sin requisitos es adivinar. A partir de esta materia el producto del plan deja de ser abstracto: documentas **Vitrina** ([producto-saas.md](../../producto-saas.md)) — pedidos, clientes y panel para un local QSR o barra de bebidas local. Los requisitos **no funcionales de seguridad y privacidad** entran desde el SRS, no como parche en M18 ([hilo seguridad](../../hilos/seguridad.md)).
 
 **En resumen:** congelas qué construir: entrevistas, stories y un SRS con seguridad; no pantallas bonitas primero.
 

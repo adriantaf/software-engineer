@@ -2,54 +2,54 @@
 id: L18
 materia: M17
 orden: 18
-titulo: Botón enviar recordatorio desde ficha pedido
+titulo: Botón pedido WhatsApp desde el perfil / ficha
 horas: 5.0
 semana: 5
-lectura: UI + API log
-evidencia: acción recordatorio
+lectura: UI + wa.me
+evidencia: acción pedido WhatsApp
 ---
 
-# L18 — Botón enviar recordatorio desde ficha pedido
+# L18 — Botón pedido WhatsApp desde el perfil / ficha
 
 **~5.0 h · Semana 5**
 
-Cierra loop operativo del negocio.
+Cierra el loop del comensal: ve el menú → arma mensaje → abre WhatsApp.
 
 ## Objetivo
 
-En UI de pedido, acción que abre WhatsApp o registra intento según diseño.
+En el perfil público (o preview), acción que abre `wa.me` con el pedido prefijado (ítems + total + “pago al recoger”).
 
 ## Conceptos clave
 
-- acción usuario
-- auditoría ligera
-- opt-in
+- deep-link `wa.me`
+- mensaje prefijado
+- sin WhatsApp Business API en v1
 
 ## Pasos (hazlos en orden)
 
-### 1. Botón en ficha pedido (70–90 min)
+### 1. Generar texto del pedido (40 min)
 
-Acción “Enviar recordatorio” abre `wa.me` (window.open). No requiere WhatsApp Business API.
+Función pura: lista de líneas → string URL-encoded. Ejemplo:
 
-### 2. Evidencia (30 min)
+`Hola, quiero pedir:%0A- 2x Matcha latte%0ATotal: $130%0APago al recoger.`
+
+### 2. Botón en UI (70–90 min)
+
+Acción “Pedir por WhatsApp” hace `window.open` a `https://wa.me/<telefonoNegocio>?text=...`. No requiere WhatsApp Business API.
+
+### 3. Evidencia (30 min)
 
 ```bash
-# captura redactada o nota en integracion-whatsapp.md con URL de ejemplo sin teléfono real
 echo "ej: https://wa.me/525500000000?text=..." >> projects/m17-vitrina/docs/integracion-whatsapp.md
-```
-
-### 3. Commit (15 min)
-
-```bash
 git add projects/m17-vitrina
-git commit -m "feat(m17): L18 boton recordatorio whatsapp"
+git commit -m "feat(m17): L18 pedido whatsapp wa.me"
 ```
 
 ## Lectura de esta lección
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| MDN Web Docs + docs del framework elegido | UI + API log | [MDN Web Docs (ES)](https://developer.mozilla.org/es/) |
+| producto-saas | Pedido WhatsApp MVP | [producto-saas](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M17](../../../bibliografia.md#m17-aplicaciones-web) |
 
 
@@ -57,13 +57,14 @@ git commit -m "feat(m17): L18 boton recordatorio whatsapp"
 
 Marca la lección **solo si**:
 
-1. Botón recordatorio en ficha pedido abre wa.me; evidencia en doc WhatsApp.
-2. Commit `docs(m17): L18 boton-enviar-recordatorio-desde-ficha-pedido`.
+1. Botón abre `wa.me` con ítems del carrito/pedido de prueba.
+2. Evidencia en `integracion-whatsapp.md` (teléfono demo/redactado).
+3. Commit `feat(m17): L18 pedido whatsapp wa.me`.
 
 ## Errores comunes
 
-- Botón que llama API Business inexistente.
-- Abrir wa.me con PII extra innecesaria.
+- Exigir API oficial de WhatsApp en el piloto.
+- Mandar el teléfono del cliente en la URL (el link es al negocio).
 
 ## Siguiente
 

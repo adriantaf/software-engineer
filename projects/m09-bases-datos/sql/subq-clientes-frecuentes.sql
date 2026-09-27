@@ -1,19 +1,19 @@
--- L11 — HAVING + subconsulta / NOT EXISTS
--- Pregunta: ¿quiénes son clientes frecuentes (≥2 completadas)?
+-- L11 — subconsultas: clientes frecuentes e ítems nunca pedidos
 
-SELECT cl.nombre, count(*) AS completadas
-FROM citas c
-JOIN clientes cl ON cl.id = c.cliente_id
-WHERE c.estado = 'completada'
-GROUP BY cl.id, cl.nombre
-HAVING count(*) >= 2
-ORDER BY completadas DESC;
+-- 1) Clientes con ≥2 pedidos entregados
+SELECT cu.id, cu.nombre, cu.telefono
+FROM customers cu
+WHERE (
+  SELECT count(*) FROM orders o
+  WHERE o.customer_id = cu.id AND o.estado = 'entregado'
+) >= 2
+ORDER BY cu.nombre;
 
--- Servicios nunca agendados
+-- 2) Ítems de menú que nunca aparecen en order_items
 SELECT s.id, s.nombre
-FROM servicios s
+FROM menu_items s
 WHERE NOT EXISTS (
-  SELECT 1 FROM citas c WHERE c.servicio_id = s.id
+  SELECT 1 FROM order_items oi WHERE oi.menu_item_id = s.id
 )
 ORDER BY s.nombre;
 

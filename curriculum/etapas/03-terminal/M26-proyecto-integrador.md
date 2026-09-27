@@ -83,7 +83,7 @@ Si un día solo tienes 2 h: **un entregable del sprint** (test, página, doc mem
 | ID | Lección | ~h |
 |----|---------|-----|
 | L09 | [Pedidos CRUD multi-tenant](M26/L09-pedidos-crud-multi-tenant.md) | 5 |
-| L10 | [Clientes y servicios por tenant](M26/L10-clientes-y-servicios-por-tenant.md) | 5 |
+| L10 | [Menú por tenant](M26/L10-menu-por-tenant.md) | 5 |
 | L11 | [Staff y permisos mínimos](M26/L11-staff-y-permisos-minimos.md) | 5 |
 | L12 | [Tests regresión flujos críticos](M26/L12-tests-regresion-flujos-criticos.md) | 5 |
 
@@ -91,9 +91,9 @@ Si un día solo tienes 2 h: **un entregable del sprint** (test, página, doc mem
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L13 | [Notificaciones o WhatsApp si en alcance](M26/L13-notificaciones-o-whatsapp-si-en-alcance.md) | 5 |
+| L13 | [Pedido WhatsApp y pago al recoger](M26/L13-notificaciones-o-whatsapp-si-en-alcance.md) | 5 |
 | L14 | [App móvil M20 conectada o plan cierre](M26/L14-app-movil-m20-conectada-o-plan-cierre.md) | 5 |
-| L15 | [Métricas M22 en producto](M26/L15-metricas-m22-en-producto.md) | 5 |
+| L15 | [Temas de perfil y marketplace lite](M26/L15-temas-perfil-y-marketplace-lite.md) | 5 |
 | L16 | [Demo interna semana 4 — flujos completos](M26/L16-demo-interna-semana-4-flujos-completos.md) | 5 |
 
 ### Semana 5 — Stripe test y landing de precios (~20 h)

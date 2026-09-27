@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-El dueño del local QSR o barra de bebidass — tu ICP de [Vitrina](../../producto-saas.md) — no administra pedidos desde un escritorio todo el día. Vive en WhatsApp y en el teléfono. Una app móvil **cliente** (owner/staff) que habla con la **misma API** que la web demuestra que entiendes auth en cliente móvil, manejo de red inestable y distribución instalable, sin duplicar reglas de negocio en el dispositivo.
+El dueño del local QSR o barra de bebidas — tu ICP de [Vitrina](../../producto-saas.md) — no administra pedidos desde un escritorio todo el día. Vive en WhatsApp y en el teléfono. Una app móvil **cliente** (owner/staff) que habla con la **misma API** que la web demuestra que entiendes auth en cliente móvil, manejo de red inestable y distribución instalable, sin duplicar reglas de negocio en el dispositivo.
 
 No es reemplazar la web admin completa en M17; es el canal móvil mínimo viable: login, lista de pedidos, detalle, estados claros.
 

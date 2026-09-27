@@ -312,7 +312,15 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'crm',
     term: 'CRM',
     expansion: 'gestión de relación con clientes',
-    definition: 'Sistema para clientes, contactos y seguimiento. En este plan el producto es Vitrina (menú/pedidos).',
+    definition:
+      'Sistema para clientes, contactos y seguimiento. En este plan el producto no es un CRM de citas: es Vitrina (menú + pedidos).',
+  },
+  {
+    id: 'vitrina',
+    term: 'Vitrina',
+    expansion: 'SaaS vertical del plan (menú + pedidos)',
+    definition:
+      'Menú digital + pedidos (WhatsApp / pago al recoger; checkout online opcional) para QSR y barras de bebidas.',
   },
   {
     id: 'semver',

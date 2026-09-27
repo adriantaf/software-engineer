@@ -17,7 +17,7 @@ Capstone: SaaS multi-tenant en producción. Hoy entregas **`projects/m26-capston
 
 ## Objetivo
 
-CRUD de pedidos multi-tenant con tests de aislamiento en el camino crítico.
+CRUD de pedidos multi-tenant con tests de aislamiento en el camino crítico (menú → pedido → estados).
 
 ## Por qué empieza así
 
@@ -26,7 +26,8 @@ M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de tutoriales.
 Conceptos que debes poder explicar al cerrar:
 
 - Regresión
-- tenant_id en queries
+- `tenant_id` en queries
+- Snapshot de precio por línea
 
 ## Pasos (hazlos en orden)
 
@@ -38,27 +39,27 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Matriz CRUD pedidos (25–35 min)
 
-En `projects/m26-capstone/memoria/pedidos-crud.md` tabla create/read/update/cancel × status esperado por tenant.
+En `projects/m26-capstone/memoria/pedidos-crud.md` tabla create/read/update estado × status esperado por tenant.
 
 ### 3. Implementa/verifica flujos + aislamiento (100–130 min)
 
-Ejecuta create/edit/cancel en A y B. Ningún hardcode de un solo design partner.
+Ejecuta create + cambio de estado en A y B. Ningún hardcode de un solo design partner.
 
 ```bash
 # create en A
-curl -s -X POST "$API/pedidos" -H "Authorization: Bearer $TOKEN_A" \
+curl -s -X POST "$API/orders" -H "Authorization: Bearer $TOKEN_A" \
   -H "Content-Type: application/json" \
-  -d '{"servicio_id":"…","cliente_id":"…","starts_at":"2026-10-01T16:00:00Z"}'
+  -d '{"canal":"whatsapp","pago":"al_recoger","items":[{"menuItemId":"…","cantidad":2}]}'
 
 # A intenta leer pedido de B → 403/404
-curl -s -w "%{http_code}" -H "Authorization: Bearer $TOKEN_A" "$API/pedidos/$CITA_B"
+curl -s -w "%{http_code}" -H "Authorization: Bearer $TOKEN_A" "$API/orders/$ORDER_B"
 ```
 
 Pega status codes en la memoria.
 
 ### 4. Test mínimo (30–40 min)
 
-Añade o enlaza test de regresión. Bitácora semana-03.
+Añade o enlaza test de regresión cross-tenant. Bitácora semana-03.
 
 ### 5. Commit atómico (15 min)
 
@@ -67,8 +68,6 @@ git add projects/
 git status
 git commit -m "docs(m26): l09 pedidos-crud-multi-tenant"
 ```
-
-El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en el mismo commit.
 
 ## Lectura de esta lección
 
@@ -82,16 +81,15 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m26-capstone/memoria/pedidos-crud.md`.
-2. Commit en git con mensaje docs(m26).
-3. Bitácora de la semana actualizada.
+1. Create/list/estado de pedidos funciona en ≥2 tenants.
+2. A no lee pedidos de B (evidencia HTTP + test).
+3. Memoria `pedidos-crud.md` en git.
 
 ## Errores comunes
 
-- Un solo tenant de mentira.
-- Stripe solo en localhost sin webhook desplegado.
-- Memoria genérica sin tu tenancy real.
+- Reusar IDs de menú del tenant A en el tenant B.
+- Confiar en el precio enviado por el cliente.
 
 ## Siguiente
 
-[L10 — Clientes y servicios por tenant](L10-clientes-y-servicios-por-tenant.md)
+[L10 — Menú por tenant](L10-menu-por-tenant.md)

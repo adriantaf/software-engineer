@@ -21,7 +21,7 @@ proyecto:
 
 ## Por qué existe
 
-Aquí nace el **piloto web** de [Vitrina](../../producto-saas.md): pedidos, clientes, servicios y admin para **un** local QSR o barra de bebidass (design partner), no un CRUD genérico. Auth, roles y validación van desde el MVP — no “después en M18”. El modelo de datos debe **poder** llevar `tenant_id` en M26 sin reescribir todo.
+Aquí nace el **piloto web** de [Vitrina](../../producto-saas.md): menú, pedidos y admin para **un** local QSR o barra de bebidas (design partner), no un CRUD genérico. Auth, roles y validación van desde el MVP — no “después en M18”. El modelo de datos debe **poder** llevar `tenant_id` en M26 sin reescribir todo.
 
 Esta materia integra M09 (esquema), M12–M13 (requerimientos/diseño), M15 (tests) y prepara M19 (deploy) y M18 (AppSec).
 
@@ -35,9 +35,9 @@ Al terminar debes poder:
 1. Diseñar y exponer una API REST con validación de entrada y códigos HTTP coherentes.
 2. Implementar registro/login con hash de contraseña y sesión o JWT **validada en servidor**.
 3. Proteger rutas en front y API; manejar loading, error y vacío en UI.
-4. CRUD de pedidos, clientes y servicios alineado al SRS del piloto.
+4. CRUD de menú y pedidos alineado al SRS del piloto.
 5. Panel admin con roles owner/staff y autorización en cada endpoint sensible.
-6. Deep-links WhatsApp para recordatorios o confirmaciones (sin sustituir la API).
+6. Deep-links WhatsApp para armar el pedido (`wa.me`) (sin sustituir la API).
 7. Desplegar el piloto en HTTPS con checklist documentado hacia multi-tenant.
 
 ## Cómo estudiar esta materia (lecciones)
@@ -72,13 +72,13 @@ Si un día solo tienes 2 h: **una lección** con commit demostrable.
 | L03 | [Login, sesión y GET /me protegido](M17/L03-login-sesion-y-get-me-protegido.md) | 5 |
 | L04 | [Cierre semana 1 — suite auth P1](M17/L04-cierre-semana-1-suite-auth-p1.md) | 5 |
 
-### Semana 2 — CRUD pedidos, clientes y servicios (~20 h)
+### Semana 2 — CRUD menú y pedidos (~20 h)
 
 | ID | Lección | ~h |
 |----|---------|-----|
-| L05 | [Modelo de dominio pedidos, clientes y servicios](M17/L05-modelo-de-dominio-menu-pedidos-y-categorias.md) | 5 |
+| L05 | [Modelo de dominio menú, pedidos y categorías](M17/L05-modelo-de-dominio-menu-pedidos-y-categorias.md) | 5 |
 | L06 | [API pedidos — crear y listar con reglas](M17/L06-api-pedidos-crear-y-listar-con-reglas.md) | 5 |
-| L07 | [CRUD clientes y servicios](M17/L07-crud-clientes-y-servicios.md) | 5 |
+| L07 | [CRUD menú y categorías](M17/L07-crud-menu-y-categorias.md) | 5 |
 | L08 | [Seeds demo y datos design partner](M17/L08-seeds-demo-y-datos-design-partner.md) | 5 |
 
 ### Semana 3 — Roles owner/staff y admin (~20 h)
