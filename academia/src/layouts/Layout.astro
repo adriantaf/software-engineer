@@ -262,21 +262,65 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
         if (!toggle || !drawer || !backdrop) return;
 
         let open = false;
-
         let closeTimer: ReturnType<typeof setTimeout> | undefined;
 
+        const siteHeader = document.getElementById('site-header');
+
+        function lockPageScroll() {
+          const y = window.scrollY;
+          document.documentElement.classList.add('nav-drawer-open');
+          document.documentElement.style.overflow = 'hidden';
+          document.body.classList.add('nav-drawer-open');
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${y}px`;
+          document.body.style.left = '0';
+          document.body.style.right = '0';
+          document.body.style.width = '100%';
+          document.body.dataset.navScrollY = String(y);
+          // Sticky deja de “pegarse” con body fixed; anclar header al viewport.
+          if (siteHeader) {
+            siteHeader.style.position = 'fixed';
+            siteHeader.style.top = '0';
+            siteHeader.style.left = '0';
+            siteHeader.style.right = '0';
+            siteHeader.style.width = '100%';
+          }
+        }
+
+        function unlockPageScroll() {
+          const y = Number(document.body.dataset.navScrollY || 0);
+          document.documentElement.classList.remove('nav-drawer-open');
+          document.documentElement.style.overflow = '';
+          document.body.classList.remove('nav-drawer-open');
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.left = '';
+          document.body.style.right = '';
+          document.body.style.width = '';
+          delete document.body.dataset.navScrollY;
+          if (siteHeader) {
+            siteHeader.style.position = '';
+            siteHeader.style.top = '';
+            siteHeader.style.left = '';
+            siteHeader.style.right = '';
+            siteHeader.style.width = '';
+          }
+          window.scrollTo(0, y);
+        }
+
         function setOpen(next: boolean) {
+          if (next === open) return;
           open = next;
           toggle!.setAttribute('aria-expanded', String(open));
           toggle!.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
           drawer!.setAttribute('aria-hidden', String(!open));
           backdrop!.setAttribute('aria-hidden', String(!open));
-          document.body.classList.toggle('nav-drawer-open', open);
           iconOpen?.classList.toggle('hidden', open);
           iconClose?.classList.toggle('hidden', !open);
           if (closeTimer) clearTimeout(closeTimer);
 
           if (open) {
+            lockPageScroll();
             drawer!.hidden = false;
             backdrop!.hidden = false;
             requestAnimationFrame(() => {
@@ -287,6 +331,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
           } else {
             drawer!.classList.remove('nav-drawer--open');
             backdrop!.classList.remove('nav-backdrop--open');
+            unlockPageScroll();
             closeTimer = setTimeout(() => {
               if (!open) {
                 drawer!.hidden = true;

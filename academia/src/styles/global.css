@@ -104,8 +104,10 @@ body {
 }
 
 /* —— Menú móvil: drawer full-screen (una columna) —— */
+html.nav-drawer-open,
 body.nav-drawer-open {
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .nav-backdrop {
@@ -116,6 +118,7 @@ body.nav-drawer-open {
   opacity: 0;
   transition: opacity 200ms ease;
   pointer-events: none;
+  touch-action: none;
 }
 
 .nav-backdrop[hidden] {
@@ -129,8 +132,12 @@ body.nav-drawer-open {
 
 .nav-drawer {
   position: fixed;
-  inset: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   top: 3.5rem; /* bajo header min-h-14 */
+  height: calc(100dvh - 3.5rem);
+  max-height: calc(100dvh - 3.5rem);
   z-index: 55;
   display: flex;
   flex-direction: column;
@@ -186,6 +193,7 @@ body.nav-drawer-open {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 0.75rem 1rem max(1.25rem, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
