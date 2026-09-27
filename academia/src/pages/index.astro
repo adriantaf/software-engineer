@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  getCatalog,
+  getMateriasByEtapa,
+  getProgressSeed,
+  totalStats,
+} from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
+
+const catalog = getCatalog();
+const stats = totalStats();
+const seed = getProgressSeed();
+---
+
+<Layout title="Dashboard">
+  <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
+
+  <div class="flex flex-col gap-6">
+    <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
+      <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
+        <div class="max-w-2xl w-full min-w-0">
+          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal</p>
+          <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
+          <p class="py-4 opacity-80 text-sm sm:text-base break-words">
+            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
+            <span class="opacity-50"> · </span>
+            {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <a class="btn btn-primary" href={pathTo('materia/M01')}>Empezar M01</a>
+            <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
+            <a class="btn btn-ghost" href={pathTo('progreso')}>Progreso</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-3 gap-4 items-stretch" id="etapa-cards">
+      {
+        catalog.etapas.map((etapa) => {
+          const mats = getMateriasByEtapa(etapa.id);
+          const horas = mats.reduce((a, m) => a + m.horas, 0);
+          return (
+            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors h-full min-w-0 overflow-hidden">
+              <div class="card-body min-w-0">
+                <div class="badge badge-outline">Etapa {etapa.orden}</div>
+                <h2 class="card-title text-lg break-words">{etapa.titulo}</h2>
+                <p class="text-sm opacity-80 break-words">{etapa.objetivo}</p>
+                <p class="text-sm break-words">
+                  {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
+                </p>
+                <progress
+                  class="progress progress-primary w-full"
+                  data-etapa={etapa.id}
+                  value="0"
+                  max="100"
+                />
+                <p class="text-xs opacity-60" data-etapa-label={etapa.id}>
+                  0% completado (local)
+                </p>
+              </div>
+            </a>
+          );
+        })
+      }
+    </section>
+
+    <section class="card bg-base-100 border border-base-300 overflow-hidden">
+      <div class="card-body min-w-0">
+        <h2 class="card-title">Recursos</h2>
+        <p class="text-sm opacity-70 break-words">
+          Aquí priorizamos competencia de software con proyectos útiles. Física, química o cálculo avanzado,
+          si los necesitas, los cursas aparte.
+        </p>
+        <div class="card-actions flex-wrap gap-2">
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/bibliografia')}>Bibliografía</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/producto-saas')}>Producto SaaS</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('egreso')}>Egreso</a>
+          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script type="application/json" id="catalog-lite" set:html={JSON.stringify({
+    etapas: catalog.etapas.map((e) => ({
+      id: e.id,
+      materiaIds: getMateriasByEtapa(e.id).map((m) => m.id),
+    })),
+  })} />
+
+  <script>
+    import { loadProgress } from '../lib/progress-client';
+
+    function refresh() {
+      const raw = document.getElementById('catalog-lite')?.textContent;
+      if (!raw) return;
+      const catalog = JSON.parse(raw) as { etapas: { id: string; materiaIds: string[] }[] };
+      const progress = loadProgress();
+      for (const etapa of catalog.etapas) {
+        const done = etapa.materiaIds.filter(
+          (id) => progress?.materias?.[id]?.status === 'completada',
+        ).length;
+        const pct = etapa.materiaIds.length
+          ? Math.round((done / etapa.materiaIds.length) * 100)
+          : 0;
+        const bar = document.querySelector(`progress[data-etapa="${etapa.id}"]`);
+        const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
+        if (bar) bar.setAttribute('value', String(pct));
+        if (label) {
+          label.textContent = `${pct}% completado (${done}/${etapa.materiaIds.length})`;
+        }
+      }
+    }
+
+    refresh();
+    window.addEventListener('academia-progress', refresh);
+  </script>
+</Layout>

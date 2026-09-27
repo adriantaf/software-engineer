@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nueva cita — Agenda Ops</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="bar">
+      <a href="agenda.html">← Agenda</a>
+      <strong>Nueva cita</strong>
+    </header>
+    <main class="wrap">
+      <label>Cliente <input name="cliente" placeholder="Nombre del cliente" /></label>
+      <label>Servicio
+        <select>
+          <option>Corte</option>
+          <option>Consulta</option>
+        </select>
+      </label>
+      <label>Inicio <input type="datetime-local" name="inicio" /></label>
+      <a class="cta" href="agenda.html">Guardar cita</a>
+      <p class="hint">Prototipo: no persiste datos.</p>
+    </main>
+  </body>
+</html>

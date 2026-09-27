@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { loadMarkdownPage } from '../lib/curriculum';
+
+const page = loadMarkdownPage('nivel.md');
+---
+
+<Layout title="Nivel">
+  <article class="card bg-base-100 border border-base-300 overflow-hidden">
+    <div class="card-body p-4 sm:p-6 min-w-0 prose-academia" set:html={page.html} />
+  </article>
+</Layout>

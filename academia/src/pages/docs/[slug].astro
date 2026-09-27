@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { loadMarkdownPage } from '../../lib/curriculum';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'index' }, props: { file: 'INDEX.md' } },
+    { params: { slug: 'como-estudiar' }, props: { file: 'como-estudiar.md' } },
+    { params: { slug: 'filosofia' }, props: { file: 'filosofia.md' } },
+    { params: { slug: 'producto-saas' }, props: { file: 'producto-saas.md' } },
+    { params: { slug: 'bibliografia' }, props: { file: 'bibliografia.md' } },
+    { params: { slug: 'glosario' }, props: { file: 'glosario.md' } },
+    { params: { slug: 'instalar-iphone' }, props: { file: 'instalar-iphone.md' } },
+    { params: { slug: 'seguridad' }, props: { file: 'hilos/seguridad.md' } },
+    { params: { slug: 'producto' }, props: { file: 'hilos/producto.md' } },
+  ];
+}
+
+const { file } = Astro.props;
+const page = loadMarkdownPage(file);
+---
+
+<Layout title={page.title}>
+  <article class="card bg-base-100 border border-base-300 overflow-hidden">
+    <div class="card-body p-4 sm:p-6 min-w-0 prose-academia" set:html={page.html} />
+  </article>
+</Layout>

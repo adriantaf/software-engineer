@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pathTo } from '../lib/paths';
+
+const bundlePath = pathTo('pagefind/');
+const uiJs = pathTo('pagefind/pagefind-ui.js');
+const uiCss = pathTo('pagefind/pagefind-ui.css');
+---
+
+<Layout title="Buscar">
+  <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Buscar</h1>
+  <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
+    Índice full-text del plan (fichas, lecciones, guías). La primera visita online descarga el índice.
+  </p>
+
+  <div id="search" class="max-w-2xl min-h-24"></div>
+  <p id="search-fallback" class="text-sm opacity-70 hidden" role="status">
+    No se pudo cargar el índice. Tras <code>npm run build</code> debe existir
+    <code>dist/pagefind/</code>. En preview/deploy abre esta página online una vez.
+  </p>
+</Layout>
+
+<link href={uiCss} rel="stylesheet" />
+<script is:inline src={uiJs}></script>
+<script is:inline define:vars={{ bundlePath }}>
+  (function () {
+    const fallback = document.getElementById('search-fallback');
+    function boot() {
+      if (typeof PagefindUI === 'undefined') {
+        fallback?.classList.remove('hidden');
+        return;
+      }
+      new PagefindUI({
+        element: '#search',
+        bundlePath: bundlePath,
+        showImages: false,
+        showSubResults: true,
+        translations: {
+          placeholder: 'Buscar en el plan…',
+          clear_search: 'Limpiar',
+          load_more: 'Más resultados',
+          search_label: 'Buscar en el plan',
+          filters_label: 'Filtros',
+          zero_results: 'Sin resultados para [SEARCH_TERM]',
+          many_results: '[COUNT] resultados para [SEARCH_TERM]',
+          one_result: '[COUNT] resultado para [SEARCH_TERM]',
+          alt_search: 'Sin resultados para [SEARCH_TERM]. Mostrando [DIFFERENT_TERM]',
+          search_suggestion: 'Prueba con [SUGGESTION]',
+          searching: 'Buscando [SEARCH_TERM]…',
+        },
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', boot);
+    } else {
+      boot();
+    }
+  })();
+</script>
