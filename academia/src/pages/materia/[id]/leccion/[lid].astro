@@ -32,6 +32,7 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
 ---
 
 <Layout title={`${leccion.id} ${leccion.titulo} · ${materia.id}`}>
+  <div class="plan-shell py-8 sm:py-10">
   <div class="breadcrumbs text-sm mb-3 max-w-full overflow-x-auto">
     <ul class="flex-wrap">
       <li><a href={pathTo()}>Inicio</a></li>
@@ -240,6 +241,8 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
         )
       }
     </div>
+  </div>
+
   </div>
 
   <script>

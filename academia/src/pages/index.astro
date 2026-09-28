@@ -1,7 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import CourseCard from '../components/CourseCard.astro';
+import CourseGrid from '../components/CourseGrid.astro';
 import {
   getCatalog,
+  getLeccionesCatalog,
   getMateriasByEtapa,
   getProgressSeed,
   totalStats,
@@ -11,76 +17,130 @@ import { pathTo } from '../lib/paths';
 const catalog = getCatalog();
 const stats = totalStats();
 const seed = getProgressSeed();
+const leccionesByMateria = getLeccionesCatalog();
+const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e]));
+
+const featured = catalog.materias.filter((m) => ['M01', 'M02', 'M03', 'M04'].includes(m.id));
+const continuarHref = pathTo('materia/M01/leccion/L01');
+
+const guideLinks = [
+  { href: pathTo('docs/como-estudiar'), label: 'Cómo estudiar' },
+  { href: pathTo('docs/glosario'), label: 'Glosario' },
+  { href: pathTo('docs/bibliografia'), label: 'Bibliografía' },
+  { href: pathTo('docs/producto-saas'), label: 'Producto SaaS' },
+  { href: pathTo('egreso'), label: 'Egreso' },
+  { href: pathTo('docs/index'), label: 'Mapa curricular' },
+];
 ---
 
 <Layout title="Inicio">
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <div class="flex flex-col gap-6">
-    <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
-      <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
-        <div class="max-w-2xl w-full min-w-0">
-          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan de estudios</p>
-          <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
-          <p class="py-4 opacity-80 text-sm sm:text-base break-words">
-            Ritmo recomendado: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
-            <span class="opacity-50"> · </span>
-            {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
-          </p>
-          <div class="flex flex-wrap gap-2 justify-center">
-            <a class="btn btn-primary" href={pathTo('materia/M01')}>Comenzar M01</a>
-            <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
-            <a class="btn btn-ghost" href={pathTo('progreso')}>Progreso</a>
-          </div>
-        </div>
+  <HomeHero
+    programa={catalog.programa}
+    ritmoHoras={catalog.ritmoHorasSemana}
+    materias={stats.materias}
+    horas={stats.horas}
+    semanas={stats.semanas}
+    continuarHref={continuarHref}
+  />
+
+  <div class="plan-shell py-10 sm:py-12 flex flex-col gap-12 sm:gap-14">
+    <section id="etapa-cards">
+      <SectionHeading
+        title="Elige tu etapa"
+        subtitle="Tres bloques del plan, del fundamento al egreso."
+      />
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          catalog.etapas.map((etapa) => {
+            const mats = getMateriasByEtapa(etapa.id);
+            const horas = mats.reduce((a, m) => a + m.horas, 0);
+            return (
+              <CategoryCard
+                id={etapa.id}
+                titulo={etapa.titulo}
+                objetivo={etapa.objetivo}
+                orden={etapa.orden}
+                materiaCount={mats.length}
+                horas={horas}
+                duracionMeses={etapa.duracionMeses}
+              />
+            );
+          })
+        }
       </div>
     </section>
 
-    <section class="grid md:grid-cols-3 gap-4 items-stretch" id="etapa-cards">
-      {
-        catalog.etapas.map((etapa) => {
-          const mats = getMateriasByEtapa(etapa.id);
-          const horas = mats.reduce((a, m) => a + m.horas, 0);
-          return (
-            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors h-full min-w-0 overflow-hidden">
-              <div class="card-body min-w-0">
-                <div class="badge badge-outline">Etapa {etapa.orden}</div>
-                <h2 class="card-title text-lg break-words">{etapa.titulo}</h2>
-                <p class="text-sm opacity-80 break-words">{etapa.objetivo}</p>
-                <p class="text-sm break-words">
-                  {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
-                </p>
-                <progress
-                  class="progress progress-primary w-full"
-                  data-etapa={etapa.id}
-                  value="0"
-                  max="100"
+    <section>
+      <SectionHeading
+        title="Empieza aquí"
+        subtitle="Las primeras materias de Fundamentos para tomar ritmo."
+        href={pathTo('etapa/basica')}
+        linkLabel="Ver Fundamentos"
+      />
+      <CourseGrid>
+        {
+          featured.map((m) => {
+            const etapa = etapaById[m.etapa]!;
+            return (
+              <CourseCard
+                id={m.id}
+                titulo={m.titulo}
+                etapaId={m.etapa}
+                etapaTitulo={etapa.titulo}
+                horas={m.horas}
+                semanas={m.semanas}
+                leccionCount={leccionesByMateria[m.id]?.length ?? 0}
+              />
+            );
+          })
+        }
+      </CourseGrid>
+    </section>
+
+    {
+      catalog.etapas.map((etapa) => {
+        const mats = getMateriasByEtapa(etapa.id);
+        return (
+          <section>
+            <SectionHeading
+              title={etapa.titulo}
+              subtitle={etapa.objetivo}
+              href={pathTo(`etapa/${etapa.id}`)}
+              linkLabel="Ver etapa"
+            />
+            <CourseGrid>
+              {mats.map((m) => (
+                <CourseCard
+                  id={m.id}
+                  titulo={m.titulo}
+                  etapaId={m.etapa}
+                  etapaTitulo={etapa.titulo}
+                  horas={m.horas}
+                  semanas={m.semanas}
+                  leccionCount={leccionesByMateria[m.id]?.length ?? 0}
                 />
-                <p class="text-xs opacity-60" data-etapa-label={etapa.id}>
-                  0% completado (local)
-                </p>
-              </div>
-            </a>
-          );
-        })
-      }
-    </section>
+              ))}
+            </CourseGrid>
+          </section>
+        );
+      })
+    }
 
-    <section class="card bg-base-100 border border-base-300 overflow-hidden">
-      <div class="card-body min-w-0">
-        <h2 class="card-title">Recursos</h2>
-        <p class="text-sm opacity-70 break-words">
-          El plan prioriza competencia en software mediante proyectos evaluables. Materias de apoyo
-          (física, química o cálculo avanzado) pueden cursarse por separado si resultan necesarias.
-        </p>
-        <div class="card-actions flex-wrap gap-2">
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/bibliografia')}>Bibliografía</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/producto-saas')}>Producto SaaS</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('egreso')}>Egreso</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa</a>
-        </div>
-      </div>
+    <section class="pb-4">
+      <SectionHeading title="Guías académicas" subtitle="Referencias compactas del plan." />
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 m-0 p-0 list-none text-sm">
+        {
+          guideLinks.map((g) => (
+            <li>
+              <a class="font-medium text-plan-primary hover:underline" href={g.href}>
+                {g.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </section>
   </div>
 

@@ -1,5 +1,12 @@
 import { initializeApp, type FirebaseApp } from 'firebase/app';
-import { getAuth, type Auth } from 'firebase/auth';
+import {
+  browserLocalPersistence,
+  browserPopupRedirectResolver,
+  getAuth,
+  indexedDBLocalPersistence,
+  initializeAuth,
+  type Auth,
+} from 'firebase/auth';
 import { getFirestore, type Firestore } from 'firebase/firestore';
 
 export type FirebaseClients = {
@@ -30,6 +37,18 @@ function readConfig() {
 
 let clients: FirebaseClients | null | undefined;
 
+function createAuth(app: FirebaseApp): Auth {
+  try {
+    return initializeAuth(app, {
+      persistence: [indexedDBLocalPersistence, browserLocalPersistence],
+      popupRedirectResolver: browserPopupRedirectResolver,
+    });
+  } catch {
+    // Ya inicializado (HMR / segunda llamada).
+    return getAuth(app);
+  }
+}
+
 /** null si faltan env (modo solo-local). */
 export function getFirebase(): FirebaseClients | null {
   if (clients !== undefined) return clients;
@@ -39,7 +58,7 @@ export function getFirebase(): FirebaseClients | null {
     return clients;
   }
   const app = initializeApp(config);
-  clients = { app, auth: getAuth(app), db: getFirestore(app) };
+  clients = { app, auth: createAuth(app), db: getFirestore(app) };
   return clients;
 }
 

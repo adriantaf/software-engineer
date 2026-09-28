@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import { getCatalog, getLeccionesCatalog } from '../lib/curriculum';
 import { pathTo } from '../lib/paths';
 
@@ -18,286 +20,60 @@ const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo])
 ---
 
 <!doctype html>
-<html lang="es" data-theme="corporate">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#1d4ed8" />
+    <meta name="theme-color" content="#0F766E" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Plan" />
     <meta name="mobile-web-app-capable" content="yes" />
     <title>{fullTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
     <link rel="apple-touch-icon" href={pathTo('icons/apple-touch-icon.png')} />
     <link rel="manifest" href={pathTo('manifest.webmanifest')} />
     <script src="../pwa.ts"></script>
   </head>
-  <body class="min-h-screen bg-base-200">
-    <header class="sticky top-0 z-[60] border-b border-base-300 bg-base-100" id="site-header">
-      <div class="navbar min-h-14 px-3 sm:px-4 gap-2 max-w-6xl mx-auto w-full">
-        <div class="flex items-center gap-1 min-w-0 shrink-0">
-          <button
-            type="button"
-            id="nav-drawer-toggle"
-            class="btn btn-ghost btn-square btn-sm lg:hidden"
-            aria-label="Abrir menú"
-            aria-controls="nav-drawer"
-            aria-expanded="false"
-          >
-            <svg
-              id="nav-icon-open"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-5"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
-            </svg>
-            <svg
-              id="nav-icon-close"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-5 hidden"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
-            </svg>
-          </button>
-          <a class="btn btn-ghost px-2 text-base font-bold tracking-tight" href={pathTo()}>Plan</a>
-        </div>
-
-        <nav class="hidden lg:flex flex-1 items-center justify-center min-w-0" aria-label="Principal">
-          <ul class="flex items-center gap-0.5 text-sm flex-nowrap">
-            <li>
-              <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">
-                  Plan de estudios ▾
-                </div>
-                <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"
-                >
-                  {
-                    catalog.etapas.map((e) => (
-                      <li>
-                        <a href={pathTo(`etapa/${e.id}`)}>{e.titulo}</a>
-                      </li>
-                    ))
-                  }
-                  <li class="menu-title"><span>Seguimiento</span></li>
-                  <li><a href={pathTo('progreso')}>Progreso</a></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Guías ▾</div>
-                <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-56 p-2 shadow border border-base-300"
-                >
-                  <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
-                  <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
-                  <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
-                  <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-                  <li><a href={pathTo('docs/producto')}>Hilo de producto</a></li>
-                  <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
-                  <li><a href={pathTo('egreso')}>Egreso</a></li>
-                  <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
-                </ul>
-              </div>
-            </li>
-            <li>
-              <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">
-                  Autoevaluación ▾
-                </div>
-                <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"
-                >
-                  {
-                    catalog.etapas.map((e) => (
-                      <li>
-                        <a href={pathTo(`etapa/${e.id}/examen`)}>Examen — {e.titulo}</a>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-
-        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto lg:ml-0">
-          <a
-            class="btn btn-ghost btn-square btn-sm"
-            href={pathTo('buscar')}
-            title="Buscar en el plan"
-            aria-label="Buscar en el plan"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-5"
-              aria-hidden="true"
-            >
-              <circle cx="11" cy="11" r="7"></circle>
-              <path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
-            </svg>
-          </a>
-          <a
-            class="btn btn-primary btn-sm"
-            data-continuar
-            href={continuarFallback}
-            title="Continuar con la siguiente lección pendiente"
-          >
-            Continuar
-          </a>
-          <div id="auth-sync" class="flex items-center gap-1 min-w-0">
-            <button
-              type="button"
-              id="auth-google-btn"
-              class="btn btn-ghost btn-sm px-2"
-              hidden
-              title="Iniciar sesión con Google para sincronizar el progreso"
-            >
-              Entrar
-            </button>
-            <a
-              id="auth-account-btn"
-              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[10rem]"
-              href={pathTo('perfil')}
-              hidden
-              title="Ver perfil"
-            >
-              <img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden />
-              <span id="auth-sync-label" class="text-xs truncate">Perfil</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <div id="nav-backdrop" class="nav-backdrop lg:hidden" hidden aria-hidden="true"></div>
-
-    <nav
-      id="nav-drawer"
-      class="nav-drawer lg:hidden"
-      aria-label="Menú móvil"
-      aria-hidden="true"
-      hidden
-    >
-      <div class="nav-drawer__inner">
-        <div class="nav-drawer__head">
-          <p class="nav-drawer__title">Menú</p>
-          <button type="button" id="nav-drawer-close" class="btn btn-ghost btn-square btn-sm" aria-label="Cerrar menú">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true">
-              <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
-            </svg>
-          </button>
-        </div>
-
-        <div class="nav-drawer__scroll">
-          <p class="nav-drawer__label">Cuenta</p>
-          <ul class="nav-drawer__list">
-            <li>
-              <button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>
-                Iniciar sesión con Google
-              </button>
-            </li>
-            <li>
-              <a id="auth-perfil-drawer" href={pathTo('perfil')} class="nav-drawer__list-btn" hidden>
-                Mi perfil
-              </a>
-            </li>
-            <li>
-              <button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>
-                Cerrar sesión
-              </button>
-            </li>
-          </ul>
-
-          <p class="nav-drawer__label">Plan de estudios</p>
-          <ul class="nav-drawer__list">
-            <li><a href={pathTo()}>Inicio</a></li>
-            {
-              catalog.etapas.map((e) => (
-                <li>
-                  <a href={pathTo(`etapa/${e.id}`)}>{e.titulo}</a>
-                </li>
-              ))
-            }
-            <li><a href={pathTo('progreso')}>Progreso</a></li>
-            <li><a href={pathTo('buscar')}>Buscar</a></li>
-          </ul>
-
-          <details class="nav-drawer__details">
-            <summary class="nav-drawer__summary">Guías</summary>
-            <ul class="nav-drawer__list nav-drawer__list--nested">
-              <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
-              <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
-              <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
-              <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-              <li><a href={pathTo('docs/producto')}>Hilo de producto</a></li>
-              <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
-              <li><a href={pathTo('egreso')}>Egreso</a></li>
-              <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
-            </ul>
-          </details>
-
-          <p class="nav-drawer__label">Autoevaluación</p>
-          <ul class="nav-drawer__list">
-            {
-              catalog.etapas.map((e) => (
-                <li>
-                  <a href={pathTo(`etapa/${e.id}/examen`)}>Examen — {e.titulo}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <body class="min-h-screen flex flex-col bg-plan-surface text-plan-ink">
+    <SiteHeader etapas={catalog.etapas} continuarHref={continuarFallback} />
 
     <div
       id="pwa-update"
-      class="fixed bottom-0 inset-x-0 z-50 border-t border-base-300 bg-base-100 px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+      class="fixed bottom-0 inset-x-0 z-50 border-t border-plan-border bg-white px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]"
       hidden
       role="status"
     >
-      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="plan-shell flex flex-wrap items-center justify-between gap-2">
         <p class="text-sm m-0">Hay una versión nueva del plan disponible.</p>
-        <button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">
-          Actualizar
-        </button>
+        <button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">Actualizar</button>
       </div>
     </div>
 
-    <main
-      class="container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0"
-      data-pagefind-body
+    <div
+      id="auth-toast"
+      class="fixed bottom-0 inset-x-0 z-[70] border-t border-plan-border bg-white px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]"
+      hidden
+      role="alert"
     >
+      <div class="plan-shell flex flex-wrap items-start justify-between gap-2">
+        <p id="auth-toast-msg" class="text-sm m-0 text-plan-ink max-w-prose"></p>
+        <button id="auth-toast-close" type="button" class="btn btn-ghost btn-sm shrink-0">Cerrar</button>
+      </div>
+    </div>
+
+    <main class="flex-1 w-full min-w-0" data-pagefind-body>
       <slot />
     </main>
 
-    <footer class="footer footer-center bg-base-100 text-base-content p-6 border-t border-base-300">
-      <aside class="max-w-prose px-2">
-        <p class="font-medium">Plan de Ingeniería de Software</p>
-        <p class="text-sm opacity-70">Proyectos evaluables y evidencia en control de versiones</p>
-      </aside>
-    </footer>
+    <SiteFooter />
 
     <script type="application/json" id="catalog-ids" set:html={JSON.stringify(catalogIds)} />
     <script type="application/json" id="lecciones-catalog" set:html={JSON.stringify(leccionesCatalog)} />
@@ -325,6 +101,19 @@ const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo])
         const drawerIn = document.getElementById('auth-google-btn-drawer') as HTMLButtonElement | null;
         const drawerOut = document.getElementById('auth-signout-drawer') as HTMLButtonElement | null;
         const drawerPerfil = document.getElementById('auth-perfil-drawer') as HTMLAnchorElement | null;
+        const toast = document.getElementById('auth-toast');
+        const toastMsg = document.getElementById('auth-toast-msg');
+        const toastClose = document.getElementById('auth-toast-close');
+
+        function showAuthToast(message: string) {
+          if (!toast || !toastMsg || !message) return;
+          toastMsg.textContent = message;
+          toast.hidden = false;
+        }
+
+        toastClose?.addEventListener('click', () => {
+          if (toast) toast.hidden = true;
+        });
 
         if (!isFirebaseConfigured()) {
           btn?.setAttribute('hidden', '');
@@ -343,8 +132,12 @@ const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo])
           }
         });
 
-        onSyncStatus(({ status, user }) => {
+        onSyncStatus(({ status, user, message }) => {
           if (!isFirebaseConfigured()) return;
+
+          if (status === 'error' && message) {
+            showAuthToast(message);
+          }
 
           if (!user) {
             btn?.removeAttribute('hidden');
@@ -355,6 +148,11 @@ const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo])
             if (btn) {
               btn.disabled = status === 'syncing';
               btn.textContent = status === 'syncing' ? '…' : 'Entrar';
+            }
+            if (drawerIn) {
+              drawerIn.disabled = status === 'syncing';
+              drawerIn.textContent =
+                status === 'syncing' ? 'Conectando…' : 'Iniciar sesión con Google';
             }
             return;
           }
@@ -407,6 +205,7 @@ const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo])
         const narrow = window.matchMedia('(max-width: 1023px)').matches;
         document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((a) => {
           a.href = href;
+          if (a.hasAttribute('data-continuar-keep-label')) return;
           a.textContent = narrow || materiaId === 'M01' ? 'Continuar' : `Continuar ${materiaId}`;
         });
       }

@@ -1,0 +1,46 @@
+---
+import { pathTo } from '../lib/paths';
+
+interface Props {
+  id: string;
+  titulo: string;
+  etapaId: string;
+  etapaTitulo: string;
+  horas: number;
+  semanas: number;
+  leccionCount?: number;
+  description?: string;
+}
+
+const { id, titulo, etapaId, etapaTitulo, horas, semanas, leccionCount = 0, description } = Astro.props;
+
+const gradients: Record<string, [string, string]> = {
+  basica: ['#0f766e', '#134e4a'],
+  disciplinaria: ['#0369a1', '#0c4a6e'],
+  terminal: ['#7c3aed', '#4c1d95'],
+};
+const [from, to] = gradients[etapaId] ?? gradients.basica;
+const desc =
+  description?.trim() ||
+  `${etapaTitulo} · ${semanas} semanas · ${horas} horas de estudio planificadas.`;
+---
+
+<a
+  class="course-card"
+  href={pathTo(`materia/${id}`)}
+  style={`--media-from: ${from}; --media-to: ${to}`}
+>
+  <div class="course-card__media" aria-hidden="true">
+    <span class="course-card__media-label">{id}</span>
+  </div>
+  <div class="course-card__body">
+    <h3 class="course-card__title">{titulo}</h3>
+    <p class="course-card__desc">{desc}</p>
+    <div class="course-card__meta">
+      <span>{etapaTitulo}</span>
+      <span>{semanas} sem</span>
+      <span>{horas} h</span>
+      {leccionCount > 0 && <span>{leccionCount} lecciones</span>}
+    </div>
+  </div>
+</a>

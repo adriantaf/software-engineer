@@ -188,12 +188,69 @@ export async function pullAndMerge() {
   }
 }
 
+/**
+ * signInWithRedirect guarda estado en storage del authDomain (p. ej. *.firebaseapp.com).
+ * En GitHub Pages (github.io) ese origen es cross-site: Safari/Chrome iOS lo particionan
+ * y al volver aparece "missing initial state". Solo es seguro si authDomain == hostname.
+ */
+function redirectStorageIsFirstParty(): boolean {
+  const raw = (import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN as string | undefined) || '';
+  const authHost = raw.replace(/^https?:\/\//, '').split('/')[0]?.toLowerCase();
+  if (!authHost) return false;
+  const pageHost = window.location.hostname.toLowerCase();
+  return pageHost === authHost || pageHost.endsWith(`.${authHost}`);
+}
+
 function preferRedirectSignIn() {
+  // Cross-site authDomain (caso Pages + firebaseapp.com): NUNCA redirect.
+  if (!redirectStorageIsFirstParty()) return false;
+
   const ua = navigator.userAgent;
   const standalone =
     window.matchMedia('(display-mode: standalone)').matches ||
     Boolean((navigator as Navigator & { standalone?: boolean }).standalone);
-  return /iPhone|iPad|iPod/i.test(ua) || standalone;
+  const mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+  return mobile || standalone || window.matchMedia('(max-width: 767px)').matches;
+}
+
+function isMissingInitialStateError(e: unknown): boolean {
+  const code =
+    e && typeof e === 'object' && 'code' in e ? String((e as { code: unknown }).code) : '';
+  const message =
+    e && typeof e === 'object' && 'message' in e ? String((e as { message: unknown }).message) : '';
+  return (
+    code === 'auth/missing-initial-state' ||
+    /missing initial state/i.test(message) ||
+    /browserStorage is inaccessible/i.test(message) ||
+    /storage-partitioned/i.test(message)
+  );
+}
+
+function authErrorMessage(e: unknown): string {
+  const code =
+    e && typeof e === 'object' && 'code' in e ? String((e as { code: unknown }).code) : '';
+  if (isMissingInitialStateError(e)) {
+    return 'El inicio de sesión por redirección falló en este iPhone (almacenamiento particionado). Reintenta: usamos ventana emergente de Google.';
+  }
+  if (
+    code === 'auth/web-storage-unsupported' ||
+    code === 'auth/operation-not-supported-in-this-environment'
+  ) {
+    return 'Este navegador bloquea el almacenamiento (localStorage/cookies). Sal del modo privado, permite datos del sitio e inténtalo otra vez.';
+  }
+  if (code === 'auth/popup-blocked') {
+    return 'Safari/Chrome bloqueó la ventana de Google. Permite ventanas emergentes para este sitio e inténtalo de nuevo.';
+  }
+  if (code === 'auth/popup-closed-by-user') {
+    return 'Cerraste la ventana de Google antes de terminar. Pulsa Entrar otra vez.';
+  }
+  if (code === 'auth/unauthorized-domain') {
+    return 'Este dominio no está autorizado en Firebase Auth. Añádelo en Authentication → Settings.';
+  }
+  if (code === 'auth/network-request-failed') {
+    return 'Sin conexión o red bloqueada. Revisa datos/Wi‑Fi e inténtalo de nuevo.';
+  }
+  return 'No se pudo iniciar sesión. Revisa la consola o reintenta.';
 }
 
 export async function signInWithGoogle() {
@@ -205,20 +262,33 @@ export async function signInWithGoogle() {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: 'select_account' });
   emit('syncing');
+
+  const useRedirect = preferRedirectSignIn();
+
   try {
-    if (preferRedirectSignIn()) {
+    if (useRedirect) {
       await signInWithRedirect(fb.auth, provider);
       return;
     }
+    // Popup: mantiene el estado en el origen de la app (funciona en github.io + iOS).
     await signInWithPopup(fb.auth, provider);
   } catch (e) {
-    console.warn('[progress-sync] sign-in failed, trying redirect', e);
-    try {
-      await signInWithRedirect(fb.auth, provider);
-    } catch (e2) {
-      console.warn('[progress-sync] redirect failed', e2);
-      emit('error', 'No se pudo iniciar sesión');
+    console.warn('[progress-sync] sign-in failed', e);
+
+    // Solo reintentar con redirect si el storage del authDomain es first-party.
+    // En Pages/iOS el redirect provoca justo "missing initial state".
+    if (!useRedirect && redirectStorageIsFirstParty()) {
+      try {
+        await signInWithRedirect(fb.auth, provider);
+        return;
+      } catch (e2) {
+        console.warn('[progress-sync] redirect fallback failed', e2);
+        emit('error', authErrorMessage(e2));
+        return;
+      }
     }
+
+    emit('error', authErrorMessage(e));
   }
 }
 
@@ -249,9 +319,22 @@ export function startProgressSync() {
     schedulePush(e.detail);
   }) as EventListener);
 
-  void getRedirectResult(fb.auth).catch((e) => {
-    console.warn('[progress-sync] redirect result', e);
-  });
+  void getRedirectResult(fb.auth)
+    .then((result) => {
+      if (result?.user) {
+        // El merge lo dispara onAuthStateChanged.
+        emit('syncing');
+      }
+    })
+    .catch((e) => {
+      // Residuo típico tras un redirect fallido en iOS/Pages; no asustar en cada carga.
+      if (isMissingInitialStateError(e)) {
+        console.warn('[progress-sync] redirect state perdido (esperado en github.io/iOS); usar popup', e);
+        return;
+      }
+      console.warn('[progress-sync] redirect result', e);
+      emit('error', authErrorMessage(e));
+    });
 
   onAuthStateChanged(fb.auth, (user) => {
     currentUser = user;

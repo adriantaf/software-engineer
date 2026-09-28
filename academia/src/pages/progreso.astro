@@ -12,7 +12,8 @@ const etapaTitles = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo
 <Layout title="Progreso">
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Progreso</h1>
+  <div class="plan-shell py-8 sm:py-10">
+  <h1 class="font-display text-2xl sm:text-3xl font-bold mb-2 break-words">Progreso</h1>
   <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
     Ritmo semanal y avance por materia. El estado se guarda en el navegador
     (<code>localStorage</code>). Puede exportar el JSON a <code>progress.json</code> y
@@ -189,6 +190,8 @@ const etapaTitles = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo
         }
       </tbody>
     </table>
+  </div>
+
   </div>
 
   <script>

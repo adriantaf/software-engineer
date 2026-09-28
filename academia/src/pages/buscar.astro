@@ -8,16 +8,18 @@ const uiCss = pathTo('pagefind/pagefind-ui.css');
 ---
 
 <Layout title="Buscar">
-  <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Buscar</h1>
-  <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
-    Índice de texto completo del plan (fichas, lecciones y guías).
-  </p>
+  <div class="plan-shell py-8 sm:py-10">
+    <h1 class="font-display text-2xl sm:text-3xl font-bold mb-2 break-words">Buscar</h1>
+    <p class="mb-6 text-plan-muted text-sm sm:text-base break-words">
+      Índice de texto completo del plan (fichas, lecciones y guías).
+    </p>
 
-  <div id="search" class="max-w-2xl min-h-24"></div>
-  <p id="search-fallback" class="text-sm opacity-70 hidden" role="status">
-    No se pudo cargar el índice. Tras <code>npm run build</code> debe existir
-    <code>dist/pagefind/</code>. En preview/deploy abre esta página online una vez.
-  </p>
+    <div id="search" class="max-w-2xl min-h-24"></div>
+    <p id="search-fallback" class="text-sm text-plan-muted hidden" role="status">
+      No se pudo cargar el índice. Tras <code>npm run build</code> debe existir
+      <code>dist/pagefind/</code>. En preview/deploy abre esta página online una vez.
+    </p>
+  </div>
 </Layout>
 
 <link href={uiCss} rel="stylesheet" />
