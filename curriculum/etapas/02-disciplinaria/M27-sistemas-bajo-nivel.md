@@ -29,7 +29,7 @@ M05 te dio el mapa de la máquina; M11 te enseñó a operar procesos y contenedo
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Compilar y linkar programas C con `gcc`/`clang` y flags útiles (`-Wall -Wextra -g -O0/-O2`).
 2. Explicar punteros, `sizeof`, stack vs heap y un stack frame típico (System V AMD64).

@@ -29,7 +29,7 @@ No es teoría de gestión desconectada: es operar tu SaaS como un proyecto real 
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Redactar un roadmap trimestral de Vitrina alineado con [producto-saas](../../producto-saas.md) (piloto → tenants → billing → FAQ M23).
 2. Planificar y cerrar sprints de 1–2 semanas con meta, entregables, hecho real y aprendizaje.

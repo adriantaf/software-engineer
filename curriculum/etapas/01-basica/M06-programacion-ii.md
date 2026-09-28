@@ -21,13 +21,13 @@ proyecto:
 
 ## Por qué existe
 
-Cierras la etapa básica escribiendo código que otro ingeniero (o tú en 6 meses) pueda mantener.
+Cierras la Fundamentos escribiendo código que otro ingeniero (o usted en 6 meses) pueda mantener.
 
 **En resumen:** modelas un dominio con tipos serios, refactorizas con *Código limpio* y empaquetas algo reutilizable.
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Modelar un dominio con encapsulación, composición e interfaces (sin frameworks web).
 2. Aplicar principios de diseño legible (nombres, funciones pequeñas, responsabilidades claras).
@@ -102,7 +102,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 | L17 | [Estructura de paquete npm](M06/L17-estructura-paquete-npm.md) | 5 |
 | L18 | [Semver, scripts y build](M06/L18-semver-scripts-y-build.md) | 5 |
 | L19 | [README, API pública y ejemplos](M06/L19-readme-api-y-ejemplos.md) | 5 |
-| L20 | [Librería final y cierre de etapa básica](M06/L20-libreria-final-y-cierre.md) | 5 |
+| L20 | [Librería final y cierre de Fundamentos](M06/L20-libreria-final-y-cierre.md) | 5 |
 
 Empieza por **L01** hoy.
 
@@ -161,7 +161,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 - **P3 — Bordes:** Tests de null, vacío, duplicados.
 - **Proyecto — Librería:** README, semver, tests, ejemplo de uso.
 
-## Criterios de dominio (cierre Etapa Básica)
+## Criterios de dominio (cierre Fundamentos)
 
 - [ ] Explicas cuándo NO usar herencia.
 - [ ] Tu librería tiene API clara y tests.

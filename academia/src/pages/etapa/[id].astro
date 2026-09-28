@@ -20,7 +20,7 @@ const ultima = materias[materias.length - 1];
 <Layout title={etapa.titulo}>
   <div class="breadcrumbs text-sm mb-4">
     <ul>
-      <li><a href={pathTo()}>Dashboard</a></li>
+      <li><a href={pathTo()}>Inicio</a></li>
       <li>{etapa.titulo}</li>
     </ul>
   </div>
@@ -84,7 +84,7 @@ const ultima = materias[materias.length - 1];
         <div class="min-w-0">
           <p class="font-semibold m-0">Cierre de etapa</p>
           <p class="m-0 opacity-80 break-words">
-            Cuando termines{' '}
+            Al concluir{' '}
             {ultima ? (
               <>
                 <span class="opacity-70">#{ultima.orden}</span> {ultima.titulo}
@@ -92,7 +92,7 @@ const ultima = materias[materias.length - 1];
             ) : (
               'la última materia'
             )}
-            , haz la autoevaluación sin mirar las fichas.
+            , realice la autoevaluación sin consultar las fichas.
           </p>
           <a class="btn btn-primary btn-sm mt-3" href={pathTo(`etapa/${etapa.id}/examen`)}>
             Abrir autoevaluación

@@ -27,7 +27,7 @@ Elegir mal una estructura te cuesta latencia y dinero. Aquí las **implementas**
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Implementar lista, pila, cola, hash y árbol con tests.
 2. Explicar costo temporal y espacial en notación asintótica.

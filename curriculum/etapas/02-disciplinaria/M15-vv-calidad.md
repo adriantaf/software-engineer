@@ -28,7 +28,7 @@ Sin pruebas automatizadas, cada cambio en Vitrina es apuesta. La calidad no es u
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Diseñar una pirámide de tests (unitarios, integración, pocos E2E) para el dominio de pedidos/clientes.
 2. Escribir tests de dominio y API que fallen ante reglas de negocio rotas.

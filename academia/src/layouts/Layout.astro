@@ -8,11 +8,13 @@ interface Props {
   description?: string;
 }
 
-const { title = 'Plan', description = 'Plan personal de ingeniería de software' } = Astro.props;
+const { title = 'Plan', description = 'Plan de estudios de ingeniería de software' } = Astro.props;
 const fullTitle = title === 'Plan' ? 'Plan de Ingeniería de Software' : `${title} · Plan`;
-const catalogIds = getCatalog().materias.map((m) => m.id);
+const catalog = getCatalog();
+const catalogIds = catalog.materias.map((m) => m.id);
 const leccionesCatalog = getLeccionesCatalog();
 const continuarFallback = pathTo('materia/M01/leccion/L01');
+const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo]));
 ---
 
 <!doctype html>
@@ -74,15 +76,33 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
 
         <nav class="hidden lg:flex flex-1 items-center justify-center min-w-0" aria-label="Principal">
           <ul class="flex items-center gap-0.5 text-sm flex-nowrap">
-            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/basica')}>Básica</a></li>
-            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
-            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('etapa/terminal')}>Terminal</a></li>
             <li>
-              <div class="dropdown dropdown-end">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">
+                  Plan de estudios ▾
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"
+                >
+                  {
+                    catalog.etapas.map((e) => (
+                      <li>
+                        <a href={pathTo(`etapa/${e.id}`)}>{e.titulo}</a>
+                      </li>
+                    ))
+                  }
+                  <li class="menu-title"><span>Seguimiento</span></li>
+                  <li><a href={pathTo('progreso')}>Progreso</a></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Guías ▾</div>
                 <ul
                   tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-52 p-2 shadow border border-base-300"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-56 p-2 shadow border border-base-300"
                 >
                   <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
                   <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
@@ -90,61 +110,85 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
                   <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
                   <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
                   <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-                  <li><a href={pathTo('docs/producto')}>Hilo producto</a></li>
+                  <li><a href={pathTo('docs/producto')}>Hilo de producto</a></li>
                   <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
                   <li><a href={pathTo('egreso')}>Egreso</a></li>
                   <li><a href={pathTo('nivel')}>Nivel</a></li>
                   <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
-                  <li class="menu-title"><span>Autoevaluación</span></li>
-                  <li><a href={pathTo('etapa/basica/examen')}>Examen Básica</a></li>
-                  <li><a href={pathTo('etapa/disciplinaria/examen')}>Examen Disciplinaria</a></li>
-                  <li><a href={pathTo('etapa/terminal/examen')}>Examen Terminal</a></li>
                 </ul>
               </div>
             </li>
-            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('progreso')}>Progreso</a></li>
-            <li><a class="btn btn-ghost btn-sm font-normal" href={pathTo('buscar')}>Buscar</a></li>
+            <li>
+              <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">
+                  Autoevaluación ▾
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"
+                >
+                  {
+                    catalog.etapas.map((e) => (
+                      <li>
+                        <a href={pathTo(`etapa/${e.id}/examen`)}>Examen — {e.titulo}</a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </li>
           </ul>
         </nav>
 
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto lg:ml-0">
+          <a
+            class="btn btn-ghost btn-square btn-sm"
+            href={pathTo('buscar')}
+            title="Buscar en el plan"
+            aria-label="Buscar en el plan"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="size-5"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7"></circle>
+              <path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
+            </svg>
+          </a>
+          <a
+            class="btn btn-primary btn-sm"
+            data-continuar
+            href={continuarFallback}
+            title="Continuar con la siguiente lección pendiente"
+          >
+            Continuar
+          </a>
           <div id="auth-sync" class="flex items-center gap-1 min-w-0">
             <button
               type="button"
               id="auth-google-btn"
               class="btn btn-ghost btn-sm px-2"
               hidden
-              title="Sincronizar progreso con Google"
+              title="Iniciar sesión con Google para sincronizar el progreso"
             >
               Entrar
             </button>
-            <button
-              type="button"
+            <a
               id="auth-account-btn"
-              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[9rem]"
+              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[10rem]"
+              href={pathTo('perfil')}
               hidden
-              title="Cuenta sincronizada"
+              title="Ver perfil"
             >
               <img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden />
-              <span id="auth-sync-label" class="text-xs truncate">Sync</span>
-            </button>
+              <span id="auth-sync-label" class="text-xs truncate">Perfil</span>
+            </a>
           </div>
-          <a
-            class="btn btn-ghost btn-sm hidden sm:inline-flex"
-            href={pathTo('buscar')}
-            title="Buscar en el plan"
-            aria-label="Buscar"
-          >
-            Buscar
-          </a>
-          <a
-            class="btn btn-primary btn-sm"
-            data-continuar
-            href={continuarFallback}
-            title="Última materia o siguiente incompleta"
-          >
-            Continuar
-          </a>
         </div>
       </div>
     </header>
@@ -173,8 +217,13 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
           <ul class="nav-drawer__list">
             <li>
               <button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>
-                Entrar con Google (sync)
+                Iniciar sesión con Google
               </button>
+            </li>
+            <li>
+              <a id="auth-perfil-drawer" href={pathTo('perfil')} class="nav-drawer__list-btn" hidden>
+                Mi perfil
+              </a>
             </li>
             <li>
               <button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>
@@ -183,12 +232,16 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
             </li>
           </ul>
 
-          <p class="nav-drawer__label">Estudiar</p>
+          <p class="nav-drawer__label">Plan de estudios</p>
           <ul class="nav-drawer__list">
             <li><a href={pathTo()}>Inicio</a></li>
-            <li><a href={pathTo('etapa/basica')}>Básica</a></li>
-            <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
-            <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
+            {
+              catalog.etapas.map((e) => (
+                <li>
+                  <a href={pathTo(`etapa/${e.id}`)}>{e.titulo}</a>
+                </li>
+              ))
+            }
             <li><a href={pathTo('progreso')}>Progreso</a></li>
             <li><a href={pathTo('buscar')}>Buscar</a></li>
           </ul>
@@ -202,7 +255,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
               <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
               <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
               <li><a href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-              <li><a href={pathTo('docs/producto')}>Hilo producto</a></li>
+              <li><a href={pathTo('docs/producto')}>Hilo de producto</a></li>
               <li><a href={pathTo('docs/filosofia')}>Filosofía</a></li>
               <li><a href={pathTo('egreso')}>Egreso</a></li>
               <li><a href={pathTo('nivel')}>Nivel</a></li>
@@ -212,9 +265,13 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
 
           <p class="nav-drawer__label">Autoevaluación</p>
           <ul class="nav-drawer__list">
-            <li><a href={pathTo('etapa/basica/examen')}>Examen Básica</a></li>
-            <li><a href={pathTo('etapa/disciplinaria/examen')}>Examen Disciplinaria</a></li>
-            <li><a href={pathTo('etapa/terminal/examen')}>Examen Terminal</a></li>
+            {
+              catalog.etapas.map((e) => (
+                <li>
+                  <a href={pathTo(`etapa/${e.id}/examen`)}>Examen — {e.titulo}</a>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
@@ -227,7 +284,7 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
       role="status"
     >
       <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2">
-        <p class="text-sm m-0">Hay una versión nueva del plan (contenido o UI).</p>
+        <p class="text-sm m-0">Hay una versión nueva del plan disponible.</p>
         <button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">
           Actualizar
         </button>
@@ -244,12 +301,13 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
     <footer class="footer footer-center bg-base-100 text-base-content p-6 border-t border-base-300">
       <aside class="max-w-prose px-2">
         <p class="font-medium">Plan de Ingeniería de Software</p>
-        <p class="text-sm opacity-70">Mejorado con proyectos reales y evidencia en git</p>
+        <p class="text-sm opacity-70">Proyectos evaluables y evidencia en control de versiones</p>
       </aside>
     </footer>
 
     <script type="application/json" id="catalog-ids" set:html={JSON.stringify(catalogIds)} />
     <script type="application/json" id="lecciones-catalog" set:html={JSON.stringify(leccionesCatalog)} />
+    <script type="application/json" id="etapa-titles" set:html={JSON.stringify(etapaById)} />
 
     <script>
       import { initProgressFromSeed, resolveContinuePath } from '../lib/progress-client';
@@ -267,38 +325,39 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
 
       function initAuthUi() {
         const btn = document.getElementById('auth-google-btn') as HTMLButtonElement | null;
-        const accountBtn = document.getElementById('auth-account-btn') as HTMLButtonElement | null;
+        const accountBtn = document.getElementById('auth-account-btn') as HTMLAnchorElement | null;
         const label = document.getElementById('auth-sync-label');
         const avatar = document.getElementById('auth-avatar') as HTMLImageElement | null;
         const drawerIn = document.getElementById('auth-google-btn-drawer') as HTMLButtonElement | null;
         const drawerOut = document.getElementById('auth-signout-drawer') as HTMLButtonElement | null;
+        const drawerPerfil = document.getElementById('auth-perfil-drawer') as HTMLAnchorElement | null;
 
         if (!isFirebaseConfigured()) {
           btn?.setAttribute('hidden', '');
           accountBtn?.setAttribute('hidden', '');
           drawerIn?.setAttribute('hidden', '');
           drawerOut?.setAttribute('hidden', '');
+          drawerPerfil?.setAttribute('hidden', '');
           return;
         }
 
         btn?.addEventListener('click', () => void signInWithGoogle());
         drawerIn?.addEventListener('click', () => void signInWithGoogle());
-        accountBtn?.addEventListener('click', () => {
-          if (confirm('¿Cerrar sesión de Google? El progreso local se conserva.')) {
+        drawerOut?.addEventListener('click', () => {
+          if (confirm('¿Cerrar la sesión de Google? El progreso local se conserva.')) {
             void signOutGoogle();
           }
         });
-        drawerOut?.addEventListener('click', () => void signOutGoogle());
 
         onSyncStatus(({ status, user }) => {
-          const configured = isFirebaseConfigured();
-          if (!configured) return;
+          if (!isFirebaseConfigured()) return;
 
           if (!user) {
             btn?.removeAttribute('hidden');
             accountBtn?.setAttribute('hidden', '');
             drawerIn?.removeAttribute('hidden');
             drawerOut?.setAttribute('hidden', '');
+            drawerPerfil?.setAttribute('hidden', '');
             if (btn) {
               btn.disabled = status === 'syncing';
               btn.textContent = status === 'syncing' ? '…' : 'Entrar';
@@ -310,15 +369,17 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
           accountBtn?.removeAttribute('hidden');
           drawerIn?.setAttribute('hidden', '');
           drawerOut?.removeAttribute('hidden');
+          drawerPerfil?.removeAttribute('hidden');
 
-          const name = user.displayName?.split(' ')[0] || 'Cuenta';
+          const name = user.displayName?.split(' ')[0] || 'Perfil';
           if (label) {
             label.textContent =
-              status === 'syncing' ? 'Sync…' : status === 'error' ? 'Error sync' : name;
+              status === 'syncing' ? 'Sincronizando…' : status === 'error' ? 'Error de sync' : name;
           }
           if (avatar) {
             if (user.photoURL) {
               avatar.src = user.photoURL;
+              avatar.alt = user.displayName || 'Foto de perfil';
               avatar.hidden = false;
             } else {
               avatar.hidden = true;
@@ -352,7 +413,6 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
         const narrow = window.matchMedia('(max-width: 1023px)').matches;
         document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((a) => {
           a.href = href;
-          // En móvil el label corto evita que pelee con el brand.
           a.textContent = narrow || materiaId === 'M01' ? 'Continuar' : `Continuar ${materiaId}`;
         });
       }
@@ -386,7 +446,6 @@ const continuarFallback = pathTo('materia/M01/leccion/L01');
           document.body.style.right = '0';
           document.body.style.width = '100%';
           document.body.dataset.navScrollY = String(y);
-          // Sticky deja de “pegarse” con body fixed; anclar header al viewport.
           if (siteHeader) {
             siteHeader.style.position = 'fixed';
             siteHeader.style.top = '0';

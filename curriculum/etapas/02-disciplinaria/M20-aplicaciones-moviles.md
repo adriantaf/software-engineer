@@ -29,7 +29,7 @@ No es reemplazar la web admin completa en M17; es el canal móvil mínimo viable
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Elegir **un** stack móvil (Flutter o React Native) y justificarlo en una nota corta.
 2. Implementar login contra la API real de Vitrina (mismos endpoints que la web).

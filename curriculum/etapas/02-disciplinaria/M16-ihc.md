@@ -21,14 +21,14 @@ proyecto:
 
 ## Por qué existe
 
-Una UI confusa en Vitrina genera soporte eterno y abandono del piloto: el dueño del negocio no tiene paciencia para “adivinar” tu producto. La usabilidad no es solo estética: estados vacíos, errores claros y flujos cortos para agendar pedidos impactan retención. Los errores de UX tampoco deben **filtrar datos ajenos** (mostrar IDs internos, mensajes que revelan existencia de recursos prohibidos).
+Una UI confusa en Vitrina genera soporte eterno y abandono del piloto: el dueño del negocio no tiene paciencia para “adivinar” el producto. La usabilidad no es solo estética: estados vacíos, errores claros y flujos cortos para agendar pedidos impactan retención. Los errores de UX tampoco deben **filtrar datos ajenos** (mostrar IDs internos, mensajes que revelan existencia de recursos prohibidos).
 
 **En resumen:** dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada sobre el piloto Vitrina.
 
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Evaluar una UI con las heurísticas de Nielsen (u equivalente) con severidad y recomendación.
 2. Preparar un guion de test de usabilidad de 15–30 minutos para tareas del piloto (crear pedido, ver agenda).

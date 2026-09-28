@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCatalog, getProgressSeed } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
+
+const catalog = getCatalog();
+const seed = getProgressSeed();
+const etapaTitles = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo]));
+---
+
+<Layout title="Perfil" description="Perfil de cuenta y resumen de progreso">
+  <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
+  <script
+    type="application/json"
+    id="perfil-catalog"
+    set:html={JSON.stringify({
+      materiaCount: catalog.materias.length,
+      materias: catalog.materias.map((m) => ({ id: m.id, titulo: m.titulo, etapa: m.etapa })),
+      etapaTitles,
+      ritmo: catalog.ritmoHorasSemana,
+    })}
+  />
+
+  <div class="max-w-2xl mx-auto flex flex-col gap-6">
+    <header>
+      <h1 class="text-2xl sm:text-3xl font-bold mb-1">Perfil</h1>
+      <p class="text-sm opacity-70 m-0">
+        Cuenta sincronizada y resumen de avance en el plan de estudios.
+      </p>
+    </header>
+
+    <section
+      id="perfil-signed-out"
+      class="card bg-base-100 border border-base-300 overflow-hidden"
+      hidden
+    >
+      <div class="card-body gap-4">
+        <h2 class="card-title text-lg">Sin sesión</h2>
+        <p class="text-sm opacity-80 m-0">
+          Inicie sesión con Google para sincronizar el progreso entre dispositivos. El avance local se
+          conserva en este navegador.
+        </p>
+        <div class="card-actions">
+          <button type="button" id="perfil-signin" class="btn btn-primary">
+            Iniciar sesión con Google
+          </button>
+          <a class="btn btn-ghost" href={pathTo()}>Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="perfil-signed-in"
+      class="card bg-base-100 border border-base-300 overflow-hidden"
+      hidden
+    >
+      <div class="card-body gap-5">
+        <div class="flex items-start gap-4 min-w-0">
+          <img
+            id="perfil-avatar"
+            alt=""
+            class="size-16 sm:size-20 rounded-full border border-base-300 shrink-0 bg-base-200"
+            width="80"
+            height="80"
+            hidden
+          />
+          <div class="min-w-0 flex-1">
+            <h2 id="perfil-nombre" class="text-xl font-semibold break-words m-0">—</h2>
+            <p id="perfil-email" class="text-sm opacity-70 break-all m-0 mt-1">—</p>
+            <p id="perfil-sync" class="text-xs opacity-60 m-0 mt-2" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-3">
+          <div class="stat bg-base-200 rounded-box py-3 px-4 min-w-0">
+            <div class="stat-title text-xs">Completadas</div>
+            <div class="stat-value text-2xl text-primary" id="perfil-done">0</div>
+            <div class="stat-desc text-xs">
+              de <span id="perfil-total">{catalog.materias.length}</span> materias
+            </div>
+          </div>
+          <div class="stat bg-base-200 rounded-box py-3 px-4 min-w-0">
+            <div class="stat-title text-xs">En curso</div>
+            <div class="stat-value text-2xl text-warning" id="perfil-doing">0</div>
+            <div class="stat-desc text-xs truncate">
+              Actual: <span id="perfil-current">—</span>
+            </div>
+          </div>
+          <div class="stat bg-base-200 rounded-box py-3 px-4 min-w-0">
+            <div class="stat-title text-xs">Meta semanal</div>
+            <div class="stat-value text-2xl text-secondary" id="perfil-meta">
+              {catalog.ritmoHorasSemana}h
+            </div>
+            <div class="stat-desc text-xs">Horas planificadas</div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-sm mb-2">Etapa actual</h3>
+          <p id="perfil-etapa" class="text-sm opacity-80 m-0">—</p>
+        </div>
+
+        <div class="card-actions flex-wrap gap-2">
+          <a class="btn btn-primary btn-sm" href={pathTo('progreso')}>Ver progreso detallado</a>
+          <a class="btn btn-outline btn-sm" data-continuar href={pathTo('materia/M01')}>Continuar</a>
+          <button type="button" id="perfil-signout" class="btn btn-ghost btn-sm">
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfil-disabled" class="alert" hidden>
+      <span>
+        La sincronización con Google no está configurada en este entorno. El progreso permanece solo
+        en este navegador.
+      </span>
+      <a class="btn btn-sm" href={pathTo('docs/sincronizar-progreso')}>Más información</a>
+    </section>
+  </div>
+
+  <script>
+    import { initProgressFromSeed, loadProgress } from '../lib/progress-client';
+    import { isFirebaseConfigured } from '../lib/firebase';
+    import {
+      onSyncStatus,
+      signInWithGoogle,
+      signOutGoogle,
+      startProgressSync,
+    } from '../lib/progress-sync';
+
+    initProgressFromSeed();
+    startProgressSync();
+
+    type CatalogLite = {
+      materiaCount: number;
+      materias: { id: string; titulo: string; etapa: string }[];
+      etapaTitles: Record<string, string>;
+      ritmo: number;
+    };
+
+    function catalogLite(): CatalogLite | null {
+      const raw = document.getElementById('perfil-catalog')?.textContent;
+      if (!raw) return null;
+      try {
+        return JSON.parse(raw) as CatalogLite;
+      } catch {
+        return null;
+      }
+    }
+
+    function refreshProgress() {
+      const cat = catalogLite();
+      const progress = loadProgress();
+      const mats = cat?.materias ?? [];
+      let done = 0;
+      let doing = 0;
+      for (const m of mats) {
+        const st = progress?.materias?.[m.id]?.status;
+        if (st === 'completada') done += 1;
+        if (st === 'en_curso') doing += 1;
+      }
+      const currentId = progress?.materiaActual || '—';
+      const current = mats.find((m) => m.id === currentId);
+      const etapaId = current?.etapa;
+      const etapaLabel =
+        etapaId && cat?.etapaTitles?.[etapaId]
+          ? `${cat.etapaTitles[etapaId]} · ${current?.titulo ?? currentId}`
+          : current?.titulo || currentId;
+
+      const elDone = document.getElementById('perfil-done');
+      const elDoing = document.getElementById('perfil-doing');
+      const elCurrent = document.getElementById('perfil-current');
+      const elMeta = document.getElementById('perfil-meta');
+      const elEtapa = document.getElementById('perfil-etapa');
+      if (elDone) elDone.textContent = String(done);
+      if (elDoing) elDoing.textContent = String(doing);
+      if (elCurrent) elCurrent.textContent = currentId;
+      if (elMeta) elMeta.textContent = `${progress?.horasSemanalesMeta ?? cat?.ritmo ?? 20}h`;
+      if (elEtapa) elEtapa.textContent = etapaLabel;
+    }
+
+    const signedOut = document.getElementById('perfil-signed-out');
+    const signedIn = document.getElementById('perfil-signed-in');
+    const disabled = document.getElementById('perfil-disabled');
+    const signInBtn = document.getElementById('perfil-signin');
+    const signOutBtn = document.getElementById('perfil-signout');
+    const nameEl = document.getElementById('perfil-nombre');
+    const emailEl = document.getElementById('perfil-email');
+    const syncEl = document.getElementById('perfil-sync');
+    const avatar = document.getElementById('perfil-avatar') as HTMLImageElement | null;
+
+    signInBtn?.addEventListener('click', () => void signInWithGoogle());
+    signOutBtn?.addEventListener('click', () => {
+      if (confirm('¿Cerrar la sesión de Google? El progreso local se conserva.')) {
+        void signOutGoogle();
+      }
+    });
+
+    if (!isFirebaseConfigured()) {
+      signedOut?.setAttribute('hidden', '');
+      signedIn?.setAttribute('hidden', '');
+      disabled?.removeAttribute('hidden');
+    } else {
+      disabled?.setAttribute('hidden', '');
+      onSyncStatus(({ status, user }) => {
+        if (!user) {
+          signedOut?.removeAttribute('hidden');
+          signedIn?.setAttribute('hidden', '');
+          return;
+        }
+        signedOut?.setAttribute('hidden', '');
+        signedIn?.removeAttribute('hidden');
+        if (nameEl) nameEl.textContent = user.displayName || 'Cuenta de Google';
+        if (emailEl) emailEl.textContent = user.email || 'Sin correo disponible';
+        if (syncEl) {
+          syncEl.textContent =
+            status === 'syncing'
+              ? 'Sincronizando progreso…'
+              : status === 'error'
+                ? 'Error al sincronizar. El progreso local sigue disponible.'
+                : 'Progreso sincronizado con la nube.';
+        }
+        if (avatar) {
+          if (user.photoURL) {
+            avatar.src = user.photoURL;
+            avatar.alt = user.displayName || 'Foto de perfil';
+            avatar.hidden = false;
+          } else {
+            avatar.hidden = true;
+          }
+        }
+        refreshProgress();
+      });
+    }
+
+    refreshProgress();
+    window.addEventListener('academia-progress', refreshProgress);
+  </script>
+</Layout>

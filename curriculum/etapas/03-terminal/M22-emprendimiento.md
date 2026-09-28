@@ -29,7 +29,7 @@ El checkout Stripe en producción llega en M26; aquí vendes el **trial** y la p
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Articular en 60 segundos problema → producto → precio → siguiente paso (trial o segunda reunión).
 2. Definir un ICP **único** (un sub-vertical) y mantenerlo durante la materia.

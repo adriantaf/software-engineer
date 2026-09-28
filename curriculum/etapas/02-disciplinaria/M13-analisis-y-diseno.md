@@ -28,7 +28,7 @@ El SRS de Vitrina (M12) describe *qué*; esta materia define *cómo* lo estructu
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Derivar casos de uso y flujos principales desde `projects/m12-srs/srs-v1.md`.
 2. Modelar dominio mínimo (entidades y relaciones) sin UML decorativo.

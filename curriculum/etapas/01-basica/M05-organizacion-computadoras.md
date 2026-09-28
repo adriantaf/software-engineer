@@ -27,7 +27,7 @@ Entender qué hace el hardware evita magia negra con rendimiento, memoria y sist
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Explicar el modelo von Neumann y el flujo CPU–memoria–E/S a alto nivel.
 2. Describir jerarquía de memoria, caché y la diferencia RAM vs almacenamiento.

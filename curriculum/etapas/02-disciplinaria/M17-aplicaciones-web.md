@@ -30,7 +30,7 @@ Esta materia integra M09 (esquema), M12–M13 (requerimientos/diseño), M15 (tes
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Diseñar y exponer una API REST con validación de entrada y códigos HTTP coherentes.
 2. Implementar registro/login con hash de contraseña y sesión o JWT **validada en servidor**.

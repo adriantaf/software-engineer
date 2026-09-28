@@ -29,7 +29,7 @@ Esta materia cubre métricas accionables del SaaS (por `tenant_id`), integració
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Definir y calcular métricas SaaS básicas (activación, pedidos/semana, trials) **agregadas por tenant** sin exportar PII innecesaria.
 2. Construir un pipeline reproducible (script o job) que genere CSV o vistas para análisis.

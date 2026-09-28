@@ -28,7 +28,7 @@ Cierre del plan de ingeniería de software. El egreso interno es un **SaaS verti
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Congelar alcance SaaS v1 y ejecutar un plan de 8 semanas medible.
 2. Operar **multi-tenant** con aislamiento demostrable (manual + tests).

@@ -29,7 +29,7 @@ Seguridad desde el día 1: **queries parametrizadas + least privilege** ([hilo](
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Modelar entidades del dominio (categoría, ítem, pedido, cliente, usuario) en ER y normalizar hasta 3FN con justificación.
 2. Escribir SQL de joins, agregaciones y subconsultas contra PostgreSQL.

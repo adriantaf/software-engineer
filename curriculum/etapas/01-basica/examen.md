@@ -1,23 +1,23 @@
-# Examen Etapa Básica (autoevaluación)
+# Examen — Fundamentos (autoevaluación)
 
-Hazlo **sin** mirar las fichas. Escribe o graba respuestas. Luego compara.
+Realícelo **sin** consultar las fichas. Redacte o grabe las respuestas y compare después.
 
-## Construye (90–120 min)
+## Construya (90–120 min)
 
-1. Repo nuevo: script TS `strict` que lea un JSON de tareas y exporte CSV.
-2. 5 tests Vitest (incluye archivo faltante).
-3. 3 commits atómicos con mensajes buenos.
+1. Repositorio nuevo: script TypeScript en modo `strict` que lea un JSON de tareas y exporte CSV.
+2. Cinco pruebas con Vitest (incluya el caso de archivo faltante).
+3. Tres commits atómicos con mensajes claros.
 
-## Explica (voz, 10 min)
+## Explique (voz, 10 min)
 
-1. Sync vs async.
-2. Cuándo usar un Set vs un Array.
-3. RAM vs disco.
+1. Síncrono frente a asíncrono.
+2. Cuándo usar un `Set` frente a un `Array`.
+3. Memoria RAM frente a disco.
 
-## Diagnostica
+## Diagnostique
 
-Te pasan un commit `update stuff` con 20 archivos. ¿Qué les dirías y cómo lo arreglarías?
+Recibe un commit `update stuff` con 20 archivos. ¿Qué indicaría y cómo lo corregiría?
 
 ## Criterio de aprobado
 
-Puedes hacer el bloque “Construye” sin tutorial paso a paso. Si no: refuerza M01–M02 antes de Disciplinaria.
+Debe completar el bloque «Construya» sin un tutorial paso a paso. En caso contrario, refuerce M01–M02 antes de pasar a Ingeniería aplicada.

@@ -13,22 +13,22 @@ const stats = totalStats();
 const seed = getProgressSeed();
 ---
 
-<Layout title="Dashboard">
+<Layout title="Inicio">
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
   <div class="flex flex-col gap-6">
     <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
       <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
         <div class="max-w-2xl w-full min-w-0">
-          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal</p>
+          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan de estudios</p>
           <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
           <p class="py-4 opacity-80 text-sm sm:text-base break-words">
-            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
+            Ritmo recomendado: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
             <span class="opacity-50"> · </span>
             {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
           </p>
           <div class="flex flex-wrap gap-2 justify-center">
-            <a class="btn btn-primary" href={pathTo('materia/M01')}>Empezar M01</a>
+            <a class="btn btn-primary" href={pathTo('materia/M01')}>Comenzar M01</a>
             <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
             <a class="btn btn-ghost" href={pathTo('progreso')}>Progreso</a>
           </div>
@@ -70,8 +70,8 @@ const seed = getProgressSeed();
       <div class="card-body min-w-0">
         <h2 class="card-title">Recursos</h2>
         <p class="text-sm opacity-70 break-words">
-          Aquí priorizamos competencia de software con proyectos útiles. Física, química o cálculo avanzado,
-          si los necesitas, los cursas aparte.
+          El plan prioriza competencia en software mediante proyectos evaluables. Materias de apoyo
+          (física, química o cálculo avanzado) pueden cursarse por separado si resultan necesarias.
         </p>
         <div class="card-actions flex-wrap gap-2">
           <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>
@@ -110,7 +110,7 @@ const seed = getProgressSeed();
         const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
         if (bar) bar.setAttribute('value', String(pct));
         if (label) {
-          label.textContent = `${pct}% completado (${done}/${etapa.materiaIds.length})`;
+          label.textContent = `${pct}% completado (${done} de ${etapa.materiaIds.length})`;
         }
       }
     }

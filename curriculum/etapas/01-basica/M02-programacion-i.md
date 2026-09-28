@@ -21,22 +21,22 @@ proyecto:
 
 ## Por qué existe
 
-Necesitas **un** lenguaje a profundidad. TypeScript escala a web, APIs e IA tooling. Dejas de “conocer JS” y pasas a **programar**.
+Se requiere **un** lenguaje con profundidad. TypeScript escala a web, APIs y herramientas de inteligencia artificial. El objetivo es pasar de «conocer JavaScript» a **programar** con criterio.
 
-**En resumen:** aprendes TypeScript de verdad con katas, un script real y tests. El cierre es una CLI de hábitos que puedes enseñar.
+**En resumen:** TypeScript con katas, un script real y pruebas. El cierre es una interfaz de línea de comandos (CLI) de hábitos demostrable.
 
 ## Objetivos de aprendizaje
 
-1. Dominar tipos básicos, funciones, arrays, objetos, asincronía.
-2. Leer errores del compilador y corregirlos sin pánico.
-3. Escribir tests unitarios pequeños.
-4. Entregar un CLI usable por ti mismo.
+1. Dominar tipos básicos, funciones, arrays, objetos y asincronía.
+2. Leer errores del compilador y corregirlos con método.
+3. Escribir pruebas unitarias pequeñas.
+4. Entregar una CLI usable por quien la desarrolla.
 
 ## Cómo estudiar esta materia (lecciones)
 
 M02 sigue el formato de lecciones cortas y completas (como M01):
 
-1. Abre las lecciones **en orden** (L01 → L24), cuatro por semana.
+1. Abra las lecciones **en orden** (L01 → L24), cuatro por semana.
 2. Cada lección trae objetivo, pasos con código, lectura y criterio **Hecho cuando**.
 3. Marca la lección en la UI solo si cumple ese criterio.
 4. Las **prácticas / proyecto** de abajo exigen evidencia en `projects/` (ver [m02-programacion](../../../projects/m02-programacion/README.md)).

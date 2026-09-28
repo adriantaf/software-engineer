@@ -29,7 +29,7 @@ También prepara el camino multi-tenant: staging es donde pruebas `tenant_id` y 
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Empaquetar la API y el front de Vitrina en imágenes Docker **multi-stage** (imagen final pequeña, sin toolchain de build).
 2. Orquestar servicios con Compose (app + PostgreSQL + volúmenes) de forma reproducible en tu máquina y en el hosting.

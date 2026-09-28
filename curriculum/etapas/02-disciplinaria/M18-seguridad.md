@@ -28,7 +28,7 @@ Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer C
 
 ## Objetivos de aprendizaje
 
-1. Hacer threat modeling ligero (STRIDE) de tu producto.
+1. Hacer threat modeling ligero (STRIDE) de el producto.
 2. Explicar y mitigar el OWASP Top 10 en código real.
 3. Diseñar auth (hashing, sesiones/JWT, CSRF) sin inventar crypto.
 4. Meter seguridad en el pipeline (secrets, `npm audit`, headers).

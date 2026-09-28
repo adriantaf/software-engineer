@@ -1,23 +1,23 @@
-# Examen Etapa Disciplinaria (autoevaluación)
+# Examen — Ingeniería aplicada (autoevaluación)
 
-Sin tutorial abierto. Usa tu CRM como contexto.
+Sin tutorial abierto. Utilice su producto (por ejemplo, el CRM o Vitrina) como contexto.
 
-## Construye (medio día)
+## Construya (medio día)
 
-1. Endpoint protegido nuevo + test de 401 y de IDOR.
-2. Migración DB + rollback plan escrito.
-3. Un hallazgo OWASP reproducido en staging local y corregido con test.
+1. Endpoint protegido nuevo, con prueba de respuesta 401 y de IDOR (Insecure Direct Object Reference).
+2. Migración de base de datos y plan de reversión documentado.
+3. Un hallazgo OWASP reproducido en entorno local de ensayo y corregido con prueba automatizada.
 
-## Explica (15 min)
+## Explique (15 min)
 
-1. Trust boundaries de tu arquitectura.
-2. Por qué HTTPS no basta.
-3. Pirámide de tests aplicada a tu repo.
+1. Límites de confianza (trust boundaries) de su arquitectura.
+2. Por qué HTTPS no es suficiente por sí solo.
+3. Pirámide de pruebas aplicada a su repositorio.
 
-## Diagnostica
+## Diagnostique
 
-`GET /api/pedidos/7` devuelve la pedido de otro usuario. ¿Causa raíz y fix?
+`GET /api/pedidos/7` devuelve el pedido de otro usuario. Indique causa raíz y corrección.
 
 ## Criterio
 
-Si no puedes cerrar el IDOR con test el mismo día, vuelve a M17–M18.
+Si no puede cerrar el IDOR con prueba el mismo día, regrese a M17–M18.

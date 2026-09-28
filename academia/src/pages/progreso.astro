@@ -6,6 +6,7 @@ import { pathTo } from '../lib/paths';
 const catalog = getCatalog();
 const seed = getProgressSeed();
 const today = new Date().toISOString().slice(0, 10);
+const etapaTitles = Object.fromEntries(catalog.etapas.map((e) => [e.id, e.titulo]));
 ---
 
 <Layout title="Progreso">
@@ -13,8 +14,9 @@ const today = new Date().toISOString().slice(0, 10);
 
   <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Progreso</h1>
   <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
-    Ritmo semanal + avance por materia. El estado vive en <code>localStorage</code>; copia el JSON a
-    <code>progress.json</code> y haz commit semanal.
+    Ritmo semanal y avance por materia. El estado se guarda en el navegador
+    (<code>localStorage</code>). Puede exportar el JSON a <code>progress.json</code> y
+    versionarlo semanalmente, o sincronizar con Google.
   </p>
 
   <div class="grid sm:grid-cols-3 gap-4 mb-6">
@@ -52,9 +54,9 @@ const today = new Date().toISOString().slice(0, 10);
   <section class="card bg-base-100 border border-base-300 mb-6 overflow-hidden" aria-labelledby="checkin-title">
     <div class="card-body min-w-0 p-4 sm:p-6 gap-4">
       <div>
-        <h2 id="checkin-title" class="card-title text-lg sm:text-xl">Check-in semanal</h2>
+        <h2 id="checkin-title" class="card-title text-lg sm:text-xl">Registro semanal</h2>
         <p class="text-sm opacity-70 m-0">
-          ~5 min. Una entrada por fecha; si ya hiciste check-in hoy, se actualiza.
+          Aproximadamente 5 minutos. Una entrada por fecha; si ya registró hoy, se actualiza.
         </p>
       </div>
 
@@ -85,7 +87,7 @@ const today = new Date().toISOString().slice(0, 10);
           />
         </label>
         <label class="form-control w-full sm:col-span-2">
-          <span class="label-text text-sm font-medium">Qué hice</span>
+          <span class="label-text text-sm font-medium">Qué se realizó</span>
           <textarea
             id="checkin-hecho"
             name="hecho"
@@ -100,7 +102,7 @@ const today = new Date().toISOString().slice(0, 10);
             id="checkin-bloqueo"
             name="bloqueo"
             class="textarea textarea-bordered w-full min-h-20"
-            placeholder="Duda, fatiga, tema que se trabó… (o “ninguno”)"
+            placeholder="Duda, fatiga o tema bloqueado (o «ninguno»)"
             required
           ></textarea>
         </label>
@@ -115,26 +117,27 @@ const today = new Date().toISOString().slice(0, 10);
           ></textarea>
         </label>
         <div class="sm:col-span-2 flex flex-wrap items-center gap-2">
-          <button class="btn btn-primary btn-sm sm:btn-md" type="submit">Guardar check-in</button>
+          <button class="btn btn-primary btn-sm sm:btn-md" type="submit">Guardar registro</button>
           <p id="checkin-status" class="text-sm opacity-70 m-0" aria-live="polite"></p>
         </div>
       </form>
 
       <div>
-        <h3 class="font-semibold text-sm mb-2">Últimos check-ins</h3>
+        <h3 class="font-semibold text-sm mb-2">Últimos registros</h3>
         <ul id="checkin-list" class="space-y-2 text-sm"></ul>
-        <p id="checkin-empty" class="text-sm opacity-60 m-0">Aún no hay check-ins. El primero cuenta.</p>
+        <p id="checkin-empty" class="text-sm opacity-60 m-0">Aún no hay registros semanales.</p>
       </div>
     </div>
   </section>
 
   <div class="card bg-base-100 border border-base-300 mb-6 overflow-hidden">
     <div class="card-body min-w-0 p-4 sm:p-6">
-      <h2 class="card-title">Exportar / importar</h2>
+      <h2 class="card-title">Exportar e importar</h2>
       <p class="text-sm opacity-70 m-0 mb-2">
-        Respaldo manual (incluye check-ins). Para sync automática entre dispositivos usa
-        <a class="link link-primary" href={pathTo('docs/sincronizar-progreso')}>Entrar con Google</a>.
-        También puedes pegar en <code>progress.json</code> y hacer commit semanal.
+        Respaldo manual (incluye registros semanales). Para sincronización automática entre
+        dispositivos, use
+        <a class="link link-primary" href={pathTo('docs/sincronizar-progreso')}>iniciar sesión con Google</a>.
+        También puede pegar el contenido en <code>progress.json</code> y versionarlo semanalmente.
       </p>
       <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-48 w-full max-w-full min-w-0 overflow-x-auto"></textarea>
       <div class="card-actions justify-end flex-wrap">
@@ -180,7 +183,7 @@ const today = new Date().toISOString().slice(0, 10);
                   {m.titulo}
                 </a>
               </td>
-              <td>{m.etapa}</td>
+              <td>{etapaTitles[m.etapa] ?? m.etapa}</td>
               <td><span class="badge whitespace-nowrap" data-row-status={m.id}>—</span></td>
             </tr>
           ))

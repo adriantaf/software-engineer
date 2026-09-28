@@ -29,7 +29,7 @@ No es obligatorio llevar el spike a M26; es obligatorio **pensar** antes de acum
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Investigar tres tecnologías con **fuentes primarias** (docs oficiales) y al menos una crítica o limitación conocida.
 2. Construir una matriz de adopción con costo, riesgo, valor para Vitrina, fit y **seguridad**.

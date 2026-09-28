@@ -21,13 +21,13 @@ proyecto:
 
 ## Por qué existe
 
-Sin método, 20 h/semana se diluyen en tutoriales. Esta materia instala el sistema de trabajo de todo el plan: terminal, Git limpio y bitácora.
+Sin método, veinte horas semanales se diluyen en tutoriales. Esta materia establece el sistema de trabajo del plan: terminal, Git limpio y bitácora.
 
-**En resumen:** configuras tu entorno, practicas shell y Git en **este** repo, escribes un ADR corto y dejas bitácora. No es un curso de Git de 8 horas: es hábito.
+**En resumen:** se configura el entorno, se practica shell y Git en **este** repo, se escribe un ADR corto y se deja bitácora. No sustituye un curso extenso de Git: el foco es el hábito de trabajo.
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Organizar una semana de estudio (teoría / práctica / proyecto).
 2. Usar la terminal con soltura (navegación, pipes, permisos, grep).
@@ -119,7 +119,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 ## Criterios de dominio
 
-- [ ] Explicas branching sin mirar Stack Overflow.
+- [ ] Explicas branching sin consultar Stack Overflow.
 - [ ] Resuelves un conflicto de merge simple.
 - [ ] Tu bitácora de la semana 2 existe y es honesta.
 - [ ] No dependes de la GUI de Git para lo básico.

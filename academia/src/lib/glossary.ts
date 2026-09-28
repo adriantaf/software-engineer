@@ -32,7 +32,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'api',
     term: 'API',
     expansion: 'interfaz de programación de aplicaciones',
-    definition: 'Contrato que permite a un programa hablar con otro (p. ej. tu front con tu backend por HTTP).',
+    definition: 'Contrato que permite a un programa comunicarse con otro (por ejemplo, el cliente con el servidor por HTTP).',
   },
   {
     id: 'adr',
@@ -56,7 +56,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'https',
     term: 'HTTPS',
     expansion: 'HTTP sobre TLS',
-    definition: 'Versión cifrada de HTTP. En producción tu producto debe ir siempre por HTTPS.',
+    definition: 'Versión cifrada de HTTP. En producción el producto debe exponerse siempre por HTTPS.',
   },
   {
     id: 'http',
@@ -155,25 +155,26 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'llm',
     term: 'LLM',
     expansion: 'modelo de lenguaje grande',
-    definition: 'Modelo tipo ChatGPT al que llamas por API. Hay que medir costo, calidad y fugas de datos.',
+    definition: 'Modelo de lenguaje grande accesible por API. Debe medirse costo, calidad y riesgo de fuga de datos.',
   },
   {
     id: 'rag',
     term: 'RAG',
     expansion: 'generación aumentada por recuperación',
-    definition: 'Buscas documentos propios y se los pasas al LLM para responder con ese contexto (en SaaS: por tenant).',
+    definition:
+      'Se recuperan documentos propios y se entregan al LLM para responder con ese contexto (en SaaS: por tenant).',
   },
   {
     id: 'pii',
     term: 'PII',
     expansion: 'información de identificación personal',
-    definition: 'Datos que identifican a una persona (nombre, teléfono, email, etc.). Trátalos con cuidado.',
+    definition: 'Datos que identifican a una persona (nombre, teléfono, correo, etc.). Deben tratarse con cuidado.',
   },
   {
     id: 'icp',
     term: 'ICP',
     expansion: 'perfil de cliente ideal',
-    definition: 'Tipo de cliente al que le encaja tu producto (quién paga y por qué).',
+    definition: 'Perfil de cliente al que encaja el producto (quién paga y por qué).',
   },
   {
     id: 'multi-tenant',
@@ -233,7 +234,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
   {
     id: 'dry',
     term: 'DRY',
-    expansion: 'no te repitas',
+    expansion: 'no se repita',
     definition: 'Evitar duplicar la misma lógica en muchos sitios; no significa abstraer demasiado pronto.',
   },
   {
@@ -273,6 +274,34 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     definition: 'Diseño y evaluación de cómo las personas usan la interfaz (usabilidad).',
   },
   {
+    id: 'vv',
+    term: 'V&V',
+    aliases: ['V y V', 'verificación y validación'],
+    expansion: 'verificación y validación',
+    definition:
+      'Verificación: construir el producto correctamente. Validación: construir el producto correcto. Incluye pruebas y revisiones.',
+  },
+  {
+    id: 'devops',
+    term: 'DevOps',
+    expansion: 'desarrollo y operaciones',
+    definition:
+      'Prácticas que unen desarrollo y operación: automatización, despliegue continuo, observabilidad y responsabilidad compartida.',
+  },
+  {
+    id: 'pwa',
+    term: 'PWA',
+    expansion: 'aplicación web progresiva',
+    definition:
+      'Sitio web que puede instalarse, funcionar offline parcial y comportarse de forma similar a una app nativa.',
+  },
+  {
+    id: 'qsr',
+    term: 'QSR',
+    expansion: 'restaurante de servicio rápido',
+    definition: 'Local de comida rápida o similar; contexto de dominio del producto Vitrina (menú y pedidos).',
+  },
+  {
     id: 'cli',
     term: 'CLI',
     expansion: 'interfaz de línea de comandos',
@@ -282,7 +311,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'mrr',
     term: 'MRR',
     expansion: 'ingreso recurrente mensual',
-    definition: 'Dinero de suscripciones que esperas cada mes. Métrica típica de un SaaS.',
+    definition: 'Ingreso de suscripciones esperado cada mes. Métrica típica de un SaaS.',
   },
   {
     id: 'sql',
@@ -370,7 +399,7 @@ export const GLOSSARY_TERMS: GlossaryTerm[] = [
     id: 'vps',
     term: 'VPS',
     expansion: 'servidor virtual privado',
-    definition: 'Máquina virtual que administras tú (más control, más responsabilidad de seguridad/ops).',
+    definition: 'Máquina virtual administrada por el equipo (más control y más responsabilidad de seguridad y operaciones).',
   },
   {
     id: 'faq',
@@ -416,9 +445,9 @@ export function renderGlossaryMarkdown(): string {
   const lines = [
     '# Glosario del plan',
     '',
-    'Siglas y jerga que aparecen en las fichas. En las materias, cada sigla del glosario es un **enlace** a esta página; la **primera vez** en una ficha también verás la expansión entre paréntesis.',
+    'Siglas y jerga que aparecen en las fichas. En las materias, cada sigla del glosario es un **enlace** a esta página; la **primera vez** en una ficha también se muestra la expansión entre paréntesis.',
     '',
-    'Tip: usa el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salta desde cualquier mención en azul.',
+    'Sugerencia: use el buscador del navegador (`Ctrl+F` / `Cmd+F`) o salte desde cualquier mención en azul.',
     '',
   ];
   const sorted = [...GLOSSARY_TERMS].sort((a, b) =>

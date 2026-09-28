@@ -1,31 +1,31 @@
 {
-  "programa": "Ingeniería de Software — Plan personal",
+  "programa": "Ingeniería de Software — Plan de estudios",
   "fuentes": [],
   "ritmoHorasSemana": 20,
   "etapas": [
     {
       "id": "basica",
       "orden": 1,
-      "titulo": "Etapa Básica",
+      "titulo": "Fundamentos",
       "slug": "01-basica",
       "duracionMeses": "4-5",
-      "objetivo": "Pensar como ingeniero, programar con solidez y bases matemáticas útiles."
+      "objetivo": "Desarrollar pensamiento de ingeniería, programación sólida y bases matemáticas aplicadas."
     },
     {
       "id": "disciplinaria",
       "orden": 2,
-      "titulo": "Etapa Disciplinaria",
+      "titulo": "Ingeniería aplicada",
       "slug": "02-disciplinaria",
       "duracionMeses": "11-13",
-      "objetivo": "Ciclo completo de software, sistemas y producto en producción."
+      "objetivo": "Cubrir el ciclo completo de software, sistemas y producto en producción."
     },
     {
       "id": "terminal",
       "orden": 3,
-      "titulo": "Etapa Terminal",
+      "titulo": "Especialización y egreso",
       "slug": "03-terminal",
       "duracionMeses": "7-9",
-      "objetivo": "Liderazgo técnico, ciberseguridad aplicada, emprendimiento e egreso demostrable."
+      "objetivo": "Consolidar liderazgo técnico, ciberseguridad aplicada, emprendimiento y egreso demostrable."
     }
   ],
   "materias": [

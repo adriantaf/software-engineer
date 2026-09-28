@@ -28,7 +28,7 @@ Tu aplicación no flota en el vacío: corre sobre un kernel, con procesos, memor
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Explicar proceso vs hilo y qué implica el scheduling a nivel de operación (no teoría de exámenes).
 2. Leer uso de memoria de un proceso Node y reconocer síntomas de OOM.

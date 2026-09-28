@@ -28,7 +28,7 @@ Los patrones son vocabulario compartido entre ingenieros: aceleran revisiones y 
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Reconocer cuándo un patrón GoF aporta flexibilidad real vs complejidad innecesaria.
 2. Implementar Strategy, Observer y Factory con tests unitarios mínimos.

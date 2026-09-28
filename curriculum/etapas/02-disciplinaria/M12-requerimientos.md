@@ -28,7 +28,7 @@ Construir sin requisitos es adivinar. A partir de esta materia el producto del p
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Elicitar necesidades con un guion de entrevista (problemas observados, no soluciones prematuras).
 2. Separar deseo, requisito y supuesto; registrar ambigüedades y preguntas abiertas.

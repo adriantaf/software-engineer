@@ -4,7 +4,7 @@ La seguridad no es “la materia M18”. Es un hábito en **todo** el plan. Labs
 
 ## Por etapa
 
-### Básica
+### Fundamentos
 | Materia | Práctica mínima de seguridad |
 |---------|------------------------------|
 | M01 | No subir secretos; `.gitignore` de `.env` |
@@ -12,7 +12,7 @@ La seguridad no es “la materia M18”. Es un hábito en **todo** el plan. Labs
 | M03–M05 | — (fundamento; conciencia de límites/representación) |
 | M06 | Errores sin filtrar stack traces sensibles al usuario |
 
-### Disciplinaria
+### Ingeniería aplicada
 | Materia | Práctica mínima |
 |---------|-----------------|
 | M07–M08 | No “optimizar” validaciones fuera |
@@ -28,7 +28,7 @@ La seguridad no es “la materia M18”. Es un hábito en **todo** el plan. Labs
 | M19 | Secrets en hosting, backups, staging/prod SaaS |
 | M20 | Storage seguro de tokens; certificate pinning intro (opcional) |
 
-### Terminal
+### Especialización y egreso
 | Materia | Práctica mínima |
 |---------|-----------------|
 | M21 | Riesgos de seguridad en el backlog |
