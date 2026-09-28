@@ -34,16 +34,13 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 Ver también:
 
-- [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
-- [Instalar en iPhone (PWA)](instalar-iphone.md) — icono + offline
-- [Sincronizar progreso](sincronizar-progreso.md) — Google + Firebase (móvil ↔ laptop)
+- [Cómo estudiar](como-estudiar.md) ← léalo antes de M01
 - [Glosario](glosario.md) — siglas con definición en español
-- [Bibliografía](bibliografia.md) — libros + alternativa gratis
+- [Bibliografía](bibliografia.md) — libros y alternativa gratis
 - [Producto SaaS](producto-saas.md)
 - [Hilo producto](hilos/producto.md) — artefactos M12→M26
-- [Filosofía](filosofia.md) — mejor que la escuela tradicional
+- [Filosofía](filosofia.md)
 - [Labs (índice)](labs/README.md)
-- [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)
 
 ## Reglas de oro

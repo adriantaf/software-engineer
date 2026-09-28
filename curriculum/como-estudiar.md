@@ -29,7 +29,7 @@ No cuenta como estudio: marcar la lección tras solo leer el Markdown, o pasos g
 
 ### Buscar en el plan
 
-En la interfaz: **Buscar** (Pagefind). Indexa fichas, lecciones y guías tras el build. La primera visita en línea descarga el índice.
+En la interfaz: **Buscar**. Permite localizar fichas, lecciones y guías.
 
 ## Una semana de 20 horas (modelo)
 
@@ -92,6 +92,5 @@ El curriculum y la academia están listos para estudiar. Ejecute el plan:
 1. En la interfaz: **Continuar** (o [M01 · L01](etapas/01-basica/M01/L01-entorno-y-primer-commit.md) si comienza de cero).
 2. Cumpla el **Hecho cuando** de esa lección con evidencia en `projects/`.
 3. Cada semana: **registro** en **Progreso** → exporte a `progress.json` → commit.
-4. Si el navegador o la PWA muestra un plan antiguo tras un deploy: banner **Actualizar**, o [borrar datos del sitio](instalar-iphone.md#chrome--pwa-se-quedo-en-contenido-viejo).
 
-Opcional: use **Buscar** en la interfaz (Pagefind) para localizar lecturas y lecciones.
+Opcional: use **Buscar** en la interfaz para localizar lecturas y lecciones.
