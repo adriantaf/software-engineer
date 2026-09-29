@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import MateriaCover from '../../components/MateriaCover.astro';
 import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+import { gradientForEtapa } from '../../lib/materia-gradients';
 import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -19,18 +21,13 @@ const hasLecciones = materia.lecciones.length > 0;
 const firstLeccion = materia.lecciones[0];
 const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 
-const mediaFrom =
-  etapa.id === 'basica' ? '#0f766e' : etapa.id === 'disciplinaria' ? '#0369a1' : '#7c3aed';
-const mediaTo =
-  etapa.id === 'basica' ? '#134e4a' : etapa.id === 'disciplinaria' ? '#0c4a6e' : '#4c1d95';
+const [mediaFrom, mediaTo] = gradientForEtapa(etapa.id);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
-  <div
-    class="w-full"
-    style={`background: linear-gradient(135deg, ${mediaFrom}, ${mediaTo});`}
-  >
-    <div class="plan-shell py-8 sm:py-10 text-white">
+  <div class="materia-hero w-full" style={`--media-from: ${mediaFrom}; --media-to: ${mediaTo}`}>
+    <MateriaCover id={materia.id} etapaId={etapa.id} variant="hero" titulo={materia.titulo} />
+    <div class="plan-shell py-8 sm:py-10 text-white materia-hero__content">
       <div class="breadcrumbs text-sm mb-4 opacity-80 [&_a]:text-white [&_a]:opacity-90">
         <ul class="flex-wrap">
           <li><a href={pathTo()}>Inicio</a></li>

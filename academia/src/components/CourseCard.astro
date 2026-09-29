@@ -1,5 +1,7 @@
 ---
 import { pathTo } from '../lib/paths';
+import { gradientForEtapa } from '../lib/materia-gradients';
+import MateriaCover from './MateriaCover.astro';
 
 interface Props {
   id: string;
@@ -14,12 +16,7 @@ interface Props {
 
 const { id, titulo, etapaId, etapaTitulo, horas, semanas, leccionCount = 0, description } = Astro.props;
 
-const gradients: Record<string, [string, string]> = {
-  basica: ['#0f766e', '#134e4a'],
-  disciplinaria: ['#0369a1', '#0c4a6e'],
-  terminal: ['#7c3aed', '#4c1d95'],
-};
-const [from, to] = gradients[etapaId] ?? gradients.basica;
+const [from, to] = gradientForEtapa(etapaId);
 const desc =
   description?.trim() ||
   `${etapaTitulo} · ${semanas} semanas · ${horas} horas de estudio planificadas.`;
@@ -31,6 +28,7 @@ const desc =
   style={`--media-from: ${from}; --media-to: ${to}`}
 >
   <div class="course-card__media" aria-hidden="true">
+    <MateriaCover id={id} etapaId={etapaId} variant="card" titulo={titulo} />
     <span class="course-card__media-label">{id}</span>
   </div>
   <div class="course-card__body">

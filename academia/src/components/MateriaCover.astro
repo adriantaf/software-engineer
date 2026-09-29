@@ -1,0 +1,41 @@
+---
+import { pathTo } from '../lib/paths';
+import { gradientForEtapa } from '../lib/materia-gradients';
+
+interface Props {
+  id: string;
+  etapaId: string;
+  variant?: 'card' | 'hero';
+  titulo?: string;
+}
+
+const { id, etapaId, variant = 'card', titulo = '' } = Astro.props;
+const [from, to] = gradientForEtapa(etapaId);
+const coverSrc = pathTo(`covers/${id}.svg`);
+---
+
+<div
+  class:list={['materia-cover', variant === 'hero' && 'materia-cover--hero']}
+  style={`--media-from: ${from}; --media-to: ${to}`}
+  data-materia-cover={id}
+>
+  <img
+    class="materia-cover__img"
+    src={coverSrc}
+    alt=""
+    loading="lazy"
+    decoding="async"
+    width="640"
+    height="360"
+  />
+  <slot />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>('.materia-cover__img').forEach((img) => {
+    img.addEventListener('error', () => {
+      img.hidden = true;
+      img.closest('.materia-cover')?.classList.add('materia-cover--fallback');
+    });
+  });
+</script>
