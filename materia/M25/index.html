@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="es" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="description" content="Plan de estudios de ingeniería de software"><meta name="theme-color" content="#0F766E"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Plan"><meta name="mobile-web-app-capable" content="yes"><title>M25 Ciberseguridad aplicada · Plan</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@500;600;700&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/software-engineer/favicon.svg"><link rel="apple-touch-icon" href="/software-engineer/icons/apple-touch-icon.png"><link rel="manifest" href="/software-engineer/manifest.webmanifest"><script type="module" src="/software-engineer/_astro/Layout.astro_astro_type_script_index_0_lang.D155f-7x.js"></script><link rel="stylesheet" href="/software-engineer/_astro/Layout.BxAQM6xf.css"></head><body class="min-h-screen flex flex-col bg-plan-surface text-plan-ink"><header class="site-header" id="site-header"><div class="plan-shell flex items-center gap-2 sm:gap-3 min-h-16 py-2"><button type="button" id="nav-drawer-toggle" class="btn btn-ghost btn-square btn-sm lg:hidden shrink-0" aria-label="Abrir menú" aria-controls="nav-drawer" aria-expanded="false"><svg id="nav-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg><svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 hidden" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path></svg></button><a class="font-display text-xl font-bold tracking-tight text-plan-ink shrink-0 px-1 no-underline hover:text-plan-primary transition-colors" href="/software-engineer/">Plan</a><div class="hidden md:flex flex-1 justify-center min-w-0 px-2"><form class="search-bar w-full" action="/software-engineer/buscar" method="get" role="search"><label class="sr-only" for="plan-search-q">Buscar en el plan</label><input id="plan-search-q" type="search" name="q" placeholder="Buscar materias, lecciones, guías…" autocomplete="off"><button type="submit" aria-label="Buscar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="M20 20l-3.5-3.5"></path></svg></button></form></div><nav class="hidden lg:flex items-center gap-0.5 shrink-0" aria-label="Principal"><div class="dropdown"><div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Estudios ▾</div><ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"><li><a href="/software-engineer/etapa/basica">Fundamentos</a></li><li><a href="/software-engineer/etapa/disciplinaria">Ingeniería aplicada</a></li><li><a href="/software-engineer/etapa/terminal">Especialización y egreso</a></li><li class="menu-title"><span>Seguimiento</span></li><li><a href="/software-engineer/progreso">Progreso</a></li></ul></div><div class="dropdown"><div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Guías ▾</div><ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-56 p-2 shadow border border-base-300"><li><a href="/software-engineer/docs/como-estudiar">Cómo estudiar</a></li><li><a href="/software-engineer/docs/glosario">Glosario</a></li><li><a href="/software-engineer/docs/bibliografia">Bibliografía</a></li><li><a href="/software-engineer/docs/producto-saas">Producto SaaS</a></li><li><a href="/software-engineer/docs/producto">Hilo de producto</a></li><li><a href="/software-engineer/docs/filosofia">Filosofía</a></li><li><a href="/software-engineer/egreso">Egreso</a></li><li><a href="/software-engineer/docs/index">Mapa curricular</a></li></ul></div><div class="dropdown dropdown-end"><div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Exámenes ▾</div><ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-2 w-64 p-2 shadow border border-base-300"><li><a href="/software-engineer/etapa/basica/examen">Examen — Fundamentos</a></li><li><a href="/software-engineer/etapa/disciplinaria/examen">Examen — Ingeniería aplicada</a></li><li><a href="/software-engineer/etapa/terminal/examen">Examen — Especialización y egreso</a></li></ul></div></nav><div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto lg:ml-0"><a class="btn btn-ghost btn-square btn-sm md:hidden" href="/software-engineer/buscar" title="Buscar en el plan" aria-label="Buscar en el plan"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="M20 20l-3.5-3.5"></path></svg></a><a class="plan-btn-cta text-sm px-3" data-continuar href="/software-engineer/materia/M01/leccion/L01" title="Continuar con la siguiente lección pendiente">Continuar</a><div id="auth-sync" class="flex items-center gap-1 min-w-0"><button type="button" id="auth-google-btn" class="btn btn-ghost btn-sm px-2" hidden title="Iniciar sesión con Google para sincronizar el progreso">Entrar</button><a id="auth-account-btn" class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[10rem]" href="/software-engineer/perfil" hidden title="Ver perfil"><img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden><span id="auth-sync-label" class="text-xs truncate">Perfil</span></a></div></div></div></header><div id="nav-backdrop" class="nav-backdrop lg:hidden" hidden aria-hidden="true"></div><nav id="nav-drawer" class="nav-drawer lg:hidden" aria-label="Menú móvil" aria-hidden="true" hidden><div class="nav-drawer__inner"><div class="nav-drawer__head"><p class="nav-drawer__title">Menú</p><button type="button" id="nav-drawer-close" class="btn btn-ghost btn-square btn-sm" aria-label="Cerrar menú"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path></svg></button></div><div class="nav-drawer__scroll"><div class="mb-3 md:hidden"><form class="search-bar" action="/software-engineer/buscar" method="get" role="search"><label class="sr-only" for="plan-search-q-drawer">Buscar en el plan</label><input id="plan-search-q-drawer" type="search" name="q" placeholder="Buscar materias, lecciones, guías…" autocomplete="off"><button type="submit" aria-label="Buscar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="M20 20l-3.5-3.5"></path></svg></button></form></div><p class="nav-drawer__label">Cuenta</p><ul class="nav-drawer__list"><li><button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>Iniciar sesión con Google</button></li><li><a id="auth-perfil-drawer" href="/software-engineer/perfil" class="nav-drawer__list-btn" hidden>Mi perfil</a></li><li><button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>Cerrar sesión</button></li></ul><p class="nav-drawer__label">Plan de estudios</p><ul class="nav-drawer__list"><li><a href="/software-engineer/">Inicio</a></li><li><a href="/software-engineer/etapa/basica">Fundamentos</a></li><li><a href="/software-engineer/etapa/disciplinaria">Ingeniería aplicada</a></li><li><a href="/software-engineer/etapa/terminal">Especialización y egreso</a></li><li><a href="/software-engineer/progreso">Progreso</a></li><li><a href="/software-engineer/buscar">Buscar</a></li></ul><details class="nav-drawer__details"><summary class="nav-drawer__summary">Guías</summary><ul class="nav-drawer__list nav-drawer__list--nested"><li><a href="/software-engineer/docs/como-estudiar">Cómo estudiar</a></li><li><a href="/software-engineer/docs/glosario">Glosario</a></li><li><a href="/software-engineer/docs/bibliografia">Bibliografía</a></li><li><a href="/software-engineer/docs/producto-saas">Producto SaaS</a></li><li><a href="/software-engineer/docs/producto">Hilo de producto</a></li><li><a href="/software-engineer/docs/filosofia">Filosofía</a></li><li><a href="/software-engineer/egreso">Egreso</a></li><li><a href="/software-engineer/docs/index">Mapa curricular</a></li></ul></details><p class="nav-drawer__label">Autoevaluación</p><ul class="nav-drawer__list"><li><a href="/software-engineer/etapa/basica/examen">Examen — Fundamentos</a></li><li><a href="/software-engineer/etapa/disciplinaria/examen">Examen — Ingeniería aplicada</a></li><li><a href="/software-engineer/etapa/terminal/examen">Examen — Especialización y egreso</a></li></ul></div></div></nav><div id="pwa-update" class="fixed bottom-0 inset-x-0 z-50 border-t border-plan-border bg-white px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]" hidden role="status"><div class="plan-shell flex flex-wrap items-center justify-between gap-2"><p class="text-sm m-0">Hay una versión nueva del plan disponible.</p><button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">Actualizar</button></div></div><div id="auth-toast" class="fixed bottom-0 inset-x-0 z-[70] border-t border-plan-border bg-white px-3 py-3 shadow-lg pb-[max(0.75rem,env(safe-area-inset-bottom))]" hidden role="alert"><div class="plan-shell flex flex-wrap items-start justify-between gap-2"><p id="auth-toast-msg" class="text-sm m-0 text-plan-ink max-w-prose"></p><button id="auth-toast-close" type="button" class="btn btn-ghost btn-sm shrink-0">Cerrar</button></div></div><main class="flex-1 w-full min-w-0" data-pagefind-body><div class="materia-hero w-full" style="--media-from: #7c3aed; --media-to: #4c1d95"><div class="materia-cover materia-cover--hero" style="--media-from: #7c3aed; --media-to: #4c1d95" data-materia-cover="M25"><img class="materia-cover__img" src="/software-engineer/covers/M25.svg" alt="" loading="lazy" decoding="async" width="640" height="360"></div><script type="module">document.querySelectorAll(`.materia-cover__img`).forEach(e=>{e.addEventListener(`error`,()=>{e.hidden=!0,e.closest(`.materia-cover`)?.classList.add(`materia-cover--fallback`)})});</script><div class="plan-shell py-8 sm:py-10 text-white materia-hero__content"><div class="breadcrumbs text-sm mb-4 opacity-80 [&amp;_a]:text-white [&amp;_a]:opacity-90"><ul class="flex-wrap"><li><a href="/software-engineer/">Inicio</a></li><li><a href="/software-engineer/etapa/terminal">Especialización y egreso</a></li><li>M25</li></ul></div><p class="text-xs font-semibold uppercase tracking-wider text-white/70 m-0 mb-2">Especialización y egreso</p><h1 class="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight m-0 leading-tight">M25 · Ciberseguridad aplicada</h1><p class="text-sm sm:text-base text-white/85 m-0 mt-3 flex flex-wrap gap-x-3 gap-y-1"><span>6 semanas</span><span aria-hidden="true">·</span><span>120 horas</span><span aria-hidden="true">·</span><span>24 lecciones</span></p><a class="plan-btn-cta mt-6 inline-flex" href="/software-engineer/materia/M25/leccion/L01">Abrir L01</a></div></div><div class="plan-shell py-8 sm:py-10"><div class="flex flex-col lg:flex-row gap-8 min-w-0"><article class="flex-1 min-w-0"><p class="text-sm text-plan-muted m-0 mb-5">Sigla en teal →<a class="link link-primary" href="/software-engineer/docs/glosario">glosario</a>(primera vez: expansión entre paréntesis).</p><div role="alert" class="mb-6 rounded-[var(--radius-plan)] border border-plan-border bg-plan-primary-soft/40 px-4 py-3 text-sm">Empieza por <a class="link font-semibold" href="/software-engineer/materia/M25/leccion/L01">L01 — Inventario de activos SaaS prod y staging</a>. Marca cada lección al cumplir “Hecho cuando”.</div><div class="prose-academia materia-body min-w-0"><h1>M25 — Ciberseguridad aplicada</h1>
+<h2 id="por-que-existe">Por qué existe</h2>
+<p><strong>Capa C</strong> de la pista de seguridad, aplicada al <strong><a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a> <span class="glossary-expand">(software como servicio)</span> <a class="glossary-term" href="/software-engineer/docs/glosario#multi-tenant" title="multi-tenant: varios clientes en un solo sistema">multi-tenant</a> <span class="glossary-expand">(varios clientes en un solo sistema)</span></strong>. El fallo prioritario a detectar: <strong><a class="glossary-term" href="/software-engineer/docs/glosario#idor" title="IDOR: referencia directa insegura a un objeto">IDOR</a> <span class="glossary-expand">(referencia directa insegura a un objeto)</span> cross-tenant</strong> (el inquilino A lee datos del B). Ver <a href="/software-engineer/docs/producto-saas">producto-saas</a>.</p>
+<p><strong>En resumen:</strong> ciberseguridad aplicada al <a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a> <a class="glossary-term" href="/software-engineer/docs/glosario#multi-tenant" title="multi-tenant: varios clientes en un solo sistema">multi-tenant</a>; el defecto prioritario es <a class="glossary-term" href="/software-engineer/docs/glosario#idor" title="IDOR: referencia directa insegura a un objeto">IDOR</a> entre inquilinos.</p>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<ol>
+<li>Inventariar activos y superficie del <a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a> desplegado.</li>
+<li>Revisión de seguridad con <strong>pruebas de aislamiento entre tenants</strong>.</li>
+<li>Endurecimiento de producción (<a class="glossary-term" href="/software-engineer/docs/glosario#https" title="HTTPS: HTTP sobre TLS">HTTPS</a> <span class="glossary-expand">(HTTP sobre TLS)</span>, respaldos, mínimo privilegio, secretos de Stripe).</li>
+<li>Ejercicio de mesa (tabletop) de incidente y runbook.</li>
+<li>Introducción a privacidad y datos (contexto MX) por tenant.</li>
+</ol>
+<h2 id="como-estudiar-esta-materia-lecciones">Cómo estudiar esta materia (lecciones)</h2>
+<p>M25 es <strong>ciberseguridad aplicada</strong> al <a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a> <a class="glossary-term" href="/software-engineer/docs/glosario#vitrina" title="Vitrina: SaaS vertical del plan (menú + pedidos)">Vitrina</a> <span class="glossary-expand">(SaaS vertical del plan (menú + pedidos))</span>: L01–L24, evidencia en <code>projects/m25-ciber/</code> y fixes en el repo del producto.</p>
+<ol>
+<li>Orden <strong>L01 → L24</strong>; prioriza <strong><a class="glossary-term" href="/software-engineer/docs/glosario#idor" title="IDOR: referencia directa insegura a un objeto">IDOR</a> cross-tenant</strong> sobre hallazgos cosméticos.</li>
+<li>Solo atacas <strong>tus</strong> ambientes prod/staging acordados.</li>
+<li>Cierra ≥2 issues críticos/altos de aislamiento con tests antes del cierre.</li>
+<li>Tabletop documentado (≥30 min narrativa) sin copiar tutorial.</li>
+<li><a href="/software-engineer/docs/seguridad">hilo seguridad</a> + <a href="/software-engineer/docs/producto-saas">producto-saas</a>.</li>
+</ol>
+<h2 id="semana-tipo-20-h">Semana tipo (20 h)</h2>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th>Horas</th>
+<th>Qué haces</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Lecciones + labs</td>
+<td>10–12</td>
+<td>4× ~5 h en inventario/review/hardening</td>
+</tr>
+<tr>
+<td>Fixes cross-tenant</td>
+<td>4–6</td>
+<td><a class="glossary-term" href="/software-engineer/docs/glosario#pr" title="PR: pull request">PRs</a> <span class="glossary-expand">(pull request)</span> con tests</td>
+</tr>
+<tr>
+<td>Tabletop / informe</td>
+<td>4–6</td>
+<td><code>security-review.md</code></td>
+</tr>
+<tr>
+<td>Retro</td>
+<td>1</td>
+<td>Riesgo residual</td>
+</tr>
+</tbody></table>
+<p>Si un día solo tienes 2 h: <strong>prueba manual A vs B</strong> o un fix con test.</p>
+<h2 id="lecciones">Lecciones</h2>
+<h3 id="semana-1-inventario-y-clasificacion-multi-tenant-20-h">Semana 1 — Inventario y clasificación <a class="glossary-term" href="/software-engineer/docs/glosario#multi-tenant" title="multi-tenant: varios clientes en un solo sistema">multi-tenant</a> (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L01</td>
+<td><a href="/software-engineer/materia/M25/leccion/L01">Inventario de activos SaaS prod y staging</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L02</td>
+<td><a href="/software-engineer/materia/M25/leccion/L02">Clasificación de datos por tenant</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L03</td>
+<td><a href="/software-engineer/materia/M25/leccion/L03">Dos tenants de prueba y mapa de identidades</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L04</td>
+<td><a href="/software-engineer/materia/M25/leccion/L04">Primera prueba manual cross-tenant</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-2-authn-authz-y-tests-cross-tenant-20-h">Semana 2 — Authn/authz y tests cross-tenant (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L05</td>
+<td><a href="/software-engineer/materia/M25/leccion/L05">Review authn — sesión y tokens</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L06</td>
+<td><a href="/software-engineer/materia/M25/leccion/L06">Review authz — roles staff vs admin</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L07</td>
+<td><a href="/software-engineer/materia/M25/leccion/L07">Automatizar test cross-tenant en CI</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L08</td>
+<td><a href="/software-engineer/materia/M25/leccion/L08">Cerrar ≥1 hallazgo crítico de aislamiento</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-3-hardening-deploy-y-stripe-20-h">Semana 3 — Hardening deploy y Stripe (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L09</td>
+<td><a href="/software-engineer/materia/M25/leccion/L09">HTTPS, headers y configuración prod</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L10</td>
+<td><a href="/software-engineer/materia/M25/leccion/L10">Secretos Stripe y rotación</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L11</td>
+<td><a href="/software-engineer/materia/M25/leccion/L11">Least privilege DB y deploy</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L12</td>
+<td><a href="/software-engineer/materia/M25/leccion/L12">Backup y restore probado</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-4-logging-abuso-y-alertas-20-h">Semana 4 — Logging, abuso y alertas (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L13</td>
+<td><a href="/software-engineer/materia/M25/leccion/L13">Logging sin secretos ni PII innecesaria</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L14</td>
+<td><a href="/software-engineer/materia/M25/leccion/L14">Rate limit login y abuso básico</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L15</td>
+<td><a href="/software-engineer/materia/M25/leccion/L15">Alertas mínimas operativas</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L16</td>
+<td><a href="/software-engineer/materia/M25/leccion/L16">Errores HTTP y fugas de stack</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-5-privacidad-y-cierre-de-hallazgos-20-h">Semana 5 — Privacidad y cierre de hallazgos (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L17</td>
+<td><a href="/software-engineer/materia/M25/leccion/L17">Retención y borrado por tenant</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L18</td>
+<td><a href="/software-engineer/materia/M25/leccion/L18">Minimización en exports y soporte</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L19</td>
+<td><a href="/software-engineer/materia/M25/leccion/L19">Consentimiento y avisos (contexto MX)</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L20</td>
+<td><a href="/software-engineer/materia/M25/leccion/L20">Segundo hallazgo aislamiento cerrado</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-6-tabletop-y-security-review-final-20-h">Semana 6 — Tabletop y security review final (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L21</td>
+<td><a href="/software-engineer/materia/M25/leccion/L21">Tabletop — fuga de .env</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L22</td>
+<td><a href="/software-engineer/materia/M25/leccion/L22">Tabletop — acceso cross-tenant en prod</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L23</td>
+<td><a href="/software-engineer/materia/M25/leccion/L23">Runbook de respuesta incidentes</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L24</td>
+<td><a href="/software-engineer/materia/M25/leccion/L24">Security review final y cierre M25</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p>Empieza por <strong>L01</strong> hoy.</p>
+<h2 id="lecturas-mapa-rapido">Lecturas (mapa rápido)</h2>
+<p>Canon: <strong><a class="glossary-term" href="/software-engineer/docs/glosario#owasp" title="OWASP: proyecto abierto de seguridad en aplicaciones web">OWASP</a> <span class="glossary-expand">(proyecto abierto de seguridad en aplicaciones web)</span> Testing Guide</strong> (secciones por semana) + <a href="/software-engineer/docs/seguridad">hilo seguridad</a>. Ver <a href="/software-engineer/docs/bibliografia#m25-ciberseguridad-aplicada">bibliografía</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Lecciones</th>
+<th><a class="glossary-term" href="/software-engineer/docs/glosario#owasp" title="OWASP: proyecto abierto de seguridad en aplicaciones web">OWASP</a> / foco</th>
+<th>Entrega</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>L01–L04</td>
+<td>Information gathering</td>
+<td><code>inventario.md</code>, tenants prueba</td>
+</tr>
+<tr>
+<td>2</td>
+<td>L05–L08</td>
+<td>Identity / authorization</td>
+<td>Tests cross-tenant</td>
+</tr>
+<tr>
+<td>3</td>
+<td>L09–L12</td>
+<td>Configuration + Stripe</td>
+<td>Hardening + restore</td>
+</tr>
+<tr>
+<td>4</td>
+<td>L13–L16</td>
+<td>Logging / abuse</td>
+<td>Política logs + rate limit</td>
+</tr>
+<tr>
+<td>5</td>
+<td>L17–L20</td>
+<td>Privacy / retención</td>
+<td>2º hallazgo cerrado</td>
+</tr>
+<tr>
+<td>6</td>
+<td>L21–L24</td>
+<td>Reporting + tabletop</td>
+<td><code>security-review.md</code></td>
+</tr>
+</tbody></table>
+<p><strong>Regla:</strong> al menos 2 issues críticos/altos de aislamiento cerrados con tests.</p>
+<h2 id="ejemplo-checklist-saas">Ejemplo — checklist <a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a></h2>
+<pre><code class="language-text">[ ] Auth en endpoints sensibles
+[ ] Autorización por tenant_id + rol (anti IDOR cross-tenant)
+[ ] Tests automatizados cross-tenant
+[ ] Rate limit en login
+[ ] Headers de seguridad en prod
+[ ] Backups restaurables
+[ ] Logs sin secretos/PII innecesaria
+[ ] Webhooks Stripe verificados (firma)
+</code></pre>
+<h2 id="practicas">Prácticas</h2>
+<p>P1–P3 del frontmatter. Al menos <strong>2</strong> issues críticos/altos de aislamiento cerrados con tests.</p>
+<h2 id="proyecto-util">Proyecto útil</h2>
+<p><code>projects/m25-ciber/security-review.md</code> + <a class="glossary-term" href="/software-engineer/docs/glosario#pr" title="PR: pull request">PRs</a>. Alimenta M26.</p>
+<h2 id="errores-comunes">Errores comunes</h2>
+<p>Ignorar <a class="glossary-term" href="/software-engineer/docs/glosario#multi-tenant" title="multi-tenant: varios clientes en un solo sistema">multi-tenant</a>; 50 hallazgos CSS y cero cross-tenant; no verificar webhooks.</p>
+<h2 id="evidencia-de-hecho">Evidencia de hecho</h2>
+<p>Marca la práctica en la <a class="glossary-term" href="/software-engineer/docs/glosario#ui" title="UI: interfaz de usuario">UI</a> <span class="glossary-expand">(interfaz de usuario)</span> solo si existe <strong>esto</strong> (o equivalente claro):</p>
+<ul>
+<li><strong>P1 — Inventario:</strong> Activos + clasificación por tenant.</li>
+<li><strong>P2 — Review:</strong> ≥2 issues aislamiento cerrados con tests.</li>
+<li><strong>P3 — Tabletop:</strong> 30 min documentados (.env/fuga).</li>
+<li><strong>Proyecto — Security review:</strong> <code>projects/m25-ciber/security-review.md</code>.</li>
+</ul>
+<h2 id="criterios-de-dominio">Criterios de dominio</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Demo: A no lee datos de B (manual + test).</li>
+<li><input disabled="" type="checkbox"> Tabletop 30 min sin tutorial.</li>
+<li><input disabled="" type="checkbox"> <a class="glossary-term" href="/software-engineer/docs/glosario#tls" title="TLS: seguridad de la capa de transporte">TLS</a> <span class="glossary-expand">(seguridad de la capa de transporte)</span> + secrets fuera de repo + restore probado.</li>
+</ul>
+</div></article><aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-24 lg:self-start"><nav class="rounded-[var(--radius-plan)] border border-plan-border bg-white overflow-hidden min-w-0 shadow-[var(--shadow-plan)]" aria-label="Lecciones"><div class="flex flex-col gap-2 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">Lecciones</h2><p class="text-xs text-plan-muted m-0">Marca al terminar cada una.</p><div class="max-h-80 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-1"><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L01" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L01"><span class="font-mono text-xs opacity-70">L01</span> Inventario de activos SaaS prod y staging</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L02" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L02"><span class="font-mono text-xs opacity-70">L02</span> Clasificación de datos por tenant</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L03" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L03"><span class="font-mono text-xs opacity-70">L03</span> Dos tenants de prueba y mapa de identidades</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L04" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L04"><span class="font-mono text-xs opacity-70">L04</span> Primera prueba manual cross-tenant</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L05" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L05"><span class="font-mono text-xs opacity-70">L05</span> Review authn — sesión y tokens</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L06" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L06"><span class="font-mono text-xs opacity-70">L06</span> Review authz — roles staff vs admin</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L07" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L07"><span class="font-mono text-xs opacity-70">L07</span> Automatizar test cross-tenant en CI</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L08" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L08"><span class="font-mono text-xs opacity-70">L08</span> Cerrar ≥1 hallazgo crítico de aislamiento</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L09" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L09"><span class="font-mono text-xs opacity-70">L09</span> HTTPS, headers y configuración prod</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L10" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L10"><span class="font-mono text-xs opacity-70">L10</span> Secretos Stripe y rotación</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L11" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L11"><span class="font-mono text-xs opacity-70">L11</span> Least privilege DB y deploy</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L12" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L12"><span class="font-mono text-xs opacity-70">L12</span> Backup y restore probado</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L13" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L13"><span class="font-mono text-xs opacity-70">L13</span> Logging sin secretos ni PII innecesaria</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L14" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L14"><span class="font-mono text-xs opacity-70">L14</span> Rate limit login y abuso básico</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L15" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L15"><span class="font-mono text-xs opacity-70">L15</span> Alertas mínimas operativas</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L16" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L16"><span class="font-mono text-xs opacity-70">L16</span> Errores HTTP y fugas de stack</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L17" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L17"><span class="font-mono text-xs opacity-70">L17</span> Retención y borrado por tenant</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L18" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L18"><span class="font-mono text-xs opacity-70">L18</span> Minimización en exports y soporte</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L19" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L19"><span class="font-mono text-xs opacity-70">L19</span> Consentimiento y avisos (contexto MX)</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L20" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L20"><span class="font-mono text-xs opacity-70">L20</span> Segundo hallazgo aislamiento cerrado</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L21" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L21"><span class="font-mono text-xs opacity-70">L21</span> Tabletop — fuga de .env</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L22" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L22"><span class="font-mono text-xs opacity-70">L22</span> Tabletop — acceso cross-tenant en prod</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L23" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L23"><span class="font-mono text-xs opacity-70">L23</span> Runbook de respuesta incidentes</a></label><label class="checklist-item cursor-pointer items-start gap-2 py-1.5"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L24" data-materia="M25"><a class="label-text text-sm leading-snug link link-hover min-w-0" href="/software-engineer/materia/M25/leccion/L24"><span class="font-mono text-xs opacity-70">L24</span> Security review final y cierre M25</a></label></div></div></nav><nav class="rounded-[var(--radius-plan)] border border-plan-border bg-white overflow-hidden min-w-0 shadow-[var(--shadow-plan)]" aria-label="En esta ficha"><div class="flex flex-col gap-2 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">En esta ficha</h2><div class="max-h-64 overflow-y-auto overflow-x-hidden min-w-0 pr-1"><ul class="flex flex-col gap-0.5 m-0 p-0 list-none"><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#por-que-existe">Por qué existe</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#objetivos-de-aprendizaje">Objetivos de aprendizaje</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#como-estudiar-esta-materia-lecciones">Cómo estudiar esta materia (lecciones)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#semana-tipo-20-h">Semana tipo (20 h)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#lecciones">Lecciones</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#lecturas-mapa-rapido">Lecturas (mapa rápido)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#practicas">Prácticas</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#proyecto-util">Proyecto útil</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#errores-comunes">Errores comunes</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#evidencia-de-hecho">Evidencia de hecho</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-plan-surface" href="#criterios-de-dominio">Criterios de dominio</a></li></ul></div><a class="link link-primary text-sm pt-1" href="/software-engineer/docs/glosario">Abrir glosario →</a></div></nav><div class="rounded-[var(--radius-plan)] border border-plan-border bg-white overflow-hidden min-w-0 shadow-[var(--shadow-plan)]"><div class="flex flex-col gap-3 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">Tu progreso</h2><p class="text-xs text-plan-muted m-0">Se guarda en este navegador. Exporta desde Progreso.</p><p class="text-xs font-semibold uppercase tracking-wide text-plan-muted m-0">Prácticas</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p1" data-materia="M25"><span class="label-text text-sm">Inventario de activos y superficie (prod/staging SaaS)</span></label><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p2" data-materia="M25"><span class="label-text text-sm">Security review con pruebas cross-tenant obligatorias</span></label><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p3" data-materia="M25"><span class="label-text text-sm">Tabletop de incidente (.env / fuga) documentado</span></label><p class="text-xs font-semibold uppercase tracking-wide text-plan-muted m-0 mt-1">Proyecto</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-secondary checkbox-sm mt-0.5 shrink-0" data-proyecto data-materia="M25"><span class="label-text text-sm">Security review SaaS (aislamiento multi-tenant) + hardening</span></label><p class="text-xs font-semibold uppercase tracking-wide text-plan-muted m-0 mt-1">Materia</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-success checkbox-sm mt-0.5 shrink-0" data-completa data-materia="M25"><span class="label-text text-sm font-medium">Completada</span></label></div></div><div class="flex gap-2 w-full min-w-0"><a class="btn btn-outline btn-sm flex-1 truncate" href="/software-engineer/materia/M24">← M24</a><a class="btn btn-primary btn-sm flex-1 truncate" href="/software-engineer/materia/M26">M26 →</a></div></aside></div></div><script type="module" src="/software-engineer/_astro/_id_.astro_astro_type_script_index_0_lang.BaXb9R1g.js"></script></main><footer class="mt-auto border-t border-plan-border bg-white"><div class="plan-shell py-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6"><div><p class="font-display text-lg font-bold m-0">Plan</p><p class="text-sm text-plan-muted m-0 mt-1 max-w-sm">Plan de estudios de ingeniería de software: materias, proyectos evaluables y progreso sincronizable.</p></div><nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Pie"><a class="link link-hover" href="/software-engineer/docs/como-estudiar">Cómo estudiar</a><a class="link link-hover" href="/software-engineer/docs/glosario">Glosario</a><a class="link link-hover" href="/software-engineer/progreso">Progreso</a><a class="link link-hover" href="/software-engineer/egreso">Egreso</a></nav></div></footer><script type="application/json" id="catalog-ids">["M01","M02","M03","M04","M05","M06","M07","M08","M09","M10","M11","M27","M12","M13","M14","M15","M16","M17","M18","M19","M20","M21","M22","M23","M24","M25","M26"]</script><script type="application/json" id="lecciones-catalog">{"M01":["L01","L02","L03","L04","L05","L06","L07","L08"],"M02":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M03":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M04":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M05":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M06":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M07":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M08":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M09":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M10":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M11":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M27":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18"],"M12":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M13":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M14":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M15":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M16":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M17":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"],"M18":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"],"M19":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M20":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M21":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M22":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M23":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M24":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M25":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M26":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"]}</script><script type="application/json" id="etapa-titles">{"basica":"Fundamentos","disciplinaria":"Ingeniería aplicada","terminal":"Especialización y egreso"}</script><script type="module" src="/software-engineer/_astro/Layout.astro_astro_type_script_index_1_lang.CJxLeHYB.js"></script></body></html>

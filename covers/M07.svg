@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M07">
+  <defs>
+    <linearGradient id="bg-M07" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <pattern id="grid-M07" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M07)"/>
+  <rect width="640" height="360" fill="url(#grid-M07)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <circle cx="240" cy="180" r="18" fill="#fff" opacity="0.9"/>
+      <circle cx="320" cy="180" r="18" fill="#fff" opacity="0.75"/>
+      <circle cx="400" cy="180" r="18" fill="#fff" opacity="0.6"/>
+      <path d="M258 180h44M338 180h44" stroke="#fff" stroke-width="4" opacity="0.5"/>
+</svg>
