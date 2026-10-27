@@ -34,6 +34,11 @@ Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado
 | M25 | [`m25-ciber/`](m25-ciber/) |
 | M26 | [`m26-capstone/`](m26-capstone/) |
 
+## Día 1
+
+Cada carpeta incluye `DIA1.md` (plantilla) y, donde faltaba, stubs de la evidencia de L01.
+Sustituye placeholders; **marcar en la UI sin archivo real no cuenta**.
+
 ## Regla
 
 Si no está en git (este repo o enlace claro), **no cuenta** como hecho.

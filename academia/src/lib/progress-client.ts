@@ -25,6 +25,8 @@ export type ExamenAnswers = {
   updatedAt: string;
   listo: boolean;
   answers: Record<string, string>;
+  /** Checklist de rúbrica formativa (id → marcado). */
+  rubrica?: Record<string, boolean>;
 };
 
 export type ProgressState = {

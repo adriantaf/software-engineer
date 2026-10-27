@@ -169,11 +169,8 @@ const brandHref = pathTo('favicon.svg');
       <div class="nav-drawer__inner">
         <div class="nav-drawer__head">
           <p class="nav-drawer__title">Menú</p>
-          <button type="button" id="nav-drawer-close" class="btn btn-ghost btn-square btn-sm" aria-label="Cerrar menú">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5" aria-hidden="true">
-              <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
-            </svg>
-          </button>
+          {/* Cierre: el toggle del header pasa a icono X; evitamos un segundo botón. */}
+          <span class="text-xs opacity-50 pr-1">Esc para cerrar</span>
         </div>
 
         <div class="nav-drawer__scroll">
@@ -290,7 +287,6 @@ const brandHref = pathTo('favicon.svg');
 
       function initNavDrawer() {
         const toggle = document.getElementById('nav-drawer-toggle');
-        const closeBtn = document.getElementById('nav-drawer-close');
         const drawer = document.getElementById('nav-drawer');
         const backdrop = document.getElementById('nav-backdrop');
         const iconOpen = document.getElementById('nav-icon-open');
@@ -362,7 +358,8 @@ const brandHref = pathTo('favicon.svg');
               drawer!.classList.add('nav-drawer--open');
               backdrop!.classList.add('nav-backdrop--open');
             });
-            closeBtn?.focus();
+            // El toggle del header es el único control de cierre (pasa a X).
+            toggle!.focus();
           } else {
             drawer!.classList.remove('nav-drawer--open');
             backdrop!.classList.remove('nav-backdrop--open');
@@ -378,7 +375,6 @@ const brandHref = pathTo('favicon.svg');
         }
 
         toggle.addEventListener('click', () => setOpen(!open));
-        closeBtn?.addEventListener('click', () => setOpen(false));
         backdrop.addEventListener('click', () => setOpen(false));
         drawer.querySelectorAll('a').forEach((a) => {
           a.addEventListener('click', () => setOpen(false));

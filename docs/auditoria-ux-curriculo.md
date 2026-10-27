@@ -37,6 +37,12 @@ El contenido lectivo está listo para estudiar. La app web no comunicaba marca n
 - Labs + READMEs de etapa en rutas `docs/`.
 - Paridad de horas documentada (plan = semanas×20; L* = bloque guiado).
 
+## Seguimiento 2
+
+- Plantillas `DIA1.md` + stubs L01 en `projects/` (placeholders; la evidencia real la escribe el estudiante).
+- Rúbrica/checklist en autoevaluaciones de etapa.
+- Drawer móvil: un solo control de cierre.
+
 ## Aún fuera de alcance
 
-Llenar `projects/` con evidencia real del estudiante; reescritura de las 526 lecciones.
+Reescritura de las 526 lecciones; Pagefind en modo `dev`.

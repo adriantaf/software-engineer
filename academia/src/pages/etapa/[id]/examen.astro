@@ -6,6 +6,7 @@ import {
   loadEtapaExamen,
   splitExamenSections,
 } from '../../../lib/curriculum';
+import { getExamenRubrica } from '../../../lib/examen-rubrica';
 import { pathTo } from '../../../lib/paths';
 
 export function getStaticPaths() {
@@ -15,7 +16,11 @@ export function getStaticPaths() {
     if (exam) {
       paths.push({
         params: { id: e.id },
-        props: { exam, sections: splitExamenSections(exam.html) },
+        props: {
+          exam,
+          sections: splitExamenSections(exam.html),
+          rubrica: getExamenRubrica(e.id),
+        },
       });
     }
   }
@@ -24,7 +29,7 @@ export function getStaticPaths() {
 
 const { id } = Astro.params;
 const etapa = getEtapa(id!);
-const { exam, sections } = Astro.props;
+const { exam, sections, rubrica } = Astro.props;
 if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
 ---
 
@@ -41,9 +46,8 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
     <div>
       <p class="font-semibold m-0">Autoevaluación de etapa (sin mirar fichas)</p>
       <p class="m-0 opacity-80">
-        Escribe aquí; se guarda solo en este navegador. No hay nota automática. Exporta desde
-        Progreso si quieres versionar el JSON completo (las respuestas van en
-        <code>examenes</code>).
+        Escribe respuestas y marca la rúbrica. Todo se guarda en este navegador (clave
+        <code>examenes</code> al exportar desde Progreso). No hay nota automática.
       </p>
     </div>
   </div>
@@ -70,10 +74,36 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
       ))
     }
 
+    {
+      rubrica && (
+        <section class="surface-panel p-4 sm:p-5" aria-labelledby="rubrica-title">
+          <h2 id="rubrica-title" class="font-display text-xl font-semibold m-0 mb-1">
+            {rubrica.titulo}
+          </h2>
+          <p class="text-sm opacity-80 m-0 mb-4">{rubrica.criterio}</p>
+          <ul class="flex flex-col gap-2 list-none p-0 m-0">
+            {rubrica.items.map((item) => (
+              <li>
+                <label class="flex items-start gap-3 cursor-pointer text-sm leading-snug">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-primary mt-0.5 shrink-0"
+                    data-rubrica={item.id}
+                  />
+                  <span>{item.label}</span>
+                </label>
+              </li>
+            ))}
+          </ul>
+          <p class="text-sm m-0 mt-4" id="rubrica-count" aria-live="polite"></p>
+        </section>
+      )
+    }
+
     <label class="flex items-start gap-3 surface-panel p-4 cursor-pointer">
       <input type="checkbox" class="checkbox checkbox-primary mt-0.5" id="examen-listo" />
       <span class="text-sm leading-snug">
-        Listo para comparar con el criterio de la página (no significa «aprobado»).
+        Listo para comparar con el criterio de aprobado (honestidad &gt; marcar todo).
       </span>
     </label>
 
@@ -96,6 +126,7 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
     const root = document.getElementById('examen-root');
     const etapaId = root?.getAttribute('data-etapa');
     const savedEl = document.getElementById('examen-saved');
+    const countEl = document.getElementById('rubrica-count');
     if (!root || !etapaId) throw new Error('examen root');
 
     function emptyProgress(): ProgressState {
@@ -111,6 +142,13 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
       };
     }
 
+    function syncRubricaCount() {
+      const boxes = root.querySelectorAll<HTMLInputElement>('input[data-rubrica]');
+      if (!boxes.length || !countEl) return;
+      const done = [...boxes].filter((b) => b.checked).length;
+      countEl.textContent = `Rúbrica: ${done}/${boxes.length} criterios marcados`;
+    }
+
     function persist() {
       const state = loadProgress() ?? emptyProgress();
       const answers: Record<string, string> = {};
@@ -118,14 +156,25 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
         const id = el.getAttribute('data-exam-answer')!;
         answers[id] = el.value;
       });
+      const rubrica: Record<string, boolean> = {};
+      root.querySelectorAll<HTMLInputElement>('input[data-rubrica]').forEach((el) => {
+        const id = el.getAttribute('data-rubrica')!;
+        rubrica[id] = el.checked;
+      });
       const listo = Boolean(
         (document.getElementById('examen-listo') as HTMLInputElement | null)?.checked,
       );
       state.examenes = {
         ...(state.examenes ?? {}),
-        [etapaId]: { updatedAt: new Date().toISOString(), listo, answers },
+        [etapaId]: {
+          updatedAt: new Date().toISOString(),
+          listo,
+          answers,
+          rubrica,
+        },
       };
       saveProgress(state);
+      syncRubricaCount();
       if (savedEl) {
         savedEl.textContent = `Guardado local · ${new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' })}`;
       }
@@ -133,13 +182,21 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
 
     function hydrate() {
       const entry = loadProgress()?.examenes?.[etapaId];
-      if (!entry) return;
+      if (!entry) {
+        syncRubricaCount();
+        return;
+      }
       root.querySelectorAll<HTMLTextAreaElement>('[data-exam-answer]').forEach((el) => {
         const id = el.getAttribute('data-exam-answer')!;
         if (entry.answers?.[id]) el.value = entry.answers[id];
       });
+      root.querySelectorAll<HTMLInputElement>('input[data-rubrica]').forEach((el) => {
+        const id = el.getAttribute('data-rubrica')!;
+        el.checked = Boolean(entry.rubrica?.[id]);
+      });
       const box = document.getElementById('examen-listo') as HTMLInputElement | null;
       if (box) box.checked = Boolean(entry.listo);
+      syncRubricaCount();
       if (savedEl && entry.updatedAt) {
         savedEl.textContent = `Última edición local · ${new Date(entry.updatedAt).toLocaleString('es-MX')}`;
       }
