@@ -31,11 +31,11 @@ du -sh projects/* 2>/dev/null | sort -h
 
 ### 2. Conceptos (45 min)
 
-Inodo vs nombre de archivo; hardlink vs symlink (una tabla). Qué pasa con muchas fotos/tmp de citas.
+Inodo vs nombre de archivo; hardlink vs symlink (una tabla). Qué pasa con muchas fotos/tmp de pedidos.
 
 ### 3. Política (30 min)
 
-Dónde vivirían backups y logs de Agenda Ops; cuota mínima libre antes de alerta.
+Dónde vivirían backups y logs de Vitrina; cuota mínima libre antes de alerta.
 
 ### 4. Commit (15 min)
 

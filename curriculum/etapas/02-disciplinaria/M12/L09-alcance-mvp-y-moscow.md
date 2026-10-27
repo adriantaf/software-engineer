@@ -30,7 +30,7 @@ Lista US-xx existentes.
 | US | MoSCoW | Justificación 1 línea |
 |----|--------|----------------------|
 
-Must típicos: auth owner, clientes, citas CRUD básico, agenda del día. Won't: multi-tenant, Stripe, IA, app móvil nativa.
+Must típicos: auth owner, clientes, pedidos CRUD básico, agenda del día. Won't: multi-tenant, Stripe, IA, app móvil nativa.
 
 ### 3. Capacidad (40 min)
 

@@ -46,7 +46,7 @@ Crea `projects/m23-ia/llm-eval/preguntas-gold.json` array de {id, pregunta, resp
 
 ### 3. Laboratorio principal (90–120 min)
 
-Preguntas tipo política cancelación, horario, servicios, no-show.
+Preguntas tipo política cancelación, horario, servicios, pedido abandonado.
 
 ### 4. Commit atómico (15 min)
 

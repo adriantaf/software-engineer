@@ -23,7 +23,7 @@ Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado
 | M14 | [`m14-patrones/`](m14-patrones/) |
 | M15 | [`m15-calidad/`](m15-calidad/) |
 | M16 | [`m16-ihc/`](m16-ihc/) |
-| M17 | [`m17-agenda-ops/`](m17-agenda-ops/) |
+| M17 | [`m17-vitrina/`](m17-vitrina/) |
 | M18 | [`m18-appsec/`](m18-appsec/) |
 | M19 | [`m19-ops/`](m19-ops/) |
 | M20 | [`m20-movil/`](m20-movil/) |
@@ -33,11 +33,6 @@ Aquí vive la evidencia. Cada materia tiene carpeta `mXX-*/` con README alineado
 | M24 | [`m24-emergentes/`](m24-emergentes/) |
 | M25 | [`m25-ciber/`](m25-ciber/) |
 | M26 | [`m26-capstone/`](m26-capstone/) |
-
-## Día 1
-
-Cada carpeta incluye `DIA1.md` (plantilla) y, donde faltaba, stubs de la evidencia de L01.
-Sustituye placeholders; **marcar en la UI sin archivo real no cuenta**.
 
 ## Regla
 

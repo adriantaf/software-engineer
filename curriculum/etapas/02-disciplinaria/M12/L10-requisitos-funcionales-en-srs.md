@@ -27,7 +27,7 @@ Completar §3.1 Requisitos funcionales del borrador.
 |----|-------------|-----------|---------------|
 | RF-01 | Owner autenticado gestiona clientes | Alta | US-0x |
 
-Cubre clientes, citas, agenda, auth, roles básicos.
+Cubre clientes, pedidos, agenda, auth, roles básicos.
 
 ### 2. Fuera de alcance (30 min)
 

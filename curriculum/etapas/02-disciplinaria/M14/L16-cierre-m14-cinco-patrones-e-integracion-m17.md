@@ -13,7 +13,7 @@ evidencia: README índice ≥5 + handoff-m17.md
 
 **~5.0 h · Semana 4**
 
-Proyecto de la materia: ≥5 patrones justificados en Agenda Ops + camino a M17.
+Proyecto de la materia: ≥5 patrones justificados en Vitrina + camino a M17.
 
 ## Objetivo
 

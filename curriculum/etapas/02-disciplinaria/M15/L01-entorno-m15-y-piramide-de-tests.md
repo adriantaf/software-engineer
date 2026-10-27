@@ -5,7 +5,7 @@ orden: 1
 titulo: Entorno M15 y pirámide de tests
 horas: 5.0
 semana: 1
-lectura: Pirámide de tests; Vitest setup Agenda Ops
+lectura: Pirámide de tests; Vitest setup Vitrina
 evidencia: projects/m15-calidad/ + piramide.md + Vitest verde
 ---
 
@@ -51,11 +51,11 @@ Puedes reutilizar lógica de `projects/m14-patrones` (copia o path documentado).
 
 ### 3. piramide.md (60–70 min)
 
-| Capa | Ejemplos Agenda Ops | Cantidad relativa |
+| Capa | Ejemplos Vitrina | Cantidad relativa |
 |------|---------------------|-------------------|
 | Unit | solape, precio, DTO validate | mayoría |
 | Integración | repo + Postgres test | media |
-| HTTP/API | 401/403 crear cita | menos |
+| HTTP/API | 401/403 crear pedido | menos |
 | E2E UI | 1–2 flujos | mínimo |
 
 ### 4. Commit
@@ -75,15 +75,15 @@ Puedes reutilizar lógica de `projects/m14-patrones` (copia o path documentado).
 Marca la lección **solo si**:
 
 1. `projects/m15-calidad/` con Vitest y un test smoke verde.
-2. `piramide.md` dibuja capas y qué irá en cada una para citas/auth.
+2. `piramide.md` dibuja capas y qué irá en cada una para pedidos/auth.
 3. Commit `docs(m15): entorno y piramide de tests`.
 
 ## Errores comunes
 
 - Pirámide invertida (todo E2E).
 - Proyecto sin script `test`.
-- Copiar pirámide genérica sin mapear a Agenda Ops.
+- Copiar pirámide genérica sin mapear a Vitrina.
 
 ## Siguiente
 
-[L02 — Tests unitarios puros de reglas de cita](L02-tests-unitarios-puros-de-reglas-de-cita.md)
+[L02 — Tests unitarios puros de reglas de pedido](L02-tests-unitarios-puros-de-reglas-de-pedido.md)

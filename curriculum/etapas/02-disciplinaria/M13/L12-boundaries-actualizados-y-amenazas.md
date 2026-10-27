@@ -29,7 +29,7 @@ Marca desactualizaciones (¿apareció el mail? ¿sesión?).
 
 | Amenaza | Límite | Mitigación de diseño |
 |---------|--------|----------------------|
-| IDOR cita | API→DB | filtro por dueño/negocio en queries |
+| IDOR pedido | API→DB | filtro por dueño/negocio en queries |
 | Session hijack | Browser→API | Cookie Secure/HttpOnly; logout |
 | Mass assignment | Browser→API | DTO allowlist |
 | SQLi | API→DB | parametrized queries / ORM |

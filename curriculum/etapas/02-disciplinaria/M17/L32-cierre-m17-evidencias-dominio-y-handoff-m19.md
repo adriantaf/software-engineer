@@ -6,7 +6,7 @@ titulo: Cierre M17 — evidencias, dominio y handoff M19
 horas: 5.0
 semana: 8
 lectura: Ficha M17 criterios dominio
-evidencia: projects/m17-agenda-ops/docs/nota-cierre-m17.md
+evidencia: projects/m17-vitrina/docs/nota-cierre-m17.md
 ---
 
 # L32 — Cierre M17 — evidencias, dominio y handoff M19
@@ -30,7 +30,7 @@ Auditar P1–P3, proyecto piloto, criterios dominio, README final y handoff depl
 ### 1. Índice de evidencias (50–60 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/nota-cierre-m17.md << 'EOF'
+cat > projects/m17-vitrina/docs/nota-cierre-m17.md << 'EOF'
 # Cierre M17
 ## Artefactos
 - stack.md, docs/auth.md, permisos.md, ui-estados.md
@@ -39,7 +39,7 @@ cat > projects/m17-agenda-ops/docs/nota-cierre-m17.md << 'EOF'
 ## Handoff M19
 Dockerfile pendiente / Compose / secrets → projects/m19-ops/
 EOF
-ls projects/m17-agenda-ops/docs
+ls projects/m17-vitrina/docs
 ```
 
 ### 2. README proyecto + commit (40 min)
@@ -47,7 +47,7 @@ ls projects/m17-agenda-ops/docs
 Actualiza checklist P1–P3 del README. Enlace a M19.
 
 ```bash
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "docs(m17): L32 cierre evidencias handoff m19"
 ```
 
@@ -63,8 +63,8 @@ git commit -m "docs(m17): L32 cierre evidencias handoff m19"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/nota-cierre-m17.md` con índice de artefactos y handoff M19.
-2. README P1–P3 coherente con evidencias (artefacto: `projects/m17-agenda-ops/docs/nota-cierre-m17.md`).
+1. Existe `projects/m17-vitrina/docs/nota-cierre-m17.md` con índice de artefactos y handoff M19.
+2. README P1–P3 coherente con evidencias (artefacto: `projects/m17-vitrina/docs/nota-cierre-m17.md`).
 3. Commit `docs(m17): L32 cierre-m17-evidencias-dominio-y-handoff-m19`.
 
 ## Errores comunes

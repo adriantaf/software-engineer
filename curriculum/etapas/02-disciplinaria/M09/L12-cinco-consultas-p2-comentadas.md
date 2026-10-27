@@ -17,7 +17,7 @@ Cierras el paquete de consultas de la práctica **P2** (falta EXPLAIN en semana 
 
 ## Objetivo
 
-Dejar ≥5 SQL comentados, ejecutables, orientados a Agenda Ops.
+Dejar ≥5 SQL comentados, ejecutables, orientados a Vitrina.
 
 ## Pasos
 
@@ -31,11 +31,11 @@ ls projects/m09-bases-datos/sql/*.sql
 
 Mínimo sugerido:
 
-1. `joins-citas-cliente.sql` (L09)
-2. `agg-citas-por-servicio.sql` (L10)
+1. `joins-pedidos-cliente.sql` (L09)
+2. `agg-pedidos-por-servicio.sql` (L10)
 3. `subq-clientes-frecuentes.sql` (L11)
-4. `reporte-no-shows.sql` — tasa o listado de no-show
-5. `reporte-agenda-del-dia.sql` — citas de un día (`\set dia '''2026-09-26'''` o literal)
+4. `reporte-pedido abandonados.sql` — tasa o listado de pedido abandonado
+5. `reporte-agenda-del-dia.sql` — pedidos de un día (`\set dia '''2026-09-26'''` o literal)
 
 Cada archivo: encabezado con pregunta de negocio + comentario de salida.
 

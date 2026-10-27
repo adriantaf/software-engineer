@@ -1,0 +1,30 @@
+---
+import type { CatalogEtapa } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
+
+interface Props {
+  class?: string;
+  compact?: boolean;
+  inputId?: string;
+}
+
+const { class: className = '', compact = false, inputId = 'plan-search-q' } = Astro.props;
+const action = pathTo('buscar');
+---
+
+<form class:list={['search-bar', compact && 'search-bar--compact', className]} action={action} method="get" role="search">
+  <label class="sr-only" for={inputId}>Buscar en el plan</label>
+  <input
+    id={inputId}
+    type="search"
+    name="q"
+    placeholder="Buscar materias, lecciones, guías…"
+    autocomplete="off"
+  />
+  <button type="submit" aria-label="Buscar">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path stroke-linecap="round" d="M20 20l-3.5-3.5"></path>
+    </svg>
+  </button>
+</form>

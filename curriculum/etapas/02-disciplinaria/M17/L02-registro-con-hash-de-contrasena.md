@@ -70,7 +70,7 @@ curl -sS -X POST http://localhost:3000/auth/register \
 
 ```bash
 npm test -- auth
-git add projects/m17-agenda-ops
+git add projects/m17-vitrina
 git commit -m "feat(m17): L02 register con hash"
 ```
 

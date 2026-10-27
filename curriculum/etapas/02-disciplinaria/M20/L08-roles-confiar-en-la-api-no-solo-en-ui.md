@@ -66,4 +66,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L09 — Pantalla detalle de cita](L09-pantalla-detalle-de-cita.md)
+[L09 — Pantalla detalle de pedido](L09-pantalla-detalle-de-pedido.md)

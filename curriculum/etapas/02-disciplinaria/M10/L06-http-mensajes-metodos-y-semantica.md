@@ -13,11 +13,11 @@ evidencia: labs/http-metodos.md
 
 **~5.0 h · Semana 2**
 
-La API de Agenda Ops será una conversación de mensajes. Hoy fijas métodos e idempotencia.
+La API de Vitrina será una conversación de mensajes. Hoy fijas métodos e idempotencia.
 
 ## Objetivo
 
-Documentar la anatomía de un mensaje HTTP y mapear métodos al dominio de citas.
+Documentar la anatomía de un mensaje HTTP y mapear métodos al dominio de pedidos.
 
 ## Pasos
 
@@ -36,14 +36,14 @@ curl -v -X POST https://httpbin.org/post \
 
 Guarda fragmentos en `samples/` (sin tokens). Anota `Host`, `User-Agent`, `Content-Type`.
 
-### 3. Mapa Agenda Ops (60 min)
+### 3. Mapa Vitrina (60 min)
 
 | Método | Recurso (borrador) | Idempotente? | Notas |
 |--------|-------------------|--------------|-------|
-| GET | `/api/citas?fecha=` | sí | listar |
-| POST | `/api/citas` | no | crear |
-| PATCH | `/api/citas/:id` | sí* | remarcar |
-| DELETE | `/api/citas/:id` | sí | cancelar |
+| GET | `/api/pedidos?fecha=` | sí | listar |
+| POST | `/api/pedidos` | no | crear |
+| PATCH | `/api/pedidos/:id` | sí* | remarcar |
+| DELETE | `/api/pedidos/:id` | sí | cancelar |
 
 \*Documenta tu interpretación.
 
@@ -66,13 +66,13 @@ git commit -m "docs(m10): l06 http metodos"
 
 Marca la lección **solo si**:
 
-1. `labs/http-metodos.md` con tabla método → semántica → ejemplo Agenda Ops (`/citas`, `/clientes`).
+1. `labs/http-metodos.md` con tabla método → semántica → ejemplo Vitrina (`/pedidos`, `/clientes`).
 2. Al menos dos capturas `curl -v` (GET y POST de ejemplo a httpbin o similar).
 3. Commit `docs(m10): l06 http metodos`.
 
 ## Errores comunes
 
-- Usar GET con body para “crear cita”.
+- Usar GET con body para “crear pedido”.
 - Confundir PUT y PATCH.
 - Llamar “REST” a cualquier JSON sin mirar semántica del método.
 

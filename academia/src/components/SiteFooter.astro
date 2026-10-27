@@ -1,0 +1,20 @@
+---
+import { pathTo } from '../lib/paths';
+---
+
+<footer class="mt-auto border-t border-plan-border bg-white">
+  <div class="plan-shell py-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+    <div>
+      <p class="font-display text-lg font-bold m-0">Plan</p>
+      <p class="text-sm text-plan-muted m-0 mt-1 max-w-sm">
+        Plan de estudios de ingeniería de software: materias, proyectos evaluables y progreso sincronizable.
+      </p>
+    </div>
+    <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Pie">
+      <a class="link link-hover" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
+      <a class="link link-hover" href={pathTo('docs/glosario')}>Glosario</a>
+      <a class="link link-hover" href={pathTo('progreso')}>Progreso</a>
+      <a class="link link-hover" href={pathTo('egreso')}>Egreso</a>
+    </nav>
+  </div>
+</footer>

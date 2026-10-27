@@ -21,17 +21,17 @@ proyecto:
 
 ## Por qué existe
 
-Sin redes no hay web. Sin entender TLS, cookies y la ruta de una request, la “seguridad” es teatro. Esta materia es la **capa A** de la pista de ciberseguridad ([hilo](../../hilos/seguridad.md)).
+Sin redes no hay web. Sin comprender TLS, cookies y la ruta de una petición, la «seguridad» es superficial. Esta materia es la **capa A** de la pista de ciberseguridad ([hilo](../../hilos/seguridad.md)).
 
-**En resumen:** sigues el viaje de una petición (DNS → TCP → TLS → HTTP) y anotas qué puede fallar en **tu** producto.
+**En resumen:** se sigue el viaje de una petición (DNS → TCP → TLS → HTTP) y se documenta qué puede fallar en el producto.
 
 
 ## Objetivos de aprendizaje
 
 1. Explicar capas (modelo simplificado) y el viaje DNS → TCP → TLS → HTTP.
-2. Usar `curl`, leer headers y status codes con criterio.
-3. Entender certificados TLS a nivel ingeniero (no crypto avanzada).
-4. Dibujar la superficie de ataque de tu propio servicio.
+2. Usar `curl`, leer encabezados y códigos de estado con criterio.
+3. Comprender certificados TLS a nivel de ingeniería (sin criptografía avanzada).
+4. Dibujar la superficie de ataque del propio servicio.
 
 ## Cómo estudiar esta materia (lecciones)
 
@@ -41,7 +41,7 @@ M10 sigue el formato de lecciones completas (como M01): marcas una a una en la U
 2. Cada lección trae objetivo, pasos, lectura y criterio “Hecho cuando”.
 3. Marca la lección solo si cumple ese criterio.
 4. Las **prácticas / proyecto** exigen evidencia en `projects/m10-redes/`.
-5. Relaciona labs con el piloto **Agenda Ops** (M12+) y la API de M17.
+5. Relaciona labs con el piloto **Vitrina** (M12+) y la API de M17.
 6. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)

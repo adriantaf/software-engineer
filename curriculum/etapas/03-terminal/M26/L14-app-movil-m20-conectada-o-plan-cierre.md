@@ -42,7 +42,7 @@ En `projects/m26-capstone/mobile-gap.md`: ¿APK/app apunta a staging HTTPS? ¿mi
 
 ### 3. Conecta o cierra el gap (100–120 min)
 
-**Conectado:** login + listar citas desde móvil contra staging; anota build/version.
+**Conectado:** login + listar pedidos desde móvil contra staging; anota build/version.
 
 **Gap:** plan con fecha, qué falta (CORS, auth, store), impacto en egreso.
 

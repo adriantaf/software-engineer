@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Testing Guide — information gathering_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Crea carpetas de evidencia (15–20 min)
 
@@ -52,11 +52,11 @@ Crea `projects/m25-ciber/inventario.md` con tabla:
 | Activo | Tipo | Ambiente | Dueño | Notas |
 |--------|------|----------|-------|-------|
 
-Incluye ≥8 filas: API Agenda Ops, panel, Postgres, dominio, CI, webhook Stripe, storage/backups, repo. **Sin** passwords ni API keys.
+Incluye ≥8 filas: API Vitrina, panel, Postgres, dominio, CI, webhook Stripe, storage/backups, repo. **Sin** passwords ni API keys.
 
 ### 4. Marca superficie de ataque (40–50 min)
 
-Añade sección **Superficie** con 5 endpoints o entradas de datos (login, citas CRUD, webhooks, exports). Bitácora `bitacora/semana-01.md` con 5 líneas.
+Añade sección **Superficie** con 5 endpoints o entradas de datos (login, pedidos CRUD, webhooks, exports). Bitácora `bitacora/semana-01.md` con 5 líneas.
 
 ### 5. Commit atómico (15 min)
 
@@ -82,7 +82,7 @@ Marca la lección **solo si**:
 
 1. Existe el entregable: `projects/m25-ciber/inventario.md`.
 2. Sin secretos en markdown.
-3. Conexión Agenda Ops escrita en bitácora.
+3. Conexión Vitrina escrita en bitácora.
 4. Commit `docs(m25): l01 …` en el historial.
 
 ## Errores comunes

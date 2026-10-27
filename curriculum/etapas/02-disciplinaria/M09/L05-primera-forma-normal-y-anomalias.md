@@ -6,7 +6,7 @@ titulo: Primera forma normal y anomalías
 horas: 5.0
 semana: 2
 lectura: "Elmasri: 1FN, anomalías de inserción/borrado/actualización"
-evidencia: er-agenda.md sección 1FN + ejemplo de tabla mala descompuesta
+evidencia: er-vitrina.md sección 1FN + ejemplo de tabla mala descompuesta
 ---
 
 # L05 — Primera forma normal y anomalías
@@ -23,7 +23,7 @@ Demostrar una violación de 1FN del dominio y dejar el esquema (o el diseño) en
 
 - Valor atómico vs lista/repetición en la misma fila.
 - Anomalías de actualización (cambiar un teléfono en N filas).
-- Anomalías de borrado (perder el único dato del cliente al borrar una cita).
+- Anomalías de borrado (perder el único dato del cliente al borrar una pedido).
 
 ## Pasos
 
@@ -33,7 +33,7 @@ Capítulo/sección de 1FN y anomalías en Elmasri. Anota definiciones con tus pa
 
 ### 2. Tabla mala (45 min)
 
-En `er-agenda.md` (sección Normalización), pega algo así y **explícalo**:
+En `er-vitrina.md` (sección Normalización), pega algo así y **explícalo**:
 
 | cita_id | cliente | telefonos | servicios |
 |---------|---------|-----------|-----------|
@@ -43,7 +43,7 @@ Señala qué columnas no son atómicas.
 
 ### 3. Descomposición (75 min)
 
-Escribe las tablas resultantes (Cliente, Telefono opcional, Servicio, Cita). Compara con `001_init.sql`: ¿ya estás en 1FN? Si añadiste un campo lista, corrígelo con migración o nota de deuda.
+Escribe las tablas resultantes (Cliente, Telefono opcional, Servicio, Pedido). Compara con `001_init.sql`: ¿ya estás en 1FN? Si añadiste un campo lista, corrígelo con migración o nota de deuda.
 
 ### 4. Anomalías (40 min)
 
@@ -69,7 +69,7 @@ Marca la lección **solo si**:
 
 1. Documentas una “tabla Excel” que viola 1FN (teléfonos múltiples o listas en una celda).
 2. Muestras la descomposición a relaciones atómicas.
-3. Marcas 1FN como cumplida en la tabla de normalización de `er-agenda.md`.
+3. Marcas 1FN como cumplida en la tabla de normalización de `er-vitrina.md`.
 
 ## Errores comunes
 

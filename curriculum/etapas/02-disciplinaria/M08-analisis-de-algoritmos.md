@@ -14,7 +14,7 @@ practicas:
     titulo: Búsqueda y DP intro (3 problemas)
 proyecto:
   id: proj
-  titulo: Autocomplete / búsqueda para tu producto
+  titulo: Autocomplete / búsqueda para el producto
 ---
 
 # M08 — Análisis de algoritmos
@@ -23,13 +23,13 @@ proyecto:
 
 Sin análisis, “optimizas” a ciegas: cambias código sin saber si el cuello de botella es O(n²) o la red. Esta materia te da **patrones transferibles** (two pointers, binary search, grafos cortos, DP intro) y te obliga a **justificar complejidad** en voz alta — no una maratón tóxica de plataformas.
 
-El proyecto autocomplete enlaza con el catálogo de clientes/servicios de [Agenda Ops](../../producto-saas.md): búsqueda rápida con dataset realista.
+El proyecto autocomplete enlaza con el catálogo de clientes/servicios de [Vitrina](../../producto-saas.md): búsqueda rápida con dataset realista.
 
-**En resumen:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para tu producto.
+**En resumen:** clasificas problemas por patrón, mides complejidad y construyes algo útil (autocomplete) para el producto.
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Expresar y comparar costos en notación asintótica (Θ, O, Ω) en peor caso y en promedio cuando aplique.
 2. Implementar y analizar al menos dos ordenamientos distintos (p. ej. merge y quick o heap).
@@ -113,7 +113,7 @@ Si un día solo tienes 2 h: **una lección práctica** (pasos + evidencia). No s
 |----|---------|----|
 | L21 | [Autocomplete: elección de estructura](M08/L21-autocomplete-eleccion-de-estructura.md) | 5 |
 | L22 | [Implementación trie o índice](M08/L22-implementacion-trie-o-indice.md) | 5 |
-| L23 | [Dataset Agenda Ops y demo CLI](M08/L23-dataset-agenda-ops-y-demo-cli.md) | 5 |
+| L23 | [Dataset Vitrina y demo CLI](M08/L23-dataset-agenda-ops-y-demo-cli.md) | 5 |
 | L24 | [Cierre M08 y evidencias](M08/L24-cierre-m08-y-evidencias.md) | 5 |
 
 Empieza por **L01** hoy.
@@ -158,9 +158,9 @@ Regla: el invariante es “si `t` está, está en `[lo, hi]`”. Cada iteración
 
 ## Proyecto útil
 
-**Autocomplete / búsqueda para tu producto:** en `projects/m08-algoritmos/autocomplete/`:
+**Autocomplete / búsqueda para el producto:** en `projects/m08-algoritmos/autocomplete/`:
 
-- Dataset de prueba (CSV/JSON) de clientes o servicios tipo Agenda Ops.
+- Dataset de prueba (CSV/JSON) de clientes o servicios tipo Vitrina.
 - API o CLI que responda a prefijos con latencia razonable en tu máquina.
 - README: estructura elegida, complejidad de insert y de query, límites del dataset demo.
 
@@ -183,7 +183,7 @@ Marca la práctica en la UI solo si existe **esto** (o equivalente claro):
 
 ## Criterios de dominio
 
-- [ ] Resuelves un problema **medio** de arrays/hashes explicando complejidad sin mirar notas.
+- [ ] Resuelves un problema **medio** de arrays/hashes explicando complejidad sin consultar notas.
 - [ ] Comparas dos sorts en peor y caso promedio con honestidad.
 - [ ] Autocomplete funciona con dataset de prueba y documentas la estructura subyacente.
 - [ ] Tu índice de patrones tiene ≥15 entradas alineadas con P1.

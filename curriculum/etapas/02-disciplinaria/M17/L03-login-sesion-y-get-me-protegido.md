@@ -13,7 +13,7 @@ evidencia: POST /auth/login + GET /me
 
 **~5.0 h · Semana 1**
 
-El panel Agenda Ops necesita identidad servidor-confiable.
+El panel Vitrina necesita identidad servidor-confiable.
 
 ## Objetivo
 
@@ -30,9 +30,9 @@ Login con cookie HttpOnly o JWT en cookie; `GET /me` devuelve 401 sin credencial
 ### 1. Decide sesión vs JWT-cookie (20–30 min)
 
 ```bash
-mkdir -p projects/m17-agenda-ops/docs
-cat > projects/m17-agenda-ops/docs/auth.md << 'EOF'
-# Auth Agenda Ops
+mkdir -p projects/m17-vitrina/docs
+cat > projects/m17-vitrina/docs/auth.md << 'EOF'
+# Auth Vitrina
 - Mecanismo: cookie HttpOnly (preferido) / JWT-en-cookie
 - Secure / SameSite: ...
 - Riesgos XSS/CSRF y mitigación
@@ -56,7 +56,7 @@ curl -sS -o /tmp/me.out -w "%{http_code}" http://localhost:3000/me
 
 ```bash
 npm test -- auth
-git add projects/m17-agenda-ops/docs/auth.md projects/m17-agenda-ops
+git add projects/m17-vitrina/docs/auth.md projects/m17-vitrina
 git commit -m "feat(m17): L03 login sesion y me"
 ```
 
@@ -72,7 +72,7 @@ git commit -m "feat(m17): L03 login sesion y me"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/auth.md` documenta cookie HttpOnly o JWT-cookie.
+1. `projects/m17-vitrina/docs/auth.md` documenta cookie HttpOnly o JWT-cookie.
 2. `POST /auth/login` + `GET /me` 200 con sesión; sin cookie → 401.
 3. Tests cubren login→me y 401 (artefacto: `POST /auth/login`).
 4. Commit `docs(m17): L03 login-sesion-y-get-me-protegido`.

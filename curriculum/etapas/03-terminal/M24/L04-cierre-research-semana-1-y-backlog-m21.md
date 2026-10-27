@@ -5,7 +5,7 @@ orden: 4
 titulo: Cierre research semana 1 y backlog M21
 horas: 5.0
 semana: 1
-lectura: Repaso research + issues Agenda Ops
+lectura: Repaso research + issues Vitrina
 evidencia: projects/m24-emergentes/research/README.md + enlace issue M21
 ---
 
@@ -33,7 +33,7 @@ Conceptos que debes poder explicar al cerrar:
 
 ### 1. Lectura concreta de la fuente (40–60 min)
 
-Lee fuentes **primarias** (docs oficiales / pricing / límites): _Repaso research + issues Agenda Ops_.
+Lee fuentes **primarias** (docs oficiales / pricing / límites): _Repaso research + issues Vitrina_.
 
 En la bitácora de la semana, lista URLs + 3 límites duros (rate, región, costo). Prohibido basarte solo en blogs.
 
@@ -65,7 +65,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| Docs oficiales del candidato + ficha M24 | Repaso research + issues Agenda Ops | [producto-saas (encaje ICP)](../../../producto-saas.md) |
+| Docs oficiales del candidato + ficha M24 | Repaso research + issues Vitrina | [producto-saas (encaje ICP)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M24](../../../bibliografia.md#m24-tecnologias-emergentes) |
 
 

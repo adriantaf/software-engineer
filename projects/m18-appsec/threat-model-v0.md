@@ -1,4 +1,4 @@
-# Threat model v0 — Agenda Ops
+# Threat model v0 — Vitrina
 
 ## Actores
 
@@ -24,5 +24,5 @@
 
 ## STRIDE (L03)
 
-| Letra | Amenaza en Agenda Ops | Mitigación / gap |
+| Letra | Amenaza en Vitrina | Mitigación / gap |
 |-------|----------------------|------------------|

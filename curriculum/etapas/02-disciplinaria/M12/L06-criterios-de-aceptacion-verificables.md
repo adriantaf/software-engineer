@@ -31,8 +31,8 @@ Ejemplo:
 
 ```text
 Given un owner autenticado
-When crea una cita en un slot libre
-Then la cita aparece en GET /api/citas?fecha=… con status 201 al crear
+When crea una pedido en un slot libre
+Then la pedido aparece en GET /api/pedidos?fecha=… con status 201 al crear
 ```
 
 Incluye 401/403 donde aplique (aunque el RNF formal llegue en L08).

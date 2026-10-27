@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Testing Guide — information gathering_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Define dos negocios ficticios (20–30 min)
 
@@ -85,7 +85,7 @@ Marca la lección **solo si**:
 
 1. Existe el entregable: `projects/m25-ciber/tenants-prueba.md`.
 2. Sin secretos en markdown.
-3. Conexión Agenda Ops escrita en bitácora.
+3. Conexión Vitrina escrita en bitácora.
 4. Commit `docs(m25): l03 …` en el historial.
 
 ## Errores comunes

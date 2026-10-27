@@ -58,7 +58,7 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- Lista genérica copiada sin Agenda Ops.
+- Lista genérica copiada sin Vitrina.
 - Amenazas sin mitigación ni dueño (tú / M18).
 - Olvidar DNS y cookies.
 

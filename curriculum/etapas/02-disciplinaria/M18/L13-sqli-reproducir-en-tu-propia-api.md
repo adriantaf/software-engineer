@@ -24,13 +24,13 @@ PoC o “no reproducible con ORM” en `projects/m18-appsec/findings/001-sqli.md
 ### 1. Caza concatenación SQL (50–60 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n "\$\{|query\(|\.query\(|execute\(|raw\(|sql`" -g '!node_modules' | head -50
 rg -n "SELECT.*\+|WHERE.*\+" -g '*.ts' -g '*.js' | head -20 || true
 ```
 ### 2. PoC controlada (60–80 min)
 
-Cuenta de prueba. Payload en búsqueda clientes/citas. **No** `DROP` en staging compartido.
+Cuenta de prueba. Payload en búsqueda clientes/pedidos. **No** `DROP` en staging compartido.
 
 ```bash
 mkdir -p projects/m18-appsec/findings projects/m18-appsec/pocs

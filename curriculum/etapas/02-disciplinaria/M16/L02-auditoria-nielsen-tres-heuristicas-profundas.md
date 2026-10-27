@@ -48,7 +48,7 @@ Tabla como en la ficha M16 (ID, heurística, hallazgo, severidad, fix).
 Marca la lección **solo si**:
 
 1. Documento con 3 heurísticas profundas y ≥2 hallazgos cada una (severidad 1–3 o baja/media/alta).
-2. Hallazgos trazan a pantallas del piloto (agenda/cita/login).
+2. Hallazgos trazan a pantallas del piloto (agenda/pedido/login).
 3. Commit `docs(m16): auditoria parcial tres heuristicas`.
 
 ## Errores comunes
@@ -59,4 +59,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L03 — Estados vacío, carga y error en agenda](L03-estados-vacio-carga-y-error-en-agenda.md)
+[L03 — Estados vacío, carga y error en agenda](L03-estados-vacio-carga-y-error-en-menu.md)

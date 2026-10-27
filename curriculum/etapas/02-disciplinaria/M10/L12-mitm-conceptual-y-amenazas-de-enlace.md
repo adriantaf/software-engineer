@@ -29,7 +29,7 @@ Actores: usuario del panel, red del café, ISP, DNS resolver, tu API. Dibuja tru
 
 Para cada amenaza (eavesdropping HTTP, MITM con cert falso si el cliente no valida, DNS spoofing, session theft en tránsito):
 
-- Impacto en citas/PII
+- Impacto en pedidos/PII
 - Mitigación (TLS bien validado, HSTS, no mixed content, DNS provider serio…)
 - Residual risk
 

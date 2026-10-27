@@ -6,24 +6,24 @@ titulo: Transacciones ACID
 horas: 5.0
 semana: 5
 lectura: "Elmasri: transacciones ACID; PG BEGIN/COMMIT/ROLLBACK"
-evidencia: sql/transaccion-cita.sql
+evidencia: sql/transaccion-pedido.sql
 ---
 
 # L17 — Transacciones ACID
 
 **~5.0 h · Semana 5**
 
-Crear cita sin auditoría (o al revés) es un bug de integridad. ACID lo evita.
+Crear pedido sin auditoría (o al revés) es un bug de integridad. ACID lo evita.
 
 ## Objetivo
 
-Entregar `sql/transaccion-cita.sql` que inserta cita + `cita_auditoria` atómicamente.
+Entregar `sql/transaccion-pedido.sql` que inserta pedido + `cita_auditoria` atómicamente.
 
 ## Pasos
 
 ### 1. Lectura (45 min)
 
-Propiedades ACID en Elmasri. Traduce cada letra con un ejemplo de citas.
+Propiedades ACID en Elmasri. Traduce cada letra con un ejemplo de pedidos.
 
 ### 2. Asegura tabla auditoría (30 min)
 
@@ -34,7 +34,7 @@ Aplica `migrations/002_auditoria_y_indices.sql` si no lo hiciste.
 ```sql
 BEGIN;
 WITH nueva AS (
-  INSERT INTO citas (cliente_id, servicio_id, inicia_en, termina_en, estado)
+  INSERT INTO pedidos (cliente_id, servicio_id, inicia_en, termina_en, estado)
   VALUES (…, …, now() + interval '3 days', now() + interval '3 days 30 min', 'programada')
   RETURNING id
 )
@@ -50,8 +50,8 @@ Fuerza un error (FK inválida) dentro de `BEGIN` y verifica que no quedó basura
 ### 5. Commit (15 min)
 
 ```bash
-git add projects/m09-bases-datos/sql/transaccion-cita.sql
-git commit -m "feat(m09): transaccion cita + auditoria"
+git add projects/m09-bases-datos/sql/transaccion-pedido.sql
+git commit -m "feat(m09): transaccion pedido + auditoria"
 ```
 
 ## Lectura de esta lección
@@ -66,7 +66,7 @@ git commit -m "feat(m09): transaccion cita + auditoria"
 
 Marca la lección **solo si**:
 
-1. Script con `BEGIN` que inserta cita + fila de auditoría y `COMMIT`.
+1. Script con `BEGIN` que inserta pedido + fila de auditoría y `COMMIT`.
 2. Demuestras un `ROLLBACK` (error forzado) dejando la BD consistente.
 3. Commit del SQL.
 

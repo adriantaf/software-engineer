@@ -23,20 +23,20 @@ Dejar `seeds/`, `reportes.md` y README en estado “otro humano levanta esto”.
 
 ### 1. Seeds realistas (75 min)
 
-Amplía `seeds/001_demo.sql`: ≥5 clientes, ≥3 servicios, citas en varios estados (`programada`, `completada`, `no_show`, `cancelada`). Reaplica en DB limpia o tras truncate controlado.
+Amplía `seeds/001_demo.sql`: ≥5 clientes, ≥3 servicios, pedidos en varios estados (`programada`, `completada`, `no_show`, `cancelada`). Reaplica en DB limpia o tras truncate controlado.
 
 ### 2. Dos reportes (75 min)
 
 Completa `reportes.md`. Ideas:
 
 1. No-shows de los últimos 30 días por cliente.
-2. Ingresos estimados (centavos) por servicio en citas `completada`.
+2. Ingresos estimados (centavos) por servicio en pedidos `completada`.
 
 Cada uno: pregunta → archivo SQL → salida → uso para el dueño.
 
 ### 3. Checklist total (45 min)
 
-P1 `er-agenda.md` · P2 `sql/` + `explain-notas.md` · P3 `migrations/` + `roles.md` · Proyecto seeds + reportes.
+P1 `er-vitrina.md` · P2 `sql/` + `explain-notas.md` · P3 `migrations/` + `roles.md` · Proyecto seeds + reportes.
 
 ### 4. Simulación máquina limpia (45 min)
 

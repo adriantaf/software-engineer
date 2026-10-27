@@ -57,4 +57,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L13 — Repository — interfaz Cita sin SQL](L13-repository-interfaz-cita-sin-sql.md)
+[L13 — Repository — interfaz Pedido sin SQL](L13-repository-interfaz-pedido-sin-sql.md)

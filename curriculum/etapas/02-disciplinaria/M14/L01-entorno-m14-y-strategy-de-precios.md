@@ -5,7 +5,7 @@ orden: 1
 titulo: Entorno M14 y Strategy de precios
 horas: 5.0
 semana: 1
-lectura: GoF/Refactoring.Guru Strategy; precios Agenda Ops
+lectura: GoF/Refactoring.Guru Strategy; precios Vitrina
 evidencia: projects/m14-patrones/ con Vitest + Strategy precios + tests
 ---
 
@@ -21,7 +21,7 @@ Dejar `projects/m14-patrones/` usable y un Strategy de precios con tests.
 
 ## Por qué empieza así
 
-Agenda Ops tendrá promo, tarifa base y (luego) no-show. Strategy evita `switch` esparcidos en el service de citas.
+Vitrina tendrá promo, tarifa base y (luego) pedido abandonado. Strategy evita `switch` esparcidos en el service de pedidos.
 
 ## Pasos (hazlos en orden)
 

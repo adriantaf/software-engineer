@@ -13,7 +13,7 @@ evidencia: adr/002-persistencia.md
 
 **~5.0 h · Semana 4**
 
-Agenda Ops vive de consultas de agenda y FKs. Hoy firmas cómo persistir.
+Vitrina vive de consultas de agenda y FKs. Hoy firmas cómo persistir.
 
 ## Objetivo
 
@@ -27,7 +27,7 @@ Agenda Ops vive de consultas de agenda y FKs. Hoy firmas cómo persistir.
 # ADR 002 — PostgreSQL + migraciones versionadas
 
 ## Contexto
-Citas con rangos de tiempo, FKs, reportes simples, posible tenant_id luego.
+Pedidos con rangos de tiempo, FKs, reportes simples, posible tenant_id luego.
 
 ## Decisión
 PostgreSQL; migraciones SQL (o Prisma migrate — elige una) en repo.
@@ -67,7 +67,7 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- Elegir DB por moda sin relación al reporte de citas.
+- Elegir DB por moda sin relación al reporte de pedidos.
 - “Usaremos un ORM” sin decir cuál ni migración.
 - Contradecir cardinalidades de L06 sin actualizar clases.
 

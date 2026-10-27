@@ -6,7 +6,7 @@ titulo: Smoke test post-deploy
 horas: 5.0
 semana: 6
 lectura: Checklist smoke
-evidencia: projects/m17-agenda-ops/docs/smoke-test.md
+evidencia: projects/m17-vitrina/docs/smoke-test.md
 ---
 
 # L24 — Smoke test post-deploy
@@ -17,7 +17,7 @@ Detecta config rota antes de la demo.
 
 ## Objetivo
 
-Script o checklist: register/login/crear cita en staging.
+Script o checklist: register/login/crear pedido en staging.
 
 ## Conceptos clave
 
@@ -30,12 +30,12 @@ Script o checklist: register/login/crear cita en staging.
 ### 1. Smoke script (60–80 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/smoke-test.md << 'EOF'
+cat > projects/m17-vitrina/docs/smoke-test.md << 'EOF'
 # Smoke post-deploy
 1. GET /health → 200
 2. POST /auth/login (user demo staging)
-3. POST /citas → 201
-4. GET /citas → incluye la cita
+3. POST /pedidos → 201
+4. GET /pedidos → incluye la pedido
 Fecha: YYYY-MM-DD  Resultado: OK/FAIL
 EOF
 ```
@@ -50,7 +50,7 @@ curl -sS -c /tmp/st.ck -X POST "$BASE/auth/login" -H 'content-type: application/
 ### 2. Registra resultado + commit (30 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/smoke-test.md
+git add projects/m17-vitrina/docs/smoke-test.md
 git commit -m "docs(m17): L24 smoke test post-deploy"
 ```
 
@@ -66,7 +66,7 @@ git commit -m "docs(m17): L24 smoke test post-deploy"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/smoke-test.md` con health+login+cita y fecha/resultado.
+1. `projects/m17-vitrina/docs/smoke-test.md` con health+login+pedido y fecha/resultado.
 2. Commit `docs(m17): L24 smoke-test-post-deploy`.
 
 ## Errores comunes

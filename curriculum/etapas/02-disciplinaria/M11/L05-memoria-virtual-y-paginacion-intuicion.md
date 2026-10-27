@@ -65,7 +65,7 @@ Marca la lección **solo si**:
 
 - Equivaler “memoria virtual” con “archivo swap” solamente.
 - Diagramas copiados sin explicación.
-- Ignorar qué pasa cuando el VPS de Agenda Ops thrashing-ea.
+- Ignorar qué pasa cuando el VPS de Vitrina thrashing-ea.
 
 ## Siguiente
 

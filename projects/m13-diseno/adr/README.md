@@ -1,4 +1,4 @@
-# Índice de ADRs — M13 Agenda Ops
+# Índice de ADRs — M13 Vitrina
 
 | ADR | Título | Estado |
 |-----|--------|--------|

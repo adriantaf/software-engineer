@@ -38,7 +38,7 @@ Estructura mínima:
 ## Índice
 ## Capas + curl (L01)
 ## IP / ruta (L02)
-## Puertos Agenda Ops (L03)
+## Puertos Vitrina (L03)
 ## Pendientes
 ```
 

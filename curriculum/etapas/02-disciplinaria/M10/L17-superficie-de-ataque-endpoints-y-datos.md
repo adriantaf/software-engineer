@@ -17,7 +17,7 @@ P3 empieza aquí: inventarias antes de endurecer (M18).
 
 ## Objetivo
 
-Completar el mapa de superficie del piloto Agenda Ops (aunque sea diseño).
+Completar el mapa de superficie del piloto Vitrina (aunque sea diseño).
 
 ## Pasos
 
@@ -31,7 +31,7 @@ Crea `endpoints.md` con columnas: método, path, auth, roles, datos, notas.
 
 ### 2. Inventario (90 min)
 
-Incluye al menos: login/logout, CRUD clientes, CRUD citas, listados, health `/health`, estáticos del panel. Marca PII (teléfono, notas privadas).
+Incluye al menos: login/logout, CRUD clientes, CRUD pedidos, listados, health `/health`, estáticos del panel. Marca PII (teléfono, notas privadas).
 
 ### 3. Trust boundaries (40 min)
 
@@ -56,7 +56,7 @@ git commit -m "docs(m10): l17 superficie endpoints"
 
 Marca la lección **solo si**:
 
-1. `superficie/endpoints.md` lista endpoints previstos (citas/clientes/auth) + auth + PII.
+1. `superficie/endpoints.md` lista endpoints previstos (pedidos/clientes/auth) + auth + PII.
 2. Diagrama trust boundary: browser / API / DB / backups.
 3. Commit `docs(m10): l17 superficie endpoints`.
 

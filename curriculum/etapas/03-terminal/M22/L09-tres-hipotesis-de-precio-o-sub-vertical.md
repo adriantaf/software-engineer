@@ -36,13 +36,13 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — experimentación_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
 Confirma rutas bajo `projects/m22-bektor`.
 
-`projects/m22-bektor/pricing-experimentos.md`: 3 hipótesis (ej. Pro $499 vs $699 MXN; límite citas/mes). Para cada una: señal de éxito/fracaso en conversaciones.
+`projects/m22-bektor/pricing-experimentos.md`: 3 hipótesis (ej. Pro $499 vs $699 MXN; límite pedidos/mes). Para cada una: señal de éxito/fracaso en conversaciones.
 
 ### 3. Laboratorio principal (90–120 min)
 
@@ -62,7 +62,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — experimentación | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — experimentación | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

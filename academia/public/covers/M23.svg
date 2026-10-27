@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M23">
+  <defs>
+    <linearGradient id="bg-M23" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <pattern id="grid-M23" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M23)"/>
+  <rect width="640" height="360" fill="url(#grid-M23)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <circle cx="320" cy="165" r="55" fill="none" stroke="#fff" stroke-width="4" opacity="0.85"/>
+      <path d="M280 200c15-35 65-35 80 0M300 150c10 25 30 25 40 0" fill="none" stroke="#fff" stroke-width="3" opacity="0.6"/>
+      <circle cx="295" cy="155" r="6" fill="#fff" opacity="0.8"/><circle cx="345" cy="155" r="6" fill="#fff" opacity="0.8"/>
+</svg>

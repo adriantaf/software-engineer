@@ -5,7 +5,7 @@ orden: 7
 titulo: Historias de vacío, duplicados y conflicto
 horas: 5.0
 semana: 2
-lectura: Casos borde negocio citas
+lectura: Casos borde negocio pedidos
 evidencia: stories.md ampliado
 ---
 
@@ -23,14 +23,14 @@ Ampliar `stories.md` hacia ≥8 con casos de borde del dominio.
 
 ### 1. Brainstorm bordes (40 min)
 
-Lista: agenda vacía, slot ocupado, cliente duplicado por teléfono, cancelación tardía, no-show, nota privada, staff sin permiso.
+Lista: agenda vacía, slot ocupado, cliente duplicado por teléfono, cancelación tardía, pedido abandonado, nota privada, staff sin permiso.
 
 ### 2. Escribe stories (90 min)
 
 Cada una con criterios. Ejemplo conflicto:
 
 ```text
-When intento crear cita que solapa servicio+recurso
+When intento crear pedido que solapa servicio+recurso
 Then API responde 409 y no persiste
 ```
 
@@ -49,7 +49,7 @@ git commit -m "docs(m12): l07 stories borde"
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| IEEE 830 adaptada (repo) | Agenda vacía, cliente duplicado, conflicto de horario, no-show | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| IEEE 830 adaptada (repo) | Agenda vacía, cliente duplicado, conflicto de horario, pedido abandonado | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
@@ -57,7 +57,7 @@ git commit -m "docs(m12): l07 stories borde"
 
 Marca la lección **solo si**:
 
-1. ≥3 stories nuevas de borde (vacío/duplicado/conflicto/no-show).
+1. ≥3 stories nuevas de borde (vacío/duplicado/conflicto/pedido abandonado).
 2. Total de stories camino a ≥8 (completa faltantes si hace falta).
 3. Commit `docs(m12): l07 stories borde`.
 

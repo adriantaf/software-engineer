@@ -84,4 +84,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L09 — Citas CRUD multi-tenant](L09-citas-crud-multi-tenant.md)
+[L09 — Pedidos CRUD multi-tenant](L09-pedidos-crud-multi-tenant.md)

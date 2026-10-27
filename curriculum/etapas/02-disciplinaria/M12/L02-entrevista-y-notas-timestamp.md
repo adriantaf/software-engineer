@@ -34,7 +34,7 @@ Formato de notas:
 ## 00:00–00:05 Rapport
 …
 ## 00:05–00:20 Flujo actual
-> cita textual breve
+> pedido textual breve
 Interpretación: …
 ```
 
@@ -53,7 +53,7 @@ git commit -m "docs(m12): l02 notas entrevista"
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| IEEE 830 adaptada (repo) | Notas con timestamp; separar cita textual vs interpretación | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
+| IEEE 830 adaptada (repo) | Notas con timestamp; separar pedido textual vs interpretación | [plantilla SRS](../../../../projects/m12-srs/plantilla.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 

@@ -29,7 +29,7 @@ M05 te dio el mapa de la máquina; M11 te enseñó a operar procesos y contenedo
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Compilar y linkar programas C con `gcc`/`clang` y flags útiles (`-Wall -Wextra -g -O0/-O2`).
 2. Explicar punteros, `sizeof`, stack vs heap y un stack frame típico (System V AMD64).
@@ -45,8 +45,6 @@ Al terminar debes poder:
 3. Cada concepto → un `.c` o captura `objdump`/`readelf` en `projects/m27-bajo-nivel/`.
 4. No memorices tablas de opcodes: **lee** lo que emite *tu* compilador.
 5. [Cómo estudiar](../../como-estudiar.md).
-
-> **Densidad:** 18 lecciones en 5 semanas (no 20). Es intencional: el cierre es el informe «viaje de un binario» (L17–L18), no dos lecciones extra de relleno.
 
 ## Semana tipo (20 h)
 

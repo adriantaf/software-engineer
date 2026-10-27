@@ -27,7 +27,7 @@ Conceptos que debes poder explicar al cerrar:
 
 - UI mínima.
 - CLI alternativa.
-- Citas fuente.
+- Pedidos fuente.
 - Fallback sin alucinar.
 
 ## Pasos (hazlos en orden)

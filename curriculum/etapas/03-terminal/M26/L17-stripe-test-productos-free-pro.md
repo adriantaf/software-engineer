@@ -42,7 +42,7 @@ Confirma claves `sk_test` / `pk_test` solo en secretos de entorno. Documenta en 
 
 ### 3. Crea productos Free/Pro (90–110 min)
 
-Crea Price objects alineados a `projects/m22-bektor/pricing.md`. Tabla: product_id, price_id, MXN, intervalo, qué desbloquea en Agenda Ops.
+Crea Price objects alineados a `projects/m22-bektor/pricing.md`. Tabla: product_id, price_id, MXN, intervalo, qué desbloquea en Vitrina.
 
 ### 4. Enlaza al tenant (40–50 min)
 

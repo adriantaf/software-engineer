@@ -5,7 +5,7 @@ orden: 1
 titulo: Recorrido persona nueva y fricciones día 1
 horas: 5.0
 semana: 1
-lectura: "Krug: no me hagas pensar; primer recorrido Agenda Ops"
+lectura: "Krug: no me hagas pensar; primer recorrido Vitrina"
 evidencia: projects/m16-ihc/fricciones-dia-1.md
 ---
 
@@ -13,7 +13,7 @@ evidencia: projects/m16-ihc/fricciones-dia-1.md
 
 **~5.0 h · Semana 1**
 
-El design partner no es tú. Hoy recorres Agenda Ops (prototipo o UI parcial) como persona nueva.
+El design partner no es tú. Hoy recorres Vitrina (prototipo o UI parcial) como persona nueva.
 
 ## Objetivo
 
@@ -34,11 +34,11 @@ cat projects/m16-ihc/README.md
 
 ### 2. Elige superficie (20 min)
 
-Prototipo HTML en `prototipo/`, Figma export, o UI M17 si existe. Si no hay nada: crea 2–3 HTML estáticos de login + agenda + nueva cita (L05 lo endurece).
+Prototipo HTML en `prototipo/`, Figma export, o UI M17 si existe. Si no hay nada: crea 2–3 HTML estáticos de login + agenda + nueva pedido (L05 lo endurece).
 
 ### 3. Recorrido cronometrado (60–80 min)
 
-Cronómetro: “Agendar cita para cliente nuevo”. Anota cada duda, click engañoso, label confuso.
+Cronómetro: “Agendar pedido para cliente nuevo”. Anota cada duda, click engañoso, label confuso.
 
 ### 4. Escribe fricciones-dia-1.md (70–90 min)
 
@@ -54,7 +54,7 @@ Cronómetro: “Agendar cita para cliente nuevo”. Anota cada duda, click enga�
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *No me hagas pensar* — Steve Krug (ed. ES) | Escaneo y fricción en el primer uso del panel de citas | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
+| *No me hagas pensar* — Steve Krug (ed. ES) | Escaneo y fricción en el primer uso del panel de pedidos | [Heurísticas Nielsen (NN/g)](https://www.nngroup.com/articles/ten-usability-heuristics/) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M16](../../../bibliografia.md#m16-ihc) |
 
 

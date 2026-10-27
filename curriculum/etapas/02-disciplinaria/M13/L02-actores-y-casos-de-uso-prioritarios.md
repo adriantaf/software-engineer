@@ -5,7 +5,7 @@ orden: 2
 titulo: Actores y casos de uso prioritarios
 horas: 5.0
 semana: 1
-lectura: "Larman: actores y casos de uso; SRS Agenda Ops Must"
+lectura: "Larman: actores y casos de uso; SRS Vitrina Must"
 evidencia: projects/m13-diseno/casos-de-uso.md (actores + UC prioritarios)
 ---
 
@@ -21,7 +21,7 @@ Borrador sólido de `projects/m13-diseno/casos-de-uso.md`: actores + casos Must 
 
 ## Por qué importa
 
-M17 implementará login, CRUD de citas/clientes y roles. Si hoy no priorizas, mañana codificas features que el design partner no usa.
+M17 implementará login, CRUD de pedidos/clientes y roles. Si hoy no priorizas, mañana codificas features que el design partner no usa.
 
 ## Pasos (hazlos en orden)
 
@@ -34,7 +34,7 @@ Actores mínimos esperados:
 | Actor | Responsabilidad |
 |-------|-----------------|
 | Owner | Admin del negocio: roles, servicios, clientes |
-| Staff | Opera agenda del día: crear/cancelar citas |
+| Staff | Opera agenda del día: crear/cancelar pedidos |
 | Sistema | Recordatorios futuros / jobs (aunque sea stub) |
 
 ### 2. Lista casos Must (70–90 min)
@@ -47,9 +47,9 @@ Tabla mínima esperada:
 |----|--------|-------|-----------|-------|
 | UC-01 | Iniciar sesión | Owner/Staff | H-auth-01 | cookie/sesión |
 | UC-02 | Crear cliente | Owner/Staff | H-cli-01 | |
-| UC-03 | Crear cita | Staff | H-cita-01 | slot + servicio |
-| UC-04 | Cancelar cita | Staff | H-cita-02 | |
-| UC-05 | Listar agenda del día | Staff | H-cita-03 | |
+| UC-03 | Crear pedido | Staff | H-pedido-01 | slot + servicio |
+| UC-04 | Cancelar pedido | Staff | H-pedido-02 | |
+| UC-05 | Listar agenda del día | Staff | H-pedido-03 | |
 
 Ajusta IDs a tu SRS; no copies ciegos.
 

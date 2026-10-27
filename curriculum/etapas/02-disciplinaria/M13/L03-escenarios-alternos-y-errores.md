@@ -13,7 +13,7 @@ evidencia: casos-de-uso.md con escenarios 401/403/409 por UC críticos
 
 **~5.0 h · Semana 1**
 
-El flujo feliz de “crear cita” es el 20 %. Hoy diseñas el 80 %: sin sesión, sin permiso, slot ocupado, input inválido.
+El flujo feliz de “crear pedido” es el 20 %. Hoy diseñas el 80 %: sin sesión, sin permiso, slot ocupado, input inválido.
 
 ## Objetivo
 
@@ -27,16 +27,16 @@ M15 pedirá tests 401/403/409. Si el diseño no nombra esos caminos, los tests i
 
 ### 1. Elige 3 UC críticos (15 min)
 
-Típico: `UC-01` login, `UC-03` crear cita, `UC-04` cancelar (o listar agenda).
+Típico: `UC-01` login, `UC-03` crear pedido, `UC-04` cancelar (o listar agenda).
 
 ### 2. Plantilla por UC (90–110 min)
 
 Para cada uno, añade bajo el caso:
 
 ```markdown
-### UC-03 Crear cita
+### UC-03 Crear pedido
 
-**Feliz:** Staff autenticado, slot libre, cliente existente → 201 + cita.
+**Feliz:** Staff autenticado, slot libre, cliente existente → 201 + pedido.
 
 **A1 — Sin autenticación:** sin cookie → **401**. No revelar si el slot existe.
 

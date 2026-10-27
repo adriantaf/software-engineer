@@ -17,7 +17,7 @@ Capstone: SaaS multi-tenant en producción. Hoy entregas **`projects/m26-capston
 
 ## Objetivo
 
-Congelar por escrito el alcance SaaS v1 de Agenda Ops (in/out) alineado a producto-saas y rúbrica de egreso.
+Congelar por escrito el alcance SaaS v1 de Vitrina (in/out) alineado a producto-saas y rúbrica de egreso.
 
 ## Por qué empieza así
 

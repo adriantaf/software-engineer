@@ -29,7 +29,7 @@ Lee `srs-v1.md` como si fueras M13: marca ambigüedades.
 
 `nota-handoff-m13.md`:
 
-- Entidades candidatas (Cliente, Servicio, Cita, Usuario…)
+- Entidades candidatas (Cliente, Servicio, Pedido, Usuario…)
 - Casos de uso Must
 - Reglas de conflicto de horario
 - Preguntas abiertas

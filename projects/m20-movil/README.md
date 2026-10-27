@@ -1,4 +1,4 @@
-# M20 — Aplicaciones móviles (Agenda Ops)
+# M20 — Aplicaciones móviles (Vitrina)
 
 Carpeta de **evidencia** de la app móvil del dueño. Si no está en git (aquí o con enlace claro), no cuenta.
 
@@ -32,7 +32,7 @@ projects/m20-movil/
 | Semana | Foco | Artefacto |
 |--------|------|-----------|
 | 1 | Scaffold + login + secure storage + 401 | storage doc |
-| 2 | Lista citas, refresh, roles | demo-login-lista (P1) |
+| 2 | Lista pedidos, refresh, roles | demo-login-lista (P1) |
 | 3 | Detalle, nav, acciones, deep link | |
 | 4 | Vacío/offline/timeouts/logging | auth-storage + estados (P2) |
 | 5 | Firma, release, demo cruzada | build-evidence (P3) |
@@ -47,6 +47,6 @@ projects/m20-movil/
 ## Enlaces
 
 - Ficha: `curriculum/etapas/02-disciplinaria/M20-aplicaciones-moviles.md`
-- API: `projects/m17-agenda-ops/`
+- API: `projects/m17-vitrina/`
 - Ops: `projects/m19-ops/`
 - Plan: `/materia/M20/`

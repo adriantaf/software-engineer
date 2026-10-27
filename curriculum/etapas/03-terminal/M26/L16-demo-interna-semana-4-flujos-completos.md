@@ -37,7 +37,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Guion demo semana 4 (25–35 min)
 
-En `projects/m26-capstone/demos/semana-04.md`: vertical completo — onboarding o login, cita, contraste tenants, mención billing si listo.
+En `projects/m26-capstone/demos/semana-04.md`: vertical completo — onboarding o login, pedido, contraste tenants, mención billing si listo.
 
 ### 3. Ejecuta flujos completos (100–120 min)
 

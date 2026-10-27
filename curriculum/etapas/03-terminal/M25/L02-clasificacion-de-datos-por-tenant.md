@@ -17,7 +17,7 @@ El bug #1 a cazar es IDOR cross-tenant. Hoy entregas **`projects/m25-ciber/clasi
 
 ## Objetivo
 
-Etiquetar datos (PII citas, credenciales, billing metadata) y flujo entre componentes.
+Etiquetar datos (PII pedidos, credenciales, billing metadata) y flujo entre componentes.
 
 ## Por qué empieza así
 
@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Testing Guide — information gathering_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Inventario de tipos de dato (25–35 min)
 
@@ -51,7 +51,7 @@ Filas mínimas: PII cliente (nombre/tel), credenciales, `tenant_id`, metadata bi
 Añade sección **Flujos** con 4 diagramas en prosa (o mermaid):
 
 1. Login → sesión → `tenant_id`
-2. Crear cita → DB
+2. Crear pedido → DB
 3. Webhook Stripe → actualización plan
 4. Export/soporte → datos salientes
 
@@ -85,7 +85,7 @@ Marca la lección **solo si**:
 
 1. Existe el entregable: `projects/m25-ciber/clasificacion-datos.md`.
 2. Sin secretos en markdown.
-3. Conexión Agenda Ops escrita en bitácora.
+3. Conexión Vitrina escrita en bitácora.
 4. Commit `docs(m25): l02 …` en el historial.
 
 ## Errores comunes

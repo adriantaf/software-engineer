@@ -1,6 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCatalog, getEtapa, getMateriasByEtapa, loadEtapaExamen } from '../../lib/curriculum';
+import CourseCard from '../../components/CourseCard.astro';
+import {
+  getCatalog,
+  getEtapa,
+  getMateriasByEtapa,
+  listLecciones,
+  loadEtapaExamen,
+} from '../../lib/curriculum';
 import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -45,39 +52,28 @@ const ultima = materias[materias.length - 1];
     </div>
   </header>
 
-  <div class="overflow-x-auto max-w-full surface-panel">
-    <table class="table table-sm sm:table-md">
-      <thead>
-        <tr>
-          <th class="w-12">#</th>
-          <th>Materia</th>
-          <th>Semanas</th>
-          <th>Horas</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          materias.map((m) => (
-            <tr class="hover">
-              <td class="tabular-nums opacity-70">{m.orden}</td>
-              <td class="min-w-[10rem] break-words whitespace-normal">
-                <a class="link link-primary font-medium" href={pathTo(`materia/${m.id}`)}>
-                  {m.titulo}
-                </a>
-              </td>
-              <td>{m.semanas}</td>
-              <td>{m.horas}</td>
-              <td>
-                <span class="status-chip status-chip--muted whitespace-nowrap" data-status={m.id}>
-                  —
-                </span>
-              </td>
-            </tr>
-          ))
-        }
-      </tbody>
-    </table>
+  <div class="course-grid mb-8">
+    {
+      materias.map((m) => (
+        <div class="relative">
+          <CourseCard
+            id={m.id}
+            titulo={m.titulo}
+            etapaId={etapa.id}
+            etapaTitulo={etapa.titulo}
+            horas={m.horas}
+            semanas={m.semanas}
+            leccionCount={listLecciones(m.id).length}
+          />
+          <span
+            class="status-chip status-chip--muted absolute top-2 right-2 z-[1] bg-base-100/90"
+            data-status={m.id}
+          >
+            —
+          </span>
+        </div>
+      ))
+    }
   </div>
 
   {

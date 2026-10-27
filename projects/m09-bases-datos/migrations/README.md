@@ -6,7 +6,7 @@ Orden sugerido:
 
 | Archivo | Qué hace |
 |---------|----------|
-| `001_init.sql` | Extensiones + tablas base (clientes, servicios, citas) |
+| `001_init.sql` | Extensiones + tablas base (clientes, servicios, pedidos) |
 | `002_auditoria_y_indices.sql` | Tabla de auditoría + índices de reporte (L13–L18) |
 | `003_roles_app.sql` | Grants al rol `agenda_app` (L19; o vive en `roles.md`) |
 

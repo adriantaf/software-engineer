@@ -1,4 +1,4 @@
-# npm audit — Agenda Ops
+# npm audit — Vitrina
 
 Fecha:
 High/Critical:

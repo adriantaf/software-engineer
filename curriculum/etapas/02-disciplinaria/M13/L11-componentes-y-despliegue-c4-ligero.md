@@ -23,7 +23,7 @@ Zoom out: no clases, sino cajas desplegables. Suficiente para M19 sin teatro ent
 
 ### 1. Contexto (40–50 min)
 
-Personas: Owner/Staff. Sistema: Agenda Ops. Externos: Email o WhatsApp link, (luego) Stripe.
+Personas: Owner/Staff. Sistema: Vitrina. Externos: Email o WhatsApp link, (luego) Stripe.
 
 ### 2. Contenedores (60–70 min)
 
@@ -60,7 +60,7 @@ git commit -m "docs(m13): C4 ligero contexto y contenedores"
 
 Marca la lección **solo si**:
 
-1. Diagrama de contexto (persona + Agenda Ops + sistemas externos).
+1. Diagrama de contexto (persona + Vitrina + sistemas externos).
 2. Diagrama de contenedores: Web, API, PostgreSQL (± email).
 3. Commit `docs(m13): C4 ligero contexto y contenedores`.
 

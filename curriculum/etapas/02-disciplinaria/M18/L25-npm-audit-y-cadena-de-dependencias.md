@@ -24,7 +24,7 @@ Salida de audit en `projects/m18-appsec/docs/npm-audit.md` (+ mirror `projects/m
 ### 1. Corre audit (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 npm audit --omit=dev 2>/dev/null || npm audit
 npm audit --json > /tmp/m18-audit.json || true
 mkdir -p projects/m18-appsec/docs
@@ -34,7 +34,7 @@ cp /tmp/m18-audit.json projects/m18-appsec/docs/npm-audit.json 2>/dev/null || tr
 
 ```bash
 cat > projects/m18-appsec/docs/npm-audit.md <<'EOF'
-# npm audit — Agenda Ops
+# npm audit — Vitrina
 Fecha:
 High/Critical:
 Acción (update / ignore justificado):
