@@ -1,20 +1,30 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { getCatalog, getEtapa, loadEtapaExamen } from '../../../lib/curriculum';
+import {
+  getCatalog,
+  getEtapa,
+  loadEtapaExamen,
+  splitExamenSections,
+} from '../../../lib/curriculum';
 import { pathTo } from '../../../lib/paths';
 
 export function getStaticPaths() {
   const paths = [];
   for (const e of getCatalog().etapas) {
     const exam = loadEtapaExamen(e.id);
-    if (exam) paths.push({ params: { id: e.id }, props: { exam } });
+    if (exam) {
+      paths.push({
+        params: { id: e.id },
+        props: { exam, sections: splitExamenSections(exam.html) },
+      });
+    }
   }
   return paths;
 }
 
 const { id } = Astro.params;
 const etapa = getEtapa(id!);
-const { exam } = Astro.props;
+const { exam, sections } = Astro.props;
 if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
 ---
 
@@ -27,20 +37,120 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
     </ul>
   </div>
 
-  <div class="alert mb-6 text-sm sm:text-base">
+  <div class="alert mb-6 text-sm sm:text-base" role="status">
     <div>
       <p class="font-semibold m-0">Autoevaluación de etapa (sin mirar fichas)</p>
       <p class="m-0 opacity-80">
-        Es formativa: escribe o graba, luego compara. No hay nota automática. Si no apruebas el
-        criterio de la página, refuerza la etapa antes de avanzar.
+        Escribe aquí; se guarda solo en este navegador. No hay nota automática. Exporta desde
+        Progreso si quieres versionar el JSON completo (las respuestas van en
+        <code>examenes</code>).
       </p>
     </div>
   </div>
 
-  <article class="article-atelier prose-academia" set:html={exam.html} />
+  <div id="examen-root" data-etapa={etapa.id} class="flex flex-col gap-6 max-w-3xl">
+    {
+      sections.map((sec) => (
+        <section class="surface-panel p-4 sm:p-5" data-section={sec.id}>
+          <div class="prose-academia mb-4" set:html={sec.html} />
+          {
+            sec.id !== 'intro' && (
+              <label class="form-control w-full">
+                <span class="label-text text-sm font-medium mb-1">Tu respuesta — {sec.title}</span>
+                <textarea
+                  class="textarea textarea-bordered w-full min-h-32 text-sm"
+                  data-exam-answer={sec.id}
+                  rows={6}
+                  placeholder="Escribe o pega notas / esquema / enlace a grabación…"
+                />
+              </label>
+            )
+          }
+        </section>
+      ))
+    }
+
+    <label class="flex items-start gap-3 surface-panel p-4 cursor-pointer">
+      <input type="checkbox" class="checkbox checkbox-primary mt-0.5" id="examen-listo" />
+      <span class="text-sm leading-snug">
+        Listo para comparar con el criterio de la página (no significa «aprobado»).
+      </span>
+    </label>
+
+    <p id="examen-saved" class="text-sm opacity-70 m-0" aria-live="polite"></p>
+  </div>
 
   <div class="mt-6 flex flex-wrap gap-2">
     <a class="btn btn-outline btn-sm" href={pathTo(`etapa/${etapa.id}`)}>← Volver a {etapa.titulo}</a>
+    <a class="btn btn-outline btn-sm" href={pathTo('revision')}>Revisión de emergencia</a>
     <a class="btn btn-primary btn-sm" href={pathTo('progreso')}>Check-in semanal →</a>
   </div>
+
+  <script>
+    import {
+      loadProgress,
+      saveProgress,
+      type ProgressState,
+    } from '../../../lib/progress-client';
+
+    const root = document.getElementById('examen-root');
+    const etapaId = root?.getAttribute('data-etapa');
+    const savedEl = document.getElementById('examen-saved');
+    if (!root || !etapaId) throw new Error('examen root');
+
+    function emptyProgress(): ProgressState {
+      return {
+        estudiante: 'Adrian Tafoya',
+        inicio: new Date().toISOString().slice(0, 10),
+        horasSemanalesMeta: 20,
+        materiaActual: 'M01',
+        materias: {},
+        notas: [],
+        checkIns: [],
+        examenes: {},
+      };
+    }
+
+    function persist() {
+      const state = loadProgress() ?? emptyProgress();
+      const answers: Record<string, string> = {};
+      root.querySelectorAll<HTMLTextAreaElement>('[data-exam-answer]').forEach((el) => {
+        const id = el.getAttribute('data-exam-answer')!;
+        answers[id] = el.value;
+      });
+      const listo = Boolean(
+        (document.getElementById('examen-listo') as HTMLInputElement | null)?.checked,
+      );
+      state.examenes = {
+        ...(state.examenes ?? {}),
+        [etapaId]: { updatedAt: new Date().toISOString(), listo, answers },
+      };
+      saveProgress(state);
+      if (savedEl) {
+        savedEl.textContent = `Guardado local · ${new Date().toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' })}`;
+      }
+    }
+
+    function hydrate() {
+      const entry = loadProgress()?.examenes?.[etapaId];
+      if (!entry) return;
+      root.querySelectorAll<HTMLTextAreaElement>('[data-exam-answer]').forEach((el) => {
+        const id = el.getAttribute('data-exam-answer')!;
+        if (entry.answers?.[id]) el.value = entry.answers[id];
+      });
+      const box = document.getElementById('examen-listo') as HTMLInputElement | null;
+      if (box) box.checked = Boolean(entry.listo);
+      if (savedEl && entry.updatedAt) {
+        savedEl.textContent = `Última edición local · ${new Date(entry.updatedAt).toLocaleString('es-MX')}`;
+      }
+    }
+
+    hydrate();
+    let t: ReturnType<typeof setTimeout> | undefined;
+    root.addEventListener('input', () => {
+      if (t) clearTimeout(t);
+      t = setTimeout(persist, 400);
+    });
+    root.addEventListener('change', persist);
+  </script>
 </Layout>

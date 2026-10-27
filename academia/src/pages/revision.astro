@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCatalog, getRevisionIndex } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
+
+const catalog = getCatalog();
+const index = getRevisionIndex();
+const payload = {
+  cards: index,
+  etapas: catalog.etapas.map((e) => ({ id: e.id, titulo: e.titulo })),
+  materias: catalog.materias.map((m) => ({
+    id: m.id,
+    titulo: m.titulo,
+    etapa: m.etapa,
+  })),
+};
+---
+
+<Layout
+  title="Revisión de emergencia"
+  description="Sesión corta de repaso: Hecho cuando + evidencia de lecciones incompletas"
+>
+  <header class="mb-6 max-w-3xl">
+    <p class="text-xs font-semibold tracking-widest uppercase text-primary m-0 mb-2">Cram</p>
+    <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight m-0 mb-2">
+      Revisión de emergencia
+    </h1>
+    <p class="m-0 opacity-80 leading-relaxed">
+      No sustituye estudiar. Empaqueta criterios «Hecho cuando» y evidencias de lecciones
+      incompletas en una sesión cronometrada. Marca solo si puedes demostrar el criterio.
+    </p>
+  </header>
+
+  <form id="rev-form" class="surface-panel p-4 sm:p-5 mb-6 grid gap-4 sm:grid-cols-3 max-w-4xl">
+    <label class="form-control w-full">
+      <span class="label-text text-sm font-medium mb-1">Duración</span>
+      <select id="rev-mins" class="select select-bordered w-full" name="mins">
+        <option value="30">30 min</option>
+        <option value="60" selected>60 min</option>
+        <option value="90">90 min</option>
+      </select>
+    </label>
+    <label class="form-control w-full">
+      <span class="label-text text-sm font-medium mb-1">Alcance</span>
+      <select id="rev-scope" class="select select-bordered w-full" name="scope">
+        <option value="actual" selected>Materia actual</option>
+        <option value="etapa">Etapa actual</option>
+        <option value="plan">Todo el plan (incompletas)</option>
+        <option value="basica">Solo Básica</option>
+        <option value="disciplinaria">Solo Disciplinaria</option>
+        <option value="terminal">Solo Terminal</option>
+      </select>
+    </label>
+    <div class="flex items-end">
+      <button type="submit" class="btn btn-primary w-full">Armar sesión</button>
+    </div>
+  </form>
+
+  <div id="rev-status" class="mb-4 text-sm opacity-80" role="status" aria-live="polite"></div>
+
+  <div id="rev-timer" class="hidden surface-panel p-3 sm:p-4 mb-6 max-w-md">
+    <div class="flex items-center justify-between gap-3">
+      <p class="m-0 font-display text-2xl tabular-nums" id="rev-clock">60:00</p>
+      <div class="flex gap-2">
+        <button type="button" class="btn btn-outline btn-sm" id="rev-pause">Pausa</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="rev-reset">Reiniciar</button>
+      </div>
+    </div>
+    <progress id="rev-bar" class="progress progress-primary w-full h-1.5 mt-2" value="100" max="100"></progress>
+  </div>
+
+  <ol id="rev-list" class="flex flex-col gap-4 list-none p-0 m-0 max-w-3xl"></ol>
+
+  <p id="rev-empty" class="opacity-70 text-sm max-w-xl">
+    Elige duración y alcance, luego <strong>Armar sesión</strong>. Si no hay incompletas en ese
+    alcance, verás las primeras lecciones de la materia actual (repaso preventivo).
+  </p>
+
+  <script type="application/json" id="rev-data" set:html={JSON.stringify(payload)} />
+
+  <script>
+    import { loadProgress, setLeccion } from '../lib/progress-client';
+
+    type Card = {
+      materiaId: string;
+      materiaTitulo: string;
+      etapaId: string;
+      leccionId: string;
+      titulo: string;
+      horas: number;
+      evidencia: string;
+      hechoCuando: string;
+      href: string;
+    };
+
+    type Payload = {
+      cards: Card[];
+      etapas: { id: string; titulo: string }[];
+      materias: { id: string; titulo: string; etapa: string }[];
+    };
+
+    const raw = document.getElementById('rev-data')?.textContent;
+    const data = (raw ? JSON.parse(raw) : { cards: [], etapas: [], materias: [] }) as Payload;
+    const list = document.getElementById('rev-list')!;
+    const empty = document.getElementById('rev-empty')!;
+    const status = document.getElementById('rev-status')!;
+    const timerBox = document.getElementById('rev-timer')!;
+    const clock = document.getElementById('rev-clock')!;
+    const bar = document.getElementById('rev-bar') as HTMLProgressElement;
+    const pauseBtn = document.getElementById('rev-pause') as HTMLButtonElement;
+
+    let totalSec = 60 * 60;
+    let leftSec = totalSec;
+    let ticking: ReturnType<typeof setInterval> | undefined;
+    let paused = false;
+
+    function fmt(s: number) {
+      const m = Math.floor(s / 60);
+      const r = s % 60;
+      return `${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`;
+    }
+
+    function paintClock() {
+      clock.textContent = fmt(leftSec);
+      bar.value = totalSec ? Math.round((leftSec / totalSec) * 100) : 0;
+    }
+
+    function stopTick() {
+      if (ticking) clearInterval(ticking);
+      ticking = undefined;
+    }
+
+    function startTick() {
+      stopTick();
+      paused = false;
+      pauseBtn.textContent = 'Pausa';
+      ticking = setInterval(() => {
+        if (paused) return;
+        leftSec = Math.max(0, leftSec - 1);
+        paintClock();
+        if (leftSec === 0) stopTick();
+      }, 1000);
+    }
+
+    function isDone(c: Card): boolean {
+      const p = loadProgress();
+      return Boolean(p?.materias?.[c.materiaId]?.lecciones?.[c.leccionId]);
+    }
+
+    function currentMateriaId(): string {
+      const p = loadProgress();
+      return p?.lastMateriaId || p?.materiaActual || 'M01';
+    }
+
+    function filterCards(scope: string): Card[] {
+      const mid = currentMateriaId();
+      const meta = data.materias.find((m) => m.id === mid);
+      const etapa = meta?.etapa ?? 'basica';
+      let pool = data.cards;
+      if (scope === 'actual') pool = pool.filter((c) => c.materiaId === mid);
+      else if (scope === 'etapa') pool = pool.filter((c) => c.etapaId === etapa);
+      else if (scope === 'basica' || scope === 'disciplinaria' || scope === 'terminal') {
+        pool = pool.filter((c) => c.etapaId === scope);
+      }
+      const incomplete = pool.filter((c) => !isDone(c));
+      if (incomplete.length) return incomplete;
+      // Preventivo: primeras de la materia actual
+      return data.cards.filter((c) => c.materiaId === mid).slice(0, 8);
+    }
+
+    function packSession(cards: Card[], mins: number): Card[] {
+      const budget = mins;
+      const picked: Card[] = [];
+      let used = 0;
+      for (const c of cards) {
+        const h = c.horas > 0 ? c.horas : 0.75;
+        // En cram usamos ~40% del tiempo de lección (solo criterios)
+        const cost = Math.max(0.25, h * 0.4);
+        if (picked.length && used + cost > budget) break;
+        picked.push(c);
+        used += cost;
+        if (used >= budget * 0.95) break;
+      }
+      return picked.length ? picked : cards.slice(0, 3);
+    }
+
+    function render(cards: Card[]) {
+      list.innerHTML = '';
+      empty.hidden = cards.length > 0;
+      for (const c of cards) {
+        const li = document.createElement('li');
+        li.className = 'surface-panel p-4 sm:p-5';
+        const hecho = (c.hechoCuando || 'Revisa la lección y cumple «Hecho cuando».')
+          .split('\n')
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .slice(0, 8)
+          .map((line) => `<li>${escapeHtml(line.replace(/^\d+\.\s*/, ''))}</li>`)
+          .join('');
+        li.innerHTML = `
+          <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+            <p class="m-0 text-xs font-semibold tracking-wide uppercase opacity-60">
+              ${escapeHtml(c.materiaId)} · ${escapeHtml(c.leccionId)} · ~${c.horas || '?'} h lección
+            </p>
+            <a class="link link-primary text-sm" href="${c.href}">Abrir lección →</a>
+          </div>
+          <h2 class="font-display text-xl font-semibold m-0 mb-2">${escapeHtml(c.titulo)}</h2>
+          <p class="text-sm m-0 mb-3 opacity-80"><span class="font-semibold">Evidencia:</span> ${escapeHtml(c.evidencia || '—')}</p>
+          <p class="text-xs font-semibold uppercase tracking-wide opacity-55 m-0 mb-1">Hecho cuando</p>
+          <ul class="text-sm m-0 pl-5 list-disc space-y-1">${hecho}</ul>
+          <label class="flex items-center gap-2 mt-4 text-sm cursor-pointer">
+            <input type="checkbox" class="checkbox checkbox-primary checkbox-sm" data-rev-mark data-materia="${escapeHtml(c.materiaId)}" data-leccion="${escapeHtml(c.leccionId)}" />
+            Ya puedo demostrarlo (opcional: marca en la lección después)
+          </label>
+        `;
+        list.appendChild(li);
+      }
+    }
+
+    function escapeHtml(s: string) {
+      return s
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    document.getElementById('rev-form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const mins = Number((document.getElementById('rev-mins') as HTMLSelectElement).value) || 60;
+      const scope = (document.getElementById('rev-scope') as HTMLSelectElement).value;
+      const pool = filterCards(scope);
+      const session = packSession(pool, mins);
+      render(session);
+      const incomplete = pool.filter((c) => !isDone(c)).length;
+      status.textContent = `${session.length} fichas · alcance con ${incomplete} incompletas · presupuesto ${mins} min (criterios, no lección completa)`;
+      totalSec = mins * 60;
+      leftSec = totalSec;
+      timerBox.classList.remove('hidden');
+      paintClock();
+      startTick();
+    });
+
+    list.addEventListener('change', (e) => {
+      const t = e.target as HTMLInputElement;
+      if (!t.matches('input[data-rev-mark]')) return;
+      const mid = t.getAttribute('data-materia');
+      const lid = t.getAttribute('data-leccion');
+      if (mid && lid) setLeccion(mid, lid, t.checked);
+    });
+
+    pauseBtn?.addEventListener('click', () => {
+      paused = !paused;
+      pauseBtn.textContent = paused ? 'Reanudar' : 'Pausa';
+    });
+    document.getElementById('rev-reset')?.addEventListener('click', () => {
+      leftSec = totalSec;
+      paintClock();
+      startTick();
+    });
+  </script>
+</Layout>

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+import { getCatalog, getEtapa, getHorasBreakdown, loadMateria } from '../../lib/curriculum';
 import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -18,6 +18,7 @@ const next = catalog.materias[idx + 1];
 const hasLecciones = materia.lecciones.length > 0;
 const firstLeccion = materia.lecciones[0];
 const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
+const horas = getHorasBreakdown(materia.id);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
@@ -36,16 +37,27 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
           <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
             <span>{materia.id}</span>
             <span aria-hidden="true">·</span>
-            <span>{materia.semanas} sem · {materia.horas} h</span>
+            <span>{materia.semanas} sem · {materia.horas} h plan</span>
             {
               hasLecciones && (
                 <>
                   <span aria-hidden="true">·</span>
-                  <span>{materia.lecciones.length} lecciones</span>
+                  <span>
+                    {materia.lecciones.length} lecciones · ~{Math.round(horas.lecciones * 10) / 10} h
+                    guiadas
+                  </span>
                 </>
               )
             }
           </div>
+          {
+            hasLecciones && horas.resto > 0 && (
+              <p class="text-sm opacity-70 m-0 mb-2">
+                Las {materia.horas} h de plan = ~{horas.lecciones} h de lecciones L* + ~{horas.resto} h
+                de práctica/proyecto/lectura fuera del cronómetro de cada L.
+              </p>
+            )
+          }
           <p class="text-sm opacity-70 m-0">
             Sigla en azul →
             <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>

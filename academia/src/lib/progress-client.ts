@@ -20,6 +20,13 @@ export type WeeklyCheckIn = {
   siguiente: string;
 };
 
+/** Respuestas locales de autoevaluación de etapa. */
+export type ExamenAnswers = {
+  updatedAt: string;
+  listo: boolean;
+  answers: Record<string, string>;
+};
+
 export type ProgressState = {
   estudiante: string;
   inicio: string;
@@ -34,6 +41,8 @@ export type ProgressState = {
   notas: string[];
   /** Historial de check-ins semanales (más reciente primero). */
   checkIns: WeeklyCheckIn[];
+  /** Autoevaluaciones por etapa (basica | disciplinaria | terminal). */
+  examenes?: Record<string, ExamenAnswers>;
 };
 
 function defaultMateria(): MateriaProgress {
@@ -66,6 +75,7 @@ function normalizeProgress(raw: ProgressState): ProgressState {
     notas: Array.isArray(raw.notas) ? raw.notas : [],
     checkIns: Array.isArray(raw.checkIns) ? raw.checkIns : [],
     materias: raw.materias ?? {},
+    examenes: raw.examenes && typeof raw.examenes === 'object' ? raw.examenes : {},
   };
   if (!Number.isFinite(state.horasSemanalesMeta) || state.horasSemanalesMeta <= 0) {
     state.horasSemanalesMeta = 20;

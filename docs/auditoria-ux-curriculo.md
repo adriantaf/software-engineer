@@ -30,6 +30,13 @@ El contenido lectivo está listo para estudiar. La app web no comunicaba marca n
 4. Nota en ficha M27 sobre 18 lecciones.
 5. Rediseño «Atelier técnico»: tokens, tipografía, home brand-first, des-cardificar docs, a11y, motion.
 
-## Fuera de alcance
+## Seguimiento (implementado después)
 
-Modo cram, llenar `projects/` con evidencia real, exámenes interactivos, paridad horas catálogo↔lecciones, reescritura de lecciones.
+- Modo **Revisión de emergencia** (`/revision`).
+- Autoevaluaciones con captura local (`examenes` en progreso).
+- Labs + READMEs de etapa en rutas `docs/`.
+- Paridad de horas documentada (plan = semanas×20; L* = bloque guiado).
+
+## Aún fuera de alcance
+
+Llenar `projects/` con evidencia real del estudiante; reescritura de las 526 lecciones.
