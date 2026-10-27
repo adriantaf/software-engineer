@@ -17,7 +17,7 @@ const seed = getProgressSeed();
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
   <section class="hero-atelier" aria-label="Portada">
-    <div class="hero-atelier__inner max-w-6xl mx-auto px-3 sm:px-4">
+    <div class="hero-atelier__inner max-w-6xl mx-auto px-3 sm:px-4 w-full">
       <p class="hero-atelier__brand">Plan</p>
       <h1 class="hero-atelier__headline">{catalog.programa}</h1>
       <p class="hero-atelier__lede">
@@ -33,7 +33,7 @@ const seed = getProgressSeed();
     </div>
   </section>
 
-  <div class="container mx-auto px-3 sm:px-4 max-w-6xl w-full min-w-0 pb-10">
+  <div class="container mx-auto px-3 sm:px-4 max-w-6xl w-full min-w-0 py-8 sm:py-10 pb-12">
     <section class="section-atelier" aria-labelledby="etapas-title">
       <h2 id="etapas-title" class="section-atelier__title">Tres etapas</h2>
       <p class="section-atelier__lede">
