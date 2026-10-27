@@ -19,6 +19,14 @@
   --font-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
 
+  /* Motion tokens */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 280ms;
+  --dur-page: 400ms;
+  --radius-selector: 0.25rem;
+  --radius-field: 0.375rem;
+
   /* DaisyUI semantic bridge (light-only) */
   --color-base-100: var(--paper-elevated);
   --color-base-200: var(--paper);
@@ -140,7 +148,7 @@ body {
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 220ms ease;
+  transition: transform var(--dur-med) var(--ease-out);
 }
 
 .nav-link:hover::after,
@@ -153,17 +161,16 @@ body {
 .hero-atelier {
   position: relative;
   isolation: isolate;
-  /* Full first viewport minus sticky header (~3.5rem) so etapas stay below the fold */
   min-height: calc(100dvh - 3.5rem);
   min-height: calc(100svh - 3.5rem);
   margin: 0;
-  padding: clamp(3.5rem, 12vw, 7rem) 1rem 3rem;
+  padding: clamp(3.5rem, 12vw, 7rem) 1rem 4.5rem;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 20%, rgb(34 211 238 / 0.18), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 10% 80%, rgb(8 145 178 / 0.12), transparent 50%),
+    radial-gradient(ellipse 80% 60% at 72% 18%, rgb(34 211 238 / 0.08), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 8% 82%, rgb(8 145 178 / 0.07), transparent 50%),
     linear-gradient(165deg, #0f172a 0%, #164e63 48%, #0f172a 100%);
   color: #ecfeff;
 }
@@ -175,23 +182,47 @@ body {
   }
 }
 
-.hero-atelier::before {
+/* Bridge hero → paper */
+.hero-atelier::after {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgb(34 211 238 / 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(34 211 238 / 0.07) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(180deg, #000 30%, transparent 95%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4.5rem;
+  z-index: 1;
   pointer-events: none;
+  background: linear-gradient(180deg, transparent, var(--paper));
+}
+
+.hero-atelier__scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(34 211 238 / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(34 211 238 / 0.06) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px;
+  mask-image: linear-gradient(180deg, #000 25%, transparent 92%);
+}
+
+.hero-atelier__scene-img {
+  position: absolute;
+  right: 2%;
+  bottom: 8%;
+  width: min(720px, 78vw);
+  height: auto;
+  opacity: 0.9;
+  mask-image: linear-gradient(180deg, #000 40%, transparent 100%);
 }
 
 .hero-atelier__inner {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 42rem;
-  animation: hero-rise 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: hero-rise 700ms var(--ease-out) both;
 }
 
 .hero-atelier__brand {
@@ -254,12 +285,67 @@ body {
   }
 }
 
+@keyframes page-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-rise var(--dur-page) var(--ease-out) both;
+}
+
+.stagger-in > * {
+  animation: page-rise var(--dur-med) var(--ease-out) both;
+}
+
+.stagger-in > *:nth-child(1) {
+  animation-delay: 0ms;
+}
+.stagger-in > *:nth-child(2) {
+  animation-delay: 50ms;
+}
+.stagger-in > *:nth-child(3) {
+  animation-delay: 100ms;
+}
+.stagger-in > *:nth-child(4) {
+  animation-delay: 150ms;
+}
+.stagger-in > *:nth-child(5) {
+  animation-delay: 200ms;
+}
+.stagger-in > *:nth-child(n + 6) {
+  animation-delay: 240ms;
+}
+
+/* Astro View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--dur-page);
+  animation-timing-function: var(--ease-out);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-atelier__inner,
+  .page-enter,
+  .stagger-in > *,
   .nav-link::after,
-  .progress-atelier {
+  .progress-atelier,
+  .nav-drawer,
+  .nav-backdrop,
+  .etapa-link {
     animation: none !important;
     transition: none !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }
 
@@ -287,7 +373,9 @@ body {
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: inherit;
-  transition: border-color 180ms ease, padding-left 180ms ease;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    padding-left var(--dur-fast) var(--ease-out);
 }
 
 .etapa-link:first-of-type {
@@ -326,7 +414,9 @@ body {
 }
 
 .progress-atelier {
-  transition: value 400ms ease, width 400ms ease;
+  transition:
+    value var(--dur-page) var(--ease-out),
+    width var(--dur-page) var(--ease-out);
 }
 
 .article-atelier {
@@ -335,11 +425,105 @@ body {
   padding: 0.25rem 0 2rem;
 }
 
+.article-reading {
+  min-width: 0;
+  max-width: none;
+}
+
 .surface-panel {
   background: rgb(248 250 252 / 0.88);
   border: 1px solid var(--line);
   border-radius: var(--radius-box);
   backdrop-filter: blur(6px);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-selector);
+  border: 1px solid var(--line);
+  background: var(--paper-elevated);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.status-chip--ok {
+  border-color: rgb(15 118 110 / 0.35);
+  color: #0f766e;
+  background: rgb(15 118 110 / 0.08);
+}
+
+.status-chip--warn {
+  border-color: rgb(180 83 9 / 0.35);
+  color: #b45309;
+  background: rgb(180 83 9 / 0.08);
+}
+
+.status-chip--info {
+  border-color: rgb(8 145 178 / 0.35);
+  color: var(--accent-ink);
+  background: rgb(8 145 178 / 0.08);
+}
+
+.status-chip--muted {
+  color: var(--muted);
+}
+
+.callout-atelier {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 0 0.75rem 1rem;
+  margin: 0 0 1.25rem;
+  background: transparent;
+}
+
+.callout-atelier p {
+  margin: 0;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+
+.guides-menu {
+  background: var(--paper-elevated);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-box);
+  box-shadow: none;
+}
+
+/* Pagefind atelier skin */
+.pagefind-ui {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--accent);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-background: var(--paper-elevated);
+  --pagefind-ui-border: var(--line);
+  --pagefind-ui-tag: var(--paper);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: var(--radius-box);
+  --pagefind-ui-image-border-radius: var(--radius-selector);
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: var(--font-body);
+}
+
+.pagefind-ui .pagefind-ui__search-input {
+  font-family: var(--font-body);
+  border-radius: var(--radius-field);
+}
+
+.pagefind-ui .pagefind-ui__result-link {
+  font-family: var(--font-display);
+  font-weight: 650;
 }
 
 .prose-academia {

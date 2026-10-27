@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { loadMarkdownPage } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
   return [
@@ -28,5 +29,13 @@ const page = loadMarkdownPage(file);
 ---
 
 <Layout title={page.title}>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
+      <li><a href={pathTo()}>Inicio</a></li>
+      <li>Guías</li>
+      <li>{page.title}</li>
+    </ul>
+  </div>
   <article class="article-atelier prose-academia" set:html={page.html} />
 </Layout>
+

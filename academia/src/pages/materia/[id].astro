@@ -31,66 +31,64 @@ const horas = getHorasBreakdown(materia.id);
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 min-w-0">
-    <article class="surface-panel flex-1 min-w-0 overflow-hidden">
-      <div class="p-4 sm:p-6 md:p-8 min-w-0">
-        <header class="mb-4 pb-4 border-b border-base-300">
-          <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
-            <span>{materia.id}</span>
-            <span aria-hidden="true">·</span>
-            <span>{materia.semanas} sem · {materia.horas} h plan</span>
-            {
-              hasLecciones && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>
-                    {materia.lecciones.length} lecciones · ~{Math.round(horas.lecciones * 10) / 10} h
-                    guiadas
-                  </span>
-                </>
-              )
-            }
-          </div>
+    <article class="article-reading flex-1 min-w-0">
+      <header class="mb-4 pb-4 border-b border-base-300">
+        <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
+          <span>{materia.id}</span>
+          <span aria-hidden="true">·</span>
+          <span>{materia.semanas} sem · {materia.horas} h plan</span>
           {
-            hasLecciones && horas.resto > 0 && (
-              <p class="text-sm opacity-70 m-0 mb-2">
-                Las {materia.horas} h de plan = ~{horas.lecciones} h de lecciones L* + ~{horas.resto} h
-                de práctica/proyecto/lectura fuera del cronómetro de cada L.
-              </p>
+            hasLecciones && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>
+                  {materia.lecciones.length} lecciones · ~{Math.round(horas.lecciones * 10) / 10} h
+                  guiadas
+                </span>
+              </>
             )
           }
-          <p class="text-sm opacity-70 m-0">
-            Sigla en azul →
-            <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
-            (primera vez: expansión entre paréntesis).
-          </p>
-        </header>
-
+        </div>
         {
-          hasLecciones && firstLeccion && (
-            <div role="status" class="alert alert-info mb-5 text-sm">
-              <span>
-                Empieza por{' '}
-                <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
-                  {firstLeccion.id} — {firstLeccion.titulo}
-                </a>
-                . Marca cada lección al cumplir “Hecho cuando”.
-              </span>
-            </div>
+          hasLecciones && horas.resto > 0 && (
+            <p class="text-sm opacity-70 m-0 mb-2">
+              Las {materia.horas} h de plan = ~{horas.lecciones} h de lecciones L* + ~{horas.resto} h
+              de práctica/proyecto/lectura fuera del cronómetro de cada L.
+            </p>
           )
         }
+        <p class="text-sm opacity-70 m-0">
+          Sigla en azul →
+          <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
+          (primera vez: expansión entre paréntesis).
+        </p>
+      </header>
 
-        {
-          hasDia1 && (
-            <div role="status" class="alert alert-info mb-5 text-sm">
-              <span>
-                Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
-              </span>
-            </div>
-          )
-        }
+      {
+        hasLecciones && firstLeccion && (
+          <div role="status" class="callout-atelier text-sm">
+            <p>
+              Empieza por{' '}
+              <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
+                {firstLeccion.id} — {firstLeccion.titulo}
+              </a>
+              . Marca cada lección al cumplir “Hecho cuando”.
+            </p>
+          </div>
+        )
+      }
 
-        <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
-      </div>
+      {
+        hasDia1 && (
+          <div role="status" class="callout-atelier text-sm">
+            <p>
+              Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
+            </p>
+          </div>
+        )
+      }
+
+      <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
     </article>
 
     <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">

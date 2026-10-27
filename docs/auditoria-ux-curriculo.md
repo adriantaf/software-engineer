@@ -43,6 +43,19 @@ El contenido lectivo está listo para estudiar. La app web no comunicaba marca n
 - Rúbrica/checklist en autoevaluaciones de etapa.
 - Drawer móvil: un solo control de cierre.
 
+## Auditoría de diseño y motion (pasada 3)
+
+**Veredicto:** home atelier OK; internas aún DaisyUI + casi cero motion.
+
+| Sev | Hallazgo | Remedición en esta pasada |
+|-----|----------|---------------------------|
+| P0 | Hero sin ancla visual real | SVG atelier full-bleed + puente paper |
+| P0 | Lectura en `surface-panel` | Artículo tipográfico |
+| P0 | Progreso = dashboard `stat` | Composición ritmo + check-in |
+| P1 | Sin transiciones de página | Astro View Transitions + tokens |
+| P1 | Pagefind stock | Skin CSS atelier |
+| P2 | Nav sin `aria-current` | Set en Layout |
+
 ## Aún fuera de alcance
 
 Reescritura de las 526 lecciones; Pagefind en modo `dev`.

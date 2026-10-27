@@ -69,7 +69,7 @@ const ultima = materias[materias.length - 1];
               <td>{m.semanas}</td>
               <td>{m.horas}</td>
               <td>
-                <span class="badge badge-ghost whitespace-nowrap" data-status={m.id}>
+                <span class="status-chip status-chip--muted whitespace-nowrap" data-status={m.id}>
                   —
                 </span>
               </td>
@@ -82,24 +82,22 @@ const ultima = materias[materias.length - 1];
 
   {
     tieneExamen && (
-      <div class="alert mt-6 text-sm sm:text-base">
-        <div class="min-w-0">
-          <p class="font-semibold m-0">Cierre de etapa</p>
-          <p class="m-0 opacity-80 break-words">
-            Cuando termines{' '}
-            {ultima ? (
-              <>
-                <span class="opacity-70">#{ultima.orden}</span> {ultima.titulo}
-              </>
-            ) : (
-              'la última materia'
-            )}
-            , haz la autoevaluación sin mirar las fichas.
-          </p>
-          <a class="btn btn-primary btn-sm mt-3" href={pathTo(`etapa/${etapa.id}/examen`)}>
-            Abrir autoevaluación
-          </a>
-        </div>
+      <div class="callout-atelier mt-6 text-sm sm:text-base min-w-0">
+        <p class="font-display font-semibold m-0 mb-1">Cierre de etapa</p>
+        <p class="m-0 opacity-80 break-words">
+          Cuando termines{' '}
+          {ultima ? (
+            <>
+              <span class="opacity-70">#{ultima.orden}</span> {ultima.titulo}
+            </>
+          ) : (
+            'la última materia'
+          )}
+          , haz la autoevaluación sin mirar las fichas.
+        </p>
+        <a class="btn btn-primary btn-sm mt-3" href={pathTo(`etapa/${etapa.id}/examen`)}>
+          Abrir autoevaluación
+        </a>
       </div>
     )
   }
@@ -108,10 +106,10 @@ const ultima = materias[materias.length - 1];
     import { loadProgress } from '../../lib/progress-client';
 
     const map: Record<string, string> = {
-      completada: 'badge-success',
-      en_curso: 'badge-warning',
-      disponible: 'badge-info',
-      bloqueada: 'badge-ghost',
+      completada: 'status-chip status-chip--ok',
+      en_curso: 'status-chip status-chip--warn',
+      disponible: 'status-chip status-chip--info',
+      bloqueada: 'status-chip status-chip--muted',
     };
 
     function refresh() {
@@ -119,7 +117,7 @@ const ultima = materias[materias.length - 1];
       document.querySelectorAll('[data-status]').forEach((el) => {
         const id = el.getAttribute('data-status')!;
         const status = p?.materias?.[id]?.status ?? 'disponible';
-        el.className = `badge ${map[status] ?? 'badge-ghost'}`;
+        el.className = map[status] ?? 'status-chip status-chip--muted';
         el.textContent = status.replace('_', ' ');
       });
     }

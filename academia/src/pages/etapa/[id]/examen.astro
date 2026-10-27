@@ -42,14 +42,13 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
     </ul>
   </div>
 
-  <div class="alert mb-6 text-sm sm:text-base" role="status">
-    <div>
-      <p class="font-semibold m-0">Autoevaluación de etapa (sin mirar fichas)</p>
-      <p class="m-0 opacity-80">
-        Escribe respuestas y marca la rúbrica. Todo se guarda en este navegador (clave
-        <code>examenes</code> al exportar desde Progreso). No hay nota automática.
-      </p>
-    </div>
+  <h1 class="page-title">Autoevaluación · {etapa.titulo}</h1>
+  <div class="callout-atelier mb-6 text-sm sm:text-base" role="status">
+    <p class="font-semibold m-0 mb-1">Sin mirar fichas</p>
+    <p class="m-0 opacity-80">
+      Escribe respuestas y marca la rúbrica. Todo se guarda en este navegador (clave
+      <code>examenes</code> al exportar desde Progreso). No hay nota automática.
+    </p>
   </div>
 
   <div id="examen-root" data-etapa={etapa.id} class="flex flex-col gap-6 max-w-3xl">

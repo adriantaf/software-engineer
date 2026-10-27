@@ -60,7 +60,7 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
     </div>
     <progress
       id="lp-bar"
-      class="progress progress-primary w-full h-2"
+      class="progress progress-primary progress-atelier w-full h-2"
       value={pctStatic}
       max="100"
       aria-label="Progreso de posición en la materia"
@@ -68,8 +68,8 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 min-w-0 pb-24 lg:pb-0">
-    <article class="surface-panel flex-1 min-w-0 overflow-hidden">
-      <div class="p-4 sm:p-6 md:p-8 min-w-0">
+    <article class="article-reading flex-1 min-w-0">
+      <div class="min-w-0">
         <header class="mb-4 pb-4 border-b border-base-300">
           <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
             <span>{materia.id}</span>
@@ -188,21 +188,19 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
 
       {
         (leccion.lectura || leccion.evidencia) && (
-          <div class="surface-panel overflow-hidden min-w-0">
-            <div class="flex flex-col gap-2 p-4 text-sm min-w-0">
-              <h2 class="font-display text-base font-semibold m-0">Recordatorio</h2>
-              {leccion.lectura && (
-                <p class="m-0">
-                  <span class="font-semibold">Lectura:</span> {leccion.lectura}
-                </p>
-              )}
-              {leccion.evidencia && (
-                <p class="m-0">
-                  <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
-                </p>
-              )}
-            </div>
-          </div>
+          <aside class="callout-atelier text-sm min-w-0" aria-label="Recordatorio">
+            <p class="font-display font-semibold m-0 mb-2">Recordatorio</p>
+            {leccion.lectura && (
+              <p class="m-0 mb-1">
+                <span class="font-semibold">Lectura:</span> {leccion.lectura}
+              </p>
+            )}
+            {leccion.evidencia && (
+              <p class="m-0">
+                <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
+              </p>
+            )}
+          </aside>
         )
       }
     </aside>
