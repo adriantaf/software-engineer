@@ -40,7 +40,7 @@ En `labs/oom-ulimit.md` documenta (sin tumbar el host):
 
 ### 3. Runbook corto (40 min)
 
-Pasos si Agenda Ops cae por memoria: mirar RSS, logs PG, bajar concurrency, subir RAM o limitar cgroup.
+Pasos si Vitrina cae por memoria: mirar RSS, logs PG, bajar concurrency, subir RAM o limitar cgroup.
 
 ### 4. Commit (15 min)
 

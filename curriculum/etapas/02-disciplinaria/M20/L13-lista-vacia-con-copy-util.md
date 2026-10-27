@@ -17,7 +17,7 @@ P2 pide estados vacío/error.
 
 ## Objetivo
 
-UI cuando no hay citas semana; CTA coherente con producto.
+UI cuando no hay pedidos semana; CTA coherente con producto.
 
 ## Conceptos clave
 
@@ -28,7 +28,7 @@ UI cuando no hay citas semana; CTA coherente con producto.
 
 ### 1. Empty state útil (50–60 min)
 
-Copy: “No hay citas hoy — crea la primera en la web o aquí”. CTA claro.
+Copy: “No hay pedidos hoy — crea la primera en la web o aquí”. CTA claro.
 
 ### 2. Evidencia P2 (30 min)
 

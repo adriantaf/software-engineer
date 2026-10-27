@@ -17,7 +17,7 @@ El bug #1 a cazar es IDOR cross-tenant. Hoy entregas **`projects/m25-ciber/priva
 
 ## Objetivo
 
-Política corta: cuánto guardas citas/logs; cómo borrar tenant demo.
+Política corta: cuánto guardas pedidos/logs; cómo borrar tenant demo.
 
 ## Por qué empieza así
 
@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Privacy / LFPDPPP notas (contexto)_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Política de retención (30–40 min)
 
@@ -44,7 +44,7 @@ En `projects/m25-ciber/privacidad/retencion.md`:
 | Dato | Retención | Base | Cómo se borra |
 |------|-----------|------|---------------|
 
-Citas, logs, backups, tenants demo, exports temporales.
+Pedidos, logs, backups, tenants demo, exports temporales.
 
 ### 3. Borrado de tenant demo (90–110 min)
 
@@ -52,7 +52,7 @@ Describe (o ejecuta en staging) borrado de un tenant de prueba: tablas afectadas
 
 ```sql
 -- ejemplo de inventario — adapta schemas
--- SELECT count(*) FROM citas WHERE tenant_id = $1;
+-- SELECT count(*) FROM pedidos WHERE tenant_id = $1;
 ```
 
 **No** borres prod real de un cliente.

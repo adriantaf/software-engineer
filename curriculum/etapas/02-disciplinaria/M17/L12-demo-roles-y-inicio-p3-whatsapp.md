@@ -6,7 +6,7 @@ titulo: Demo roles y inicio P3 WhatsApp
 horas: 5.0
 semana: 3
 lectura: Ficha P3 parcial
-evidencia: projects/m17-agenda-ops/docs/demo-roles.md
+evidencia: projects/m17-vitrina/docs/demo-roles.md
 ---
 
 # L12 — Demo roles y inicio P3 WhatsApp
@@ -30,11 +30,11 @@ Grabar o documentar pasos demo: owner vs staff en acción bloqueada.
 ### 1. Guion demo roles (50–60 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/demo-roles.md << 'EOF'
+cat > projects/m17-vitrina/docs/demo-roles.md << 'EOF'
 # Demo roles
 1. Login owner → /admin OK
 2. Login staff → /admin 403 / UI oculta
-3. Ambos crean cita
+3. Ambos crean pedido
 EOF
 ```
 
@@ -50,7 +50,7 @@ npm run seed
 Crea borrador `docs/integracion-whatsapp.md` (enlace wa.me, sin API Business obligatoria).
 
 ```bash
-git add projects/m17-agenda-ops/docs
+git add projects/m17-vitrina/docs
 git commit -m "docs(m17): L12 demo roles inicio whatsapp"
 ```
 
@@ -66,8 +66,8 @@ git commit -m "docs(m17): L12 demo roles inicio whatsapp"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/demo-roles.md` con guion owner vs staff.
-2. Borrador `projects/m17-agenda-ops/docs/integracion-whatsapp.md`.
+1. Existe `projects/m17-vitrina/docs/demo-roles.md` con guion owner vs staff.
+2. Borrador `projects/m17-vitrina/docs/integracion-whatsapp.md`.
 3. Commit `docs(m17): L12 demo-roles-y-inicio-p3-whatsapp`.
 
 ## Errores comunes

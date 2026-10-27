@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M04">
+  <defs>
+    <linearGradient id="bg-M04" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+    <pattern id="grid-M04" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M04)"/>
+  <rect width="640" height="360" fill="url(#grid-M04)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <rect x="240" y="200" width="28" height="60" rx="4" fill="#fff" opacity="0.85"/>
+      <rect x="280" y="170" width="28" height="90" rx="4" fill="#fff" opacity="0.7"/>
+      <rect x="320" y="140" width="28" height="120" rx="4" fill="#fff" opacity="0.55"/>
+      <rect x="360" y="185" width="28" height="75" rx="4" fill="#fff" opacity="0.75"/>
+      <path d="M230 260h180" stroke="#fff" stroke-width="3" opacity="0.4"/>
+</svg>

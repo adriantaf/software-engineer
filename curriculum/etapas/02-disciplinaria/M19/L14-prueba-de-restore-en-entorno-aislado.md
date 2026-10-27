@@ -17,7 +17,7 @@ Un restore nunca probado no cuenta.
 
 ## Objetivo
 
-Restaurar dump en DB de prueba, verificar citas visibles, registrar tiempo y resultado.
+Restaurar dump en DB de prueba, verificar pedidos visibles, registrar tiempo y resultado.
 
 ## Conceptos clave
 
@@ -33,7 +33,7 @@ Restaurar dump en DB de prueba, verificar citas visibles, registrar tiempo y res
 # entorno scratch — NO prod
 createdb agenda_restore_test || true
 gunzip -c backups/agenda-XXXX.sql.gz | psql "postgresql://…/agenda_restore_test"
-psql "postgresql://…/agenda_restore_test" -c 'SELECT count(*) FROM citas;'
+psql "postgresql://…/agenda_restore_test" -c 'SELECT count(*) FROM pedidos;'
 ```
 
 ### 2. restore-test.md (30–40 min)
@@ -44,7 +44,7 @@ cat > projects/m19-ops/restore-test.md << 'EOF'
 Fecha: YYYY-MM-DD
 Dump usado: agenda-….sql.gz
 Destino: DB aislada …
-Resultado: OK — count citas = N
+Resultado: OK — count pedidos = N
 EOF
 git add projects/m19-ops/restore-test.md
 git commit -m "docs(m19): L14 prueba restore aislado"

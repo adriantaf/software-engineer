@@ -6,7 +6,7 @@ titulo: Índices B-tree intro
 horas: 5.0
 semana: 4
 lectura: "Elmasri: índices; PG docs Indexes / CREATE INDEX"
-evidencia: Índice nuevo documentado + \d citas
+evidencia: Índice nuevo documentado + \d pedidos
 ---
 
 # L13 — Índices B-tree intro
@@ -30,7 +30,7 @@ Elmasri (índices) + [PG CREATE INDEX](https://www.postgresql.org/docs/current/s
 ```sql
 SELECT indexname, indexdef
 FROM pg_indexes
-WHERE tablename = 'citas';
+WHERE tablename = 'pedidos';
 ```
 
 Compara con lo que ya creó `001_init.sql`.
@@ -41,7 +41,7 @@ Ej. filtrar por `estado` + rango de `inicia_en`. Diseña:
 
 ```sql
 CREATE INDEX IF NOT EXISTS idx_citas_estado_inicia
-  ON citas (estado, inicia_en);
+  ON pedidos (estado, inicia_en);
 ```
 
 Ponlo en `migrations/002_auditoria_y_indices.sql` (o archivo nuevo) si aún no está.
@@ -50,7 +50,7 @@ Ponlo en `migrations/002_auditoria_y_indices.sql` (o archivo nuevo) si aún no e
 
 ```bash
 psql "..." -f migrations/002_auditoria_y_indices.sql
-psql "..." -c '\d citas'
+psql "..." -c '\d pedidos'
 ```
 
 ### 5. Commit (15 min)

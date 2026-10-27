@@ -6,7 +6,7 @@ titulo: Agregaciones y GROUP BY
 horas: 5.0
 semana: 3
 lectura: "Elmasri: agregación GROUP BY; PG aggregate functions"
-evidencia: sql/agg-citas-por-servicio.sql
+evidencia: sql/agg-pedidos-por-servicio.sql
 ---
 
 # L10 — Agregaciones y GROUP BY
@@ -17,7 +17,7 @@ El dueño pregunta: “¿qué servicio se agenda más?”. Eso es `GROUP BY`.
 
 ## Objetivo
 
-Entregar `sql/agg-citas-por-servicio.sql` con al menos dos agregaciones ejecutadas.
+Entregar `sql/agg-pedidos-por-servicio.sql` con al menos dos agregaciones ejecutadas.
 
 ## Pasos
 
@@ -28,26 +28,26 @@ Funciones de agregación y `GROUP BY` / `WHERE` vs filtros de grupo.
 ### 2. Escribe y corre (90 min)
 
 ```sql
--- sql/agg-citas-por-servicio.sql
+-- sql/agg-pedidos-por-servicio.sql
 SELECT s.nombre,
        count(*) AS total_citas,
        count(*) FILTER (WHERE c.estado = 'completada') AS completadas,
        coalesce(sum(s.precio_centavos) FILTER (WHERE c.estado = 'completada'), 0) AS ingresos_centavos
-FROM citas c
+FROM pedidos c
 JOIN servicios s ON s.id = c.servicio_id
 GROUP BY s.id, s.nombre
 ORDER BY total_citas DESC;
 ```
 
-(Ajusta si usas snapshot de precio en la cita.)
+(Ajusta si usas snapshot de precio en la pedido.)
 
 ### 3. Segunda query (45 min)
 
-Citas por día (`date_trunc('day', inicia_en)`) de los últimos 14 días.
+Pedidos por día (`date_trunc('day', inicia_en)`) de los últimos 14 días.
 
 ### 4. Frase de negocio (20 min)
 
-En comentario del SQL: “El servicio más agendado esta semana es X con N citas”.
+En comentario del SQL: “El servicio más agendado esta semana es X con N pedidos”.
 
 ### 5. Commit (15 min)
 

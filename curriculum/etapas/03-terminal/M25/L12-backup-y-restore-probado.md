@@ -35,7 +35,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Abre [OWASP WSTG](https://owasp.org/www-project-web-security-testing-guide/) (o la sección citada) y lee: _OWASP Configuration + Stripe webhooks docs_.
 
-Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Agenda Ops (nombres de endpoint o activo).
+Escribe 3 checks que aplicarás **hoy** a tu staging/prod de Vitrina (nombres de endpoint o activo).
 
 ### 2. Documenta backup actual (20–30 min)
 
@@ -47,7 +47,7 @@ Restaura a DB/temporal **no prod**. Cronometra.
 
 ```bash
 # ejemplo — adapta a tu provider; no uses prod
-# pg_restore -d agenda_ops_restore_test backup.dump
+# pg_restore -d vitrina_restore_test backup.dump
 ```
 
 Tabla: paso | comando/UI | minutos | resultado.

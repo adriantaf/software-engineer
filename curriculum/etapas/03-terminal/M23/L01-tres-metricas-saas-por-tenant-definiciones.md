@@ -17,7 +17,7 @@ Métricas e IA **por tenant**, sin mezclar datos. Hoy entregas **`projects/m23-i
 
 ## Objetivo
 
-Definir activación 7d, citas creadas/semana y trials activos con fórmula y fuente de datos.
+Definir activación 7d, pedidos creadas/semana y trials activos con fórmula y fuente de datos.
 
 ## Por qué empieza así
 

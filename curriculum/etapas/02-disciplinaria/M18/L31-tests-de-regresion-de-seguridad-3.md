@@ -28,7 +28,7 @@ cat > projects/m18-appsec/docs/security-tests.md <<'EOF'
 # Security regression tests
 | # | Archivo | Protege |
 |---|---------|---------|
-| 1 | tests/security/authz-cross-user.test.ts | IDOR citas |
+| 1 | tests/security/authz-cross-user.test.ts | IDOR pedidos |
 | 2 | tests/security/xss-escape.test.ts | stored XSS notas |
 | 3 | tests/security/rbac-settings.test.ts | staff≠owner |
 EOF

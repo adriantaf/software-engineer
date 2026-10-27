@@ -26,14 +26,14 @@ Puente explícito al scaffold: qué rutas y carpetas nacerán en M17.
 | Método | Ruta | Auth | Éxito | Errores |
 |--------|------|------|-------|---------|
 | POST | /auth/login | no | 200 | 401 |
-| POST | /citas | sí | 201 | 400/401/403/409 |
-| GET | /citas | sí | 200 | 401 |
+| POST | /pedidos | sí | 201 | 400/401/403/409 |
+| GET | /pedidos | sí | 200 | 401 |
 | … | … | … | … | … |
 
 ### 2. Módulos (40 min)
 
 ```text
-auth/  clientes/  servicios/  citas/
+auth/  clientes/  servicios/  pedidos/
 ```
 
 Relación con capas de L09.
@@ -60,7 +60,7 @@ git commit -m "docs(m13): endpoints y modulos previstos M17"
 Marca la lección **solo si**:
 
 1. `endpoints-m17.md` lista métodos/rutas Must con DTO/status resumidos.
-2. Mapa módulo → carpeta (`auth`, `citas`, `clientes`).
+2. Mapa módulo → carpeta (`auth`, `orders`, `clientes`).
 3. Commit `docs(m13): endpoints y modulos previstos M17`.
 
 ## Errores comunes

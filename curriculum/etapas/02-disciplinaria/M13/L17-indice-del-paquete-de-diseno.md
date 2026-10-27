@@ -46,7 +46,7 @@ git commit -m "docs(m13): indice del paquete de diseno"
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *UML y patrones* — Larman (ed. ES) | README índice del paquete de diseño Agenda Ops | [C4 model (apoyo diagramas)](https://c4model.com/) |
+| *UML y patrones* — Larman (ed. ES) | README índice del paquete de diseño Vitrina | [C4 model (apoyo diagramas)](https://c4model.com/) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M13](../../../bibliografia.md#m13-analisis-y-diseno) |
 
 

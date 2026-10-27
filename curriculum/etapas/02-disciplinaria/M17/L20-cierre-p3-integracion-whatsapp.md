@@ -29,12 +29,12 @@ Completar doc P3: capturas, límites legales/opt-in, qué no hace la integració
 
 ### 1. Cierra doc P3 (50–60 min)
 
-Completa `projects/m17-agenda-ops/docs/integracion-whatsapp.md`: flujo, límites (manual), riesgos PII en URL, captura demo.
+Completa `projects/m17-vitrina/docs/integracion-whatsapp.md`: flujo, límites (manual), riesgos PII en URL, captura demo.
 
 ### 2. Checklist README (30 min)
 
 ```bash
-rg -n "P3|WhatsApp" projects/m17-agenda-ops/README.md
+rg -n "P3|WhatsApp" projects/m17-vitrina/README.md
 ```
 
 Marca P3 si el botón + doc existen.
@@ -42,7 +42,7 @@ Marca P3 si el botón + doc existen.
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/integracion-whatsapp.md projects/m17-agenda-ops/README.md
+git add projects/m17-vitrina/docs/integracion-whatsapp.md projects/m17-vitrina/README.md
 git commit -m "docs(m17): L20 cierre P3 whatsapp"
 ```
 
@@ -58,7 +58,7 @@ git commit -m "docs(m17): L20 cierre P3 whatsapp"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/integracion-whatsapp.md` completo; P3 marcado en README.
+1. `projects/m17-vitrina/docs/integracion-whatsapp.md` completo; P3 marcado en README.
 2. Commit `docs(m17): L20 cierre-p3-integracion-whatsapp`.
 
 ## Errores comunes

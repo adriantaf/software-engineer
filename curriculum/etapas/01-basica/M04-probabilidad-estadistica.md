@@ -27,7 +27,7 @@ Métricas de producto, calidad de software y (más adelante) ML necesitan intuic
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Modelar incertidumbre (probabilidad, independencia, Bayes a nivel intro).
 2. Simular y contrastar distribuciones discretas y la Normal (intuición).

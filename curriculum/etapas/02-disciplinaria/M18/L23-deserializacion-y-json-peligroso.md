@@ -24,14 +24,14 @@ Node rara vez hace Java deserialization, pero prototype pollution y lógica sí.
 ### 1. Inventario JSON bodies (40–50 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n "express\.json|bodyParser|z\.object|Joi\.|safeParse" -g '!node_modules' | head -40
 cat > projects/m18-appsec/docs/json-trust.md <<'EOF'
 # JSON trust
 | Endpoint | Schema (zod/joi/…) | Límite body | Notas |
 |----------|--------------------|-------------|-------|
 | POST /auth/login | | | |
-| POST /api/citas | | | |
+| POST /api/pedidos | | | |
 EOF
 ```
 ### 2. Límite + rechazo campos extra (60–80 min)
@@ -51,7 +51,7 @@ const CitaInput = z.object({
 # Payload enorme → 413
 python3 - <<'PY'
 print('{"x":"' + ('a'*200000) + '"}')
-PY | curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/citas \
+PY | curl -s -o /dev/null -w "%{http_code}\n" -X POST localhost:3000/api/pedidos \
   -H 'content-type: application/json' -b /tmp/m18-cj --data-binary @-
 ```
 ### 3. Commit (10 min)

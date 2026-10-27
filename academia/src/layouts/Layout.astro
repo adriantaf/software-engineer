@@ -138,6 +138,7 @@ function navCurrent(segment: string): boolean {
                   class="menu menu-sm dropdown-content guides-menu z-50 mt-2 w-52 p-2"
                 >
                   <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+                  <li><a href={pathTo('docs/sincronizar-progreso')}>Sincronizar progreso</a></li>
                   <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
                   <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
                   <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
@@ -182,6 +183,28 @@ function navCurrent(segment: string): boolean {
         </nav>
 
         <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
+          <div id="auth-sync" class="hidden sm:flex items-center gap-1 min-w-0">
+            <button
+              type="button"
+              id="auth-google-btn"
+              class="btn btn-ghost btn-sm px-2"
+              hidden
+              title="Iniciar sesión con Google para sincronizar el progreso"
+            >
+              Entrar
+            </button>
+            <a
+              id="auth-account-btn"
+              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[10rem]"
+              href={pathTo('perfil')}
+              hidden
+              title="Ver perfil"
+              aria-current={navCurrent('perfil') ? 'page' : undefined}
+            >
+              <img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden />
+              <span id="auth-sync-label" class="text-xs truncate">Perfil</span>
+            </a>
+          </div>
           <a
             class="btn btn-primary btn-sm"
             data-continuar
@@ -193,6 +216,20 @@ function navCurrent(segment: string): boolean {
         </div>
       </div>
     </header>
+
+    <div
+      id="auth-toast"
+      class="fixed top-[4.5rem] inset-x-0 z-[70] px-3"
+      hidden
+      role="alert"
+    >
+      <div class="max-w-lg mx-auto surface-panel flex items-start gap-2 p-3 text-sm">
+        <p id="auth-toast-msg" class="m-0 flex-1 min-w-0"></p>
+        <button type="button" id="auth-toast-close" class="btn btn-ghost btn-xs" aria-label="Cerrar">
+          ✕
+        </button>
+      </div>
+    </div>
 
     <div id="nav-backdrop" class="nav-backdrop lg:hidden" hidden aria-hidden="true"></div>
 
@@ -211,6 +248,25 @@ function navCurrent(segment: string): boolean {
         </div>
 
         <div class="nav-drawer__scroll">
+          <p class="nav-drawer__label">Cuenta</p>
+          <ul class="nav-drawer__list">
+            <li>
+              <button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>
+                Iniciar sesión con Google
+              </button>
+            </li>
+            <li>
+              <a id="auth-perfil-drawer" href={pathTo('perfil')} class="nav-drawer__list-btn" hidden
+                >Mi perfil</a
+              >
+            </li>
+            <li>
+              <button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>
+                Cerrar sesión
+              </button>
+            </li>
+          </ul>
+
           <p class="nav-drawer__label">Estudiar</p>
           <ul class="nav-drawer__list">
             <li><a href={pathTo()}>Inicio</a></li>
@@ -226,6 +282,7 @@ function navCurrent(segment: string): boolean {
             <summary class="nav-drawer__summary">Guías</summary>
             <ul class="nav-drawer__list nav-drawer__list--nested">
               <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
+              <li><a href={pathTo('docs/sincronizar-progreso')}>Sincronizar progreso</a></li>
               <li><a href={pathTo('docs/instalar-iphone')}>Instalar en iPhone</a></li>
               <li><a href={pathTo('docs/glosario')}>Glosario</a></li>
               <li><a href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
@@ -289,8 +346,111 @@ function navCurrent(segment: string): boolean {
     <script>
       import { initProgressFromSeed, resolveContinuePath } from '../lib/progress-client';
       import { pathTo } from '../lib/paths';
+      import {
+        onSyncStatus,
+        signInWithGoogle,
+        signOutGoogle,
+        startProgressSync,
+      } from '../lib/progress-sync';
+      import { isFirebaseConfigured } from '../lib/firebase';
 
       initProgressFromSeed();
+      startProgressSync();
+
+      function initAuthUi() {
+        const btn = document.getElementById('auth-google-btn') as HTMLButtonElement | null;
+        const accountBtn = document.getElementById('auth-account-btn') as HTMLAnchorElement | null;
+        const label = document.getElementById('auth-sync-label');
+        const avatar = document.getElementById('auth-avatar') as HTMLImageElement | null;
+        const drawerIn = document.getElementById(
+          'auth-google-btn-drawer',
+        ) as HTMLButtonElement | null;
+        const drawerOut = document.getElementById(
+          'auth-signout-drawer',
+        ) as HTMLButtonElement | null;
+        const drawerPerfil = document.getElementById(
+          'auth-perfil-drawer',
+        ) as HTMLAnchorElement | null;
+        const toast = document.getElementById('auth-toast');
+        const toastMsg = document.getElementById('auth-toast-msg');
+        const toastClose = document.getElementById('auth-toast-close');
+
+        function showAuthToast(message: string) {
+          if (!toast || !toastMsg || !message) return;
+          toastMsg.textContent = message;
+          toast.hidden = false;
+        }
+
+        toastClose?.addEventListener('click', () => {
+          if (toast) toast.hidden = true;
+        });
+
+        if (!isFirebaseConfigured()) {
+          btn?.setAttribute('hidden', '');
+          accountBtn?.setAttribute('hidden', '');
+          drawerIn?.setAttribute('hidden', '');
+          drawerOut?.setAttribute('hidden', '');
+          drawerPerfil?.setAttribute('hidden', '');
+          return;
+        }
+
+        btn?.addEventListener('click', () => void signInWithGoogle());
+        drawerIn?.addEventListener('click', () => void signInWithGoogle());
+        drawerOut?.addEventListener('click', () => {
+          if (confirm('¿Cerrar la sesión de Google? El progreso local se conserva.')) {
+            void signOutGoogle();
+          }
+        });
+
+        onSyncStatus(({ status, user, message }) => {
+          if (!isFirebaseConfigured()) return;
+
+          if (status === 'error' && message) {
+            showAuthToast(message);
+          }
+
+          if (!user) {
+            btn?.removeAttribute('hidden');
+            accountBtn?.setAttribute('hidden', '');
+            drawerIn?.removeAttribute('hidden');
+            drawerOut?.setAttribute('hidden', '');
+            drawerPerfil?.setAttribute('hidden', '');
+            if (btn) {
+              btn.disabled = status === 'syncing';
+              btn.textContent = status === 'syncing' ? '…' : 'Entrar';
+            }
+            if (drawerIn) {
+              drawerIn.disabled = status === 'syncing';
+              drawerIn.textContent =
+                status === 'syncing' ? 'Conectando…' : 'Iniciar sesión con Google';
+            }
+            return;
+          }
+
+          btn?.setAttribute('hidden', '');
+          accountBtn?.removeAttribute('hidden');
+          drawerIn?.setAttribute('hidden', '');
+          drawerOut?.removeAttribute('hidden');
+          drawerPerfil?.removeAttribute('hidden');
+
+          const name = user.displayName?.split(' ')[0] || 'Perfil';
+          if (label) {
+            label.textContent =
+              status === 'syncing' ? 'Sincronizando…' : status === 'error' ? 'Error de sync' : name;
+          }
+          if (avatar) {
+            if (user.photoURL) {
+              avatar.src = user.photoURL;
+              avatar.alt = user.displayName || 'Foto de perfil';
+              avatar.hidden = false;
+            } else {
+              avatar.hidden = true;
+            }
+          }
+        });
+      }
+
+      initAuthUi();
 
       function syncContinuar() {
         const raw = document.getElementById('catalog-ids')?.textContent;

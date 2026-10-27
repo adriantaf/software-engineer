@@ -24,7 +24,7 @@ Doc SSRF + allowlist en `projects/m18-appsec/findings/004-ssrf.md`. Sin escanear
 ### 1. Busca fetch server-side (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'fetch\(|axios\.|got\(|request\(|http\.get' -g '!node_modules' | head -40
 ```
 ### 2. Diseño / PoC aislada (70–90 min)

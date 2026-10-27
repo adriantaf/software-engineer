@@ -13,7 +13,7 @@ evidencia: docker-compose.yml documentado
 
 **~5.0 h · Semana 4**
 
-El stack local del piloto: API + Postgres como en Agenda Ops.
+El stack local del piloto: API + Postgres como en Vitrina.
 
 ## Objetivo
 

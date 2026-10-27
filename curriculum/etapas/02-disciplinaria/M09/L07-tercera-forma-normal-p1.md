@@ -6,7 +6,7 @@ titulo: Tercera forma normal (P1)
 horas: 5.0
 semana: 2
 lectura: "Elmasri: 3FN / intro BCNF"
-evidencia: er-agenda.md en 3FN — cierra P1
+evidencia: er-vitrina.md en 3FN — cierra P1
 ---
 
 # L07 — Tercera forma normal (P1)
@@ -17,7 +17,7 @@ evidencia: er-agenda.md en 3FN — cierra P1
 
 ## Objetivo
 
-Dejar `er-agenda.md` en 3FN con justificación y enlazarlo como evidencia P1 en el README.
+Dejar `er-vitrina.md` en 3FN con justificación y enlazarlo como evidencia P1 en el README.
 
 ## Pasos
 
@@ -29,7 +29,7 @@ Dejar `er-agenda.md` en 3FN con justificación y enlazarlo como evidencia P1 en 
 
 Ejemplo a analizar: `cliente_id → codigo_postal → ciudad → estado`. Si modelaras dirección completa, ¿qué tablas salen?
 
-Para Agenda Ops MVP: decide si dirección es necesaria día 1. Si no, escríbelo como fuera de alcance (eso también es diseño).
+Para Vitrina MVP: decide si dirección es necesaria día 1. Si no, escríbelo como fuera de alcance (eso también es diseño).
 
 ### 3. Congela el ER 3FN (75 min)
 
@@ -37,7 +37,7 @@ Actualiza diagrama + tabla de normalización. Añade fecha y una frase: “P1 li
 
 ### 4. Checklist P1 en README (30 min)
 
-Marca mentalmente (y en texto) que `er-agenda.md` cumple el criterio de la ficha M09.
+Marca mentalmente (y en texto) que `er-vitrina.md` cumple el criterio de la ficha M09.
 
 ### 5. Commit (15 min)
 
@@ -58,7 +58,7 @@ git commit -am "docs(m09): er en 3FN cierra P1"
 Marca la lección **solo si**:
 
 1. Documentas al menos una dependencia transitiva evitada o eliminada.
-2. Tabla de normalización en `er-agenda.md` marca 1FN–3FN.
+2. Tabla de normalización en `er-vitrina.md` marca 1FN–3FN.
 3. README indica que P1 (ER hasta 3FN) está listo.
 
 ## Errores comunes

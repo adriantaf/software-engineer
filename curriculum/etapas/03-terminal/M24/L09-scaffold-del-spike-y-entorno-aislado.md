@@ -17,7 +17,7 @@ Evalúas tecnología emergente con decisión escrita. Hoy entregas **`projects/m
 
 ## Objetivo
 
-Bootstrap del PoC en rama/carpeta aislada sin tocar prod de Agenda Ops.
+Bootstrap del PoC en rama/carpeta aislada sin tocar prod de Vitrina.
 
 ## Por qué empieza así
 

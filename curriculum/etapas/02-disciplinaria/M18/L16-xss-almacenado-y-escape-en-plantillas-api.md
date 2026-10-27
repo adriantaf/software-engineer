@@ -21,11 +21,11 @@ Fix escape/sanitización; actualizar finding; filas SQLi+XSS en `projects/m18-ap
 
 ## Pasos
 
-### 1. Stored en notas de cita (50–60 min)
+### 1. Stored en notas de pedido (50–60 min)
 
 ```bash
-# Crea cita con payload en notas (cuenta prueba)
-curl -s -X POST localhost:3000/api/citas -H 'content-type: application/json' -b /tmp/m18-cj \
+# Crea pedido con payload en notas (cuenta prueba)
+curl -s -X POST localhost:3000/api/pedidos -H 'content-type: application/json' -b /tmp/m18-cj \
   -d '{"clienteId":"…","inicio":"2026-01-02T10:00:00Z","notas":"<img src=x onerror=alert(1)>"}'
 # Lista y verifica escape en HTML
 ```
@@ -80,4 +80,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L17 — IDOR en citas y recursos por ID](L17-idor-en-citas-y-recursos-por-id.md)
+[L17 — IDOR en pedidos y recursos por ID](L17-idor-en-pedidos-y-recursos-por-id.md)

@@ -14,7 +14,7 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 - Conoces superficies (HTML/CSS/JS, React, Astro, Express básico, Flutter, MySQL/SQLite, Electron).
 - Falta ciclo completo de ingeniería, datos sólidos, testing, redes/SO, algoritmos y producto.
 - Bektor sin clientes = problema de oferta/ventas, no de maquetado.
-- **No te presentes como junior** hasta tener evidencia de producción + tests + deploy.
+- **No presentarse como junior** hasta tener evidencia de producción, pruebas y despliegue.
 
 ## Ritmo
 
@@ -24,28 +24,24 @@ Egresar **competente**: poder diseñar, construir, probar, desplegar y mantener 
 
 ## Estructura (3 etapas, 27 materias)
 
-1. [Etapa Básica](etapas/01-basica/README.md) — M01–M06 (~4–5 meses)
-2. [Etapa Disciplinaria](etapas/02-disciplinaria/README.md) — M07–M20 + **M27** (~12–14 meses)
-3. [Etapa Terminal](etapas/03-terminal/README.md) — M21–M26 (~7–9 meses)
+1. [Fundamentos](etapas/01-basica/README.md) — M01–M06 (~4–5 meses)
+2. [Ingeniería aplicada](etapas/02-disciplinaria/README.md) — M07–M20 + **M27** (~12–14 meses)
+3. [Especialización y egreso](etapas/03-terminal/README.md) — M21–M26 (~7–9 meses)
 
 **Pista de ciberseguridad:** [M10](etapas/02-disciplinaria/M10-redes.md) → [M18 AppSec](etapas/02-disciplinaria/M18-seguridad.md) → [M25](etapas/03-terminal/M25-ciberseguridad-aplicada.md) · [Hilo seguridad](hilos/seguridad.md)
 
-**Producto / capstone:** SaaS vertical [**Agenda Ops**](producto-saas.md) (M12→M26) · [Hilo producto](hilos/producto.md)
+**Producto / capstone:** SaaS vertical [**Vitrina**](producto-saas.md) (menú + pedidos, M12→M26) · [Hilo producto](hilos/producto.md)
 
 Ver también:
 
-- [Cómo estudiar](como-estudiar.md) ← léelo antes de M01
-- [Instalar en iPhone (PWA)](instalar-iphone.md) — icono + offline
+- [Cómo estudiar](como-estudiar.md) ← léalo antes de M01
 - [Glosario](glosario.md) — siglas con definición en español
-- [Bibliografía](bibliografia.md) — libros + alternativa gratis
+- [Bibliografía](bibliografia.md) — libros y alternativa gratis
 - [Producto SaaS](producto-saas.md)
 - [Hilo producto](hilos/producto.md) — artefactos M12→M26
-- [Filosofía](filosofia.md) — mejor que la escuela tradicional
+- [Filosofía](filosofia.md)
 - [Labs (índice)](labs/README.md)
-- [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)
-
-En la academia: **Revisión de emergencia** (cram de criterios «Hecho cuando») y autoevaluaciones con notas locales.
 
 ## Reglas de oro
 

@@ -1,6 +1,6 @@
 # M11 — Sistemas operativos
 
-Carpeta de **evidencia** + scripts/Docker del stack local Agenda Ops. Si no está en git (aquí o con enlace claro), no cuenta.
+Carpeta de **evidencia** + scripts/Docker del stack local Vitrina. Si no está en git (aquí o con enlace claro), no cuenta.
 
 ## En resumen
 

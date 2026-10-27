@@ -23,7 +23,7 @@ Ampliar `arquitectura.md` (o `diagramas/dtos.md`) con contratos de entrada/salid
 
 ### 1. Inventario de endpoints que ya prevés (30 min)
 
-De L02/L08: `POST /auth/login`, `POST /citas`, `GET /citas`, `POST /clientes`, …
+De L02/L08: `POST /auth/login`, `POST /pedidos`, `GET /pedidos`, `POST /clientes`, …
 
 ### 2. Especifica CreateCitaDto (60–70 min)
 

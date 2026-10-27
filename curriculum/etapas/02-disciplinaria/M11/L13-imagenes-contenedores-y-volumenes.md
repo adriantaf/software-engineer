@@ -38,7 +38,7 @@ Si Docker no está: instálalo o documenta el bloqueo y comandos exactos para cu
 
 ### 3. Postgres (30 min)
 
-Por qué el volumen sobrevive a `docker rm` y por qué eso importa en Agenda Ops.
+Por qué el volumen sobrevive a `docker rm` y por qué eso importa en Vitrina.
 
 ### 4. Commit (15 min)
 

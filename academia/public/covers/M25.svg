@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M25">
+  <defs>
+    <linearGradient id="bg-M25" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <pattern id="grid-M25" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M25)"/>
+  <rect width="640" height="360" fill="url(#grid-M25)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <rect x="285" y="130" width="70" height="90" rx="10" fill="none" stroke="#fff" stroke-width="4" opacity="0.9"/>
+      <path d="M305 130v-18a15 15 0 0115-15h30a15 15 0 0115 15v18" fill="none" stroke="#fff" stroke-width="4" opacity="0.85"/>
+      <circle cx="320" cy="175" r="10" fill="#fff" opacity="0.9"/>
+      <path d="M320 185v25" stroke="#fff" stroke-width="4" opacity="0.85"/>
+</svg>

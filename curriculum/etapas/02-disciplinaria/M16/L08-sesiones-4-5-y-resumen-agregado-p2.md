@@ -27,7 +27,7 @@ Cerrar sesiones y `resumen-5-usuarios.md`.
 
 | Hallazgo | # participantes | Severidad |
 |----------|-----------------|-----------|
-| No encuentra “Nueva cita” | 4/5 | alta |
+| No encuentra “Nueva pedido” | 4/5 | alta |
 
 ### 3. Commit
 

@@ -6,7 +6,7 @@ titulo: Trade-offs de desnormalización
 horas: 5.0
 semana: 2
 lectura: "Elmasri: desnormalización / diseño físico intro"
-evidencia: "Nota en er-agenda.md: qué desnormalizarías y por qué"
+evidencia: "Nota en er-vitrina.md: qué desnormalizarías y por qué"
 ---
 
 # L08 — Trade-offs de desnormalización
@@ -17,7 +17,7 @@ evidencia: "Nota en er-agenda.md: qué desnormalizarías y por qué"
 
 ## Objetivo
 
-Documentar **una** desnormalización consciente (implementada o aplazada) en `er-agenda.md`.
+Documentar **una** desnormalización consciente (implementada o aplazada) en `er-vitrina.md`.
 
 ## Pasos
 
@@ -25,21 +25,21 @@ Documentar **una** desnormalización consciente (implementada o aplazada) en `er
 
 Secciones de diseño físico / desnormalización. Alternativa: notas PG sobre costos de JOIN vs almacenamiento.
 
-### 2. Caso Agenda Ops (60 min)
+### 2. Caso Vitrina (60 min)
 
-Si el precio del “Corte” sube mañana, las citas completadas ayer ¿deben mostrar $150 o $180?
+Si el precio del “Corte” sube mañana, las pedidos completadas ayer ¿deben mostrar $150 o $180?
 
 - Opción A: siempre JOIN a `servicios` (precio actual).
-- Opción B: `citas.precio_centavos_snapshot` al crear la cita.
+- Opción B: `pedidos.precio_centavos_snapshot` al crear la pedido.
 
-Elige y justifica en la sección L08 de `er-agenda.md`.
+Elige y justifica en la sección L08 de `er-vitrina.md`.
 
 ### 3. (Opcional) Migración (60–90 min)
 
 Si eliges B:
 
 ```sql
-ALTER TABLE citas
+ALTER TABLE pedidos
   ADD COLUMN IF NOT EXISTS precio_centavos_snapshot integer;
 ```
 
@@ -67,14 +67,14 @@ git commit -am "docs(m09): trade-off desnormalizacion precio"
 
 Marca la lección **solo si**:
 
-1. Escribes un trade-off concreto (ej. `precio_centavos_snapshot` en `citas`).
+1. Escribes un trade-off concreto (ej. `precio_centavos_snapshot` en `orders`).
 2. Listas costo (consistencia) vs beneficio (historial / reportes).
 3. Decides para M09: ¿lo implementas en una migración o lo dejas documentado?
 
 ## Errores comunes
 
 - Desnormalizar “por si acaso” sin query que lo pida.
-- Copiar `nombre_cliente` a la cita sin decir cómo se actualiza.
+- Copiar `nombre_cliente` a la pedido sin decir cómo se actualiza.
 - Confundir caché de lectura con modelo canónico.
 
 ## Siguiente

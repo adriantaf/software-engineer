@@ -24,7 +24,7 @@ Ciclo de vida en `projects/m18-appsec/docs/session-lifecycle.md`: rotate post-lo
 ### 1. Traza el ciclo en código (40–50 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'regenerate|session\.id|destroy|logout|revoke' -g '!node_modules' | head -30
 cat > projects/m18-appsec/docs/session-lifecycle.md <<'EOF'
 # Session lifecycle
@@ -42,7 +42,7 @@ curl -sI -X POST localhost:3000/auth/login -H 'content-type: application/json' \
   -d '{"email":"owner@test.local","password":"***"}' | rg -i set-cookie
 # Logout + reuse (debe fallar)
 curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout
-curl -b /tmp/m18-cj -s -o /dev/null -w "%{http_code}\n" localhost:3000/api/citas
+curl -b /tmp/m18-cj -s -o /dev/null -w "%{http_code}\n" localhost:3000/api/pedidos
 ```
 
 Si JWT stateless: documenta deny-list o TTL corto en el mismo archivo.

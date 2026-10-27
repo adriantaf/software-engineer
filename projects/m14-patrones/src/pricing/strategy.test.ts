@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { tarifaBase, tarifaPromoDiez, totalServicio } from "./strategy";
 
-describe("Strategy precios Agenda Ops", () => {
+describe("Strategy precios Vitrina", () => {
   it("tarifa base no cambia el monto", () => {
     expect(totalServicio(100, tarifaBase)).toBe(100);
   });

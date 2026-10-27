@@ -45,7 +45,7 @@ Documenta en README: Docker compose service `db_test`, o SQLite solo para spike.
 
 Marca la lección **solo si**:
 
-1. Al menos 1 test de integración que escribe/lee cita en DB de prueba (Docker PG, Testcontainers, o SQLite — documenta cuál).
+1. Al menos 1 test de integración que escribe/lee pedido en DB de prueba (Docker PG, Testcontainers, o SQLite — documenta cuál).
 2. Setup/teardown o transacciones que no dejen basura.
 3. Commit `test(m15): integracion persistencia`.
 

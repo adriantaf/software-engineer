@@ -4,7 +4,7 @@ Carpeta de **evidencia** de esta materia. Si no está en git (aquí o con enlace
 
 ## En resumen
 
-Dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada sobre el piloto **Agenda Ops**.
+Dejas de diseñar solo para ti: heurísticas, test con 5 personas e iteración documentada sobre el piloto **Vitrina**.
 
 ## Estructura esperada
 

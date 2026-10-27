@@ -45,7 +45,30 @@ export type ProgressState = {
   checkIns: WeeklyCheckIn[];
   /** Autoevaluaciones por etapa (basica | disciplinaria | terminal). */
   examenes?: Record<string, ExamenAnswers>;
+  /** Epoch ms — para merge cloud / local. */
+  updatedAt?: number;
 };
+
+/** Fallback en memoria si localStorage está bloqueado (Safari privado, ITP, etc.). */
+let memoryStore: ProgressState | null = null;
+let storageUsable: boolean | null = null;
+
+function canUseLocalStorage(): boolean {
+  if (storageUsable !== null) return storageUsable;
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+    storageUsable = false;
+    return false;
+  }
+  try {
+    const probe = `${STORAGE_KEY}__probe`;
+    localStorage.setItem(probe, '1');
+    localStorage.removeItem(probe);
+    storageUsable = true;
+  } catch {
+    storageUsable = false;
+  }
+  return storageUsable;
+}
 
 function defaultMateria(): MateriaProgress {
   return {
@@ -86,19 +109,36 @@ function normalizeProgress(raw: ProgressState): ProgressState {
 }
 
 export function loadProgress(): ProgressState | null {
-  if (typeof localStorage === 'undefined') return null;
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (!raw) return null;
-  try {
-    return normalizeProgress(JSON.parse(raw) as ProgressState);
-  } catch {
-    return null;
+  if (canUseLocalStorage()) {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = normalizeProgress(JSON.parse(raw) as ProgressState);
+        memoryStore = parsed;
+        return parsed;
+      }
+    } catch {
+      /* usar memoria */
+    }
   }
+  return memoryStore;
 }
 
-export function saveProgress(state: ProgressState) {
-  const normalized = normalizeProgress(state);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+export function saveProgress(state: ProgressState, opts?: { emit?: boolean }) {
+  const normalized = normalizeProgress({
+    ...state,
+    updatedAt: Date.now(),
+  });
+  memoryStore = normalized;
+  if (canUseLocalStorage()) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized));
+    } catch (e) {
+      console.warn('[progress] localStorage no disponible; progreso solo en memoria', e);
+      storageUsable = false;
+    }
+  }
+  if (opts?.emit === false) return;
   window.dispatchEvent(new CustomEvent('academia-progress', { detail: normalized }));
 }
 

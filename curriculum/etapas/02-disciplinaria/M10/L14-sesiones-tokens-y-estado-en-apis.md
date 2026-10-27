@@ -52,7 +52,7 @@ git commit -m "docs(m10): l14 sesiones tokens"
 
 Marca la lección **solo si**:
 
-1. `labs/sesiones.md` compara sesión+cookie vs Bearer token para Agenda Ops (pros/contras).
+1. `labs/sesiones.md` compara sesión+cookie vs Bearer token para Vitrina (pros/contras).
 2. Diagrama: browser → API → store de sesión/Redis/PG.
 3. Commit `docs(m10): l14 sesiones tokens`.
 

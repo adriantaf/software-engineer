@@ -6,7 +6,7 @@ titulo: Listas con loading, error y vacío
 horas: 5.0
 semana: 4
 lectura: m16 estados-ui
-evidencia: projects/m17-agenda-ops/docs/ui-estados.md
+evidencia: projects/m17-vitrina/docs/ui-estados.md
 ---
 
 # L15 — Listas con loading, error y vacío
@@ -29,23 +29,23 @@ Implementar agenda del día y listas con tres estados UX obligatorios.
 
 ### 1. Estados de lista (70–90 min)
 
-Loading skeleton/spinner; error con reintento; vacío con CTA “Crear cita”.
+Loading skeleton/spinner; error con reintento; vacío con CTA “Crear pedido”.
 
 ### 2. Documenta ui-estados.md (30–40 min)
 
 ```bash
-cat > projects/m17-agenda-ops/docs/ui-estados.md << 'EOF'
+cat > projects/m17-vitrina/docs/ui-estados.md << 'EOF'
 # UI estados (P2)
 | Vista | loading | error | vacío |
 |-------|---------|-------|-------|
-| /citas | … | … | … |
+| /pedidos | … | … | … |
 EOF
 ```
 
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/ui-estados.md projects/m17-agenda-ops/apps
+git add projects/m17-vitrina/docs/ui-estados.md projects/m17-vitrina/apps
 git commit -m "feat(m17): L15 listas loading error vacio"
 ```
 
@@ -61,7 +61,7 @@ git commit -m "feat(m17): L15 listas loading error vacio"
 
 Marca la lección **solo si**:
 
-1. Existe `projects/m17-agenda-ops/docs/ui-estados.md` con loading/error/vacío para listas.
+1. Existe `projects/m17-vitrina/docs/ui-estados.md` con loading/error/vacío para listas.
 2. Commit `docs(m17): L15 listas-con-loading-error-y-vacio`.
 
 ## Errores comunes
@@ -71,4 +71,4 @@ Marca la lección **solo si**:
 
 ## Siguiente
 
-[L16 — Formularios citas y clientes accesibles](L16-formularios-citas-y-clientes-accesibles.md)
+[L16 — Formularios pedidos y clientes accesibles](L16-formularios-pedidos-y-clientes-accesibles.md)

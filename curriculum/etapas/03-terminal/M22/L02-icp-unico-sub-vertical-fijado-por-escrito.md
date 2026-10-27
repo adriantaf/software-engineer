@@ -17,7 +17,7 @@ Vendes suscripción SaaS, no agencia. Hoy entregas **`projects/m22-bektor/icp.md
 
 ## Objetivo
 
-Elegir **un** sub-vertical (barbería, clínica dental, taller…) en Ensenada o alrededores y documentar por qué encaja con Agenda Ops.
+Elegir **un** sub-vertical (barbería, clínica dental, taller…) en Ensenada o alrededores y documentar por qué encaja con Vitrina.
 
 ## Por qué empieza así
 
@@ -36,13 +36,13 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — segmento inicial + anti-patterns_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
 Confirma rutas bajo `projects/m22-bektor`.
 
-En `projects/m22-bektor/icp.md`: perfil del dueño, tamaño del negocio, dolor (no-shows, doble reserva), herramientas actuales, por qué **no** marketplace.
+En `projects/m22-bektor/icp.md`: perfil del dueño, tamaño del negocio, dolor (pedido abandonados, doble reserva), herramientas actuales, por qué **no** marketplace.
 
 ### 3. Laboratorio principal (90–120 min)
 
@@ -62,7 +62,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — segmento inicial + anti-patterns | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — segmento inicial + anti-patterns | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

@@ -13,7 +13,7 @@ evidencia: entrevistas/guion-v1.md
 
 **~5.0 h · Semana 1**
 
-Agenda Ops empieza con un problema real, no con Figma. Hoy eliges partner y guion.
+Vitrina empieza con un problema real, no con Figma. Hoy eliges partner y guion.
 
 ## Objetivo
 
@@ -42,7 +42,7 @@ Lee [producto-saas.md](../../../producto-saas.md). En `entrevistas/guion-v1.md` 
 
 Categorías obligatorias:
 
-1. Flujo de una cita de punta a punta
+1. Flujo de una pedido de punta a punta
 2. No-shows y recordatorios
 3. Datos de clientes que guardan (PII)
 4. Quién agenda (dueño vs staff)
@@ -62,7 +62,7 @@ git commit -m "docs(m12): l01 guion entrevista"
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| IEEE 830 adaptada (repo) | ICP, design partner, alcance piloto single-tenant Agenda Ops | [producto-saas.md](../../../producto-saas.md) |
+| IEEE 830 adaptada (repo) | ICP, design partner, alcance piloto single-tenant Vitrina | [producto-saas.md](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M12](../../../bibliografia.md#m12-requerimientos) |
 
 
@@ -71,7 +71,7 @@ git commit -m "docs(m12): l01 guion entrevista"
 Marca la lección **solo si**:
 
 1. Sub-vertical elegido y escrito (no se cambia en M12).
-2. `entrevistas/guion-v1.md` con ≥10 preguntas abiertas (flujo citas, no-shows, datos sensibles).
+2. `entrevistas/guion-v1.md` con ≥10 preguntas abiertas (flujo pedidos, pedido abandonados, datos sensibles).
 3. Commit `docs(m12): l01 guion entrevista`.
 
 ## Errores comunes

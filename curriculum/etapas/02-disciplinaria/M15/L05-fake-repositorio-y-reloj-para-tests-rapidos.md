@@ -17,7 +17,7 @@ Los tests de application layer deben ser rápidos y deterministas.
 
 ## Objetivo
 
-Fakes de repo y reloj cableados al service de citas.
+Fakes de repo y reloj cableados al service de pedidos.
 
 ## Pasos (hazlos en orden)
 
@@ -43,7 +43,7 @@ Fakes de repo y reloj cableados al service de citas.
 
 Marca la lección **solo si**:
 
-1. `FakeClock` o `() => Date` inyectable; test de “cita en el pasado” estable.
+1. `FakeClock` o `() => Date` inyectable; test de “pedido en el pasado” estable.
 2. Repo in-memory usado por tests de application service.
 3. Commit `test(m15): fake repo y reloj`.
 

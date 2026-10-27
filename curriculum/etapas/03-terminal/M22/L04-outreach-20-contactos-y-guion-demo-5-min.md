@@ -17,7 +17,7 @@ Vendes suscripción SaaS, no agencia. Hoy entregas **`projects/m22-bektor/outrea
 
 ## Objetivo
 
-Armar lista de 20 negocios ICP y guion de demo staging: login → cita → WhatsApp → cierre trial.
+Armar lista de 20 negocios ICP y guion de demo staging: login → pedido → WhatsApp → cierre trial.
 
 ## Por qué empieza así
 
@@ -36,7 +36,7 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — experimento de contacto_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
@@ -50,7 +50,7 @@ Confirma rutas bajo `projects/m22-bektor`.
 
 ### 4. Endurece el entregable (40–60 min)
 
-Borrador `projects/m22-bektor/pricing.md`: planes Free/Pro MXN + límites (calendarios, citas/mes).
+Borrador `projects/m22-bektor/pricing.md`: planes Free/Pro MXN + límites (calendarios, pedidos/mes).
 
 ### 5. Commit atómico (15 min)
 
@@ -66,7 +66,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — experimento de contacto | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — experimento de contacto | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

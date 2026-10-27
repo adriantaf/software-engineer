@@ -21,22 +21,22 @@ proyecto:
 
 ## Por qué existe
 
-**Capa C** de la pista de seguridad, aplicada a tu **SaaS multi-tenant**. El fallo #1 a cazar: **IDOR cross-tenant** (el tenant A lee datos del B). Ver [producto-saas](../../producto-saas.md).
+**Capa C** de la pista de seguridad, aplicada al **SaaS multi-tenant**. El fallo prioritario a detectar: **IDOR cross-tenant** (el inquilino A lee datos del B). Ver [producto-saas](../../producto-saas.md).
 
-**En resumen:** ciber aplicada al SaaS multi-tenant: el bug #1 a cazar es IDOR cross-tenant.
+**En resumen:** ciberseguridad aplicada al SaaS multi-tenant; el defecto prioritario es IDOR entre inquilinos.
 
 
 ## Objetivos de aprendizaje
 
 1. Inventariar activos y superficie del SaaS desplegado.
-2. Security review con **pruebas de aislamiento entre tenants**.
-3. Hardening de producción (HTTPS, backups, least privilege, secrets Stripe).
-4. Tabletop de incidente + runbook.
-5. Intro privacidad/datos (contexto MX) por tenant.
+2. Revisión de seguridad con **pruebas de aislamiento entre tenants**.
+3. Endurecimiento de producción (HTTPS, respaldos, mínimo privilegio, secretos de Stripe).
+4. Ejercicio de mesa (tabletop) de incidente y runbook.
+5. Introducción a privacidad y datos (contexto MX) por tenant.
 
 ## Cómo estudiar esta materia (lecciones)
 
-M25 es **ciberseguridad aplicada** al SaaS Agenda Ops: L01–L24, evidencia en `projects/m25-ciber/` y fixes en el repo del producto.
+M25 es **ciberseguridad aplicada** al SaaS Vitrina: L01–L24, evidencia en `projects/m25-ciber/` y fixes en el repo del producto.
 
 1. Orden **L01 → L24**; prioriza **IDOR cross-tenant** sobre hallazgos cosméticos.
 2. Solo atacas **tus** ambientes prod/staging acordados.

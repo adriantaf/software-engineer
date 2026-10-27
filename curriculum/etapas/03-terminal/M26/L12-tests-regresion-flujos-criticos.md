@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Elige suite mínima (25–35 min)
 
-En `projects/m26-capstone/tests-regresion.md`: lista tests (auth, citas CRUD, cross-tenant). Comando exacto.
+En `projects/m26-capstone/tests-regresion.md`: lista tests (auth, pedidos CRUD, cross-tenant). Comando exacto.
 
 ### 3. Corre en CI o documenta pipeline (100–120 min)
 

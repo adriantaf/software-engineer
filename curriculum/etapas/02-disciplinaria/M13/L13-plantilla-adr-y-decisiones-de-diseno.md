@@ -38,7 +38,7 @@ Semana de decisiones. Hoy ordenas el proceso para no improvisar en M17.
 
 ### 3. Backlog de decisiones (50–60 min)
 
-Lista 5 preguntas abiertas (¿ORM?, ¿calcula fin el server?, ¿soft-delete citas?).
+Lista 5 preguntas abiertas (¿ORM?, ¿calcula fin el server?, ¿soft-delete pedidos?).
 
 ### 4. Commit (15 min)
 

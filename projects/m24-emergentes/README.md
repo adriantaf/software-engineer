@@ -1,6 +1,6 @@
 # M24 — Tecnologías emergentes
 
-Research, matriz de adopción y spike go/no-go para Agenda Ops.
+Research, matriz de adopción y spike go/no-go para Vitrina.
 
 ## En resumen
 

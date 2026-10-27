@@ -40,14 +40,14 @@ curl -sS https://TU-STAGING.example/health
 ### 2. Documenta URL (30 min)
 
 ```bash
-mkdir -p projects/m17-agenda-ops/docs
-echo "Staging: https://TU-STAGING.example" > projects/m17-agenda-ops/docs/deploy.md
+mkdir -p projects/m17-vitrina/docs
+echo "Staging: https://TU-STAGING.example" > projects/m17-vitrina/docs/deploy.md
 ```
 
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/deploy.md
+git add projects/m17-vitrina/docs/deploy.md
 git commit -m "docs(m17): L22 deploy staging paas"
 ```
 
@@ -63,7 +63,7 @@ git commit -m "docs(m17): L22 deploy staging paas"
 
 Marca la lección **solo si**:
 
-1. `projects/m17-agenda-ops/docs/deploy.md` incluye URL staging alcanzable.
+1. `projects/m17-vitrina/docs/deploy.md` incluye URL staging alcanzable.
 2. Commit `docs(m17): L22 deploy-staging-en-paas`.
 
 ## Errores comunes

@@ -42,7 +42,7 @@ Botón logout → `POST /auth/logout` + redirect `/login`.
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/apps
+git add projects/m17-vitrina/apps
 git commit -m "feat(m17): L14 login logout UI"
 ```
 

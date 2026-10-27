@@ -1,0 +1,32 @@
+---
+import { pathTo } from '../lib/paths';
+
+interface Props {
+  id: string;
+  titulo: string;
+  objetivo: string;
+  orden: number;
+  materiaCount: number;
+  horas: number;
+  duracionMeses: string;
+}
+
+const { id, titulo, objetivo, orden, materiaCount, horas, duracionMeses } = Astro.props;
+const accent =
+  id === 'basica'
+    ? 'var(--color-plan-basica)'
+    : id === 'disciplinaria'
+      ? 'var(--color-plan-disciplinaria)'
+      : 'var(--color-plan-terminal)';
+---
+
+<a class="category-card" style={`--accent: ${accent}`} href={pathTo(`etapa/${id}`)} data-etapa-card={id}>
+  <span class="text-xs font-semibold uppercase tracking-wider text-plan-muted">Etapa {orden}</span>
+  <h3 class="category-card__title">{titulo}</h3>
+  <p class="category-card__desc">{objetivo}</p>
+  <p class="text-xs text-plan-muted m-0">
+    {materiaCount} materias · ~{duracionMeses} meses · {horas} h
+  </p>
+  <progress class="progress progress-primary w-full h-1.5 mt-1" data-etapa={id} value="0" max="100"></progress>
+  <p class="text-xs text-plan-muted m-0" data-etapa-label={id}>0% completado</p>
+</a>

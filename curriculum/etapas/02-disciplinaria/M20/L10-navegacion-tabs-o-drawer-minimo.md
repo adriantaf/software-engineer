@@ -17,7 +17,7 @@ App usable sin laberinto de pantallas.
 
 ## Objetivo
 
-Estructura Citas / Perfil / logout accesible.
+Estructura Pedidos / Perfil / logout accesible.
 
 ## Conceptos clave
 
@@ -30,7 +30,7 @@ Estructura Citas / Perfil / logout accesible.
 ### 1. Tabs o drawer (60–80 min)
 
 ```dart
-// BottomNavigation: Citas | Clientes | Cuenta
+// BottomNavigation: Pedidos | Clientes | Cuenta
 // o Drawer equivalente en RN
 ```
 

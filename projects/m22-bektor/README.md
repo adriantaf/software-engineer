@@ -1,6 +1,6 @@
 # M22 — Emprendimiento de negocios de software
 
-Carpeta de **evidencia** comercial (Bektor → Agenda Ops). Si no está en git, no cuenta.
+Carpeta de **evidencia** comercial (Bektor → Vitrina). Si no está en git, no cuenta.
 
 ## En resumen
 
@@ -23,7 +23,7 @@ projects/m22-bektor/
   objeciones-sintesis.md
   outreach-semana-05.md
   landing-precios.md
-  pivote-bektor-agenda-ops.md
+  pivote-bektor-vitrina.md
   handoff-producto.md
   pitch-60s.md
   cierre-m22.md
@@ -36,7 +36,7 @@ projects/m22-bektor/
 - **P1 — Oferta:** `oferta-saas.md` (un producto, no “hacemos de todo”).
 - **P2 — 10 demos:** `demos/demo-01.md` … `demo-10.md`.
 - **P3 — Pricing:** `pricing.md` Free/Pro MXN defendible.
-- **Proyecto — Pivote:** `pivote-bektor-agenda-ops.md`.
+- **Proyecto — Pivote:** `pivote-bektor-vitrina.md`.
 
 ## Reglas
 

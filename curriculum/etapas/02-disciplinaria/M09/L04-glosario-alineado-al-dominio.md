@@ -17,25 +17,25 @@ Si el equipo dice “cliente” y uno piensa en el tenant SaaS, el esquema se ro
 
 ## Objetivo
 
-Dejar `glosario.md` usable por alguien que no leyó Elmasri, alineado a Agenda Ops y a tu ER.
+Dejar `glosario.md` usable por alguien que no leyó Elmasri, alineado a Vitrina y a tu ER.
 
 ## Pasos
 
 ### 1. Lee producto (30 min)
 
-Revisa `curriculum/producto-saas.md` (ICP, citas, tenant). Marca 5 palabras que ya usas distinto.
+Revisa `curriculum/producto-saas.md` (ICP, pedidos, tenant). Marca 5 palabras que ya usas distinto.
 
 ### 2. Completa el glosario (90 min)
 
-Abre `projects/m09-bases-datos/glosario.md`. Amplía a ≥8 filas. Obligatorio cubrir: Cliente, Servicio, Cita, Tenant, No-show, Migración, Seed, Least privilege.
+Abre `projects/m09-bases-datos/glosario.md`. Amplía a ≥8 filas. Obligatorio cubrir: Cliente, Servicio, Pedido, Tenant, No-show, Migración, Seed, Least privilege.
 
 ### 3. Cruza con el ER (45 min)
 
-Cada término de entidad del glosario debe existir en `er-agenda.md`. Si sobra un término huérfano, elimínalo o modela la entidad.
+Cada término de entidad del glosario debe existir en `er-vitrina.md`. Si sobra un término huérfano, elimínalo o modela la entidad.
 
 ### 4. README de evidencia (30 min)
 
-En `projects/m09-bases-datos/README.md`, sección corta “Semana 1” con enlaces a `er-agenda.md` y `glosario.md`.
+En `projects/m09-bases-datos/README.md`, sección corta “Semana 1” con enlaces a `er-vitrina.md` y `glosario.md`.
 
 ### 5. Commit (15 min)
 
@@ -57,7 +57,7 @@ git commit -m "docs(m09): glosario dominio agenda ops"
 Marca la lección **solo si**:
 
 1. `glosario.md` tiene ≥8 términos con “no confundir con”.
-2. El README de m09 enlaza `er-agenda.md` y `glosario.md`.
+2. El README de m09 enlaza `er-vitrina.md` y `glosario.md`.
 3. Commit de cierre de semana 1.
 
 ## Errores comunes

@@ -17,7 +17,7 @@ Evalúas tecnología emergente con decisión escrita. Hoy entregas **`projects/m
 
 ## Objetivo
 
-Crear carpetas de evidencia y registrar tres tecnologías candidatas alineadas a Agenda Ops (ej. WhatsApp Cloud API, SSE/WebSockets, cola managed).
+Crear carpetas de evidencia y registrar tres tecnologías candidatas alineadas a Vitrina (ej. WhatsApp Cloud API, SSE/WebSockets, cola managed).
 
 ## Por qué empieza así
 
@@ -81,7 +81,7 @@ Marca la lección **solo si**:
 
 ## Errores comunes
 
-- Elegir blockchain sin caso de uso en citas.
+- Elegir blockchain sin caso de uso en pedidos.
 - Copiar stack de un tutorial sin leer límites.
 - Marcar la lección en la UI sin archivo en git.
 

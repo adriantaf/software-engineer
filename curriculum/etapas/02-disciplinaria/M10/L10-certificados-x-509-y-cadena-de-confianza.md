@@ -40,7 +40,7 @@ Diagrama: leaf → intermediate → root del almacén local.
 
 ### 3. Fallos (30 min)
 
-Escribe: cert expirado, hostname mismatch, CA desconocida — síntoma en el cliente y qué harías en staging de Agenda Ops.
+Escribe: cert expirado, hostname mismatch, CA desconocida — síntoma en el cliente y qué harías en staging de Vitrina.
 
 ### 4. Commit (15 min)
 

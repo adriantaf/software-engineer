@@ -32,14 +32,14 @@ Edita la password del `CREATE ROLE` con tu `APP_DB_PASSWORD` **local**. Aplica e
 ### 3. Prueba positiva (40 min)
 
 ```bash
-psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/agenda_ops" \
-  -c 'SELECT count(*) FROM citas;'
+psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/vitrina" \
+  -c 'SELECT count(*) FROM pedidos;'
 ```
 
 ### 4. Prueba negativa (40 min)
 
 ```sql
-DROP TABLE citas;          -- debe fallar
+DROP TABLE pedidos;          -- debe fallar
 CREATE TABLE hack(x int);  -- debe fallar
 ```
 

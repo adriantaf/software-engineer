@@ -38,7 +38,7 @@ Marca en `projects/m26-capstone/egreso-checklist.md` (o créalo) qué ítem de e
 
 ### 2. Guion del video (40–50 min)
 
-`demo.md`: guion ≤8 min — login A, cita, login B, prueba de aislamiento, pricing/checkout test, cierre.
+`demo.md`: guion ≤8 min — login A, pedido, login B, prueba de aislamiento, pricing/checkout test, cierre.
 
 ### 3. Graba (90–120 min)
 

@@ -1,6 +1,6 @@
 # M19 — Cómputo en la nube y DevOps
 
-Carpeta de **evidencia** ops del piloto Agenda Ops. Si no está en git (aquí o con enlace claro), no cuenta.
+Carpeta de **evidencia** ops del piloto Vitrina. Si no está en git (aquí o con enlace claro), no cuenta.
 
 ## En resumen
 
@@ -9,8 +9,8 @@ El piloto sobrevive fuera de tu laptop: Docker, secretos, HTTPS, backup con rest
 ## Arranque rápido (local prod-like)
 
 ```bash
-cd projects/m17-agenda-ops   # o ruta del Dockerfile
-docker build -t agenda-ops-api:dev .
+cd projects/m17-vitrina   # o ruta del Dockerfile
+docker build -t vitrina-api:dev .
 docker compose -f compose.yml up -d
 curl -sS http://localhost:3000/health
 ```
@@ -55,5 +55,5 @@ projects/m19-ops/
 ## Enlaces
 
 - Ficha: `curriculum/etapas/02-disciplinaria/M19-nube-devops.md`
-- App: `projects/m17-agenda-ops/`
+- App: `projects/m17-vitrina/`
 - Plan: `/materia/M19/`

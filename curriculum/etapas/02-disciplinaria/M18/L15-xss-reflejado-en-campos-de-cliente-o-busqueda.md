@@ -24,7 +24,7 @@ PoC reflejado en `projects/m18-appsec/findings/002-xss-reflected.md` (solo tu cu
 ### 1. Localiza render de input (30–40 min)
 
 ```bash
-cd projects/m17-agenda-ops 2>/dev/null || cd <repo-Agenda-Ops>
+cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
 rg -n 'dangerouslySetInnerHTML|innerHTML|\$\{.*q|searchParams|mensaje' -g '!node_modules' | head -30
 ```
 ### 2. PoC local (60–80 min)

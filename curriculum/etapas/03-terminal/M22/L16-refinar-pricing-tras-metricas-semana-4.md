@@ -36,13 +36,13 @@ Conceptos que debes poder explicar al cerrar:
 
 Lee en *El método Lean Startup* (ed. ES) lo indicado: _Lean — aprendizaje acumulado_.
 
-Traduce a Agenda Ops: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
+Traduce a Vitrina: 5 bullets en `projects/m22-bektor/bitacora-m22.md` con una **acción** comercial de esta lección (demo, outreach, pricing).
 
 ### 2. Prepara evidencia y carpetas (20–30 min)
 
 Confirma rutas bajo `projects/m22-bektor`.
 
-Añade `projects/m22-bektor/pricing-changelog.md` con v1→v2 y razón (cita demo #).
+Añade `projects/m22-bektor/pricing-changelog.md` con v1→v2 y razón (pedido demo #).
 
 ### 3. Laboratorio principal (90–120 min)
 
@@ -62,7 +62,7 @@ El mensaje debe mencionar el artefacto de hoy; no mezcles lecciones distintas en
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — aprendizaje acumulado | [producto-saas (Agenda Ops)](../../../producto-saas.md) |
+| *El método Lean Startup* — Eric Ries (ed. ES) | Lean — aprendizaje acumulado | [producto-saas (Vitrina)](../../../producto-saas.md) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M22](../../../bibliografia.md#m22-emprendimiento) |
 
 

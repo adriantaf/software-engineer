@@ -5,7 +5,7 @@ orden: 9
 titulo: Observer para eventos de dominio
 horas: 5.0
 semana: 3
-lectura: Observer; cita creada → listeners
+lectura: Observer; pedido creada → listeners
 evidencia: src/events/ observer + tests + ADR
 ---
 
@@ -13,7 +13,7 @@ evidencia: src/events/ observer + tests + ADR
 
 **~5.0 h · Semana 3**
 
-Crear cita no debería conocer todos los side-effects. Observer (o event emitter tipado) desacopla.
+Crear pedido no debería conocer todos los side-effects. Observer (o event emitter tipado) desacopla.
 
 ## Objetivo
 
@@ -35,7 +35,7 @@ Evento `CitaCreada` + listeners + tests + ADR.
 
 | Fuente | Qué leer | Enlace |
 |--------|----------|--------|
-| *Patrones de diseño* — GoF / Refactoring.Guru ES | Observer/eventos de dominio: desacoplar efectos al crear cita | [Refactoring.Guru — Observer (ES)](https://refactoring.guru/es/design-patterns/observer) |
+| *Patrones de diseño* — GoF / Refactoring.Guru ES | Observer/eventos de dominio: desacoplar efectos al crear pedido | [Refactoring.Guru — Observer (ES)](https://refactoring.guru/es/design-patterns/observer) |
 | Catálogo | Entrada de esta materia | [Bibliografía · M14](../../../bibliografia.md#m14-patrones) |
 
 
@@ -51,7 +51,7 @@ Marca la lección **solo si**:
 
 - Observer síncrono que rompe el flujo si un listener lanza — documenta política.
 - Event bus global Singleton sin necesidad.
-- Listeners que mutan la cita a espaldas del aggregate.
+- Listeners que mutan la pedido a espaldas del aggregate.
 
 ## Siguiente
 

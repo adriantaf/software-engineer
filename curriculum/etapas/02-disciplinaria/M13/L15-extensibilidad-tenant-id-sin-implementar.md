@@ -36,7 +36,7 @@ Sección evolución técnica: piloto single-tenant → tenants.
 Un negocio design partner. `negocioId` implícito o constante de config.
 
 ## Después
-Columna `tenant_id` en clientes, servicios, citas, usuarios.
+Columna `tenant_id` en clientes, servicios, pedidos, usuarios.
 Queries siempre filtran por tenant. Tests IDOR cross-tenant en M15/M18.
 
 ## Qué no hacemos hoy

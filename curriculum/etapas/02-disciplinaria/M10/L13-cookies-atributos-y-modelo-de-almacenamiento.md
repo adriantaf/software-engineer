@@ -17,7 +17,7 @@ La sesión del dueño del salón vivirá en cookies o en headers. Hoy eliges atr
 
 ## Objetivo
 
-Documentar el modelo de cookie de sesión para Agenda Ops.
+Documentar el modelo de cookie de sesión para Vitrina.
 
 ## Pasos
 
@@ -62,7 +62,7 @@ git commit -m "docs(m10): l13 cookies"
 
 Marca la lección **solo si**:
 
-1. `labs/cookies.md` tabla de atributos con decisión recomendada para sesión Agenda Ops.
+1. `labs/cookies.md` tabla de atributos con decisión recomendada para sesión Vitrina.
 2. Ejemplo `Set-Cookie` redactado (valores ficticios).
 3. Commit `docs(m10): l13 cookies`.
 

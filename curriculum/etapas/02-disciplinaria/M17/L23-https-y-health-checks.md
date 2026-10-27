@@ -46,7 +46,7 @@ curl -sS https://TU-STAGING.example/health
 ### 3. Commit (15 min)
 
 ```bash
-git add projects/m17-agenda-ops/docs/deploy.md
+git add projects/m17-vitrina/docs/deploy.md
 git commit -m "docs(m17): L23 https y health checks"
 ```
 

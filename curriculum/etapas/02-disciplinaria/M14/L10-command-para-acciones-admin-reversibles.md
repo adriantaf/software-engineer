@@ -43,7 +43,7 @@ Guarda estado previo para undo.
 
 Marca la lección **solo si**:
 
-1. Command con `execute`/`undo` para cancelar cita (o cambiar estado).
+1. Command con `execute`/`undo` para cancelar pedido (o cambiar estado).
 2. Test: execute → estado cancelada; undo → restaurada.
 3. Commit `feat(m14): command admin reversible`.
 

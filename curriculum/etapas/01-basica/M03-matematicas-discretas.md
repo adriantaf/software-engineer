@@ -27,7 +27,7 @@ Es el lenguaje de estructuras de datos, bases de datos y algoritmos. Aquí la ha
 
 ## Objetivos de aprendizaje
 
-Al terminar debes poder:
+Al terminar debe poder:
 
 1. Razonar con lógica proposicional y predicados; escribir demostraciones cortas correctas.
 2. Operar con conjuntos, relaciones y funciones (propiedades y contraejemplos).
