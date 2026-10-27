@@ -1,0 +1,8 @@
+{
+  "name": "m06-programacion-ii",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"a\u00f1ade vitest en L01+\""
+  }
+}

@@ -46,6 +46,8 @@ Al terminar debes poder:
 4. No memorices tablas de opcodes: **lee** lo que emite *tu* compilador.
 5. [Cómo estudiar](../../como-estudiar.md).
 
+> **Densidad:** 18 lecciones en 5 semanas (no 20). Es intencional: el cierre es el informe «viaje de un binario» (L17–L18), no dos lecciones extra de relleno.
+
 ## Semana tipo (20 h)
 
 | Bloque | Horas | Qué haces |

@@ -31,6 +31,10 @@ const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'nivel.md': 'nivel',
   'hilos/seguridad.md': 'docs/seguridad',
   'hilos/producto.md': 'docs/producto',
+  'labs/README.md': 'docs/labs',
+  'etapas/01-basica/README.md': 'docs/etapa-basica',
+  'etapas/02-disciplinaria/README.md': 'docs/etapa-disciplinaria',
+  'etapas/03-terminal/README.md': 'docs/etapa-terminal',
 };
 
 const GITHUB_BLOB =
@@ -323,4 +327,90 @@ export function totalStats() {
     horas: cat.materias.reduce((acc, m) => acc + m.horas, 0),
     semanas: cat.materias.reduce((acc, m) => acc + m.semanas, 0),
   };
+}
+
+/** Extrae el bloque «## Hecho cuando» (texto plano, sin el heading). */
+export function extractHechoCuando(markdownBody: string): string {
+  const match = markdownBody.match(/^##\s+Hecho cuando\s*\n([\s\S]*?)(?=^##\s+|\Z)/im);
+  if (!match) return '';
+  return match[1]
+    .replace(/\r\n/g, '\n')
+    .trim()
+    .replace(/\n{3,}/g, '\n\n');
+}
+
+export type RevisionCard = {
+  materiaId: string;
+  materiaTitulo: string;
+  etapaId: string;
+  leccionId: string;
+  titulo: string;
+  horas: number;
+  evidencia: string;
+  hechoCuando: string;
+  href: string;
+};
+
+/** Índice compacto para modo revisión de emergencia (todas las lecciones). */
+export function getRevisionIndex(): RevisionCard[] {
+  const out: RevisionCard[] = [];
+  for (const m of getCatalog().materias) {
+    for (const lec of listLecciones(m.id)) {
+      const raw = fs.readFileSync(lec.filepath, 'utf8');
+      const { content } = matter(raw);
+      out.push({
+        materiaId: m.id,
+        materiaTitulo: m.titulo,
+        etapaId: m.etapa,
+        leccionId: lec.id,
+        titulo: lec.titulo,
+        horas: lec.horas,
+        evidencia: lec.evidencia,
+        hechoCuando: extractHechoCuando(content),
+        href: pathTo(`materia/${m.id}/leccion/${lec.id}`),
+      });
+    }
+  }
+  return out;
+}
+
+/** Suma de horas de lecciones vs horas de plan (catálogo = semanas × ritmo). */
+export function getHorasBreakdown(materiaId: string): {
+  plan: number;
+  lecciones: number;
+  resto: number;
+} {
+  const meta = getMateriaMeta(materiaId);
+  const plan = meta?.horas ?? 0;
+  const lecciones = listLecciones(materiaId).reduce((a, l) => a + (l.horas || 0), 0);
+  return { plan, lecciones, resto: Math.max(0, plan - lecciones) };
+}
+
+export type ExamenSection = {
+  id: string;
+  title: string;
+  html: string;
+};
+
+/** Parte un examen Markdown en secciones H2 para captura interactiva. */
+export function splitExamenSections(html: string): ExamenSection[] {
+  const parts = html.split(/(?=<h2\b[^>]*>)/i).filter((p) => p.trim());
+  const sections: ExamenSection[] = [];
+  let intro = '';
+  for (const part of parts) {
+    const m = part.match(/^<h2\b[^>]*id="([^"]*)"[^>]*>([\s\S]*?)<\/h2>/i);
+    if (!m) {
+      intro += part;
+      continue;
+    }
+    const id = m[1] || `sec-${sections.length + 1}`;
+    const title = m[2].replace(/<[^>]+>/g, '').trim();
+    sections.push({ id, title, html: part });
+  }
+  if (intro.trim() && sections.length) {
+    sections.unshift({ id: 'intro', title: 'Contexto', html: intro });
+  } else if (intro.trim() && !sections.length) {
+    sections.push({ id: 'examen', title: 'Autoevaluación', html: intro });
+  }
+  return sections;
 }

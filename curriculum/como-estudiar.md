@@ -31,6 +31,14 @@ No cuenta como estudio: marcar la lección tras solo leer el Markdown, o pasos g
 
 En la UI: **Buscar** (Pagefind). Indexa fichas, lecciones y guías tras el build. La primera visita online descarga el índice.
 
+## Horas de plan vs horas de lección
+
+En el catálogo, **horas de una materia ≈ semanas × 20**. Eso es el presupuesto semanal completo.
+
+La suma de `horas:` en L01…Ln es solo el **bloque guiado** de cada lección. La diferencia (si existe) es práctica, proyecto, lectura y margen — no un hueco del plan. En la ficha de materia la UI muestra ambos números.
+
+Si necesitas un repaso corto antes de un examen o tras una pausa: usa **Revisión de emergencia** en la academia (criterios «Hecho cuando» + evidencia, cronometrado).
+
 ## Una semana de 20 horas (modelo)
 
 | Bloque | Horas | Qué haces |

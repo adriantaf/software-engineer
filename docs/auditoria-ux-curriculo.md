@@ -1,0 +1,61 @@
+# Auditoría UX/UI y completitud del plan
+
+**Fecha:** 2026-10-27  
+**Alcance:** `curriculum/`, `academia/`, `projects/`, `progress.json`  
+**Informe interactivo:** canvas de auditoría en el run del agente
+
+## Veredicto
+
+| Área | Estado |
+|------|--------|
+| Currículo (lecciones/materias) | Casi completo — 27/27 módulos, 526 lecciones L01…Ln, evidencia + «Hecho cuando» |
+| Revisión de emergencia / cram | No existe en el repo |
+| UX/UI de `academia/` | Débil — shell DaisyUI genérico sin identidad |
+| Evidencia en `projects/` | Mayormente scaffolds (1:1 con materias) |
+
+El contenido lectivo está listo para estudiar. La app web no comunicaba marca ni composición de producto.
+
+## Completitud
+
+- 526 lecciones, 0 stubs, 0 gaps de numeración, 0 sin criterios de evidencia.
+- M27 = 18 lecciones (patrón 4/sem pediría 20) — documentado como intencional.
+- Exámenes de etapa presentes (formativos, breves).
+- Labs: solo índice.
+
+## Remediaciones en este PR
+
+1. Links rotos a `hilos/seguridad.md` (M21/L10, M23/L05).
+2. README de etapa básica actualizado.
+3. Duración disciplinaria alineada a 12–14 meses en `catalog.json`.
+4. Nota en ficha M27 sobre 18 lecciones.
+5. Rediseño «Atelier técnico»: tokens, tipografía, home brand-first, des-cardificar docs, a11y, motion.
+
+## Seguimiento (implementado después)
+
+- Modo **Revisión de emergencia** (`/revision`).
+- Autoevaluaciones con captura local (`examenes` en progreso).
+- Labs + READMEs de etapa en rutas `docs/`.
+- Paridad de horas documentada (plan = semanas×20; L* = bloque guiado).
+
+## Seguimiento 2
+
+- Plantillas `DIA1.md` + stubs L01 en `projects/` (placeholders; la evidencia real la escribe el estudiante).
+- Rúbrica/checklist en autoevaluaciones de etapa.
+- Drawer móvil: un solo control de cierre.
+
+## Auditoría de diseño y motion (pasada 3)
+
+**Veredicto:** home atelier OK; internas aún DaisyUI + casi cero motion.
+
+| Sev | Hallazgo | Remedición en esta pasada |
+|-----|----------|---------------------------|
+| P0 | Hero sin ancla visual real | SVG atelier full-bleed + puente paper |
+| P0 | Lectura en `surface-panel` | Artículo tipográfico |
+| P0 | Progreso = dashboard `stat` | Composición ritmo + check-in |
+| P1 | Sin transiciones de página | Astro View Transitions + tokens |
+| P1 | Pagefind stock | Skin CSS atelier |
+| P2 | Nav sin `aria-current` | Set en Layout |
+
+## Aún fuera de alcance
+
+Reescritura de las 526 lecciones; Pagefind en modo `dev`.

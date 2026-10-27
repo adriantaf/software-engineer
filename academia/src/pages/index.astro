@@ -13,74 +13,88 @@ const stats = totalStats();
 const seed = getProgressSeed();
 ---
 
-<Layout title="Dashboard">
+<Layout title="Inicio" bareMain>
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <div class="flex flex-col gap-6">
-    <section class="hero bg-base-100 rounded-box border border-base-300 overflow-hidden">
-      <div class="hero-content text-center py-8 sm:py-10 px-4 w-full min-w-0">
-        <div class="max-w-2xl w-full min-w-0">
-          <p class="text-sm uppercase tracking-wide opacity-60 mb-2">Plan personal</p>
-          <h1 class="text-2xl sm:text-4xl font-bold break-words leading-tight">{catalog.programa}</h1>
-          <p class="py-4 opacity-80 text-sm sm:text-base break-words">
-            Ritmo meta: <strong>{catalog.ritmoHorasSemana} h/semana</strong>
-            <span class="opacity-50"> · </span>
-            {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas
-          </p>
-          <div class="flex flex-wrap gap-2 justify-center">
-            <a class="btn btn-primary" href={pathTo('materia/M01')}>Empezar M01</a>
-            <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
-            <a class="btn btn-ghost" href={pathTo('progreso')}>Progreso</a>
-          </div>
-        </div>
+  <section class="hero-atelier" aria-label="Portada">
+    <div class="hero-atelier__scene" aria-hidden="true">
+      <img
+        class="hero-atelier__scene-img"
+        src={pathTo('hero-atelier.svg')}
+        width="720"
+        height="480"
+        alt=""
+        decoding="async"
+      />
+    </div>
+    <div class="hero-atelier__inner max-w-6xl mx-auto px-3 sm:px-4 w-full">
+      <p class="hero-atelier__brand">Plan</p>
+      <h1 class="hero-atelier__headline">{catalog.programa}</h1>
+      <p class="hero-atelier__lede">
+        Competencia de software con proyectos útiles, evidencia en git y ritmo de
+        {catalog.ritmoHorasSemana} h/semana — sin atajos de tutorial.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <a class="btn btn-primary" data-home-cta href={pathTo('materia/M01/leccion/L01')}>
+          Empezar M01
+        </a>
+        <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="grid md:grid-cols-3 gap-4 items-stretch" id="etapa-cards">
-      {
-        catalog.etapas.map((etapa) => {
-          const mats = getMateriasByEtapa(etapa.id);
-          const horas = mats.reduce((a, m) => a + m.horas, 0);
-          return (
-            <a href={pathTo(`etapa/${etapa.id}`)} class="card bg-base-100 border border-base-300 hover:border-primary transition-colors h-full min-w-0 overflow-hidden">
-              <div class="card-body min-w-0">
-                <div class="badge badge-outline">Etapa {etapa.orden}</div>
-                <h2 class="card-title text-lg break-words">{etapa.titulo}</h2>
-                <p class="text-sm opacity-80 break-words">{etapa.objetivo}</p>
-                <p class="text-sm break-words">
+  <div class="container mx-auto px-3 sm:px-4 max-w-6xl w-full min-w-0 py-8 sm:py-10 pb-12">
+    <section class="section-atelier" aria-labelledby="etapas-title">
+      <h2 id="etapas-title" class="section-atelier__title">Tres etapas</h2>
+      <p class="section-atelier__lede">
+        {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas a ritmo meta.
+      </p>
+
+      <div id="etapa-list" class="stagger-in">
+        {
+          catalog.etapas.map((etapa) => {
+            const mats = getMateriasByEtapa(etapa.id);
+            const horas = mats.reduce((a, m) => a + m.horas, 0);
+            return (
+              <a href={pathTo(`etapa/${etapa.id}`)} class="etapa-link">
+                <p class="etapa-link__meta">Etapa {etapa.orden}</p>
+                <h3 class="etapa-link__title">{etapa.titulo}</h3>
+                <p class="etapa-link__desc">{etapa.objetivo}</p>
+                <p class="etapa-link__desc mt-2">
                   {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
+                  <span class="opacity-60"> · </span>
+                  <span data-etapa-label={etapa.id}>0% local</span>
                 </p>
                 <progress
-                  class="progress progress-primary w-full"
+                  class="progress progress-primary progress-atelier w-full max-w-xs h-1.5 mt-3"
                   data-etapa={etapa.id}
                   value="0"
                   max="100"
+                  aria-hidden="true"
                 />
-                <p class="text-xs opacity-60" data-etapa-label={etapa.id}>
-                  0% completado (local)
-                </p>
-              </div>
-            </a>
-          );
-        })
-      }
+              </a>
+            );
+          })
+        }
+      </div>
     </section>
 
-    <section class="card bg-base-100 border border-base-300 overflow-hidden">
-      <div class="card-body min-w-0">
-        <h2 class="card-title">Recursos</h2>
-        <p class="text-sm opacity-70 break-words">
-          Aquí priorizamos competencia de software con proyectos útiles. Física, química o cálculo avanzado,
-          si los necesitas, los cursas aparte.
-        </p>
-        <div class="card-actions flex-wrap gap-2">
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/glosario')}>Glosario</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/bibliografia')}>Bibliografía</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/producto-saas')}>Producto SaaS</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('egreso')}>Egreso</a>
-          <a class="btn btn-sm btn-ghost" href={pathTo('docs/index')}>Mapa</a>
-        </div>
-      </div>
+    <section class="section-atelier" aria-labelledby="recursos-title">
+      <h2 id="recursos-title" class="section-atelier__title">Recursos</h2>
+      <p class="section-atelier__lede">
+        Guías del plan. Física, química o cálculo avanzado, si los necesitas, van aparte.
+      </p>
+      <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm list-none p-0 m-0">
+        <li><a class="link link-primary" href={pathTo('docs/glosario')}>Glosario</a></li>
+        <li><a class="link link-primary" href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
+        <li><a class="link link-primary" href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
+        <li><a class="link link-primary" href={pathTo('docs/seguridad')}>Hilo seguridad</a></li>
+        <li><a class="link link-primary" href={pathTo('docs/labs')}>Labs</a></li>
+        <li><a class="link link-primary" href={pathTo('revision')}>Revisión de emergencia</a></li>
+        <li><a class="link link-primary" href={pathTo('egreso')}>Egreso</a></li>
+        <li><a class="link link-primary" href={pathTo('docs/index')}>Mapa</a></li>
+        <li><a class="link link-primary" href={pathTo('progreso')}>Progreso</a></li>
+      </ul>
     </section>
   </div>
 
@@ -92,7 +106,8 @@ const seed = getProgressSeed();
   })} />
 
   <script>
-    import { loadProgress } from '../lib/progress-client';
+    import { loadProgress, resolveContinuePath } from '../lib/progress-client';
+    import { pathTo } from '../lib/paths';
 
     function refresh() {
       const raw = document.getElementById('catalog-lite')?.textContent;
@@ -110,8 +125,27 @@ const seed = getProgressSeed();
         const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
         if (bar) bar.setAttribute('value', String(pct));
         if (label) {
-          label.textContent = `${pct}% completado (${done}/${etapa.materiaIds.length})`;
+          label.textContent = `${pct}% local (${done}/${etapa.materiaIds.length})`;
         }
+      }
+
+      const ids = catalog.etapas.flatMap((e) => e.materiaIds);
+      const lecRaw = document.getElementById('lecciones-catalog')?.textContent;
+      let leccionesByMateria: Record<string, string[]> = {};
+      try {
+        leccionesByMateria = lecRaw ? (JSON.parse(lecRaw) as Record<string, string[]>) : {};
+      } catch {
+        leccionesByMateria = {};
+      }
+      const rel = resolveContinuePath(ids, leccionesByMateria);
+      const cta = document.querySelector<HTMLAnchorElement>('[data-home-cta]');
+      if (cta) {
+        cta.href = pathTo(rel);
+        const mid = rel.split('/')[1] ?? 'M01';
+        const hasProgress = Boolean(
+          progress?.materias && Object.keys(progress.materias).length > 0,
+        );
+        cta.textContent = hasProgress ? `Continuar ${mid}` : 'Empezar M01';
       }
     }
 

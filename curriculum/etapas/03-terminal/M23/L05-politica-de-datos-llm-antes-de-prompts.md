@@ -46,7 +46,7 @@ Completa `projects/m23-ia/politica-datos-llm.md` (≥1 página): prohibidos, per
 
 ### 3. Laboratorio principal (90–120 min)
 
-Enlaza [hilo seguridad](../../hilos/seguridad.md). Commit antes de cualquier script que llame API.
+Enlaza [hilo seguridad](../../../hilos/seguridad.md). Commit antes de cualquier script que llame API.
 
 ### 4. Commit atómico (15 min)
 

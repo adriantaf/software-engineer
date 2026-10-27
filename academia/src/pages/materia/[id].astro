@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCatalog, getEtapa, loadMateria } from '../../lib/curriculum';
+import { getCatalog, getEtapa, getHorasBreakdown, loadMateria } from '../../lib/curriculum';
 import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -18,6 +18,7 @@ const next = catalog.materias[idx + 1];
 const hasLecciones = materia.lecciones.length > 0;
 const firstLeccion = materia.lecciones[0];
 const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
+const horas = getHorasBreakdown(materia.id);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
@@ -30,80 +31,97 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 min-w-0">
-    <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
-      <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
-        <header class="mb-4 pb-4 border-b border-base-300">
-          <div class="flex flex-wrap items-center gap-2 mb-2">
-            <span class="badge badge-primary">{materia.id}</span>
-            <span class="badge badge-outline">{materia.semanas} sem · {materia.horas} h</span>
-            {
-              hasLecciones && (
-                <span class="badge badge-secondary badge-outline">
-                  {materia.lecciones.length} lecciones
+    <article class="article-reading flex-1 min-w-0">
+      <header class="mb-4 pb-4 border-b border-base-300">
+        <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
+          <span>{materia.id}</span>
+          <span aria-hidden="true">·</span>
+          <span>{materia.semanas} sem · {materia.horas} h plan</span>
+          {
+            hasLecciones && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>
+                  {materia.lecciones.length} lecciones · ~{Math.round(horas.lecciones * 10) / 10} h
+                  guiadas
                 </span>
-              )
-            }
+              </>
+            )
+          }
+        </div>
+        {
+          hasLecciones && horas.resto > 0 && (
+            <p class="text-sm opacity-70 m-0 mb-2">
+              Las {materia.horas} h de plan = ~{horas.lecciones} h de lecciones L* + ~{horas.resto} h
+              de práctica/proyecto/lectura fuera del cronómetro de cada L.
+            </p>
+          )
+        }
+        <p class="text-sm opacity-70 m-0">
+          Sigla en azul →
+          <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
+          (primera vez: expansión entre paréntesis).
+        </p>
+      </header>
+
+      {
+        hasLecciones && firstLeccion && (
+          <div role="status" class="callout-atelier text-sm">
+            <p>
+              Empieza por{' '}
+              <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
+                {firstLeccion.id} — {firstLeccion.titulo}
+              </a>
+              . Marca cada lección al cumplir “Hecho cuando”.
+            </p>
           </div>
-          <p class="text-sm opacity-70 m-0">
-            Sigla en azul →
-            <a class="link link-primary" href={pathTo('docs/glosario')}>glosario</a>
-            (primera vez: expansión entre paréntesis).
-          </p>
-        </header>
+        )
+      }
 
-        {
-          hasLecciones && firstLeccion && (
-            <div role="alert" class="alert alert-info mb-5 text-sm">
-              <span>
-                Empieza por{' '}
-                <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
-                  {firstLeccion.id} — {firstLeccion.titulo}
-                </a>
-                . Marca cada lección al cumplir “Hecho cuando”.
-              </span>
-            </div>
-          )
-        }
+      {
+        hasDia1 && (
+          <div role="status" class="callout-atelier text-sm">
+            <p>
+              Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
+            </p>
+          </div>
+        )
+      }
 
-        {
-          hasDia1 && (
-            <div role="alert" class="alert alert-info mb-5 text-sm">
-              <span>
-                Empieza por <strong>Día 1</strong> (2–3 h). Luego temario, lecturas y prácticas.
-              </span>
-            </div>
-          )
-        }
-
-        <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
-      </div>
+      <div class="prose-academia materia-body min-w-0" set:html={materia.bodyHtml} />
     </article>
 
     <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
       {
         hasLecciones && (
-          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="Lecciones">
-            <div class="card-body gap-2 p-4 min-w-0">
-              <h2 class="card-title text-base">Lecciones</h2>
+          <nav class="surface-panel overflow-hidden min-w-0" aria-label="Lecciones">
+            <div class="flex flex-col gap-2 p-4 min-w-0">
+              <h2 class="font-display text-base font-semibold m-0">Lecciones</h2>
               <p class="text-xs opacity-70 m-0">Marca al terminar cada una.</p>
               <div class="max-h-80 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-1">
                 {materia.lecciones.map((l) => (
-                  <label class="checklist-item cursor-pointer items-start gap-2 py-1.5">
+                  <div class="lesson-toc-row">
                     <input
+                      id={`mat-chk-${materia.id}-${l.id}`}
                       type="checkbox"
                       class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
                       data-leccion={l.id}
                       data-materia={materia.id}
                     />
-                    <a
-                      class="label-text text-sm leading-snug link link-hover min-w-0"
-                      href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
-                    >
-                      <span class="font-mono text-xs opacity-70">{l.id}</span>
-                      {' '}
-                      {l.titulo}
-                    </a>
-                  </label>
+                    <div class="min-w-0 flex-1">
+                      <label class="sr-only" for={`mat-chk-${materia.id}-${l.id}`}>
+                        {`Marcar ${l.id} hecha`}
+                      </label>
+                      <a
+                        class="text-sm leading-snug link link-hover min-w-0 block"
+                        href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                      >
+                        <span class="font-mono text-xs opacity-70">{l.id}</span>
+                        {' '}
+                        {l.titulo}
+                      </a>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -113,9 +131,9 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 
       {
         materia.toc.length > 0 && (
-          <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="En esta ficha">
-            <div class="card-body gap-2 p-4 min-w-0">
-              <h2 class="card-title text-base">En esta ficha</h2>
+          <nav class="surface-panel overflow-hidden min-w-0" aria-label="En esta ficha">
+            <div class="flex flex-col gap-2 p-4 min-w-0">
+              <h2 class="font-display text-base font-semibold m-0">En esta ficha</h2>
               <div class="max-h-64 overflow-y-auto overflow-x-hidden min-w-0 pr-1">
                 <ul class="flex flex-col gap-0.5 m-0 p-0 list-none">
                   {materia.toc.map((item) => (
@@ -138,9 +156,9 @@ const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
         )
       }
 
-      <div class="card bg-base-100 border border-base-300 overflow-hidden min-w-0">
-        <div class="card-body gap-3 p-4 min-w-0">
-          <h2 class="card-title text-base">Tu progreso</h2>
+      <div class="surface-panel overflow-hidden min-w-0">
+        <div class="flex flex-col gap-3 p-4 min-w-0">
+          <h2 class="font-display text-base font-semibold m-0">Tu progreso</h2>
           <p class="text-xs opacity-70 m-0">
             Se guarda en este navegador. Exporta desde Progreso.
           </p>

@@ -42,7 +42,7 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
   </div>
 
   <div
-    class="mb-4 rounded-box border border-base-300 bg-base-100 px-3 py-2 sm:px-4"
+    class="mb-4 surface-panel px-3 py-2 sm:px-4"
     data-lesson-progress
     data-materia={materia.id}
     data-total={all.length}
@@ -60,7 +60,7 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
     </div>
     <progress
       id="lp-bar"
-      class="progress progress-primary w-full h-2"
+      class="progress progress-primary progress-atelier w-full h-2"
       value={pctStatic}
       max="100"
       aria-label="Progreso de posición en la materia"
@@ -68,20 +68,27 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
   </div>
 
   <div class="flex flex-col lg:flex-row gap-6 min-w-0 pb-24 lg:pb-0">
-    <article class="card bg-base-100 border border-base-300 flex-1 min-w-0 overflow-hidden">
-      <div class="card-body p-4 sm:p-6 md:p-8 min-w-0">
+    <article class="article-reading flex-1 min-w-0">
+      <div class="min-w-0">
         <header class="mb-4 pb-4 border-b border-base-300">
-          <div class="flex flex-wrap items-center gap-2 mb-2">
-            <span class="badge badge-primary">{materia.id}</span>
-            <span class="badge badge-secondary">{leccion.id}</span>
+          <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
+            <span>{materia.id}</span>
+            <span aria-hidden="true">·</span>
+            <span>{leccion.id}</span>
             {
               leccion.semana > 0 && (
-                <span class="badge badge-outline">Semana {leccion.semana}</span>
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>Semana {leccion.semana}</span>
+                </>
               )
             }
             {
               leccion.horas > 0 && (
-                <span class="badge badge-outline">~{leccion.horas} h</span>
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span>~{leccion.horas} h</span>
+                </>
               )
             }
           </div>
@@ -141,30 +148,37 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
     </article>
 
     <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
-      <nav class="card bg-base-100 border border-base-300 overflow-hidden min-w-0" aria-label="Lecciones">
-        <div class="card-body gap-2 p-4 min-w-0">
-          <h2 class="card-title text-base">Lecciones · {materia.id}</h2>
+      <nav class="surface-panel overflow-hidden min-w-0" aria-label="Lecciones">
+        <div class="flex flex-col gap-2 p-4 min-w-0">
+          <h2 class="font-display text-base font-semibold m-0">Lecciones · {materia.id}</h2>
           <div class="max-h-96 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-0.5">
             {
               all.map((l) => (
-                <div class="flex items-start gap-2 py-1 min-w-0">
+                <div class="lesson-toc-row">
                   <input
+                    id={`chk-${materia.id}-${l.id}`}
                     type="checkbox"
                     class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
                     data-leccion={l.id}
                     data-materia={materia.id}
                   />
-                  <a
-                    class:list={[
-                      'text-sm leading-snug link link-hover min-w-0',
-                      l.id === leccion.id && 'font-semibold text-primary',
-                    ]}
-                    href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
-                  >
-                    <span class="font-mono text-xs opacity-70">{l.id}</span>
-                    {' '}
-                    {l.titulo}
-                  </a>
+                  <div class="min-w-0 flex-1">
+                    <label class="sr-only" for={`chk-${materia.id}-${l.id}`}>
+                      {`Marcar ${l.id} hecha`}
+                    </label>
+                    <a
+                      class:list={[
+                        'text-sm leading-snug link link-hover min-w-0 block',
+                        l.id === leccion.id && 'font-semibold text-primary',
+                      ]}
+                      href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                      aria-describedby={`chk-${materia.id}-${l.id}`}
+                    >
+                      <span class="font-mono text-xs opacity-70">{l.id}</span>
+                      {' '}
+                      {l.titulo}
+                    </a>
+                  </div>
                 </div>
               ))
             }
@@ -174,21 +188,19 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
 
       {
         (leccion.lectura || leccion.evidencia) && (
-          <div class="card bg-base-100 border border-base-300 overflow-hidden min-w-0">
-            <div class="card-body gap-2 p-4 text-sm min-w-0">
-              <h2 class="card-title text-base">Recordatorio</h2>
-              {leccion.lectura && (
-                <p class="m-0">
-                  <span class="font-semibold">Lectura:</span> {leccion.lectura}
-                </p>
-              )}
-              {leccion.evidencia && (
-                <p class="m-0">
-                  <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
-                </p>
-              )}
-            </div>
-          </div>
+          <aside class="callout-atelier text-sm min-w-0" aria-label="Recordatorio">
+            <p class="font-display font-semibold m-0 mb-2">Recordatorio</p>
+            {leccion.lectura && (
+              <p class="m-0 mb-1">
+                <span class="font-semibold">Lectura:</span> {leccion.lectura}
+              </p>
+            )}
+            {leccion.evidencia && (
+              <p class="m-0">
+                <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
+              </p>
+            )}
+          </aside>
         )
       }
     </aside>

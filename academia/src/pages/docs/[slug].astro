@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { loadMarkdownPage } from '../../lib/curriculum';
+import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
   return [
@@ -13,6 +14,13 @@ export function getStaticPaths() {
     { params: { slug: 'instalar-iphone' }, props: { file: 'instalar-iphone.md' } },
     { params: { slug: 'seguridad' }, props: { file: 'hilos/seguridad.md' } },
     { params: { slug: 'producto' }, props: { file: 'hilos/producto.md' } },
+    { params: { slug: 'labs' }, props: { file: 'labs/README.md' } },
+    { params: { slug: 'etapa-basica' }, props: { file: 'etapas/01-basica/README.md' } },
+    {
+      params: { slug: 'etapa-disciplinaria' },
+      props: { file: 'etapas/02-disciplinaria/README.md' },
+    },
+    { params: { slug: 'etapa-terminal' }, props: { file: 'etapas/03-terminal/README.md' } },
   ];
 }
 
@@ -21,7 +29,13 @@ const page = loadMarkdownPage(file);
 ---
 
 <Layout title={page.title}>
-  <article class="card bg-base-100 border border-base-300 overflow-hidden">
-    <div class="card-body p-4 sm:p-6 min-w-0 prose-academia" set:html={page.html} />
-  </article>
+  <div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto">
+    <ul class="flex-wrap">
+      <li><a href={pathTo()}>Inicio</a></li>
+      <li>Guías</li>
+      <li>{page.title}</li>
+    </ul>
+  </div>
+  <article class="article-atelier prose-academia" set:html={page.html} />
 </Layout>
+

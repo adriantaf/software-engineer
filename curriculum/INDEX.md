@@ -45,6 +45,8 @@ Ver también:
 - [Niveles y criterios](nivel.md)
 - [Rúbrica de egreso](egreso.md)
 
+En la academia: **Revisión de emergencia** (cram de criterios «Hecho cuando») y autoevaluaciones con notas locales.
+
 ## Reglas de oro
 
 1. **No saltes proyectos.** La práctica y el proyecto cierran la materia.

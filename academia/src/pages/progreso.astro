@@ -11,49 +11,42 @@ const today = new Date().toISOString().slice(0, 10);
 <Layout title="Progreso">
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <h1 class="text-2xl sm:text-3xl font-bold mb-2 break-words">Progreso</h1>
-  <p class="mb-6 opacity-80 text-sm sm:text-base break-words">
-    Ritmo semanal + avance por materia. El estado vive en <code>localStorage</code>; copia el JSON a
-    <code>progress.json</code> y haz commit semanal.
-  </p>
+  <header class="mb-8 max-w-3xl">
+    <h1 class="page-title">Progreso</h1>
+    <p class="m-0 opacity-80 text-sm sm:text-base break-words">
+      Ritmo semanal y avance por materia. Vive en <code>localStorage</code>; exporta a
+      <code>progress.json</code> y haz commit semanal.
+    </p>
+    <p class="m-0 mt-4 text-sm leading-relaxed" id="ritmo-line">
+      <span class="font-display text-lg font-semibold" id="stat-done">0</span>
+      <span class="opacity-70"> / {catalog.materias.length} materias completadas</span>
+      <span class="opacity-40"> · </span>
+      <span id="stat-doing">0</span>
+      <span class="opacity-70"> en curso</span>
+      <span class="opacity-40"> · </span>
+      actual <span class="font-semibold" id="stat-current">—</span>
+      <span class="opacity-40"> · </span>
+      meta
+      <label class="inline-flex items-center gap-1 ml-1">
+        <input
+          id="input-meta-horas"
+          type="number"
+          min="1"
+          max="80"
+          class="input input-bordered input-xs w-14"
+          value={catalog.ritmoHorasSemana}
+          aria-label="Meta semanal en horas"
+        />
+        <span class="opacity-70">h/sem (<span id="stat-meta">{catalog.ritmoHorasSemana}</span>)</span>
+      </label>
+    </p>
+  </header>
 
-  <div class="grid sm:grid-cols-3 gap-4 mb-6">
-    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
-      <div class="stat-title">Completadas</div>
-      <div class="stat-value text-primary text-3xl sm:text-4xl" id="stat-done">0</div>
-      <div class="stat-desc">de {catalog.materias.length} materias</div>
-    </div>
-    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
-      <div class="stat-title">En curso</div>
-      <div class="stat-value text-warning text-3xl sm:text-4xl" id="stat-doing">0</div>
-      <div class="stat-desc truncate">materia actual: <span id="stat-current">—</span></div>
-    </div>
-    <div class="stat bg-base-100 border border-base-300 rounded-box min-w-0 overflow-hidden py-3">
-      <div class="stat-title">Meta semanal</div>
-      <div class="stat-value text-secondary text-3xl sm:text-4xl">
-        <span id="stat-meta">{catalog.ritmoHorasSemana}</span>h
-      </div>
-      <div class="stat-desc flex flex-wrap items-center gap-2 mt-1">
-        <label class="flex items-center gap-1 text-xs">
-          Ajustar
-          <input
-            id="input-meta-horas"
-            type="number"
-            min="1"
-            max="80"
-            class="input input-bordered input-xs w-16"
-            value={catalog.ritmoHorasSemana}
-          />
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <section class="card bg-base-100 border border-base-300 mb-6 overflow-hidden" aria-labelledby="checkin-title">
-    <div class="card-body min-w-0 p-4 sm:p-6 gap-4">
+  <section class="surface-panel mb-6 overflow-hidden max-w-3xl" aria-labelledby="checkin-title">
+    <div class="flex flex-col gap-4 min-w-0 p-4 sm:p-6">
       <div>
-        <h2 id="checkin-title" class="card-title text-lg sm:text-xl">Check-in semanal</h2>
-        <p class="text-sm opacity-70 m-0">
+        <h2 id="checkin-title" class="font-display text-xl font-semibold m-0">Check-in semanal</h2>
+        <p class="text-sm opacity-70 m-0 mt-1">
           ~5 min. Una entrada por fecha; si ya hiciste check-in hoy, se actualiza.
         </p>
       </div>
@@ -121,21 +114,21 @@ const today = new Date().toISOString().slice(0, 10);
       </form>
 
       <div>
-        <h3 class="font-semibold text-sm mb-2">Últimos check-ins</h3>
-        <ul id="checkin-list" class="space-y-2 text-sm"></ul>
+        <h3 class="font-display font-semibold text-sm mb-2 m-0">Últimos check-ins</h3>
+        <ul id="checkin-list" class="space-y-2 text-sm list-none p-0 m-0"></ul>
         <p id="checkin-empty" class="text-sm opacity-60 m-0">Aún no hay check-ins. El primero cuenta.</p>
       </div>
     </div>
   </section>
 
-  <div class="card bg-base-100 border border-base-300 mb-6 overflow-hidden">
-    <div class="card-body min-w-0 p-4 sm:p-6">
-      <h2 class="card-title">Exportar / importar</h2>
+  <div class="surface-panel mb-6 overflow-hidden max-w-3xl">
+    <div class="flex flex-col gap-3 min-w-0 p-4 sm:p-6">
+      <h2 class="font-display text-lg font-semibold m-0">Exportar / importar</h2>
       <p class="text-sm opacity-70 m-0 mb-2">
-        Incluye check-ins. Pega en <code>progress.json</code> y haz commit semanal.
+        Incluye check-ins y rúbricas de examen. Pega en <code>progress.json</code>.
       </p>
       <textarea id="export-box" class="textarea textarea-bordered font-mono text-xs h-48 w-full max-w-full min-w-0 overflow-x-auto"></textarea>
-      <div class="card-actions justify-end flex-wrap">
+      <div class="flex flex-wrap justify-end gap-2">
         <button class="btn btn-outline btn-sm sm:btn-md" id="btn-refresh" type="button">Refrescar</button>
         <button class="btn btn-outline btn-sm sm:btn-md" id="btn-copy" type="button">Copiar</button>
         <button class="btn btn-primary btn-sm sm:btn-md" id="btn-import" type="button">Importar JSON</button>
@@ -144,7 +137,7 @@ const today = new Date().toISOString().slice(0, 10);
   </div>
 
   <section class="mb-6" aria-labelledby="examenes-title">
-    <h2 id="examenes-title" class="text-lg font-semibold mb-2">Autoevaluaciones de etapa</h2>
+    <h2 id="examenes-title" class="font-display text-lg font-semibold mb-2">Autoevaluaciones de etapa</h2>
     <div class="flex flex-wrap gap-2">
       {
         catalog.etapas.map((e) => (
@@ -156,7 +149,7 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
   </section>
 
-  <div class="overflow-x-auto max-w-full rounded-box border border-base-300 bg-base-100">
+  <div class="overflow-x-auto max-w-full surface-panel">
     <table class="table table-sm sm:table-md">
       <thead>
         <tr>
@@ -179,7 +172,7 @@ const today = new Date().toISOString().slice(0, 10);
                 </a>
               </td>
               <td>{m.etapa}</td>
-              <td><span class="badge whitespace-nowrap" data-row-status={m.id}>—</span></td>
+              <td><span class="status-chip status-chip--muted whitespace-nowrap" data-row-status={m.id}>—</span></td>
             </tr>
           ))
         }
@@ -201,10 +194,10 @@ const today = new Date().toISOString().slice(0, 10);
     initProgressFromSeed();
 
     const map: Record<string, string> = {
-      completada: 'badge-success',
-      en_curso: 'badge-warning',
-      disponible: 'badge-info',
-      bloqueada: 'badge-ghost',
+      completada: 'status-chip status-chip--ok',
+      en_curso: 'status-chip status-chip--warn',
+      disponible: 'status-chip status-chip--info',
+      bloqueada: 'status-chip status-chip--muted',
     };
 
     function escapeHtml(s: string) {
@@ -227,11 +220,11 @@ const today = new Date().toISOString().slice(0, 10);
       empty.classList.add('hidden');
       for (const c of list.slice(0, 8)) {
         const li = document.createElement('li');
-        li.className = 'border border-base-300 rounded-box p-3 bg-base-200/40';
+        li.className = 'border-b border-base-300 py-3';
         li.innerHTML = `
           <div class="flex flex-wrap gap-2 items-baseline mb-1">
             <span class="font-mono text-xs opacity-70">${escapeHtml(c.fecha)}</span>
-            <span class="badge badge-sm badge-secondary">${c.horas}h</span>
+            <span class="status-chip status-chip--info">${c.horas}h</span>
           </div>
           <p class="m-0"><span class="font-medium">Hecho:</span> ${escapeHtml(c.hecho)}</p>
           <p class="m-0"><span class="font-medium">Bloqueo:</span> ${escapeHtml(c.bloqueo)}</p>
@@ -265,7 +258,7 @@ const today = new Date().toISOString().slice(0, 10);
       document.querySelectorAll('[data-row-status]').forEach((el) => {
         const id = el.getAttribute('data-row-status')!;
         const status = p?.materias?.[id]?.status ?? 'disponible';
-        el.className = `badge ${map[status] ?? 'badge-ghost'}`;
+        el.className = `${map[status] ?? 'status-chip status-chip--muted'} whitespace-nowrap`;
         el.textContent = status.replace('_', ' ');
       });
     }

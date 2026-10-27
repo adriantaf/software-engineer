@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none" aria-hidden="true">
+  <!-- Figurative atelier: desk + monitor + notebook (technical ink drawing) -->
+  <g opacity="0.55" stroke="#22D3EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- desk surface -->
+    <path d="M80 560 H1120" opacity="0.7"/>
+    <path d="M120 560 L160 720 H1040 L1080 560" opacity="0.35"/>
+    <!-- monitor -->
+    <rect x="420" y="220" width="360" height="240" rx="8" opacity="0.9"/>
+    <rect x="440" y="240" width="320" height="180" rx="2" fill="#0F172A" stroke="#67E8F9" opacity="0.85"/>
+    <!-- code lines on screen -->
+    <g stroke="#67E8F9" stroke-width="2" opacity="0.55">
+      <path d="M470 275 H620"/>
+      <path d="M470 300 H700"/>
+      <path d="M490 325 H640"/>
+      <path d="M470 350 H580"/>
+      <path d="M490 375 H720"/>
+      <path d="M470 400 H650"/>
+    </g>
+    <!-- monitor stand -->
+    <path d="M580 460 V520"/>
+    <path d="M520 520 H680"/>
+    <!-- keyboard -->
+    <rect x="480" y="540" width="240" height="28" rx="4" opacity="0.7"/>
+    <!-- notebook -->
+    <rect x="160" y="480" width="180" height="120" rx="3" transform="rotate(-6 160 480)" opacity="0.75"/>
+    <path d="M190 500 L310 488" opacity="0.45" transform="rotate(-6 160 480)"/>
+    <path d="M195 520 L300 510" opacity="0.45"/>
+    <path d="M200 540 L290 532" opacity="0.45"/>
+    <!-- mug -->
+    <path d="M920 500 V560 H970 V500" opacity="0.65"/>
+    <path d="M970 515 H995 V545 H970" opacity="0.5"/>
+    <!-- plant / lamp hint -->
+    <path d="M200 420 Q220 360 240 420" opacity="0.4"/>
+    <path d="M220 420 V480" opacity="0.35"/>
+  </g>
+  <!-- soft vignette shapes -->
+  <circle cx="980" cy="180" r="160" fill="#22D3EE" opacity="0.06"/>
+  <circle cx="180" cy="640" r="120" fill="#0891B2" opacity="0.07"/>
+</svg>
