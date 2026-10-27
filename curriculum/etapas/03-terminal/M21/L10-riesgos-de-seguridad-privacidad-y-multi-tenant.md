@@ -50,7 +50,7 @@ Para cada uno: **cómo sabrías que ocurrió** y **evidencia de mitigación** (t
 
 ### 4. Endurece el entregable (40–60 min)
 
-Cross-ref [hilo seguridad](../../hilos/seguridad.md) y issues M18 si existen.
+Cross-ref [hilo seguridad](../../../hilos/seguridad.md) y issues M18 si existen.
 
 ### 5. Commit atómico (15 min)
 

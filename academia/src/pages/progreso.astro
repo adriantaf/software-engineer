@@ -49,7 +49,7 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
   </div>
 
-  <section class="card bg-base-100 border border-base-300 mb-6 overflow-hidden" aria-labelledby="checkin-title">
+  <section class="surface-panel mb-6 overflow-hidden" aria-labelledby="checkin-title">
     <div class="card-body min-w-0 p-4 sm:p-6 gap-4">
       <div>
         <h2 id="checkin-title" class="card-title text-lg sm:text-xl">Check-in semanal</h2>
@@ -128,9 +128,9 @@ const today = new Date().toISOString().slice(0, 10);
     </div>
   </section>
 
-  <div class="card bg-base-100 border border-base-300 mb-6 overflow-hidden">
-    <div class="card-body min-w-0 p-4 sm:p-6">
-      <h2 class="card-title">Exportar / importar</h2>
+  <div class="surface-panel mb-6 overflow-hidden">
+    <div class="flex flex-col gap-3 min-w-0 p-4 sm:p-6">
+      <h2 class="font-display text-lg font-semibold m-0">Exportar / importar</h2>
       <p class="text-sm opacity-70 m-0 mb-2">
         Incluye check-ins. Pega en <code>progress.json</code> y haz commit semanal.
       </p>
