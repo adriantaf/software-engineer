@@ -13,7 +13,7 @@ interface Props {
 const { programa, ritmoHoras, materias, horas, semanas, continuarHref } = Astro.props;
 ---
 
-<section class="home-hero">
+<section class="home-hero" aria-label="Portada">
   <div class="plan-shell relative z-[1] py-12 sm:py-16 lg:py-20">
     <p class="font-display text-sm sm:text-base font-semibold tracking-[0.2em] uppercase text-teal-200/90 m-0 mb-3">
       Atelier
@@ -27,7 +27,9 @@ const { programa, ritmoHoras, materias, horas, semanas, continuarHref } = Astro.
       {materias} materias · ~{horas} h · ~{semanas} semanas
     </p>
     <div class="flex flex-wrap gap-3 mt-8">
-      <a class="plan-btn-cta" data-continuar data-continuar-keep-label href={continuarHref}>Continuar aprendiendo</a>
+      <a class="plan-btn-cta" data-continuar data-continuar-keep-label href={continuarHref}
+        >Continuar aprendiendo</a
+      >
       <a class="plan-btn-ghost" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
     </div>
   </div>
