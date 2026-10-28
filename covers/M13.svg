@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M13">
+  <defs>
+    <linearGradient id="bg-M13" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <pattern id="grid-M13" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M13)"/>
+  <rect width="640" height="360" fill="url(#grid-M13)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <rect x="240" y="130" width="80" height="55" rx="6" fill="none" stroke="#fff" stroke-width="3" opacity="0.9"/>
+      <rect x="320" y="130" width="80" height="55" rx="6" fill="none" stroke="#fff" stroke-width="3" opacity="0.7"/>
+      <rect x="280" y="210" width="80" height="55" rx="6" fill="none" stroke="#fff" stroke-width="3" opacity="0.85"/>
+      <path d="M280 158h40M360 158h-40M320 185v25" stroke="#fff" stroke-width="2" opacity="0.5"/>
+</svg>

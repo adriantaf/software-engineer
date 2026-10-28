@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="es" data-theme="light" style="color-scheme: light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="description" content="Atelier: plan personal de ingeniería de software"><meta name="theme-color" content="#0f172a"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Atelier"><meta name="mobile-web-app-capable" content="yes"><title>M13 Análisis y diseño de software · Atelier</title><link rel="icon" type="image/svg+xml" href="/software-engineer/favicon.svg"><link rel="apple-touch-icon" href="/software-engineer/icons/apple-touch-icon.png"><link rel="manifest" href="/software-engineer/manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Sora:wght@500;600;700&display=swap" rel="stylesheet"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/software-engineer/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><script type="module" src="/software-engineer/_astro/Layout.astro_astro_type_script_index_0_lang.D155f-7x.js"></script><link rel="stylesheet" href="/software-engineer/_astro/Layout.CbJeQnXp.css"><style>[data-astro-transition-scope="astro-yztbsuuz-1"] { view-transition-name: brand; }@layer astro { ::view-transition-old(brand) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(brand) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(brand) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(brand) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-yztbsuuz-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-yztbsuuz-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-yztbsuuz-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-yztbsuuz-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-yztbsuuz-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-yztbsuuz-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-yztbsuuz-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-yztbsuuz-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body class="min-h-screen"><a class="skip-link" href="#contenido">Saltar al contenido</a><header class="sticky top-0 z-[60] site-header" id="site-header"><div class="site-header__bar"><div class="site-header__lead"><button type="button" id="nav-drawer-toggle" class="nav-toggle lg:hidden" aria-label="Abrir menú" aria-controls="nav-drawer" aria-expanded="false"><span class="nav-toggle__icons" aria-hidden="true"><svg id="nav-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-toggle__icon"><path stroke-linecap="round" d="M5 7h14M5 12h14M5 17h14"></path></svg><svg id="nav-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="nav-toggle__icon nav-toggle__icon--close hidden"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path></svg></span></button><a data-astro-transition-scope="astro-yztbsuuz-1" class="brand-mark" href="/software-engineer/" aria-label="Atelier — Ingeniería de Software — Inicio"><img class="brand-mark__glyph" src="/software-engineer/favicon.svg" width="28" height="28" alt=""><span class="brand-mark__text">Atelier</span></a></div><nav class="site-header__nav hidden lg:flex" aria-label="Principal"><ul class="site-header__links"><li><a class="nav-link" href="/software-engineer/etapa/basica">Básica</a></li><li><a class="nav-link" href="/software-engineer/etapa/disciplinaria">Disciplinaria</a></li><li><a class="nav-link" href="/software-engineer/etapa/terminal">Terminal</a></li><li><div class="dropdown dropdown-end"><div tabindex="0" role="button" class="nav-link nav-link--menu">Guías</div><ul tabindex="0" class="menu menu-sm dropdown-content guides-menu z-50 mt-2 w-56 p-2"><li><a href="/software-engineer/docs/como-estudiar">Cómo estudiar</a></li><li><a href="/software-engineer/docs/sincronizar-progreso">Sincronizar progreso</a></li><li><a href="/software-engineer/docs/instalar-iphone">Instalar en iPhone</a></li><li><a href="/software-engineer/docs/glosario">Glosario</a></li><li><a href="/software-engineer/docs/bibliografia">Bibliografía</a></li><li><a href="/software-engineer/docs/producto-saas">Producto SaaS</a></li><li><a href="/software-engineer/docs/producto">Hilo producto</a></li><li><a href="/software-engineer/docs/seguridad">Hilo seguridad</a></li><li><a href="/software-engineer/docs/labs">Labs</a></li><li><a href="/software-engineer/docs/filosofia">Filosofía</a></li><li><a href="/software-engineer/egreso">Egreso</a></li><li><a href="/software-engineer/nivel">Nivel</a></li><li><a href="/software-engineer/docs/index">Mapa curricular</a></li><li><a href="/software-engineer/revision">Repaso cronometrado</a></li><li class="menu-title"><span>Autoevaluación</span></li><li><a href="/software-engineer/etapa/basica/examen">Examen Básica</a></li><li><a href="/software-engineer/etapa/disciplinaria/examen">Examen Disciplinaria</a></li><li><a href="/software-engineer/etapa/terminal/examen">Examen Terminal</a></li></ul></div></li><li><a class="nav-link" href="/software-engineer/progreso">Progreso</a></li><li><a class="nav-link" href="/software-engineer/buscar">Buscar</a></li></ul></nav><div class="site-header__actions"><div id="auth-sync" class="site-header__auth hidden sm:flex"><button type="button" id="auth-google-btn" class="nav-link nav-link--ghost" hidden title="Iniciar sesión con Google para sincronizar el progreso">Entrar</button><a id="auth-account-btn" class="nav-link nav-link--account" href="/software-engineer/perfil" hidden title="Ver perfil"><img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden><span id="auth-sync-label" class="truncate">Perfil</span></a></div><a class="btn btn-primary btn-sm site-header__cta" data-continuar href="/software-engineer/materia/M01/leccion/L01" title="Siguiente lección incompleta">Continuar</a></div></div></header><div id="auth-toast" class="fixed top-[4.5rem] inset-x-0 z-[70] px-3" hidden role="alert"><div class="max-w-lg mx-auto surface-panel flex items-start gap-2 p-3 text-sm"><p id="auth-toast-msg" class="m-0 flex-1 min-w-0"></p><button type="button" id="auth-toast-close" class="btn btn-ghost btn-xs" aria-label="Cerrar">✕</button></div></div><div id="nav-backdrop" class="nav-backdrop lg:hidden" hidden aria-hidden="true"></div><nav id="nav-drawer" class="nav-drawer lg:hidden" aria-label="Menú móvil" aria-hidden="true" hidden><div class="nav-drawer__inner"><div class="nav-drawer__head"><p class="nav-drawer__title">Menú</p><span class="nav-drawer__hint">Esc para cerrar</span></div><div class="nav-drawer__scroll"><p class="nav-drawer__label">Cuenta</p><ul class="nav-drawer__list"><li><button type="button" id="auth-google-btn-drawer" class="nav-drawer__list-btn" hidden>Iniciar sesión con Google</button></li><li><a id="auth-perfil-drawer" href="/software-engineer/perfil" class="nav-drawer__list-btn" hidden>Mi perfil</a></li><li><button type="button" id="auth-signout-drawer" class="nav-drawer__list-btn" hidden>Cerrar sesión</button></li></ul><p class="nav-drawer__label">Estudiar</p><ul class="nav-drawer__list"><li><a href="/software-engineer/">Inicio</a></li><li><a href="/software-engineer/etapa/basica">Básica</a></li><li><a href="/software-engineer/etapa/disciplinaria">Disciplinaria</a></li><li><a href="/software-engineer/etapa/terminal">Terminal</a></li><li><a href="/software-engineer/progreso">Progreso</a></li><li><a href="/software-engineer/buscar">Buscar</a></li></ul><details class="nav-drawer__details"><summary class="nav-drawer__summary">Guías</summary><ul class="nav-drawer__list nav-drawer__list--nested"><li><a href="/software-engineer/docs/como-estudiar">Cómo estudiar</a></li><li><a href="/software-engineer/docs/sincronizar-progreso">Sincronizar progreso</a></li><li><a href="/software-engineer/docs/instalar-iphone">Instalar en iPhone</a></li><li><a href="/software-engineer/docs/glosario">Glosario</a></li><li><a href="/software-engineer/docs/bibliografia">Bibliografía</a></li><li><a href="/software-engineer/docs/producto-saas">Producto SaaS</a></li><li><a href="/software-engineer/docs/producto">Hilo producto</a></li><li><a href="/software-engineer/docs/seguridad">Hilo seguridad</a></li><li><a href="/software-engineer/docs/labs">Labs</a></li><li><a href="/software-engineer/docs/filosofia">Filosofía</a></li><li><a href="/software-engineer/egreso">Egreso</a></li><li><a href="/software-engineer/nivel">Nivel</a></li><li><a href="/software-engineer/docs/index">Mapa curricular</a></li><li><a href="/software-engineer/revision">Repaso cronometrado</a></li></ul></details><p class="nav-drawer__label">Autoevaluación</p><ul class="nav-drawer__list"><li><a href="/software-engineer/etapa/basica/examen">Examen Básica</a></li><li><a href="/software-engineer/etapa/disciplinaria/examen">Examen Disciplinaria</a></li><li><a href="/software-engineer/etapa/terminal/examen">Examen Terminal</a></li></ul></div></div></nav><div id="pwa-update" class="fixed bottom-0 inset-x-0 z-50 border-t border-base-300 bg-base-100 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]" hidden role="status"><div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-2"><p class="text-sm m-0">Hay una versión nueva del plan (contenido o UI).</p><button id="pwa-update-btn" type="button" class="btn btn-primary btn-sm">Actualizar</button></div></div><main id="contenido" class="page-enter container mx-auto px-3 sm:px-4 py-6 sm:py-8 max-w-6xl w-full min-w-0" data-pagefind-body tabindex="-1"><div class="breadcrumbs text-sm mb-4 max-w-full overflow-x-auto"><ul class="flex-wrap"><li><a href="/software-engineer/">Inicio</a></li><li><a href="/software-engineer/etapa/disciplinaria">Ingeniería aplicada</a></li><li>M13</li></ul></div><div class="flex flex-col lg:flex-row gap-6 min-w-0"><article class="article-reading flex-1 min-w-0"><div class="materia-cover materia-cover--hero" style="--media-from: #0369a1; --media-to: #0c4a6e" data-materia-cover="M13"><img class="materia-cover__img" src="/software-engineer/covers/M13.svg" alt="" loading="lazy" decoding="async" width="640" height="360"></div><script type="module">document.querySelectorAll(`.materia-cover__img`).forEach(e=>{e.addEventListener(`error`,()=>{e.hidden=!0,e.closest(`.materia-cover`)?.classList.add(`materia-cover--fallback`)})});</script><header class="mb-4 pb-4 border-b border-base-300"><div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70"><span>M13</span><span aria-hidden="true">·</span><span>5 sem · 100 h plan</span><span aria-hidden="true">·</span><span>20 lecciones · ~100 h guiadas</span></div><p class="text-sm opacity-70 m-0">Sigla en azul →<a class="link link-primary" href="/software-engineer/docs/glosario">glosario</a>(primera vez: expansión entre paréntesis).</p></header><div role="status" class="callout-atelier text-sm"><p>Empieza por <a class="link font-semibold" href="/software-engineer/materia/M13/leccion/L01">L01 — Trust boundaries y ADR 001</a>. Marca cada lección al cumplir “Hecho cuando”.</p></div><div class="prose-academia materia-body min-w-0"><h1>M13 — Análisis y diseño de software</h1>
+<h2 id="por-que-existe">Por qué existe</h2>
+<p>El <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> <span class="glossary-expand">(especificación de requisitos de software)</span> de Vitrina (M12) describe <em>qué</em>; esta materia define <em>cómo</em> lo estructuras para que M17 no sea un monolito caótico. Marcar <strong>trust boundaries</strong> (navegador, <a class="glossary-term" href="/software-engineer/docs/glosario#api" title="API: interfaz de programación de aplicaciones">API</a> <span class="glossary-expand">(interfaz de programación de aplicaciones)</span>, base de datos) evita confiar en el cliente <a class="glossary-term" href="/software-engineer/docs/glosario#http" title="HTTP: protocolo de transferencia de hipertexto">HTTP</a> <span class="glossary-expand">(protocolo de transferencia de hipertexto)</span> para autorización (<a href="/software-engineer/docs/seguridad">hilo seguridad</a>). El paquete de diseño es el mapa que el “yo de M17” seguirá sin reinventar arquitectura cada semana.</p>
+<p><strong>En resumen:</strong> traduces el <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> a diseño usable: flujos, diagramas y ADRs que puedas implementar en el piloto Vitrina.</p>
+<h2 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h2>
+<p>Al terminar debe poder:</p>
+<ol>
+<li>Derivar casos de uso y flujos principales desde <code>projects/m12-srs/srs-v1.md</code>.</li>
+<li>Modelar dominio mínimo (entidades y relaciones) sin <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> <span class="glossary-expand">(lenguaje unificado de modelado)</span> decorativo.</li>
+<li>Dibujar diagramas de clases y al menos una secuencia crítica (p. ej. crear pedido con auth).</li>
+<li>Definir arquitectura en capas (<a class="glossary-term" href="/software-engineer/docs/glosario#http" title="HTTP: protocolo de transferencia de hipertexto">HTTP</a> → aplicación → dominio → infraestructura).</li>
+<li>Documentar trust boundaries y dónde se valida identidad y autorización.</li>
+<li>Escribir ADRs que defiendan monolito modular frente a microservicios prematuros.</li>
+<li>Entregar un paquete enlazado en <code>projects/m13-diseno/</code> listo para el scaffold M17.</li>
+</ol>
+<h2 id="como-estudiar-esta-materia-lecciones">Cómo estudiar esta materia (lecciones)</h2>
+<p>M13 traduce el <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> de <strong>Vitrina</strong> a diseño implementable: L01–L20.</p>
+<ol>
+<li>Abre <code>projects/m12-srs/srs-v1.md</code> cada sesión.</li>
+<li>Si un diagrama no cambia una decisión, bórralo.</li>
+<li>Mermaid en Markdown dentro del repo.</li>
+<li>Marca lecciones al cumplir “Hecho cuando” en <code>projects/m13-diseno/</code>.</li>
+<li><a href="/software-engineer/docs/como-estudiar">Cómo estudiar</a>.</li>
+</ol>
+<h2 id="semana-tipo-20-h">Semana tipo (20 h)</h2>
+<table>
+<thead>
+<tr>
+<th>Bloque</th>
+<th>Horas</th>
+<th>Qué haces</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Flujos / diagramas</td>
+<td>10–12</td>
+<td>4 lecciones de la semana</td>
+</tr>
+<tr>
+<td>Arquitectura + ADRs</td>
+<td>6–8</td>
+<td>Capas, boundaries, decisiones</td>
+</tr>
+<tr>
+<td>Retro</td>
+<td>1</td>
+<td>Por qué monolito modular ahora</td>
+</tr>
+</tbody></table>
+<p>Si un día solo tienes 2 h: <strong>una lección</strong> con artefacto en git.</p>
+<h2 id="lecciones">Lecciones</h2>
+<h3 id="semana-1-del-srs-a-casos-de-uso-20-h">Semana 1 — Del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> a casos de uso (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L01</td>
+<td><a href="/software-engineer/materia/M13/leccion/L01">Trust boundaries y ADR 001</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L02</td>
+<td><a href="/software-engineer/materia/M13/leccion/L02">Actores y casos de uso prioritarios</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L03</td>
+<td><a href="/software-engineer/materia/M13/leccion/L03">Escenarios alternos y errores</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L04</td>
+<td><a href="/software-engineer/materia/M13/leccion/L04">Cierre P1 flujos principales</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-2-modelo-y-uml-practico-20-h">Semana 2 — Modelo y <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> práctico (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L05</td>
+<td><a href="/software-engineer/materia/M13/leccion/L05">Diagrama de clases del dominio</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L06</td>
+<td><a href="/software-engineer/materia/M13/leccion/L06">Cardinalidades y persistencia futura</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L07</td>
+<td><a href="/software-engineer/materia/M13/leccion/L07">Secuencia: autenticación y sesión</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L08</td>
+<td><a href="/software-engineer/materia/M13/leccion/L08">Secuencia: crear pedido (P2)</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-3-arquitectura-en-capas-20-h">Semana 3 — Arquitectura en capas (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L09</td>
+<td><a href="/software-engineer/materia/M13/leccion/L09">Arquitectura en capas</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L10</td>
+<td><a href="/software-engineer/materia/M13/leccion/L10">DTOs, validación y frontera HTTP</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L11</td>
+<td><a href="/software-engineer/materia/M13/leccion/L11">Componentes y despliegue (C4 ligero)</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L12</td>
+<td><a href="/software-engineer/materia/M13/leccion/L12">Boundaries actualizados y amenazas</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-4-adrs-de-diseno-20-h">Semana 4 — ADRs de diseño (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L13</td>
+<td><a href="/software-engineer/materia/M13/leccion/L13">Plantilla ADR y decisiones de diseño</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L14</td>
+<td><a href="/software-engineer/materia/M13/leccion/L14">ADR persistencia y modelo de datos</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L15</td>
+<td><a href="/software-engineer/materia/M13/leccion/L15">Extensibilidad tenant_id sin implementar</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L16</td>
+<td><a href="/software-engineer/materia/M13/leccion/L16">ADR auth y sesión</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<h3 id="semana-5-paquete-para-m17-20-h">Semana 5 — Paquete para M17 (~20 h)</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Lección</th>
+<th>~h</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L17</td>
+<td><a href="/software-engineer/materia/M13/leccion/L17">Índice del paquete de diseño</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L18</td>
+<td><a href="/software-engineer/materia/M13/leccion/L18">Endpoints y módulos previstos M17</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L19</td>
+<td><a href="/software-engineer/materia/M13/leccion/L19">Checklist listo para scaffold</a></td>
+<td>5</td>
+</tr>
+<tr>
+<td>L20</td>
+<td><a href="/software-engineer/materia/M13/leccion/L20">Cierre M13 — trazabilidad y dominio</a></td>
+<td>5</td>
+</tr>
+</tbody></table>
+<p>Empieza por <strong>L01</strong> hoy.</p>
+<h2 id="lecturas-mapa-rapido">Lecturas (mapa rápido)</h2>
+<p>Canon: <em><a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> y patrones</em> — Larman (ed. ES) <strong>o</strong> guía <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> en español + ADRs. Apoyo: <em>Código limpio</em> (módulos). Ver <a href="/software-engineer/docs/bibliografia#m13-analisis-y-diseno">bibliografía</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Lecciones</th>
+<th>Capítulos / secciones</th>
+<th>Alternativa</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>L01–L04</td>
+<td>Casos de uso desde <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> Vitrina</td>
+<td><code>casos-de-uso.md</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>L05–L08</td>
+<td><a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> clases y secuencia</td>
+<td>Mermaid en <code>diagramas/</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>L09–L12</td>
+<td>Capas + trust boundaries</td>
+<td><code>arquitectura.md</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>L13–L16</td>
+<td>ADRs (plantilla M01)</td>
+<td><code>projects/m13-diseno/adr/</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>L17–L20</td>
+<td>Paquete + <a href="/software-engineer/docs/producto-saas">producto-saas.md</a></td>
+<td>README índice M13</td>
+</tr>
+</tbody></table>
+<p><strong>Regla:</strong> cada diagrama debe trazarse a un requisito del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a>.</p>
+<h2 id="ejemplo-capas-y-donde-vive-la-autorizacion">Ejemplo — capas y dónde vive la autorización</h2>
+<pre><code class="language-text">HTTP controllers  →  application services  →  domain  →  infrastructure (DB, email)
+                              ↑
+                    autorización y reglas de negocio aquí,
+                    no solo ocultando botones en React/Astro
+</code></pre>
+<h2 id="ejemplo-fragmento-mermaid-secuencia-crear-pedido">Ejemplo — fragmento Mermaid (secuencia crear pedido)</h2>
+<pre><code class="language-mermaid">sequenceDiagram
+  participant U as Usuario (browser)
+  participant API as API
+  participant S as CitaService
+  participant DB as PostgreSQL
+  U-&gt;&gt;API: POST /pedidos (cookie/session)
+  API-&gt;&gt;API: validar sesión + rol
+  API-&gt;&gt;S: crearCita(dto, userId)
+  S-&gt;&gt;DB: INSERT pedido
+  DB--&gt;&gt;S: ok
+  S--&gt;&gt;API: Pedido
+  API--&gt;&gt;U: 201 + JSON
+</code></pre>
+<h2 id="temario-semanal">Temario semanal</h2>
+<h3 id="semana-1-del-srs-a-casos-de-uso-20-h">Semana 1 — Del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> a casos de uso (~20 h)</h3>
+<ul>
+<li>Actores: owner, staff, sistema (recordatorios futuros).</li>
+<li>Casos de uso prioritarios alineados al <a class="glossary-term" href="/software-engineer/docs/glosario#mvp" title="MVP: producto mínimo viable">MVP</a> <span class="glossary-expand">(producto mínimo viable)</span> del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> (login, <a class="glossary-term" href="/software-engineer/docs/glosario#crud" title="CRUD: crear, leer, actualizar y borrar">CRUD</a> <span class="glossary-expand">(crear, leer, actualizar y borrar)</span> pedidos/clientes, admin roles).</li>
+<li>Escenarios alternos y de error (401, 403, conflicto de horario).</li>
+<li>Entregable: <code>projects/m13-diseno/casos-de-uso.md</code>.</li>
+</ul>
+<h3 id="semana-2-modelo-y-uml-practico-20-h">Semana 2 — Modelo y <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a> práctico (~20 h)</h3>
+<ul>
+<li>Diagrama de clases del dominio (solo entidades que implementarás en M17).</li>
+<li>Relaciones y cardinalidades coherentes con M09 (FKs futuras).</li>
+<li>Una secuencia crítica (auth o crear pedido) en Mermaid.</li>
+<li>Entregable: <code>projects/m13-diseno/diagramas/clases.md</code> + <code>secuencia-*.md</code>.</li>
+</ul>
+<h3 id="semana-3-arquitectura-en-capas-20-h">Semana 3 — Arquitectura en capas (~20 h)</h3>
+<ul>
+<li>Separación controller / service / repository (nombres según tu stack).</li>
+<li>DTOs vs entidades; validación en entrada <a class="glossary-term" href="/software-engineer/docs/glosario#http" title="HTTP: protocolo de transferencia de hipertexto">HTTP</a>.</li>
+<li>Diagrama de componentes o contenedores (C4 nivel 1–2, ligero).</li>
+<li>Entregable: <code>projects/m13-diseno/arquitectura.md</code> + boundaries actualizados.</li>
+</ul>
+<h3 id="semana-4-adrs-y-decisiones-de-diseno-20-h">Semana 4 — ADRs y decisiones de diseño (~20 h)</h3>
+<ul>
+<li>Plantilla <a class="glossary-term" href="/software-engineer/docs/glosario#adr" title="ADR: registro de decisión de arquitectura">ADR</a> <span class="glossary-expand">(registro de decisión de arquitectura)</span> (como M01): contexto, decisión, consecuencias.</li>
+<li>Al menos 2 ADRs: monolito modular + elección de stack o persistencia.</li>
+<li>Nota de extensibilidad: dónde encajará <code>tenant_id</code> sin implementarlo.</li>
+<li>Entregable: <code>projects/m13-diseno/adr/*.md</code>.</li>
+</ul>
+<h3 id="semana-5-paquete-de-diseno-para-m17-20-h">Semana 5 — Paquete de diseño para M17 (~20 h)</h3>
+<ul>
+<li>Índice <code>projects/m13-diseno/README.md</code> enlazando <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a>, diagramas y ADRs.</li>
+<li>Checklist “listo para scaffold”: rutas <a class="glossary-term" href="/software-engineer/docs/glosario#api" title="API: interfaz de programación de aplicaciones">API</a> previstas, modelo de datos, flujos Must.</li>
+<li>Repaso con <a href="/software-engineer/docs/producto-saas">producto-saas.md</a>: piloto vs <a class="glossary-term" href="/software-engineer/docs/glosario#saas" title="SaaS: software como servicio">SaaS</a> <span class="glossary-expand">(software como servicio)</span> futuro.</li>
+<li>Pulido y eliminación de diagramas huérfanos.</li>
+</ul>
+<h2 id="practicas">Prácticas</h2>
+<ol>
+<li><strong>P1 — Flujos:</strong> <code>projects/m13-diseno/casos-de-uso.md</code> con flujos principales del piloto Vitrina.</li>
+<li><strong>P2 — <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a>:</strong> Diagrama de clases + al menos una secuencia crítica en <code>projects/m13-diseno/diagramas/</code>.</li>
+<li><strong>P3 — Boundaries:</strong> <code>projects/m13-diseno/diagramas/trust-boundaries.md</code> con límites y notas de amenaza (alto nivel).</li>
+</ol>
+<h2 id="proyecto-util">Proyecto útil</h2>
+<p><strong>Paquete de diseño Vitrina:</strong> todo en <code>projects/m13-diseno/</code>:</p>
+<ul>
+<li>Enlace explícito a <code>projects/m12-srs/srs-v1.md</code>.</li>
+<li>Diagramas + ADRs + arquitectura en capas.</li>
+<li>Lista de endpoints o módulos previstos para M17 (aunque aún no exista código).</li>
+</ul>
+<h2 id="errores-comunes">Errores comunes</h2>
+<ul>
+<li>Microservicios prematuros “porque es lo moderno”.</li>
+<li>Diagramas que nadie lee y no coinciden con el <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a>.</li>
+<li>Confiar en el front para autorización (ocultar rutas sin chequeo en <a class="glossary-term" href="/software-engineer/docs/glosario#api" title="API: interfaz de programación de aplicaciones">API</a>).</li>
+<li>Modelar 40 entidades el día 1; mejor las del <a class="glossary-term" href="/software-engineer/docs/glosario#mvp" title="MVP: producto mínimo viable">MVP</a> Must.</li>
+<li>ADRs genéricos copiados sin contexto de Vitrina.</li>
+</ul>
+<h2 id="evidencia-de-hecho">Evidencia de hecho</h2>
+<p>Marca la práctica en la <a class="glossary-term" href="/software-engineer/docs/glosario#ui" title="UI: interfaz de usuario">UI</a> <span class="glossary-expand">(interfaz de usuario)</span> solo si existe <strong>esto</strong> (o equivalente claro):</p>
+<ul>
+<li><strong>P1 — Flujos:</strong> <code>projects/m13-diseno/casos-de-uso.md</code> cubriendo historias Must del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a>.</li>
+<li><strong>P2 — <a class="glossary-term" href="/software-engineer/docs/glosario#uml" title="UML: lenguaje unificado de modelado">UML</a>:</strong> <code>projects/m13-diseno/diagramas/clases.md</code> + <code>diagramas/secuencia-*.md</code>.</li>
+<li><strong>P3 — Boundaries:</strong> <code>projects/m13-diseno/diagramas/trust-boundaries.md</code> actualizado.</li>
+<li><strong>Proyecto — Paquete:</strong> <code>projects/m13-diseno/README.md</code> índice + ADRs en <code>projects/m13-diseno/adr/</code>.</li>
+</ul>
+<h2 id="criterios-de-dominio">Criterios de dominio</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Defiendes monolito modular con trade-offs frente a microservicios.</li>
+<li><input disabled="" type="checkbox"> Trust boundaries están en el diagrama y sabes dónde se valida el rol.</li>
+<li><input disabled="" type="checkbox"> Un compañero puede empezar M17 solo con <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a> + paquete M13.</li>
+<li><input disabled="" type="checkbox"> No quedan diagramas sin trazabilidad a un requisito del <a class="glossary-term" href="/software-engineer/docs/glosario#srs" title="SRS: especificación de requisitos de software">SRS</a>.</li>
+</ul>
+</div></article><aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start"><nav class="surface-panel overflow-hidden min-w-0" aria-label="Lecciones"><div class="flex flex-col gap-2 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">Lecciones</h2><p class="text-xs opacity-70 m-0">Marca al terminar cada una.</p><div class="max-h-80 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-1"><div class="lesson-toc-row"><input id="mat-chk-M13-L01" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L01" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L01">Marcar L01 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L01"><span class="font-mono text-xs opacity-70">L01</span> Trust boundaries y ADR 001</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L02" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L02" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L02">Marcar L02 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L02"><span class="font-mono text-xs opacity-70">L02</span> Actores y casos de uso prioritarios</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L03" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L03" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L03">Marcar L03 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L03"><span class="font-mono text-xs opacity-70">L03</span> Escenarios alternos y errores</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L04" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L04" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L04">Marcar L04 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L04"><span class="font-mono text-xs opacity-70">L04</span> Cierre P1 flujos principales</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L05" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L05" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L05">Marcar L05 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L05"><span class="font-mono text-xs opacity-70">L05</span> Diagrama de clases del dominio</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L06" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L06" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L06">Marcar L06 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L06"><span class="font-mono text-xs opacity-70">L06</span> Cardinalidades y persistencia futura</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L07" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L07" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L07">Marcar L07 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L07"><span class="font-mono text-xs opacity-70">L07</span> Secuencia: autenticación y sesión</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L08" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L08" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L08">Marcar L08 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L08"><span class="font-mono text-xs opacity-70">L08</span> Secuencia: crear pedido (P2)</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L09" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L09" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L09">Marcar L09 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L09"><span class="font-mono text-xs opacity-70">L09</span> Arquitectura en capas</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L10" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L10" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L10">Marcar L10 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L10"><span class="font-mono text-xs opacity-70">L10</span> DTOs, validación y frontera HTTP</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L11" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L11" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L11">Marcar L11 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L11"><span class="font-mono text-xs opacity-70">L11</span> Componentes y despliegue (C4 ligero)</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L12" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L12" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L12">Marcar L12 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L12"><span class="font-mono text-xs opacity-70">L12</span> Boundaries actualizados y amenazas</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L13" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L13" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L13">Marcar L13 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L13"><span class="font-mono text-xs opacity-70">L13</span> Plantilla ADR y decisiones de diseño</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L14" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L14" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L14">Marcar L14 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L14"><span class="font-mono text-xs opacity-70">L14</span> ADR persistencia y modelo de datos</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L15" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L15" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L15">Marcar L15 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L15"><span class="font-mono text-xs opacity-70">L15</span> Extensibilidad tenant_id sin implementar</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L16" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L16" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L16">Marcar L16 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L16"><span class="font-mono text-xs opacity-70">L16</span> ADR auth y sesión</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L17" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L17" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L17">Marcar L17 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L17"><span class="font-mono text-xs opacity-70">L17</span> Índice del paquete de diseño</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L18" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L18" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L18">Marcar L18 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L18"><span class="font-mono text-xs opacity-70">L18</span> Endpoints y módulos previstos M17</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L19" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L19" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L19">Marcar L19 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L19"><span class="font-mono text-xs opacity-70">L19</span> Checklist listo para scaffold</a></div></div><div class="lesson-toc-row"><input id="mat-chk-M13-L20" type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-leccion="L20" data-materia="M13"><div class="min-w-0 flex-1"><label class="sr-only" for="mat-chk-M13-L20">Marcar L20 hecha</label><a class="text-sm leading-snug link link-hover min-w-0 block" href="/software-engineer/materia/M13/leccion/L20"><span class="font-mono text-xs opacity-70">L20</span> Cierre M13 — trazabilidad y dominio</a></div></div></div></div></nav><nav class="surface-panel overflow-hidden min-w-0" aria-label="En esta ficha"><div class="flex flex-col gap-2 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">En esta ficha</h2><div class="max-h-64 overflow-y-auto overflow-x-hidden min-w-0 pr-1"><ul class="flex flex-col gap-0.5 m-0 p-0 list-none"><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#por-que-existe">Por qué existe</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#objetivos-de-aprendizaje">Objetivos de aprendizaje</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#como-estudiar-esta-materia-lecciones">Cómo estudiar esta materia (lecciones)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#semana-tipo-20-h">Semana tipo (20 h)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#lecciones">Lecciones</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#lecturas-mapa-rapido">Lecturas (mapa rápido)</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#temario-semanal">Temario semanal</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#practicas">Prácticas</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#proyecto-util">Proyecto útil</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#errores-comunes">Errores comunes</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#evidencia-de-hecho">Evidencia de hecho</a></li><li class="min-w-0"><a class="block w-full min-w-0 rounded-md px-2 py-1.5 text-sm leading-snug whitespace-normal break-words hover:bg-base-200" href="#criterios-de-dominio">Criterios de dominio</a></li></ul></div><a class="link link-primary text-sm pt-1" href="/software-engineer/docs/glosario">Abrir glosario →</a></div></nav><div class="surface-panel overflow-hidden min-w-0"><div class="flex flex-col gap-3 p-4 min-w-0"><h2 class="font-display text-base font-semibold m-0">Tu progreso</h2><p class="text-xs opacity-70 m-0">Se guarda en este navegador. Exporta desde Progreso.</p><p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0">Prácticas</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p1" data-materia="M13"><span class="label-text text-sm">Casos de uso / flujos principales</span></label><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p2" data-materia="M13"><span class="label-text text-sm">Diagrama de clases y secuencia</span></label><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0" data-practica="p3" data-materia="M13"><span class="label-text text-sm">Arquitectura en capas + trust boundaries</span></label><p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Proyecto</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-secondary checkbox-sm mt-0.5 shrink-0" data-proyecto data-materia="M13"><span class="label-text text-sm">Paquete de diseño del producto (ADR + diagramas)</span></label><p class="text-xs font-semibold uppercase tracking-wide opacity-60 m-0 mt-1">Materia</p><label class="checklist-item cursor-pointer"><input type="checkbox" class="checkbox checkbox-success checkbox-sm mt-0.5 shrink-0" data-completa data-materia="M13"><span class="label-text text-sm font-medium">Completada</span></label></div></div><div class="flex gap-2 w-full min-w-0"><a class="btn btn-outline btn-sm flex-1 truncate" href="/software-engineer/materia/M12">← M12</a><a class="btn btn-primary btn-sm flex-1 truncate" href="/software-engineer/materia/M14">M14 →</a></div></aside></div><script type="module" src="/software-engineer/_astro/_id_.astro_astro_type_script_index_0_lang.CQ2enDvS.js"></script></main><footer class="footer footer-center site-footer p-6"><aside class="max-w-prose px-2"><p class="font-display font-semibold text-base-content m-0">Atelier</p><p class="text-sm m-0 mt-1">Ingeniería de software con proyectos reales y evidencia en git</p></aside></footer><script type="application/json" id="catalog-ids">["M01","M02","M03","M04","M05","M06","M07","M08","M09","M10","M11","M27","M12","M13","M14","M15","M16","M17","M18","M19","M20","M21","M22","M23","M24","M25","M26"]</script><script type="application/json" id="lecciones-catalog">{"M01":["L01","L02","L03","L04","L05","L06","L07","L08"],"M02":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M03":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M04":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M05":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M06":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M07":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M08":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M09":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M10":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M11":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M27":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18"],"M12":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M13":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M14":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M15":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M16":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M17":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"],"M18":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"],"M19":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16"],"M20":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20"],"M21":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M22":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M23":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M24":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12"],"M25":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24"],"M26":["L01","L02","L03","L04","L05","L06","L07","L08","L09","L10","L11","L12","L13","L14","L15","L16","L17","L18","L19","L20","L21","L22","L23","L24","L25","L26","L27","L28","L29","L30","L31","L32"]}</script><script type="module" src="/software-engineer/_astro/Layout.astro_astro_type_script_index_1_lang.BR96mgaz.js"></script></body></html>
