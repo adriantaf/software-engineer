@@ -61,64 +61,64 @@ function navCurrent(segment: string): boolean {
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
     <header class="sticky top-0 z-[60] site-header" id="site-header">
-      <div class="navbar min-h-14 px-3 sm:px-4 gap-2 max-w-6xl mx-auto w-full">
-        <div class="flex items-center gap-1 min-w-0 shrink-0">
+      <div class="site-header__bar">
+        <div class="site-header__lead">
           <button
             type="button"
             id="nav-drawer-toggle"
-            class="btn btn-ghost btn-square btn-sm lg:hidden"
+            class="nav-toggle lg:hidden"
             aria-label="Abrir menú"
             aria-controls="nav-drawer"
             aria-expanded="false"
           >
-            <svg
-              id="nav-icon-open"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-5"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
-            </svg>
-            <svg
-              id="nav-icon-close"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-5 hidden"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
-            </svg>
+            <span class="nav-toggle__icons" aria-hidden="true">
+              <svg
+                id="nav-icon-open"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="nav-toggle__icon"
+              >
+                <path stroke-linecap="round" d="M5 7h14M5 12h14M5 17h14"></path>
+              </svg>
+              <svg
+                id="nav-icon-close"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="nav-toggle__icon nav-toggle__icon--close hidden"
+              >
+                <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+              </svg>
+            </span>
           </button>
           <a
-            class="brand-mark px-1 py-1"
+            class="brand-mark"
             href={pathTo()}
             aria-label="Atelier — Ingeniería de Software — Inicio"
             transition:name="brand"
           >
-            <img class="brand-mark__glyph" src={brandHref} width="24" height="24" alt="" />
+            <img class="brand-mark__glyph" src={brandHref} width="28" height="28" alt="" />
             <span class="brand-mark__text">Atelier</span>
           </a>
         </div>
 
-        <nav class="hidden lg:flex flex-1 items-center justify-center min-w-0" aria-label="Principal">
-          <ul class="flex items-center gap-0.5 text-sm flex-nowrap">
+        <nav class="site-header__nav hidden lg:flex" aria-label="Principal">
+          <ul class="site-header__links">
             <li>
               <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
+                class="nav-link"
                 href={pathTo('etapa/basica')}
                 aria-current={navCurrent('etapa/basica') ? 'page' : undefined}>Básica</a
               >
             </li>
             <li>
               <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
+                class="nav-link"
                 href={pathTo('etapa/disciplinaria')}
                 aria-current={navCurrent('etapa/disciplinaria') ? 'page' : undefined}
                 >Disciplinaria</a
@@ -126,17 +126,17 @@ function navCurrent(segment: string): boolean {
             </li>
             <li>
               <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
+                class="nav-link"
                 href={pathTo('etapa/terminal')}
                 aria-current={navCurrent('etapa/terminal') ? 'page' : undefined}>Terminal</a
               >
             </li>
             <li>
               <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-sm font-normal">Guías ▾</div>
+                <div tabindex="0" role="button" class="nav-link nav-link--menu">Guías</div>
                 <ul
                   tabindex="0"
-                  class="menu menu-sm dropdown-content guides-menu z-50 mt-2 w-52 p-2"
+                  class="menu menu-sm dropdown-content guides-menu z-50 mt-2 w-56 p-2"
                 >
                   <li><a href={pathTo('docs/como-estudiar')}>Cómo estudiar</a></li>
                   <li><a href={pathTo('docs/sincronizar-progreso')}>Sincronizar progreso</a></li>
@@ -161,14 +161,14 @@ function navCurrent(segment: string): boolean {
             </li>
             <li>
               <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
+                class="nav-link"
                 href={pathTo('progreso')}
                 aria-current={navCurrent('progreso') ? 'page' : undefined}>Progreso</a
               >
             </li>
             <li>
               <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
+                class="nav-link"
                 href={pathTo('buscar')}
                 aria-current={navCurrent('buscar') ? 'page' : undefined}>Buscar</a
               >
@@ -176,12 +176,12 @@ function navCurrent(segment: string): boolean {
           </ul>
         </nav>
 
-        <div class="flex items-center gap-2 shrink-0 ml-auto lg:ml-0">
-          <div id="auth-sync" class="hidden sm:flex items-center gap-1 min-w-0">
+        <div class="site-header__actions">
+          <div id="auth-sync" class="site-header__auth hidden sm:flex">
             <button
               type="button"
               id="auth-google-btn"
-              class="btn btn-ghost btn-sm px-2"
+              class="nav-link nav-link--ghost"
               hidden
               title="Iniciar sesión con Google para sincronizar el progreso"
             >
@@ -189,18 +189,18 @@ function navCurrent(segment: string): boolean {
             </button>
             <a
               id="auth-account-btn"
-              class="btn btn-ghost btn-sm px-1.5 gap-1 max-w-[10rem]"
+              class="nav-link nav-link--account"
               href={pathTo('perfil')}
               hidden
               title="Ver perfil"
               aria-current={navCurrent('perfil') ? 'page' : undefined}
             >
               <img id="auth-avatar" alt="" class="size-5 rounded-full shrink-0" width="20" height="20" hidden />
-              <span id="auth-sync-label" class="text-xs truncate">Perfil</span>
+              <span id="auth-sync-label" class="truncate">Perfil</span>
             </a>
           </div>
           <a
-            class="btn btn-primary btn-sm"
+            class="btn btn-primary btn-sm site-header__cta"
             data-continuar
             href={continuarFallback}
             title="Siguiente lección incompleta"
@@ -237,8 +237,7 @@ function navCurrent(segment: string): boolean {
       <div class="nav-drawer__inner">
         <div class="nav-drawer__head">
           <p class="nav-drawer__title">Menú</p>
-          {/* Cierre: el toggle del header pasa a icono X; evitamos un segundo botón. */}
-          <span class="text-xs opacity-50 pr-1">Esc para cerrar</span>
+          <span class="nav-drawer__hint">Esc para cerrar</span>
         </div>
 
         <div class="nav-drawer__scroll">
@@ -351,7 +350,82 @@ function navCurrent(segment: string): boolean {
       initProgressFromSeed();
       startProgressSync();
 
+      let unsubAuth: (() => void) | undefined;
+      let closeTimer: ReturnType<typeof setTimeout> | undefined;
+      let drawerOpen = false;
+
+      function unlockPageScroll() {
+        const y = Number(document.body.dataset.navScrollY || 0);
+        const hadLock = document.body.classList.contains('nav-drawer-open');
+        document.documentElement.classList.remove('nav-drawer-open');
+        document.documentElement.style.overflow = '';
+        document.body.classList.remove('nav-drawer-open');
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
+        document.body.style.width = '';
+        delete document.body.dataset.navScrollY;
+        const siteHeader = document.getElementById('site-header');
+        if (siteHeader) {
+          siteHeader.style.position = '';
+          siteHeader.style.top = '';
+          siteHeader.style.left = '';
+          siteHeader.style.right = '';
+          siteHeader.style.width = '';
+        }
+        if (hadLock) window.scrollTo(0, y);
+      }
+
+      function lockPageScroll() {
+        const y = window.scrollY;
+        document.documentElement.classList.add('nav-drawer-open');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.classList.add('nav-drawer-open');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${y}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.body.dataset.navScrollY = String(y);
+        const siteHeader = document.getElementById('site-header');
+        if (siteHeader) {
+          siteHeader.style.position = 'fixed';
+          siteHeader.style.top = '0';
+          siteHeader.style.left = '0';
+          siteHeader.style.right = '0';
+          siteHeader.style.width = '100%';
+        }
+      }
+
+      function forceCloseNav() {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = undefined;
+        }
+        drawerOpen = false;
+        unlockPageScroll();
+        const toggle = document.getElementById('nav-drawer-toggle');
+        const drawer = document.getElementById('nav-drawer');
+        const backdrop = document.getElementById('nav-backdrop');
+        const iconOpen = document.getElementById('nav-icon-open');
+        const iconClose = document.getElementById('nav-icon-close');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', 'Abrir menú');
+        drawer?.classList.remove('nav-drawer--open');
+        backdrop?.classList.remove('nav-backdrop--open');
+        drawer?.setAttribute('aria-hidden', 'true');
+        backdrop?.setAttribute('aria-hidden', 'true');
+        if (drawer) drawer.hidden = true;
+        if (backdrop) backdrop.hidden = true;
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      }
+
       function initAuthUi() {
+        unsubAuth?.();
+        unsubAuth = undefined;
+
         const btn = document.getElementById('auth-google-btn') as HTMLButtonElement | null;
         const accountBtn = document.getElementById('auth-account-btn') as HTMLAnchorElement | null;
         const label = document.getElementById('auth-sync-label');
@@ -396,7 +470,7 @@ function navCurrent(segment: string): boolean {
           }
         });
 
-        onSyncStatus(({ status, user, message }) => {
+        unsubAuth = onSyncStatus(({ status, user, message }) => {
           if (!isFirebaseConfigured()) return;
 
           if (status === 'error' && message) {
@@ -444,8 +518,6 @@ function navCurrent(segment: string): boolean {
         });
       }
 
-      initAuthUi();
-
       function syncContinuar() {
         const raw = document.getElementById('catalog-ids')?.textContent;
         const lecRaw = document.getElementById('lecciones-catalog')?.textContent;
@@ -473,10 +545,6 @@ function navCurrent(segment: string): boolean {
         });
       }
 
-      syncContinuar();
-      window.addEventListener('academia-progress', syncContinuar);
-      window.addEventListener('resize', syncContinuar);
-
       function initNavDrawer() {
         const toggle = document.getElementById('nav-drawer-toggle');
         const drawer = document.getElementById('nav-drawer');
@@ -486,65 +554,20 @@ function navCurrent(segment: string): boolean {
         if (!toggle || !drawer || !backdrop) return;
         if (toggle.dataset.drawerBound === '1') return;
         toggle.dataset.drawerBound = '1';
-
-        let open = false;
-        let closeTimer: ReturnType<typeof setTimeout> | undefined;
-
-        const siteHeader = document.getElementById('site-header');
-
-        function lockPageScroll() {
-          const y = window.scrollY;
-          document.documentElement.classList.add('nav-drawer-open');
-          document.documentElement.style.overflow = 'hidden';
-          document.body.classList.add('nav-drawer-open');
-          document.body.style.position = 'fixed';
-          document.body.style.top = `-${y}px`;
-          document.body.style.left = '0';
-          document.body.style.right = '0';
-          document.body.style.width = '100%';
-          document.body.dataset.navScrollY = String(y);
-          if (siteHeader) {
-            siteHeader.style.position = 'fixed';
-            siteHeader.style.top = '0';
-            siteHeader.style.left = '0';
-            siteHeader.style.right = '0';
-            siteHeader.style.width = '100%';
-          }
-        }
-
-        function unlockPageScroll() {
-          const y = Number(document.body.dataset.navScrollY || 0);
-          document.documentElement.classList.remove('nav-drawer-open');
-          document.documentElement.style.overflow = '';
-          document.body.classList.remove('nav-drawer-open');
-          document.body.style.position = '';
-          document.body.style.top = '';
-          document.body.style.left = '';
-          document.body.style.right = '';
-          document.body.style.width = '';
-          delete document.body.dataset.navScrollY;
-          if (siteHeader) {
-            siteHeader.style.position = '';
-            siteHeader.style.top = '';
-            siteHeader.style.left = '';
-            siteHeader.style.right = '';
-            siteHeader.style.width = '';
-          }
-          window.scrollTo(0, y);
-        }
+        drawerOpen = toggle.getAttribute('aria-expanded') === 'true';
 
         function setOpen(next: boolean) {
-          if (next === open) return;
-          open = next;
-          toggle!.setAttribute('aria-expanded', String(open));
-          toggle!.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
-          drawer!.setAttribute('aria-hidden', String(!open));
-          backdrop!.setAttribute('aria-hidden', String(!open));
-          iconOpen?.classList.toggle('hidden', open);
-          iconClose?.classList.toggle('hidden', !open);
+          if (next === drawerOpen) return;
+          drawerOpen = next;
+          toggle!.setAttribute('aria-expanded', String(drawerOpen));
+          toggle!.setAttribute('aria-label', drawerOpen ? 'Cerrar menú' : 'Abrir menú');
+          drawer!.setAttribute('aria-hidden', String(!drawerOpen));
+          backdrop!.setAttribute('aria-hidden', String(!drawerOpen));
+          iconOpen?.classList.toggle('hidden', drawerOpen);
+          iconClose?.classList.toggle('hidden', !drawerOpen);
           if (closeTimer) clearTimeout(closeTimer);
 
-          if (open) {
+          if (drawerOpen) {
             lockPageScroll();
             drawer!.hidden = false;
             backdrop!.hidden = false;
@@ -552,14 +575,13 @@ function navCurrent(segment: string): boolean {
               drawer!.classList.add('nav-drawer--open');
               backdrop!.classList.add('nav-backdrop--open');
             });
-            // El toggle del header es el único control de cierre (pasa a X).
             toggle!.focus();
           } else {
             drawer!.classList.remove('nav-drawer--open');
             backdrop!.classList.remove('nav-backdrop--open');
             unlockPageScroll();
             closeTimer = setTimeout(() => {
-              if (!open) {
+              if (!drawerOpen) {
                 drawer!.hidden = true;
                 backdrop!.hidden = true;
               }
@@ -568,20 +590,41 @@ function navCurrent(segment: string): boolean {
           }
         }
 
-        toggle.addEventListener('click', () => setOpen(!open));
+        toggle.addEventListener('click', () => setOpen(!drawerOpen));
         backdrop.addEventListener('click', () => setOpen(false));
         drawer.querySelectorAll('a').forEach((a) => {
           a.addEventListener('click', () => setOpen(false));
         });
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && open) setOpen(false);
-        });
-        window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
-          if (e.matches && open) setOpen(false);
-        });
       }
 
-      initNavDrawer();
+      function onShellPageLoad() {
+        initNavDrawer();
+        initAuthUi();
+        syncContinuar();
+      }
+
+      document.addEventListener('astro:page-load', onShellPageLoad);
+      document.addEventListener('astro:before-preparation', () => {
+        forceCloseNav();
+      });
+      document.addEventListener('astro:after-swap', () => {
+        forceCloseNav();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape' || !drawerOpen) return;
+        forceCloseNav();
+        document.getElementById('nav-drawer-toggle')?.focus();
+      });
+
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+        if (e.matches) forceCloseNav();
+      });
+
+      window.addEventListener('academia-progress', syncContinuar);
+      window.addEventListener('resize', syncContinuar);
+
+      onShellPageLoad();
     </script>
   </body>
 </html>
