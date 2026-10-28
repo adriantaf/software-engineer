@@ -338,7 +338,11 @@ body {
   .progress-atelier,
   .nav-drawer,
   .nav-backdrop,
-  .etapa-link {
+  .etapa-link,
+  .etapa-card,
+  .etapa-card__rail,
+  .etapa-card__status,
+  .etapa-card__title {
     animation: none !important;
     transition: none !important;
   }
@@ -367,26 +371,168 @@ body {
   max-width: 40rem;
 }
 
+/* Etapa cards (home): meta única + status integrado + hover/stagger */
+.etapa-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.etapa-card {
+  --etapa-accent: var(--accent);
+  position: relative;
+  display: block;
+  padding: 1.1rem 1rem 1.15rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-box);
+  background: color-mix(in srgb, var(--paper-elevated) 92%, white);
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-med) var(--ease-out),
+    box-shadow var(--dur-med) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.etapa-card[data-etapa="basica"] {
+  --etapa-accent: #0e7490;
+}
+
+.etapa-card[data-etapa="disciplinaria"] {
+  --etapa-accent: #0369a1;
+}
+
+.etapa-card[data-etapa="terminal"] {
+  --etapa-accent: #115e59;
+}
+
+.etapa-card__rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--etapa-accent);
+  transform: scaleY(0.35);
+  transform-origin: top;
+  transition: transform var(--dur-med) var(--ease-out);
+}
+
+.etapa-card:hover,
+.etapa-card:focus-visible {
+  border-color: color-mix(in srgb, var(--etapa-accent) 45%, var(--line));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -18px rgb(15 23 42 / 0.45);
+  outline: none;
+  background: #fff;
+}
+
+.etapa-card:hover .etapa-card__rail,
+.etapa-card:focus-visible .etapa-card__rail {
+  transform: scaleY(1);
+}
+
+.etapa-card:hover .etapa-card__title,
+.etapa-card:focus-visible .etapa-card__title {
+  color: var(--etapa-accent);
+}
+
+.etapa-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0 0 0.4rem;
+}
+
+.etapa-card__meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--etapa-accent);
+  font-weight: 650;
+  margin: 0;
+  min-width: 0;
+}
+
+.etapa-card__meta-label {
+  font-weight: 700;
+}
+
+.etapa-card__meta-sep {
+  opacity: 0.55;
+  margin: 0 0.2rem;
+}
+
+.etapa-card__status {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--etapa-accent) 28%, var(--line));
+  color: var(--etapa-accent);
+  background: color-mix(in srgb, var(--etapa-accent) 8%, transparent);
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.etapa-card__status[data-state="active"] {
+  background: color-mix(in srgb, var(--etapa-accent) 14%, transparent);
+}
+
+.etapa-card__status[data-state="done"] {
+  color: #0f766e;
+  border-color: color-mix(in srgb, #0f766e 35%, var(--line));
+  background: color-mix(in srgb, #0f766e 10%, transparent);
+}
+
+.etapa-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 650;
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.02em;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.etapa-card__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.etapa-card__stats {
+  margin: 0.55rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.etapa-card__hint {
+  color: var(--muted);
+}
+
+.etapa-card__progress {
+  width: 100%;
+  max-width: 14rem;
+  height: 0.35rem;
+  margin-top: 0.75rem;
+}
+
+/* Legacy alias (por si queda markup viejo) */
 .etapa-link {
   display: block;
   padding: 1.15rem 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   color: inherit;
-  transition:
-    border-color var(--dur-fast) var(--ease-out),
-    padding-left var(--dur-fast) var(--ease-out);
-}
-
-.etapa-link:first-of-type {
-  border-top: 1px solid var(--line);
-}
-
-.etapa-link:hover,
-.etapa-link:focus-visible {
-  border-color: var(--accent);
-  padding-left: 0.35rem;
-  outline: none;
 }
 
 .etapa-link__meta {

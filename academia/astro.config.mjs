@@ -23,10 +23,10 @@ export default defineConfig({
         'icons/apple-touch-icon.png',
       ],
       manifest: {
-        name: 'Plan de Ingeniería de Software',
-        short_name: 'Plan',
+        name: 'Atelier · Ingeniería de Software',
+        short_name: 'Atelier',
         description:
-          'Plan personal de ingeniería de software, con fichas, glosario y progreso local.',
+          'Atelier: plan personal de ingeniería de software, con fichas, glosario y progreso local.',
         lang: 'es',
         start_url: base,
         scope: base,
@@ -67,7 +67,7 @@ export default defineConfig({
             urlPattern: ({ request }) => request.mode === 'navigate',
             handler: 'NetworkFirst',
             options: {
-              cacheName: 'plan-pages',
+              cacheName: 'atelier-pages',
               networkTimeoutSeconds: 4,
               expiration: {
                 maxEntries: 80,

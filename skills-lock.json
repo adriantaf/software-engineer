@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "skills": {
+    "canva-brand-check": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/brand-check/SKILL.md",
+      "computedHash": "69f255471f02e50152addccc06b539ee38cc500e6fa003d5195010ab35a6c40b"
+    },
+    "canva-bulk-create": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/bulk-create/SKILL.md",
+      "computedHash": "65100a17d3250e96a344de9d61b3f302ddfcccf90eb465d495185a3bb9a52bd2"
+    },
+    "canva-cli": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/cli/SKILL.md",
+      "computedHash": "f23f5745cbd5cf8b19443f29c23596a1b6ba3cdc76d4eed35cf751f3dde31750"
+    },
+    "canva-design-feedback": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/get-design-feedback/SKILL.md",
+      "computedHash": "62e1edc9d1ad912a729b879ae409ffe720a0f9c25000cb0f79f0104bd71e8879"
+    },
+    "canva-edit-design": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/edit-design/SKILL.md",
+      "computedHash": "f0c8ed4d5eb23dc49b0ae2f1f18b2ffd16df93cea920a27c893a14e0dce96a07"
+    },
+    "canva-implement-feedback": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/implement-feedback/SKILL.md",
+      "computedHash": "b4f6c7878bb0741a68a679a1a721c4b846a663f9982b95a78567f47991ae97f3"
+    },
+    "canva-resize-for-social-media": {
+      "source": "canva-sdks/canva-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/canva/skills/resize-for-social-media/SKILL.md",
+      "computedHash": "7b6ce01a70ec2c2a9261d765e9dfb499034c525519acac7b2ec10a7d74be31b7"
+    },
+    "canvas-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-design/SKILL.md",
+      "computedHash": "3fa7ea60170023ad8268bf9fd734ea75dd404279a2ef8ddf5abaa1102ad8e5f4"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "transitions-dev": {
+      "source": "aiskillstore/marketplace",
+      "sourceType": "github",
+      "skillPath": "skills/jakubantalik/transitions-dev/SKILL.md",
+      "computedHash": "85d4194e41f69b54023bca41aa073255bf10526c8e805f491ad56ca5fb23797f"
+    }
+  }
+}

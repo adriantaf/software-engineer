@@ -11,6 +11,15 @@ import { pathTo } from '../lib/paths';
 const catalog = getCatalog();
 const stats = totalStats();
 const seed = getProgressSeed();
+
+const etapaMeta: Record<
+  string,
+  { label: string; hint: string }
+> = {
+  basica: { label: 'Cimientos', hint: 'Lenguaje, git y bases' },
+  disciplinaria: { label: 'Oficio', hint: 'Producto y sistemas' },
+  terminal: { label: 'Salida', hint: 'Producción y egreso' },
+};
 ---
 
 <Layout title="Inicio" bareMain>
@@ -28,10 +37,10 @@ const seed = getProgressSeed();
       />
     </div>
     <div class="hero-atelier__inner max-w-6xl mx-auto px-3 sm:px-4 w-full">
-      <p class="hero-atelier__brand">Plan</p>
+      <p class="hero-atelier__brand">Atelier</p>
       <h1 class="hero-atelier__headline">{catalog.programa}</h1>
       <p class="hero-atelier__lede">
-        Competencia de software con proyectos útiles, evidencia en git y ritmo de
+        Competencia de software con proyectos útiles, evidencia en git y ritmo de{' '}
         {catalog.ritmoHorasSemana} h/semana — sin atajos de tutorial.
       </p>
       <div class="flex flex-wrap gap-2">
@@ -50,23 +59,43 @@ const seed = getProgressSeed();
         {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas a ritmo meta.
       </p>
 
-      <div id="etapa-list" class="stagger-in">
+      <div id="etapa-list" class="stagger-in etapa-card-list">
         {
           catalog.etapas.map((etapa) => {
             const mats = getMateriasByEtapa(etapa.id);
             const horas = mats.reduce((a, m) => a + m.horas, 0);
+            const meta = etapaMeta[etapa.id] ?? {
+              label: `Etapa ${etapa.orden}`,
+              hint: etapa.objetivo,
+            };
             return (
-              <a href={pathTo(`etapa/${etapa.id}`)} class="etapa-link">
-                <p class="etapa-link__meta">Etapa {etapa.orden}</p>
-                <h3 class="etapa-link__title">{etapa.titulo}</h3>
-                <p class="etapa-link__desc">{etapa.objetivo}</p>
-                <p class="etapa-link__desc mt-2">
+              <a
+                href={pathTo(`etapa/${etapa.id}`)}
+                class="etapa-card"
+                data-etapa={etapa.id}
+                data-etapa-card={etapa.id}
+              >
+                <span class="etapa-card__rail" aria-hidden="true" />
+                <div class="etapa-card__top">
+                  <p class="etapa-card__meta">
+                    <span class="etapa-card__meta-label">{meta.label}</span>
+                    <span class="etapa-card__meta-sep" aria-hidden="true">
+                      ·
+                    </span>
+                    <span>Etapa {etapa.orden}</span>
+                  </p>
+                  <span class="etapa-card__status" data-etapa-label={etapa.id}>
+                    0%
+                  </span>
+                </div>
+                <h3 class="etapa-card__title">{etapa.titulo}</h3>
+                <p class="etapa-card__desc">{etapa.objetivo}</p>
+                <p class="etapa-card__stats">
                   {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
-                  <span class="opacity-60"> · </span>
-                  <span data-etapa-label={etapa.id}>0% local</span>
+                  <span class="etapa-card__hint"> · {meta.hint}</span>
                 </p>
                 <progress
-                  class="progress progress-primary progress-atelier w-full max-w-xs h-1.5 mt-3"
+                  class="progress progress-primary progress-atelier etapa-card__progress"
                   data-etapa={etapa.id}
                   value="0"
                   max="100"
@@ -125,7 +154,11 @@ const seed = getProgressSeed();
         const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
         if (bar) bar.setAttribute('value', String(pct));
         if (label) {
-          label.textContent = `${pct}% local (${done}/${etapa.materiaIds.length})`;
+          const status = pct === 0 ? 'Sin empezar' : pct === 100 ? 'Completa' : `${pct}%`;
+          label.textContent = status;
+          label.dataset.pct = String(pct);
+          label.dataset.state =
+            pct === 0 ? 'idle' : pct === 100 ? 'done' : 'active';
         }
       }
 
