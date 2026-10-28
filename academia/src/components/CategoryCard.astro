@@ -20,13 +20,25 @@ const accent =
       : 'var(--color-plan-terminal)';
 ---
 
-<a class="category-card" style={`--accent: ${accent}`} href={pathTo(`etapa/${id}`)} data-etapa-card={id}>
-  <span class="text-xs font-semibold uppercase tracking-wider text-plan-muted">Etapa {orden}</span>
+<a
+  class="category-card"
+  style={`--accent: ${accent}`}
+  href={pathTo(`etapa/${id}`)}
+  data-etapa-card={id}
+>
+  <div class="category-card__top">
+    <span class="category-card__stage">Etapa {orden}</span>
+    <span class="category-card__pct" data-etapa-label={id}>0%</span>
+  </div>
   <h3 class="category-card__title">{titulo}</h3>
   <p class="category-card__desc">{objetivo}</p>
-  <p class="text-xs text-plan-muted m-0">
+  <p class="category-card__stats">
     {materiaCount} materias · ~{duracionMeses} meses · {horas} h
   </p>
-  <progress class="progress progress-primary w-full h-1.5 mt-1" data-etapa={id} value="0" max="100"></progress>
-  <p class="text-xs text-plan-muted m-0" data-etapa-label={id}>0% completado</p>
+  <progress
+    class="progress progress-primary category-card__progress"
+    data-etapa={id}
+    value="0"
+    max="100"
+  ></progress>
 </a>

@@ -48,13 +48,13 @@ const guideLinks = [
     continuarHref={continuarHref}
   />
 
-  <div class="plan-shell py-10 sm:py-12 flex flex-col gap-12 sm:gap-14">
+  <div class="plan-shell py-10 sm:py-12 flex flex-col gap-12 sm:gap-16">
     <section id="etapa-cards">
       <SectionHeading
         title="Elige tu etapa"
         subtitle="Tres bloques del plan, del fundamento al egreso."
       />
-      <div class="grid gap-4 md:grid-cols-3">
+      <div class="grid gap-4 md:grid-cols-3 catalog-reveal">
         {
           catalog.etapas.map((etapa) => {
             const mats = getMateriasByEtapa(etapa.id);
@@ -163,6 +163,19 @@ const guideLinks = [
       if (!raw) return;
       const catalog = JSON.parse(raw) as { etapas: { id: string; materiaIds: string[] }[] };
       const progress = loadProgress();
+      const statusMap: Record<string, string> = {
+        completada: 'status-chip status-chip--ok course-card__chip',
+        en_curso: 'status-chip status-chip--warn course-card__chip',
+        disponible: 'status-chip status-chip--info course-card__chip',
+        bloqueada: 'status-chip status-chip--muted course-card__chip',
+      };
+      const labels: Record<string, string> = {
+        completada: 'Hecha',
+        en_curso: 'En curso',
+        disponible: 'Lista',
+        bloqueada: 'Bloqueada',
+      };
+
       for (const etapa of catalog.etapas) {
         const done = etapa.materiaIds.filter(
           (id) => progress?.materias?.[id]?.status === 'completada',
@@ -174,7 +187,18 @@ const guideLinks = [
         const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
         if (bar) bar.setAttribute('value', String(pct));
         if (label) {
-          label.textContent = `${pct}% completado (${done} de ${etapa.materiaIds.length})`;
+          label.textContent =
+            pct === 0 ? '0%' : pct === 100 ? 'Lista' : `${pct}%`;
+          label.dataset.state =
+            pct === 0 ? 'idle' : pct === 100 ? 'done' : 'active';
+        }
+
+        for (const mid of etapa.materiaIds) {
+          const chip = document.querySelector(`.course-card__chip[data-status="${mid}"]`);
+          if (!chip) continue;
+          const st = progress?.materias?.[mid]?.status || 'disponible';
+          chip.className = statusMap[st] ?? statusMap.disponible;
+          chip.textContent = labels[st] ?? '—';
         }
       }
 

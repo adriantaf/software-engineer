@@ -30,9 +30,13 @@ const desc =
   <div class="course-card__media" aria-hidden="true">
     <MateriaCover id={id} etapaId={etapaId} variant="card" titulo={titulo} />
     <span class="course-card__media-label">{id}</span>
+    <span class="course-card__sheen"></span>
   </div>
   <div class="course-card__body">
-    <h3 class="course-card__title">{titulo}</h3>
+    <div class="course-card__top">
+      <h3 class="course-card__title">{titulo}</h3>
+      <span class="course-card__chip status-chip status-chip--muted" data-status={id}>—</span>
+    </div>
     <p class="course-card__desc">{desc}</p>
     <div class="course-card__meta">
       <span>{etapaTitulo}</span>
