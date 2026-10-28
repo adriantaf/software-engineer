@@ -9,15 +9,41 @@ interface Props {
 const { title, subtitle, href, linkLabel = 'Ver todo' } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-end justify-between gap-3 mb-4">
-  <div class="min-w-0">
-    <h2 class="font-display text-xl sm:text-2xl font-bold tracking-tight m-0">{title}</h2>
-    {subtitle && <p class="text-sm text-plan-muted m-0 mt-1">{subtitle}</p>}
+<div class="section-heading">
+  <div class="section-heading__text min-w-0">
+    <h2 class="section-heading__title">{title}</h2>
+    {subtitle && <p class="section-heading__subtitle">{subtitle}</p>}
   </div>
   {
     href && (
-      <a class="text-sm font-semibold text-plan-primary hover:underline shrink-0" href={href}>
-        {linkLabel} →
+      <a class="t-learn section-heading__link" href={href}>
+        <span>{linkLabel}</span>
+        <span class="t-learn-chevron" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path
+              class="t-learn-arm t-learn-arm-top"
+              d="M5 3.5L9 7"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <path
+              class="t-learn-arm t-learn-arm-bot"
+              d="M9 7L5 10.5"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+            />
+            <path
+              class="t-learn-shaft"
+              d="M3.5 7H9"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              opacity="0"
+            />
+          </svg>
+        </span>
       </a>
     )
   }

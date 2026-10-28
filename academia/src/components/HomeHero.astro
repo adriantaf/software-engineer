@@ -13,22 +13,38 @@ interface Props {
 const { programa, ritmoHoras, materias, horas, semanas, continuarHref } = Astro.props;
 ---
 
-<section class="home-hero">
-  <div class="plan-shell relative z-[1] py-12 sm:py-16 lg:py-20">
-    <p class="font-display text-sm sm:text-base font-semibold tracking-[0.2em] uppercase text-teal-200/90 m-0 mb-3">
-      Atelier
-    </p>
-    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-3xl m-0 leading-[1.15]">
-      {programa}
-    </h1>
-    <p class="text-base sm:text-lg text-slate-200/90 max-w-xl m-0 mt-4 leading-relaxed">
-      Ritmo recomendado <strong class="text-white">{ritmoHoras} h/semana</strong>
-      <span class="opacity-50"> · </span>
-      {materias} materias · ~{horas} h · ~{semanas} semanas
-    </p>
-    <div class="flex flex-wrap gap-3 mt-8">
-      <a class="plan-btn-cta" data-continuar data-continuar-keep-label href={continuarHref}>Continuar aprendiendo</a>
-      <a class="plan-btn-ghost" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
+<section class="home-hero" aria-label="Portada">
+  <div class="home-hero__glow" aria-hidden="true"></div>
+  <div class="plan-shell home-hero__layout relative z-[1]">
+    <div class="home-hero__copy t-stagger is-shown">
+      <p class="home-hero__brand t-stagger-line t-stagger-line--1">Atelier</p>
+      <h1 class="home-hero__title t-stagger-line t-stagger-line--2">{programa}</h1>
+      <p class="home-hero__lede t-stagger-line t-stagger-line--3">
+        Ritmo recomendado <strong>{ritmoHoras} h/semana</strong>
+        <span class="home-hero__dot" aria-hidden="true">·</span>
+        {materias} materias
+        <span class="home-hero__dot" aria-hidden="true">·</span>
+        ~{horas} h
+        <span class="home-hero__dot" aria-hidden="true">·</span>
+        ~{semanas} semanas
+      </p>
+      <div class="home-hero__actions t-stagger-line t-stagger-line--4">
+        <a class="plan-btn-cta" data-continuar data-continuar-keep-label href={continuarHref}>
+          Continuar aprendiendo
+        </a>
+        <a class="plan-btn-ghost" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
+      </div>
+    </div>
+
+    <div class="home-hero__scene" aria-hidden="true">
+      <img
+        class="home-hero__scene-img"
+        src={pathTo('hero-atelier.svg')}
+        width="560"
+        height="360"
+        alt=""
+        decoding="async"
+      />
     </div>
   </div>
 </section>

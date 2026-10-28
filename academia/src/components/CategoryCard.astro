@@ -12,41 +12,33 @@ interface Props {
 }
 
 const { id, titulo, objetivo, orden, materiaCount, horas, duracionMeses } = Astro.props;
-
-const metaById: Record<string, { label: string; hint: string }> = {
-  basica: { label: 'Cimientos', hint: 'Lenguaje, git y bases' },
-  disciplinaria: { label: 'Oficio', hint: 'Producto y sistemas' },
-  terminal: { label: 'Salida', hint: 'Producción y egreso' },
-};
-const meta = metaById[id] ?? { label: `Etapa ${orden}`, hint: objetivo };
+const accent =
+  id === 'basica'
+    ? 'var(--color-plan-basica)'
+    : id === 'disciplinaria'
+      ? 'var(--color-plan-disciplinaria)'
+      : 'var(--color-plan-terminal)';
 ---
 
 <a
-  class="etapa-card"
+  class="category-card"
+  style={`--accent: ${accent}`}
   href={pathTo(`etapa/${id}`)}
-  data-etapa={id}
   data-etapa-card={id}
 >
-  <span class="etapa-card__rail" aria-hidden="true" />
-  <div class="etapa-card__top">
-    <p class="etapa-card__meta">
-      <span class="etapa-card__meta-label">{meta.label}</span>
-      <span class="etapa-card__meta-sep" aria-hidden="true">·</span>
-      <span>Etapa {orden}</span>
-    </p>
-    <span class="etapa-card__status" data-etapa-label={id}>0%</span>
+  <div class="category-card__top">
+    <span class="category-card__stage">Etapa {orden}</span>
+    <span class="category-card__pct" data-etapa-label={id}>0%</span>
   </div>
-  <h3 class="etapa-card__title">{titulo}</h3>
-  <p class="etapa-card__desc">{objetivo}</p>
-  <p class="etapa-card__stats">
+  <h3 class="category-card__title">{titulo}</h3>
+  <p class="category-card__desc">{objetivo}</p>
+  <p class="category-card__stats">
     {materiaCount} materias · ~{duracionMeses} meses · {horas} h
-    <span class="etapa-card__hint"> · {meta.hint}</span>
   </p>
   <progress
-    class="progress progress-primary progress-atelier etapa-card__progress"
+    class="progress progress-primary category-card__progress"
     data-etapa={id}
     value="0"
     max="100"
-    aria-hidden="true"
-  />
+  ></progress>
 </a>

@@ -1,7 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CategoryCard from '../components/CategoryCard.astro';
+import CourseCard from '../components/CourseCard.astro';
+import CourseGrid from '../components/CourseGrid.astro';
 import {
   getCatalog,
+  getLeccionesCatalog,
   getMateriasByEtapa,
   getProgressSeed,
   totalStats,
@@ -11,118 +17,132 @@ import { pathTo } from '../lib/paths';
 const catalog = getCatalog();
 const stats = totalStats();
 const seed = getProgressSeed();
+const leccionesByMateria = getLeccionesCatalog();
+const etapaById = Object.fromEntries(catalog.etapas.map((e) => [e.id, e]));
 
-const etapaMeta: Record<
-  string,
-  { label: string; hint: string }
-> = {
-  basica: { label: 'Cimientos', hint: 'Lenguaje, git y bases' },
-  disciplinaria: { label: 'Oficio', hint: 'Producto y sistemas' },
-  terminal: { label: 'Salida', hint: 'Producción y egreso' },
-};
+const featured = catalog.materias.filter((m) => ['M01', 'M02', 'M03', 'M04'].includes(m.id));
+const continuarHref = pathTo('materia/M01/leccion/L01');
+
+const guideLinks = [
+  { href: pathTo('docs/como-estudiar'), label: 'Cómo estudiar' },
+  { href: pathTo('docs/glosario'), label: 'Glosario' },
+  { href: pathTo('docs/bibliografia'), label: 'Bibliografía' },
+  { href: pathTo('docs/producto-saas'), label: 'Producto SaaS' },
+  { href: pathTo('docs/seguridad'), label: 'Hilo seguridad' },
+  { href: pathTo('revision'), label: 'Revisión de emergencia' },
+  { href: pathTo('egreso'), label: 'Egreso' },
+  { href: pathTo('docs/index'), label: 'Mapa curricular' },
+  { href: pathTo('progreso'), label: 'Progreso' },
+];
 ---
 
 <Layout title="Inicio" bareMain>
   <script type="application/json" id="progress-seed" set:html={JSON.stringify(seed)} />
 
-  <section class="hero-atelier" aria-label="Portada">
-    <div class="hero-atelier__scene" aria-hidden="true">
-      <img
-        class="hero-atelier__scene-img"
-        src={pathTo('hero-atelier.svg')}
-        width="720"
-        height="480"
-        alt=""
-        decoding="async"
+  <HomeHero
+    programa={catalog.programa}
+    ritmoHoras={catalog.ritmoHorasSemana}
+    materias={stats.materias}
+    horas={stats.horas}
+    semanas={stats.semanas}
+    continuarHref={continuarHref}
+  />
+
+  <div class="plan-shell py-10 sm:py-12 flex flex-col gap-12 sm:gap-16">
+    <section id="etapa-cards">
+      <SectionHeading
+        title="Elige tu etapa"
+        subtitle="Tres bloques del plan, del fundamento al egreso."
       />
-    </div>
-    <div class="hero-atelier__inner max-w-6xl mx-auto px-3 sm:px-4 w-full">
-      <p class="hero-atelier__brand">Atelier</p>
-      <h1 class="hero-atelier__headline">{catalog.programa}</h1>
-      <p class="hero-atelier__lede">
-        Competencia de software con proyectos útiles, evidencia en git y ritmo de{' '}
-        {catalog.ritmoHorasSemana} h/semana — sin atajos de tutorial.
-      </p>
-      <div class="flex flex-wrap gap-2">
-        <a class="btn btn-primary" data-home-cta href={pathTo('materia/M01/leccion/L01')}>
-          Empezar M01
-        </a>
-        <a class="btn btn-outline" href={pathTo('docs/como-estudiar')}>Cómo estudiar</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="container mx-auto px-3 sm:px-4 max-w-6xl w-full min-w-0 py-8 sm:py-10 pb-12">
-    <section class="section-atelier" aria-labelledby="etapas-title">
-      <h2 id="etapas-title" class="section-atelier__title">Tres etapas</h2>
-      <p class="section-atelier__lede">
-        {stats.materias} materias · ~{stats.horas} h de plan · ~{stats.semanas} semanas a ritmo meta.
-      </p>
-
-      <div id="etapa-list" class="stagger-in etapa-card-list">
+      <div class="grid gap-4 md:grid-cols-3 catalog-reveal">
         {
           catalog.etapas.map((etapa) => {
             const mats = getMateriasByEtapa(etapa.id);
             const horas = mats.reduce((a, m) => a + m.horas, 0);
-            const meta = etapaMeta[etapa.id] ?? {
-              label: `Etapa ${etapa.orden}`,
-              hint: etapa.objetivo,
-            };
             return (
-              <a
-                href={pathTo(`etapa/${etapa.id}`)}
-                class="etapa-card"
-                data-etapa={etapa.id}
-                data-etapa-card={etapa.id}
-              >
-                <span class="etapa-card__rail" aria-hidden="true" />
-                <div class="etapa-card__top">
-                  <p class="etapa-card__meta">
-                    <span class="etapa-card__meta-label">{meta.label}</span>
-                    <span class="etapa-card__meta-sep" aria-hidden="true">
-                      ·
-                    </span>
-                    <span>Etapa {etapa.orden}</span>
-                  </p>
-                  <span class="etapa-card__status" data-etapa-label={etapa.id}>
-                    0%
-                  </span>
-                </div>
-                <h3 class="etapa-card__title">{etapa.titulo}</h3>
-                <p class="etapa-card__desc">{etapa.objetivo}</p>
-                <p class="etapa-card__stats">
-                  {mats.length} materias · ~{etapa.duracionMeses} meses · {horas} h
-                  <span class="etapa-card__hint"> · {meta.hint}</span>
-                </p>
-                <progress
-                  class="progress progress-primary progress-atelier etapa-card__progress"
-                  data-etapa={etapa.id}
-                  value="0"
-                  max="100"
-                  aria-hidden="true"
-                />
-              </a>
+              <CategoryCard
+                id={etapa.id}
+                titulo={etapa.titulo}
+                objetivo={etapa.objetivo}
+                orden={etapa.orden}
+                materiaCount={mats.length}
+                horas={horas}
+                duracionMeses={etapa.duracionMeses}
+              />
             );
           })
         }
       </div>
     </section>
 
-    <section class="section-atelier" aria-labelledby="recursos-title">
-      <h2 id="recursos-title" class="section-atelier__title">Recursos</h2>
-      <p class="section-atelier__lede">
-        Guías del plan. Física, química o cálculo avanzado, si los necesitas, van aparte.
-      </p>
-      <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm list-none p-0 m-0">
-        <li><a class="link link-primary" href={pathTo('docs/glosario')}>Glosario</a></li>
-        <li><a class="link link-primary" href={pathTo('docs/bibliografia')}>Bibliografía</a></li>
-        <li><a class="link link-primary" href={pathTo('docs/producto-saas')}>Producto SaaS</a></li>
-        <li><a class="link link-primary" href={pathTo('docs/seguridad')}>Hilo seguridad</a></li>
-        <li><a class="link link-primary" href={pathTo('docs/labs')}>Labs</a></li>
-        <li><a class="link link-primary" href={pathTo('revision')}>Revisión de emergencia</a></li>
-        <li><a class="link link-primary" href={pathTo('egreso')}>Egreso</a></li>
-        <li><a class="link link-primary" href={pathTo('docs/index')}>Mapa</a></li>
-        <li><a class="link link-primary" href={pathTo('progreso')}>Progreso</a></li>
+    <section>
+      <SectionHeading
+        title="Empieza aquí"
+        subtitle="Las primeras materias de Fundamentos para tomar ritmo."
+        href={pathTo('etapa/basica')}
+        linkLabel="Ver Fundamentos"
+      />
+      <CourseGrid>
+        {
+          featured.map((m) => {
+            const etapa = etapaById[m.etapa]!;
+            return (
+              <CourseCard
+                id={m.id}
+                titulo={m.titulo}
+                etapaId={m.etapa}
+                etapaTitulo={etapa.titulo}
+                horas={m.horas}
+                semanas={m.semanas}
+                leccionCount={leccionesByMateria[m.id]?.length ?? 0}
+              />
+            );
+          })
+        }
+      </CourseGrid>
+    </section>
+
+    {
+      catalog.etapas.map((etapa) => {
+        const mats = getMateriasByEtapa(etapa.id);
+        return (
+          <section>
+            <SectionHeading
+              title={etapa.titulo}
+              subtitle={etapa.objetivo}
+              href={pathTo(`etapa/${etapa.id}`)}
+              linkLabel="Ver etapa"
+            />
+            <CourseGrid>
+              {mats.map((m) => (
+                <CourseCard
+                  id={m.id}
+                  titulo={m.titulo}
+                  etapaId={m.etapa}
+                  etapaTitulo={etapa.titulo}
+                  horas={m.horas}
+                  semanas={m.semanas}
+                  leccionCount={leccionesByMateria[m.id]?.length ?? 0}
+                />
+              ))}
+            </CourseGrid>
+          </section>
+        );
+      })
+    }
+
+    <section class="pb-4">
+      <SectionHeading title="Guías académicas" subtitle="Referencias compactas del plan." />
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 m-0 p-0 list-none text-sm">
+        {
+          guideLinks.map((g) => (
+            <li>
+              <a class="font-medium text-plan-primary hover:underline" href={g.href}>
+                {g.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </section>
   </div>
@@ -143,6 +163,19 @@ const etapaMeta: Record<
       if (!raw) return;
       const catalog = JSON.parse(raw) as { etapas: { id: string; materiaIds: string[] }[] };
       const progress = loadProgress();
+      const statusMap: Record<string, string> = {
+        completada: 'status-chip status-chip--ok course-card__chip',
+        en_curso: 'status-chip status-chip--warn course-card__chip',
+        disponible: 'status-chip status-chip--info course-card__chip',
+        bloqueada: 'status-chip status-chip--muted course-card__chip',
+      };
+      const labels: Record<string, string> = {
+        completada: 'Hecha',
+        en_curso: 'En curso',
+        disponible: 'Lista',
+        bloqueada: 'Bloqueada',
+      };
+
       for (const etapa of catalog.etapas) {
         const done = etapa.materiaIds.filter(
           (id) => progress?.materias?.[id]?.status === 'completada',
@@ -154,11 +187,18 @@ const etapaMeta: Record<
         const label = document.querySelector(`[data-etapa-label="${etapa.id}"]`);
         if (bar) bar.setAttribute('value', String(pct));
         if (label) {
-          const status = pct === 0 ? 'Sin empezar' : pct === 100 ? 'Completa' : `${pct}%`;
-          label.textContent = status;
-          label.dataset.pct = String(pct);
+          label.textContent =
+            pct === 0 ? '0%' : pct === 100 ? 'Lista' : `${pct}%`;
           label.dataset.state =
             pct === 0 ? 'idle' : pct === 100 ? 'done' : 'active';
+        }
+
+        for (const mid of etapa.materiaIds) {
+          const chip = document.querySelector(`.course-card__chip[data-status="${mid}"]`);
+          if (!chip) continue;
+          const st = progress?.materias?.[mid]?.status || 'disponible';
+          chip.className = statusMap[st] ?? statusMap.disponible;
+          chip.textContent = labels[st] ?? '—';
         }
       }
 
@@ -171,15 +211,16 @@ const etapaMeta: Record<
         leccionesByMateria = {};
       }
       const rel = resolveContinuePath(ids, leccionesByMateria);
-      const cta = document.querySelector<HTMLAnchorElement>('[data-home-cta]');
-      if (cta) {
-        cta.href = pathTo(rel);
-        const mid = rel.split('/')[1] ?? 'M01';
-        const hasProgress = Boolean(
-          progress?.materias && Object.keys(progress.materias).length > 0,
-        );
-        cta.textContent = hasProgress ? `Continuar ${mid}` : 'Empezar M01';
-      }
+      document.querySelectorAll<HTMLAnchorElement>('[data-continuar]').forEach((el) => {
+        el.href = pathTo(rel);
+        if (!el.hasAttribute('data-continuar-keep-label')) {
+          const mid = rel.split('/')[1] ?? 'M01';
+          const hasProgress = Boolean(
+            progress?.materias && Object.keys(progress.materias).length > 0,
+          );
+          el.textContent = hasProgress ? `Continuar ${mid}` : 'Continuar aprendiendo';
+        }
+      });
     }
 
     refresh();
