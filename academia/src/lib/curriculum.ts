@@ -352,7 +352,7 @@ export type RevisionCard = {
   href: string;
 };
 
-/** Índice compacto para modo revisión de emergencia (todas las lecciones). */
+/** Índice compacto para repaso cronometrado (todas las lecciones). */
 export function getRevisionIndex(): RevisionCard[] {
   const out: RevisionCard[] = [];
   for (const m of getCatalog().materias) {

@@ -151,20 +151,13 @@ function navCurrent(segment: string): boolean {
                   <li><a href={pathTo('egreso')}>Egreso</a></li>
                   <li><a href={pathTo('nivel')}>Nivel</a></li>
                   <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
-                  <li><a href={pathTo('revision')}>Revisión de emergencia</a></li>
+                  <li><a href={pathTo('revision')}>Repaso cronometrado</a></li>
                   <li class="menu-title"><span>Autoevaluación</span></li>
                   <li><a href={pathTo('etapa/basica/examen')}>Examen Básica</a></li>
                   <li><a href={pathTo('etapa/disciplinaria/examen')}>Examen Disciplinaria</a></li>
                   <li><a href={pathTo('etapa/terminal/examen')}>Examen Terminal</a></li>
                 </ul>
               </div>
-            </li>
-            <li>
-              <a
-                class="btn btn-ghost btn-sm font-normal nav-link"
-                href={pathTo('revision')}
-                aria-current={navCurrent('revision') ? 'page' : undefined}>Revisión</a
-              >
             </li>
             <li>
               <a
@@ -274,7 +267,6 @@ function navCurrent(segment: string): boolean {
             <li><a href={pathTo('etapa/basica')}>Básica</a></li>
             <li><a href={pathTo('etapa/disciplinaria')}>Disciplinaria</a></li>
             <li><a href={pathTo('etapa/terminal')}>Terminal</a></li>
-            <li><a href={pathTo('revision')}>Revisión de emergencia</a></li>
             <li><a href={pathTo('progreso')}>Progreso</a></li>
             <li><a href={pathTo('buscar')}>Buscar</a></li>
           </ul>
@@ -295,6 +287,7 @@ function navCurrent(segment: string): boolean {
               <li><a href={pathTo('egreso')}>Egreso</a></li>
               <li><a href={pathTo('nivel')}>Nivel</a></li>
               <li><a href={pathTo('docs/index')}>Mapa curricular</a></li>
+              <li><a href={pathTo('revision')}>Repaso cronometrado</a></li>
             </ul>
           </details>
 

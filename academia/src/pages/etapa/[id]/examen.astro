@@ -111,7 +111,6 @@ if (!etapa || !exam) throw new Error('Examen de etapa no encontrado');
 
   <div class="mt-6 flex flex-wrap gap-2">
     <a class="btn btn-outline btn-sm" href={pathTo(`etapa/${etapa.id}`)}>← Volver a {etapa.titulo}</a>
-    <a class="btn btn-outline btn-sm" href={pathTo('revision')}>Revisión de emergencia</a>
     <a class="btn btn-primary btn-sm" href={pathTo('progreso')}>Check-in semanal →</a>
   </div>
 
