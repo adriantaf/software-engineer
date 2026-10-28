@@ -11,11 +11,12 @@ interface Props {
 }
 
 const {
-  title = 'Plan',
-  description = 'Plan personal de ingeniería de software',
+  title = 'Atelier',
+  description = 'Atelier: plan personal de ingeniería de software',
   bareMain = false,
 } = Astro.props;
-const fullTitle = title === 'Plan' ? 'Plan de Ingeniería de Software' : `${title} · Plan`;
+const fullTitle =
+  title === 'Atelier' ? 'Atelier · Ingeniería de Software' : `${title} · Atelier`;
 const catalogIds = getCatalog().materias.map((m) => m.id);
 const leccionesCatalog = getLeccionesCatalog();
 const continuarFallback = pathTo('materia/M01/leccion/L01');
@@ -41,7 +42,7 @@ function navCurrent(segment: string): boolean {
     <meta name="color-scheme" content="light" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="Plan" />
+    <meta name="apple-mobile-web-app-title" content="Atelier" />
     <meta name="mobile-web-app-capable" content="yes" />
     <title>{fullTitle}</title>
     <link rel="icon" type="image/svg+xml" href={pathTo('favicon.svg')} />
@@ -98,11 +99,11 @@ function navCurrent(segment: string): boolean {
           <a
             class="brand-mark px-1 py-1"
             href={pathTo()}
-            aria-label="Plan de Ingeniería de Software — Inicio"
+            aria-label="Atelier — Ingeniería de Software — Inicio"
             transition:name="brand"
           >
             <img class="brand-mark__glyph" src={brandHref} width="24" height="24" alt="" />
-            <span class="brand-mark__text">Plan</span>
+            <span class="brand-mark__text">Atelier</span>
           </a>
         </div>
 
@@ -335,8 +336,8 @@ function navCurrent(segment: string): boolean {
 
     <footer class="footer footer-center site-footer p-6">
       <aside class="max-w-prose px-2">
-        <p class="font-display font-semibold text-base-content m-0">Plan de Ingeniería de Software</p>
-        <p class="text-sm m-0 mt-1">Mejorado con proyectos reales y evidencia en git</p>
+        <p class="font-display font-semibold text-base-content m-0">Atelier</p>
+        <p class="text-sm m-0 mt-1">Ingeniería de software con proyectos reales y evidencia en git</p>
       </aside>
     </footer>
 
