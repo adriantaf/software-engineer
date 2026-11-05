@@ -14,6 +14,7 @@ import {
   saveProgress,
   type MateriaProgress,
   type ProgressState,
+  type RepasoItem,
   type WeeklyCheckIn,
 } from './progress-client';
 
@@ -67,7 +68,29 @@ function orBoolMap(a: Record<string, boolean> = {}, b: Record<string, boolean> =
   return out;
 }
 
-function mergeMateria(a: MateriaProgress, b: MateriaProgress): MateriaProgress {
+function mergeNestedBoolMaps(
+  a: Record<string, Record<string, boolean>> = {},
+  b: Record<string, Record<string, boolean>> = {},
+): Record<string, Record<string, boolean>> {
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+  const out: Record<string, Record<string, boolean>> = {};
+  for (const k of keys) out[k] = orBoolMap(a[k], b[k]);
+  return out;
+}
+
+function mergePasoActual(
+  a: Record<string, string> = {},
+  b: Record<string, string> = {},
+  preferA: boolean,
+): Record<string, string> {
+  return preferA ? { ...b, ...a } : { ...a, ...b };
+}
+
+function mergeMateria(
+  a: MateriaProgress,
+  b: MateriaProgress,
+  preferAScalars: boolean,
+): MateriaProgress {
   const status =
     STATUS_RANK[a.status] >= STATUS_RANK[b.status] ? a.status : b.status;
   const completadoEn =
@@ -80,9 +103,34 @@ function mergeMateria(a: MateriaProgress, b: MateriaProgress): MateriaProgress {
     status,
     practicas: orBoolMap(a.practicas, b.practicas),
     lecciones: orBoolMap(a.lecciones, b.lecciones),
+    pasos: mergeNestedBoolMaps(a.pasos, b.pasos),
+    pasoActual: mergePasoActual(a.pasoActual, b.pasoActual, preferAScalars),
     proyecto: !!(a.proyecto || b.proyecto),
     completadoEn: completadoEn ?? null,
   };
+}
+
+function mergeRepaso(a: RepasoItem[] = [], b: RepasoItem[] = []): RepasoItem[] {
+  const map = new Map<string, RepasoItem>();
+  for (const item of [...a, ...b]) {
+    const prev = map.get(item.id);
+    if (!prev) {
+      map.set(item.id, item);
+      continue;
+    }
+    // Conserva el due más próximo y el mayor número de reps/lapses.
+    const due = prev.due <= item.due ? prev.due : item.due;
+    map.set(item.id, {
+      ...prev,
+      ...item,
+      due,
+      reps: Math.max(prev.reps ?? 0, item.reps ?? 0),
+      lapses: Math.max(prev.lapses ?? 0, item.lapses ?? 0),
+      ease: Math.min(prev.ease ?? 2.5, item.ease ?? 2.5),
+      intervalDays: Math.min(prev.intervalDays ?? 0, item.intervalDays ?? 0),
+    });
+  }
+  return [...map.values()].slice(0, 200);
 }
 
 function mergeCheckIns(a: WeeklyCheckIn[] = [], b: WeeklyCheckIn[] = []): WeeklyCheckIn[] {
@@ -102,11 +150,12 @@ export function mergeProgress(local: ProgressState, remote: ProgressState): Prog
     ...Object.keys(local.materias ?? {}),
     ...Object.keys(remote.materias ?? {}),
   ]);
+  const preferLocalScalars = localTs >= remoteTs;
   const materias: Record<string, MateriaProgress> = {};
   for (const id of materiaIds) {
     const a = local.materias[id];
     const b = remote.materias[id];
-    if (a && b) materias[id] = mergeMateria(a, b);
+    if (a && b) materias[id] = mergeMateria(a, b, preferLocalScalars);
     else materias[id] = a ?? b!;
   }
 
@@ -119,10 +168,18 @@ export function mergeProgress(local: ProgressState, remote: ProgressState): Prog
     materiaActual: newer.materiaActual || older.materiaActual,
     lastMateriaId: newer.lastMateriaId || older.lastMateriaId,
     lastLeccionId: newer.lastLeccionId || older.lastLeccionId,
+    lastPasoId: newer.lastPasoId || older.lastPasoId,
+    xp: Math.max(local.xp ?? 0, remote.xp ?? 0),
+    racha: Math.max(local.racha ?? 0, remote.racha ?? 0),
+    ultimaFechaEstudio:
+      (local.ultimaFechaEstudio || '') >= (remote.ultimaFechaEstudio || '')
+        ? local.ultimaFechaEstudio || remote.ultimaFechaEstudio
+        : remote.ultimaFechaEstudio || local.ultimaFechaEstudio,
     materias,
     notas: newer.notas?.length ? newer.notas : older.notas,
     checkIns: mergeCheckIns(local.checkIns, remote.checkIns),
     examenes: { ...(older.examenes ?? {}), ...(newer.examenes ?? {}) },
+    repaso: mergeRepaso(local.repaso, remote.repaso),
     updatedAt: Math.max(localTs, remoteTs, Date.now()),
   };
 }
