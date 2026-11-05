@@ -2,12 +2,130 @@
 id: L02
 materia: M04
 orden: 2
-titulo: Eventos, reglas y frecuentismo
+titulo: 'Eventos, reglas y frecuentismo'
 horas: 5
 semana: 1
-lectura: "Walpole cap. 2 (reglas, conteo básico) · OpenStax Ch. 3"
-evidencia: "projects/m04-stats/src/eventos-dado.ts + notas/eventos-dado.md"
+lectura: 'Walpole cap. 2 (reglas, conteo básico) · OpenStax Ch. 3'
+evidencia: projects/m04-stats/src/eventos-dado.ts + notas/eventos-dado.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Implementar reglas P(Aᶜ), P(A ∪ B) en un ejemplo concreto
+      (dado) y escribir qué evento responde una métrica de producto que elijas.
+
+
+      **Espacio muestral** = todos los resultados posibles. **Evento** =
+      subconjunto que te interesa (“par”, “≥ 5”, “error 5xx”). En analytics,
+      casi siempre trabajas con eventos discretos contables.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Dado en TS
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function lanzarDado(): number {
+        return 1 + Math.floor(Math.random() * 6);
+      }
+
+      export function simularEvento(
+        n: number,
+        pred: (x: number) => boolean,
+      ): { cuenta: number; frecuencia: number } {
+        let cuenta = 0;
+        for (let i = 0; i < n; i++) if (pred(lanzarDado())) cuenta++;
+        return { cuenta, frecuencia: cuenta / n };
+      }
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Eventos, reglas y frecuentismo" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: projects/m04-stats/src/eventos-dado.ts + notas/eventos-dado.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Tratar “OR” en lenguaje natural como
+      unión inclusiva sin ver solapamiento."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Implementar reglas P(Aᶜ), P(A ∪ B) en un ejemplo concreto (dado) y
+          escribir qué evento responde una métrica de producto que elijas.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Reglas en la nota
+    xp: 10
+    cuerpo: |-
+      En `notas/eventos-dado.md` escribe:
+
+      ```markdown
+      Dado — eventos
+
+      | Evento | Teórico | Simulado (n=…) |
+      |--------|---------|----------------|
+      | Par | 0.5 | |
+      | Seis | 1/6 | |
+      | Par ∩ Seis | 1/6 | |
+  - id: s7
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - >-
+        `eventos-dado.ts` corre y reporta frecuencias cercanas a 0.5 y 1/6 con n
+        grande.
+      - La nota incluye tabla teórico vs simulado y un párrafo métrica→evento.
+      - Commit en git.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Eventos, reglas y frecuentismo
 

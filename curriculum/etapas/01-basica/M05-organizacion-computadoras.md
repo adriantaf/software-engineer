@@ -36,14 +36,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M05 sigue el formato de lecciones cortas y completas (como M01): marcas una a una cuando cumples “Hecho cuando”.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Abre las lecciones **en orden** (L01 → L12).
-2. Cada lección trae objetivo, pasos, lectura de libro y criterio “Hecho cuando”.
-3. Marca la lección en la UI solo si cumple ese criterio.
-4. Las **prácticas / proyecto** siguen exigiendo evidencia en `projects/m05-como-corre/`.
-5. **Dibuja más de lo que subrayas.** Cada concepto → “¿dónde lo veo cuando corro `node cli.js`?”.
-6. Método general: [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

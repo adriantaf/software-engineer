@@ -5,9 +5,119 @@ orden: 13
 titulo: Errores como diseño (CC cap. 7)
 horas: 5
 semana: 4
-lectura: "Código limpio cap. 7 (manejo de errores)"
-evidencia: "Jerarquía o catálogo de errores de dominio; sin catch vacíos"
+lectura: Código limpio cap. 7 (manejo de errores)
+evidencia: Jerarquía o catálogo de errores de dominio; sin catch vacíos
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Aplicar CC cap. 7: excepciones con contexto, límites claros,
+      sin `catch {}`; definir errores de dominio expresivos.
+
+
+      Los errores son flujo de control y UX para quien llama tu API. Tragar
+      excepciones es deuda.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export class LibroNoEncontradoError extends Error {
+        constructor(public readonly id: string) {
+          super(`Libro no encontrado: ${id}`);
+          this.name = "LibroNoEncontradoError";
+        }
+      }
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Errores como diseño (CC cap. 7)" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: Jerarquía o catálogo de errores de dominio; sin catch vacíos
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: ¿Es buena práctica en esta lección? “String errors everywhere."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Aplicar CC cap. 7: excepciones con contexto, límites claros, sin
+          `catch {}`; definir errores de dominio expresivos.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Auditoría
+    xp: 10
+    cuerpo: 'Busca `catch`, `throw new Error("error")` genéricos.'
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Catálogo de errores
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export class LibroNoEncontradoError extends Error {
+        constructor(public readonly id: string) {
+          super(`Libro no encontrado: ${id}`);
+          this.name = "LibroNoEncontradoError";
+        }
+      }
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - Cero `catch` vacíos.
+      - Errores nombrados con contexto.
+      - Tests demuestran fallos esperados.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — Errores como diseño (CC cap. 7)
 

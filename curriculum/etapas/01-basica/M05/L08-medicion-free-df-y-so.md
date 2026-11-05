@@ -2,12 +2,123 @@
 id: L08
 materia: M05
 orden: 8
-titulo: "Medición: free, df y observación del SO"
+titulo: 'Medición: free, df y observación del SO'
 horas: 5
 semana: 2
-lectura: "Apuntes semana 2 + man free/df o documentación equivalente"
-evidencia: "projects/m05-como-corre/mediciones-semana2.md"
+lectura: Apuntes semana 2 + man free/df o documentación equivalente
+evidencia: projects/m05-como-corre/mediciones-semana2.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Registrar mediciones repetibles de memoria y disco;
+      correlacionar con procesos Node; redactar conclusiones sobre RAM vs
+      almacenamiento en **tu** entorno.
+
+
+      Cierras la semana 2 observando la máquina mientras corre software, no solo
+      leyendo diagramas.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Protocolo de medición
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m05-como-corre/
+      git commit -m "docs(m05): mediciones semana 2 memoria y disco"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Medición: free, df y observación del SO" como hecha, ¿qué
+      cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m05-como-corre/mediciones-semana2.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/m05-como-corre/`
+    comandoEsperado:
+      - git add projects/m05-como-corre/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: git add projects/m05-como-corre/'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Registrar mediciones repetibles de memoria y disco; correlacionar con
+          procesos Node; redactar conclusiones sobre RAM vs almacenamiento en *…
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Baseline
+    xp: 10
+    cuerpo: 'Con el sistema idle, captura memoria y disco. Pega salidas recortadas.'
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Carga controlada
+    xp: 10
+    cuerpo: >-
+      Ejecuta un script que:
+
+
+      1. Asigne un arreglo grande en memoria (como L05).
+
+      2. Escriba un archivo temporal grande en `projects/m05-como-corre/tmp/`
+      (luego bórralo).
+
+
+      Antes, durante y después, anota `free` y espacio en disco. Interpreta.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - >-
+        `mediciones-semana2.md` con protocolo, ≥3 repeticiones donde aplique, y
+        síntesis.
+      - Commit con evidencia de la semana 2.
+      - Puedes explicar RAM vs disco sin usar la palabra “magia”.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L08 — Medición: `free`, `df` y observación del SO
 

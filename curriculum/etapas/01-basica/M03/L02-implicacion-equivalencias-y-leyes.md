@@ -2,12 +2,136 @@
 id: L02
 materia: M03
 orden: 2
-titulo: Implicación, equivalencias y leyes
+titulo: 'Implicación, equivalencias y leyes'
 horas: 2.5
 semana: 1
-lectura: "Rosen Cap. 1.3 — equivalencias, leyes lógicas, formas normales (intro)"
-evidencia: "apuntes/leyes-logicas.md + evaluar() para fórmulas pequeñas + tests"
+lectura: 'Rosen Cap. 1.3 — equivalencias, leyes lógicas, formas normales (intro)'
+evidencia: apuntes/leyes-logicas.md + evaluar() para fórmulas pequeñas + tests
+formato: pasos
+xpLeccion: 75
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Dominar ↔ y las leyes clave; verificar equivalencias con
+      tablas o álgebra; codificar evaluación de fórmulas con variables
+      booleanas.
+
+
+      `P ↔ Q` es verdadera cuando ambas tienen el **mismo** valor de verdad.
+      Muchas “reglas mnemotécnicas” son equivalencias demostrables, no axiomas
+      mágicos.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Leyes en apuntes
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type Env = Record<string, boolean>;
+
+      export function evaluar(expr: string, env: Env): boolean {
+        // Implementa un subconjunto: identificadores, ¬, ∧, ∨, →, paréntesis
+        // Sin eval(): parsea tú o usa un árbol simple de 1–2 niveles
+        throw new Error("por implementar");
+      }
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Implicación, equivalencias y leyes" como hecha, ¿qué cuenta
+      de verdad?
+    opciones:
+      - id: a
+        texto: apuntes/leyes-logicas.md + evaluar() para fórmulas pequeñas + tests
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Usar `eval()` de JS con strings
+      arbitrarios (riesgo y no demuestra comprensión)."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Dominar ↔ y las leyes clave; verificar equivalencias con tablas o
+          álgebra; codificar evaluación de fórmulas con variables booleanas.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Tautología y contradicción
+    xp: 10
+    cuerpo: >-
+      Define tautología y contradicción. Ejemplo: `P ∨ ¬P` (tautología).
+      Comprueba con tabla.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Evaluador en TS
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type Env = Record<string, boolean>;
+
+      export function evaluar(expr: string, env: Env): boolean {
+        // Implementa un subconjunto: identificadores, ¬, ∧, ∨, →, paréntesis
+        // Sin eval(): parsea tú o usa un árbol simple de 1–2 niveles
+        throw new Error("por implementar");
+      }
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - >-
+        `leyes-logicas.md` incluye las cuatro leyes con verificación y 2
+        ejercicios del libro.
+      - >-
+        `evaluar` (o funciones auxiliares equivalentes) pasa tests acordados con
+        tu diseño.
+      - >-
+        Explicas la diferencia entre `P → Q` y `P ↔ Q` con un contraejemplo cada
+        uno.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Implicación, equivalencias y leyes
 

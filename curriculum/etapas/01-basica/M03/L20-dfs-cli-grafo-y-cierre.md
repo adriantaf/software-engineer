@@ -2,12 +2,146 @@
 id: L20
 materia: M03
 orden: 20
-titulo: DFS, CLI de grafo y cierre
+titulo: 'DFS, CLI de grafo y cierre'
 horas: 3
 semana: 5
-lectura: "Rosen Cap. 10.3 — DFS; repaso cap. 10 según huecos"
-evidencia: "src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto + checklist P1–P3 y proyecto"
+lectura: Rosen Cap. 10.3 — DFS; repaso cap. 10 según huecos
+evidencia: >-
+  src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto + checklist
+  P1–P3 y proyecto
+formato: pasos
+xpLeccion: 90
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Implementar DFS (iterativo o recursivo); entregar CLI del
+      proyecto; completar a 10 demostraciones en `demos.md`; autoevaluar P1–P3 y
+      criterios de dominio.
+
+
+      Cierras M03: DFS, CLI que lee JSON e imprime recorridos y grados, y
+      revisión honesta de todas las evidencias.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. DFS
+    xp: 10
+    cuerpo: |-
+      ```ts
+      import type { Grafo } from "./graph";
+
+      export function dfs<T>(g: Grafo<T>, origen: T): T[] {
+        const visitados = new Set<T>();
+        const orden: T[] = [];
+        function visitar(v: T) {
+          if (visitados.has(v)) return;
+          visitados.add(v);
+          orden.push(v);
+          for (const w of g.adyacencia.get(v) ?? []) visitar(w);
+        }
+        visitar(origen);
+        return orden;
+      }
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "DFS, CLI de grafo y cierre" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: >-
+          src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto +
+          checklist P1–P3 y proyecto
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Marcar M03 completa sin CLI ni tests
+      verdes."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Implementar DFS (iterativo o recursivo); entregar CLI del proyecto;
+          completar a 10 demostraciones en `demos.md`; autoevaluar P1–P3 y
+          criter…
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. CLI del proyecto
+    xp: 10
+    cuerpo: >-
+      `src/cli.ts` (ejecutable con `npx tsx src/cli.ts grafos/ejemplo.json`):
+
+
+      - Carga JSON.
+
+      - Imprime lista de vértices y grados.
+
+      - Imprime orden BFS y DFS desde un vértice (argumento o primer vértice).
+
+      - Mensaje de ayuda si falta archivo.
+
+
+      Actualiza `projects/m03-discretas/README.md` con sección **Teoría**: 1
+      párrafo BFS, 1 DFS, 1 representación.
+  - id: s7
+    tipo: explicacion
+    titulo: 3. P1 — Diez demostraciones
+    xp: 10
+    cuerpo: >-
+      Cuenta entradas en `demos.md`. Si faltan, completa hasta **10** (pueden
+      ser cortas pero completas). Numeración continua.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - '`dfs` y `bfs` probados; CLI imprime grados y ambos recorridos.'
+      - '`demos.md` tiene ≥10 demostraciones; P2 y P3 verificables.'
+      - '`cierre.md` o README documenta retro y criterios de dominio.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — DFS, CLI de grafo y cierre
 

@@ -34,20 +34,14 @@ Se requiere **un** lenguaje con profundidad. TypeScript escala a web, APIs y her
 
 ## Cómo estudiar esta materia (lecciones)
 
-M02 sigue el formato de lecciones cortas y completas (como M01):
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Abra las lecciones **en orden** (L01 → L24), cuatro por semana.
-2. Cada lección trae objetivo, pasos con código, lectura y criterio **Hecho cuando**.
-3. Marca la lección en la UI solo si cumple ese criterio.
-4. Las **prácticas / proyecto** de abajo exigen evidencia en `projects/` (ver [m02-programacion](../../../projects/m02-programacion/README.md)).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
 5. Método general: [Cómo estudiar](../../como-estudiar.md).
 
-**Hábitos de esta materia:**
-
-- Código todos los días (aunque sean 45 min de katas).
-- Activa `"strict": true` desde el primer `tsconfig`.
-- Cuando un error de tipos aparezca: **léelo completo** antes de googlear.
-- El CLI (`projects/m02-habits/`) se construye de a poco desde la **semana 3**, no al final.
 
 ## Semana tipo (20 h)
 
