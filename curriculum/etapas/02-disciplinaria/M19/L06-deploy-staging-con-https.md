@@ -12,83 +12,41 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Desplegar staging con HTTPS forzado y variables en panel del
-      host.
-
-
       - HTTP→HTTPS
 
       - env vars
 
       - build remoto
+
+
+      **Objetivo de esta lección:** Desplegar staging con HTTPS forzado y
+      variables en panel del host.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Deploy staging HTTPS
+    titulo: Deploy staging HTTPS
     xp: 10
     cuerpo: |-
       ```bash
       curl -sSI https://TU-STAGING.example/health | head -15
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Deploy staging con HTTPS" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: projects/m19-ops/deploy-log.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
 
-      `curl -sSI https://TU-STAGING.example/health | head -15`
-    comandoEsperado:
-      - 'curl -sSI https://TU-STAGING.example/health | head -15'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: curl -sSI https://TU-STAGING.example/health | head -15'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Desplegar staging con HTTPS forzado y variables en panel del host.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. deploy-log.md
+      Sigue el ADR. Inyecta secrets en el panel.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: deploy-log.md
     xp: 10
     cuerpo: |-
       ```bash
       cat > projects/m19-ops/deploy-log.md << 'EOF'
-      Deploy log
+      # Deploy log
       | Fecha | Env | Versión/commit | URL | Resultado |
       |-------|-----|----------------|-----|-----------|
       | YYYY-MM-DD | staging | abc123 | https://… | OK health |
@@ -96,18 +54,83 @@ pasos:
       git add projects/m19-ops/deploy-log.md
       git commit -m "docs(m19): L06 deploy staging https"
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Deploy staging con HTTPS», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Deploy staging con
+          HTTPS
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `curl -sSI https://TU-STAGING.example/health | head -15`
+    comandoEsperado:
+      - 'curl -sSI https://TU-STAGING.example/health | head -15'
+      - git add projects/m19-ops/deploy-log.md
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: curl -sSI https://TU-STAGING.example/health | head -15'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: Desplegar staging con HTTPS forzado y variables en panel del host.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
+    tipo: terminal
+    titulo: Segundo comando
+    xp: 15
+    enunciado: |-
+      Ahora el siguiente comando de la secuencia:
+
+      `git add projects/m19-ops/deploy-log.md`
+    comandoEsperado:
+      - git add projects/m19-ops/deploy-log.md
+    explicacionError: 'Esperado: git add projects/m19-ops/deploy-log.md'
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
     puntos:
       - 'Marca la lección solo si:'
       - '`projects/m19-ops/deploy-log.md` con URL HTTPS staging y commit/versión.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L06 — Deploy staging con HTTPS
 

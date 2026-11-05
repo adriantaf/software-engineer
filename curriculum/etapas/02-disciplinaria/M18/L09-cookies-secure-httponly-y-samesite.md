@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Tabla real de cookies en
+      Atributos correctos o sesión robable. Hoy aplicas flags en tu stack.
+
+
+      **Objetivo de esta lección:** Tabla real de cookies en
       `projects/m18-appsec/pocs/cookies.md`; fix Secure/HttpOnly/SameSite si
       faltan.
 
 
-      Atributos correctos o sesión robable. Hoy aplicas flags en tu stack.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inspección Set-Cookie
+    titulo: Inspección Set-Cookie
     xp: 10
     cuerpo: |-
       ```bash
@@ -31,71 +35,87 @@ pasos:
         -H 'content-type: application/json' \
         -d '{"email":"owner@test.local","password":"***"}' | rg -i 'set-cookie|HTTP/
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Documenta + harden
+    xp: 10
+    cuerpo: |-
+      ```bash
+      curl -sI -X POST localhost:3000/auth/login \
+        -H 'content-type: application/json' \
+        -d '{"email":"owner@test.local","password":"***"}' | rg -i 'set-cookie|HTTP/
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cookies Secure, HttpOnly y SameSite" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Cookies Secure, HttpOnly y SameSite», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m18-appsec/pocs/cookies.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cookies Secure,
+          HttpOnly y SameSite
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -sI -X POST localhost:3000/auth/login \`
     comandoEsperado:
       - 'curl -sI -X POST localhost:3000/auth/login \'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -sI -X POST localhost:3000/auth/login \'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Tabla real de cookies en `projects/m18-appsec/pocs/cookies.md`; fix
           Secure/HttpOnly/SameSite si faltan.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Documenta + harden
-    xp: 10
-    cuerpo: |-
-      ```bash
-      cat > projects/m18-appsec/pocs/cookies.md <<'EOF'
-      Cookies lab
-      | Nombre | HttpOnly | Secure | SameSite | Path | Max-Age |
-      |--------|----------|--------|----------|------|---------|
-      | sid? | | | | | |
   - id: s7
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “Cookie de sesión accesible desde JS."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -108,11 +128,11 @@ pasos:
         Parche o justificación documentada (artefacto:
         `projects/m18-appsec/pocs/cookies.md`).
       - 'Commit `docs(m18): L09 cookies-secure-httponly-y-samesite`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Cookies Secure, HttpOnly y SameSite
 

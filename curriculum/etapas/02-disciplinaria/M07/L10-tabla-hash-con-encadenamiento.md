@@ -12,87 +12,96 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Entregar `HashMap<K,V>` (string keys al inicio está bien)
-      con encadenamiento, API set/get/delete y `loadFactor` visible.
-
-
       Cada bucket es una lista (o array) de pares clave-valor. Hoy montas el
       mapa usable.
+
+
+      **Objetivo de esta lección:** Entregar `HashMap<K,V>` (string keys al
+      inicio está bien) con encadenamiento, API set/get/delete y `loadFactor`
+      visible.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Diseño de buckets
+    titulo: Diseño de buckets
     xp: 10
     cuerpo: |-
       ```bash
       npx tsx -e "import { HashMap } from './src/hash-map.ts'; ..."
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Implementación
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m07): hashmap encadenamiento"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Tabla hash con encadenamiento" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Tabla hash con encadenamiento», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: HashMapChaining con set/get/delete + load factor logged
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tabla hash con
+          encadenamiento
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `npx tsx -e "import { HashMap } from './src/hash-map.ts'; ..."`
     comandoEsperado:
       - 'npx tsx -e "import { HashMap } from ''./src/hash-map.ts''; ..."'
+      - 'git commit -am "feat(m07): hashmap encadenamiento"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: npx tsx -e "import { HashMap } from ''./src/hash-map.ts''; ..."'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Entregar `HashMap<K,V>` (string keys al inicio está bien) con
           encadenamiento, API set/get/delete y `loadFactor` visible.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementación
-    xp: 10
-    cuerpo: >-
-      `src/hash-map.ts`: array de buckets (capacidad inicial 8 o 16); `set`
-      inserta o actualiza; `get`/`has`; `delete` remueve de la cadena; getter
-      `loadFactor = size/capacity`.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests
+    titulo: Tests
     xp: 10
     cuerpo: >-
       set+get; overwrite; delete + get undefined; has false; varias claves en
@@ -111,11 +120,11 @@ pasos:
         Tests cubren overwrite, delete, get ausente; logueas o expones
         `loadFactor`.
       - 'Commit `feat(m07): hashmap encadenamiento`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Tabla hash con encadenamiento
 

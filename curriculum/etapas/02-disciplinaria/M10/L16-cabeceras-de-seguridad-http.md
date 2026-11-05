@@ -12,84 +12,101 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Escribir la política inicial de security headers del
-      producto.
-
-
       Capa barata y visible. Hoy inventarias headers y dejas una checklist para
       M17/M18.
+
+
+      **Objetivo de esta lección:** Escribir la política inicial de security
+      headers del producto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Escaneo
+    titulo: Escaneo
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      curl -sI https://example.com | sed -n '1,40p'
+
+      ```
+
+
+      Busca: `Strict-Transport-Security`, `Content-Security-Policy`,
+      `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`,
+      `Permissions-Policy`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Checklist Vitrina
     xp: 10
     cuerpo: |-
       ```bash
-      curl -sI https://example.com | sed -n '1,40p'
+      git add projects/m10-redes
+      git commit -m "docs(m10): l16 security headers"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cabeceras de seguridad HTTP" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Cabeceras de seguridad HTTP», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: labs/security-headers.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cabeceras de seguridad
+          HTTP
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -sI https://example.com | sed -n '1,40p'`
     comandoEsperado:
       - 'curl -sI https://example.com | sed -n ''1,40p'''
+      - git add projects/m10-redes
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -sI https://example.com | sed -n ''1,40p'''
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Escribir la política inicial de security headers del producto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Checklist Vitrina
-    xp: 10
-    cuerpo: >-
-      En `labs/security-headers.md`, para cada header: valor propuesto + riesgo
-      si falta. CSP en modo report-only primero está bien — documéntalo.
   - id: s7
     tipo: explicacion
-    titulo: 3. Cierre semana 4
+    titulo: Cierre semana 4
     xp: 10
     cuerpo: 'README: L13–L16 hechos; enlace a cookies/CORS/headers.'
   - id: s8
@@ -103,11 +120,11 @@ pasos:
         para Vitrina.
       - '`curl -sI` contra un sitio real anotando cuáles faltan.'
       - 'Commit `docs(m10): l16 security headers`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — Cabeceras de seguridad HTTP
 

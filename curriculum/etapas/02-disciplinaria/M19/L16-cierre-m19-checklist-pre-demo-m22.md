@@ -12,19 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Verificar P1–P3, criterios dominio, prod estable para
-      trials.
-
-
       - checklist
 
       - dominio
+
+
+      **Objetivo de esta lección:** Verificar P1–P3, criterios dominio, prod
+      estable para trials.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Checklist pre-demo M22
+    titulo: Checklist pre-demo M22
     xp: 10
     cuerpo: |-
       ```bash
@@ -38,67 +42,90 @@ pasos:
       EOF
       ls projects/m19-ops
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Cierre M19 — checklist pre-demo M22" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: projects/m19-ops/cierre-m19.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `ls projects/m19-ops`
-    comandoEsperado:
-      - ls projects/m19-ops
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: ls projects/m19-ops'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: 'Verificar P1–P3, criterios dominio, prod estable para trials.'
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Commit
+    tipo: ejemplo
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m19-ops
       git commit -m "docs(m19): L16 cierre checklist pre-demo"
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Cierre M19 — checklist pre-demo M22», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M19 — checklist
+          pre-demo M22
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: 'Verificar P1–P3, criterios dominio, prod estable para trials.'
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: terminal
+    titulo: Segundo comando
+    xp: 15
+    enunciado: |-
+      Ahora el siguiente comando de la secuencia:
+
+      `git add projects/m19-ops`
+    comandoEsperado:
+      - git add projects/m19-ops
+    explicacionError: 'Esperado: git add projects/m19-ops'
   - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M19
+    xp: 25
+    enunciado: >-
+      Cierra **Cómputo en la nube y DevOps** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: Docker multi-stage + Compose prod-like'
+      - 'P2: Deploy reproducible con secretos en el hosting (staging/prod)'
+      - 'P3: Backup automático de BD + restore probado'
+      - 'Proyecto: Runbook de producción del SaaS Vitrina'
+      - projects/m19-ops/cierre-m19.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          `projects/m19-ops/cierre-m19.md` checklist P1–P3 + handoff URL
+          staging.
+      - id: r3
+        criterio: 'Commit `docs(m19): L16 cierre-m19-checklist-pre-demo-m22`.'
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -106,11 +133,11 @@ pasos:
       - 'Marca la lección solo si:'
       - '`projects/m19-ops/cierre-m19.md` checklist P1–P3 + handoff URL staging.'
       - 'Commit `docs(m19): L16 cierre-m19-checklist-pre-demo-m22`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M19 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — Cierre M19 — checklist pre-demo M22
 

@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Pantalla admin: listar staff, invitar o crear staff (según
-      SRS), solo owner.
-
-
       - admin
 
       - invitación
 
       - UX claro
+
+
+      **Objetivo de esta lección:** Pantalla admin: listar staff, invitar o
+      crear staff (según SRS), solo owner.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Ruta /admin mínima
+    titulo: Ruta /admin mínima
     xp: 10
     cuerpo: >-
       ```bash
@@ -39,71 +43,97 @@ pasos:
       # 403
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      UI o API: listar staff, invitar/desactivar. Solo owner.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Evidencia + commit
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m17-vitrina
+      git commit -m "feat(m17): L11 panel admin staff"
+      ```
+
+      Anota URL/ruta en `docs/permisos.md` o captura redactada en `docs/`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Panel admin mínimo — gestión staff" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Panel admin mínimo — gestión staff», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: ruta /admin o equivalente
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Panel admin mínimo —
+          gestión staff
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -sS -b /tmp/ao.ck http://localhost:3000/admin/staff`
     comandoEsperado:
       - 'curl -sS -b /tmp/ao.ck http://localhost:3000/admin/staff'
+      - >-
+        curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n"
+        http://localhost:3000/admin/staff
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -sS -b /tmp/ao.ck http://localhost:3000/admin/staff'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Pantalla admin: listar staff, invitar o crear staff (según SRS), solo
           owner.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Evidencia + commit
-    xp: 10
-    cuerpo: |-
-      Anota URL/ruta en `docs/permisos.md` o captura redactada en `docs/`.
-
-      ```bash
-      git add projects/m17-vitrina
-      git commit -m "feat(m17): L11 panel admin staff"
-      ```
   - id: s7
+    tipo: terminal
+    titulo: Segundo comando
+    xp: 15
+    enunciado: >-
+      Ahora el siguiente comando de la secuencia:
+
+
+      `curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n"
+      http://localhost:3000/admin/staff`
+    comandoEsperado:
+      - >-
+        curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n"
+        http://localhost:3000/admin/staff
+    explicacionError: >-
+      Esperado: curl -sS -b /tmp/staff.ck -o /dev/null -w "%{http_code}\n"
+      http://localhost:3000/admin/staff
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -111,11 +141,11 @@ pasos:
       - 'Marca la lección solo si:'
       - Ruta `/admin` (o equiv.) lista/gestiona staff; staff recibe 403.
       - 'Commit `docs(m17): L11 panel-admin-minimo-gestion-staff`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L11 — Panel admin mínimo — gestión staff
 

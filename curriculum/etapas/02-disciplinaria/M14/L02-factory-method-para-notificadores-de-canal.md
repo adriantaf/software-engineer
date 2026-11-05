@@ -12,81 +12,37 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Factory Method (o factory function tipada) para
-      notificadores + tests + ADR.
-
-
       El piloto avisará por email o link de WhatsApp. El service de pedidos no
       debe importar detalles de cada canal.
+
+
+      **Objetivo de esta lección:** Factory Method (o factory function tipada)
+      para notificadores + tests + ADR.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Interfaz común
+    titulo: Interfaz común
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
       ```ts
+
       export type Notifier = { send(to: string, body: string): Promise<void> };
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      Stubs: `EmailNotifier`, `WhatsAppLinkNotifier` (concatena
+      `https://wa.me/...`).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Factory Method para notificadores de canal" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: src/notify/ factory + tests + ADR
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Clase `XFactory` que solo hace
-      `return new X()`."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Factory Method (o factory function tipada) para notificadores + tests
-          + ADR.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Factory
+    tipo: ejemplo
+    titulo: Factory
     xp: 10
     cuerpo: |-
       ```ts
@@ -97,9 +53,66 @@ pasos:
         }
       }
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Factory Method para notificadores de canal», ¿qué demuestra
+      que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Factory Method para
+          notificadores de ca…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? “Clase `XFactory` que solo hace `return
+      new X()`."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Factory Method (o factory function tipada) para notificadores + tests
+          + ADR.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests
+    titulo: Tests
     xp: 10
     cuerpo: >-
       Assert de comportamiento observable (p. ej. mock de send, o retorno del
@@ -117,11 +130,11 @@ pasos:
         ≥2 tests: el cliente pide canal y recibe el tipo correcto sin `new`
         concreto.
       - 'Commit `feat(m14): factory method notificadores`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Factory Method para notificadores de canal
 

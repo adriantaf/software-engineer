@@ -12,89 +12,118 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Manejar 401 global (logout), validación formulario, estados
-      loading/error en login.
-
-
       - interceptor
 
       - navigator login
+
+
+      **Objetivo de esta lección:** Manejar 401 global (logout), validación
+      formulario, estados loading/error en login.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Interceptor 401
+    titulo: Interceptor 401
     xp: 10
     cuerpo: |-
       ```ts
       // si response.status === 401 → clearSecureStorage(); navigate('Login');
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Mensajes de validación 400 legibles (campo email/password).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Errores de validación y flujo 401" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: commit + nota en auth-storage.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Prueba manual
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      # 1) Login OK  2) Invalida token en storage  3) Pull lista → vuelve a
+      Login
+
+      # Anota en auth-storage.md
+
+      git add projects/m20-movil/auth-storage.md
+
+      git commit -m "feat(m20): L04 flujo 401 y validacion"
+
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Errores de validación y flujo 401», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Errores de validación y
+          flujo 401
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “401 deja la sesión zombie."
+    pregunta: ¿Es recomendable en esta lección? “401 deja la sesión zombie."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Manejar 401 global (logout), validación formulario, estados
           loading/error en login.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prueba manual
-    xp: 10
-    cuerpo: |-
-      ```bash
-      1) Login OK  2) Invalida token en storage  3) Pull lista → vuelve a Login
-      Anota en auth-storage.md
-      git add projects/m20-movil/auth-storage.md
-      git commit -m "feat(m20): L04 flujo 401 y validacion"
-      ```
   - id: s7
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “Mensajes de error opacos (‘Error’)."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -102,11 +131,11 @@ pasos:
       - 'Marca la lección solo si:'
       - 401 limpia storage y vuelve a Login; nota en auth-storage.md.
       - 'Commit `docs(m20): L04 errores-de-validacion-y-flujo-401`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L04 — Errores de validación y flujo 401
 

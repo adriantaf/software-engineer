@@ -12,80 +12,34 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Limitar intentos login por IP/usuario con respuesta 429
-      documentada.
-
-
       - rate limit
 
       - 429
 
       - login
+
+
+      **Objetivo de esta lección:** Limitar intentos login por IP/usuario con
+      respuesta 429 documentada.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Rate limit login
+    titulo: Rate limit login
     xp: 10
     cuerpo: |-
       ```ts
       // p.ej. 5 intentos / 15 min por IP+email en POST /auth/login → 429
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Rate limit en login" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: rate limit middleware
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Rate limit solo en memoria sin doc de
-      multi-instancia."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Limitar intentos login por IP/usuario con respuesta 429 documentada.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Tests + commit
+    tipo: ejemplo
+    titulo: Tests + commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -93,7 +47,74 @@ pasos:
       git add projects/m17-vitrina
       git commit -m "feat(m17): L27 rate limit login"
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Rate limit en login», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Rate limit en login
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? “Rate limit solo en memoria sin doc de
+      multi-instancia."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: Limitar intentos login por IP/usuario con respuesta 429 documentada.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “429 sin test."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -101,11 +122,11 @@ pasos:
       - 'Marca la lección solo si:'
       - '`POST /auth/login` responde 429 tras ráfaga; test o script lo demuestra.'
       - 'Commit `docs(m17): L27 rate-limit-en-login`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L27 — Rate limit en login
 

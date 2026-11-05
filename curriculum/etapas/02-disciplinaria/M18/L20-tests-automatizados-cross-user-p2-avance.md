@@ -12,17 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** ≥2 tests authz (cross-user + rol) +
+      P2 pide hallazgo→fix→test; hoy consolidas access control.
+
+
+      **Objetivo de esta lección:** ≥2 tests authz (cross-user + rol) +
       `projects/m18-appsec/findings-table.md` con ≥3 filas.
 
 
-      P2 pide hallazgo→fix→test; hoy consolidas access control.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Fixture dos usuarios
+    titulo: Fixture dos usuarios
     xp: 10
     cuerpo: |-
       ```ts
@@ -43,72 +47,75 @@ pasos:
         expect(res.status).toBe(403);
       });
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Tests automatizados cross-user (P2 avance)" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: tests en repo producto + projects/m18-appsec/findings-table.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Corre tests + actualiza tabla
+    xp: 10
+    cuerpo: |-
+      ```bash
+      npm test -- --testPathPattern=authz || npm test -- security
+      # Actualiza findings-table: 001–003 + rate limit
+      rg -n '^\|' projects/m18-appsec/findings-table.md
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Tests automatizados cross-user (P2 avance)», ¿qué demuestra
+      que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tests automatizados
+          cross-user (P2 avan…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Tests que mockean auth siempre true."
+    pregunta: ¿Es recomendable en esta lección? “Tests que mockean auth siempre true."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           ≥2 tests authz (cross-user + rol) +
           `projects/m18-appsec/findings-table.md` con ≥3 filas.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Corre tests + actualiza tabla
-    xp: 10
-    cuerpo: |-
-      ```bash
-      npm test -- --testPathPattern=authz || npm test -- security
-      Actualiza findings-table: 001–003 + rate limit
-      rg -n '^\|' projects/m18-appsec/findings-table.md
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -123,11 +130,11 @@ pasos:
       - '≥2 tests authz verdes (artefacto: `tests en repo producto`).'
       - 'findings-table ≥3 filas (artefacto: `tests en repo producto`).'
       - 'Commit `docs(m18): L20 tests-automatizados-cross-user-p2-avance`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Tests automatizados cross-user (P2 avance)
 

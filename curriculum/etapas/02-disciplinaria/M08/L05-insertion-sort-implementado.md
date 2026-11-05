@@ -12,87 +12,97 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar insertion sort, analizarlo y dejar tests que
-      cubran mejor y peor caso.
-
-
       Insertion es el sort didáctico: invariante “a[0..i) ordenado” y base de la
       semana P2.
+
+
+      **Objetivo de esta lección:** Implementar insertion sort, analizarlo y
+      dejar tests que cubran mejor y peor caso.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. VisuAlgo
+    titulo: VisuAlgo
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m08-algoritmos/sorts
       git commit -m "feat(m08): insertion sort"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Implementación
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m08-algoritmos/sorts
+      git commit -m "feat(m08): insertion sort"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Insertion sort implementado" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Insertion sort implementado», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: sorts/insertion.ts + tests
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Insertion sort
+          implementado
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m08-algoritmos/sorts`
     comandoEsperado:
       - git add projects/m08-algoritmos/sorts
+      - 'git commit -m "feat(m08): insertion sort"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m08-algoritmos/sorts'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar insertion sort, analizarlo y dejar tests que cubran mejor
           y peor caso.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementación
-    xp: 10
-    cuerpo: >-
-      `sorts/insertion.ts` — `export function insertionSort(a: number[]):
-      number[]` (mutando o devolviendo copia; dilo en JSDoc).
   - id: s7
     tipo: explicacion
-    titulo: 3. Análisis
+    titulo: Análisis
     xp: 10
     cuerpo: >-
       `sorts/insertion-analisis.md`: peor Θ(n²), mejor Θ(n), espacial,
@@ -110,11 +120,11 @@ pasos:
       - >-
         `sorts/insertion-analisis.md` con peor/mejor caso; commit `feat(m08):
         insertion sort`.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Insertion sort implementado
 

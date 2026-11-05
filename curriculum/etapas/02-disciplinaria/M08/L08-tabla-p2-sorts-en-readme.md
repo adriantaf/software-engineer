@@ -12,84 +12,96 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Publicar `sorts/README.md` comparativo y verificar tests de
-      la carpeta sorts.
-
-
       P2 parcial: tres sorts propios + tabla defendible.
+
+
+      **Objetivo de esta lección:** Publicar `sorts/README.md` comparativo y
+      verificar tests de la carpeta sorts.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Auditoría
+    titulo: Auditoría
     xp: 10
     cuerpo: |-
       ```bash
       ls sorts/*.ts
       npm test
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Tabla
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m08-algoritmos
+      git commit -m "docs(m08): tabla P2 sorts"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Tabla P2 sorts en README" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Tabla P2 sorts en README», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: sorts/README.md P2 parcial
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tabla P2 sorts en
+          README
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `ls sorts/*.ts`
     comandoEsperado:
       - ls sorts/*.ts
+      - npm test
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: ls sorts/*.ts'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Publicar `sorts/README.md` comparativo y verificar tests de la carpeta
           sorts.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Tabla
-    xp: 10
-    cuerpo: >-
-      Columnas: algoritmo | peor | promedio | espacial | estable | cuándo
-      usarlo. Filas: insertion, merge, quick, `Array.sort` (motor).
   - id: s7
     tipo: explicacion
-    titulo: 3. Microbench opcional
+    titulo: Microbench opcional
     xp: 10
     cuerpo: '`sorts/bench.ts` N=5_000 — pega números en el README (honestos).'
   - id: s8
@@ -103,11 +115,11 @@ pasos:
         referencia).
       - Suite de sorts verde; enlace desde README raíz del proyecto.
       - 'Commit `docs(m08): tabla P2 sorts`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L08 — Tabla P2 sorts en README
 

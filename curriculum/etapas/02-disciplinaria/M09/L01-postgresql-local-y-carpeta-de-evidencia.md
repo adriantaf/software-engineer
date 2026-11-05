@@ -12,98 +12,112 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar `projects/m09-bases-datos/` usable: Compose (o
-      nativo), conexión documentada y un `SELECT version()` ejecutado.
-
-
       M09 diseña el esquema de **Vitrina**. Cada lección siguiente asume que
       puedes pegarle SQL a una instancia local.
+
+
+      **Objetivo de esta lección:** Dejar `projects/m09-bases-datos/` usable:
+      Compose (o nativo), conexión documentada y un `SELECT version()`
+      ejecutado.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Revisa el scaffold
+    titulo: Revisa el scaffold
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      ls projects/m09-bases-datos
+
+      cat projects/m09-bases-datos/README.md
+
+      ```
+
+
+      Desde la raíz del repo: Ya hay `docker-compose.yml`, `.env.example`,
+      `migrations/` y plantillas. No borres la estructura; amplíala.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Variables locales
     xp: 10
     cuerpo: |-
       ```bash
-      ls projects/m09-bases-datos
-      cat projects/m09-bases-datos/README.md
+      cd projects/m09-bases-datos
+      cp .env.example .env
+      # Edita POSTGRES_PASSWORD (y opcionalmente APP_DB_PASSWORD)
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+
+      Confirma que `.env` está en `.gitignore`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "PostgreSQL local y carpeta de evidencia" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «PostgreSQL local y carpeta de evidencia», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m09-bases-datos/ con Docker o PG nativo + SELECT version()
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de PostgreSQL local y
+          carpeta de evidencia
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `ls projects/m09-bases-datos`
     comandoEsperado:
       - ls projects/m09-bases-datos
+      - cat projects/m09-bases-datos/README.md
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: ls projects/m09-bases-datos'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Dejar `projects/m09-bases-datos/` usable: Compose (o nativo), conexión
           documentada y un `SELECT version()` ejecutado.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Variables locales
-    xp: 10
-    cuerpo: |-
-      ```bash
-      cd projects/m09-bases-datos
-      cp .env.example .env
-      Edita POSTGRES_PASSWORD (y opcionalmente APP_DB_PASSWORD)
-      ```
-
-      Confirma que `.env` está en `.gitignore`.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Levanta PostgreSQL
+    tipo: explicacion
+    titulo: Levanta PostgreSQL
     xp: 10
-    cuerpo: |-
-      ```bash
-      docker compose up -d
-      docker compose ps
-      ```
+    cuerpo: >-
+      **Opción A — Docker:** **Opción B — Nativo:** crea usuario/DB con los
+      mismos nombres del `.env` y anota el comando de instalación en el README.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -119,11 +133,11 @@ pasos:
       - >-
         Commit que mencione el arranque (ej. `docs(m09): arrancar postgres
         local`).
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — PostgreSQL local y carpeta de evidencia
 

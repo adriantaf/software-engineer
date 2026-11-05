@@ -12,15 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** `.github/workflows/` con job de test para M15.
-
+    cuerpo: >-
       P2: CI real. Hoy el esqueleto que falla si los tests fallan.
+
+
+      **Objetivo de esta lección:** `.github/workflows/` con job de test para
+      M15.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Escribe YAML
+    titulo: Escribe YAML
     xp: 10
     cuerpo: |-
       ```yaml
@@ -42,63 +48,101 @@ pasos:
             - run: npm ci
             - run: npm test
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Ajusta si aún no hay lockfile (`npm install`).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Workflow GitHub Actions — esqueleto" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: .github/workflows/m15-ci.yml (o documentado) verde
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Commit + push cuando puedas verificar
+    xp: 10
+    cuerpo: |-
+      ```yaml
+      name: m15-ci
+      on: [push, pull_request]
+      jobs:
+        test:
+          runs-on: ubuntu-latest
+          defaults:
+            run:
+              working-directory: projects/m15-calidad
+          steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: "20"
+                cache: npm
+                cache-dependency-path: projects/m15-calidad/package-lock.json
+            - run: npm ci
+            - run: npm test
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Workflow GitHub Actions — esqueleto», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Workflow GitHub Actions
+          — esqueleto
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Workflow solo en docs sin YAML."
+    pregunta: ¿Es recomendable en esta lección? “Workflow solo en docs sin YAML."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: '`.github/workflows/` con job de test para M15.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 3. Commit + push cuando puedas verificar
-    xp: 10
-    cuerpo: '`ci(m15): workflow esqueleto github actions`'
   - id: s7
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “`npm test` en raíz sin `working-directory`."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -109,11 +153,11 @@ pasos:
         `projects/m15-calidad` (o monorepo doc).
       - README M15 enlaza al workflow / badge path.
       - 'Commit `ci(m15): workflow esqueleto github actions`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Workflow GitHub Actions — esqueleto
 

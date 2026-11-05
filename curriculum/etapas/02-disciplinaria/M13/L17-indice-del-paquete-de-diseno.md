@@ -12,83 +12,93 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Reescribir `projects/m13-diseno/README.md` como índice
-      navegable.
-
-
       El proyecto de M13 es el paquete. Hoy el README se vuelve el mapa.
+
+
+      **Objetivo de esta lección:** Reescribir `projects/m13-diseno/README.md`
+      como índice navegable.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario
+    titulo: Inventario
     xp: 10
     cuerpo: |-
       ```bash
       find projects/m13-diseno -type f -name '*.md' | sort
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: README índice
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m13-diseno/README.md
+      git commit -m "docs(m13): indice del paquete de diseno"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Índice del paquete de diseño" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Índice del paquete de diseño», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m13-diseno/README.md índice enlazando SRS/diagramas/ADRs
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Índice del paquete de
+          diseño
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `find projects/m13-diseno -type f -name '*.md' | sort`
     comandoEsperado:
       - find projects/m13-diseno -type f -name '*.md' | sort
+      - git add projects/m13-diseno/README.md
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: find projects/m13-diseno -type f -name ''*.md'' | sort'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Reescribir `projects/m13-diseno/README.md` como índice navegable.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. README índice
-    xp: 10
-    cuerpo: >-
-      Secciones: En resumen · Enlace SRS · Flujos · Diagramas · Arquitectura ·
-      ADRs · Checklist evidencias P1–P3 · Cómo empezar M17.
   - id: s7
     tipo: explicacion
-    titulo: 3. Rompe enlaces
+    titulo: Rompe enlaces
     xp: 10
     cuerpo: 'Haz clic mental: cada ruta relativa debe existir.'
   - id: s8
@@ -100,11 +110,11 @@ pasos:
       - 'README M13 enlaza SRS, casos-de-uso, diagramas, arquitectura y ADRs.'
       - Un extraño puede navegar el paquete en ≤10 minutos.
       - 'Commit `docs(m13): indice del paquete de diseno`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Índice del paquete de diseño
 

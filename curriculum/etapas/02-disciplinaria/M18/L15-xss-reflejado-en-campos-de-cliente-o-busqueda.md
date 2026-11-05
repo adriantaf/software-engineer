@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** PoC reflejado en
+      XSS roba sesiones si las cookies son legibles por JS.
+
+
+      **Objetivo de esta lección:** PoC reflejado en
       `projects/m18-appsec/findings/002-xss-reflected.md` (solo tu cuenta de
       prueba; sin exfiltración externa).
 
 
-      XSS roba sesiones si las cookies son legibles por JS.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Localiza render de input
+    titulo: Localiza render de input
     xp: 10
     cuerpo: >-
       ```bash
@@ -34,73 +38,17 @@ pasos:
       '!node_modules' | head -30
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "XSS reflejado en campos de cliente o búsqueda" como hecha,
-      ¿qué cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m18-appsec/findings/002-xss-reflected.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
-    comandoEsperado:
-      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          PoC reflejado en `projects/m18-appsec/findings/002-xss-reflected.md`
-          (solo tu cuenta de prueba; sin exfiltración externa).
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. PoC local
+    tipo: ejemplo
+    titulo: PoC local
     xp: 10
     cuerpo: >-
-      Payloads: `<script>alert(1)</script>`, `<img src=x onerror=alert(1)>`.
-      Solo impacto local.
-
-
       ```bash
 
       cat > projects/m18-appsec/findings/002-xss-reflected.md <<'EOF'
 
-      Finding 002 — XSS reflejado
+      # Finding 002 — XSS reflejado
 
       - Pantalla / query:
 
@@ -112,15 +60,77 @@ pasos:
 
       EOF
 
-      Ejemplo
+      # Ejemplo
 
       curl -sG "localhost:3000/clientes" --data-urlencode
       "q=<script>alert(1)</script>" | rg -n 'script|onerror' | head
 
       ```
+
+
+      Payloads: `<script>alert(1)</script>`, `<img src=x onerror=alert(1)>`.
+      Solo impacto local.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «XSS reflejado en campos de cliente o búsqueda», ¿qué
+      demuestra que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de XSS reflejado en campos
+          de cliente o bú…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
+    comandoEsperado:
+      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+      - >-
+        curl -sG "localhost:3000/clientes" --data-urlencode
+        "q=<script>alert(1)</script>" | rg -n 'script|onerror' | head
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          PoC reflejado en `projects/m18-appsec/findings/002-xss-reflected.md`
+          (solo tu cuenta de prueba; sin exfiltración externa).
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -140,11 +150,11 @@ pasos:
         Contexto identificado (artefacto:
         `projects/m18-appsec/findings/002-xss-reflected.md`).
       - 'Commit `docs(m18): L15 xss-reflejado-en-campos-de-cliente-o-busqueda`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — XSS reflejado en campos de cliente o búsqueda
 

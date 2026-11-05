@@ -12,22 +12,45 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Fix escape/sanitización; actualizar finding; filas SQLi+XSS
-      en `projects/m18-appsec/findings-table.md`.
-
-
       El CRM guarda texto que vuelve a listarse; ahí vive el stored XSS.
+
+
+      **Objetivo de esta lección:** Fix escape/sanitización; actualizar finding;
+      filas SQLi+XSS en `projects/m18-appsec/findings-table.md`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Stored en notas de pedido
+    titulo: Stored en notas de pedido
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
+      ```bash
+
+      # Crea pedido con payload en notas (cuenta prueba)
+
+      curl -s -X POST localhost:3000/api/pedidos -H 'content-type:
+      application/json' -b /tmp/m18-cj \
+        -d '{"clienteId":"…","inicio":"2026-01-02T10:00:00Z","notas":"<img src=x onerror=alert(1)>"}'
+      # Lista y verifica escape en HTML
+
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Fix + test
+    xp: 10
+    cuerpo: >-
       ```ts
+
       // API: devolver texto; el front escapa al render
+
       // Test:
+
       it("escapes stored XSS in notas", async () => {
         const payload = "<script>alert(1)</script>";
         await createCita({ notas: payload });
@@ -35,34 +58,39 @@ pasos:
         expect(html).not.toContain("<script>");
         expect(html).toContain("&lt;script&gt;") // o equivalente escapado
       });
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+
+
+      Usa textContent / escape del framework; evita `dangerouslySetInnerHTML`
+      con input usuario.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "XSS almacenado y escape en plantillas/API" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «XSS almacenado y escape en plantillas/API», ¿qué demuestra
+      que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: commit fix + findings/002 actualizado
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de XSS almacenado y escape
+          en plantillas/A…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: >-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
 
       `curl -s -X POST localhost:3000/api/pedidos -H 'content-type:
@@ -72,56 +100,34 @@ pasos:
         curl -s -X POST localhost:3000/api/pedidos -H 'content-type:
         application/json' -b /tmp/m18-cj \
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: curl -s -X POST localhost:3000/api/pedidos -H 'content-type:
       application/json' -b /tmp/m18-cj \
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Fix escape/sanitización; actualizar finding; filas SQLi+XSS en
           `projects/m18-appsec/findings-table.md`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Fix + test
-    xp: 10
-    cuerpo: >-
-      Usa textContent / escape del framework; evita `dangerouslySetInnerHTML`
-      con input usuario.
-
-
-      ```ts
-
-      // API: devolver texto; el front escapa al render
-
-      // Test:
-
-      it("escapes stored XSS in notas", async () => {
-        const payload = "<script>alert(1)</script>";
-        await createCita({ notas: payload });
-        const html = await renderListaCitas();
-        expect(html).not.toContain("<script>");
-        expect(html).toContain("&lt;script&gt;") // o equivalente escapado
-      });
-
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Tabla P2
+    tipo: explicacion
+    titulo: Tabla P2
     xp: 10
     cuerpo: |-
       ```bash
@@ -143,11 +149,11 @@ pasos:
       - '≥2 filas en findings-table (artefacto: `commit fix`).'
       - 'Test o verificación manual repetible (artefacto: `commit fix`).'
       - 'Commit `docs(m18): L16 xss-almacenado-y-escape-en-plantillas-api`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — XSS almacenado y escape en plantillas/API
 

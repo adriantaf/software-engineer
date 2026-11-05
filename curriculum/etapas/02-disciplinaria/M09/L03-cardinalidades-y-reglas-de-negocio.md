@@ -12,18 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar en `er-vitrina.md` las cardinalidades 1:N y un bloque
-      de reglas verificables (algunas ya están en `001_init.sql`).
-
-
       Una FK sin regla de negocio es decoración. Hoy fijas cardinalidades y
       constraints que el dueño del salón entendería.
+
+
+      **Objetivo de esta lección:** Dejar en `er-vitrina.md` las cardinalidades
+      1:N y un bloque de reglas verificables (algunas ya están en
+      `001_init.sql`).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: >-
       ```sql
@@ -39,96 +44,81 @@ pasos:
       FROM clientes LIMIT 1;
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Cardinalidades y reglas de negocio" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: er-vitrina.md con cardinalidades + CHECK/estado documentados
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Escribe cardinalidades
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "docs(m09): cardinalidades y reglas de negocio"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Cardinalidades y reglas de negocio», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cardinalidades y reglas
+          de negocio
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Dibujar N:M Cliente–Servicio sin
-      tabla puente cuando el MVP es pedido con un servicio."
+      ¿Es recomendable en esta lección? “Dibujar N:M Cliente–Servicio sin tabla
+      puente cuando el MVP es pedido con un servicio."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Dejar en `er-vitrina.md` las cardinalidades 1:N y un bloque de reglas
           verificables (algunas ya están en `001_init.sql`).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Escribe cardinalidades
-    xp: 10
-    cuerpo: >-
-      En `er-vitrina.md`:
-
-
-      - Cliente **1** — **0..N** Pedidos
-
-      - Servicio **1** — **0..N** Pedidos
-
-      - Una Pedido **exactamente 1** Cliente y **exactamente 1** Servicio (MVP)
-
-
-      Si más adelante quieres varios servicios por pedido, documenta la tabla
-      puente como *cambio futuro*, no lo inventes ya.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Reglas de negocio
+    tipo: explicacion
+    titulo: Reglas de negocio
     xp: 10
     cuerpo: >-
-      ```sql
-
-      -- Debe fallar:
-
-      INSERT INTO pedidos (cliente_id, servicio_id, inicia_en, termina_en,
-      estado)
-
-      SELECT id, (SELECT id FROM servicios LIMIT 1), now(), now() - interval '1
-      hour', 'programada'
-
-      FROM clientes LIMIT 1;
-
-      ```
+      Completa una lista numerada. Mínimo: 1. `termina_en > inicia_en` (ya hay
+      `CHECK`). 2. `estado ∈ {programada, confirmada, completada, cancelada,
+      no_show}`. 3. Una regla tuya (ej. no solapar dos pedidos del mismo staff —
+      si aún no hay staff, anótala como pendiente M17). Verifica en SQL:
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -140,11 +130,11 @@ pasos:
         Al menos 3 reglas de negocio (estados, `termina_en > inicia_en`, una más
         tuya).
       - Commit descriptivo.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Cardinalidades y reglas de negocio
 

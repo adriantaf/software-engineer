@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Suite documentada en
+      ≥3 tests que fallen si reabres agujeros (IDOR, XSS escape, authz rol u
+      equivalentes).
+
+
+      **Objetivo de esta lección:** Suite documentada en
       `projects/m18-appsec/docs/security-tests.md`; CI los corre.
 
 
-      ≥3 tests que fallen si reabres agujeros (IDOR, XSS escape, authz rol u
-      equivalentes).
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Selecciona 3
+    titulo: Selecciona 3
     xp: 10
     cuerpo: |-
       ```bash
@@ -36,73 +40,77 @@ pasos:
       | 3 | tests/security/rbac-settings.test.ts | staff≠owner |
       EOF
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Implementa / verde
+    xp: 10
+    cuerpo: |-
+      ```bash
+      npm test -- --testPathPattern=security
+      # Confirma que el workflow L29 incluye este pattern
+      ```
+
+      Nombres claros `security.*.test.ts` (o carpeta `tests/security/`).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Tests de regresión de seguridad (≥3)" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Tests de regresión de seguridad (≥3)», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: ≥3 tests en repo producto
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tests de regresión de
+          seguridad (≥3)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `npm test -- --testPathPattern=security`
     comandoEsperado:
       - npm test -- --testPathPattern=security
+      - 'git add -A && git commit -m "test(m18): l31 regresion seguridad"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: npm test -- --testPathPattern=security'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Suite documentada en `projects/m18-appsec/docs/security-tests.md`; CI
           los corre.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementa / verde
-    xp: 10
-    cuerpo: |-
-      Nombres claros `security.*.test.ts` (o carpeta `tests/security/`).
-
-      ```bash
-      npm test -- --testPathPattern=security
-      Confirma que el workflow L29 incluye este pattern
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -117,11 +125,11 @@ pasos:
       - '≥3 tests listados (artefacto: `≥3 tests en repo producto`).'
       - 'CI los ejecuta (artefacto: `≥3 tests en repo producto`).'
       - 'Commit `docs(m18): L31 tests-de-regresion-de-seguridad-3`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L31 — Tests de regresión de seguridad (≥3)
 

@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar login email/password contra HTTPS M19; errores
-      claros sin stack trace.
-
-
       - POST login
 
       - 401 UX
 
       - timeout
+
+
+      **Objetivo de esta lección:** Implementar login email/password contra
+      HTTPS M19; errores claros sin stack trace.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Config API URL
+    titulo: Config API URL
     xp: 10
     cuerpo: >-
       ```dart
@@ -37,80 +41,81 @@ pasos:
       'http://10.0.2.2:3000');
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Pantalla login contra API staging" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m20-movil/demo-login-lista.md (inicio)
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Pantalla login
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      # Prueba contra staging:
+
+      curl -sS -X POST "$API_BASE/auth/login" -H 'content-type:
+      application/json' \
+        -d '{"email":"owner@demo.local","password":"***"}'
+      ```
+
+
+      Email/password → `POST /auth/login`. Muestra error de red/credenciales.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Pantalla login contra API staging», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Pantalla login contra
+          API staging
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Mock eterno que nunca pega a
-      staging."
+    pregunta: ¿Es recomendable en esta lección? “Mock eterno que nunca pega a staging."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar login email/password contra HTTPS M19; errores claros sin
           stack trace.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Pantalla login
-    xp: 10
-    cuerpo: >-
-      Email/password → `POST /auth/login`. Muestra error de red/credenciales.
-
-
-      ```bash
-
-      Prueba contra staging:
-
-      curl -sS -X POST "$API_BASE/auth/login" -H 'content-type:
-      application/json' \
-        -d '{"email":"owner@demo.local","password":"***"}'
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -131,11 +136,11 @@ pasos:
         Errores de red/credenciales visibles (artefacto:
         `projects/m20-movil/demo-login-lista.md (inicio)`).
       - 'Commit `docs(m20): L02 pantalla-login-contra-api-staging`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Pantalla login contra API staging
 

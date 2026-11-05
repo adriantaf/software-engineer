@@ -12,88 +12,121 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Auditar P1–P3/proyecto y dejar el README listo para
-      revisión.
-
-
       Cierras la materia como ingeniero: evidencia en git + dominio oral.
+
+
+      **Objetivo de esta lección:** Auditar P1–P3/proyecto y dejar el README
+      listo para revisión.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Auditoría
+    titulo: Auditoría
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      find projects/m10-redes -type f | sort
+
+      ```
+
+
+      Verifica: labs semana 1–4, tls/certs, cookies/cors/headers, `tcp-echo/`,
+      `superficie/`, `amenazas-red.md`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Criterios de dominio
     xp: 10
     cuerpo: |-
       ```bash
-      find projects/m10-redes -type f | sort
+      git add projects/m10-redes
+      git commit -m "docs(m10): cierre materia"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M10 — evidencias y dominio" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Cierre M10 — evidencias y dominio», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: checklist P1–P3 + proyecto verificados
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M10 — evidencias
+          y dominio
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `find projects/m10-redes -type f | sort`
     comandoEsperado:
       - find projects/m10-redes -type f | sort
+      - git add projects/m10-redes
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: find projects/m10-redes -type f | sort'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Auditar P1–P3/proyecto y dejar el README listo para revisión.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Criterios de dominio
-    xp: 10
-    cuerpo: |-
-      Escribe en `projects/m10-redes/dominio-oral.md` respuestas a:
-
-      1. Depurar un timeout (red vs app)
-      2. Explicar TLS sin “magia”
-      3. Defender tu mapa de superficie
   - id: s7
-    tipo: explicacion
-    titulo: 3. README final
-    xp: 10
-    cuerpo: Checklist con casillas marcadas y rutas exactas.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M10
+    xp: 25
+    enunciado: >-
+      Cierra **Redes de computadoras** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: Labs HTTP/DNS/TLS con curl e inspección de certificados'
+      - 'P2: Cliente/servidor TCP simple + diagrama de una request'
+      - 'P3: Mapa de superficie de ataque de tu API (puertos, headers, cookies)'
+      - 'Proyecto: Documentación de red + amenazas del producto web'
+      - checklist P1–P3 + proyecto verificados
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          Checklist P1 labs, P2 tcp-echo, P3 superficie, proyecto amenazas —
+          todo enlazado en README.
+      - id: r3
+        criterio: Auto-respuesta escrita a los 3 criterios de dominio de la ficha M10.
+      - id: r4
+        criterio: 'Commit `docs(m10): cierre materia`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -105,11 +138,11 @@ pasos:
         enlazado en README.
       - Auto-respuesta escrita a los 3 criterios de dominio de la ficha M10.
       - 'Commit `docs(m10): cierre materia`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M10 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Cierre M10 — evidencias y dominio
 

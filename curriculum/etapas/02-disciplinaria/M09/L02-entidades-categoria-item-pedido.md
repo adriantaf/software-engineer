@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Completar el borrador de `er-vitrina.md` con entidades,
-      atributos y un diagrama que puedas defender en voz alta.
-
-
       - **Entidad** vs **atributo** vs **relación**.
 
       - Clave primaria estable (`uuid`) vs natural (teléfono — malo como PK).
 
       - `tenant_id` como columna preparatoria (aún single-tenant).
+
+
+      **Objetivo de esta lección:** Completar el borrador de `er-vitrina.md` con
+      entidades, atributos y un diagrama que puedas defender en voz alta.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura dirigida
+    titulo: Lectura dirigida
     xp: 10
     cuerpo: |-
       ```bash
@@ -35,62 +39,10 @@ pasos:
       psql "..." -c '\d orders'
       psql "..." -c '\d order_items'
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Entidades Categoría, Ítem y Pedido" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: er-vitrina.md con menú/pedidos y atributos justificados
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `git add projects/m09-bases-datos/er-vitrina.md`
-    comandoEsperado:
-      - git add projects/m09-bases-datos/er-vitrina.md
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: git add projects/m09-bases-datos/er-vitrina.md'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Completar el borrador de `er-vitrina.md` con entidades, atributos y un
-          diagrama que puedas defender en voz alta.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Contrasta con el SQL ya aplicado
+    tipo: ejemplo
+    titulo: Contrasta con el SQL ya aplicado
     xp: 10
     cuerpo: >-
       ```bash
@@ -108,22 +60,72 @@ pasos:
 
       Lista en `er-vitrina.md` qué columnas ya existen y si faltan atributos de
       negocio (ej. `descripcion`, foto URL).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Entidades Categoría, Ítem y Pedido», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Entidades Categoría,
+          Ítem y Pedido
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `psql "..." -c '\d menu_categories'`
+    comandoEsperado:
+      - psql "..." -c '\d menu_categories'
+      - psql "..." -c '\d menu_items'
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: psql "..." -c ''\d menu_categories'''
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Completar el borrador de `er-vitrina.md` con entidades, atributos y un
+          diagrama que puedas defender en voz alta.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Escribe atributos con justificación
+    titulo: Escribe atributos con justificación
     xp: 10
     cuerpo: >-
       Para cada entidad: atributo → tipo → por qué lo necesitas el día 1.
-      Ejemplo mínimo:
-
-
-      - MenuCategory: `nombre`, `orden`.
-
-      - MenuItem: `precio_centavos` (evita floats), `disponible`.
-
-      - Order: `canal`, `pago`, `estado`.
-
-      - OrderItem: `cantidad`, `precio_unit_centavos`, `nombre_snapshot`.
+      Ejemplo mínimo: - MenuCategory: `nombre`, `orden`. - MenuItem:
+      `precio_centavos` (evita floats), `disponible`. - Order: `canal`, `pago`,
+      `estado`. - OrderItem: `cantidad`, `precio_unit_centavos`,
+      `nombre_snapshot`.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -135,11 +137,11 @@ pasos:
         atributos y tipos.
       - El diagrama Mermaid (o equivalente) refleja ese dominio.
       - 'Commit `docs(m09): entidades menu pedidos`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Entidades Categoría, Ítem y Pedido
 

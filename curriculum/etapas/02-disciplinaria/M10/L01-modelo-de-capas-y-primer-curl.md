@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar `projects/m10-redes/` con un lab día 1: modelo de 5
-      capas + evidencia de `curl -v` sobre HTTPS.
-
-
       Sin mapa de capas, cada error de red se vuelve “el Wi‑Fi está mal”. Hoy
       fijas el diagrama mental que usarás hasta M18.
+
+
+      **Objetivo de esta lección:** Dejar `projects/m10-redes/` con un lab día
+      1: modelo de 5 capas + evidencia de `curl -v` sobre HTTPS.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Revisa el scaffold
+    titulo: Revisa el scaffold
     xp: 10
     cuerpo: |-
       ```bash
@@ -31,83 +35,12 @@ pasos:
       cat projects/m10-redes/README.md
       mkdir -p projects/m10-redes/{labs,tcp-echo,superficie,samples}
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      No borres la estructura; amplíala.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Modelo de capas y primer curl" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m10-redes/labs/dia1.md + curl -v log
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `ls projects/m10-redes`
-    comandoEsperado:
-      - ls projects/m10-redes
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: ls projects/m10-redes'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Dejar `projects/m10-redes/` con un lab día 1: modelo de 5 capas +
-          evidencia de `curl -v` sobre HTTPS.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Modelo de 5 capas
-    xp: 10
-    cuerpo: >-
-      En `projects/m10-redes/labs/dia1.md` dibuja ASCII (o Mermaid) con:
-
-
-      1. Aplicación (HTTP)
-
-      2. Transporte (TCP/UDP + puerto)
-
-      3. Red (IP)
-
-      4. Enlace
-
-      5. Física (una línea)
-
-
-      Anota **encapsulación**: header de cada capa envuelve el payload de
-      arriba.
-  - id: s7
     tipo: ejemplo
-    titulo: 3. Primer `curl -v`
+    titulo: Modelo de 5 capas
     xp: 10
     cuerpo: >-
       ```bash
@@ -116,6 +49,69 @@ pasos:
       projects/m10-redes/labs/curl-example.log
 
       ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Modelo de capas y primer curl», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Modelo de capas y
+          primer curl
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `ls projects/m10-redes`
+    comandoEsperado:
+      - ls projects/m10-redes
+      - cat projects/m10-redes/README.md
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: ls projects/m10-redes'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Dejar `projects/m10-redes/` con un lab día 1: modelo de 5 capas +
+          evidencia de `curl -v` sobre HTTPS.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Primer `curl -v`
+    xp: 10
+    cuerpo: >-
+      En `dia1.md`, tabla de 4 filas: línea del log → capa → qué significa.
+      Compara también: ¿Hay redirección a HTTPS? Anótalo.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -129,11 +125,11 @@ pasos:
         Log `labs/curl-example.log` (o fragmento anotado) con líneas de
         DNS/TCP/TLS/HTTP resaltadas.
       - 'Commit `docs(m10): l01 capas y primer curl`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Modelo de capas y primer curl
 

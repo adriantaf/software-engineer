@@ -12,98 +12,108 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Separar config: DATABASE_URL, SESSION_SECRET, etc.
-      `.env.example` sin valores reales.
-
-
       - env
 
       - secrets
 
       - example
+
+
+      **Objetivo de esta lección:** Separar config: DATABASE_URL,
+      SESSION_SECRET, etc. `.env.example` sin valores reales.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventaria vars
+    titulo: Inventaria vars
     xp: 10
     cuerpo: |-
       ```bash
       cat projects/m17-vitrina/.env.example
       rg -n "process\\.env|env\\." projects/m17-vitrina/src | head -40
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Cada var en `.env.example` con comentario; **sin** valores secretos.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Separa secrets de config
+    xp: 10
+    cuerpo: |-
+      ```bash
+      # ejemplo .env.example
+      cat >> projects/m17-vitrina/.env.example << 'EOF'
+      # DATABASE_URL=postgresql://app:changeme@localhost:5432/vitrina
+      # SESSION_SECRET=change-me-min-32-chars
+      # CORS_ORIGIN=http://localhost:5173
+      EOF
+      ```
+
+      Confirma `.env` en `.gitignore`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Variables de entorno y secrets" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Variables de entorno y secrets», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m17-vitrina/.env.example
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Variables de entorno y
+          secrets
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `cat projects/m17-vitrina/.env.example`
     comandoEsperado:
       - cat projects/m17-vitrina/.env.example
+      - git add projects/m17-vitrina/.env.example
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: cat projects/m17-vitrina/.env.example'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Separar config: DATABASE_URL, SESSION_SECRET, etc. `.env.example` sin
           valores reales.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Separa secrets de config
-    xp: 10
-    cuerpo: |-
-      ```bash
-      ejemplo .env.example
-      cat >> projects/m17-vitrina/.env.example << 'EOF'
-      DATABASE_URL=postgresql://app:changeme@localhost:5432/vitrina
-      SESSION_SECRET=change-me-min-32-chars
-      CORS_ORIGIN=http://localhost:5173
-      EOF
-      ```
-
-      Confirma `.env` en `.gitignore`.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -121,11 +131,11 @@ pasos:
         `projects/m17-vitrina/.env.example` lista vars con comentarios; `.env`
         no tracked.
       - 'Commit `docs(m17): L21 variables-de-entorno-y-secrets`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L21 — Variables de entorno y secrets
 

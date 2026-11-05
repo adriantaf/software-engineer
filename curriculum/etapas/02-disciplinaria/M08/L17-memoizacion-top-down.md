@@ -12,84 +12,94 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar una solución top-down con memo y demostrar el
-      ahorro de llamadas.
-
-
       DP empieza viendo subproblemas solapados: fibonacci es el laboratorio.
+
+
+      **Objetivo de esta lección:** Implementar una solución top-down con memo y
+      demostrar el ahorro de llamadas.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m08-algoritmos/dp
       git commit -m "feat(m08): memoizacion top-down"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Fib (u otro) naive vs memo
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m08-algoritmos/dp
+      git commit -m "feat(m08): memoizacion top-down"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Memoización top-down" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Memoización top-down», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: dp/memo-ejemplo.ts
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Instalar herramientas al azar sin evidencia de Memoización top-down
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m08-algoritmos/dp`
     comandoEsperado:
       - git add projects/m08-algoritmos/dp
+      - 'git commit -m "feat(m08): memoizacion top-down"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m08-algoritmos/dp'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar una solución top-down con memo y demostrar el ahorro de
           llamadas.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Fib (u otro) naive vs memo
-    xp: 10
-    cuerpo: >-
-      `dp/memo-ejemplo.ts`: versión ingenua (solo para n pequeño) y `fibMemo`
-      con `Map`/`array`. Contador de llamadas.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests
+    titulo: Tests
     xp: 10
     cuerpo: fib(0..10) conocidos; n=40 memo termina en ms.
   - id: s8
@@ -105,11 +115,11 @@ pasos:
         Tests de valores conocidos; nota de complejidad en `dp/README.md`
         borrador.
       - 'Commit `feat(m08): memoizacion top-down`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Memoización top-down
 

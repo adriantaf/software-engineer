@@ -12,75 +12,104 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Cierre evidenciable y handoff a M17/M18.
-
-
       Proyecto: pipeline verde + coverage de negocio + hábitos de
       review/regresión.
+
+
+      **Objetivo de esta lección:** Cierre evidenciable y handoff a M17/M18.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Verifica CI localmente
+    titulo: Verifica CI localmente
     xp: 10
     cuerpo: lint + test + audit.
   - id: s3
+    tipo: ejemplo
+    titulo: Commit
+    xp: 10
+    cuerpo: '`docs(m15): cierre pipeline y criterios de dominio`'
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Cierre M15 — pipeline, coverage dominio, dominio», ¿qué
+      demuestra que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M15 — pipeline,
+          coverage dominio…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Foco (dificultad media)
     xp: 15
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M15 — pipeline, coverage dominio, dominio" como hecha,
-      ¿qué cuenta de verdad?
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
-        texto: README final P1–P3 + autoevaluación
+        texto: Cierre evidenciable y handoff a M17/M18.
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s6
     tipo: quiz
-    titulo: Error común
-    xp: 15
+    titulo: Segundo error común
+    xp: 10
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “CI roto en main."
+    pregunta: ¿Debes hacer esto? “Coverage solo boilerplate."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Cierre evidenciable y handoff a M17/M18.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 4. Commit
-    xp: 10
-    cuerpo: '`docs(m15): cierre pipeline y criterios de dominio`'
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
   - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M15
+    xp: 25
+    enunciado: >-
+      Cierra **Verificación, validación y calidad** con evidencia real en el
+      repo. Marca la rúbrica solo si puedes demostrar cada criterio (si no está
+      en git, no cuenta).
+    entregables:
+      - 'P1: Pirámide de tests en Vitrina'
+      - 'P2: CI en GitHub Actions (lint + test + audit)'
+      - 'P3: Checklist de code review (incluye seguridad)'
+      - 'Proyecto: Pipeline CI verde + coverage en lógica de negocio'
+      - README final P1–P3 + autoevaluación
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: 'README documenta P1 pirámide, P2 CI, P3 checklist con rutas.'
+      - id: r3
+        criterio: 'Autoevaluación: 401/403 automatizados; coverage enfocado a dominio.'
+      - id: r4
+        criterio: 'Commit `docs(m15): cierre pipeline y criterios de dominio`.'
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -89,11 +118,11 @@ pasos:
       - 'README documenta P1 pirámide, P2 CI, P3 checklist con rutas.'
       - 'Autoevaluación: 401/403 automatizados; coverage enfocado a dominio.'
       - 'Commit `docs(m15): cierre pipeline y criterios de dominio`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M15 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — Cierre M15 — pipeline, coverage dominio, dominio
 

@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Workflow documentado en
+      P3: cada PR corre lint+test+audit (+ grep secretos).
+
+
+      **Objetivo de esta lección:** Workflow documentado en
       `projects/m18-appsec/ci/ci-appsec.yml` (o enlace) +
       `projects/m18-appsec/ci/README.md` con run id.
 
 
-      P3: cada PR corre lint+test+audit (+ grep secretos).
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Scaffold workflow
+    titulo: Scaffold workflow
     xp: 10
     cuerpo: |-
       ```bash
@@ -48,73 +52,17 @@ pasos:
                 ! git ls-files | rg -i '\.env$|id_rsa|\.pem$'
       EOF
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Pipeline CI: lint, test, audit, anti-secretos" como hecha,
-      ¿qué cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m18-appsec/ci-appsec.yml snippet o enlace workflow
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p projects/m18-appsec/ci`
-    comandoEsperado:
-      - mkdir -p projects/m18-appsec/ci
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m18-appsec/ci'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Workflow documentado en `projects/m18-appsec/ci/ci-appsec.yml` (o
-          enlace) + `projects/m18-appsec/ci/README.md` con run id.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Ejecuta en branch de prueba
+    tipo: ejemplo
+    titulo: Ejecuta en branch de prueba
     xp: 10
     cuerpo: >-
-      Copia al repo producto, push, pega run id en
-      `projects/m18-appsec/ci/README.md`.
-
-
       ```bash
 
       cat > projects/m18-appsec/ci/README.md <<'EOF'
 
-      CI AppSec
+      # CI AppSec
 
       - Workflow: .github/workflows/appsec.yml
 
@@ -125,9 +73,69 @@ pasos:
       EOF
 
       ```
+
+
+      Copia al repo producto, push, pega run id en
+      `projects/m18-appsec/ci/README.md`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Pipeline CI: lint, test, audit, anti-secretos», ¿qué
+      demuestra que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Pipeline CI: lint,
+          test, audit, anti-se…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `mkdir -p projects/m18-appsec/ci`
+    comandoEsperado:
+      - mkdir -p projects/m18-appsec/ci
+      - git add projects/m18-appsec/ci
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m18-appsec/ci'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Workflow documentado en `projects/m18-appsec/ci/ci-appsec.yml` (o
+          enlace) + `projects/m18-appsec/ci/README.md` con run id.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -147,11 +155,11 @@ pasos:
         Audit en pipeline (artefacto: `projects/m18-appsec/ci-appsec.yml snippet
         o enlace workflow`).
       - 'Commit `docs(m18): L29 pipeline-ci-lint-test-audit-anti-secretos`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L29 — Pipeline CI: lint, test, audit, anti-secretos
 

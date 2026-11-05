@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** PoC o “no reproducible con ORM” en
+      Solo contra tu API. P2 empieza con hallazgo real; SQLi sigue vivo en ORMs
+      mal usados.
+
+
+      **Objetivo de esta lección:** PoC o “no reproducible con ORM” en
       `projects/m18-appsec/findings/001-sqli.md` (sin PII real).
 
 
-      Solo contra tu API. P2 empieza con hallazgo real; SQLi sigue vivo en ORMs
-      mal usados.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Caza concatenación SQL
+    titulo: Caza concatenación SQL
     xp: 10
     cuerpo: >-
       ```bash
@@ -36,75 +40,19 @@ pasos:
       rg -n "SELECT.*\+|WHERE.*\+" -g '*.ts' -g '*.js' | head -20 || true
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "SQLi: reproducir en tu propia API" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m18-appsec/findings/001-sqli.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
-    comandoEsperado:
-      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          PoC o “no reproducible con ORM” en
-          `projects/m18-appsec/findings/001-sqli.md` (sin PII real).
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. PoC controlada
+    tipo: ejemplo
+    titulo: PoC controlada
     xp: 10
     cuerpo: >-
-      Cuenta de prueba. Payload en búsqueda clientes/pedidos. **No** `DROP` en
-      staging compartido.
-
-
       ```bash
 
       mkdir -p projects/m18-appsec/findings projects/m18-appsec/pocs
 
       cat > projects/m18-appsec/findings/001-sqli.md <<'EOF'
 
-      Finding 001 — SQLi
+      # Finding 001 — SQLi
 
       - Endpoint:
 
@@ -118,15 +66,75 @@ pasos:
 
       EOF
 
-      Ejemplo de prueba (ajusta query param)
+      # Ejemplo de prueba (ajusta query param)
 
       curl -sG "localhost:3000/api/clientes" --data-urlencode "q=' OR '1'='1" |
       head -c 400
 
       ```
+
+
+      Cuenta de prueba. Payload en búsqueda clientes/pedidos. **No** `DROP` en
+      staging compartido.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «SQLi: reproducir en tu propia API», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de SQLi: reproducir en tu
+          propia API
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
+    comandoEsperado:
+      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+      - mkdir -p projects/m18-appsec/findings projects/m18-appsec/pocs
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          PoC o “no reproducible con ORM” en
+          `projects/m18-appsec/findings/001-sqli.md` (sin PII real).
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -144,11 +152,11 @@ pasos:
         `projects/m18-appsec/findings/001-sqli.md`).
       - 'Solo tu entorno (artefacto: `projects/m18-appsec/findings/001-sqli.md`).'
       - 'Commit `docs(m18): L13 sqli-reproducir-en-tu-propia-api`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — SQLi: reproducir en tu propia API
 

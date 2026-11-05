@@ -12,86 +12,97 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Completar el mapa de superficie del piloto Vitrina (aunque
-      sea diseño).
-
-
       P3 empieza aquí: inventarias antes de endurecer (M18).
+
+
+      **Objetivo de esta lección:** Completar el mapa de superficie del piloto
+      Vitrina (aunque sea diseño).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Plantilla
+    titulo: Plantilla
     xp: 10
     cuerpo: |-
       ```bash
       mkdir -p projects/m10-redes/superficie
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Crea `endpoints.md` con columnas: método, path, auth, roles, datos, notas.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Inventario
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m10-redes/superficie
+      git commit -m "docs(m10): l17 superficie endpoints"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Superficie de ataque: endpoints y datos" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Superficie de ataque: endpoints y datos», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: superficie/endpoints.md (P3 inicio)
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Superficie de ataque:
+          endpoints y datos
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `mkdir -p projects/m10-redes/superficie`
     comandoEsperado:
       - mkdir -p projects/m10-redes/superficie
+      - git add projects/m10-redes/superficie
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: mkdir -p projects/m10-redes/superficie'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Completar el mapa de superficie del piloto Vitrina (aunque sea
           diseño).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inventario
-    xp: 10
-    cuerpo: >-
-      Incluye al menos: login/logout, CRUD clientes, CRUD pedidos, listados,
-      health `/health`, estáticos del panel. Marca PII (teléfono, notas
-      privadas).
   - id: s7
     tipo: explicacion
-    titulo: 3. Trust boundaries
+    titulo: Trust boundaries
     xp: 10
     cuerpo: >-
       Mermaid o ASCII: User Agent → TLS → API → PG; backups; logs. Qué cruza
@@ -107,11 +118,11 @@ pasos:
         (pedidos/clientes/auth) + auth + PII.
       - 'Diagrama trust boundary: browser / API / DB / backups.'
       - 'Commit `docs(m10): l17 superficie endpoints`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Superficie de ataque: endpoints y datos
 

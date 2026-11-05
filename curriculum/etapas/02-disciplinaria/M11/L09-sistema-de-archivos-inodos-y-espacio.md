@@ -12,15 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Diagnosticar uso de disco como operador del piloto.
-
+    cuerpo: >-
       Backups y logs viven en disco. Hoy mides espacio e inodos.
+
+
+      **Objetivo de esta lección:** Diagnosticar uso de disco como operador del
+      piloto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Medición
+    titulo: Medición
     xp: 10
     cuerpo: |-
       ```bash
@@ -28,67 +34,73 @@ pasos:
       df -i
       du -sh projects/* 2>/dev/null | sort -h
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Conceptos
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m11-so/labs/semana-03-fs.md
+      git commit -m "docs(m11): l09 filesystem inodos"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Sistema de archivos: inodos y espacio" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Sistema de archivos: inodos y espacio», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: labs/semana-03-fs.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Sistema de archivos:
+          inodos y espacio
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m11-so/labs/semana-03-fs.md`
     comandoEsperado:
       - git add projects/m11-so/labs/semana-03-fs.md
+      - 'git commit -m "docs(m11): l09 filesystem inodos"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m11-so/labs/semana-03-fs.md'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Diagnosticar uso de disco como operador del piloto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Conceptos
-    xp: 10
-    cuerpo: >-
-      Inodo vs nombre de archivo; hardlink vs symlink (una tabla). Qué pasa con
-      muchas fotos/tmp de pedidos.
   - id: s7
     tipo: explicacion
-    titulo: 3. Política
+    titulo: Política
     xp: 10
     cuerpo: >-
       Dónde vivirían backups y logs de Vitrina; cuota mínima libre antes de
@@ -102,11 +114,11 @@ pasos:
       - '`labs/semana-03-fs.md` con `df -h`, `df -i`, `du -sh` anotados.'
       - Explicas diferencia “disco lleno” vs “sin inodos”.
       - 'Commit `docs(m11): l09 filesystem inodos`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Sistema de archivos: inodos y espacio
 

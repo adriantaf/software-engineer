@@ -12,17 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Verificar evidencia P1 completa y documentar cuándo usarías
-      `Map` nativo en producción frente a tu hash de aprendizaje.
-
-
       P1 cierra aquí: estructuras básicas propias + honestidad frente a `Map`.
+
+
+      **Objetivo de esta lección:** Verificar evidencia P1 completa y documentar
+      cuándo usarías `Map` nativo en producción frente a tu hash de aprendizaje.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Checklist automático
+    titulo: Checklist automático
     xp: 10
     cuerpo: |-
       ```bash
@@ -30,70 +34,77 @@ pasos:
       npm test
       ls src/singly-linked-list.ts src/stack.ts src/queue.ts src/hash-map.ts
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Arregla cualquier rojo.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Microbench informal
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m07-estructuras
+      git commit -m "docs(m07): cierre P1 hash vs Map nativo"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Hash vs Map nativo (P1 cierre)" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Hash vs Map nativo (P1 cierre)», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: 'P1 completa: lista,pila,cola,hash + tabla comparativa nativo'
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Hash vs Map nativo (P1
+          cierre)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `cd projects/m07-estructuras`
     comandoEsperado:
       - cd projects/m07-estructuras
+      - npm test
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: cd projects/m07-estructuras'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Verificar evidencia P1 completa y documentar cuándo usarías `Map`
           nativo en producción frente a tu hash de aprendizaje.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Microbench informal
-    xp: 10
-    cuerpo: >-
-      `bench/hash-vs-map.ts`: N=50_000 set/get en tu HashMap vs `Map`. Imprime
-      ms. **No** concluyas superioridad absoluta; anota que V8 está altamente
-      optimizado.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tabla comparativa
+    titulo: Tabla comparativa
     xp: 10
     cuerpo: >-
       README sección “P1 — Hash vs Map”: API, orden de claves, uso recomendado
@@ -109,11 +120,11 @@ pasos:
         Tabla en README o `COMPLEJIDAD.md`: tu HashMap vs `Map` (ops, cuándo
         usar cada uno).
       - 'Commit `docs(m07): cierre P1 hash vs Map nativo`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Hash vs Map nativo (P1 cierre)
 

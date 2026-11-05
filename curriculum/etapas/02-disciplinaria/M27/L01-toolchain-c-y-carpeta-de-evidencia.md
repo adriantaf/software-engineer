@@ -12,80 +12,41 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Tener `gcc` o `clang`, carpeta `projects/m27-bajo-nivel/` y
-      un `hello` que imprime y termina con código 0.
-
-
       Todo lo demás (asm, sanitizers, ELF) asume que puedes emitir un binario
       local.
+
+
+      **Objetivo de esta lección:** Tener `gcc` o `clang`, carpeta
+      `projects/m27-bajo-nivel/` y un `hello` que imprime y termina con código
+      0.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Entorno
+    titulo: Entorno
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
       ```bash
-      gcc --version || clang --version
-      which gcc clang make
-      ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Toolchain C y carpeta de evidencia" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: projects/m27-bajo-nivel/ con hello.c que compila
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
 
-      `mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}`
-    comandoEsperado:
-      - 'mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Tener `gcc` o `clang`, carpeta `projects/m27-bajo-nivel/` y un `hello`
-          que imprime y termina con código 0.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Scaffold
+      gcc --version || clang --version
+
+      which gcc clang make
+
+      ```
+
+
+      En Linux/WSL: Si falta: `sudo apt update && sudo apt install
+      build-essential gdb binutils` (o equivalente). Anota versiones en
+      `projects/m27-bajo-nivel/entorno.md`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Scaffold
     xp: 10
     cuerpo: >-
       ```bash
@@ -99,19 +60,69 @@ pasos:
 
 
       Revisa el README del scaffold del plan.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Hello
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: |-
-      ```c
-      #include <stdio.h>
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Toolchain C y carpeta de evidencia», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Toolchain C y carpeta
+          de evidencia
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
 
-      int main(void) {
-        puts("hola m27");
-        return 0;
-      }
-      ```
+      `mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}`
+    comandoEsperado:
+      - 'mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}'
+      - >-
+        cp -n projects/m27-bajo-nivel/README.md
+        projects/m27-bajo-nivel/README.md 2>/dev/null || true
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m27-bajo-nivel/{src,asm,notas,out}'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Tener `gcc` o `clang`, carpeta `projects/m27-bajo-nivel/` y un `hello`
+          que imprime y termina con código 0.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Hello
+    xp: 10
+    cuerpo: 'Crea `projects/m27-bajo-nivel/src/hello.c`:'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -121,11 +132,11 @@ pasos:
       - '`gcc` o `clang` disponible; versión en `entorno.md`.'
       - '`out/hello` corre e imprime el mensaje.'
       - Commit con el scaffold + hello.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Toolchain C y carpeta de evidencia
 

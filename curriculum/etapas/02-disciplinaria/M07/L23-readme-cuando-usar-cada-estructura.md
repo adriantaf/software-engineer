@@ -12,85 +12,94 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Redactar la guía de selección y dejar la API pública
-      exportada y testeada.
-
-
       El proyecto útil es una librería documentada, no solo archivos sueltos.
+
+
+      **Objetivo de esta lección:** Redactar la guía de selección y dejar la API
+      pública exportada y testeada.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario
+    titulo: Inventario
     xp: 10
     cuerpo: |-
       ```bash
       npm test && npm run build
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Guía de selección
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "docs(m07): guia cuando usar cada estructura"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "README cuándo usar cada estructura" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «README cuándo usar cada estructura», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: README guía de selección + API pública
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de README cuándo usar cada
+          estructura
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `npm test && npm run build`
     comandoEsperado:
       - npm test && npm run build
+      - 'git commit -am "docs(m07): guia cuando usar cada estructura"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: npm test && npm run build'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Redactar la guía de selección y dejar la API pública exportada y
           testeada.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Guía de selección
-    xp: 10
-    cuerpo: >-
-      En README: preguntas → estructura (¿acceso aleatorio? ¿LIFO? ¿prioridad?
-      ¿prefijo? → “eso es M08”). Tabla resumen + enlace a `COMPLEJIDAD.md`.
   - id: s7
     tipo: explicacion
-    titulo: 3. API y ejemplo
+    titulo: API y ejemplo
     xp: 10
     cuerpo: >-
       `src/index.ts` limpio. Bloque “Quick start” de 15 líneas en README
@@ -106,11 +115,11 @@ pasos:
         curso).
       - '`src/index.ts` exporta la API pública; `npm test` verde.'
       - 'Commit `docs(m07): guia cuando usar cada estructura`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L23 — README cuándo usar cada estructura
 

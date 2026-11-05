@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** En el perfil público (o preview), acción que abre `wa.me`
-      con el pedido prefijado (ítems + total + “pago al recoger”).
-
-
       - deep-link `wa.me`
 
       - mensaje prefijado
 
       - sin WhatsApp Business API en v1
+
+
+      **Objetivo de esta lección:** En el perfil público (o preview), acción que
+      abre `wa.me` con el pedido prefijado (ítems + total + “pago al recoger”).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Generar texto del pedido
+    titulo: Generar texto del pedido
     xp: 10
     cuerpo: >-
       ```bash
@@ -39,33 +43,49 @@ pasos:
       git commit -m "feat(m17): L18 pedido whatsapp wa.me"
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Botón en UI
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      echo "ej: https://wa.me/525500000000?text=..." >>
+      projects/m17-vitrina/docs/integracion-whatsapp.md
+
+      git add projects/m17-vitrina
+
+      git commit -m "feat(m17): L18 pedido whatsapp wa.me"
+
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Botón pedido WhatsApp desde el perfil / ficha" como hecha,
-      ¿qué cuenta de verdad?
+      Al terminar «Botón pedido WhatsApp desde el perfil / ficha», ¿qué
+      demuestra que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: acción pedido WhatsApp
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Botón pedido WhatsApp
+          desde el perfil /…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: >-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
 
       `echo "ej: https://wa.me/525500000000?text=..." >>
@@ -74,41 +94,36 @@ pasos:
       - >-
         echo "ej: https://wa.me/525500000000?text=..." >>
         projects/m17-vitrina/docs/integracion-whatsapp.md
+      - git add projects/m17-vitrina
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: echo "ej: https://wa.me/525500000000?text=..." >>
       projects/m17-vitrina/docs/integracion-whatsapp.md
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           En el perfil público (o preview), acción que abre `wa.me` con el
           pedido prefijado (ítems + total + “pago al recoger”).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Botón en UI
-    xp: 10
-    cuerpo: >-
-      Acción “Pedir por WhatsApp” hace `window.open` a
-      `https://wa.me/<telefonoNegocio>?text=...`. No requiere WhatsApp Business
-      API.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Evidencia
+    tipo: explicacion
+    titulo: Evidencia
     xp: 10
     cuerpo: >-
       ```bash
@@ -130,11 +145,11 @@ pasos:
       - Botón abre `wa.me` con ítems del carrito/pedido de prueba.
       - Evidencia en `integracion-whatsapp.md` (teléfono demo/redactado).
       - 'Commit `feat(m17): L18 pedido whatsapp wa.me`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L18 — Botón pedido WhatsApp desde el perfil / ficha
 

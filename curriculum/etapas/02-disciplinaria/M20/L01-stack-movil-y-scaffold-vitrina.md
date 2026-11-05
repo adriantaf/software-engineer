@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Elegir Flutter o RN, documentar SDK, crear scaffold y
-      enlazar repo.
-
-
       - Flutter vs RN
 
       - staging URL
 
       - lint
+
+
+      **Objetivo de esta lección:** Elegir Flutter o RN, documentar SDK, crear
+      scaffold y enlazar repo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Decide Flutter o RN
+    titulo: Decide Flutter o RN
     xp: 10
     cuerpo: |-
       ```bash
@@ -39,80 +43,84 @@ pasos:
       - No cambiar sin ADR
       EOF
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Stack móvil y scaffold Vitrina" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m20-movil/stack.md + repo-url.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p projects/m20-movil/docs`
-    comandoEsperado:
-      - mkdir -p projects/m20-movil/docs
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m20-movil/docs'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: 'Elegir Flutter o RN, documentar SDK, crear scaffold y enlazar repo.'
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Scaffold app
+    tipo: ejemplo
+    titulo: Scaffold app
     xp: 10
     cuerpo: >-
       ```bash
 
-      Flutter:
+      # Flutter:
 
-      flutter create vitrina_app
+      # flutter create vitrina_app
 
-      React Native:
+      # React Native:
 
-      npx @react-native-community/cli init VitrinaApp
+      # npx @react-native-community/cli init VitrinaApp
 
       ```
 
 
       App corre en emulador/dispositivo. Deja el código en submódulo o
       `projects/m20-movil/app/` y enlázalo en README.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Stack móvil y scaffold Vitrina», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Stack móvil y scaffold
+          Vitrina
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `mkdir -p projects/m20-movil/docs`
+    comandoEsperado:
+      - mkdir -p projects/m20-movil/docs
+      - git add projects/m20-movil
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m20-movil/docs'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: 'Elegir Flutter o RN, documentar SDK, crear scaffold y enlazar repo.'
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Evidencia + commit
+    tipo: explicacion
+    titulo: Evidencia + commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -136,11 +144,11 @@ pasos:
         `projects/m20-movil/repo-url.md`.
       - Scaffold corre en emulador/dispositivo; README enlaza el código.
       - 'Commit `docs(m20): L01 stack-movil-y-scaffold-vitrina`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Stack móvil y scaffold Vitrina
 

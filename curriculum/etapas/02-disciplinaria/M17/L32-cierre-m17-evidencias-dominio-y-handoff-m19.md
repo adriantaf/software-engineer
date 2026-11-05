@@ -12,79 +12,125 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Auditar P1–P3, proyecto piloto, criterios dominio, README
-      final y handoff deploy M19.
-
-
       - cierre
 
       - handoff M19
 
       - dominio
+
+
+      **Objetivo de esta lección:** Auditar P1–P3, proyecto piloto, criterios
+      dominio, README final y handoff deploy M19.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Índice de evidencias
+    titulo: Índice de evidencias
     xp: 10
-    cuerpo: |-
-      ```bash
-      cat > projects/m17-vitrina/docs/nota-cierre-m17.md << 'EOF'
+    cuerpo: >-
+      ```bash cat > projects/m17-vitrina/docs/nota-cierre-m17.md << 'EOF' #
       Cierre M17
   - id: s3
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M17 — evidencias, dominio y handoff M19" como hecha,
-      ¿qué cuenta de verdad?
+      Al terminar «Cierre M17 — evidencias, dominio y handoff M19», ¿qué
+      demuestra que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m17-vitrina/docs/nota-cierre-m17.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M17 —
+          evidencias, dominio y hand…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Cerrar M17 sin listar gaps."
+    pregunta: ¿Es recomendable en esta lección? “Cerrar M17 sin listar gaps."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
   - id: s5
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Auditar P1–P3, proyecto piloto, criterios dominio, README final y
           handoff deploy M19.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
   - id: s6
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “No mencionar handoff Docker/secrets a M19."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M17
+    xp: 25
+    enunciado: >-
+      Cierra **Aplicaciones web full-stack** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: API REST con auth real + validación'
+      - 'P2: Front con rutas protegidas y estados de carga/error'
+      - 'P3: Integración WhatsApp deep-links + panel admin con roles'
+      - 'Proyecto: MVP Vitrina (piloto) listo para multi-tenant'
+      - projects/m17-vitrina/docs/nota-cierre-m17.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          Existe `projects/m17-vitrina/docs/nota-cierre-m17.md` con índice de
+          artefactos y handoff M19.
+      - id: r3
+        criterio: >-
+          README P1–P3 coherente con evidencias (artefacto:
+          `projects/m17-vitrina/docs/nota-cierre-m17.md`).
+      - id: r4
+        criterio: 'Commit `docs(m17): L32 cierre-m17-evidencias-dominio-y-handoff-m19`.'
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -97,11 +143,11 @@ pasos:
         README P1–P3 coherente con evidencias (artefacto:
         `projects/m17-vitrina/docs/nota-cierre-m17.md`).
       - 'Commit `docs(m17): L32 cierre-m17-evidencias-dominio-y-handoff-m19`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M17 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L32 — Cierre M17 — evidencias, dominio y handoff M19
 

@@ -12,83 +12,97 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Publicar `srs-v1.md` congelado.
-
+    cuerpo: >-
       P3 y proyecto: el documento que M13/M17 consumen.
+
+
+      **Objetivo de esta lección:** Publicar `srs-v1.md` congelado.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Copiar y pulir
+    titulo: Copiar y pulir
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md
+
+      ```
+
+
+      Completa huecos: referencias, supuestos, dependencias (Node, Postgres),
+      RNF ≥3, glosario, MoSCoW resumido.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Freeze banner
     xp: 10
     cuerpo: |-
-      ```bash
-      cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md
+      ```markdown
+      > **Freeze v1 — YYYY-MM-DD**  
+      > Cambios post-freeze → ADR o srs-v1.1 con diff explícito.
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+
+      Al inicio:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "SRS v1, freeze y P3" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «SRS v1, freeze y P3», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m12-srs/srs-v1.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: 'Instalar herramientas al azar sin evidencia de SRS v1, freeze y P3'
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md`
     comandoEsperado:
       - cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: cp projects/m12-srs/srs-borrador.md projects/m12-srs/srs-v1.md'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Publicar `srs-v1.md` congelado.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Freeze banner
-    xp: 10
-    cuerpo: |-
-      Al inicio:
-
-      ```markdown
-      > **Freeze v1 — YYYY-MM-DD**  
-      > Cambios post-freeze → ADR o srs-v1.1 con diff explícito.
-      ```
   - id: s7
     tipo: explicacion
-    titulo: 3. Checklist P3
+    titulo: Checklist P3
     xp: 10
     cuerpo: 'README: P1 entrevistas, P2 stories≥8, P3 srs-v1 con RNF.'
   - id: s8
@@ -102,11 +116,11 @@ pasos:
         fuera de alcance, glosario).
       - Fecha de freeze y versión v1 anotadas.
       - 'Commit `docs(m12): l11 srs-v1 freeze p3`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L11 — SRS v1, freeze y P3
 

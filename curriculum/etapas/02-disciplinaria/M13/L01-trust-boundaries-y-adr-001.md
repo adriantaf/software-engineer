@@ -14,99 +14,119 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar `projects/m13-diseno/` con trust boundaries dibujados
-      y el ADR 001 (monolito modular) firmado en git.
-
-
       Autorización no vive solo ocultando botones en el panel. Si no marcas el
       límite navegador→API→DB, M17 nacerá confiando en el cliente HTTP.
+
+
+      **Objetivo de esta lección:** Dejar `projects/m13-diseno/` con trust
+      boundaries dibujados y el ADR 001 (monolito modular) firmado en git.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Revisa scaffold y SRS
+    titulo: Revisa scaffold y SRS
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      ls projects/m13-diseno
+
+      cat projects/m13-diseno/README.md
+
+      ls projects/m12-srs
+
+      ```
+
+
+      Si aún no tienes `projects/m12-srs/srs-v1.md`, usa
+      `projects/m12-srs/plantilla.md` +
+      [producto-saas.md](../../../producto-saas.md) (pedidos, clientes,
+      owner/staff). Anota 3 requisitos Must que toquen auth o datos ajenos.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Crea carpetas
     xp: 10
     cuerpo: |-
       ```bash
-      ls projects/m13-diseno
-      cat projects/m13-diseno/README.md
-      ls projects/m12-srs
+      mkdir -p projects/m13-diseno/diagramas projects/m13-diseno/adr
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Trust boundaries y ADR 001" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Trust boundaries y ADR 001», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: >-
-          projects/m13-diseno/diagramas/trust-boundaries.md +
-          adr/001-monolito-modular.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Trust boundaries y ADR
+          001
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `ls projects/m13-diseno`
     comandoEsperado:
       - ls projects/m13-diseno
+      - cat projects/m13-diseno/README.md
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: ls projects/m13-diseno'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Dejar `projects/m13-diseno/` con trust boundaries dibujados y el ADR
           001 (monolito modular) firmado en git.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Crea carpetas
-    xp: 10
-    cuerpo: |-
-      ```bash
-      mkdir -p projects/m13-diseno/diagramas projects/m13-diseno/adr
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Dibuja trust boundaries
+    tipo: explicacion
+    titulo: Dibuja trust boundaries
     xp: 10
-    cuerpo: |-
-      ```mermaid
-      flowchart LR
-        U[Usuario / browser] -->|HTTPS + cookie sesión| API[API Node]
-        API -->|SQL parametrizado| DB[(PostgreSQL)]
-        API -->|opcional| Mail[Email / WhatsApp link]
-      ```
+    cuerpo: >-
+      Crea `projects/m13-diseno/diagramas/trust-boundaries.md` con título, el
+      diagrama siguiente, tablas y notas. Diagrama (cópialo al archivo): Tabla
+      **Qué cruza cada límite**: | Límite | Datos / credenciales | Quién valida
+      | |--------|----------------------|--------------| | Browser → API |
+      Cookie de sesión, JSON de pedido | API: sesión + rol | | API → DB |
+      user_id, cliente_id, slot | API + constraints DB | | API → Mail | email,
+      texto sin PII extra | API (no el browser) | **Nota de amenaza (alto
+      nivel):** cookie robada → sesión hijack (HttpOnly, Secure, SameSite); IDOR
+      `GET /pedidos/:id` de otro negocio → 403 en API, no solo en UI. Ajusta
+      nombres a tu SRS; no inventes microservicios.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -120,11 +140,11 @@ pasos:
         Existe `projects/m13-diseno/adr/001-monolito-modular.md` con contexto
         Vitrina, decisión y ≥3 consecuencias.
       - 'Commit `docs(m13): trust boundaries y ADR 001 monolito modular`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Trust boundaries y ADR 001
 

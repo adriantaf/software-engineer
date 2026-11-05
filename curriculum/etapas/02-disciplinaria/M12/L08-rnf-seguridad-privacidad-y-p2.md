@@ -12,98 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** ≥8 stories + ≥3 RNF de seguridad/privacidad trazables.
-
-
       Cierras P2 y metes seguridad en el SRS desde ya
       ([hilo](../../../hilos/seguridad.md)).
+
+
+      **Objetivo de esta lección:** ≥8 stories + ≥3 RNF de seguridad/privacidad
+      trazables.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Completa stories
+    titulo: Completa stories
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m12-srs
       git commit -m "docs(m12): l08 rnf seguridad p2"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: RNF
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m12-srs
+      git commit -m "docs(m12): l08 rnf seguridad p2"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "RNF seguridad, privacidad y P2" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «RNF seguridad, privacidad y P2», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: stories.md + srs-borrador RNF (≥8 stories)
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de RNF seguridad,
+          privacidad y P2
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m12-srs`
     comandoEsperado:
       - git add projects/m12-srs
+      - 'git commit -m "docs(m12): l08 rnf seguridad p2"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m12-srs'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: ≥8 stories + ≥3 RNF de seguridad/privacidad trazables.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. RNF
-    xp: 10
-    cuerpo: >-
-      En `srs-borrador.md` §3.2, ejemplos:
-
-
-      | ID | Tipo | Descripción |
-
-      |----|------|-------------|
-
-      | RNF-SEC-01 | Seguridad | Toda ruta de negocio exige sesión; sin token →
-      401 |
-
-      | RNF-SEC-02 | Autorización | Staff no lee notas privadas → 403 + log |
-
-      | RNF-PRIV-01 | Privacidad | PII mínimo; single-tenant documentado |
-
-
-      Enlaza cada RNF a US-xx.
   - id: s7
     tipo: explicacion
-    titulo: 3. README P2
+    titulo: README P2
     xp: 10
     cuerpo: Marca P2 listo.
   - id: s8
@@ -117,11 +114,11 @@ pasos:
         `srs-borrador.md` incluye ≥3 RNF-SEC/PRIV numerados y enlazados a
         stories.
       - 'Commit `docs(m12): l08 rnf seguridad p2`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L08 — RNF seguridad, privacidad y P2
 

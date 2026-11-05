@@ -12,86 +12,116 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Publicar `playbook.md` y cerrar evidencias P1–P3.
-
+    cuerpo: >-
       Otro desarrollador debe levantar el stack solo con tu playbook.
+
+
+      **Objetivo de esta lección:** Publicar `playbook.md` y cerrar evidencias
+      P1–P3.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Redacta playbook
+    titulo: Redacta playbook
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m11-so
       git commit -m "docs(m11): cierre playbook"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Dry-run
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m11-so
+      git commit -m "docs(m11): cierre playbook"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Playbook local y cierre M11" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Playbook local y cierre M11», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: playbook.md + cierre P1–P3
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Playbook local y cierre
+          M11
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m11-so`
     comandoEsperado:
       - git add projects/m11-so
+      - 'git commit -m "docs(m11): cierre playbook"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m11-so'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Publicar `playbook.md` y cerrar evidencias P1–P3.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Dry-run
-    xp: 10
-    cuerpo: >-
-      Sigue el playbook desde cero (borra contenedores) y anota fricciones;
-      corrígelas.
   - id: s7
-    tipo: explicacion
-    titulo: 3. Checklist dominio
-    xp: 10
-    cuerpo: >-
-      Responde en `dominio-oral.md`: SIGTERM, backup+restore, non-root, playbook
-      ajeno.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M11
+    xp: 25
+    enunciado: >-
+      Cierra **Sistemas operativos** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: Procesos, señales y permisos en Linux'
+      - 'P2: Scripts de administración (backup, rotación logs)'
+      - 'P3: Dockerizar un servicio Node + volumen (sin root innecesario)'
+      - 'Proyecto: Playbook de operación local del stack'
+      - playbook.md + cierre P1–P3
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          `playbook.md` con prerequisitos, up/down, backup, restore,
+          troubleshooting.
+      - id: r3
+        criterio: 'README enlaza P1 labs, P2 scripts, P3 Docker, playbook.'
+      - id: r4
+        criterio: 'Commit `docs(m11): cierre playbook`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -103,11 +133,11 @@ pasos:
         troubleshooting.
       - 'README enlaza P1 labs, P2 scripts, P3 Docker, playbook.'
       - 'Commit `docs(m11): cierre playbook`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M11 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — Playbook local y cierre M11
 

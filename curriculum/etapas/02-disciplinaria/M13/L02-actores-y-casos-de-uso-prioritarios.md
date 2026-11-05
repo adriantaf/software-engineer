@@ -12,108 +12,97 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Borrador sólido de `projects/m13-diseno/casos-de-uso.md`:
-      actores + casos Must del piloto.
-
-
       M17 implementará login, CRUD de pedidos/clientes y roles. Si hoy no
       priorizas, mañana codificas features que el design partner no usa.
+
+
+      **Objetivo de esta lección:** Borrador sólido de
+      `projects/m13-diseno/casos-de-uso.md`: actores + casos Must del piloto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Extrae actores del SRS
+    titulo: Extrae actores del SRS
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m13-diseno/casos-de-uso.md
       git commit -m "docs(m13): actores y casos de uso prioritarios"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Lista casos Must
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m13-diseno/casos-de-uso.md
+      git commit -m "docs(m13): actores y casos de uso prioritarios"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Actores y casos de uso prioritarios" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Actores y casos de uso prioritarios», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m13-diseno/casos-de-uso.md (actores + UC prioritarios)
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Actores y casos de uso
+          prioritarios
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m13-diseno/casos-de-uso.md`
     comandoEsperado:
       - git add projects/m13-diseno/casos-de-uso.md
+      - 'git commit -m "docs(m13): actores y casos de uso prioritarios"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m13-diseno/casos-de-uso.md'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Borrador sólido de `projects/m13-diseno/casos-de-uso.md`: actores +
           casos Must del piloto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Lista casos Must
-    xp: 10
-    cuerpo: >-
-      Crea o amplía `projects/m13-diseno/casos-de-uso.md` con secciones
-      **Actores** y **Casos prioritarios (Must)**.
-
-
-      Tabla mínima esperada:
-
-
-      | ID | Nombre | Actor | Traza SRS | Notas |
-
-      |----|--------|-------|-----------|-------|
-
-      | UC-01 | Iniciar sesión | Owner/Staff | H-auth-01 | cookie/sesión |
-
-      | UC-02 | Crear cliente | Owner/Staff | H-cli-01 | |
-
-      | UC-03 | Crear pedido | Staff | H-pedido-01 | slot + servicio |
-
-      | UC-04 | Cancelar pedido | Staff | H-pedido-02 | |
-
-      | UC-05 | Listar agenda del día | Staff | H-pedido-03 | |
-
-
-      Ajusta IDs a tu SRS; no copies ciegos.
   - id: s7
     tipo: explicacion
-    titulo: 3. Diagrama ligero opcional
+    titulo: Diagrama ligero opcional
     xp: 10
     cuerpo: >-
       Si ayuda, añade Mermaid use-case (máx. 8 elipses). Si el diagrama no
@@ -131,11 +120,11 @@ pasos:
         ≥5 casos de uso Must con id (UC-xx), actor primario y traza a
         historia/requisito del SRS.
       - 'Commit `docs(m13): actores y casos de uso prioritarios`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Actores y casos de uso prioritarios
 

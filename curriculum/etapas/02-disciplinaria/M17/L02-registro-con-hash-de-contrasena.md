@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar registro: validar email/password, hash fuerte,
-      persistir usuario ligado al negocio piloto.
-
-
       - hash
 
       - registro
 
       - validación
+
+
+      **Objetivo de esta lección:** Implementar registro: validar
+      email/password, hash fuerte, persistir usuario ligado al negocio piloto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura OWASP Password Storage
+    titulo: Lectura OWASP Password Storage
     xp: 10
     cuerpo: |-
       ```sql
@@ -40,96 +44,85 @@ pasos:
         created_at TIMESTAMPTZ NOT NULL DEFAULT now()
       );
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Registro con hash de contraseña" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: POST /auth/register
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Migración usuarios
+    xp: 10
+    cuerpo: |-
+      ```sql
+      -- migrations/00x_usuarios.sql (adapta a tu ORM)
+      CREATE TABLE usuarios (
+        id UUID PRIMARY KEY,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        rol TEXT NOT NULL CHECK (rol IN ('owner','staff')),
+        negocio_id UUID NULL,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+      );
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Registro con hash de contraseña», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Registro con hash de
+          contraseña
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “MD5/SHA sin salt como ‘hash’."
+    pregunta: ¿Es recomendable en esta lección? “MD5/SHA sin salt como ‘hash’."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar registro: validar email/password, hash fuerte, persistir
           usuario ligado al negocio piloto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Migración usuarios
-    xp: 10
-    cuerpo: |-
-      ```sql
-      -- migrations/00x_usuarios.sql (adapta a tu ORM)
-      CREATE TABLE usuarios (
-        id UUID PRIMARY KEY,
-        email TEXT NOT NULL UNIQUE,
-        password_hash TEXT NOT NULL,
-        rol TEXT NOT NULL CHECK (rol IN ('owner','staff')),
-        negocio_id UUID NULL,
-        created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-      );
-      ```
-
-      ```bash
-      aplica con tu runner, ej.:
-      npm run migrate
-      o: psql "$DATABASE_URL" -f migrations/00x_usuarios.sql
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. POST /auth/register
+    tipo: explicacion
+    titulo: POST /auth/register
     xp: 10
-    cuerpo: |-
-      ```bash
-      curl -sS -X POST http://localhost:3000/auth/register \
-        -H 'content-type: application/json' \
-        -d '{"email":"owner@demo.local","password":"Secreto123!"}'
-      # 201 + id/email/rol — nunca password_hash
-      curl -sS -X POST http://localhost:3000/auth/register \
-        -H 'content-type: application/json' \
-        -d '{"email":"malo","password":"x"}'
-      # 400
-      ```
+    cuerpo: >-
+      Valida body (Zod/valibot): email, password ≥8. Hash con bcrypt/argon2.
+      Respuesta **201** sin el hash.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -142,11 +135,11 @@ pasos:
         /auth/register`).
       - 'Respuesta 201 no incluye el hash (artefacto: `POST /auth/register`).'
       - 'Commit `docs(m17): L02 registro-con-hash-de-contrasena`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Registro con hash de contraseña
 

@@ -12,21 +12,25 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** CRUD completo de categorías e ítems de menú con autorización
-      owner/staff.
-
-
       - CRUD
 
       - disponibilidad
 
       - precio_centavos
+
+
+      **Objetivo de esta lección:** CRUD completo de categorías e ítems de menú
+      con autorización owner/staff.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. CRUD categorías
+    titulo: CRUD categorías
     xp: 10
     cuerpo: |-
       ```bash
@@ -35,62 +39,10 @@ pasos:
         -d '{"nombre":"Bebidas","orden":1}'
       curl -sS -b /tmp/ao.ck http://localhost:3000/menu/categories
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "CRUD menú y categorías" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: /menu/categories /menu/items
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/menu/categories \`
-    comandoEsperado:
-      - 'curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/menu/categories \'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: >-
-      Esperado: curl -sS -b /tmp/ao.ck -X POST
-      http://localhost:3000/menu/categories \
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          CRUD completo de categorías e ítems de menú con autorización
-          owner/staff.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. CRUD ítems
+    tipo: ejemplo
+    titulo: CRUD ítems
     xp: 10
     cuerpo: |-
       ```bash
@@ -101,9 +53,65 @@ pasos:
         -H 'content-type: application/json' \
         -d '{"disponible":false}'
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «CRUD menú y categorías», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de CRUD menú y categorías
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/menu/categories \`
+    comandoEsperado:
+      - 'curl -sS -b /tmp/ao.ck -X POST http://localhost:3000/menu/categories \'
+      - 'curl -sS -b /tmp/ao.ck http://localhost:3000/menu/categories'
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: >-
+      Esperado: curl -sS -b /tmp/ao.ck -X POST
+      http://localhost:3000/menu/categories \
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          CRUD completo de categorías e ítems de menú con autorización
+          owner/staff.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -119,11 +127,11 @@ pasos:
       - CRUD categorías e ítems con auth; ítem puede marcarse no disponible.
       - Precios en centavos (enteros).
       - 'Commit `feat(m17): L07 crud menu categorias items`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L07 — CRUD menú y categorías
 

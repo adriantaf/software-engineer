@@ -12,87 +12,94 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Cerrar **P1**: arrays, `strlen`/`snprintf`, y una nota de
-      por qué `gets` está prohibido.
-
-
       Los strings C son buffers con terminador. Aquí nace buena parte de los
       overflows.
+
+
+      **Objetivo de esta lección:** Cerrar **P1**: arrays, `strlen`/`snprintf`,
+      y una nota de por qué `gets` está prohibido.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```bash
       git commit -am "feat(m27): P1 buffers y strings"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: '`buffers.c`'
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m27): P1 buffers y strings"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Arrays, strings y buffers (P1)" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Arrays, strings y buffers (P1)», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: src/buffers.c — cierra P1
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Arrays, strings y
+          buffers (P1)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git commit -am "feat(m27): P1 buffers y strings"`
     comandoEsperado:
       - 'git commit -am "feat(m27): P1 buffers y strings"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git commit -am "feat(m27): P1 buffers y strings"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
-          Cerrar **P1**: arrays, `strlen`/`snprintf`, y una nota de por qué
-          `gets` está prohibido.
+          Cerrar P1: arrays, `strlen`/`snprintf`, y una nota de por qué `gets`
+          está prohibido.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. `buffers.c`
-    xp: 10
-    cuerpo: |-
-      - Copia segura con `snprintf` a un buffer fijo.
-      - Función que cuenta longitud sin `strlen` (recorrido hasta `\\0`).
-      - Comentario: qué pasaría con `strcpy` a buffer corto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Evidencia P1
+    titulo: Evidencia P1
     xp: 10
     cuerpo: >-
       README o `notas/p1.md`: lista de archivos + qué demuestra cada uno
@@ -106,11 +113,11 @@ pasos:
       - '`buffers.c` compila con `-Wall` sin warnings nuevos.'
       - Notas P1 enlazan L01–L04.
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L04 — Arrays, strings y buffers (P1)
 

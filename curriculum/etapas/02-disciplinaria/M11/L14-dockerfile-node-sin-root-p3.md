@@ -12,15 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Escribir un `Dockerfile` que no corra como root.
-
+    cuerpo: >-
       P3: imagen de servicio Node endurecida lo razonable para local/piloto.
+
+
+      **Objetivo de esta lección:** Escribir un `Dockerfile` que no corra como
+      root.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. App mínima
+    titulo: App mínima
     xp: 10
     cuerpo: |-
       ```dockerfile
@@ -34,60 +40,10 @@ pasos:
       EXPOSE 3099
       CMD ["node", "graceful-server.js"]
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Dockerfile Node sin root (P3)" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m11-so/Dockerfile
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Correr como root sin justificación."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Escribir un `Dockerfile` que no corra como root.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Dockerfile
+    tipo: ejemplo
+    titulo: Dockerfile
     xp: 10
     cuerpo: |-
       ```dockerfile
@@ -103,19 +59,64 @@ pasos:
       ```
 
       Ajusta rutas a tu layout. Documenta build:
-
-      ```bash
-      docker build -t m11-api:dev -f projects/m11-so/Dockerfile projects/m11-so
-      docker run --rm -p 127.0.0.1:3099:3099 m11-api:dev
-      ```
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Verificación user
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: |-
-      ```bash
-      docker run --rm m11-api:dev id
-      ```
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Dockerfile Node sin root (P3)», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Dockerfile Node sin
+          root (P3)
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: ¿Es recomendable en esta lección? “Correr como root sin justificación."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: Escribir un `Dockerfile` que no corra como root.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Verificación user
+    xp: 10
+    cuerpo: 'Debe ser `app`, no `root`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -125,11 +126,11 @@ pasos:
       - '`Dockerfile` multi-stage o slim con `USER` no-root.'
       - App mínima en `app/` que responde HTTP; build documentado.
       - 'Commit `feat(m11): l14 dockerfile non-root`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — Dockerfile Node sin root (P3)
 

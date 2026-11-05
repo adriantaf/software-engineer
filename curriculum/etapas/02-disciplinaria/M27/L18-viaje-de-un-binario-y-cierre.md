@@ -12,84 +12,112 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** `viaje-binario.md` + README actualizado; checklist P1–P3
-      verde.
-
-
       Cierras el **proyecto**: el relato completo compile → link → run, con
       puente a M18 y a compiladores (opcional futuro).
+
+
+      **Objetivo de esta lección:** `viaje-binario.md` + README actualizado;
+      checklist P1–P3 verde.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Escribe el viaje
+    titulo: Escribe el viaje
     xp: 10
     cuerpo: |-
       ```bash
       git commit -am "docs(m27): cierre viaje de un binario"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Checklist
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "docs(m27): cierre viaje de un binario"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Viaje de un binario y cierre M27" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Viaje de un binario y cierre M27», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: viaje-binario.md — cierra proyecto M27
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Viaje de un binario y
+          cierre M27
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git commit -am "docs(m27): cierre viaje de un binario"`
     comandoEsperado:
       - 'git commit -am "docs(m27): cierre viaje de un binario"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git commit -am "docs(m27): cierre viaje de un binario"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: '`viaje-binario.md` + README actualizado; checklist P1–P3 verde.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Checklist
-    xp: 10
-    cuerpo: 'P1 buffers, P2 sanitizer, P3 ABI, proyecto.'
   - id: s7
-    tipo: explicacion
-    titulo: 3. Simulación
-    xp: 10
-    cuerpo: 'Otro “yo” solo con README: ¿compila hello?'
+    tipo: proyecto
+    titulo: Proyecto de cierre · M27
+    xp: 25
+    enunciado: >-
+      Cierra **Sistemas a bajo nivel** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: C: tipos, punteros y buffers con evidencia'
+      - 'P2: Stack, heap y sanitizers (ASan/UBSan)'
+      - 'P3: Leer asm generado y calling convention'
+      - 'Proyecto: Informe "viaje de un binario" (compile → link → run)'
+      - viaje-binario.md — cierra proyecto M27
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: '`viaje-binario.md` existe y está enlazado.'
+      - id: r3
+        criterio: P1–P3 referenciados.
+      - id: r4
+        criterio: Commit de cierre.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -99,11 +127,11 @@ pasos:
       - '`viaje-binario.md` existe y está enlazado.'
       - P1–P3 referenciados.
       - Commit de cierre.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M27 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L18 — Viaje de un binario y cierre M27
 

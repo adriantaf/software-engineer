@@ -12,19 +12,24 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Salida de audit en `projects/m18-appsec/docs/npm-audit.md`
-      (+ mirror `projects/m18-appsec/deps-audit.md` si quieres); ≥1 remediación
-      o justificación.
-
-
       A06: la cadena de deps es superficie. Hoy mides y remedias al menos un
       high/critical.
+
+
+      **Objetivo de esta lección:** Salida de audit en
+      `projects/m18-appsec/docs/npm-audit.md` (+ mirror
+      `projects/m18-appsec/deps-audit.md` si quieres); ≥1 remediación o
+      justificación.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Corre audit
+    titulo: Corre audit
     xp: 10
     cuerpo: >-
       ```bash
@@ -41,80 +46,84 @@ pasos:
       || true
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "npm audit y cadena de dependencias" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: projects/m18-appsec/docs/npm-audit.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
-    comandoEsperado:
-      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Salida de audit en `projects/m18-appsec/docs/npm-audit.md` (+ mirror
-          `projects/m18-appsec/deps-audit.md` si quieres); ≥1 remediación o
-          just…
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Documenta + remedia
+    tipo: ejemplo
+    titulo: Documenta + remedia
     xp: 10
     cuerpo: |-
       ```bash
       cat > projects/m18-appsec/docs/npm-audit.md <<'EOF'
-      npm audit — Vitrina
+      # npm audit — Vitrina
       Fecha:
       High/Critical:
       Acción (update / ignore justificado):
       Commit:
       EOF
-      Remedia al menos 1
+      # Remedia al menos 1
       npm audit fix --omit=dev || true
       npm ls --depth=0 | head
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «npm audit y cadena de dependencias», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de npm audit y cadena de
+          dependencias
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
+    comandoEsperado:
+      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+      - npm audit --omit=dev 2>/dev/null || npm audit
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Salida de audit en `projects/m18-appsec/docs/npm-audit.md` (+ mirror
+          `projects/m18-appsec/deps-audit.md` si quieres); ≥1 remediación o
+          justificación.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -130,11 +139,11 @@ pasos:
       - 'Audit guardado (artefacto: `projects/m18-appsec/docs/npm-audit.md`).'
       - '≥1 acción tomada (artefacto: `projects/m18-appsec/docs/npm-audit.md`).'
       - 'Commit `docs(m18): L25 npm-audit-y-cadena-de-dependencias`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L25 — npm audit y cadena de dependencias
 

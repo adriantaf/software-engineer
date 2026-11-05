@@ -12,84 +12,92 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Contar componentes conexas (o resolver problema equivalente)
-      con DFS y tests.
-
-
       DFS recorre profundo; sirve para marcar componentes y ciclos
       introductorios.
+
+
+      **Objetivo de esta lección:** Contar componentes conexas (o resolver
+      problema equivalente) con DFS y tests.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. DFS base
+    titulo: DFS base
     xp: 10
     cuerpo: |-
       ```bash
       git commit -am "feat(m08): dfs componentes conexas"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Componentes
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m08): dfs componentes conexas"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "DFS y componentes" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «DFS y componentes», ¿qué demuestra que cumpliste el criterio
+      mínimo?
     opciones:
       - id: a
-        texto: problema componentes conexas
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Instalar herramientas al azar sin evidencia de DFS y componentes
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git commit -am "feat(m08): dfs componentes conexas"`
     comandoEsperado:
       - 'git commit -am "feat(m08): dfs componentes conexas"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git commit -am "feat(m08): dfs componentes conexas"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Contar componentes conexas (o resolver problema equivalente) con DFS y
           tests.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Componentes
-    xp: 10
-    cuerpo: >-
-      Algoritmo: para cada vértice no visitado, DFS y ++count. Tests con 1
-      componente, 3 componentes, grafo vacío.
   - id: s7
     tipo: explicacion
-    titulo: 3. Problema empaquetado
+    titulo: Problema empaquetado
     xp: 10
     cuerpo: '`problems/…-componentes/` con enunciado de red social / salas conectadas.'
   - id: s8
@@ -101,11 +109,11 @@ pasos:
       - '`connectedComponents(graph)` (o problema equivalente) con tests.'
       - Documentas recursivo vs stack explícito en 5–8 líneas.
       - 'Commit `feat(m08): dfs componentes conexas`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — DFS y componentes
 

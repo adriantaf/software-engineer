@@ -12,17 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** `diagramas/secuencia-auth.md` con Mermaid del flujo UC-01.
-
-
       Sin una secuencia de auth, el resto de diagramas asume magia. Hoy dibujas
       login y validación de sesión.
+
+
+      **Objetivo de esta lección:** `diagramas/secuencia-auth.md` con Mermaid
+      del flujo UC-01.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Decide mecanismo
+    titulo: Decide mecanismo
     xp: 10
     cuerpo: |-
       ```mermaid
@@ -42,34 +47,59 @@ pasos:
         API->>API: validar sesión
         API-->>U: 200 {id, rol}
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Secuencia: autenticación y sesión" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m13-diseno/diagramas/secuencia-auth.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Secuencia feliz + fallo
+    xp: 10
+    cuerpo: |-
+      ```mermaid
+      sequenceDiagram
+        participant U as Browser
+        participant API as API
+        participant DB as PostgreSQL
+        U->>API: POST /auth/login {email, password}
+        API->>DB: buscar usuario + verificar hash
+        alt ok
+          API->>API: crear sesión
+          API-->>U: 200 + Set-Cookie HttpOnly
+        else credenciales inválidas
+          API-->>U: 401
+        end
+        U->>API: GET /me (Cookie)
+        API->>API: validar sesión
+        API-->>U: 200 {id, rol}
+      ```
+
+      En `diagramas/secuencia-auth.md`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Secuencia: autenticación y sesión», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Secuencia:
+          autenticación y sesión
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Secuencia donde el browser “guarda el
+      ¿Es recomendable en esta lección? “Secuencia donde el browser “guarda el
       rol” y la API confía ciegamente."
     opciones:
       - id: t
@@ -77,51 +107,29 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: '`diagramas/secuencia-auth.md` con Mermaid del flujo UC-01.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Secuencia feliz + fallo
-    xp: 10
-    cuerpo: |-
-      En `diagramas/secuencia-auth.md`:
-
-      ```mermaid
-      sequenceDiagram
-        participant U as Browser
-        participant API as API
-        participant DB as PostgreSQL
-        U->>API: POST /auth/login {email, password}
-        API->>DB: buscar usuario + verificar hash
-        alt ok
-          API->>API: crear sesión
-          API-->>U: 200 + Set-Cookie HttpOnly
-        else credenciales inválidas
-          API-->>U: 401
-        end
-        U->>API: GET /me (Cookie)
-        API->>API: validar sesión
-        API-->>U: 200 {id, rol}
-      ```
   - id: s7
     tipo: explicacion
-    titulo: 3. Notas de seguridad
+    titulo: Notas de seguridad
     xp: 10
     cuerpo: >-
       Lista bajo el diagrama: password hasheado (nunca en logs), rate limit
@@ -138,11 +146,11 @@ pasos:
         de login OK + fallo.
       - 'Queda explícito dónde se crea/valida la sesión (API, no solo front).'
       - 'Commit `docs(m13): secuencia autenticacion y sesion`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L07 — Secuencia: autenticación y sesión
 

@@ -12,88 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar `DoublyLinkedList<T>` con borrado por valor y
-      acceso indexado lineal (`at(i)`), documentando que el índice **no** es
-      O(1).
-
-
       Con `prev` y `next` el borrado deja de ser un recorrido ciego desde `head`
       si ya tienes el nodo.
+
+
+      **Objetivo de esta lección:** Implementar `DoublyLinkedList<T>` con
+      borrado por valor y acceso indexado lineal (`at(i)`), documentando que el
+      índice **no** es O(1).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura + sketch
+    titulo: Lectura + sketch
     xp: 10
     cuerpo: |-
       ```bash
       git commit -am "feat(m07): lista doble e indexada"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Implementación
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m07): lista doble e indexada"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Lista doble y operaciones indexadas" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Lista doble y operaciones indexadas», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: DoublyLinkedList + deleteByValue; tests de borde
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Lista doble y
+          operaciones indexadas
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git commit -am "feat(m07): lista doble e indexada"`
     comandoEsperado:
       - 'git commit -am "feat(m07): lista doble e indexada"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git commit -am "feat(m07): lista doble e indexada"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar `DoublyLinkedList<T>` con borrado por valor y acceso
-          indexado lineal (`at(i)`), documentando que el índice **no** es O(1).
+          indexado lineal (`at(i)`), documentando que el índice no es O(1).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementación
-    xp: 10
-    cuerpo: >-
-      `src/doubly-linked-list.ts`: nodos con `prev`/`next`; `append`;
-      `deleteByValue(v)` (o `delete(node)`); `at(i)` que recorre desde head (o
-      desde el extremo más cercano si quieres bonus).
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests de borde
+    titulo: Tests de borde
     xp: 10
     cuerpo: >-
       Borrar de lista vacía; borrar único nodo (head=tail=null); borrar cabeza;
@@ -109,11 +116,11 @@ pasos:
         `at(i)` documentado O(n).
       - '≥5 tests: vacío, un nodo, borrar cabeza/cola/medio, índice inválido.'
       - 'Commit `feat(m07): lista doble e indexada`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Lista doble y operaciones indexadas
 

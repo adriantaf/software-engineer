@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Ciclo de vida en
+      Robar sesión fija es clásico en apps que reutilizan el mismo session id.
+
+
+      **Objetivo de esta lección:** Ciclo de vida en
       `projects/m18-appsec/docs/session-lifecycle.md`: rotate post-login +
       destroy server-side en logout.
 
 
-      Robar sesión fija es clásico en apps que reutilizan el mismo session id.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Traza el ciclo en código
+    titulo: Traza el ciclo en código
     xp: 10
     cuerpo: >-
       ```bash
@@ -48,72 +52,20 @@ pasos:
       EOF
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Fijación de sesión y logout completo" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: projects/m18-appsec/docs/session-lifecycle.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
-    comandoEsperado:
-      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Ciclo de vida en `projects/m18-appsec/docs/session-lifecycle.md`:
-          rotate post-login + destroy server-side en logout.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Pruebas login/logout
+    tipo: ejemplo
+    titulo: Pruebas login/logout
     xp: 10
     cuerpo: >-
       ```bash
 
-      Dos logins: ¿cambia el valor de Set-Cookie?
+      # Dos logins: ¿cambia el valor de Set-Cookie?
 
       curl -sI -X POST localhost:3000/auth/login -H 'content-type:
       application/json' \
         -d '{"email":"owner@test.local","password":"***"}' | rg -i set-cookie
-      Logout + reuse (debe fallar)
+      # Logout + reuse (debe fallar)
 
       curl -b /tmp/m18-cj -s -X POST localhost:3000/auth/logout
 
@@ -124,9 +76,67 @@ pasos:
 
 
       Si JWT stateless: documenta deny-list o TTL corto en el mismo archivo.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Fijación de sesión y logout completo», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Fijación de sesión y
+          logout completo
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
+    comandoEsperado:
+      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+      - >-
+        curl -sI -X POST localhost:3000/auth/login -H 'content-type:
+        application/json' \
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Ciclo de vida en `projects/m18-appsec/docs/session-lifecycle.md`:
+          rotate post-login + destroy server-side en logout.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -146,11 +156,11 @@ pasos:
         Pruebas login/logout documentadas (artefacto:
         `projects/m18-appsec/docs/session-lifecycle.md`).
       - 'Commit `docs(m18): L11 fijacion-de-sesion-y-logout-completo`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L11 — Fijación de sesión y logout completo
 

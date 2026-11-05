@@ -12,89 +12,115 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Handoff explícito + cierre de evidencias.
-
+    cuerpo: >-
       Dejas el testigo listo para diseño (Larman/UML en M13).
+
+
+      **Objetivo de esta lección:** Handoff explícito + cierre de evidencias.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Relectura SRS
+    titulo: Relectura SRS
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m12-srs
       git commit -m "docs(m12): cierre handoff m13"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Handoff
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m12-srs
+      git commit -m "docs(m12): cierre handoff m13"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Revisión M13 y cierre M12" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Revisión M13 y cierre M12», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: nota-handoff-m13.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Revisión M13 y cierre
+          M12
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m12-srs`
     comandoEsperado:
       - git add projects/m12-srs
+      - 'git commit -m "docs(m12): cierre handoff m13"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m12-srs'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Handoff explícito + cierre de evidencias.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Handoff
-    xp: 10
-    cuerpo: |-
-      `nota-handoff-m13.md`:
-
-      - Entidades candidatas (Cliente, Servicio, Pedido, Usuario…)
-      - Casos de uso Must
-      - Reglas de conflicto de horario
-      - Preguntas abiertas
-      - Riesgos (alcance, datos, auth)
   - id: s7
-    tipo: explicacion
-    titulo: 3. Dominio
-    xp: 10
-    cuerpo: >-
-      Auto-check de la ficha: ¿puedes decir “no” con alternativa escrita? ¿3
-      RNF? ¿Must con criterios?
+    tipo: proyecto
+    titulo: Proyecto de cierre · M12
+    xp: 25
+    enunciado: >-
+      Cierra **Ingeniería de requerimientos** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: Entrevista a un negocio real (o simulado serio)'
+      - 'P2: User stories + criterios de aceptación'
+      - 'P3: SRS v1 con requisitos de seguridad'
+      - 'Proyecto: SRS de Vitrina (piloto single-tenant)'
+      - nota-handoff-m13.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          `nota-handoff-m13.md` lista entidades candidatas, 5 preguntas abiertas
+          y riesgos.
+      - id: r3
+        criterio: README m12 con checklist P1–P3 y proyecto cerrados.
+      - id: r4
+        criterio: 'Commit `docs(m12): cierre handoff m13`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -106,11 +132,11 @@ pasos:
         riesgos.
       - README m12 con checklist P1–P3 y proyecto cerrados.
       - 'Commit `docs(m12): cierre handoff m13`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M12 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Revisión M13 y cierre M12
 

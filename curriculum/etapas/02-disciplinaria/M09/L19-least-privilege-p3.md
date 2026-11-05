@@ -12,86 +12,99 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Aplicar `migrations/003_roles_app.sql` (ajustando password
-      local) y completar `roles.md`.
-
-
       El hilo de seguridad empieza aquí: la app no es dueña del clúster.
+
+
+      **Objetivo de esta lección:** Aplicar `migrations/003_roles_app.sql`
+      (ajustando password local) y completar `roles.md`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
+    xp: 10
+    cuerpo: |-
+      ```sql
+      DROP TABLE pedidos;          -- debe fallar
+      CREATE TABLE hack(x int);  -- debe fallar
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Ajusta y aplica 003
     xp: 10
     cuerpo: |-
       ```bash
       psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/vitrina" \
         -c 'SELECT count(*) FROM pedidos;'
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Least privilege (P3)" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: roles.md + 003_roles_app.sql — cierra P3
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “App y migraciones con el mismo
-      superuser."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
+    titulo: Comprueba lo básico
     xp: 10
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      Al terminar «Least privilege (P3)», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Least privilege (P3)
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: >-
+      Escribe el comando de práctica de esta lección:
+
+
+      `psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/vitrina"
+      \`
+    comandoEsperado:
+      - >-
+        psql "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/vitrina"
+        \
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: >-
+      Esperado: psql
+      "postgresql://agenda_app:${APP_DB_PASSWORD}@localhost:5432/vitrina" \
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Aplicar `migrations/003_roles_app.sql` (ajustando password local) y
           completar `roles.md`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Ajusta y aplica 003
-    xp: 10
-    cuerpo: >-
-      Edita la password del `CREATE ROLE` con tu `APP_DB_PASSWORD` **local**.
-      Aplica el SQL.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Prueba positiva
+    tipo: explicacion
+    titulo: Prueba positiva
     xp: 10
     cuerpo: |-
       ```bash
@@ -107,11 +120,11 @@ pasos:
       - Existe rol `agenda_app` (o equivalente) sin superuser.
       - Demuestras SELECT/INSERT OK y DDL denegado (error pegado en `roles.md`).
       - README marca P3 listo.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L19 — Least privilege (P3)
 

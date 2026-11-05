@@ -12,82 +12,41 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** `projects/m13-diseno/arquitectura.md` con capas que M14/M17
-      puedan respetar.
-
-
       El monolito modular de ADR 001 necesita fronteras internas. Hoy las
       escribes.
+
+
+      **Objetivo de esta lección:** `projects/m13-diseno/arquitectura.md` con
+      capas que M14/M17 puedan respetar.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Define capas
+    titulo: Define capas
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
       ```text
+
       HTTP (controllers/routes)
         → Application (services / use cases)
           → Domain (reglas: solape, estados)
             → Infrastructure (Postgres, mail, reloj)
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      Tabla: | Capa | Puede | No puede | |------|-------|----------| | HTTP |
+      parsear DTO, status codes | reglas de solape | | Application | orquestar |
+      SQL crudo (mejor vía repo) | | Domain | invariantes | conocer Express | |
+      Infra | SQL, SMTP | decidir autorización de negocio a solas |
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Arquitectura en capas" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: projects/m13-diseno/arquitectura.md (capas + responsabilidades)
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? ““Arquitectura” = lista de librerías
-      sin fronteras."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          `projects/m13-diseno/arquitectura.md` con capas que M14/M17 puedan
-          respetar.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Mapa de carpetas previstas
+    tipo: ejemplo
+    titulo: Mapa de carpetas previstas
     xp: 10
     cuerpo: |-
       ```text
@@ -99,9 +58,64 @@ pasos:
       ```
 
       Enlaza a módulos: `orders`, `clientes`, `auth`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Arquitectura en capas», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Arquitectura en capas
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? ““Arquitectura” = lista de librerías sin
+      fronteras."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          `projects/m13-diseno/arquitectura.md` con capas que M14/M17 puedan
+          respetar.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Dibuja dependencias
+    titulo: Dibuja dependencias
     xp: 10
     cuerpo: Mermaid `flowchart TB` de capas; flechas solo hacia abajo (o inward).
   - id: s8
@@ -117,11 +131,11 @@ pasos:
         Queda explícito que autorización/reglas de pedido no viven solo en
         React.
       - 'Commit `docs(m13): arquitectura en capas Vitrina`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Arquitectura en capas
 

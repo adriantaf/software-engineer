@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Explicar proceso vs hilo aplicado al runtime que usarás en
-      M17.
-
-
       Tu API será un proceso Node. Hoy separas proceso, hilo y event loop con
       evidencia.
+
+
+      **Objetivo de esta lección:** Explicar proceso vs hilo aplicado al runtime
+      que usarás en M17.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Conceptos
+    titulo: Conceptos
     xp: 10
     cuerpo: |-
       ```bash
@@ -33,60 +37,10 @@ pasos:
       # nlwp ≈ número de hilos ligeros reportados
       kill $PID
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Proceso vs hilo y el runtime Node" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: labs/semana-01-procesos.md sección hilos
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `node -e 'setInterval(() => {}, 1000)' &`
-    comandoEsperado:
-      - 'node -e ''setInterval(() => {}, 1000)'' &'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: node -e ''setInterval(() => {}, 1000)'' &'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Explicar proceso vs hilo aplicado al runtime que usarás en M17.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Observa Node
+    tipo: ejemplo
+    titulo: Observa Node
     xp: 10
     cuerpo: >-
       ```bash
@@ -97,7 +51,7 @@ pasos:
 
       ps -p $PID -o pid,nlwp,cmd
 
-      nlwp ≈ número de hilos ligeros reportados
+      # nlwp ≈ número de hilos ligeros reportados
 
       kill $PID
 
@@ -106,9 +60,63 @@ pasos:
 
       Anota qué ves y qué significa para “Node es single-threaded” (JS en un
       hilo; pool de libuv aparte).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Proceso vs hilo y el runtime Node», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Proceso vs hilo y el
+          runtime Node
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `node -e 'setInterval(() => {}, 1000)' &`
+    comandoEsperado:
+      - 'node -e ''setInterval(() => {}, 1000)'' &'
+      - git add projects/m11-so/labs/semana-01-procesos.md
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: node -e ''setInterval(() => {}, 1000)'' &'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: Explicar proceso vs hilo aplicado al runtime que usarás en M17.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Vitrina
+    titulo: Vitrina
     xp: 10
     cuerpo: >-
       ¿Dónde pondrías CPU-bound (reporte pesado)? ¿Worker thread, job queue, o
@@ -126,11 +134,11 @@ pasos:
         Experimento: un `node` idle y `ps`/`top` anotando un solo proceso (salvo
         workers).
       - 'Commit `docs(m11): l02 proceso vs hilo node`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Proceso vs hilo y el runtime Node
 

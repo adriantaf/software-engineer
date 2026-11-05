@@ -12,92 +12,96 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Índice de ADRs + plantilla; lista de decisiones que faltan
-      (persistencia, auth, tenant).
-
-
       Semana de decisiones. Hoy ordenas el proceso para no improvisar en M17.
+
+
+      **Objetivo de esta lección:** Índice de ADRs + plantilla; lista de
+      decisiones que faltan (persistencia, auth, tenant).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Plantilla
+    titulo: Plantilla
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m13-diseno/adr
       git commit -m "docs(m13): indice ADR y plantilla"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Índice
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m13-diseno/adr
+      git commit -m "docs(m13): indice ADR y plantilla"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Plantilla ADR y decisiones de diseño" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Plantilla ADR y decisiones de diseño», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: adr/README.md índice + plantilla reutilizable
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Plantilla ADR y
+          decisiones de diseño
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m13-diseno/adr`
     comandoEsperado:
       - git add projects/m13-diseno/adr
+      - 'git commit -m "docs(m13): indice ADR y plantilla"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m13-diseno/adr'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Índice de ADRs + plantilla; lista de decisiones que faltan
           (persistencia, auth, tenant).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Índice
-    xp: 10
-    cuerpo: |-
-      `adr/README.md`:
-
-      | ADR | Título | Estado |
-      |-----|--------|--------|
-      | 001 | Monolito modular | Aceptado |
-      | 002 | Persistencia | Borrador L14 |
-      | 003 | Auth/sesión | Borrador L16 |
-      | 004 | Extensibilidad tenant | Nota L15 |
   - id: s7
     tipo: explicacion
-    titulo: 3. Backlog de decisiones
+    titulo: Backlog de decisiones
     xp: 10
     cuerpo: >-
       Lista 5 preguntas abiertas (¿ORM?, ¿calcula fin el server?, ¿soft-delete
@@ -111,11 +115,11 @@ pasos:
       - '`adr/README.md` lista ADR 001 y placeholders 002–004 con estado.'
       - Existe `adr/PLANTILLA.md` (o equivalente) copiable.
       - 'Commit `docs(m13): indice ADR y plantilla`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — Plantilla ADR y decisiones de diseño
 

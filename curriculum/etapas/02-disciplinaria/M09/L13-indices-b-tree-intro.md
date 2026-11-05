@@ -12,17 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Entender B-tree en la práctica y dejar un índice justificado
-      por una query tuya.
-
-
       Un índice no es un logro: es una apuesta sobre lecturas vs escrituras.
+
+
+      **Objetivo de esta lección:** Entender B-tree en la práctica y dejar un
+      índice justificado por una query tuya.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```sql
@@ -30,60 +34,10 @@ pasos:
       FROM pg_indexes
       WHERE tablename = 'pedidos';
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Índices B-tree intro" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: Índice nuevo documentado + \d pedidos
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Indexar todas las columnas."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Entender B-tree en la práctica y dejar un índice justificado por una
-          query tuya.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inventario actual
+    tipo: ejemplo
+    titulo: Inventario actual
     xp: 10
     cuerpo: |-
       ```sql
@@ -93,15 +47,66 @@ pasos:
       ```
 
       Compara con lo que ya creó `001_init.sql`.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Elige una query lenta potencial
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: |-
-      ```sql
-      CREATE INDEX IF NOT EXISTS idx_citas_estado_inicia
-        ON pedidos (estado, inicia_en);
-      ```
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Índices B-tree intro», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Índices B-tree intro
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: ¿Es recomendable en esta lección? “Indexar todas las columnas."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Entender B-tree en la práctica y dejar un índice justificado por una
+          query tuya.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Elige una query lenta potencial
+    xp: 10
+    cuerpo: >-
+      Ej. filtrar por `estado` + rango de `inicia_en`. Diseña: Ponlo en
+      `migrations/002_auditoria_y_indices.sql` (o archivo nuevo) si aún no está.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -111,11 +116,11 @@ pasos:
       - Creas (o justificas) al menos un índice adicional alineado a un reporte.
       - Documentas en `explain-notas.md` o migración por qué existe.
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — Índices B-tree intro
 

@@ -12,16 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Verificar P1–P3, criterios dominio, enlaces evidencia.
-
+    cuerpo: >-
       - README
+
       - dominio
+
+
+      **Objetivo de esta lección:** Verificar P1–P3, criterios dominio, enlaces
+      evidencia.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. README índice proyecto
+    titulo: README índice proyecto
     xp: 10
     cuerpo: >-
       ```bash
@@ -37,67 +44,90 @@ pasos:
       projects/m20-movil/README.md
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Cierre M20 — dominio y README proyecto" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m20-movil/README.md índice
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `ls projects/m20-movil`
-    comandoEsperado:
-      - ls projects/m20-movil
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: ls projects/m20-movil'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: 'Verificar P1–P3, criterios dominio, enlaces evidencia.'
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Commit cierre
+    tipo: ejemplo
+    titulo: Commit cierre
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m20-movil
       git commit -m "docs(m20): L20 cierre dominio readme"
       ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Cierre M20 — dominio y README proyecto», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M20 — dominio y
+          README proyecto
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: 'Verificar P1–P3, criterios dominio, enlaces evidencia.'
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: terminal
+    titulo: Segundo comando
+    xp: 15
+    enunciado: |-
+      Ahora el siguiente comando de la secuencia:
+
+      `git add projects/m20-movil`
+    comandoEsperado:
+      - git add projects/m20-movil
+    explicacionError: 'Esperado: git add projects/m20-movil'
   - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M20
+    xp: 25
+    enunciado: >-
+      Cierra **Aplicaciones móviles** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: App cliente: login + lista de pedidos'
+      - 'P2: Estados vacíos/error + storage seguro de sesión'
+      - 'P3: Build instalable (APK o equivalente)'
+      - 'Proyecto: App móvil de Vitrina conectada al backend'
+      - projects/m20-movil/README.md índice
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          `projects/m20-movil/README.md` índice enlaza stack, auth-storage,
+          demo, build, logging, release.
+      - id: r3
+        criterio: 'Commit `docs(m20): L20 cierre-m20-dominio-y-readme-proyecto`.'
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -107,11 +137,11 @@ pasos:
         `projects/m20-movil/README.md` índice enlaza stack, auth-storage, demo,
         build, logging, release.
       - 'Commit `docs(m20): L20 cierre-m20-dominio-y-readme-proyecto`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M20 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Cierre M20 — dominio y README proyecto
 

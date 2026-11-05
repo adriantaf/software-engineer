@@ -12,92 +12,117 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Matriz de trazabilidad + autoevaluación de criterios de
-      dominio de la ficha.
-
-
       Cierras la materia demostrando que cada diagrama sirve a un requisito — y
       que puedes defender el monolito modular.
+
+
+      **Objetivo de esta lección:** Matriz de trazabilidad + autoevaluación de
+      criterios de dominio de la ficha.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Matriz
+    titulo: Matriz
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m13-diseno
       git commit -m "docs(m13): cierre trazabilidad y criterios de dominio"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Criterios de dominio
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m13-diseno
+      git commit -m "docs(m13): cierre trazabilidad y criterios de dominio"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M13 — trazabilidad y dominio" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Cierre M13 — trazabilidad y dominio», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: trazabilidad.md + README final; criterios de dominio autoevaluados
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M13 —
+          trazabilidad y dominio
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m13-diseno`
     comandoEsperado:
       - git add projects/m13-diseno
+      - 'git commit -m "docs(m13): cierre trazabilidad y criterios de dominio"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m13-diseno'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Matriz de trazabilidad + autoevaluación de criterios de dominio de la
           ficha.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Criterios de dominio
-    xp: 10
-    cuerpo: |-
-      De la ficha M13 — responde en `bitacora-cierre.md`:
-
-      - ¿Defiendes monolito modular con trade-offs?
-      - ¿Sabes dónde se valida el rol?
-      - ¿Un compañero puede empezar M17 con SRS + este paquete?
   - id: s7
-    tipo: explicacion
-    titulo: 3. Pulido README
-    xp: 10
-    cuerpo: 'Estado: “Paquete listo para M17” + fecha.'
+    tipo: proyecto
+    titulo: Proyecto de cierre · M13
+    xp: 25
+    enunciado: >-
+      Cierra **Análisis y diseño de software** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: Casos de uso / flujos principales'
+      - 'P2: Diagrama de clases y secuencia'
+      - 'P3: Arquitectura en capas + trust boundaries'
+      - 'Proyecto: Paquete de diseño del producto (ADR + diagramas)'
+      - trazabilidad.md + README final; criterios de dominio autoevaluados
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: '`trazabilidad.md` mapea historias Must → UC → diagramas/ADRs.'
+      - id: r3
+        criterio: Autoevaluación de criterios de dominio en bitácora o README (honesta).
+      - id: r4
+        criterio: 'Commit `docs(m13): cierre trazabilidad y criterios de dominio`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -107,11 +132,11 @@ pasos:
       - '`trazabilidad.md` mapea historias Must → UC → diagramas/ADRs.'
       - Autoevaluación de criterios de dominio en bitácora o README (honesta).
       - 'Commit `docs(m13): cierre trazabilidad y criterios de dominio`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M13 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Cierre M13 — trazabilidad y dominio
 

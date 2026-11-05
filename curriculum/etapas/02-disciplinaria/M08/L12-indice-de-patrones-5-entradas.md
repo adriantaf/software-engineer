@@ -12,82 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar `indice-patrones.md` con al menos cinco entradas
-      verificables.
-
-
       El índice es el corazón de P1: sin clasificación, solo tienes código
       suelto.
+
+
+      **Objetivo de esta lección:** Dejar `indice-patrones.md` con al menos
+      cinco entradas verificables.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario
+    titulo: Inventario
     xp: 10
     cuerpo: |-
       ```bash
       find problems -name 'enunciado.md' | sort
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Lista gaps.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Completar índice
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "docs(m08): indice patrones 5+ entradas"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Índice de patrones (5+ entradas)" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Índice de patrones (5+ entradas)», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: ≥5 patrones clasificados
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Índice de patrones (5+
+          entradas)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `find problems -name 'enunciado.md' | sort`
     comandoEsperado:
       - find problems -name 'enunciado.md' | sort
+      - 'git commit -am "docs(m08): indice patrones 5+ entradas"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: find problems -name ''enunciado.md'' | sort'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Dejar `indice-patrones.md` con al menos cinco entradas verificables.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Completar índice
-    xp: 10
-    cuerpo: 'Tabla markdown: # | nombre | patrón | complejidad | ruta. Mínimo 5.'
   - id: s7
     tipo: explicacion
-    titulo: 3. Rellenar huecos
+    titulo: Rellenar huecos
     xp: 10
     cuerpo: >-
       Si faltan patrones, añade un problema corto o reclasifica los existentes
@@ -101,11 +114,11 @@ pasos:
       - '`indice-patrones.md` con ≥5 entradas reales enlazando carpetas.'
       - Cada fila tiene complejidad y patrón nombrado.
       - 'Commit `docs(m08): indice patrones 5+ entradas`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Índice de patrones (5+ entradas)
 

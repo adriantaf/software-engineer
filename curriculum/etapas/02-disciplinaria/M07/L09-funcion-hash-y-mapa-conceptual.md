@@ -12,18 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar un hash string→número determinista, documentar
-      colisiones y dejar tests con valores esperados fijos.
-
-
       Sin una función hash defendible, la tabla de la próxima lección es
       decorado.
+
+
+      **Objetivo de esta lección:** Implementar un hash string→número
+      determinista, documentar colisiones y dejar tests con valores esperados
+      fijos.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: >-
       ```ts
@@ -36,62 +41,10 @@ pasos:
       case-sensitive
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Función hash y mapa conceptual" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: Hash notes + función hash string→number con tests deterministas
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p src/hash`
-    comandoEsperado:
-      - mkdir -p src/hash
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p src/hash'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Implementar un hash string→número determinista, documentar colisiones
-          y dejar tests con valores esperados fijos.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementa FNV-1a (u otra simple)
+    tipo: ejemplo
+    titulo: Implementa FNV-1a (u otra simple)
     xp: 10
     cuerpo: >-
       ```bash
@@ -103,21 +56,68 @@ pasos:
 
       `src/hash/fnv1a.ts`: `hashString(s: string): number` (uint32). Misma
       entrada → misma salida siempre.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Función hash y mapa conceptual», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Función hash y mapa
+          conceptual
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `mkdir -p src/hash`
+    comandoEsperado:
+      - mkdir -p src/hash
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p src/hash'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Implementar un hash string→número determinista, documentar colisiones
+          y dejar tests con valores esperados fijos.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Tests deterministas
+    tipo: explicacion
+    titulo: Tests deterministas
     xp: 10
     cuerpo: >-
-      ```ts
-
-      expect(hashString("")).toBe(/* valor fijo */)
-
-      expect(hashString("agenda")).toBe(/* ... */)
-
-      expect(hashString("Agenda")).not.toBe(hashString("agenda")) // si tu fn es
-      case-sensitive
-
-      ```
+      Incluye dos strings distintos que colisionen **módulo 8** (búsqueda corta
+      o documenta el par).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -129,11 +129,11 @@ pasos:
         tests fijos.
       - '`docs/hash-notes.md` explica colisión y por qué modulo tabla.'
       - 'Commit `feat(m07): funcion hash string`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Función hash y mapa conceptual
 

@@ -12,84 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Publicar `amenazas-red.md` completo y enlazado.
-
-
       El entregable del proyecto: un doc que M18 pueda consumir sin redescubrir
       la red.
+
+
+      **Objetivo de esta lección:** Publicar `amenazas-red.md` completo y
+      enlazado.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Fusiona fuentes
+    titulo: Fusiona fuentes
     xp: 10
     cuerpo: |-
       ```bash
       git add projects/m10-redes
       git commit -m "docs(m10): l19 amenazas red producto"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: STRIDE lite
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m10-redes
+      git commit -m "docs(m10): l19 amenazas red producto"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Documento de amenazas de red del producto" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Documento de amenazas de red del producto», ¿qué demuestra
+      que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m10-redes/amenazas-red.md actualizado
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Documento de amenazas
+          de red del produc…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/m10-redes`
     comandoEsperado:
       - git add projects/m10-redes
+      - 'git commit -m "docs(m10): l19 amenazas red producto"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/m10-redes'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Publicar `amenazas-red.md` completo y enlazado.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. STRIDE lite
-    xp: 10
-    cuerpo: >-
-      Al menos una fila por: Spoofing, Tampering, Repudiation (logs),
-      Information disclosure, DoS, Elevation (si aplica a red/admin).
   - id: s7
     tipo: explicacion
-    titulo: 3. README
+    titulo: README
     xp: 10
     cuerpo: Índice del proyecto con P1/P2/P3 y proyecto marcados.
   - id: s8
@@ -103,11 +114,11 @@ pasos:
         M18/M19.
       - 'README del proyecto enlaza amenazas, superficie y tcp-echo.'
       - 'Commit `docs(m10): l19 amenazas red producto`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L19 — Documento de amenazas de red del producto
 

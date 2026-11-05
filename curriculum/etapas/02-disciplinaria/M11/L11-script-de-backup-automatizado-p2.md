@@ -12,17 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Versionar `scripts/backup.sh` listo para cron/CI con
-      secretos por entorno.
-
-
       P2 empieza: un backup que otro humano puede correr.
+
+
+      **Objetivo de esta lección:** Versionar `scripts/backup.sh` listo para
+      cron/CI con secretos por entorno.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Esqueleto
+    titulo: Esqueleto
     xp: 10
     cuerpo: |-
       ```bash
@@ -40,69 +44,76 @@ pasos:
       find "$BACKUP_DIR" -name 'db-*.sql.gz' -mtime +"$RETENTION_DAYS" -delete
       echo "wrote ${OUT}.gz"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `projects/m11-so/scripts/backup.sh`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Modo demo sin Postgres
+    xp: 10
+    cuerpo: |-
+      ```bash
+      chmod +x projects/m11-so/scripts/backup.sh
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Script de backup automatizado (P2)" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Script de backup automatizado (P2)», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m11-so/scripts/backup.sh
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Script de backup
+          automatizado (P2)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `mkdir -p "$BACKUP_DIR"`
     comandoEsperado:
       - mkdir -p "$BACKUP_DIR"
+      - find "$BACKUP_DIR" -name 'db-*.sql.gz' -mtime +"$RETENTION_DAYS" -delete
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: mkdir -p "$BACKUP_DIR"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Versionar `scripts/backup.sh` listo para cron/CI con secretos por
           entorno.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Modo demo sin Postgres
-    xp: 10
-    cuerpo: >-
-      Si aún no tienes DB: añade rama `BACKUP_DEMO=1` que archiva un
-      `fixtures/demo.sql` — documenta ambas rutas en el README de scripts.
   - id: s7
     tipo: explicacion
-    titulo: 3. Nota
+    titulo: Nota
     xp: 10
     cuerpo: 'Cómo invocar desde cron: `DATABASE_URL=… BACKUP_DIR=… /path/backup.sh`.'
   - id: s8
@@ -116,11 +127,11 @@ pasos:
         hardcode).
       - Dry-run o corrida contra archivo/fixture documentada en labs.
       - 'Commit `feat(m11): l11 backup.sh`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L11 — Script de backup automatizado (P2)
 

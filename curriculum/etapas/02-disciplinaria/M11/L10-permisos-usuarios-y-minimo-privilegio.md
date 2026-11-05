@@ -12,17 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Definir permisos para datos sensibles del piloto.
-
-
       Least privilege en host es parte del [hilo de
       seguridad](../../../hilos/seguridad.md).
+
+
+      **Objetivo de esta lección:** Definir permisos para datos sensibles del
+      piloto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lab
+    titulo: Lab
     xp: 10
     cuerpo: >-
       ```bash
@@ -39,67 +44,78 @@ pasos:
       criterio de no-commit si hace falta
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      Asegura que `secret.env` **no** se commitea si contiene algo real — usa
+      placeholder y `.gitignore` si es necesario. Mejor: documenta solo `ls -la`
+      y borra el secreto.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Política
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m11-so/labs/permisos.md
+      git commit -m "docs(m11): l10 permisos least privilege"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Permisos, usuarios y mínimo privilegio" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Permisos, usuarios y mínimo privilegio», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: labs/permisos.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Permisos, usuarios y
+          mínimo privilegio
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `mkdir -p projects/m11-so/samples/permisos-demo`
     comandoEsperado:
       - mkdir -p projects/m11-so/samples/permisos-demo
+      - echo 'fake-secret' > projects/m11-so/samples/permisos-demo/secret.env
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: mkdir -p projects/m11-so/samples/permisos-demo'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Definir permisos para datos sensibles del piloto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Política
-    xp: 10
-    cuerpo: >-
-      En `labs/permisos.md`: owner del proceso API, grupo, modo de
-      `backups/*.sql`, logs, claves TLS.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Commit
+    tipo: explicacion
+    titulo: Commit
     xp: 10
     cuerpo: |-
       ```bash
@@ -119,11 +135,11 @@ pasos:
         Demostración local de archivo 600 vs intento de lectura con otro usuario
         (o explicación equivalente).
       - 'Commit `docs(m11): l10 permisos least privilege`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Permisos, usuarios y mínimo privilegio
 

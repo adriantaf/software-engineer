@@ -12,22 +12,58 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Lista rutas mutables + protección en
+      Un atacante no necesita XSS si tu sesión acepta POST cross-site.
+
+
+      **Objetivo de esta lección:** Lista rutas mutables + protección en
       `projects/m18-appsec/pocs/csrf-notes.md`; ≥1 ruta crítica con
       token/SameSite; curl sin token → 403.
 
 
-      Un atacante no necesita XSS si tu sesión acepta POST cross-site.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario mutaciones
+    titulo: Inventario mutaciones
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
+      ```bash
+
+      cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+
+      rg -n "\.(post|put|patch|delete)\(" -g '*.ts' -g '!node_modules' | head
+      -40
+
+      cat > projects/m18-appsec/pocs/csrf-notes.md <<'EOF'
+
+      # CSRF notes
+
+      | Ruta | Método | Protección | Estado |
+
+      |------|--------|------------|--------|
+
+      | /api/pedidos | POST | | |
+
+      | /api/pedidos/:id | PUT/DELETE | | |
+
+      | /auth/logout | POST | | |
+
+      EOF
+
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Protege la ruta crítica
+    xp: 10
+    cuerpo: >-
       ```ts
+
       // middleware mínimo (ilustrativo)
+
       export function requireCsrf(req, res, next) {
         const token = req.headers["x-csrf-token"] || req.body?._csrf;
         if (!token || token !== req.session?.csrfToken) {
@@ -35,48 +71,55 @@ pasos:
         }
         next();
       }
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+
+
+      Token sincronizado, double-submit o SameSite estricto + método seguro.
+      Ejemplo chequeo:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "CSRF en formularios y mutaciones state-changing" como hecha,
-      ¿qué cuenta de verdad?
+      Al terminar «CSRF en formularios y mutaciones state-changing», ¿qué
+      demuestra que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: fix + projects/m18-appsec/pocs/csrf-notes.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de CSRF en formularios y
+          mutaciones state-…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
     comandoEsperado:
       - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
@@ -84,37 +127,15 @@ pasos:
           `projects/m18-appsec/pocs/csrf-notes.md`; ≥1 ruta crítica con
           token/SameSite; curl sin token → 403.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Protege la ruta crítica
-    xp: 10
-    cuerpo: >-
-      Token sincronizado, double-submit o SameSite estricto + método seguro.
-      Ejemplo chequeo:
-
-
-      ```ts
-
-      // middleware mínimo (ilustrativo)
-
-      export function requireCsrf(req, res, next) {
-        const token = req.headers["x-csrf-token"] || req.body?._csrf;
-        if (!token || token !== req.session?.csrfToken) {
-          return res.status(403).json({ error: "csrf" });
-        }
-        next();
-      }
-
-      ```
   - id: s7
-    tipo: ejemplo
-    titulo: 3. curl sin token
+    tipo: explicacion
+    titulo: curl sin token
     xp: 10
     cuerpo: >-
       ```bash
@@ -137,11 +158,11 @@ pasos:
       - 'Lista rutas mutables (artefacto: `fix`).'
       - '≥1 ruta protegida (artefacto: `fix`).'
       - 'Commit `docs(m18): L10 csrf-en-formularios-y-mutaciones-state-changing`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — CSRF en formularios y mutaciones state-changing
 

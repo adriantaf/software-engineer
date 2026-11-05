@@ -12,88 +12,40 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear inventario de secretos sin valores y definir
-      URLs/objetivo de staging y prod para Vitrina.
-
-
       - DATABASE_URL
 
       - SESSION_SECRET
 
       - Stripe test futuro
+
+
+      **Objetivo de esta lección:** Crear inventario de secretos sin valores y
+      definir URLs/objetivo de staging y prod para Vitrina.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Carpetas de evidencia
+    titulo: Carpetas de evidencia
     xp: 10
     cuerpo: |-
       ```bash
       mkdir -p projects/m19-ops/{scripts,logs,docs}
       ls projects/m19-ops
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Inventario de secretos y ambientes staging/prod" como hecha,
-      ¿qué cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m19-ops/secrets-inventory.md + ambientes.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p projects/m19-ops/{scripts,logs,docs}`
-    comandoEsperado:
-      - 'mkdir -p projects/m19-ops/{scripts,logs,docs}'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m19-ops/{scripts,logs,docs}'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Crear inventario de secretos sin valores y definir URLs/objetivo de
-          staging y prod para Vitrina.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inventario de secretos sin valores
+    tipo: ejemplo
+    titulo: Inventario de secretos sin valores
     xp: 10
     cuerpo: |-
       ```bash
       cat > projects/m19-ops/secrets-inventory.md << 'EOF'
-      Inventario de secretos (SIN valores)
+      # Inventario de secretos (SIN valores)
       | Variable | Staging | Prod | Quién inyecta | Rotación |
       |----------|---------|------|---------------|----------|
       | DATABASE_URL | sí | sí | PaaS/VPS secrets | 90d |
@@ -102,13 +54,65 @@ pasos:
       ```
 
       Cruza con M17:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Inventario de secretos y ambientes staging/prod», ¿qué
+      demuestra que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Inventario de secretos
+          y ambientes stag…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
 
-      ```bash
-      cat projects/m17-vitrina/.env.example
-      ```
+      `mkdir -p projects/m19-ops/{scripts,logs,docs}`
+    comandoEsperado:
+      - 'mkdir -p projects/m19-ops/{scripts,logs,docs}'
+      - ls projects/m19-ops
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m19-ops/{scripts,logs,docs}'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear inventario de secretos sin valores y definir URLs/objetivo de
+          staging y prod para Vitrina.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. ambientes.md staging vs prod
+    tipo: explicacion
+    titulo: ambientes.md staging vs prod
     xp: 10
     cuerpo: |-
       ```bash
@@ -134,11 +138,11 @@ pasos:
         `projects/m19-ops/ambientes.md`.
       - Inventario sin valores secretos; URLs staging/prod anotadas.
       - 'Commit `docs(m19): L01 inventario-de-secretos-y-ambientes-staging-prod`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Inventario de secretos y ambientes staging/prod
 

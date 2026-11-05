@@ -12,113 +12,113 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Alinear tablas y entidades con M09/M13: `menu_categories`,
-      `menu_items`, `orders`, `order_items`, `customers`.
-
-
       - entidad / migración / dominio
 
       - snapshot de precio en líneas de pedido
+
+
+      **Objetivo de esta lección:** Alinear tablas y entidades con M09/M13:
+      `menu_categories`, `menu_items`, `orders`, `order_items`, `customers`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Cruza M13 + M09
+    titulo: Cruza M13 + M09
     xp: 10
     cuerpo: >-
-      ```ts
+      ```bash
 
-      // src/domain/order-rules.ts — puro, sin ORM
+      ls projects/m13-diseno/diagramas projects/m09-bases-datos/migrations
 
-      export function assertLineas(n: number) {
-        if (n < 1) throw new Error("pedido_sin_lineas");
-      }
-
-      export function totalCentavos(lineas: { cantidad: number; precioUnit:
-      number }[]) {
-        return lineas.reduce((s, l) => s + l.cantidad * l.precioUnit, 0);
-      }
+      rg -n "menu_|order|customer" projects/m09-bases-datos/migrations
+      projects/m13-diseno 2>/dev/null | head
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Migraciones dominio
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      npm run migrate
+
+      # o psql "$DATABASE_URL" -c '\dt'
+
+      ```
+
+
+      Asegura tablas del esquema Vitrina (ver
+      `projects/m09-bases-datos/migrations/001_init.sql`) aplicadas en el
+      piloto. Evidencia: listado de tablas en nota breve en `docs/` (sin datos
+      reales).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Modelo de dominio menú, pedidos y categorías" como hecha,
-      ¿qué cuenta de verdad?
+      Al terminar «Modelo de dominio menú, pedidos y categorías», ¿qué demuestra
+      que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: migraciones / entidades menú-pedidos
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Modelo de dominio menú,
+          pedidos y categ…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `ls projects/m13-diseno/diagramas projects/m09-bases-datos/migrations`
     comandoEsperado:
       - ls projects/m13-diseno/diagramas projects/m09-bases-datos/migrations
+      - npm run migrate
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: ls projects/m13-diseno/diagramas
       projects/m09-bases-datos/migrations
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Alinear tablas y entidades con M09/M13: `menu_categories`,
           `menu_items`, `orders`, `order_items`, `customers`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Migraciones dominio
-    xp: 10
-    cuerpo: >-
-      Asegura tablas del esquema Vitrina (ver
-      `projects/m09-bases-datos/migrations/001_init.sql`) aplicadas en el
-      piloto.
-
-
-      ```bash
-
-      npm run migrate
-
-      o psql "$DATABASE_URL" -c '\dt'
-
-      ```
-
-
-      Evidencia: listado de tablas en nota breve en `docs/` (sin datos reales).
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Reglas en domain/
+    tipo: explicacion
+    titulo: Reglas en domain/
     xp: 10
     cuerpo: >-
       ```ts
@@ -146,11 +146,11 @@ pasos:
         `order_items` visibles.
       - Reglas puras en `projects/m17-vitrina/src/domain/` (o equivalente).
       - 'Commit `feat(m17): L05 modelo dominio menu pedidos`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Modelo de dominio menú, pedidos y categorías
 

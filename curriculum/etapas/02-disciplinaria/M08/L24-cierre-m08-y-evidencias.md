@@ -12,90 +12,121 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Completar índice ≥15, checklist de dominio y dejar el README
-      raíz como mapa de evidencias.
-
-
       Cierras solo con evidencia en git: 15 problemas clasificados, sorts, DP y
       autocomplete.
+
+
+      **Objetivo de esta lección:** Completar índice ≥15, checklist de dominio y
+      dejar el README raíz como mapa de evidencias.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Contar problemas
+    titulo: Contar problemas
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      find problems -name 'enunciado.md' | wc -l
+
+      ```
+
+
+      Si <15, añade los faltantes hoy (plantilla corta) o recupera de semanas
+      previas mal indexados.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Checklist
     xp: 10
     cuerpo: |-
       ```bash
-      find problems -name 'enunciado.md' | wc -l
+      cd projects/m08-algoritmos && npm test
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Cierre M08 y evidencias" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Cierre M08 y evidencias», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: checklist + indice ≥15
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Instalar herramientas al azar sin evidencia de Cierre M08 y evidencias
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `find problems -name 'enunciado.md' | wc -l`
     comandoEsperado:
       - find problems -name 'enunciado.md' | wc -l
+      - cd projects/m08-algoritmos && npm test
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: find problems -name ''enunciado.md'' | wc -l'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Completar índice ≥15, checklist de dominio y dejar el README raíz como
           mapa de evidencias.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Checklist
-    xp: 10
-    cuerpo: |-
-      `bitacora/cierre-m08.md` con rutas:
-
-      - P1 índice ≥15
-      - P2 `sorts/README.md`
-      - P3 `dp/` ×3
-      - Proyecto `autocomplete/` + DISENO + CLI
   - id: s7
-    tipo: explicacion
-    titulo: 3. Dominio oral
-    xp: 10
-    cuerpo: 'Outline escrito: resuelve two-sum / ventana en voz alta con complejidad.'
+    tipo: proyecto
+    titulo: Proyecto de cierre · M08
+    xp: 25
+    enunciado: >-
+      Cierra **Análisis de algoritmos** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: 15 problemas clasificados por patrón'
+      - 'P2: Ordenamientos implementados + análisis'
+      - 'P3: Búsqueda y DP intro (3 problemas)'
+      - 'Proyecto: Autocomplete / búsqueda para el producto'
+      - checklist + indice ≥15
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          `indice-patrones.md` con ≥15 entradas; checklist en
+          `bitacora/cierre-m08.md` con rutas P1/P2/P3/proyecto.
+      - id: r3
+        criterio: '`npm test` verde; autocomplete documentado enlazado desde README raíz.'
+      - id: r4
+        criterio: 'Commit `docs(m08): cierre materia y evidencias`.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -107,11 +138,11 @@ pasos:
         `bitacora/cierre-m08.md` con rutas P1/P2/P3/proyecto.
       - '`npm test` verde; autocomplete documentado enlazado desde README raíz.'
       - 'Commit `docs(m08): cierre materia y evidencias`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M08 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L24 — Cierre M08 y evidencias
 

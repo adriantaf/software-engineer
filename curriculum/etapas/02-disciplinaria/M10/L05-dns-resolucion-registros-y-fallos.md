@@ -12,77 +12,34 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Usar `dig`/`host` y documentar registros y modos de fallo.
-
-
       Antes de TCP hay un nombre. Si DNS miente o tarda, Vitrina “no carga”
       aunque la API esté viva.
+
+
+      **Objetivo de esta lección:** Usar `dig`/`host` y documentar registros y
+      modos de fallo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Herramientas
+    titulo: Herramientas
     xp: 10
     cuerpo: |-
       ```bash
       which dig host getent || true
       dig -v 2>&1 | head -1
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "DNS: resolución, registros y fallos" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: labs/semana-02-dns.md con dig/host
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
 
-      `git add projects/m10-redes/labs/semana-02-dns.md`
-    comandoEsperado:
-      - git add projects/m10-redes/labs/semana-02-dns.md
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: git add projects/m10-redes/labs/semana-02-dns.md'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: Usar `dig`/`host` y documentar registros y modos de fallo.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Labs de registros
+      Si no hay `dig`: `sudo apt install dnsutils` (o equivalente).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Labs de registros
     xp: 10
     cuerpo: >-
       ```bash
@@ -100,15 +57,68 @@ pasos:
 
       En `projects/m10-redes/labs/semana-02-dns.md`: qué es A vs CNAME; qué
       harías con un TXT de verificación.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Fallos
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: |-
-      ```bash
-      getent hosts example.com
-      ping -c 1 $(dig +short example.com A | head -1)
-      ```
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «DNS: resolución, registros y fallos», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de DNS: resolución,
+          registros y fallos
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `git add projects/m10-redes/labs/semana-02-dns.md`
+    comandoEsperado:
+      - git add projects/m10-redes/labs/semana-02-dns.md
+      - 'git commit -m "docs(m10): l05 dns dig"'
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: git add projects/m10-redes/labs/semana-02-dns.md'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: Usar `dig`/`host` y documentar registros y modos de fallo.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Fallos
+    xp: 10
+    cuerpo: >-
+      Escribe tres síntomas y la primera prueba: 1. NXDOMAIN 2. SERVFAIL /
+      timeout al resolver 3. Respuesta correcta pero IP bloqueada/firewall
+      Comando de contraste:
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -122,11 +132,11 @@ pasos:
         Escenario escrito: “DNS falla pero ping a IP funciona” — cómo lo
         detectas.
       - 'Commit `docs(m10): l05 dns dig`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — DNS: resolución, registros y fallos
 

@@ -12,15 +12,21 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Dejar `docker-compose.yml` usable y documentado.
-
+    cuerpo: >-
       El stack local del piloto: API + Postgres como en Vitrina.
+
+
+      **Objetivo de esta lección:** Dejar `docker-compose.yml` usable y
+      documentado.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Compose
+    titulo: Compose
     xp: 10
     cuerpo: |-
       ```yaml
@@ -52,34 +58,49 @@ pasos:
       volumes:
         pgdata:
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `projects/m11-so/docker-compose.yml` (ajusta nombres):
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "docker compose: API y base de datos" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: docker-compose.yml documentado
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Env example
+    xp: 10
+    cuerpo: |-
+      ```bash
+      cd projects/m11-so
+      cp -n .env.example .env
+      docker compose up -d --build
+      curl -s http://127.0.0.1:3099/
+      docker compose ps
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «docker compose: API y base de datos», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de docker compose: API y
+          base de datos
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Publicar `5432:5432` a 0.0.0.0 sin
+      ¿Es recomendable en esta lección? “Publicar `5432:5432` a 0.0.0.0 sin
       necesidad."
     opciones:
       - id: t
@@ -87,32 +108,29 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Dejar `docker-compose.yml` usable y documentado.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Env example
-    xp: 10
-    cuerpo: '`.env.example` con `POSTGRES_PASSWORD=change-me`. `.env` en `.gitignore`.'
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Up
+    tipo: explicacion
+    titulo: Up
     xp: 10
     cuerpo: |-
       ```bash
@@ -133,11 +151,11 @@ pasos:
         `.env.example`.
       - 'Nota: puerto DB solo interno o localhost; API en localhost.'
       - 'Commit `feat(m11): l15 compose api db`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — docker compose: API y base de datos
 

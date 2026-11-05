@@ -12,87 +12,98 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Completar y correr `sql/joins-pedidos-cliente.sql` con datos
-      reales (aunque sean seeds mínimos).
-
-
       Los reportes del salón son JOINs. Hoy ejecutas los dos patrones básicos
       contra tu BD.
+
+
+      **Objetivo de esta lección:** Completar y correr
+      `sql/joins-pedidos-cliente.sql` con datos reales (aunque sean seeds
+      mínimos).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Seeds mínimos
+    titulo: Seeds mínimos
     xp: 10
     cuerpo: |-
       ```bash
       psql "..." -f seeds/001_demo.sql
       psql "..." -c 'SELECT count(*) FROM pedidos;'
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Si no hay filas:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Joins inner y left" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: sql/joins-pedidos-cliente.sql ejecutado
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Lectura SQL
+    xp: 10
+    cuerpo: |-
+      ```bash
+      psql "..." -f seeds/001_demo.sql
+      psql "..." -c 'SELECT count(*) FROM pedidos;'
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Usar solo comma-join (`FROM a, b
-      WHERE`) sin entender la diferencia."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
+    titulo: Comprueba lo básico
     xp: 10
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      Al terminar «Joins inner y left», ¿qué demuestra que cumpliste el criterio
+      mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Joins inner y left
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `psql "..." -f seeds/001_demo.sql`
+    comandoEsperado:
+      - psql "..." -f seeds/001_demo.sql
+      - psql "..." -c 'SELECT count(*) FROM pedidos;'
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: psql "..." -f seeds/001_demo.sql'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Completar y correr `sql/joins-pedidos-cliente.sql` con datos reales
           (aunque sean seeds mínimos).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Lectura SQL
-    xp: 10
-    cuerpo: >-
-      Elmasri: joins. Alternativa: [PG tutorial —
-      Queries](https://www.postgresql.org/docs/current/tutorial-select.html).
   - id: s7
     tipo: explicacion
-    titulo: 3. Ejecuta el scaffold
+    titulo: Ejecuta el scaffold
     xp: 10
     cuerpo: >-
       Abre `sql/joins-pedidos-cliente.sql`. Corre cada query. Ajusta columnas si
@@ -106,11 +117,11 @@ pasos:
       - Ejecutaste INNER y LEFT JOIN del archivo (o el tuyo equivalente).
       - Hay comentario con salida de ejemplo en el `.sql` o en `samples/`.
       - 'Commit `feat(m09): joins pedidos cliente`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Joins inner y left
 

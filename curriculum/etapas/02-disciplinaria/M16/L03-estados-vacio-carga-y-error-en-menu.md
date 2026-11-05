@@ -12,81 +12,88 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Especificación (y si puedes, HTML) de los tres estados.
-
-
       La agenda vacía del lunes es el primer contacto real. Hoy diseñas
       empty/loading/error.
+
+
+      **Objetivo de esta lección:** Especificación (y si puedes, HTML) de los
+      tres estados.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario de vistas
+    titulo: Inventario de vistas
     xp: 10
     cuerpo: 'Lista del día, detalle pedido, formulario nueva pedido.'
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Estados vacío, carga y error en agenda" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: heuristicas/estados-agenda.md (+ mocks en prototipo)
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Especifica estados
+    xp: 10
+    cuerpo: >-
+      Copy sugerido, CTA (“Crear primera pedido”), error recuperable vs
+      bloqueante.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Estados vacío, carga y error en agenda», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Estados vacío, carga y
+          error en agenda
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Solo mockup del estado feliz con
-      datos densos."
+      ¿Es recomendable en esta lección? “Solo mockup del estado feliz con datos
+      densos."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: 'Especificación (y si puedes, HTML) de los tres estados.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Especifica estados
-    xp: 10
-    cuerpo: >-
-      Copy sugerido, CTA (“Crear primera pedido”), error recuperable vs
-      bloqueante.
   - id: s7
     tipo: explicacion
-    titulo: 3. Nota de seguridad UX
+    titulo: Nota de seguridad UX
     xp: 10
     cuerpo: Qué no decir en 403/404.
   - id: s8
@@ -100,11 +107,11 @@ pasos:
         Al menos un mensaje de error revisado para no filtrar datos de otros
         usuarios.
       - 'Commit `docs(m16): estados vacio carga error agenda`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Estados vacío, carga y error en agenda
 
