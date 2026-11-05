@@ -4,6 +4,11 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { pathTo } from './paths';
 import { addHeadingAnchors, extractToc, linkGlossaryTerms } from './glossary-link';
+import {
+  isPasosFrontmatter,
+  parseLeccionPasos,
+  type Paso,
+} from './lesson-schema';
 
 function resolveRepoRoot(): string {
   const candidates = [process.cwd(), path.resolve(process.cwd(), '..')];
@@ -165,11 +170,17 @@ export type LeccionMeta = {
   evidencia: string;
   slug: string;
   filepath: string;
+  /** Presente si la lección usa el motor paso a paso (formato Duolingo). */
+  formato?: 'pasos';
+  xpLeccion?: number;
+  pasosCount?: number;
 };
 
 export type LeccionDoc = LeccionMeta & {
   bodyHtml: string;
   toc: { id: string; text: string; level: number }[];
+  /** Pasos tipados validados con Zod; solo si formato === 'pasos'. */
+  pasos?: Paso[];
 };
 
 let catalogCache: Catalog | null = null;
@@ -222,7 +233,7 @@ export function listLecciones(materiaId: string): LeccionMeta[] {
     const { data } = matter(raw);
     const idMatch = file.match(/^(L\d{2})-/i);
     const id = String(data.id ?? idMatch?.[1] ?? file);
-    out.push({
+    const meta: LeccionMeta = {
       id,
       materiaId,
       orden: Number(data.orden ?? out.length + 1),
@@ -233,7 +244,14 @@ export function listLecciones(materiaId: string): LeccionMeta[] {
       evidencia: String(data.evidencia ?? ''),
       slug: file.replace(/\.md$/i, ''),
       filepath,
-    });
+    };
+    if (isPasosFrontmatter(data)) {
+      const parsed = parseLeccionPasos(data);
+      meta.formato = 'pasos';
+      meta.xpLeccion = parsed.xpLeccion;
+      meta.pasosCount = parsed.pasos.length;
+    }
+    out.push(meta);
   }
   return out.sort((a, b) => a.orden - b.orden);
 }
@@ -253,14 +271,27 @@ export function loadLeccion(materiaId: string, leccionId: string): LeccionDoc | 
   const meta = list.find((l) => l.id.toUpperCase() === leccionId.toUpperCase());
   if (!meta) return null;
   const raw = fs.readFileSync(meta.filepath, 'utf8');
-  const { content } = matter(raw);
+  const { data, content } = matter(raw);
   const rel = path.relative(curriculumRoot, meta.filepath);
   const bodyHtml = renderCurriculumMarkdown(content, rel);
-  return {
+  const doc: LeccionDoc = {
     ...meta,
     bodyHtml,
     toc: extractToc(bodyHtml).filter((t) => t.level === 2),
   };
+  if (isPasosFrontmatter(data)) {
+    const parsed = parseLeccionPasos(data);
+    doc.formato = 'pasos';
+    doc.xpLeccion = parsed.xpLeccion;
+    doc.pasosCount = parsed.pasos.length;
+    doc.pasos = parsed.pasos;
+  }
+  return doc;
+}
+
+/** Materias con al menos una lección en formato pasos (mapa de camino). */
+export function materiaUsaPasos(materiaId: string): boolean {
+  return listLecciones(materiaId).some((l) => l.formato === 'pasos');
 }
 
 export function loadMateria(id: string): MateriaDoc | null {
