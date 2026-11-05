@@ -1,9 +1,17 @@
 # Lecciones paso a paso (formato Duolingo)
 
-**Todas las 27 materias** (526 lecciones) usan `formato: pasos`.
+**Todas las 27 materias** (526 lecciones) usan `formato: pasos` al estilo M01.
 
-- **M01** está curada a mano (explicaciones propias, quizzes y terminal pensados).
-- **M02–M27** se migraron desde el Markdown legacy con `academia/scripts/migrate-lessons-to-pasos.mjs`: conservan el contenido original como lectura complementaria y generan 5–8 pasos interactivos (explicación, ejemplo, quizzes, terminal si había bash). Se pueden re-curar lección a lección sin cambiar el schema.
+- **M01** curada a mano.
+- **M02–M27** re-curadas con `npm run curate:lessons` (`academia/scripts/curate-lessons-m01-style.mjs`):
+  - explicación propia (objetivo + por qué)
+  - 2–3 ejemplos del contenido original
+  - quizzes de dificultad creciente + retos de terminal
+  - resumen con «Hecho cuando»
+  - **última lección de cada materia** = proyecto de cierre con rúbrica (prácticas + proyecto de la ficha)
+  - detalle largo / libros = lectura complementaria
+
+Para regenerar: `cd academia && npm run curate:lessons` (no toca M01). Migrador legacy: `npm run migrate:lessons`.
 
 ## Frontmatter
 
