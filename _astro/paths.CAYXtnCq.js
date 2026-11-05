@@ -1,0 +1,1 @@
+var e=`/software-engineer/`.endsWith(`/`)?`/software-engineer/`:`/software-engineer//`;function t(t=``){return`${e}${String(t).replace(/^\/+/,``)}`}export{t};

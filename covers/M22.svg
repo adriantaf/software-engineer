@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M22">
+  <defs>
+    <linearGradient id="bg-M22" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <pattern id="grid-M22" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M22)"/>
+  <rect width="640" height="360" fill="url(#grid-M22)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <path d="M320 100l-8 45h-45l36 26-14 45 31-24 31 24-14-45 36-26h-45z" fill="#fff" opacity="0.35" stroke="#fff" stroke-width="2"/>
+      <rect x="265" y="210" width="110" height="55" rx="8" fill="none" stroke="#fff" stroke-width="3" opacity="0.8"/>
+      <path d="M285 235h70M285 252h45" stroke="#fff" stroke-width="2" opacity="0.5"/>
+</svg>

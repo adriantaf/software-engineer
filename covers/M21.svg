@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-label="Portada M21">
+  <defs>
+    <linearGradient id="bg-M21" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <pattern id="grid-M21" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg-M21)"/>
+  <rect width="640" height="360" fill="url(#grid-M21)"/>
+  <circle cx="520" cy="80" r="120" fill="#ffffff" opacity="0.06"/>
+  <circle cx="100" cy="280" r="90" fill="#ffffff" opacity="0.05"/>
+  <rect x="220" y="115" width="55" height="150" rx="8" fill="#fff" opacity="0.2" stroke="#fff" stroke-width="3"/>
+      <rect x="292" y="115" width="55" height="150" rx="8" fill="#fff" opacity="0.28" stroke="#fff" stroke-width="3"/>
+      <rect x="364" y="115" width="55" height="150" rx="8" fill="#fff" opacity="0.36" stroke="#fff" stroke-width="3"/>
+      <rect x="228" y="130" width="40" height="28" rx="4" fill="#fff" opacity="0.55"/>
+      <rect x="300" y="155" width="40" height="28" rx="4" fill="#fff" opacity="0.55"/>
+</svg>
