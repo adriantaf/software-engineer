@@ -3,11 +3,130 @@ id: L08
 materia: M09
 orden: 8
 titulo: Trade-offs de desnormalización
-horas: 5.0
+horas: 5
 semana: 2
-lectura: "Elmasri: desnormalización / diseño físico intro"
-evidencia: "Nota en er-vitrina.md: qué desnormalizarías y por qué"
+lectura: 'Elmasri: desnormalización / diseño físico intro'
+evidencia: 'Nota en er-vitrina.md: qué desnormalizarías y por qué'
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Documentar **una** desnormalización consciente (implementada
+      o aplazada) en `er-vitrina.md`.
+
+
+      3FN no es religión: a veces el reporte del dueño necesita un snapshot. Hoy
+      decides con criterio.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura corta
+    xp: 10
+    cuerpo: |-
+      ```sql
+      ALTER TABLE pedidos
+        ADD COLUMN IF NOT EXISTS precio_centavos_snapshot integer;
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Trade-offs de desnormalización" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: 'Nota en er-vitrina.md: qué desnormalizarías y por qué'
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Desnormalizar “por si acaso” sin
+      query que lo pida."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Documentar **una** desnormalización consciente (implementada o
+          aplazada) en `er-vitrina.md`.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Caso Vitrina
+    xp: 10
+    cuerpo: >-
+      Si el precio del “Corte” sube mañana, las pedidos completadas ayer ¿deben
+      mostrar $150 o $180?
+
+
+      - Opción A: siempre JOIN a `servicios` (precio actual).
+
+      - Opción B: `pedidos.precio_centavos_snapshot` al crear la pedido.
+
+
+      Elige y justifica en la sección L08 de `er-vitrina.md`.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. (Opcional) Migración
+    xp: 10
+    cuerpo: |-
+      ```sql
+      ALTER TABLE pedidos
+        ADD COLUMN IF NOT EXISTS precio_centavos_snapshot integer;
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Escribes un trade-off concreto (ej. `precio_centavos_snapshot` en
+        `orders`).
+      - Listas costo (consistencia) vs beneficio (historial / reportes).
+      - >-
+        Decides para M09: ¿lo implementas en una migración o lo dejas
+        documentado?
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L08 — Trade-offs de desnormalización
 

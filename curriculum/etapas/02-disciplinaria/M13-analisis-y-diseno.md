@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M13 traduce el SRS de **Vitrina** a diseño implementable: L01–L20.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Abre `projects/m12-srs/srs-v1.md` cada sesión.
-2. Si un diagrama no cambia una decisión, bórralo.
-3. Mermaid en Markdown dentro del repo.
-4. Marca lecciones al cumplir “Hecho cuando” en `projects/m13-diseno/`.
-5. [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

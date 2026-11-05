@@ -3,11 +3,92 @@ id: L05
 materia: M12
 orden: 5
 titulo: Formato user story y trazabilidad
-horas: 5.0
+horas: 5
 semana: 2
 lectura: Plantilla + historias INVEST
 evidencia: stories.md inicio
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: |-
+      **Objetivo:** Arrancar `stories.md` con historias trazables.
+
+      Las stories son el puente entrevista → SRS → tests (M15/M17).
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Plantilla de story
+    xp: 10
+    cuerpo: '```markdown'
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Formato user story y trazabilidad" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: stories.md inicio
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Stories técnicas (“como desarrollador
+      quiero Postgres”)."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: Arrancar `stories.md` con historias trazables.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - '`stories.md` con ≥4 stories en formato estándar + ID (US-01…).'
+      - Cada story enlaza a un problema P-xx o insight de entrevista.
+      - 'Commit `docs(m12): l05 user stories base`.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Formato user story y trazabilidad
 

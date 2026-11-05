@@ -2,12 +2,118 @@
 id: L01
 materia: M18
 orden: 1
-titulo: Activos, actores y datos sensibles en Vitrina
-horas: 5.0
+titulo: 'Activos, actores y datos sensibles en Vitrina'
+horas: 5
 semana: 1
 lectura: OWASP Threat Modeling (overview) + notas STRIDE
 evidencia: projects/m18-appsec/threat-model-v0.md sección Activos
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Completar tablas Actores y ≥5 Activos en
+      `projects/m18-appsec/threat-model-v0.md` (PII, credenciales, pedidos,
+      tokens, Postgres).
+
+
+      Sin lista de activos, el threat model es decoración. Hoy arrancas P1 y el
+      hilo OWASP.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Carpeta de evidencia
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}
+      ls projects/m18-appsec
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Activos, actores y datos sensibles en Vitrina" como hecha,
+      ¿qué cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m18-appsec/threat-model-v0.md sección Activos
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}`
+    comandoEsperado:
+      - 'mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}'
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: mkdir -p projects/m18-appsec/{docs,pocs,fixes,tests,ci,findings}'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Completar tablas Actores y ≥5 Activos en
+          `projects/m18-appsec/threat-model-v0.md` (PII, credenciales, pedidos,
+          tokens, Postgres).
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Actores y activos
+    xp: 10
+    cuerpo: >-
+      Abre `projects/m18-appsec/threat-model-v0.md`. Completa **Actores**
+      (dueño, staff, cliente final, atacante anónimo) y **Activos** (≥5) con
+      confidencialidad. Diagrama: navegador → API → Postgres.
+
+
+      ```markdown
+  - id: s7
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Existe `projects/m18-appsec/threat-model-v0.md` con actores y ≥5
+        activos.
+      - >-
+        Diagrama ASCII o Mermaid del piloto (artefacto:
+        `projects/m18-appsec/threat-model-v0.md sección Activos`).
+      - 'Commit `docs(m18): L01 activos-actores-y-datos-sensibles-en-vitrina`.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Activos, actores y datos sensibles en Vitrina
 

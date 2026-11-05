@@ -40,14 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M08 sigue el formato de lecciones cortas y completas (como M01/M06): marcas una a una cuando cumples “Hecho cuando”.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Abre las lecciones **en orden** (L01 → L24).
-2. Cada lección trae objetivo, pasos, lectura y criterio “Hecho cuando”.
-3. Marca la lección en la UI solo si cumple ese criterio.
-4. **4–5 problemas por semana** con editorial solo después de 30–45 min atascado.
-5. Clasifica cada problema en `projects/m08-algoritmos/indice-patrones.md`.
-6. Método general: [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

@@ -3,11 +3,128 @@ id: L01
 materia: M13
 orden: 1
 titulo: Trust boundaries y ADR 001
-horas: 5.0
+horas: 5
 semana: 1
-lectura: "Larman: contexto de diseño + plantilla ADR M01"
-evidencia: projects/m13-diseno/diagramas/trust-boundaries.md + adr/001-monolito-modular.md
+lectura: 'Larman: contexto de diseño + plantilla ADR M01'
+evidencia: >-
+  projects/m13-diseno/diagramas/trust-boundaries.md +
+  adr/001-monolito-modular.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Dejar `projects/m13-diseno/` con trust boundaries dibujados
+      y el ADR 001 (monolito modular) firmado en git.
+
+
+      Autorización no vive solo ocultando botones en el panel. Si no marcas el
+      límite navegador→API→DB, M17 nacerá confiando en el cliente HTTP.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Revisa scaffold y SRS
+    xp: 10
+    cuerpo: |-
+      ```bash
+      ls projects/m13-diseno
+      cat projects/m13-diseno/README.md
+      ls projects/m12-srs
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Trust boundaries y ADR 001" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: >-
+          projects/m13-diseno/diagramas/trust-boundaries.md +
+          adr/001-monolito-modular.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `ls projects/m13-diseno`
+    comandoEsperado:
+      - ls projects/m13-diseno
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: ls projects/m13-diseno'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Dejar `projects/m13-diseno/` con trust boundaries dibujados y el ADR
+          001 (monolito modular) firmado en git.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Crea carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m13-diseno/diagramas projects/m13-diseno/adr
+      ```
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Dibuja trust boundaries
+    xp: 10
+    cuerpo: |-
+      ```mermaid
+      flowchart LR
+        U[Usuario / browser] -->|HTTPS + cookie sesión| API[API Node]
+        API -->|SQL parametrizado| DB[(PostgreSQL)]
+        API -->|opcional| Mail[Email / WhatsApp link]
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Existe `projects/m13-diseno/diagramas/trust-boundaries.md` con Mermaid
+        (navegador | API | DB) y datos que cruzan cada límite.
+      - >-
+        Existe `projects/m13-diseno/adr/001-monolito-modular.md` con contexto
+        Vitrina, decisión y ≥3 consecuencias.
+      - 'Commit `docs(m13): trust boundaries y ADR 001 monolito modular`.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Trust boundaries y ADR 001
 

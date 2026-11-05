@@ -36,13 +36,14 @@ Es la **capa B** de la pista de ciberseguridad. Un ingeniero que “sabe hacer C
 
 ## Cómo estudiar esta materia (lecciones)
 
-M18 es la **capa B** de AppSec con lecciones L01–L32 (formato M01): amenaza → PoC en **tu** Vitrina → fix → test.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L32**; marca solo con “Hecho cuando” cumplido.
-2. **Solo** atacas localhost/staging que controlas.
-3. Evidencia en `projects/m18-appsec/` y commits de hardening en el repo del producto.
-4. OWASP Top 10 y Cheat Sheets en español; mapa cada lectura a un endpoint real.
-5. [Cómo estudiar](../../como-estudiar.md) y [hilo seguridad](../../hilos/seguridad.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

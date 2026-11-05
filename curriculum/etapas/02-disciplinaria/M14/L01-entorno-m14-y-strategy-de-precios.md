@@ -3,11 +3,151 @@ id: L01
 materia: M14
 orden: 1
 titulo: Entorno M14 y Strategy de precios
-horas: 5.0
+horas: 5
 semana: 1
 lectura: GoF/Refactoring.Guru Strategy; precios Vitrina
 evidencia: projects/m14-patrones/ con Vitest + Strategy precios + tests
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Dejar `projects/m14-patrones/` usable y un Strategy de
+      precios con tests.
+
+
+      Vitrina tendrá promo, tarifa base y (luego) pedido abandonado. Strategy
+      evita `switch` esparcidos en el service de pedidos.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Revisa scaffold
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type CalculoPrecio = { calcular(base: number): number };
+
+      export const tarifaBase: CalculoPrecio = { calcular: (b) => b };
+      export const tarifaPromoDiez: CalculoPrecio = {
+        calcular: (b) => Math.round(b * 0.9 * 100) / 100,
+      };
+
+      export function totalServicio(base: number, s: CalculoPrecio): number {
+        return s.calcular(base);
+      }
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Entorno M14 y Strategy de precios" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: projects/m14-patrones/ con Vitest + Strategy precios + tests
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `ls projects/m14-patrones`
+    comandoEsperado:
+      - ls projects/m14-patrones
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: ls projects/m14-patrones'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Dejar `projects/m14-patrones/` usable y un Strategy de precios con
+          tests.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Init TypeScript + Vitest
+    xp: 10
+    cuerpo: |-
+      ```bash
+      cd projects/m14-patrones
+      npm init -y
+      npm install -D typescript vitest @types/node
+      npx tsc --init --strict --rootDir src --outDir dist
+      ```
+
+      `package.json`:
+
+      ```json
+      {
+        "scripts": {
+          "test": "vitest run",
+          "test:watch": "vitest"
+        }
+      }
+      ```
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Implementa Strategy
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type CalculoPrecio = { calcular(base: number): number };
+
+      export const tarifaBase: CalculoPrecio = { calcular: (b) => b };
+      export const tarifaPromoDiez: CalculoPrecio = {
+        calcular: (b) => Math.round(b * 0.9 * 100) / 100,
+      };
+
+      export function totalServicio(base: number, s: CalculoPrecio): number {
+        return s.calcular(base);
+      }
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        `projects/m14-patrones/` tiene `package.json` con script `test` (Vitest)
+        y TypeScript strict.
+      - Strategy de precios (p. ej. base / promo −10 %) con ≥3 tests verdes.
+      - >-
+        `adr/strategy-precios.md` justifica el patrón; commit `feat(m14):
+        strategy de precios con tests`.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Entorno M14 y Strategy de precios
 

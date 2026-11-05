@@ -3,11 +3,127 @@ id: L23
 materia: M08
 orden: 23
 titulo: Dataset Agenda Ops y demo CLI
-horas: 5.0
+horas: 5
 semana: 6
 lectura: Dataset realista + CLI de demostración
 evidencia: CSV/JSON demo + CLI
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Cargar un dataset tipo Agenda Ops y exponer un CLI
+      reproducible.
+
+
+      Sin datos y sin demo, el autocomplete no es evidencia de proyecto.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Dataset
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      npx tsx autocomplete/cli.ts --data autocomplete/data/servicios.json
+      --prefix ti --k 5
+
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Dataset Agenda Ops y demo CLI" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: CSV/JSON demo + CLI
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: >-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+
+      `npx tsx autocomplete/cli.ts --data autocomplete/data/servicios.json
+      --prefix ti --k 5`
+    comandoEsperado:
+      - >-
+        npx tsx autocomplete/cli.ts --data autocomplete/data/servicios.json
+        --prefix ti --k 5
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: >-
+      Esperado: npx tsx autocomplete/cli.ts --data
+      autocomplete/data/servicios.json --prefix ti --k 5
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: Cargar un dataset tipo Agenda Ops y exponer un CLI reproducible.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Loader
+    xp: 10
+    cuerpo: Función `loadAndBuild(path)` inserta todos los términos.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. CLI
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      npx tsx autocomplete/cli.ts --data autocomplete/data/servicios.json
+      --prefix ti --k 5
+
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Dataset `autocomplete/data/` (CSV o JSON) con clientes/servicios demo
+        (≥100 filas; ideal ≥1000).
+      - >-
+        CLI `npx tsx autocomplete/cli.ts --prefix cor` (o similar) imprime
+        sugerencias.
+      - >-
+        README autocomplete con comando y nota de latencia; commit `feat(m08):
+        dataset y CLI autocomplete`.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L23 — Dataset Agenda Ops y demo CLI
 

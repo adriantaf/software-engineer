@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M19 lleva **Vitrina** fuera de tu laptop: L01–L16 con evidencia en `projects/m19-ops/` y en el repo del producto.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L16**; cada lección termina en commit de infra o doc ops.
-2. Trabaja sobre el **repo real** del piloto; no un hello-world Docker aparte.
-3. **Nunca** secretos en imagen ni en git; inventario sin valores.
-4. Staging para experimentos; prod para design partner y demos M22.
-5. [Cómo estudiar](../../como-estudiar.md) y [hilo producto](../../hilos/producto.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

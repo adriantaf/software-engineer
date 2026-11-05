@@ -42,13 +42,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M17 construye el **MVP web Vitrina** con profundidad: L01–L32 (8 semanas × 4 lecciones).
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Lee [producto-saas.md](../../producto-saas.md) y el paquete M13 antes de la semana 2.
-2. **Vertical slices:** cada semana una historia completa (API + UI + test mínimo cuando aplique).
-3. Cada endpoint sensible: test 401/403 antes de pulir CSS.
-4. Evidencia en `projects/m17-vitrina/`; stack fijo en `stack.md`.
-5. [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

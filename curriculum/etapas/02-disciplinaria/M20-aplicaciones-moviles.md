@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M20 construye la app **cliente** de Vitrina contra la API de M17/M19: L01–L20, evidencia en `projects/m20-movil/`.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. **Un** stack (Flutter **o** RN); no cambies a mitad.
-2. API **staging HTTPS** de M19; no mocks eternos.
-3. Cada pantalla: commit + captura o nota en `projects/m20-movil/`.
-4. Secure storage para tokens; 401 → logout; sin secretos de servidor en el binario.
-5. [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

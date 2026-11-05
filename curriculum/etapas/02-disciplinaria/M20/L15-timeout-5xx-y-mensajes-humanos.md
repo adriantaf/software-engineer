@@ -2,12 +2,103 @@
 id: L15
 materia: M20
 orden: 15
-titulo: Timeout, 5xx y mensajes humanos
-horas: 5.0
+titulo: 'Timeout, 5xx y mensajes humanos'
+horas: 5
 semana: 4
 lectura: HTTP timeouts
 evidencia: nota en demo doc
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: |-
+      **Objetivo:** Configurar timeout cliente; distinguir 5xx de error usuario.
+
+      - timeout
+      - 5xx
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Timeouts y 5xx
+    xp: 10
+    cuerpo: |-
+      ```ts
+      // timeout 10–15s → mensaje "El servidor no respondió"
+      // 502/503 → "Estamos reiniciando — reintenta"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Timeout, 5xx y mensajes humanos" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: nota en demo doc
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: ¿Es buena práctica en esta lección? “Mostrar stack trace al usuario."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: Configurar timeout cliente; distinguir 5xx de error usuario.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Nota + commit
+    xp: 10
+    cuerpo: |-
+      ```bash
+      cat >> projects/m20-movil/demo-login-lista.md << 'EOF'
+  - id: s7
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - Timeouts/5xx muestran mensajes humanos (sin stack traces).
+      - 'Commit `docs(m20): L15 timeout-5xx-y-mensajes-humanos`.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — Timeout, 5xx y mensajes humanos
 

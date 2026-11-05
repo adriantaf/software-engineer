@@ -39,13 +39,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M14 aplica patrones con justificación en el dominio **Vitrina**: L01–L16 en orden.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Un patrón por lección: leer → implementar en TypeScript → test → ADR o nota.
-2. Marca la lección solo si cumples “Hecho cuando”.
-3. Evidencia en `projects/m14-patrones/` (o repo producto enlazado en README).
-4. Cada patrón sin justificación escrita **no cuenta** para el proyecto.
-5. [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

@@ -39,13 +39,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M12 arranca el hilo de producto **Vitrina** ([producto-saas.md](../../producto-saas.md)): L01–L12 en orden.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Elige **un** sub-vertical y no lo cambies en estas tres semanas.
-2. Cada sesión: entrevista o story → criterio → línea en el SRS (`projects/m12-srs/`).
-3. Seguridad y privacidad entran como RNF y criterios 401/403, no “luego en M18”.
-4. Marca lecciones solo con evidencia en git.
-5. [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

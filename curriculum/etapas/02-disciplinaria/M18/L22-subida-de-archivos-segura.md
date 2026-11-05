@@ -3,11 +3,115 @@ id: L22
 materia: M18
 orden: 22
 titulo: Subida de archivos segura
-horas: 5.0
+horas: 5
 semana: 6
 lectura: File Upload Cheat Sheet
 evidencia: projects/m18-appsec/findings/005-upload.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Checklist o prueba real en
+      `projects/m18-appsec/findings/005-upload.md`: tipo/tamaño, nombre
+      aleatorio, fuera de webroot.
+
+
+      Un .php disfrazado de .jpg es folklore porque sigue pasando.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Superficie upload
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+
+      rg -n 'multer|formidable|multipart|upload|createWriteStream' -g
+      '!node_modules' | head -30
+
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: 'Para marcar "Subida de archivos segura" como hecha, ¿qué cuenta de verdad?'
+    opciones:
+      - id: a
+        texto: projects/m18-appsec/findings/005-upload.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>`
+    comandoEsperado:
+      - cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: cd projects/m17-vitrina 2>/dev/null || cd <repo-Agenda-Ops>'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Checklist o prueba real en
+          `projects/m18-appsec/findings/005-upload.md`: tipo/tamaño, nombre
+          aleatorio, fuera de webroot.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Checklist / prueba
+    xp: 10
+    cuerpo: |-
+      ```bash
+      cat > projects/m18-appsec/findings/005-upload.md <<'EOF'
+      Finding 005 — Upload
+  - id: s7
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Checklist o prueba real (artefacto:
+        `projects/m18-appsec/findings/005-upload.md`).
+      - >-
+        Ruta almacenamiento (artefacto:
+        `projects/m18-appsec/findings/005-upload.md`).
+      - 'Commit `docs(m18): L22 subida-de-archivos-segura`.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L22 — Subida de archivos segura
 

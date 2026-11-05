@@ -3,11 +3,128 @@ id: L17
 materia: M09
 orden: 17
 titulo: Transacciones ACID
-horas: 5.0
+horas: 5
 semana: 5
-lectura: "Elmasri: transacciones ACID; PG BEGIN/COMMIT/ROLLBACK"
+lectura: 'Elmasri: transacciones ACID; PG BEGIN/COMMIT/ROLLBACK'
 evidencia: sql/transaccion-pedido.sql
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Entregar `sql/transaccion-pedido.sql` que inserta pedido +
+      `cita_auditoria` atómicamente.
+
+
+      Crear pedido sin auditoría (o al revés) es un bug de integridad. ACID lo
+      evita.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura
+    xp: 10
+    cuerpo: |-
+      ```sql
+      BEGIN;
+      WITH nueva AS (
+        INSERT INTO pedidos (cliente_id, servicio_id, inicia_en, termina_en, estado)
+        VALUES (…, …, now() + interval '3 days', now() + interval '3 days 30 min', 'programada')
+        RETURNING id
+      )
+      INSERT INTO cita_auditoria (cita_id, accion, detalle)
+      SELECT id, 'crear', jsonb_build_object('via', 'm09-l17') FROM nueva;
+      COMMIT;
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: 'Para marcar "Transacciones ACID" como hecha, ¿qué cuenta de verdad?'
+    opciones:
+      - id: a
+        texto: sql/transaccion-pedido.sql
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: quiz
+    titulo: Error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es buena práctica en esta lección? “Dos statements sueltos sin
+      transacción cuando deben ser atómicos."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso figura como error común: evítalo.'
+    explicacionOk: Bien — ese es un anti-patrón de la lección.
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Entregar `sql/transaccion-pedido.sql` que inserta pedido +
+          `cita_auditoria` atómicamente.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Asegura tabla auditoría
+    xp: 10
+    cuerpo: Aplica `migrations/002_auditoria_y_indices.sql` si no lo hiciste.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Script feliz
+    xp: 10
+    cuerpo: |-
+      ```sql
+      BEGIN;
+      WITH nueva AS (
+        INSERT INTO pedidos (cliente_id, servicio_id, inicia_en, termina_en, estado)
+        VALUES (…, …, now() + interval '3 days', now() + interval '3 days 30 min', 'programada')
+        RETURNING id
+      )
+      INSERT INTO cita_auditoria (cita_id, accion, detalle)
+      SELECT id, 'crear', jsonb_build_object('via', 'm09-l17') FROM nueva;
+      COMMIT;
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - Script con `BEGIN` que inserta pedido + fila de auditoría y `COMMIT`.
+      - Demuestras un `ROLLBACK` (error forzado) dejando la BD consistente.
+      - Commit del SQL.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Transacciones ACID
 

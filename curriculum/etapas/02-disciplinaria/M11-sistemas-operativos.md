@@ -39,13 +39,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M11 usa lecciones L01–L16 (como M01): terminal, scripts y Docker con evidencia en `projects/m11-so/`.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L16**; marca solo con “Hecho cuando” cumplido.
-2. Cada concepto del libro → **un comando o experimento** el mismo día.
-3. Piensa en el stack de **Vitrina** (API Node + Postgres en contenedor).
-4. Prácticas P1–P3 y playbook se distribuyen en las lecciones indicadas.
-5. [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 
