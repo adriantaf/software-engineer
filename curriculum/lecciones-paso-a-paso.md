@@ -1,6 +1,9 @@
 # Lecciones paso a paso (formato Duolingo)
 
-Piloto: **M01**. Otras materias siguen el formato legacy (Markdown + “Hecho cuando”) hasta migrarlas.
+**Todas las 27 materias** (526 lecciones) usan `formato: pasos`.
+
+- **M01** está curada a mano (explicaciones propias, quizzes y terminal pensados).
+- **M02–M27** se migraron desde el Markdown legacy con `academia/scripts/migrate-lessons-to-pasos.mjs`: conservan el contenido original como lectura complementaria y generan 5–8 pasos interactivos (explicación, ejemplo, quizzes, terminal si había bash). Se pueden re-curar lección a lección sin cambiar el schema.
 
 ## Frontmatter
 

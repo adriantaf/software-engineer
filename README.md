@@ -36,7 +36,7 @@ URL: **https://adriantaf.github.io/software-engineer/**
 3. Branch: **`gh-pages`** / folder: **`/` (root)** → Save
 4. Abre la URL de arriba (puede tardar 1–2 minutos la primera vez)
 
-Empieza por **M01 → L01** (piloto paso a paso tipo Duolingo: quizzes, terminal, XP y camino).
+Empieza por **M01 → L01** (camino paso a paso tipo Duolingo en las 27 materias: quizzes, XP, racha y repaso).
 
 ## Ritmo
 
