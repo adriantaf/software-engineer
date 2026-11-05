@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "validate:lessons": "node scripts/validate-lessons.mjs",
-    "migrate:lessons": "node scripts/migrate-lessons-to-pasos.mjs"
+    "migrate:lessons": "node scripts/migrate-lessons-to-pasos.mjs",
+    "curate:lessons": "node scripts/curate-lessons-m01-style.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
