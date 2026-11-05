@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Auditar evidencias P1–P3, tablero, cuatro sprints y redactar
-      handoff a M22 (trials) y M23 (métricas).
-
-
       Cierras la materia de gestión antes de vender (M22) y medir con IA (M23).
 
 
@@ -32,9 +28,17 @@ pasos:
       - Handoff.
 
       - Riesgo residual.
+
+
+      **Objetivo de esta lección:** Auditar evidencias P1–P3, tablero, cuatro
+      sprints y redactar handoff a M22 (trials) y M23 (métricas).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -42,76 +46,100 @@ pasos:
       git status
       git commit -m "docs(m21): l12 cierre-m21-p1-p3-dominio-y-handoff-comer"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m21): l12 cierre-m21-p1-p3-dominio-y-handoff-comer"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M21 — P1–P3, dominio y handoff comercial" como hecha,
-      ¿qué cuenta de verdad?
+      Al terminar «Cierre M21 — P1–P3, dominio y handoff comercial», ¿qué
+      demuestra que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m21-proyectos/cierre-m21.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M21 — P1–P3,
+          dominio y handoff c…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
     comandoEsperado:
       - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
       projects/
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Auditar evidencias P1–P3, tablero, cuatro sprints y redactar handoff a
           M22 (trials) y M23 (métricas).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prepara evidencia y carpetas
-    xp: 10
-    cuerpo: >-
-      Confirma rutas bajo `projects/m21-proyectos`.
-
-
-      Crea `projects/m21-proyectos/cierre-m21.md`: checklist P1–P3 + proyecto
-      tablero; responde criterios dominio de la ficha.
   - id: s7
-    tipo: explicacion
-    titulo: 3. Laboratorio principal
-    xp: 10
-    cuerpo: Graba guion (texto) de **5 min** explicando roadmap a persona no técnica.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M21
+    xp: 25
+    enunciado: >-
+      Cierra **Administración de proyectos de software** con evidencia real en
+      el repo. Marca la rúbrica solo si puedes demostrar cada criterio (si no
+      está en git, no cuenta).
+    entregables:
+      - 'P1: Roadmap trimestral del producto'
+      - 'P2: 4 sprints documentados (meta/hecho/aprendizaje)'
+      - 'P3: Riesgos (incluye seguridad) y mitigaciones'
+      - 'Proyecto: Tablero de proyecto vivo en el repo'
+      - projects/m21-proyectos/cierre-m21.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: 'Existe el entregable: `projects/m21-proyectos/cierre-m21.md`.'
+      - id: r3
+        criterio: cierre-m21.md completo.
+      - id: r4
+        criterio: README índice.
+      - id: r5
+        criterio: Commit cierre.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -122,11 +150,11 @@ pasos:
       - cierre-m21.md completo.
       - README índice.
       - Commit cierre.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M21 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Cierre M21 — P1–P3, dominio y handoff comercial
 

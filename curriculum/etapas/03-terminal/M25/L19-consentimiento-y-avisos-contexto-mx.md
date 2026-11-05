@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Aviso privacidad en landing o panel; enlaces en repo
-      marketing.
-
-
       Multi-tenant amplifica impacto de una fuga; privacidad es feature de
       confianza.
 
@@ -31,9 +27,17 @@ pasos:
       - Derecho de cancelación
 
       - Datos por negocio
+
+
+      **Objetivo de esta lección:** Aviso privacidad en landing o panel; enlaces
+      en repo marketing.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -41,74 +45,79 @@ pasos:
       git status
       git commit -m "docs(m25): l19 consentimiento-y-avisos-contexto-mx"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Localiza avisos actuales
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l19 consentimiento-y-avisos-contexto-mx"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Consentimiento y avisos (contexto MX)" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Consentimiento y avisos (contexto MX)», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/privacidad/aviso-borrador.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Consentimiento y avisos
+          (contexto MX)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/`
     comandoEsperado:
       - git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Aviso privacidad en landing o panel; enlaces en repo marketing.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Localiza avisos actuales
-    xp: 10
-    cuerpo: >-
-      En `projects/m25-ciber/privacidad/aviso-borrador.md`: URLs de
-      landing/panel donde debería vivir aviso/privacidad.
   - id: s7
     tipo: explicacion
-    titulo: 3. Borrador técnico-operativo
+    titulo: Borrador técnico-operativo
     xp: 10
     cuerpo: >-
       Redacta aviso **corto** (no copies plantilla legal genérica): qué datos,
-      para qué, con quién (Stripe), retención, contacto.
-
-
-      Marca claramente: *borrador técnico del plan — no es asesoría legal*.
+      para qué, con quién (Stripe), retención, contacto. Marca claramente:
+      *borrador técnico del plan — no es asesoría legal*.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -119,11 +128,11 @@ pasos:
       - Documento en ruta indicada.
       - ≥2 hallazgos aislamiento cerrados acumulado.
       - 'Commit `docs(m25): l19 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L19 — Consentimiento y avisos (contexto MX)
 

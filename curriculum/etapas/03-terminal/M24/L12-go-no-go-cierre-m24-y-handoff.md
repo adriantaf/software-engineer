@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Redactar decisión go/no-go argumentada; actualizar backlog;
-      cerrar prácticas P2–P3 y criterios dominio.
-
-
       Un ‘no’ bien fundado cumple el proyecto si el spike demostró costo/riesgo
       > valor.
 
@@ -31,9 +27,17 @@ pasos:
       - Issue derivado
 
       - Archivar spike
+
+
+      **Objetivo de esta lección:** Redactar decisión go/no-go argumentada;
+      actualizar backlog; cerrar prácticas P2–P3 y criterios dominio.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -41,78 +45,102 @@ pasos:
       git status
       git commit -m "docs(m24): l12 go-no-go-cierre-m24-y-handoff"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m24): l12 go-no-go-cierre-m24-y-handoff"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Go/no-go, cierre M24 y handoff" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Go/no-go, cierre M24 y handoff», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m24-emergentes/go-no-go.md + bitácora semana-03.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Go/no-go, cierre M24 y
+          handoff
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
     comandoEsperado:
       - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
       projects/
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Redactar decisión go/no-go argumentada; actualizar backlog; cerrar
           prácticas P2–P3 y criterios dominio.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prepara evidencia y carpetas
-    xp: 10
-    cuerpo: >-
-      Confirma rutas bajo `projects/m24-emergentes`.
-
-
-      `projects/m24-emergentes/go-no-go.md`: decisión, criterios, próximos pasos
-      si go, qué archivar si no.
   - id: s7
-    tipo: explicacion
-    titulo: 3. Laboratorio principal
-    xp: 10
-    cuerpo: >-
-      Cierra bitácora semana 3. README del proyecto enlaza toda la evidencia
-      P1–P3.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M24
+    xp: 25
+    enunciado: >-
+      Cierra **Tecnologías emergentes** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: Research notes de 3 tecnologías candidatas'
+      - 'P2: Criterios de adopción (costo, riesgo, valor, seguridad)'
+      - 'P3: Spike de 1 semana'
+      - 'Proyecto: PoC justificado (IoT, edge, realtime, etc.)'
+      - projects/m24-emergentes/go-no-go.md + bitácora semana-03.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: >-
+          Existe el entregable: `projects/m24-emergentes/go-no-go.md + bitácora
+          semana-03.md`.
+      - id: r3
+        criterio: go-no-go.md publicado.
+      - id: r4
+        criterio: README proyecto actualizado.
+      - id: r5
+        criterio: Backlog M21 tocado.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -125,11 +153,11 @@ pasos:
       - go-no-go.md publicado.
       - README proyecto actualizado.
       - Backlog M21 tocado.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M24 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Go/no-go, cierre M24 y handoff
 

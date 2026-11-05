@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Listar URLs, repos, DB, colas, webhooks Stripe, CI y
-      clasificar sin secretos.
-
-
       M25 capa C: el bug #1 en SaaS es IDOR cross-tenant.
 
 
@@ -30,9 +26,17 @@ pasos:
       - Staging ≠ prod
 
       - Activo sin dueño = riesgo
+
+
+      **Objetivo de esta lección:** Listar URLs, repos, DB, colas, webhooks
+      Stripe, CI y clasificar sin secretos.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: >-
       ```bash
@@ -41,68 +45,10 @@ pasos:
       projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Inventario de activos SaaS prod y staging" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m25-ciber/inventario.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: >-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-
-      `mkdir -p
-      projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}`
-    comandoEsperado:
-      - >-
-        mkdir -p
-        projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: >-
-      Esperado: mkdir -p
-      projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Listar URLs, repos, DB, colas, webhooks Stripe, CI y clasificar sin
-          secretos.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Crea carpetas de evidencia
+    tipo: ejemplo
+    titulo: Crea carpetas de evidencia
     xp: 10
     cuerpo: >-
       ```bash
@@ -115,19 +61,75 @@ pasos:
 
       Lee `projects/m25-ciber/README.md` y anota URLs de staging/prod que ya
       tengas (M19).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Inventario de activos SaaS prod y staging», ¿qué demuestra
+      que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Inventario de activos
+          SaaS prod y stagi…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: >-
+      Escribe el comando de práctica de esta lección:
+
+
+      `mkdir -p
+      projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}`
+    comandoEsperado:
+      - >-
+        mkdir -p
+        projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}
+      - git add projects/
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: >-
+      Esperado: mkdir -p
+      projects/m25-ciber/{aislamiento,review,hardening,logging,abuso,alertas,privacidad,tabletop,hallazgos,bitacora}
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Listar URLs, repos, DB, colas, webhooks Stripe, CI y clasificar sin
+          secretos.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Inventario sin secretos
+    titulo: Inventario sin secretos
     xp: 10
     cuerpo: >-
-      Crea `projects/m25-ciber/inventario.md` con tabla:
-
-
-      | Activo | Tipo | Ambiente | Dueño | Notas |
-
-      |--------|------|----------|-------|-------|
-
-
+      Crea `projects/m25-ciber/inventario.md` con tabla: | Activo | Tipo |
+      Ambiente | Dueño | Notas | |--------|------|----------|-------|-------|
       Incluye ≥8 filas: API Vitrina, panel, Postgres, dominio, CI, webhook
       Stripe, storage/backups, repo. **Sin** passwords ni API keys.
   - id: s8
@@ -140,11 +142,11 @@ pasos:
       - Sin secretos en markdown.
       - Conexión Vitrina escrita en bitácora.
       - 'Commit `docs(m25): l01 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Inventario de activos SaaS prod y staging
 

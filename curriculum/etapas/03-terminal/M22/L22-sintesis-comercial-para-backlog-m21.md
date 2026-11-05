@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Traducir aprendizajes comerciales en ≥5 issues priorizados
-      para Vitrina (M21 backlog).
-
-
       El hilo Ops/SaaS cierra loop gestión ↔ mercado.
 
 
@@ -32,9 +28,17 @@ pasos:
       - Issue template.
 
       - Demo feedback.
+
+
+      **Objetivo de esta lección:** Traducir aprendizajes comerciales en ≥5
+      issues priorizados para Vitrina (M21 backlog).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -42,74 +46,78 @@ pasos:
       git status
       git commit -m "docs(m22): l22 s-ntesis-comercial-para-backlog-m21"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m22): l22 s-ntesis-comercial-para-backlog-m21"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Síntesis comercial para backlog M21" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Síntesis comercial para backlog M21», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m22-bektor/handoff-producto.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Síntesis comercial para
+          backlog M21
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
     comandoEsperado:
       - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
       projects/
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Traducir aprendizajes comerciales en ≥5 issues priorizados para
           Vitrina (M21 backlog).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prepara evidencia y carpetas
-    xp: 10
-    cuerpo: >-
-      Confirma rutas bajo `projects/m22-bektor`.
-
-
-      `projects/m22-bektor/handoff-producto.md`: tabla aprendizaje → issue
-      sugerido → prioridad.
   - id: s7
     tipo: explicacion
-    titulo: 3. Laboratorio principal
+    titulo: Laboratorio principal
     xp: 10
     cuerpo: >-
       Crea o enlaza issues reales en repo producto. Notifica en
@@ -124,11 +132,11 @@ pasos:
       - ≥5 issues sugeridos.
       - Enlaces GitHub.
       - board.md actualizado.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L22 — Síntesis comercial para backlog M21
 

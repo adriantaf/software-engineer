@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Categorías e ítems de menú scoped por tenant; perfil público
-      solo muestra el menú del tenant resuelto.
-
-
       El menú es el producto principal de Vitrina. Sin aislamiento aquí, el
       resto del SaaS no importa.
 
@@ -31,9 +27,17 @@ pasos:
       - Disponibilidad
 
       - Resolución de tenant en URL pública (`/t/:slug` o subdominio)
+
+
+      **Objetivo de esta lección:** Categorías e ítems de menú scoped por
+      tenant; perfil público solo muestra el menú del tenant resuelto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: >-
       ```bash
@@ -46,77 +50,77 @@ pasos:
       "$API/menu/items/$ITEM_A"
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Matriz
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/m26-capstone/memoria/menu-por-tenant.md
+      git commit -m "docs(m26): l10 menu-por-tenant"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Menú por tenant" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Menú por tenant», ¿qué demuestra que cumpliste el criterio
+      mínimo?
     opciones:
       - id: a
-        texto: projects/m26-capstone/memoria/menu-por-tenant.md
+        texto: Menú CRUD por tenant con evidencia HTTP.
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Instalar herramientas al azar sin evidencia de Menú por tenant
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -H "Authorization: Bearer $TOKEN_A" "$API/menu/items"`
     comandoEsperado:
       - 'curl -s -H "Authorization: Bearer $TOKEN_A" "$API/menu/items"'
+      - >-
+        curl -s -w "%{http_code}" -H "Authorization: Bearer $TOKEN_B"
+        "$API/menu/items/$ITEM_A"
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -s -H "Authorization: Bearer $TOKEN_A" "$API/menu/items"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Categorías e ítems de menú scoped por tenant; perfil público solo
           muestra el menú del tenant resuelto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Matriz
-    xp: 10
-    cuerpo: 'En `memoria/menu-por-tenant.md`: create/update/list ítems × tenant A/B.'
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Verifica aislamiento
+    tipo: explicacion
+    titulo: Verifica aislamiento
     xp: 10
-    cuerpo: >-
-      ```bash
-
-      curl -s -H "Authorization: Bearer $TOKEN_A" "$API/menu/items"
-
-      # crear ítem en A; intentar leerlo con TOKEN_B → 403/404
-
-      curl -s -w "%{http_code}" -H "Authorization: Bearer $TOKEN_B"
-      "$API/menu/items/$ITEM_A"
-
-      ```
+    cuerpo: Perfil público del tenant A no lista ítems de B.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -125,11 +129,11 @@ pasos:
       - Menú CRUD por tenant con evidencia HTTP.
       - Perfil público A ≠ menú B.
       - Memoria en git.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Menú por tenant
 

@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Auditar pipeline, eval LLM, RAG aislado, FAQ; commit cierre;
-      README L01–L24.
-
-
       Cierras hilo IA/datos antes de emergentes (M24) y capstone (M26).
 
 
@@ -32,9 +28,17 @@ pasos:
       - Dominio.
 
       - Handoff.
+
+
+      **Objetivo de esta lección:** Auditar pipeline, eval LLM, RAG aislado,
+      FAQ; commit cierre; README L01–L24.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -42,78 +46,100 @@ pasos:
       git status
       git commit -m "docs(m23): l24 cierre-m23-p1-p3-dominio-y-handoff-m26"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m23): l24 cierre-m23-p1-p3-dominio-y-handoff-m26"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Cierre M23 — P1–P3, dominio y handoff M26" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Cierre M23 — P1–P3, dominio y handoff M26», ¿qué demuestra
+      que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m23-ia/cierre-m23.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Cierre M23 — P1–P3,
+          dominio y handoff M…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
     comandoEsperado:
       - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
       projects/
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Auditar pipeline, eval LLM, RAG aislado, FAQ; commit cierre; README
           L01–L24.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prepara evidencia y carpetas
-    xp: 10
-    cuerpo: >-
-      Confirma rutas bajo `projects/m23-ia`.
-
-
-      `projects/m23-ia/cierre-m23.md` responde criterios dominio. Verifica
-      política LLM respetada en scripts.
   - id: s7
-    tipo: explicacion
-    titulo: 3. Laboratorio principal
-    xp: 10
-    cuerpo: >-
-      Commit `docs(m23): cierre materia`. Actualiza `projects/m23-ia/README.md`
-      índice lecciones.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M23
+    xp: 25
+    enunciado: >-
+      Cierra **Ciencia de datos e IA aplicada** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: Pipeline de métricas del SaaS (por tenant)'
+      - 'P2: Integración LLM con prompts evaluados'
+      - 'P3: RAG por tenant (sin mezclar datos ni PII innecesaria)'
+      - 'Proyecto: Asistente FAQ scoped por tenant (Vitrina)'
+      - projects/m23-ia/cierre-m23.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: 'Existe el entregable: `projects/m23-ia/cierre-m23.md`.'
+      - id: r3
+        criterio: cierre-m23.md.
+      - id: r4
+        criterio: Commit cierre.
+      - id: r5
+        criterio: README índice.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -124,11 +150,11 @@ pasos:
       - cierre-m23.md.
       - Commit cierre.
       - README índice.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M23 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L24 — Cierre M23 — P1–P3, dominio y handoff M26
 

@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Completar `security-review.md`; checklist dominio; handoff
-      M26.
-
-
       M26 exige review M25 vigente; tabletop demuestra que no solo leíste OWASP.
 
 
@@ -30,9 +26,17 @@ pasos:
       - Rotación credenciales
 
       - Post-mortem blameless
+
+
+      **Objetivo de esta lección:** Completar `security-review.md`; checklist
+      dominio; handoff M26.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -40,71 +44,96 @@ pasos:
       git status
       git commit -m "docs(m25): l24 security-review-final-y-cierre-m25"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Reúne evidencias P1–P3
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l24 security-review-final-y-cierre-m25"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Security review final y cierre M25" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Security review final y cierre M25», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/security-review.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Security review final y
+          cierre M25
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/`
     comandoEsperado:
       - git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Completar `security-review.md`; checklist dominio; handoff M26.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Reúne evidencias P1–P3
-    xp: 10
-    cuerpo: >-
-      Índice en `security-review.md`: inventario, aislamiento (manual+CI), ≥2
-      hallazgos cerrados, hardenings, tabletops, runbook.
   - id: s7
-    tipo: explicacion
-    titulo: 3. Rúbrica y riesgo residual
-    xp: 10
-    cuerpo: >-
-      Tabla de controles: control | evidencia | residual. Declara qué **no**
-      está listo para M26 demo pública.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M25
+    xp: 25
+    enunciado: >-
+      Cierra **Ciberseguridad aplicada** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: Inventario de activos y superficie (prod/staging SaaS)'
+      - 'P2: Security review con pruebas cross-tenant obligatorias'
+      - 'P3: Tabletop de incidente (.env / fuga) documentado'
+      - 'Proyecto: Security review SaaS (aislamiento multi-tenant) + hardening'
+      - projects/m25-ciber/security-review.md
+    rubrica:
+      - id: r1
+        criterio: 'Marca la lección solo si:'
+      - id: r2
+        criterio: 'Existe el entregable: `projects/m25-ciber/security-review.md`.'
+      - id: r3
+        criterio: Narrativa ≥30 min equivalente escrita.
+      - id: r4
+        criterio: security-review.md enlaza PRs y tests.
+      - id: r5
+        criterio: 'Commit `docs(m25): l24 …` en el historial.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -115,11 +144,11 @@ pasos:
       - Narrativa ≥30 min equivalente escrita.
       - security-review.md enlaza PRs y tests.
       - 'Commit `docs(m25): l24 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M25 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L24 — Security review final y cierre M25
 

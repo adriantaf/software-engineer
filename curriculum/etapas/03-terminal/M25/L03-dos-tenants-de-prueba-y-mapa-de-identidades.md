@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear tenant A y B con usuarios staff distintos; documentar
-      IDs y roles.
-
-
       M25 capa C: el bug #1 en SaaS es IDOR cross-tenant.
 
 
@@ -30,94 +26,100 @@ pasos:
       - Separación de datos
 
       - No tenant1 genérico
+
+
+      **Objetivo de esta lección:** Crear tenant A y B con usuarios staff
+      distintos; documentar IDs y roles.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       # ejemplo — adapta a tu CLI/API; no pegues tokens
       curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq '.[].id'
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Define dos negocios ficticios
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l03 dos-tenants-de-prueba-y-mapa-de-identida"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Dos tenants de prueba y mapa de identidades" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Dos tenants de prueba y mapa de identidades», ¿qué demuestra
+      que cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/tenants-prueba.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Dos tenants de prueba y
+          mapa de identid…
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq '.[].id'`
     comandoEsperado:
       - 'curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq ''.[].id'''
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq
       '.[].id'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Crear tenant A y B con usuarios staff distintos; documentar IDs y
           roles.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Define dos negocios ficticios
+    titulo: Crea o anota IDs reales
     xp: 10
     cuerpo: >-
-      En `projects/m25-ciber/tenants-prueba.md`:
-
-
-      | Tenant | Negocio | Email staff | Rol | Notas |
-
-      |--------|---------|-------------|-----|-------|
-
-
-      Tres filas: A (barbería), B (clínica), opcional owner platform. **Sin**
-      passwords en claro.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Crea o anota IDs reales
-    xp: 10
-    cuerpo: |-
-      ```bash
-      # ejemplo — adapta a tu CLI/API; no pegues tokens
-      curl -s -H "Authorization: Bearer $TOKEN" "$API/tenants" | jq '.[].id'
-      ```
+      En staging (preferido) o local con seed: crea tenants A y B. Documenta
+      UUIDs/`tenant_id`, user ids, y un recurso de cada uno (`cita_a_id`,
+      `cita_b_id`).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -128,11 +130,11 @@ pasos:
       - Sin secretos en markdown.
       - Conexión Vitrina escrita en bitácora.
       - 'Commit `docs(m25): l03 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Dos tenants de prueba y mapa de identidades
 

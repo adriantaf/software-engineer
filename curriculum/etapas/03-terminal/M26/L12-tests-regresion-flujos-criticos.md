@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Suite de regresión de flujos críticos en CI (o pipeline
-      documentado).
-
-
       M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
       tutoriales.
 
@@ -29,80 +25,94 @@ pasos:
       - Smoke E2E opcional
 
       - API tests
+
+
+      **Objetivo de esta lección:** Suite de regresión de flujos críticos en CI
+      (o pipeline documentado).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       pnpm test   # o el comando real
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Elige suite mínima
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m26): l12 tests-regresi-n-flujos-cr-ticos"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Tests regresión flujos críticos" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Tests regresión flujos críticos», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m26-capstone/tests-regresion.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tests regresión flujos
+          críticos
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `pnpm test   # o el comando real`
     comandoEsperado:
       - 'pnpm test   # o el comando real'
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: pnpm test   # o el comando real'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Suite de regresión de flujos críticos en CI (o pipeline documentado).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Elige suite mínima
+    titulo: Corre en CI o documenta pipeline
     xp: 10
     cuerpo: >-
-      En `projects/m26-capstone/tests-regresion.md`: lista tests (auth, pedidos
-      CRUD, cross-tenant). Comando exacto.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Corre en CI o documenta pipeline
-    xp: 10
-    cuerpo: |-
-      ```bash
-      pnpm test   # o el comando real
-      ```
+      Pega resumen (passed/failed). Si CI: enlace a workflow verde. Si no: YAML
+      propuesto + issue.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -112,11 +122,11 @@ pasos:
       - Existe `projects/m26-capstone/tests-regresion.md`.
       - Commit en git con mensaje docs(m26).
       - Bitácora de la semana actualizada.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Tests regresión flujos críticos
 

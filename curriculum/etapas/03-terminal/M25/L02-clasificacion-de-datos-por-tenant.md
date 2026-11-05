@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Etiquetar datos (PII pedidos, credenciales, billing
-      metadata) y flujo entre componentes.
-
-
       M25 capa C: el bug #1 en SaaS es IDOR cross-tenant.
 
 
@@ -30,9 +26,17 @@ pasos:
       - tenant_id como control
 
       - Logs y PII
+
+
+      **Objetivo de esta lección:** Etiquetar datos (PII pedidos, credenciales,
+      billing metadata) y flujo entre componentes.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -40,87 +44,82 @@ pasos:
       git status
       git commit -m "docs(m25): l02 clasificaci-n-de-datos-por-tenant"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Inventario de tipos de dato
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l02 clasificaci-n-de-datos-por-tenant"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Clasificación de datos por tenant" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Clasificación de datos por tenant», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/clasificacion-datos.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Clasificación de datos
+          por tenant
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/`
     comandoEsperado:
       - git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Etiquetar datos (PII pedidos, credenciales, billing metadata) y flujo
           entre componentes.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inventario de tipos de dato
-    xp: 10
-    cuerpo: >-
-      En `projects/m25-ciber/clasificacion-datos.md` crea tabla:
-
-
-      | Tipo | Ejemplos | Tabla/campo (si sabes) | Quién accede | Retención |
-
-      |------|----------|------------------------|--------------|-----------|
-
-
-      Filas mínimas: PII cliente (nombre/tel), credenciales, `tenant_id`,
-      metadata billing Stripe, logs de app, backups.
   - id: s7
     tipo: explicacion
-    titulo: 3. Flujos entre componentes
+    titulo: Flujos entre componentes
     xp: 10
-    cuerpo: |-
-      Añade sección **Flujos** con 4 diagramas en prosa (o mermaid):
-
-      1. Login → sesión → `tenant_id`
-      2. Crear pedido → DB
-      3. Webhook Stripe → actualización plan
-      4. Export/soporte → datos salientes
-
-      Marca dónde un leak cruzaría tenants.
+    cuerpo: >-
+      Añade sección **Flujos** con 4 diagramas en prosa (o mermaid): 1. Login →
+      sesión → `tenant_id` 2. Crear pedido → DB 3. Webhook Stripe →
+      actualización plan 4. Export/soporte → datos salientes Marca dónde un leak
+      cruzaría tenants.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -131,11 +130,11 @@ pasos:
       - Sin secretos en markdown.
       - Conexión Vitrina escrita en bitácora.
       - 'Commit `docs(m25): l02 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Clasificación de datos por tenant
 

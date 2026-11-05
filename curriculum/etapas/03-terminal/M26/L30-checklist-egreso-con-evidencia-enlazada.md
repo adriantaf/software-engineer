@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Checklist de egreso con cada ítem enlazado a evidencia en
-      git/URL.
-
-
       M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
       tutoriales.
 
@@ -29,82 +25,96 @@ pasos:
       - Hashes commit
 
       - URLs
+
+
+      **Objetivo de esta lección:** Checklist de egreso con cada ítem enlazado a
+      evidencia en git/URL.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       git log --oneline -20 -- projects/m26-capstone projects/m25-ciber
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Congela checklist final
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m26): l30 checklist-egreso-con-evidencia-enlazada"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Checklist egreso con evidencia enlazada" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Checklist egreso con evidencia enlazada», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m26-capstone/egreso-checklist.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Checklist egreso con
+          evidencia enlazada
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git log --oneline -20 -- projects/m26-capstone projects/m25-ciber`
     comandoEsperado:
       - git log --oneline -20 -- projects/m26-capstone projects/m25-ciber
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git log --oneline -20 -- projects/m26-capstone
       projects/m25-ciber
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Checklist de egreso con cada ítem enlazado a evidencia en git/URL.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Congela checklist final
+    titulo: Enlaza evidencias
     xp: 10
     cuerpo: >-
-      En `projects/m26-capstone/egreso-checklist.md`: cada ítem de
-      [egreso](../../../egreso.md) con estado final.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Enlaza evidencias
-    xp: 10
-    cuerpo: |-
-      ```bash
-      git log --oneline -20 -- projects/m26-capstone projects/m25-ciber
-      ```
+      Cada “hecho” lleva path git, URL, o commit hash. Nada de “está en mi
+      laptop”. Pega hashes relevantes junto a ítems difíciles.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -114,11 +124,11 @@ pasos:
       - Existe `projects/m26-capstone/egreso-checklist.md`.
       - Commit en git con mensaje docs(m26).
       - Bitácora de la semana actualizada.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L30 — Checklist egreso con evidencia enlazada
 

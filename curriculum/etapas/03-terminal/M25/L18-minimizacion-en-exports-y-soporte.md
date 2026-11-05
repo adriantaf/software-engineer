@@ -12,12 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Qué exporta soporte; sin dumps completos por defecto.
-
-
       Multi-tenant amplifica impacto de una fuga; privacidad es feature de
       confianza.
 
@@ -30,82 +27,96 @@ pasos:
       - Derecho de cancelación
 
       - Datos por negocio
+
+
+      **Objetivo de esta lección:** Qué exporta soporte; sin dumps completos por
+      defecto.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       curl -s -H "Authorization: Bearer $TOKEN_A" \
         "$API/exports/clientes" | head -c 400
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Inventario de exports
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l18 minimizaci-n-en-exports-y-soporte"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Minimización en exports y soporte" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Minimización en exports y soporte», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/privacidad/exports.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Minimización en exports
+          y soporte
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -H "Authorization: Bearer $TOKEN_A" \`
     comandoEsperado:
       - 'curl -s -H "Authorization: Bearer $TOKEN_A" \'
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -s -H "Authorization: Bearer $TOKEN_A" \'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Qué exporta soporte; sin dumps completos por defecto.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Inventario de exports
+    titulo: Minimiza un export real
     xp: 10
     cuerpo: >-
-      En `projects/m25-ciber/privacidad/exports.md`: CSV/PDF/admin dumps, quién
-      puede, qué columnas.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Minimiza un export real
-    xp: 10
-    cuerpo: |-
-      ```bash
-      curl -s -H "Authorization: Bearer $TOKEN_A" \
-        "$API/exports/clientes" | head -c 400
-      ```
+      Toma un export de soporte o admin. Propón columna set mínimo (sin
+      teléfonos/notas si no hacen falta). Si hay endpoint: verifica que staff de
+      A no exporta B.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -116,11 +127,11 @@ pasos:
       - Documento en ruta indicada.
       - ≥2 hallazgos aislamiento cerrados acumulado.
       - 'Commit `docs(m25): l18 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L18 — Minimización en exports y soporte
 

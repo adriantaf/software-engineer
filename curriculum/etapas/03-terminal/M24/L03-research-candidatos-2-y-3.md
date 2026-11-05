@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Mismo estándar que candidato 1 para los otros dos
-      candidatos.
-
-
       Comparar tres opciones evita enamorarte del primer tutorial que viste.
 
 
@@ -30,9 +26,17 @@ pasos:
       - Datos fuera del perímetro
 
       - Operación (on-call)
+
+
+      **Objetivo de esta lección:** Mismo estándar que candidato 1 para los
+      otros dos candidatos.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -40,70 +44,76 @@ pasos:
       git status
       git commit -m "docs(m24): l03 research-candidatos-2-y-3"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m24): l03 research-candidatos-2-y-3"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Research candidatos 2 y 3" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Research candidatos 2 y 3», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m24-emergentes/research/candidato-2.md y candidato-3.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Research candidatos 2 y
+          3
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
     comandoEsperado:
       - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
       projects/
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Mismo estándar que candidato 1 para los otros dos candidatos.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Prepara evidencia y carpetas
-    xp: 10
-    cuerpo: >-
-      Confirma rutas bajo `projects/m24-emergentes/research`.
-
-
-      Completa `candidato-2.md` y `candidato-3.md` con el mismo template que
-      L02.
   - id: s7
     tipo: explicacion
-    titulo: 3. Laboratorio principal
+    titulo: Laboratorio principal
     xp: 10
     cuerpo: >-
       Tabla comparativa rápida en
@@ -121,11 +131,11 @@ pasos:
       - Dos archivos research completos.
       - comparacion-v0.md con 3 filas.
       - 'Commit `docs(m24): l03 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Research candidatos 2 y 3
 

@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Política corta: cuánto guardas pedidos/logs; cómo borrar
-      tenant demo.
-
-
       Multi-tenant amplifica impacto de una fuga; privacidad es feature de
       confianza.
 
@@ -31,86 +27,95 @@ pasos:
       - Derecho de cancelación
 
       - Datos por negocio
+
+
+      **Objetivo de esta lección:** Política corta: cuánto guardas pedidos/logs;
+      cómo borrar tenant demo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```sql
       -- ejemplo de inventario — adapta schemas
       -- SELECT count(*) FROM pedidos WHERE tenant_id = $1;
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Retención y borrado por tenant" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m25-ciber/privacidad/retencion.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Política de retención
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l17 retenci-n-y-borrado-por-tenant"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Retención y borrado por tenant», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Retención y borrado por
+          tenant
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Política genérica sin tu producto."
+    pregunta: ¿Es recomendable en esta lección? “Política genérica sin tu producto."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: 'Política corta: cuánto guardas pedidos/logs; cómo borrar tenant demo.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Política de retención
-    xp: 10
-    cuerpo: |-
-      En `projects/m25-ciber/privacidad/retencion.md`:
-
-      | Dato | Retención | Base | Cómo se borra |
-      |------|-----------|------|---------------|
-
-      Pedidos, logs, backups, tenants demo, exports temporales.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Borrado de tenant demo
+    tipo: explicacion
+    titulo: Borrado de tenant demo
     xp: 10
-    cuerpo: |-
-      ```sql
-      -- ejemplo de inventario — adapta schemas
-      -- SELECT count(*) FROM pedidos WHERE tenant_id = $1;
-      ```
+    cuerpo: >-
+      Describe (o ejecuta en staging) borrado de un tenant de prueba: tablas
+      afectadas, orden, qué queda en backups. **No** borres prod real de un
+      cliente.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -121,11 +126,11 @@ pasos:
       - Documento en ruta indicada.
       - ≥2 hallazgos aislamiento cerrados acumulado.
       - 'Commit `docs(m25): l17 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Retención y borrado por tenant
 

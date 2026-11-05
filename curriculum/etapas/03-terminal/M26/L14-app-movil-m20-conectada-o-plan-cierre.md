@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** App móvil M20 conectada a API v1 **o** plan de cierre
-      explícito del gap.
-
-
       M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
       tutoriales.
 
@@ -29,84 +25,96 @@ pasos:
       - Misma API
 
       - Staging HTTPS
+
+
+      **Objetivo de esta lección:** App móvil M20 conectada a API v1 **o** plan
+      de cierre explícito del gap.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       # verifica API alcanzable
       curl -sI "$API/health"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Estado móvil M20
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m26): l14 app-m-vil-m20-conectada-o-plan-cierre"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "App móvil M20 conectada o plan cierre" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «App móvil M20 conectada o plan cierre», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m26-capstone/mobile-gap.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de App móvil M20 conectada
+          o plan cierre
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -sI "$API/health"`
     comandoEsperado:
       - curl -sI "$API/health"
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -sI "$API/health"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
-        texto: >-
-          App móvil M20 conectada a API v1 **o** plan de cierre explícito del
-          gap.
+        texto: App móvil M20 conectada a API v1 o plan de cierre explícito del gap.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Estado móvil M20
+    titulo: Conecta o cierra el gap
     xp: 10
     cuerpo: >-
-      En `projects/m26-capstone/mobile-gap.md`: ¿APK/app apunta a staging HTTPS?
-      ¿misma API v1?
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Conecta o cierra el gap
-    xp: 10
-    cuerpo: |-
-      ```bash
-      # verifica API alcanzable
-      curl -sI "$API/health"
-      ```
+      **Conectado:** login + listar pedidos desde móvil contra staging; anota
+      build/version. **Gap:** plan con fecha, qué falta (CORS, auth, store),
+      impacto en egreso.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -116,11 +124,11 @@ pasos:
       - Existe `projects/m26-capstone/mobile-gap.md`.
       - Commit en git con mensaje docs(m26).
       - Bitácora de la semana actualizada.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — App móvil M20 conectada o plan cierre
 

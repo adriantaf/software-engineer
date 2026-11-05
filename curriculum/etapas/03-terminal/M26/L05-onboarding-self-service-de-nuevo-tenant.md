@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Dejar onboarding self-service de tenant nuevo usable en
-      staging (flujo + evidencia).
-
-
       M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
       tutoriales.
 
@@ -31,9 +27,17 @@ pasos:
       - Seed datos
 
       - Aislamiento día 1
+
+
+      **Objetivo de esta lección:** Dejar onboarding self-service de tenant
+      nuevo usable en staging (flujo + evidencia).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -41,78 +45,83 @@ pasos:
       curl -s -X POST "$API/tenants" -H "Content-Type: application/json" \
         -d '{"name":"Barbería Demo C","owner_email":"owner-c@example.test"}'
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Mapea el flujo signup
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m26): l05 onboarding-self-service-de-nuevo-tenant"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Onboarding self-service de nuevo tenant" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Onboarding self-service de nuevo tenant», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m26-capstone/onboarding.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Onboarding self-service
+          de nuevo tenant
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -X POST "$API/tenants" -H "Content-Type: application/json" \`
     comandoEsperado:
       - 'curl -s -X POST "$API/tenants" -H "Content-Type: application/json" \'
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: curl -s -X POST "$API/tenants" -H "Content-Type:
       application/json" \
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Dejar onboarding self-service de tenant nuevo usable en staging (flujo
           + evidencia).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Mapea el flujo signup
+    titulo: Ejecuta onboarding de un tenant nuevo
     xp: 10
     cuerpo: >-
-      En `projects/m26-capstone/onboarding.md`: pasos UI/API desde “crear
-      negocio” hasta primer login staff.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Ejecuta onboarding de un tenant nuevo
-    xp: 10
-    cuerpo: |-
-      ```bash
-      # ejemplo — adapta endpoint real
-      curl -s -X POST "$API/tenants" -H "Content-Type: application/json" \
-        -d '{"name":"Barbería Demo C","owner_email":"owner-c@example.test"}'
-      ```
+      En staging: crea tenant C (o re-crea A limpio) **sin** SQL manual si el
+      producto ya lo permite. Documenta: URLs, IDs, tiempo, qué aún es manual
+      (gap explícito).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -122,11 +131,11 @@ pasos:
       - Existe `projects/m26-capstone/onboarding.md`.
       - Commit en git con mensaje docs(m26).
       - Bitácora de la semana actualizada.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Onboarding self-service de nuevo tenant
 

@@ -12,21 +12,31 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
-    cuerpo: |-
-      **Objetivo:** Simulación: reporte cliente; contención; fix.
-
+    cuerpo: >-
       M26 exige review M25 vigente; tabletop demuestra que no solo leíste OWASP.
+
 
       Conceptos que debes poder explicar al cerrar:
 
+
       - Contención
+
       - Rotación credenciales
+
       - Post-mortem blameless
+
+
+      **Objetivo de esta lección:** Simulación: reporte cliente; contención;
+      fix.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -34,74 +44,79 @@ pasos:
       git status
       git commit -m "docs(m25): l22 tabletop-acceso-cross-tenant-en-prod"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Escenario cross-tenant en prod
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l22 tabletop-acceso-cross-tenant-en-prod"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Tabletop — acceso cross-tenant en prod" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Tabletop — acceso cross-tenant en prod», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/tabletop/cross-tenant-incident.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Tabletop — acceso
+          cross-tenant en prod
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git add projects/`
     comandoEsperado:
       - git add projects/
+      - git status
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git add projects/'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: 'Simulación: reporte cliente; contención; fix.'
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Escenario cross-tenant en prod
-    xp: 10
-    cuerpo: >-
-      En `projects/m25-ciber/tabletop/cross-tenant-incident.md`: cliente B
-      reporta ver datos de A. Define detección inicial.
   - id: s7
     tipo: explicacion
-    titulo: 3. Timeline de contención
+    titulo: Timeline de contención
     xp: 10
     cuerpo: >-
       T+0 … T+120: verificar, deshabilitar endpoint/feature flag, notificar,
-      rotar si aplica, comunicar.
-
-
-      Roles: tú = on-call. Sin copiar blog genérico — usa tus URLs/servicios.
+      rotar si aplica, comunicar. Roles: tú = on-call. Sin copiar blog genérico
+      — usa tus URLs/servicios.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -114,11 +129,11 @@ pasos:
       - Narrativa ≥30 min equivalente escrita.
       - security-review.md enlaza PRs y tests.
       - 'Commit `docs(m25): l22 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L22 — Tabletop — acceso cross-tenant en prod
 

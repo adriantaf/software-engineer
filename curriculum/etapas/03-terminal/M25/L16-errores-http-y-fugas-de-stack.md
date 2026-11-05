@@ -12,12 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Revisar 500 en staging; mensajes al cliente sin stack trace.
-
-
       Un atacante lee tus logs si exfiltras tokens; un cliente lee tus stack
       traces.
 
@@ -30,82 +27,95 @@ pasos:
       - Correlation id
 
       - Fail closed
+
+
+      **Objetivo de esta lección:** Revisar 500 en staging; mensajes al cliente
+      sin stack trace.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       curl -s -o /tmp/err.json -w "%{http_code}" "$API/ruta-que-falla"
       # ¿hay stack, SQL, paths absolutos, env?
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Provoca o captura un 500
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l16 errores-http-y-fugas-de-stack"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Errores HTTP y fugas de stack" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Errores HTTP y fugas de stack», ¿qué demuestra que cumpliste
+      el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/logging/errores.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Errores HTTP y fugas de
+          stack
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -o /tmp/err.json -w "%{http_code}" "$API/ruta-que-falla"`
     comandoEsperado:
       - 'curl -s -o /tmp/err.json -w "%{http_code}" "$API/ruta-que-falla"'
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: curl -s -o /tmp/err.json -w "%{http_code}" "$API/ruta-que-falla"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Revisar 500 en staging; mensajes al cliente sin stack trace.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Provoca o captura un 500
+    titulo: Busca fugas de stack
     xp: 10
     cuerpo: >-
-      En staging, provoca error controlado (ruta inválida / force error). En
-      `projects/m25-ciber/logging/errores.md` documenta body al cliente.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Busca fugas de stack
-    xp: 10
-    cuerpo: |-
-      ```bash
-      curl -s -o /tmp/err.json -w "%{http_code}" "$API/ruta-que-falla"
-      # ¿hay stack, SQL, paths absolutos, env?
-      ```
+      Revisa respuestas 4xx/5xx del panel y API: Tabla: endpoint | status |
+      fuga? | fix.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -116,11 +126,11 @@ pasos:
       - Política o config documentada.
       - Ejemplo de log seguro vs inseguro.
       - 'Commit `docs(m25): l16 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L16 — Errores HTTP y fugas de stack
 

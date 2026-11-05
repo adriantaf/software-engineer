@@ -12,13 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Congelar por escrito el alcance SaaS v1 de Vitrina (in/out)
-      alineado a producto-saas y rúbrica de egreso.
-
-
       M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
       tutoriales.
 
@@ -31,68 +27,26 @@ pasos:
       - In/out scope
 
       - Congelar
+
+
+      **Objetivo de esta lección:** Congelar por escrito el alcance SaaS v1 de
+      Vitrina (in/out) alineado a producto-saas y rúbrica de egreso.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
       mkdir -p projects/m26-capstone/{memoria,demos,bitacora}
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Alcance SaaS v1 congelado" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: projects/m26-capstone/alcance.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p projects/m26-capstone/{memoria,demos,bitacora}`
-    comandoEsperado:
-      - 'mkdir -p projects/m26-capstone/{memoria,demos,bitacora}'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m26-capstone/{memoria,demos,bitacora}'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Congelar por escrito el alcance SaaS v1 de Vitrina (in/out) alineado a
-          producto-saas y rúbrica de egreso.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Crea estructura capstone
+    tipo: ejemplo
+    titulo: Crea estructura capstone
     xp: 10
     cuerpo: >-
       ```bash
@@ -104,16 +58,70 @@ pasos:
 
       Copia mentalmente [producto-saas](../../../producto-saas.md) y
       [egreso](../../../egreso.md) al lado.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Alcance SaaS v1 congelado», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Alcance SaaS v1
+          congelado
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `mkdir -p projects/m26-capstone/{memoria,demos,bitacora}`
+    comandoEsperado:
+      - 'mkdir -p projects/m26-capstone/{memoria,demos,bitacora}'
+      - git add projects/
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m26-capstone/{memoria,demos,bitacora}'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Congelar por escrito el alcance SaaS v1 de Vitrina (in/out) alineado a
+          producto-saas y rúbrica de egreso.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Congela alcance.md
+    titulo: Congela alcance.md
     xp: 10
     cuerpo: >-
       `alcance.md` con secciones: **In scope v1**, **Out of scope**,
-      **Dependencias** (M17/M19/M22/M25), **Criterios de egreso que toca**.
-
-
-      ≥8 bullets in, ≥5 out. Nada de “tal vez WhatsApp” sin decidir.
+      **Dependencias** (M17/M19/M22/M25), **Criterios de egreso que toca**. ≥8
+      bullets in, ≥5 out. Nada de “tal vez WhatsApp” sin decidir.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -123,11 +131,11 @@ pasos:
       - Existe `projects/m26-capstone/alcance.md`.
       - Commit en git con mensaje docs(m26).
       - Bitácora de la semana actualizada.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Alcance SaaS v1 congelado
 

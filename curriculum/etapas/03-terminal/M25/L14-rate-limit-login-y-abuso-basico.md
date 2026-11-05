@@ -12,12 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Confirmar o implementar límite; documentar umbrales.
-
-
       Un atacante lee tus logs si exfiltras tokens; un cliente lee tus stack
       traces.
 
@@ -30,9 +27,17 @@ pasos:
       - Correlation id
 
       - Fail closed
+
+
+      **Objetivo de esta lección:** Confirmar o implementar límite; documentar
+      umbrales.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura concreta de la fuente
+    titulo: Lectura concreta de la fuente
     xp: 10
     cuerpo: |-
       ```bash
@@ -42,78 +47,80 @@ pasos:
           -d '{"email":"nope@test","password":"x"}'
       done | sort | uniq -c
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Define umbrales
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m25): l14 rate-limit-login-y-abuso-b-sico"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Rate limit login y abuso básico" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Rate limit login y abuso básico», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m25-ciber/abuso/rate-limit.md
+        texto: 'Marca la lección solo si:'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Rate limit login y
+          abuso básico
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/auth/login" \`
     comandoEsperado:
       - 'curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/auth/login" \'
+      - git add projects/
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: curl -s -o /dev/null -w "%{http_code}\n" -X POST
       "$API/auth/login" \
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: Confirmar o implementar límite; documentar umbrales.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Define umbrales
+    titulo: Prueba o implementa límite
     xp: 10
     cuerpo: >-
-      En `projects/m25-ciber/abuso/rate-limit.md`: endpoint login (y opcional
-      signup/webhook) → req/min → respuesta (429).
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Prueba o implementa límite
-    xp: 10
-    cuerpo: |-
-      ```bash
-      for i in $(seq 1 30); do
-        curl -s -o /dev/null -w "%{http_code}\n" -X POST "$API/auth/login" \
-          -H "Content-Type: application/json" \
-          -d '{"email":"nope@test","password":"x"}'
-      done | sort | uniq -c
-      ```
+      Dispara ráfaga controlada contra staging: Documenta códigos observados. Si
+      no hay 429: implementa o configura WAF/middleware y re-prueba.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -124,11 +131,11 @@ pasos:
       - Política o config documentada.
       - Ejemplo de log seguro vs inseguro.
       - 'Commit `docs(m25): l14 …` en el historial.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — Rate limit login y abuso básico
 
