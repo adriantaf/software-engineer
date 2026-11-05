@@ -8,97 +8,114 @@ semana: 6
 lectura: Ficha M02 + checklist projects/m02-programacion
 evidencia: bitácora cierre + progress.json + P1–P3 y proyecto verificados
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Confirmar P1–P3 y proyecto CLI, bitácora de cierre, y marcar
-      en la UI solo lo que existe en git.
-
-
       Marcar sin evidencia rompe el contrato del plan. Hoy auditas con
       honestidad.
+
+
+      **Objetivo de esta lección:** Confirmar P1–P3 y proyecto CLI, bitácora de
+      cierre, y marcar en la UI solo lo que existe en git.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Checklist evidencias
+    titulo: Checklist evidencias
     xp: 10
-    cuerpo: |-
-      | Ítem | Evidencia |
-      |------|-----------|
-      | **P1** | `projects/m02-katas/` ≥20 soluciones TS + README |
-      | **P2** | Script JSON + error archivo faltante |
-      | **P3** | `npm test` ≥10 tests |
-      | **Proyecto** | CLI add/list/done/stats/export; JSON local; README |
-
-      Pega `git log --oneline` relevante en la bitácora.
+    cuerpo: >-
+      | Ítem | Evidencia | |------|-----------| | **P1** | `projects/m02-katas/`
+      ≥20 soluciones TS + README | | **P2** | Script JSON + error archivo
+      faltante | | **P3** | `npm test` ≥10 tests | | **Proyecto** | CLI
+      add/list/done/stats/export; JSON local; README | Pega `git log --oneline`
+      relevante en la bitácora.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Cierre M02 y evidencias" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: bitácora cierre + progress.json + P1–P3 y proyecto verificados
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Bitácora cierre
+    xp: 10
+    cuerpo: >-
+      `projects/m01-diario/semana-XXXX-m02-cierre.md` (o nota en
+      m02-programacion): ```markdown # Cierre M02
   - id: s4
     tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Marcar M02 completa con CLI sin
-      `export`."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
+    titulo: Comprueba lo básico
     xp: 10
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      Al terminar «Cierre M02 y evidencias», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: Checklist P1–P3 y proyecto verificada con comandos reales.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Cierre M02 y evidencias
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Confirmar P1–P3 y proyecto CLI, bitácora de cierre, y marcar en la UI
           solo lo que existe en git.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
   - id: s6
-    tipo: explicacion
-    titulo: 2. Bitácora cierre
+    tipo: quiz
+    titulo: Segundo error común
     xp: 10
-    cuerpo: >-
-      `projects/m01-diario/semana-XXXX-m02-cierre.md` (o nota en
-      m02-programacion):
-
-
-      ```markdown
-
-      Cierre M02
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “Katas copiadas sin poder explicarlas."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
   - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M02
+    xp: 25
+    enunciado: >-
+      Cierra **Programación I (TypeScript)** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: 20 katas de fundamentos (variables, control, funciones)'
+      - 'P2: Módulos + manejo de errores en un script real'
+      - 'P3: Primera suite de tests con Vitest (10+ casos)'
+      - 'Proyecto: CLI de hábitos y tareas con export CSV'
+      - bitácora cierre + progress.json + P1–P3 y proyecto verificados
+    rubrica:
+      - id: r1
+        criterio: Checklist P1–P3 y proyecto verificada con comandos reales.
+      - id: r2
+        criterio: Bitácora de cierre escrita.
+      - id: r3
+        criterio: Sabes qué checkboxes puedes marcar hoy.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -106,11 +123,13 @@ pasos:
       - Checklist P1–P3 y proyecto verificada con comandos reales.
       - Bitácora de cierre escrita.
       - Sabes qué checkboxes puedes marcar hoy.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M02 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L24 — Cierre M02 y evidencias
 

@@ -8,22 +8,27 @@ semana: 5
 lectura: 'Rosen Cap. 10.1–10.2 — grafos, aristas, grados, caminos, ciclos'
 evidencia: apuntes/grafos.md + grafos/ejemplo.json (5–6 nodos) dibujado a mano
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Definir grafo `G=(V,E)` (dirigido o no según elijas); grado,
-      camino, ciclo, grafo completo; modelar un problema pequeño como grafo.
-
-
       Última semana: grafos unen discretas con redes, rutas y algoritmos.
       Empiezas con el modelo y un ejemplo concreto.
+
+
+      **Objetivo de esta lección:** Definir grafo `G=(V,E)` (dirigido o no según
+      elijas); grado, camino, ciclo, grafo completo; modelar un problema pequeño
+      como grafo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Apuntes
+    titulo: Apuntes
     xp: 10
     cuerpo: |-
       ```json
@@ -39,74 +44,12 @@ pasos:
         ]
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Grafos — modelo y terminología" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: apuntes/grafos.md + grafos/ejemplo.json (5–6 nodos) dibujado a mano
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Aristas duplicadas sin documentar
-      multigrafo."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Definir grafo `G=(V,E)` (dirigido o no según elijas); grado, camino,
-          ciclo, grafo completo; modelar un problema pequeño como grafo.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Dibujo y JSON
+    tipo: ejemplo
+    titulo: Dibujo y JSON
     xp: 10
     cuerpo: >-
-      Elige un grafo de **5–6** nodos (mapa de ciudad ficticia, dependencias de
-      tareas, amistades). Dibuja a mano y escanea/foto opcional en `apuntes/` o
-      describe aristas en texto.
-
-
-      Crea `projects/m03-discretas/grafos/ejemplo.json`:
-
-
       ```json
 
       {
@@ -124,11 +67,72 @@ pasos:
       ```
 
 
-      Ajusta a tu dibujo. Lista grado de cada vértice **a mano** y verifica suma
-      de grados = 2|E| (no dirigido).
+      Elige un grafo de **5–6** nodos (mapa de ciudad ficticia, dependencias de
+      tareas, amistades). Dibuja a mano y escanea/foto opcional en `apuntes/` o
+      describe aristas en texto. Crea
+      `projects/m03-discretas/grafos/ejemplo.json`: Ajusta a tu dibujo. Lista
+      grado de cada vértice **a mano** y verifica suma de grados = 2|E| (no
+      dirigido).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Grafos — modelo y terminología», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`grafos.md` con definiciones y grados calculados para `ejemplo.json`.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Grafos — modelo y
+          terminología
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? “Aristas duplicadas sin documentar
+      multigrafo."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Definir grafo `G=(V,E)` (dirigido o no según elijas); grado, camino,
+          ciclo, grafo completo; modelar un problema pequeño como grafo.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Modelado
+    titulo: Modelado
     xp: 10
     cuerpo: >-
       Segundo mini-ejemplo en el apunte: traduce “prerrequisitos de cursos” a
@@ -141,11 +145,11 @@ pasos:
       - '`grafos.md` con definiciones y grados calculados para `ejemplo.json`.'
       - Existe `grafos/ejemplo.json` coherente con el dibujo.
       - Distingues camino de ciclo con un ejemplo en tu grafo.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L17 — Grafos: modelo y terminología
 

@@ -12,94 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Mover reglas de negocio a métodos cohesivos (entidad o
-      agregado pequeño); evitar clases contenedor vacías.
-
-
       Un objeto combina datos y **comportamiento**. Datos anémicos + servicios
       gigantes es un antipatrón que corregirás hoy.
+
+
+      **Objetivo de esta lección:** Mover reglas de negocio a métodos cohesivos
+      (entidad o agregado pequeño); evitar clases contenedor vacías.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: >-
       CC cap. 3 (funciones pequeñas) + inicio cap. 10. Lista: ¿cuándo una clase
       aporta vs cuándo estorba?
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Objetos con comportamiento real" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: >-
-          Métodos de dominio con tests; commit feat(m06): comportamiento en
-          entidades
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Refactor de anémico → rico
+    xp: 10
+    cuerpo: >-
+      Si tu `Libro` solo expone campos, añade métodos como `marcarPrestado():
+      void` con invariantes (no prestar dos veces). La fachada `Biblioteca`
+      orquesta, no reimplementa toda la lógica en ifs sueltos.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Objetos con comportamiento real», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Reglas de negocio viven en métodos nombrados, no dispersos.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Objetos con
+          comportamiento real
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “God class `Biblioteca` de 400
-      líneas."
+    pregunta: ¿Es recomendable en esta lección? “God class `Biblioteca` de 400 líneas."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Mover reglas de negocio a métodos cohesivos (entidad o agregado
           pequeño); evitar clases contenedor vacías.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Refactor de anémico → rico
-    xp: 10
-    cuerpo: >-
-      Si tu `Libro` solo expone campos, añade métodos como `marcarPrestado():
-      void` con invariantes (no prestar dos veces). La fachada `Biblioteca`
-      orquesta, no reimplementa toda la lógica en ifs sueltos.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests de invariantes
+    titulo: Tests de invariantes
     xp: 10
-    cuerpo: |-
-      - No prestar si ya prestado.
-      - Devolver solo si estaba prestado.
-      - Mensajes de error legibles (string constantes o pequeño catálogo).
+    cuerpo: >-
+      - No prestar si ya prestado. - Devolver solo si estaba prestado. -
+      Mensajes de error legibles (string constantes o pequeño catálogo).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -108,11 +109,11 @@ pasos:
       - 'Reglas de negocio viven en métodos nombrados, no dispersos.'
       - Tests cubren invariantes principales.
       - Commit con mensaje que mencione comportamiento en entidades.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Objetos con comportamiento real
 

@@ -12,84 +12,95 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Extender el pipeline con σ, p25/p75 y documentar una
-      decisión sobre outliers (mantener, etiquetar o excluir con justificación).
-
-
       Añades desviación estándar, IQR y regla de outliers; decides qué hacer con
       un día “Black Friday” en tus datos.
+
+
+      **Objetivo de esta lección:** Extender el pipeline con σ, p25/p75 y
+      documentar una decisión sobre outliers (mantener, etiquetar o excluir con
+      justificación).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Funciones
+    titulo: Funciones
     xp: 10
     cuerpo: |-
       ```bash
       git commit -am "feat(m04): dispersion percentiles L10"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
+    tipo: ejemplo
+    titulo: Informe corto
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m04): dispersion percentiles L10"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Dispersión, percentiles y outliers" como hecha, ¿qué cuenta
-      de verdad?
+      Al terminar «Dispersión, percentiles y outliers», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m04-stats/src/percentiles.ts + salida/dispersion.md
+        texto: '`dispersion.md` con σ e IQR.'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Dispersión, percentiles
+          y outliers
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git commit -am "feat(m04): dispersion percentiles L10"`
     comandoEsperado:
       - 'git commit -am "feat(m04): dispersion percentiles L10"'
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git commit -am "feat(m04): dispersion percentiles L10"'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Extender el pipeline con σ, p25/p75 y documentar una decisión sobre
           outliers (mantener, etiquetar o excluir con justificación).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Informe corto
-    xp: 10
-    cuerpo: '`salida/dispersion.md`: rango, σ, IQR, lista de fechas outlier (si hay).'
   - id: s7
     tipo: explicacion
-    titulo: 3. Decisión de negocio
+    titulo: Decisión de negocio
     xp: 10
     cuerpo: >-
       Párrafo: “Si informo media de pedidos al dueño, ¿incluyo el outlier?” —
@@ -102,11 +113,11 @@ pasos:
       - '`dispersion.md` con σ e IQR.'
       - Decisión sobre outliers justificada.
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Dispersión, percentiles y outliers
 

@@ -10,72 +10,89 @@ evidencia: >-
   projects/m03-discretas/apuntes/logica-proposicional.md + src/logic.ts
   (implica) + commit
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Definir proposición y conectivos (∧, ∨, ¬); construir tablas
-      de verdad de forma sistemática; implementar `implica` y comprobar los
-      cuatro casos de `P → Q`.
-
-
       Sin distinguir proposición de enunciado vago, las demostraciones
       posteriores se vuelven “suena bien”. La tabla de verdad es la **prueba
       mecánica** de que entiendes los conectivos.
+
+
+      **Objetivo de esta lección:** Definir proposición y conectivos (∧, ∨, ¬);
+      construir tablas de verdad de forma sistemática; implementar `implica` y
+      comprobar los cuatro casos de `P → Q`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Proyecto y bitácora
+    titulo: Proyecto y bitácora
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      mkdir -p projects/m03-discretas/src projects/m03-discretas/apuntes
+      projects/m03-discretas/grafos
+
+      cd projects/m03-discretas
+
+      npm init -y
+
+      npm install -D typescript tsx vitest @types/node
+
+      npx tsc --init
+
+      ```
+
+
+      Desde la raíz del repo: En `tsconfig.json` deja `"strict": true`. Añade en
+      `package.json`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: 'Apuntes: proposiciones'
     xp: 10
     cuerpo: |-
-      ```ts
-      export function implica(p: boolean, q: boolean): boolean {
-        return !p || q;
-      }
-
-      export function y(p: boolean, q: boolean): boolean {
-        return p && q;
-      }
-
-      export function o(p: boolean, q: boolean): boolean {
-        return p || q;
-      }
-
-      export function no(p: boolean): boolean {
-        return !p;
+      ```json
+      "scripts": {
+        "test": "vitest run",
+        "tsx": "tsx"
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Lógica proposicional y tablas de verdad" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Lógica proposicional y tablas de verdad», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
         texto: >-
-          projects/m03-discretas/apuntes/logica-proposicional.md + src/logic.ts
-          (implica) + commit
+          Existe `apuntes/logica-proposicional.md` con las tres tablas (∧, ∨, ¬)
+          y la de →.
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Lógica proposicional y
+          tablas de verdad
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: >-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
 
       `mkdir -p projects/m03-discretas/src projects/m03-discretas/apuntes
@@ -84,51 +101,37 @@ pasos:
       - >-
         mkdir -p projects/m03-discretas/src projects/m03-discretas/apuntes
         projects/m03-discretas/grafos
+      - cd projects/m03-discretas
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: >-
       Esperado: mkdir -p projects/m03-discretas/src
       projects/m03-discretas/apuntes projects/m03-discretas/grafos
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Definir proposición y conectivos (∧, ∨, ¬); construir tablas de verdad
-          de forma sistemática; implementar `implica` y comprobar los cuatro c…
+          de forma sistemática; implementar `implica` y comprobar los cuatro
+          casos de `P → Q`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: '2. Apuntes: proposiciones'
-    xp: 10
-    cuerpo: >-
-      Crea `projects/m03-discretas/apuntes/logica-proposicional.md` con:
-
-
-      - Definición de **proposición** (oración con valor de verdad V/F).
-
-      - Tres ejemplos que **sí** son proposiciones y tres que **no** (preguntas,
-      órdenes, enunciados con variable libre sin cuantificar).
-
-      - Tablas de verdad completas para `P ∧ Q`, `P ∨ Q`, `¬P` (4 filas cada
-      una, columnas intermedias si ayuda).
-
-
-      No copies tablas de internet sin rellenarlas tú.
   - id: s7
     tipo: explicacion
-    titulo: 3. Implicación en papel
+    titulo: Implicación en papel
     xp: 10
     cuerpo: >-
       En el mismo archivo, tabla de verdad de `P → Q`. Escribe en una frase por
@@ -145,11 +148,11 @@ pasos:
       - >-
         Puedes decir en voz alta qué hace `¬(P ∧ Q)` sin mirar la tabla (aunque
         luego la verifiques).
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Lógica proposicional y tablas de verdad
 

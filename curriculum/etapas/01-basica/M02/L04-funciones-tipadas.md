@@ -8,22 +8,26 @@ semana: 1
 lectura: EJ cap. 3 (funciones) + TS Handbook More on Functions
 evidencia: src/funciones/ con 4+ funciones puras; ≥7 katas acumuladas en repo
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Organizar `src/funciones/`, terminar ejercicios de EJ cap. 3
-      en TS y acumular **≥7 katas** (camino a P1).
-
-
       La CLI será una capa fina sobre funciones de dominio testeables. Practica
       sin acoplar todo a `console.log`.
+
+
+      **Objetivo de esta lección:** Organizar `src/funciones/`, terminar
+      ejercicios de EJ cap. 3 en TS y acumular **≥7 katas** (camino a P1).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Funciones puras
+    titulo: Funciones puras
     xp: 10
     cuerpo: |-
       ```ts
@@ -33,32 +37,47 @@ pasos:
         return [...items].sort(cmp);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Funciones tipadas" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: src/funciones/ con 4+ funciones puras; ≥7 katas acumuladas en repo
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Funciones como valores
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type Comparador<T> = (a: T, b: T) => number;
+
+      export function ordenarPor<T>(items: T[], cmp: Comparador<T>): T[] {
+        return [...items].sort(cmp);
+      }
+      ```
+
+      `src/funciones/ordenar.ts`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Funciones tipadas», ¿qué demuestra que cumpliste el criterio
+      mínimo?
+    opciones:
+      - id: a
+        texto: '`src/funciones/` con ≥4 funciones exportadas y usadas.'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Funciones tipadas
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Funciones gigantes que mezclan I/O y
+      ¿Es recomendable en esta lección? “Funciones gigantes que mezclan I/O y
       lógica."
     opciones:
       - id: t
@@ -66,43 +85,31 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Organizar `src/funciones/`, terminar ejercicios de EJ cap. 3 en TS y
-          acumular **≥7 katas** (camino a P1).
+          acumular ≥7 katas (camino a P1).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Funciones como valores
-    xp: 10
-    cuerpo: |-
-      `src/funciones/ordenar.ts`:
-
-      ```ts
-      export type Comparador<T> = (a: T, b: T) => number;
-
-      export function ordenarPor<T>(items: T[], cmp: Comparador<T>): T[] {
-        return [...items].sort(cmp);
-      }
-      ```
   - id: s7
     tipo: explicacion
-    titulo: 3. EJ cap. 3
+    titulo: EJ cap. 3
     xp: 10
     cuerpo: '**≥2 ejercicios** en `src/ej-cap03-*.ts`.'
   - id: s8
@@ -113,11 +120,13 @@ pasos:
       - '`src/funciones/` con ≥4 funciones exportadas y usadas.'
       - ≥7 katas o ejercicios EJ con solución propia.
       - Commit de cierre de semana 1 M02.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L04 — Funciones tipadas
 

@@ -8,58 +8,58 @@ semana: 1
 lectura: 'Rosen Cap. 1.6–1.7 — directa, contrapositiva, contradicción, casos (intro)'
 evidencia: 'demos.md con 3 demostraciones numeradas (directa, contrapositiva, casos)'
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Redactar tres demostraciones cortas con estructura clara
-      (hipótesis → conclusiones); elegir directa, contrapositiva o por casos
-      según el enunciado.
-
-
       Cierras la semana de lógica escribiendo **pruebas** legibles. Esto
       alimenta **P1** del resto del módulo.
+
+
+      **Objetivo de esta lección:** Redactar tres demostraciones cortas con
+      estructura clara (hipótesis → conclusiones); elegir directa,
+      contrapositiva o por casos según el enunciado.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Plantilla
+    titulo: Plantilla
     xp: 10
-    cuerpo: |-
-      Crea `projects/m03-discretas/demos.md`:
-
-      ```markdown
-      Demostraciones — M03
+    cuerpo: 'Crea `projects/m03-discretas/demos.md`: ```markdown # Demostraciones — M03'
   - id: s3
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Métodos de demostración (intro)" como hecha, ¿qué cuenta de
-      verdad?
+      Al terminar «Métodos de demostración (intro)», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
         texto: >-
-          demos.md con 3 demostraciones numeradas (directa, contrapositiva,
-          casos)
+          `demos.md` contiene 3 demostraciones completas con métodos distintos
+          (directa, contrapositiva, casos).
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Métodos de demostración
+          (intro)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? ““Prueba” de una línea sin justificar
+      ¿Es recomendable en esta lección? ““Prueba” de una línea sin justificar
       pasos."
     opciones:
       - id: t
@@ -67,27 +67,44 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
   - id: s5
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Redactar tres demostraciones cortas con estructura clara (hipótesis →
-          conclusiones); elegir directa, contrapositiva o por casos según el en…
+          conclusiones); elegir directa, contrapositiva o por casos según el
+          enunciado.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
   - id: s6
+    tipo: quiz
+    titulo: Segundo error común
+    xp: 10
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “Demostrar la conversa en lugar del teorema."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
+  - id: s7
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -97,11 +114,11 @@ pasos:
         (directa, contrapositiva, casos).
       - Cada prueba cita hipótesis al inicio del párrafo de prueba.
       - Puedes señalar en una demostración dónde se usa una implicación.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L04 — Métodos de demostración (intro)
 

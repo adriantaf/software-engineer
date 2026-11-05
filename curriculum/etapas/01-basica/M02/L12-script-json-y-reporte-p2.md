@@ -8,34 +8,65 @@ semana: 3
 lectura: Repaso módulos + manejo archivo faltante
 evidencia: projects/m02-katas/src/scripts/reporte.ts + README P2
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar `reporte.ts` independiente de la CLI de hábitos
-      (puede leer un JSON de ventas, hábitos exportados o inventario ficticio).
-
-
       En trabajo real leerás JSON de terceros. P2 demuestra módulos + errores
       útiles sin UI.
+
+
+      **Objetivo de esta lección:** Implementar `reporte.ts` independiente de la
+      CLI de hábitos (puede leer un JSON de ventas, hábitos exportados o
+      inventario ficticio).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Formato de entrada
+    titulo: Formato de entrada
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
+      ```json
+
+      {
+        "periodo": "2026-03",
+        "items": [
+          { "nombre": "alpha", "cantidad": 3 },
+          { "nombre": "beta", "cantidad": 7 }
+        ]
+      }
+
+      ```
+
+
+      `data/ejemplo-reporte.json`: Define `interface EntradaReporte` en
+      `src/scripts/tipos-reporte.ts`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Generador de reporte
+    xp: 10
+    cuerpo: >-
       ```ts
+
       import { readFile } from "node:fs/promises";
+
       import path from "node:path";
+
       import type { EntradaReporte } from "./tipos-reporte.js";
+
 
       export function formatearReporte(data: EntradaReporte): string {
         const total = data.items.reduce((s, i) => s + i.cantidad, 0);
         const lineas = data.items.map((i) => `  - ${i.nombre}: ${i.cantidad}`);
         return [`Reporte ${data.periodo}`, `Total unidades: ${total}`, ...lineas].join("\n");
       }
+
 
       export async function main(rutaRelativa: string): Promise<void> {
         const ruta = path.resolve(process.cwd(), rutaRelativa);
@@ -52,35 +83,40 @@ pasos:
           throw e;
         }
       }
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Script JSON y reporte (P2)" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m02-katas/src/scripts/reporte.ts + README P2
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+
+
+      `src/scripts/reporte.ts`: Entry: `npx tsx src/scripts/reporte.ts
+      data/ejemplo-reporte.json`
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Script JSON y reporte (P2)», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: Reporte corre con el JSON de ejemplo.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Script JSON y reporte
+          (P2)
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “`catch` vacío o `console.log(e)` sin
+      ¿Es recomendable en esta lección? “`catch` vacío o `console.log(e)` sin
       contexto."
     opciones:
       - id: t
@@ -88,65 +124,31 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar `reporte.ts` independiente de la CLI de hábitos (puede
           leer un JSON de ventas, hábitos exportados o inventario ficticio).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Generador de reporte
-    xp: 10
-    cuerpo: |-
-      `src/scripts/reporte.ts`:
-
-      ```ts
-      import { readFile } from "node:fs/promises";
-      import path from "node:path";
-      import type { EntradaReporte } from "./tipos-reporte.js";
-
-      export function formatearReporte(data: EntradaReporte): string {
-        const total = data.items.reduce((s, i) => s + i.cantidad, 0);
-        const lineas = data.items.map((i) => `  - ${i.nombre}: ${i.cantidad}`);
-        return [`Reporte ${data.periodo}`, `Total unidades: ${total}`, ...lineas].join("\n");
-      }
-
-      export async function main(rutaRelativa: string): Promise<void> {
-        const ruta = path.resolve(process.cwd(), rutaRelativa);
-        try {
-          const raw = await readFile(ruta, "utf8");
-          const data = JSON.parse(raw) as EntradaReporte;
-          console.log(formatearReporte(data));
-        } catch (e) {
-          if ((e as NodeJS.ErrnoException).code === "ENOENT") {
-            console.error(`No se encontró el archivo: ${ruta}`);
-            process.exitCode = 1;
-            return;
-          }
-          throw e;
-        }
-      }
-      ```
-
-      Entry: `npx tsx src/scripts/reporte.ts data/ejemplo-reporte.json`
   - id: s7
     tipo: explicacion
-    titulo: 3. README P2
+    titulo: README P2
     xp: 10
     cuerpo: >-
       En `projects/m02-katas/README.md` sección **P2** con comando, ejemplo de
@@ -159,11 +161,13 @@ pasos:
       - Reporte corre con el JSON de ejemplo.
       - Ruta inexistente → mensaje claro y código de salida ≠ 0.
       - Evidencia P2 documentada para marcar en la UI cuando revises la ficha.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Script JSON y reporte (P2)
 

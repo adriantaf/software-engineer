@@ -12,14 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Explicar bus de direcciones, datos y control; distinguir E/S
-      programada, interrupciones y DMA a nivel conceptual; mapear periféricos
-      comunes en tu máquina.
-
-
       - **Bus**: ancho de banda y contención (CPU y DMA compiten).
 
       - **Controlador de dispositivo** + **driver** del SO.
@@ -28,9 +23,18 @@ pasos:
 
       - **DMA**: transferencia memoria ↔ dispositivo con menos intervención de
       CPU.
+
+
+      **Objetivo de esta lección:** Explicar bus de direcciones, datos y
+      control; distinguir E/S programada, interrupciones y DMA a nivel
+      conceptual; mapear periféricos comunes en tu máquina.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```js
@@ -40,84 +44,83 @@ pasos:
       readFileSync(import.meta.filename);
       console.timeEnd("sync-read");
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Buses, E/S y periféricos" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: projects/m05-como-corre/es-y-buses.md + salida de lsblk o equivalente
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `ls -la /dev/*  # muestra parcial; no ejecutes como root sin saber`
-    comandoEsperado:
-      - 'ls -la /dev/*  # muestra parcial; no ejecutes como root sin saber'
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: >-
-      Esperado: ls -la /dev/*  # muestra parcial; no ejecutes como root sin
-      saber
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Explicar bus de direcciones, datos y control; distinguir E/S
-          programada, interrupciones y DMA a nivel conceptual; mapear
-          periféricos comune…
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Archivo `es-y-buses.md`
-    xp: 10
-    cuerpo: >-
-      Crea `projects/m05-como-corre/es-y-buses.md`:
-
-
-      - Diagrama CPU–bus–memoria–controladores (disco, red, USB).
-
-      - Tabla: dispositivo → tipo de E/S típico → latencia relativa (orden de
-      magnitud, no cifras memorizadas).
-
-      - Párrafo: qué es un **syscall** y cómo conecta tu programa con el driver
-      (conceptual).
-  - id: s7
     tipo: ejemplo
-    titulo: 3. Observación en terminal
+    titulo: Archivo `es-y-buses.md`
     xp: 10
     cuerpo: |-
       ```bash
       lsblk          # o diskutil list en macOS
       ls -la /dev/*  # muestra parcial; no ejecutes como root sin saber
       ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Buses, E/S y periféricos», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          Existe `es-y-buses.md` con diagrama, tabla de dispositivos y notas del
+          experimento.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Buses, E/S y
+          periféricos
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `ls -la /dev/*  # muestra parcial; no ejecutes como root sin saber`
+    comandoEsperado:
+      - 'ls -la /dev/*  # muestra parcial; no ejecutes como root sin saber'
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: >-
+      Esperado: ls -la /dev/*  # muestra parcial; no ejecutes como root sin
+      saber
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Explicar bus de direcciones, datos y control; distinguir E/S
+          programada, interrupciones y DMA a nivel conceptual; mapear
+          periféricos comunes en tu máquina.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Observación en terminal
+    xp: 10
+    cuerpo: >-
+      Pega salida **recortada** (sin datos sensibles) en el archivo y explica
+      qué bloque representa (disco, partición).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -130,11 +133,11 @@ pasos:
       - >-
         Corriste `io-demo.mjs` y documentaste observaciones (aunque sean
         preliminares).
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Buses, E/S y periféricos
 

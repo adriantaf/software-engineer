@@ -8,22 +8,26 @@ semana: 4
 lectura: EJ cap. 11 (async) + refactor CLI a async main
 evidencia: m02-habits src/cli.ts con async main y try/catch
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Un solo `await` por paso lógico en `cli.ts`, sin `.then`
-      anidados, con `try/catch` en el borde.
-
-
       Código que lees en orden de ejecución es código que mantienes. La CLI es
       async de facto por el disco.
+
+
+      **Objetivo de esta lección:** Un solo `await` por paso lógico en `cli.ts`,
+      sin `.then` anidados, con `try/catch` en el borde.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Refactor cli.ts
+    titulo: Refactor cli.ts
     xp: 10
     cuerpo: |-
       ```ts
@@ -41,34 +45,57 @@ pasos:
 
       main();
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Extrae handlers `ejecutarAdd`, `ejecutarList` async si hace falta.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "async/await en la práctica" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: m02-habits src/cli.ts con async main y try/catch
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Paralelo controlado
+    xp: 10
+    cuerpo: |-
+      ```ts
+      async function main(): Promise<void> {
+        const comando = parseArgv(process.argv);
+        try {
+          const estado = await loadEstado();
+          // switch comando → mutar estado en memoria
+          await saveEstado(estado);
+        } catch (e) {
+          console.error("Error:", e instanceof Error ? e.message : e);
+          process.exitCode = 1;
+        }
+      }
+
+      main();
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «async/await en la práctica», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: CLI usa `async/await` en el entry.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de async/await en la
+          práctica
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “`async` en cada función aunque no hay
+      ¿Es recomendable en esta lección? “`async` en cada función aunque no hay
       await."
     opciones:
       - id: t
@@ -76,36 +103,31 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Un solo `await` por paso lógico en `cli.ts`, sin `.then` anidados, con
           `try/catch` en el borde.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Paralelo controlado
-    xp: 10
-    cuerpo: >-
-      `src/async/paralelo.ts` — `Promise.all` para leer dos archivos de ejemplo;
-      documenta cuándo **no** usar paralelo (misma escritura).
   - id: s7
     tipo: explicacion
-    titulo: 3. EJ cap. 11 — resto
+    titulo: EJ cap. 11 — resto
     xp: 10
     cuerpo: Termina el capítulo; ejercicio async en TS.
   - id: s8
@@ -116,11 +138,13 @@ pasos:
       - CLI usa `async/await` en el entry.
       - Errores de I/O muestran mensaje y exit code.
       - Ejercicio cap. 11 commiteado.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — async/await en la práctica
 

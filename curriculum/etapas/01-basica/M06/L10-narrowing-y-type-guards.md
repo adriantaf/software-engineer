@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar type guards (`is`) y narrowing con `in`,
-      `typeof`, discriminantes; cubrir ramas con tests.
-
-
       TypeScript estrecha tipos tras comprobaciones; tú diseñas guards
       reutilizables.
+
+
+      **Objetivo de esta lección:** Implementar type guards (`is`) y narrowing
+      con `in`, `typeof`, discriminantes; cubrir ramas con tests.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: >-
       ```ts
@@ -34,73 +38,76 @@ pasos:
       }
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Narrowing y type guards" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: Type guards user-defined + tests de ramas
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Guards
+    xp: 10
+    cuerpo: >-
+      ```ts
+
+      export function esPrestado(e: EstadoLibro): e is Extract<EstadoLibro, {
+      tipo: "prestado" }> {
+        return e.tipo === "prestado";
+      }
+
+      ```
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Narrowing y type guards», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: ≥2 type guards reutilizables.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Narrowing y type guards
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Cast para callar al compilador."
+    pregunta: ¿Es recomendable en esta lección? “Cast para callar al compilador."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar type guards (`is`) y narrowing con `in`, `typeof`,
           discriminantes; cubrir ramas con tests.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Guards
-    xp: 10
-    cuerpo: >-
-      ```ts
-
-      export function esPrestado(e: EstadoLibro): e is Extract<EstadoLibro, {
-      tipo: "prestado" }> {
-        return e.tipo === "prestado";
-      }
-
-      ```
   - id: s7
     tipo: explicacion
-    titulo: 3. API pública
+    titulo: API pública
     xp: 10
     cuerpo: >-
       Funciones que aceptan union y devuelven Result o throw según política
@@ -113,11 +120,11 @@ pasos:
       - ≥2 type guards reutilizables.
       - Sin `as` salvo casos documentados.
       - Tests por discriminante.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Narrowing y type guards
 

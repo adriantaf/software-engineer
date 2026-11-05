@@ -8,90 +8,42 @@ semana: 1
 lectura: 'EJ cap. 1 (valores, tipos, estructura) + TS Handbook Everyday Types (intro)'
 evidencia: 'projects/m02-katas/ con tsconfig strict, src/hola.ts ejecutable, README mínimo'
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear `projects/m02-katas/`, activar `strict: true`,
-      ejecutar un programa tipado y documentar el setup en git.
-
-
       Sin `strict` y sin hábito de leer errores del compilador, M02 se convierte
       en “JavaScript con archivos `.ts`”. Hoy instalas el suelo donde vivirán
       katas, el script P2 y la CLI.
+
+
+      **Objetivo de esta lección:** Crear `projects/m02-katas/`, activar
+      `strict: true`, ejecutar un programa tipado y documentar el setup en git.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Carpeta de evidencia
+    titulo: Carpeta de evidencia
     xp: 10
-    cuerpo: |-
-      ```ts
-      function saludar(nombre: string): string {
-        return `Hola, ${nombre}`;
-      }
+    cuerpo: >-
+      ```bash
 
-      console.log(saludar("Adrian"));
+      mkdir -p projects/m02-katas/src
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Entorno TS strict y primer programa" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: >-
-          projects/m02-katas/ con tsconfig strict, src/hola.ts ejecutable,
-          README mínimo
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
 
-      `mkdir -p projects/m02-katas/src`
-    comandoEsperado:
-      - mkdir -p projects/m02-katas/src
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m02-katas/src'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Crear `projects/m02-katas/`, activar `strict: true`, ejecutar un
-          programa tipado y documentar el setup en git.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inicializar Node + TypeScript
+
+      Desde la raíz del plan: Revisa `projects/m02-programacion/README.md` y
+      enlaza esta carpeta si aún no está.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Inicializar Node + TypeScript
     xp: 10
     cuerpo: >-
       ```bash
@@ -107,41 +59,74 @@ pasos:
       ```
 
 
-      En `tsconfig.json` asegura:
-
-
-      ```json
-
-      {
-        "compilerOptions": {
-          "strict": true,
-          "module": "NodeNext",
-          "moduleResolution": "NodeNext",
-          "target": "ES2022",
-          "outDir": "dist",
-          "rootDir": "src",
-          "skipLibCheck": true
-        },
-        "include": ["src"]
-      }
-
-      ```
-
-
-      **No desactives `strict`** “para avanzar”. Ese atajo te cobra intereses en
-      la semana 4.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Primer programa tipado
+      En `tsconfig.json` asegura: **No desactives `strict`** “para avanzar”. Ese
+      atajo te cobra intereses en la semana 4.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: |-
-      ```ts
-      function saludar(nombre: string): string {
-        return `Hola, ${nombre}`;
-      }
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Entorno TS strict y primer programa», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          Existe `projects/m02-katas/` con `strict: true` y `src/hola.ts` que
+          corre.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Entorno TS strict y
+          primer programa
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
 
-      console.log(saludar("Adrian"));
-      ```
+      `mkdir -p projects/m02-katas/src`
+    comandoEsperado:
+      - mkdir -p projects/m02-katas/src
+      - cd projects/m02-katas
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m02-katas/src'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear `projects/m02-katas/`, activar `strict: true`, ejecutar un
+          programa tipado y documentar el setup en git.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: explicacion
+    titulo: Primer programa tipado
+    xp: 10
+    cuerpo: >-
+      `src/hola.ts`: Ejecuta: Rompe el tipo a propósito: `saludar(42)` y luego
+      `npx tsc --noEmit`. **Lee el mensaje completo** (archivo, línea, tipo
+      esperado). Corrige antes de seguir.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -153,11 +138,13 @@ pasos:
       - Probaste un error de tipos con `tsc` y lo resumiste en una frase.
       - Commit en git con el proyecto katas.
       - Dos ejercicios del cap. 1 de EJ en TS bajo `src/`.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Entorno TS strict y primer programa
 

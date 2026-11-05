@@ -12,19 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Entregar paquete local (`npm pack` o GitHub package si
-      tienes remoto); completar checklist; redactar `cierre-etapa.md` con 5
-      mejoras concretas al código M02.
-
-
       Cierras M06 y la **Etapa Básica**: librería empaquetada, evidencias
       completas, reflexión sobre M02.
+
+
+      **Objetivo de esta lección:** Entregar paquete local (`npm pack` o GitHub
+      package si tienes remoto); completar checklist; redactar `cierre-etapa.md`
+      con 5 mejoras concretas al código M02.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Auditoría final
+    titulo: Auditoría final
     xp: 10
     cuerpo: |-
       ```bash
@@ -32,62 +36,10 @@ pasos:
       npm run build
       npm pack
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Librería final y cierre de etapa básica" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: npm pack final + cierre-etapa.md con 5 mejoras M02
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `npm run test`
-    comandoEsperado:
-      - npm run test
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: npm run test'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Entregar paquete local (`npm pack` o GitHub package si tienes remoto);
-          completar checklist; redactar `cierre-etapa.md` con 5 mejoras concre…
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Build y pack
+    tipo: ejemplo
+    titulo: Build y pack
     xp: 10
     cuerpo: |-
       ```bash
@@ -97,11 +49,84 @@ pasos:
       ```
 
       Guarda nombre del `.tgz` en bitácora.
-  - id: s7
-    tipo: explicacion
-    titulo: 3. Prueba de consumo
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
     xp: 10
-    cuerpo: Proyecto vacío temporal importa tu paquete; ejecuta ejemplo.
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Librería final y cierre de etapa básica», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Tarball generado y probado.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Librería final y cierre
+          de etapa básica
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `npm run test`
+    comandoEsperado:
+      - npm run test
+      - npm run build
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: npm run test'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Entregar paquete local (`npm pack` o GitHub package si tienes remoto);
+          completar checklist; redactar `cierre-etapa.md` con 5 mejoras
+          concretas al código M02.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
+  - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M06
+    xp: 25
+    enunciado: >-
+      Cierra **Programación II (OO, tipos y errores)** con evidencia real en el
+      repo. Marca la rúbrica solo si puedes demostrar cada criterio (si no está
+      en git, no cuenta).
+    entregables:
+      - 'P1: Modelar un dominio con clases/interfaces (sin framework)'
+      - 'P2: Refactor a Código limpio (nombres, funciones pequeñas)'
+      - 'P3: Manejo de errores tipado + tests de borde'
+      - 'Proyecto: Librería reutilizable publicada (npm local o GitHub package)'
+      - npm pack final + cierre-etapa.md con 5 mejoras M02
+    rubrica:
+      - id: r1
+        criterio: Tarball generado y probado.
+      - id: r2
+        criterio: '`cierre-etapa.md` con 5 mejoras M02 accionables.'
+      - id: r3
+        criterio: Evidencia proyecto completa; puedes enseñar la librería en 3 minutos.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -110,11 +135,11 @@ pasos:
       - Tarball generado y probado.
       - '`cierre-etapa.md` con 5 mejoras M02 accionables.'
       - Evidencia proyecto completa; puedes enseñar la librería en 3 minutos.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M06 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Librería final y cierre de etapa básica
 

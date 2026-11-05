@@ -12,14 +12,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Contrastar memoria principal y almacenamiento secundario;
-      explicar filesystem, bloques y por qué `readFile` puede costar más que
-      millones de sumas en CPU.
-
-
       - **Volatilidad** y **persistencia**.
 
       - **Bloque** de disco vs **página** de memoria.
@@ -27,9 +22,18 @@ pasos:
       - **Buffering** y **page cache** del SO (lectura repetida más rápida).
 
       - SSD vs HDD: latencia y throughput cualitativo.
+
+
+      **Objetivo de esta lección:** Contrastar memoria principal y
+      almacenamiento secundario; explicar filesystem, bloques y por qué
+      `readFile` puede costar más que millones de sumas en CPU.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```js
@@ -43,90 +47,86 @@ pasos:
       readFileSync(p);
       console.timeEnd("read2");
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Disco vs RAM y persistencia" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m05-como-corre/ram-vs-disco.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: '`ram-vs-disco.md`'
+    xp: 10
+    cuerpo: |-
+      ```js
+      // projects/m05-como-corre/read-twice.mjs
+      import { readFileSync } from "node:fs";
+      const p = "package.json"; // o un archivo grande que tengas
+      console.time("read1");
+      readFileSync(p);
+      console.timeEnd("read1");
+      console.time("read2");
+      readFileSync(p);
+      console.timeEnd("read2");
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Disco vs RAM y persistencia», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`ram-vs-disco.md` completo con experimento read-twice interpretado.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Disco vs RAM y
+          persistencia
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? ““La nube no usa disco”."
+    pregunta: ¿Es recomendable en esta lección? ““La nube no usa disco”."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Contrastar memoria principal y almacenamiento secundario; explicar
           filesystem, bloques y por qué `readFile` puede costar más que millones
-          d…
+          de sumas en CPU.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. `ram-vs-disco.md`
+    titulo: Experimento
     xp: 10
     cuerpo: >-
-      Secciones:
-
-
-      - Comparación RAM vs disco (velocidad, tamaño, costo, volatilidad).
-
-      - Qué ocurre cuando guardas un archivo desde Node (`writeFileSync`
-      conceptual).
-
-      - **Swap**: qué es y por qué puede hacer todo lento (párrafo).
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Experimento
-    xp: 10
-    cuerpo: |-
-      ```js
-      // projects/m05-como-corre/read-twice.mjs
-      import { readFileSync } from "node:fs";
-      const p = "package.json"; // o un archivo grande que tengas
-      console.time("read1");
-      readFileSync(p);
-      console.timeEnd("read1");
-      console.time("read2");
-      readFileSync(p);
-      console.timeEnd("read2");
-      ```
+      Ejecuta desde raíz del repo. ¿Segunda lectura más rápida? Explica con page
+      cache.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -135,11 +135,11 @@ pasos:
       - '`ram-vs-disco.md` completo con experimento read-twice interpretado.'
       - Explicas swap y page cache sin confundirlos.
       - '`diagrama.md` actualizado con jerarquía.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L07 — Disco vs RAM y persistencia
 

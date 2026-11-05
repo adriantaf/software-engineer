@@ -8,22 +8,27 @@ semana: 1
 lectura: 'Rosen Cap. 1.4–1.5 — predicados, ∀, ∃, dominio, negación de cuantificadores'
 evidencia: apuntes/predicados.md + 5 enunciados ∀/∃ traducidos ES ↔ lógica
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Traducir enunciados del español a ∀/∃ con dominio explícito;
-      negar cuantificadores correctamente; reconocer orden de cuantificadores.
-
-
       La lógica proposicional no alcanza para “todo entero” o “existe un x tal
       que…”. Entran **predicados** y cuantificadores.
+
+
+      **Objetivo de esta lección:** Traducir enunciados del español a ∀/∃ con
+      dominio explícito; negar cuantificadores correctamente; reconocer orden de
+      cuantificadores.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Predicados y dominio
+    titulo: Predicados y dominio
     xp: 10
     cuerpo: |-
       ```ts
@@ -35,34 +40,51 @@ pasos:
         return xs.some(p);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Predicados y cuantificadores" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: apuntes/predicados.md + 5 enunciados ∀/∃ traducidos ES ↔ lógica
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Traducciones bidireccionales
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function todos<T>(xs: T[], p: (x: T) => boolean): boolean {
+        return xs.every(p);
+      }
+
+      export function existe<T>(xs: T[], p: (x: T) => boolean): boolean {
+        return xs.some(p);
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Predicados y cuantificadores», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          `predicados.md` tiene 5 traducciones con dominio y 2 negaciones
+          trabajadas.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Predicados y
+          cuantificadores
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Olvidar el dominio (“para todo x” sin
+      ¿Es recomendable en esta lección? “Olvidar el dominio (“para todo x” sin
       decir de dónde es x)."
     opciones:
       - id: t
@@ -70,55 +92,36 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Traducir enunciados del español a ∀/∃ con dominio explícito; negar
           cuantificadores correctamente; reconocer orden de cuantificadores.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Traducciones bidireccionales
-    xp: 10
-    cuerpo: |-
-      Escribe **5 pares** (español ↔ fórmula). Incluye al menos:
-
-      1. ∀ sobre enteros (ej. “todo entero mayor que 1…”).
-      2. ∃ sobre reales o enteros.
-      3. ∀∃ (para todo … existe …).
-      4. ∃∀ (existe … tal que para todo …).
-      5. Negación de un cuantificador (ej. “no todos…” ↔ ∃…¬).
-
-      Siempre declara `D` en cada enunciado.
   - id: s7
     tipo: explicacion
-    titulo: 3. Negaciones
+    titulo: Negaciones
     xp: 10
     cuerpo: >-
-      Reglas (demuestra con equivalencia o ejemplo):
-
-
-      - ¬(∀x P(x)) ↔ ∃x ¬P(x)
-
-      - ¬(∃x P(x)) ↔ ∀x ¬P(x)
-
-
-      Aplica a **2** enunciados del paso 2: escribe la negación en español y en
-      fórmula.
+      Reglas (demuestra con equivalencia o ejemplo): - ¬(∀x P(x)) ↔ ∃x ¬P(x) -
+      ¬(∃x P(x)) ↔ ∀x ¬P(x) Aplica a **2** enunciados del paso 2: escribe la
+      negación en español y en fórmula.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -129,11 +132,11 @@ pasos:
         trabajadas.
       - '`todos` / `existe` tienen tests en un dominio finito.'
       - Distingues ∀∃ de ∃∀ con un ejemplo donde el significado cambia.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L03 — Predicados y cuantificadores
 

@@ -14,91 +14,100 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Entregar documento `refactor-p2.md` con objetivos, diff
-      representativo y métricas cualitativas (líneas, complejidad, nombres).
-
-
       La práctica **P2** exige evidencia: no solo código bonito, sino
       **historia** del cambio.
+
+
+      **Objetivo de esta lección:** Entregar documento `refactor-p2.md` con
+      objetivos, diff representativo y métricas cualitativas (líneas,
+      complejidad, nombres).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Baseline
+    titulo: Baseline
     xp: 10
     cuerpo: |-
       ```bash
       git log --oneline -5
       git diff pre-refactor-semana1..HEAD --stat
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      Si no tienes tag, compara commit de L04 vs actual.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Redactar `refactor-p2.md`
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add refactor-p2.md
+      git commit -m "docs(m06): evidencia refactor P2 codigo limpio"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "Refactor documentado (P2)" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «Refactor documentado (P2)», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: >-
-          refactor-p2.md con antes/después + diff; commit refactor(m06): P2
-          codigo limpio
+        texto: '`refactor-p2.md` completo con diff real.'
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Refactor documentado
+          (P2)
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `git log --oneline -5`
     comandoEsperado:
       - git log --oneline -5
+      - git diff pre-refactor-semana1..HEAD --stat
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: git log --oneline -5'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Entregar documento `refactor-p2.md` con objetivos, diff representativo
           y métricas cualitativas (líneas, complejidad, nombres).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Redactar `refactor-p2.md`
-    xp: 10
-    cuerpo: |-
-      Secciones:
-
-      - Motivación (CC + SOLID).
-      - Capturas o bloques `diff` de 2–3 archivos clave.
-      - Tabla: olor → técnica → resultado.
-      - Checklist CC aplicado.
   - id: s7
     tipo: explicacion
-    titulo: 3. Pulido final
+    titulo: Pulido final
     xp: 10
     cuerpo: Última pasada nombres/funciones. Elimina dead code.
   - id: s8
@@ -109,11 +118,11 @@ pasos:
       - '`refactor-p2.md` completo con diff real.'
       - Código actual refleja nombres y funciones pequeñas.
       - Tests verdes.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L08 — Refactor documentado (P2)
 

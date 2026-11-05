@@ -8,23 +8,27 @@ semana: 5
 lectura: 'Rosen Cap. 10.3 — BFS, distancias en grafos no ponderados'
 evidencia: src/bfs.ts + tests con ejemplo.json + traza en apuntes
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar BFS desde un vértice origen; devolver orden de
-      visita y distancias; probar en `ejemplo.json` y en un grafo donde BFS ≠
-      DFS.
-
-
       BFS explora por capas; en grafos no ponderados da distancia en número de
       aristas.
+
+
+      **Objetivo de esta lección:** Implementar BFS desde un vértice origen;
+      devolver orden de visita y distancias; probar en `ejemplo.json` y en un
+      grafo donde BFS ≠ DFS.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Algoritmo en papel
+    titulo: Algoritmo en papel
     xp: 10
     cuerpo: |-
       ```ts
@@ -40,67 +44,12 @@ pasos:
         throw new Error("implementar");
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Búsqueda en anchura (BFS)" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: src/bfs.ts + tests con ejemplo.json + traza en apuntes
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Usar pila en lugar de cola (eso es
-      DFS)."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Implementar BFS desde un vértice origen; devolver orden de visita y
-          distancias; probar en `ejemplo.json` y en un grafo donde BFS ≠ DFS.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Implementación
+    tipo: ejemplo
+    titulo: Implementación
     xp: 10
     cuerpo: >-
-      `src/bfs.ts`:
-
-
       ```ts
 
       import type { Grafo } from "./graph";
@@ -120,18 +69,69 @@ pasos:
       ```
 
 
-      Tests:
-
-
-      - Orden y distancias en grafo línea `A-B-C-D`.
-
-      - Origen inexistente → error claro.
-
-      - Grafo desconexo: nodos no alcanzables ausentes en `distancia` o con ∞
-      (documenta convención).
+      `src/bfs.ts`: Tests: - Orden y distancias en grafo línea `A-B-C-D`. -
+      Origen inexistente → error claro. - Grafo desconexo: nodos no alcanzables
+      ausentes en `distancia` o con ∞ (documenta convención).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Búsqueda en anchura (BFS)», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`bfs` pasa tests en al menos dos grafos.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Búsqueda en anchura
+          (BFS)
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? “Usar pila en lugar de cola (eso es
+      DFS)."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Implementar BFS desde un vértice origen; devolver orden de visita y
+          distancias; probar en `ejemplo.json` y en un grafo donde BFS ≠ DFS.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Traza manual
+    titulo: Traza manual
     xp: 10
     cuerpo: >-
       En `ejemplo.json`, ejecuta BFS desde `A` a mano (tabla paso a paso) y
@@ -144,11 +144,11 @@ pasos:
       - '`bfs` pasa tests en al menos dos grafos.'
       - Traza manual coincide con código para un origen.
       - Explicas cuándo BFS encuentra camino más corto en aristas.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L19 — Búsqueda en anchura (BFS)
 

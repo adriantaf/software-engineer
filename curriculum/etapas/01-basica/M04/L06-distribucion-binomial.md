@@ -12,23 +12,29 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar “n Bernoullis” y calcular P(X = k) con
-      coeficiente binomial para n ≤ 20; interpretar n como tamaño de muestra de
-      usuarios.
-
-
       Cuentas éxitos en n ensayos independientes: simulas Binomial(n,p) y
       contrastas con la PMF teórica en un caso pequeño.
+
+
+      **Objetivo de esta lección:** Implementar “n Bernoullis” y calcular P(X =
+      k) con coeficiente binomial para n ≤ 20; interpretar n como tamaño de
+      muestra de usuarios.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Simulación
+    titulo: Simulación
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
       ```ts
+
       import { bernoulli } from "./bernoulli";
+
 
       export function binomial(n: number, p: number): number {
         let s = 0;
@@ -36,60 +42,78 @@ pasos:
         return s;
       }
 
+
       export function factorial(n: number): number {
         let f = 1;
         for (let i = 2; i <= n; i++) f *= i;
         return f;
       }
 
+
       export function pmfBinomial(n: number, p: number, k: number): number {
         const comb = factorial(n) / (factorial(k) * factorial(n - k));
         return comb * Math.pow(p, k) * Math.pow(1 - p, n - k);
       }
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      `src/binomial.ts`: Histograma manual: 10_000 valores de `binomial(20,
+      0.3)` agrupados por k.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Distribución binomial: fórmula vs simulación" como hecha,
-      ¿qué cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m04-stats/src/binomial.ts + notas/binomial-ab-test.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: A/B sin heroísmo
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m04): binomial sim y PMF L06"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Método
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Distribución binomial: fórmula vs simulación», ¿qué demuestra
+      que cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Simulación + al menos un k con PMF teórica comparada.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Distribución binomial:
+          fórmula vs simul…
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Práctica deliberada
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      Debes producir algo verificable (código, nota, commit) además de leer,
-      antes de dar la lección por hecha.
+      Además de leer, debes producir algo verificable (código, nota, commit o
+      ejercicio) antes de dar la lección por hecha.
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: t
-    explicacionError: 'Verdadero: práctica deliberada + evidencia.'
+    explicacionError: 'Verdadero: sin evidencia no hay progreso real.'
     explicacionOk: Exacto.
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
@@ -97,23 +121,15 @@ pasos:
           binomial para n ≤ 20; interpretar n como tamaño de muestra de
           usuarios.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. A/B sin heroísmo
-    xp: 10
-    cuerpo: >-
-      `notas/binomial-ab-test.md`: “100 usuarios, 12 conversiones en A vs 15 en
-      B” — ¿qué puedes decir **sin** aún hacer test formal? (Solo tamaño de
-      efecto y cautela.)
   - id: s7
     tipo: explicacion
-    titulo: 3. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: 'Walpole: Binomial. OpenStax: binomial distribution.'
   - id: s8
@@ -124,11 +140,11 @@ pasos:
       - Simulación + al menos un k con PMF teórica comparada.
       - Nota A/B cautelosa.
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L06 — Distribución binomial: fórmula vs simulación
 

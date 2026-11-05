@@ -8,22 +8,26 @@ semana: 4
 lectura: MDN fetch + API pública JSON (ej. GitHub o JSONPlaceholder)
 evidencia: src/async/fetch-ejemplo.ts con tipado de respuesta
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Script que descarga datos, los resume en consola y falla con
-      mensaje si la red o el status fallan.
-
-
       No toda la data vive en tu disco. Fetch es el puente hacia servicios
       reales e IA APIs más adelante.
+
+
+      **Objetivo de esta lección:** Script que descarga datos, los resume en
+      consola y falla con mensaje si la red o el status fallan.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Tipos de respuesta
+    titulo: Tipos de respuesta
     xp: 10
     cuerpo: >-
       ```ts
@@ -45,70 +49,90 @@ pasos:
       }
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      `src/async/github-user.ts` (ejemplo):
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "fetch y APIs JSON" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: src/async/fetch-ejemplo.ts con tipado de respuesta
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: CLI opcional `import`
+    xp: 10
+    cuerpo: >-
+      ```ts
+
+      export interface GithubUser {
+        login: string;
+        id: number;
+        public_repos: number;
+      }
+
+
+      export async function fetchGithubUser(login: string): Promise<GithubUser>
+      {
+        const res = await fetch(`https://api.github.com/users/${login}`);
+        if (!res.ok) {
+          throw new Error(`GitHub respondió ${res.status}`);
+        }
+        return (await res.json()) as GithubUser;
+      }
+
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «fetch y APIs JSON», ¿qué demuestra que cumpliste el criterio
+      mínimo?
+    opciones:
+      - id: a
+        texto: Script async descarga y muestra datos tipados.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de fetch y APIs JSON
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “`as Tipo` sin validar forma del
-      JSON."
+    pregunta: ¿Es recomendable en esta lección? “`as Tipo` sin validar forma del JSON."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Script que descarga datos, los resume en consola y falla con mensaje
           si la red o el status fallan.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. CLI opcional `import`
-    xp: 10
-    cuerpo: >-
-      Comando experimental `npx tsx src/cli.ts quote` que usa
-      [JSONPlaceholder](https://jsonplaceholder.typicode.com/) o similar — solo
-      si no complica demasiado; si no, deja script aparte.
   - id: s7
     tipo: explicacion
-    titulo: 3. MDN fetch
+    titulo: MDN fetch
     xp: 10
     cuerpo: Lee MDN *Using fetch* (ES o EN).
   - id: s8
@@ -121,11 +145,13 @@ pasos:
       - >-
         Commit con evidencia de ejecución (salida pegada en bitácora, no
         secretos).
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — fetch y APIs JSON
 

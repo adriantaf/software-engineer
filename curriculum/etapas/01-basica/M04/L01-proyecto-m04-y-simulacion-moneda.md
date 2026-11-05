@@ -14,99 +14,43 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear `projects/m04-stats/`, simular 10_000 lanzamientos de
-      moneda en TypeScript y documentar en tus palabras la ley de los grandes
-      números.
-
-
       En producto y en SRE ves **muestras** (clics, errores, latencias). Sin
       simular primero, las fórmulas del libro suenan abstractas. Hoy conectas
       `Math.random()` con una pregunta real: “¿qué tan seguro estoy de esta
       proporción?”.
+
+
+      **Objetivo de esta lección:** Crear `projects/m04-stats/`, simular 10_000
+      lanzamientos de moneda en TypeScript y documentar en tus palabras la ley
+      de los grandes números.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Carpeta de evidencia
-    xp: 10
-    cuerpo: |-
-      ```ts
-      export type CaraCruz = "cara" | "cruz";
-
-      export function lanzar(): CaraCruz {
-        return Math.random() < 0.5 ? "cara" : "cruz";
-      }
-
-      export function estimarP(n: number): { caras: number; p: number } {
-        let caras = 0;
-        for (let i = 0; i < n; i++) if (lanzar() === "cara") caras++;
-        return { caras, p: caras / n };
-      }
-      ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Proyecto M04 y simulación de moneda" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: >-
-          projects/m04-stats/src/sim-moneda.ts + notas/ley-grandes-numeros.md
-          commiteados
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `mkdir -p projects/m04-stats/src projects/m04-stats/notas`
-    comandoEsperado:
-      - mkdir -p projects/m04-stats/src projects/m04-stats/notas
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: mkdir -p projects/m04-stats/src projects/m04-stats/notas'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Crear `projects/m04-stats/`, simular 10_000 lanzamientos de moneda en
-          TypeScript y documentar en tus palabras la ley de los grandes números.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Proyecto TS mínimo
+    titulo: Carpeta de evidencia
     xp: 10
     cuerpo: >-
-      Si aún no tienes `package.json` en `m04-stats`:
+      ```bash
+
+      mkdir -p projects/m04-stats/src projects/m04-stats/notas
+
+      ```
 
 
+      Desde la raíz del repo: Lee el checklist en
+      [`projects/m04-stats/README.md`](../../../../projects/m04-stats/README.md).
+      Es tu mapa de P1–P3 y del informe.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Proyecto TS mínimo
+    xp: 10
+    cuerpo: >-
       ```bash
 
       cd projects/m04-stats
@@ -120,51 +64,75 @@ pasos:
       ```
 
 
-      En `src/sim-moneda.ts`:
-
-
-      ```ts
-
-      export type CaraCruz = "cara" | "cruz";
-
-
-      export function lanzar(): CaraCruz {
-        return Math.random() < 0.5 ? "cara" : "cruz";
-      }
-
-
-      export function estimarP(n: number): { caras: number; p: number } {
-        let caras = 0;
-        for (let i = 0; i < n; i++) if (lanzar() === "cara") caras++;
-        return { caras, p: caras / n };
-      }
-
-      ```
-
-
+      Si aún no tienes `package.json` en `m04-stats`: En `src/sim-moneda.ts`:
       Ejecuta con `npx tsx src/sim-moneda.ts` (añade un `console.log` temporal o
       un pequeño `main`).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Proyecto M04 y simulación de moneda», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: 'Marca la lección solo si:'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Proyecto M04 y
+          simulación de moneda
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: terminal
+    titulo: Reto de terminal
+    xp: 15
+    enunciado: |-
+      Escribe el comando de práctica de esta lección:
+
+      `mkdir -p projects/m04-stats/src projects/m04-stats/notas`
+    comandoEsperado:
+      - mkdir -p projects/m04-stats/src projects/m04-stats/notas
+      - cd projects/m04-stats
+    pistas:
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
+    explicacionError: 'Esperado: mkdir -p projects/m04-stats/src projects/m04-stats/notas'
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear `projects/m04-stats/`, simular 10_000 lanzamientos de moneda en
+          TypeScript y documentar en tus palabras la ley de los grandes números.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Experimento 100 vs 10_000
+    titulo: Experimento 100 vs 10_000
     xp: 10
     cuerpo: >-
       Compara `estimarP(100)` y `estimarP(10_000)` varias veces (bucle o
-      script). Anota en una tabla:
-
-
-      | n | p̂ (cara) | |p̂ − 0.5| |
-
-      |---|----------|-----------|
-
-      | 100 | | |
-
-      | 10_000 | | |
-
-
-      **Pregunta de producto:** si un feature tiene 52% de conversión con 80
-      usuarios, ¿es “mejor” que 50%? (Aún no hagas inferencia formal; solo
-      intuición.)
+      script). Anota en una tabla: | n | p̂ (cara) | |p̂ − 0.5| |
+      |---|----------|-----------| | 100 | | | | 10_000 | | | **Pregunta de
+      producto:** si un feature tiene 52% de conversión con 80 usuarios, ¿es
+      “mejor” que 50%? (Aún no hagas inferencia formal; solo intuición.)
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -179,11 +147,11 @@ pasos:
         Existe `notas/ley-grandes-numeros.md` con al menos un párrafo aplicado a
         producto.
       - Hay commit en git con esos archivos.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Proyecto M04 y simulación de moneda
 

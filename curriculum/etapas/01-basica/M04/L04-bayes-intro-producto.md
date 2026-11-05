@@ -12,18 +12,23 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Calcular un posterior P(causa|evidencia) con números
-      concretos y explicar por qué el prior importa en alertas de monitoring.
-
-
       Aplicas el teorema de Bayes en un mini escenario (spam, fraude o
       diagnóstico de bug) y cierras la semana 1 con evidencia P1 casi lista.
+
+
+      **Objetivo de esta lección:** Calcular un posterior P(causa|evidencia) con
+      números concretos y explicar por qué el prior importa en alertas de
+      monitoring.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Ejemplo numérico clásico
+    titulo: Ejemplo numérico clásico
     xp: 10
     cuerpo: |-
       ```ts
@@ -37,64 +42,10 @@ pasos:
         return (pEH * pH) / pE;
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Bayes intro para decisiones de producto" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m04-stats/src/bayes-spam.ts + notas/bayes-producto.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: quiz
-    titulo: Error común
-    xp: 15
-    variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Ignorar el prior cuando la evidencia
-      es rara pero dramática."
-    opciones:
-      - id: t
-        texto: Verdadero
-      - id: f
-        texto: Falso
-    respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
-    opciones:
-      - id: a
-        texto: >-
-          Calcular un posterior P(causa|evidencia) con números concretos y
-          explicar por qué el prior importa en alertas de monitoring.
-      - id: b
-        texto: Instalar herramientas al azar sin evidencia
-      - id: c
-        texto: Saltar a otra materia sin terminar esta
-    respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
-    explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. `src/bayes-spam.ts`
+    tipo: ejemplo
+    titulo: '`src/bayes-spam.ts`'
     xp: 10
     cuerpo: |-
       ```ts
@@ -110,15 +61,68 @@ pasos:
       ```
 
       Exporta el ejemplo numérico como test o `console.assert` aproximado.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
+    tipo: quiz
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Bayes intro para decisiones de producto», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`bayes-spam.ts` implementa `bayes` y un ejemplo numérico verificado.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Bayes intro para
+          decisiones de producto
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
+    xp: 15
+    variante: verdadero_falso
+    pregunta: >-
+      ¿Es recomendable en esta lección? “Ignorar el prior cuando la evidencia es
+      rara pero dramática."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
+    tipo: quiz
+    titulo: Foco (dificultad media)
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
+    opciones:
+      - id: a
+        texto: >-
+          Calcular un posterior P(causa|evidencia) con números concretos y
+          explicar por qué el prior importa en alertas de monitoring.
+      - id: b
+        texto: Saltar a otra materia dejando esta a medias
+      - id: c
+        texto: Memorizar el índice del libro sin practicar
+    respuesta: a
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
+    explicacionOk: Correcto.
   - id: s7
     tipo: explicacion
-    titulo: 3. Traducción a producto
+    titulo: Traducción a producto
     xp: 10
-    cuerpo: |-
-      `notas/bayes-producto.md`:
-
-      ```markdown
-      Bayes en alertas
+    cuerpo: '`notas/bayes-producto.md`: ```markdown # Bayes en alertas'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -128,11 +132,11 @@ pasos:
       - Nota con escenario de alertas y decisión.
       - Evidencia P1 revisada (moneda + segundo experimento + texto).
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L04 — Bayes intro para decisiones de producto
 

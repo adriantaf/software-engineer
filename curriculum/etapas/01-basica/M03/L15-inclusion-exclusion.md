@@ -8,22 +8,27 @@ semana: 4
 lectura: Rosen Cap. 6.2 — inclusión-exclusión para dos y tres conjuntos
 evidencia: conteo.md problema |A∪B| + demo o cálculo verificado
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Aplicar `|A ∪ B| = |A| + |B| − |A ∩ B|` y la versión de tres
-      conjuntos; resolver un problema de conteo con intersección no vacía.
-
-
       Cuando los casos **no** son disjuntos, la regla de la suma falla;
       inclusion-exclusión corrige el doble conteo.
+
+
+      **Objetivo de esta lección:** Aplicar `|A ∪ B| = |A| + |B| − |A ∩ B|` y la
+      versión de tres conjuntos; resolver un problema de conteo con intersección
+      no vacía.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Fórmulas
+    titulo: Fórmulas
     xp: 10
     cuerpo: |-
       ```ts
@@ -35,34 +40,49 @@ pasos:
         return union(a, b).size;
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Principio de inclusión-exclusión" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: conteo.md problema |A∪B| + demo o cálculo verificado
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Problema tipo encuesta
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function cardinalidad<T>(a: Set<T>): number {
+        return a.size;
+      }
+
+      export function unionSize<T>(a: Set<T>, b: Set<T>): number {
+        return union(a, b).size;
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Principio de inclusión-exclusión», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Problema resuelto con fórmula 2 o 3 conjuntos y Venn.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Principio de
+          inclusión-exclusión
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Sumar `|A|` y `|B|` sin restar
+      ¿Es recomendable en esta lección? “Sumar `|A|` y `|B|` sin restar
       intersección."
     opciones:
       - id: t
@@ -70,48 +90,35 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Aplicar `|A ∪ B| = |A| + |B| − |A ∩ B|` y la versión de tres
           conjuntos; resolver un problema de conteo con intersección no vacía.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Problema tipo encuesta
+    titulo: Con conjuntos en código
     xp: 10
     cuerpo: >-
-      Ejemplo clásico: estudiantes que estudian idioma A, idioma B, ambos —
-      calcula solo A, solo B, ninguno si te dan totales. Adapta números propios;
-      muestra cada región del Venn.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Con conjuntos en código
-    xp: 10
-    cuerpo: |-
-      ```ts
-      export function cardinalidad<T>(a: Set<T>): number {
-        return a.size;
-      }
-
-      export function unionSize<T>(a: Set<T>, b: Set<T>): number {
-        return union(a, b).size;
-      }
-      ```
+      Usa `sets.ts` con universo finito etiquetado: Verifica numéricamente tu
+      problema del paso 2.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -120,11 +127,11 @@ pasos:
       - Problema resuelto con fórmula 2 o 3 conjuntos y Venn.
       - Verificación con `Set` en TS coincide con el cálculo a mano.
       - Explicas qué se “resta dos veces” sin inclusion-exclusión.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — Principio de inclusión-exclusión
 

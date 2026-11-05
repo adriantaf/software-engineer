@@ -12,89 +12,128 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Ampliar `projects/m05-como-corre/README.md` (o
-      `COMO-CORRE.md`) describiendo el camino desde `node cli.js` hasta el
+      Integras arquitectura, memoria y representación en un relato técnico: de
+      la tecla Enter al output en terminal.
+
+
+      **Objetivo de esta lección:** Ampliar `projects/m05-como-corre/README.md`
+      (o `COMO-CORRE.md`) describiendo el camino desde `node cli.js` hasta el
       output, con procesos, memoria y syscalls a nivel conceptual; cerrar M05
       con autoevaluación.
 
 
-      Integras arquitectura, memoria y representación en un relato técnico: de
-      la tecla Enter al output en terminal.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Elige un CLI real
+    titulo: Elige un CLI real
+    xp: 10
+    cuerpo: >-
+      ```bash
+
+      node -e "console.log(process.version)"
+
+      ```
+
+
+      Usa un script tuyo de M02 (`projects/m02-habits/` o similar) o: Debe ser
+      un comando que puedas repetir mientras observas el SO.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Redacta el documental
     xp: 10
     cuerpo: |-
       ```bash
       node -e "console.log(process.version)"
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Documental “cómo corre node” y cierre», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          README del proyecto describe el camino completo `node` → output con
+          secciones pedidas.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Documental “cómo corre
+          node” y cierre
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Foco (dificultad media)
     xp: 15
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Documental “cómo corre node” y cierre" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: projects/m05-como-corre/README ampliado (proyecto) + checklist M05
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
-    tipo: terminal
-    titulo: Comando clave
-    xp: 15
-    enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
-
-      `node -e "console.log(process.version)"`
-    comandoEsperado:
-      - node -e "console.log(process.version)"
-    pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
-    explicacionError: 'Esperado: node -e "console.log(process.version)"'
-  - id: s5
-    tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
-    variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Ampliar `projects/m05-como-corre/README.md` (o `COMO-CORRE.md`)
           describiendo el camino desde `node cli.js` hasta el output, con
-          procesos, m…
+          procesos, memoria y syscalls a…
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
   - id: s6
-    tipo: explicacion
-    titulo: 2. Redacta el documental
+    tipo: quiz
+    titulo: Segundo error común
     xp: 10
-    cuerpo: |-
-      Estructura mínima del README del proyecto:
-
-      ```markdown
-      Cómo corre mi CLI
+    variante: verdadero_falso
+    pregunta: ¿Debes hacer esto? “Olvidar syscalls/E/S al hablar solo de CPU."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: No — es otro anti-patrón de la lección.
+    explicacionOk: Bien.
   - id: s7
+    tipo: proyecto
+    titulo: Proyecto de cierre · M05
+    xp: 25
+    enunciado: >-
+      Cierra **Organización de computadoras** con evidencia real en el repo.
+      Marca la rúbrica solo si puedes demostrar cada criterio (si no está en
+      git, no cuenta).
+    entregables:
+      - 'P1: Diagrama CPU–memoria–I/O con tus palabras'
+      - 'P2: Ejercicios de representación binaria / enteros / floats (intro)'
+      - 'P3: Medir tiempo de un programa y relacionarlo con caché/IO'
+      - 'Proyecto: Mini-documental técnico (escrito) de cómo corre tu CLI'
+      - projects/m05-como-corre/README ampliado (proyecto) + checklist M05
+    rubrica:
+      - id: r1
+        criterio: >-
+          README del proyecto describe el camino completo `node` → output con
+          secciones pedidas.
+      - id: r2
+        criterio: Enlaces a evidencias L01–L11.
+      - id: r3
+        criterio: >-
+          Commit final; puedes explicar RAM vs disco y por qué más hilos no
+          siempre ayuda.
+  - id: s8
     tipo: resumen
     titulo: Cierre
     xp: 10
@@ -106,11 +145,11 @@ pasos:
       - >-
         Commit final; puedes explicar RAM vs disco y por qué más hilos no
         siempre ayuda.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M05 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Documental “cómo corre `node`” y cierre
 

@@ -14,13 +14,9 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Explicar direccionamiento, palabra, endianness a alto nivel,
-      y cómo el SO asigna espacio de direcciones a un proceso.
-
-
       - **Byte addressable** vs acceso por palabra.
 
       - **Espacio de direcciones** (32 vs 64 bits) a nivel intuitivo.
@@ -29,9 +25,18 @@ pasos:
       hardware.
 
       - **Stack vs heap** en el mapa de un proceso (vista de programador).
+
+
+      **Objetivo de esta lección:** Explicar direccionamiento, palabra,
+      endianness a alto nivel, y cómo el SO asigna espacio de direcciones a un
+      proceso.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Lectura
+    titulo: Lectura
     xp: 10
     cuerpo: |-
       ```js
@@ -39,34 +44,47 @@ pasos:
       const arr = new Array(1_000_000).fill(0);
       console.log("array creado");
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Memoria principal y direccionamiento" como hecha, ¿qué cuenta
-      de verdad?
-    opciones:
-      - id: a
-        texto: projects/m05-como-corre/memoria-direccionamiento.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: '`memoria-direccionamiento.md`'
+    xp: 10
+    cuerpo: |-
+      ```js
+      // projects/m05-como-corre/mem-size.mjs
+      const arr = new Array(1_000_000).fill(0);
+      console.log("array creado");
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Memoria principal y direccionamiento», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          Existe `memoria-direccionamiento.md` con tabla y notas del
+          experimento.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Memoria principal y
+          direccionamiento
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Decir “1 GB de RAM = 1e9 bytes” sin
+      ¿Es recomendable en esta lección? “Decir “1 GB de RAM = 1e9 bytes” sin
       mencionar binario vs decimal."
     opciones:
       - id: t
@@ -74,43 +92,35 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Explicar direccionamiento, palabra, endianness a alto nivel, y cómo el
           SO asigna espacio de direcciones a un proceso.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. `memoria-direccionamiento.md`
+    titulo: Experimento Node
     xp: 10
     cuerpo: >-
-      Tabla: concepto → definición → ejemplo en Node/TS (ej.: `Buffer`,
-      `ArrayBuffer`, referencias a objetos en heap).
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Experimento Node
-    xp: 10
-    cuerpo: |-
-      ```js
-      // projects/m05-como-corre/mem-size.mjs
-      const arr = new Array(1_000_000).fill(0);
-      console.log("array creado");
-      ```
+      Observa memoria con `free -h` antes/después (orden de magnitud).
+      Documenta: ¿crece RSS? ¿por qué no es exacto?
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -121,11 +131,11 @@ pasos:
       - >-
         Distinguiste stack y heap con un ejemplo de variables locales vs
         objetos.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Memoria principal y direccionamiento
 

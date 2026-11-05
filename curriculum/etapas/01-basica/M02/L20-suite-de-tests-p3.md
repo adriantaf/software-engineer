@@ -8,49 +8,61 @@ semana: 5
 lectura: Vitest — matchers y casos borde
 evidencia: npm test verde con ≥10 tests de dominio (habits + reportes)
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Cobertura de validación, parse, reportes y funciones sobre
-      `Habito[]` — tests rápidos y deterministas.
-
-
       La evidencia P3 es binaria: `npm test` verde y conteo ≥10. La CLI
       confiable se sostiene aquí.
+
+
+      **Objetivo de esta lección:** Cobertura de validación, parse, reportes y
+      funciones sobre `Habito[]` — tests rápidos y deterministas.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Inventario de funciones puras
+    titulo: Inventario de funciones puras
     xp: 10
     cuerpo: 'Lista en `TESTING.md` qué funciones merecen test (dominio, no `main`).'
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Suite de tests (P3)" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: npm test verde con ≥10 tests de dominio (habits + reportes)
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Ampliar suite
+    xp: 10
+    cuerpo: >-
+      Apunta a ≥10 tests totales, por ejemplo: - `parseArgv` (3+) -
+      `validarNombreHabito` (3+) - `formatearReporte` / `totalMarcados` (4+) Usa
+      `describe` por módulo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Suite de tests (P3)», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`npm test` → ≥10 tests passing.'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Suite de tests (P3)
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Tests que leen `habits.json` real
+      ¿Es recomendable en esta lección? “Tests que leen `habits.json` real
       (frágiles)."
     opciones:
       - id: t
@@ -58,41 +70,31 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Cobertura de validación, parse, reportes y funciones sobre `Habito[]`
           — tests rápidos y deterministas.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Ampliar suite
-    xp: 10
-    cuerpo: |-
-      Apunta a ≥10 tests totales, por ejemplo:
-
-      - `parseArgv` (3+)
-      - `validarNombreHabito` (3+)
-      - `formatearReporte` / `totalMarcados` (4+)
-
-      Usa `describe` por módulo.
   - id: s7
     tipo: explicacion
-    titulo: 3. Casos borde
+    titulo: Casos borde
     xp: 10
     cuerpo: >-
       Nombre vacío, JSON de reporte con `items: []`, hábito sin completados en
@@ -105,11 +107,13 @@ pasos:
       - '`npm test` → ≥10 tests passing.'
       - '`TESTING.md` o README explica qué cubre cada grupo.'
       - Listo para marcar P3 en la ficha con evidencia.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — Suite de tests (P3)
 

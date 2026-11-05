@@ -8,22 +8,26 @@ semana: 4
 lectura: EJ cap. 11 (asíncrono) — callbacks y Promises
 evidencia: src/async/delay.ts + demo secuencia con .then
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Escribir utilidades con Promises y explicar sync vs async en
-      tus propias palabras (bitácora).
-
-
       Fetch, fs y la CLI concurrente comparten el mismo modelo. Sin esto,
       `await` es superstición.
+
+
+      **Objetivo de esta lección:** Escribir utilidades con Promises y explicar
+      sync vs async en tus propias palabras (bitácora).
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Delay y secuencia
+    titulo: Delay y secuencia
     xp: 10
     cuerpo: |-
       ```ts
@@ -44,34 +48,60 @@ pasos:
           });
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `src/async/delay.ts`: Demo con `pasos().then(console.log)`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Promises y el modelo mental async" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: src/async/delay.ts + demo secuencia con .then
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Promisificar lectura
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function delay(ms: number): Promise<void> {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      export function pasos(): Promise<string[]> {
+        const log: string[] = [];
+        return delay(10)
+          .then(() => {
+            log.push("uno");
+            return delay(10);
+          })
+          .then(() => {
+            log.push("dos");
+            return log;
+          });
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Promises y el modelo mental async», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`delay` y `pasos` funcionan; entiendes el orden de impresión.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Promises y el modelo
+          mental async
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Olvidar `return` dentro de `.then`
+      ¿Es recomendable en esta lección? “Olvidar `return` dentro de `.then`
       (cadena rota)."
     opciones:
       - id: t
@@ -79,36 +109,31 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Escribir utilidades con Promises y explicar sync vs async en tus
           propias palabras (bitácora).
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Promisificar lectura
-    xp: 10
-    cuerpo: >-
-      Refactoriza una función sync pequeña a `Promise` manualmente (ej. validar
-      archivo existe) antes de usar solo `fs/promises`.
   - id: s7
     tipo: explicacion
-    titulo: 3. EJ cap. 11 — primera mitad
+    titulo: EJ cap. 11 — primera mitad
     xp: 10
     cuerpo: Lee hasta Promises; **1 ejercicio** del capítulo.
   - id: s8
@@ -119,11 +144,13 @@ pasos:
       - '`delay` y `pasos` funcionan; entiendes el orden de impresión.'
       - Nota sync vs async escrita.
       - Sin mezclar callbacks y Promises en el mismo flujo sin razón.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — Promises y el modelo mental async
 

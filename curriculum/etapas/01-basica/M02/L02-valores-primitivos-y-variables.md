@@ -8,23 +8,27 @@ semana: 1
 lectura: EJ cap. 2 (estructura del programa) + TS Handbook Basic Types
 evidencia: src/tipos-basicos.ts con ejemplos + 3 katas fáciles en src/katas/
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Escribir un módulo de referencia con tipos primitivos,
-      inferencia cuando aporta claridad, y resolver 3 katas cortas en TypeScript
-      strict.
-
-
       Los bugs de “¿qué tipo es esto?” aparecen en APIs, JSON y CLI. Nombrar
       tipos desde el día 1 te ahorra `any` disfrazado.
+
+
+      **Objetivo de esta lección:** Escribir un módulo de referencia con tipos
+      primitivos, inferencia cuando aporta claridad, y resolver 3 katas cortas
+      en TypeScript strict.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Módulo de referencia
+    titulo: Módulo de referencia
     xp: 10
     cuerpo: >-
       ```ts
@@ -48,47 +52,80 @@ pasos:
       export let ultimoError: string | null = null;
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      Crea `src/tipos-basicos.ts`: Demuestra con `src/tipos-basicos-demo.ts` que
+      importa y hace `console.log` de dos casos.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Valores, primitivos y variables" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: src/tipos-basicos.ts con ejemplos + 3 katas fáciles en src/katas/
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Inferencia vs anotación
+    xp: 10
+    cuerpo: >-
+      ```ts
+
+      export const PI_APROX: number = 3.14159;
+
+      export let contadorSesion = 0;
+
+
+      export function esMayorDeEdad(edad: number): boolean {
+        return edad >= 18;
+      }
+
+
+      export function formatearEtiqueta(nombre: string, activo: boolean): string
+      {
+        return activo ? `${nombre} ✓` : nombre;
+      }
+
+
+      export let ultimoError: string | null = null;
+
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Valores, primitivos y variables», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`src/tipos-basicos.ts` compila y usa `const`/`let` con intención.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Valores, primitivos y
+          variables
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Usar `var`."
+    pregunta: ¿Es recomendable en esta lección? “Usar `var`."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
@@ -96,23 +133,15 @@ pasos:
           cuando aporta claridad, y resolver 3 katas cortas en TypeScript
           strict.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Inferencia vs anotación
-    xp: 10
-    cuerpo: >-
-      En `src/inferencia.ts`, tres funciones: inferencia pura, retorno anotado
-      en lógica larga, y un caso donde **debes** anotar (ej. array vacío).
-      Compara con `npx tsc --noEmit`.
   - id: s7
     tipo: explicacion
-    titulo: 3. Tres katas
+    titulo: Tres katas
     xp: 10
     cuerpo: >-
       En `src/katas/` tres archivos (EJ cap. 2 o Codewars 8 kyu):
@@ -126,11 +155,13 @@ pasos:
       - '`src/tipos-basicos.ts` compila y usa `const`/`let` con intención.'
       - Tres katas en `src/katas/`.
       - Explicas en una frase `null` vs `undefined` en TS.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Valores, primitivos y variables
 

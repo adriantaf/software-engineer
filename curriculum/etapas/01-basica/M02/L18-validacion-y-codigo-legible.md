@@ -8,22 +8,26 @@ semana: 5
 lectura: Código limpio caps. 2–3 (nombres; funciones)
 evidencia: refactor nombres en habits + validadores en src/validacion/
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Capa `validacion/` para argumentos CLI y refactor de al
-      menos 3 funciones con nombres que revelan intención.
-
-
       La CLI crece. Sin validación y nombres claros, el archivo principal se
       vuelve inmantenible.
+
+
+      **Objetivo de esta lección:** Capa `validacion/` para argumentos CLI y
+      refactor de al menos 3 funciones con nombres que revelan intención.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Validadores
+    titulo: Validadores
     xp: 10
     cuerpo: |-
       ```ts
@@ -36,34 +40,52 @@ pasos:
         return ok(t);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `src/validacion/habito.ts`: Integra en `add`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Validación y código legible" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: refactor nombres en habits + validadores en src/validacion/
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Lectura Código limpio
+    xp: 10
+    cuerpo: |-
+      ```ts
+      import { err, ok, type Result } from "../tipos/resultado.js";
+
+      export function validarNombreHabito(raw: string): Result<string, string> {
+        const t = raw.trim();
+        if (t.length < 2) return err("el nombre debe tener al menos 2 caracteres");
+        if (t.length > 80) return err("el nombre es demasiado largo");
+        return ok(t);
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Validación y código legible», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`add` usa validador `Result`.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Validación y código
+          legible
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Validar solo en CLI y no en funciones
+      ¿Es recomendable en esta lección? “Validar solo en CLI y no en funciones
       de dominio."
     opciones:
       - id: t
@@ -71,41 +93,36 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Capa `validacion/` para argumentos CLI y refactor de al menos 3
           funciones con nombres que revelan intención.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Lectura Código limpio
-    xp: 10
-    cuerpo: >-
-      Caps. 2–3: anota 5 reglas aplicables a tu CLI en
-      `projects/m02-habits/NOTAS-CC.md`.
   - id: s7
     tipo: explicacion
-    titulo: 3. Refactor
+    titulo: Refactor
     xp: 10
-    cuerpo: |-
-      - Funciones ≤25 líneas donde sea razonable.
-      - Renombra variables de una letra salvo bucles triviales.
-      - Elimina duplicación entre `list` y futuro `stats`.
+    cuerpo: >-
+      - Funciones ≤25 líneas donde sea razonable. - Renombra variables de una
+      letra salvo bucles triviales. - Elimina duplicación entre `list` y futuro
+      `stats`.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -114,11 +131,13 @@ pasos:
       - '`add` usa validador `Result`.'
       - '`NOTAS-CC.md` con reglas propias.'
       - '`done` marca hábito o fecha (mínimo viable).'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L18 — Validación y código legible
 

@@ -8,22 +8,26 @@ semana: 2
 lectura: 'Rosen Cap. 2.2 — unión, intersección, diferencia, complemento (respecto a U)'
 evidencia: 'src/sets.ts con ∪, ∩, \, ⊆, tests Vitest'
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar unión, intersección, diferencia, subconjunto y
-      complemento relativo a un universo `U`; cubrir con tests.
-
-
       Implementas las operaciones que Rosen define y las pruebas contra ejemplos
       finitos.
+
+
+      **Objetivo de esta lección:** Implementar unión, intersección, diferencia,
+      subconjunto y complemento relativo a un universo `U`; cubrir con tests.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Especificación
+    titulo: Especificación
     xp: 10
     cuerpo: |-
       ```ts
@@ -48,107 +52,106 @@ pasos:
         return diferencia(universo, a);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Operaciones conjuntistas en TypeScript" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: 'src/sets.ts con ∪, ∩, \, ⊆, tests Vitest'
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Implementación
+    xp: 10
+    cuerpo: >-
+      ```ts
+
+      export function union<T>(a: Set<T>, b: Set<T>): Set<T> {
+        return new Set([...a, ...b]);
+      }
+
+
+      export function interseccion<T>(a: Set<T>, b: Set<T>): Set<T> {
+        return new Set([...a].filter((x) => b.has(x)));
+      }
+
+
+      export function diferencia<T>(a: Set<T>, b: Set<T>): Set<T> {
+        return new Set([...a].filter((x) => !b.has(x)));
+      }
+
+
+      export function esSubconjunto<T>(a: Set<T>, b: Set<T>): boolean {
+        for (const x of a) if (!b.has(x)) return false;
+        return true;
+      }
+
+
+      export function complemento<T>(a: Set<T>, universo: Set<T>): Set<T> {
+        return diferencia(universo, a);
+      }
+
+      ```
+
+
+      `projects/m03-discretas/src/sets.ts`: Añade `iguales(a,b)` por
+      cardinalidad y doble inclusión si quieres rigor extra.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Operaciones conjuntistas en TypeScript», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`sets.ts` exporta las operaciones listadas y `npm test` pasa.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Operaciones
+          conjuntistas en TypeScript
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Complemento sin universo explícito."
+    pregunta: ¿Es recomendable en esta lección? “Complemento sin universo explícito."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar unión, intersección, diferencia, subconjunto y complemento
           relativo a un universo `U`; cubrir con tests.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Implementación
+    titulo: Tests
     xp: 10
     cuerpo: >-
-      `projects/m03-discretas/src/sets.ts`:
-
-
-      ```ts
-
-      export function union<T>(a: Set<T>, b: Set<T>): Set<T> {
-        return new Set([...a, ...b]);
-      }
-
-
-      export function interseccion<T>(a: Set<T>, b: Set<T>): Set<T> {
-        return new Set([...a].filter((x) => b.has(x)));
-      }
-
-
-      export function diferencia<T>(a: Set<T>, b: Set<T>): Set<T> {
-        return new Set([...a].filter((x) => !b.has(x)));
-      }
-
-
-      export function esSubconjunto<T>(a: Set<T>, b: Set<T>): boolean {
-        for (const x of a) if (!b.has(x)) return false;
-        return true;
-      }
-
-
-      export function complemento<T>(a: Set<T>, universo: Set<T>): Set<T> {
-        return diferencia(universo, a);
-      }
-
-      ```
-
-
-      Añade `iguales(a,b)` por cardinalidad y doble inclusión si quieres rigor
-      extra.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Tests
-    xp: 10
-    cuerpo: |-
-      ```bash
-      npm test
-      ```
+      `sets.test.ts`: al menos 2 casos por función, incluyendo conjuntos vacíos
+      y `U` finito pequeño.
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -157,11 +160,11 @@ pasos:
       - '`sets.ts` exporta las operaciones listadas y `npm test` pasa.'
       - 'Manejas `∅` sin errores (unión con vacío, complemento de vacío).'
       - '`esSubconjunto` coincide con definición (∀x ∈ A → x ∈ B).'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L06 — Operaciones conjuntistas en TypeScript
 

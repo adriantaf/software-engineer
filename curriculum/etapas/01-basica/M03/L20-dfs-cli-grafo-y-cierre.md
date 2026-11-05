@@ -10,27 +10,33 @@ evidencia: >-
   src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto + checklist
   P1–P3 y proyecto
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar DFS (iterativo o recursivo); entregar CLI del
-      proyecto; completar a 10 demostraciones en `demos.md`; autoevaluar P1–P3 y
-      criterios de dominio.
-
-
       Cierras M03: DFS, CLI que lee JSON e imprime recorridos y grados, y
       revisión honesta de todas las evidencias.
+
+
+      **Objetivo de esta lección:** Implementar DFS (iterativo o recursivo);
+      entregar CLI del proyecto; completar a 10 demostraciones en `demos.md`;
+      autoevaluar P1–P3 y criterios de dominio.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. DFS
+    titulo: DFS
     xp: 10
-    cuerpo: |-
+    cuerpo: >-
       ```ts
+
       import type { Grafo } from "./graph";
+
 
       export function dfs<T>(g: Grafo<T>, origen: T): T[] {
         const visitados = new Set<T>();
@@ -44,37 +50,51 @@ pasos:
         visitar(origen);
         return orden;
       }
+
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      `src/dfs.ts`: Tests: mismo grafo que BFS; orden distinto salvo casos
+      triviales. Documenta ciclo: versión con `visitados` evita bucles
+      infinitos. Compara BFS vs DFS en `grafos.md` con el mismo origen.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "DFS, CLI de grafo y cierre" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: >-
-          src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto +
-          checklist P1–P3 y proyecto
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: CLI del proyecto
+    xp: 10
+    cuerpo: |-
+      ```bash
+      cd projects/m03-discretas && npm test
+      npx tsx src/cli.ts grafos/ejemplo.json
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «DFS, CLI de grafo y cierre», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`dfs` y `bfs` probados; CLI imprime grados y ambos recorridos.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de DFS, CLI de grafo y
+          cierre
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Marcar M03 completa sin CLI ni tests
+      ¿Es recomendable en esta lección? “Marcar M03 completa sin CLI ni tests
       verdes."
     opciones:
       - id: t
@@ -82,53 +102,52 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar DFS (iterativo o recursivo); entregar CLI del proyecto;
           completar a 10 demostraciones en `demos.md`; autoevaluar P1–P3 y
-          criter…
+          criterios de dominio.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. CLI del proyecto
-    xp: 10
-    cuerpo: >-
-      `src/cli.ts` (ejecutable con `npx tsx src/cli.ts grafos/ejemplo.json`):
-
-
-      - Carga JSON.
-
-      - Imprime lista de vértices y grados.
-
-      - Imprime orden BFS y DFS desde un vértice (argumento o primer vértice).
-
-      - Mensaje de ayuda si falta archivo.
-
-
-      Actualiza `projects/m03-discretas/README.md` con sección **Teoría**: 1
-      párrafo BFS, 1 DFS, 1 representación.
   - id: s7
-    tipo: explicacion
-    titulo: 3. P1 — Diez demostraciones
-    xp: 10
-    cuerpo: >-
-      Cuenta entradas en `demos.md`. Si faltan, completa hasta **10** (pueden
-      ser cortas pero completas). Numeración continua.
+    tipo: proyecto
+    titulo: Proyecto de cierre · M03
+    xp: 25
+    enunciado: >-
+      Cierra **Matemáticas discretas** con evidencia real en el repo. Marca la
+      rúbrica solo si puedes demostrar cada criterio (si no está en git, no
+      cuenta).
+    entregables:
+      - 'P1: Cuaderno de demostraciones (10 pruebas cortas)'
+      - 'P2: Implementar conjuntos, relaciones y grafos simples en TS'
+      - 'P3: Contar complejidad de 5 algoritmos propios'
+      - 'Proyecto: Bitácora matemática + visualizador de grafos CLI'
+      - >-
+        src/dfs.ts + src/cli.ts + demos.md (10 demos) + README proyecto +
+        checklist P1–P3 y proyecto
+    rubrica:
+      - id: r1
+        criterio: '`dfs` y `bfs` probados; CLI imprime grados y ambos recorridos.'
+      - id: r2
+        criterio: '`demos.md` tiene ≥10 demostraciones; P2 y P3 verificables.'
+      - id: r3
+        criterio: '`cierre.md` o README documenta retro y criterios de dominio.'
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -137,11 +156,11 @@ pasos:
       - '`dfs` y `bfs` probados; CLI imprime grados y ambos recorridos.'
       - '`demos.md` tiene ≥10 demostraciones; P2 y P3 verificables.'
       - '`cierre.md` o README documenta retro y criterios de dominio.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Materia M03 lista para marcar completada cuando la rúbrica sea real.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L20 — DFS, CLI de grafo y cierre
 

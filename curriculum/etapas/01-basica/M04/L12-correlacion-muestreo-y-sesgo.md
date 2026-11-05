@@ -12,87 +12,89 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Cerrar P2 (pipeline + tablas + reflexión) y preparar
-      inferencia de la semana 4.
-
-
       Calculas correlación de Pearson entre dos columnas numéricas, escribes
       **correlación ≠ causalidad** con tu ejemplo y discutes sesgo de muestreo.
+
+
+      **Objetivo de esta lección:** Cerrar P2 (pipeline + tablas + reflexión) y
+      preparar inferencia de la semana 4.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Correlación
+    titulo: Correlación
     xp: 10
     cuerpo: >-
       `src/correlacion.ts` — función `correlacionPearson(xs, ys)` (covarianza /
       producto de σ). Aplícala a `pedidos` vs `ingresos_mxn`.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Correlación, muestreo y sesgo" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: >-
-          projects/m04-stats/src/correlacion.ts +
-          notas/correlacion-no-causalidad.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Nota obligatoria
+    xp: 10
+    cuerpo: >-
+      `notas/correlacion-no-causalidad.md`: ```markdown # Correlación ≠
+      causalidad
   - id: s4
     tipo: quiz
-    titulo: Método
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Correlación, muestreo y sesgo», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Correlación calculada y reportada con cautela.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Correlación, muestreo y
+          sesgo
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Práctica deliberada
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      Debes producir algo verificable (código, nota, commit) además de leer,
-      antes de dar la lección por hecha.
+      Además de leer, debes producir algo verificable (código, nota, commit o
+      ejercicio) antes de dar la lección por hecha.
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: t
-    explicacionError: 'Verdadero: práctica deliberada + evidencia.'
+    explicacionError: 'Verdadero: sin evidencia no hay progreso real.'
     explicacionOk: Exacto.
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Cerrar P2 (pipeline + tablas + reflexión) y preparar inferencia de la
           semana 4.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Nota obligatoria
-    xp: 10
-    cuerpo: |-
-      `notas/correlacion-no-causalidad.md`:
-
-      ```markdown
-      Correlación ≠ causalidad
   - id: s7
     tipo: resumen
     titulo: Cierre
@@ -102,11 +104,11 @@ pasos:
       - Nota con ejemplo propio de no causalidad.
       - P2 lista para marcar en UI (pipeline completo).
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Correlación, muestreo y sesgo
 

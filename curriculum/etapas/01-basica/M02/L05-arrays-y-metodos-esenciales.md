@@ -8,22 +8,26 @@ semana: 2
 lectura: EJ cap. 4 (objetos y arrays) — primera mitad
 evidencia: src/arrays/ con push/map inmutable + 3 katas sobre arrays
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Modelar listas de datos sin mutar por accidente y resolver 3
-      katas centradas en arrays.
-
-
       Tu CLI guardará listas de hábitos y tareas. Casi todo pasa por copiar →
       transformar → persistir.
+
+
+      **Objetivo de esta lección:** Modelar listas de datos sin mutar por
+      accidente y resolver 3 katas centradas en arrays.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Arrays readonly en espíritu
+    titulo: Arrays readonly en espíritu
     xp: 10
     cuerpo: |-
       ```ts
@@ -37,72 +41,85 @@ pasos:
         return tareas.filter((t) => !t.hecha);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `src/arrays/lista.ts`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Arrays y métodos esenciales" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: src/arrays/ con push/map inmutable + 3 katas sobre arrays
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Métodos de consulta
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export type Tarea = { id: string; titulo: string; hecha: boolean };
+
+      export function marcarHecha(tareas: Tarea[], id: string): Tarea[] {
+        return tareas.map((t) => (t.id === id ? { ...t, hecha: true } : t));
+      }
+
+      export function pendientes(tareas: Tarea[]): Tarea[] {
+        return tareas.filter((t) => !t.hecha);
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Arrays y métodos esenciales», ¿qué demuestra que cumpliste el
+      criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          `marcarHecha` no muta el array original (prueba con `const antes =
+          [...]` y compara).
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Arrays y métodos
+          esenciales
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: >-
-      ¿Es buena práctica en esta lección? “Mutar con `.sort()` sin copiar
-      antes."
+    pregunta: ¿Es recomendable en esta lección? “Mutar con `.sort()` sin copiar antes."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Modelar listas de datos sin mutar por accidente y resolver 3 katas
           centradas en arrays.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Métodos de consulta
-    xp: 10
-    cuerpo: >-
-      `src/arrays/estadisticas.ts`: `suma`, `promedio`, `maximo` sobre
-      `number[]` con validación de array vacío (`null` o throw — elige y
-      documenta).
   - id: s7
     tipo: explicacion
-    titulo: 3. Tres katas arrays
+    titulo: Tres katas arrays
     xp: 10
     cuerpo: >-
       Ej.: rotar array, eliminar duplicados, intersección de dos listas
@@ -117,11 +134,13 @@ pasos:
         [...]` y compara).
       - Tres katas nuevas en `src/katas/`.
       - ≥10 katas totales en el repo o documentas cuántas faltan para P1.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Arrays y métodos esenciales
 

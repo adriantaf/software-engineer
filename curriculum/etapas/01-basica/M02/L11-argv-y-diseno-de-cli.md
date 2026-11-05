@@ -8,22 +8,40 @@ semana: 3
 lectura: Node process.argv + diseño de comandos (add/list)
 evidencia: projects/m02-habits/ creado con src/cli.ts parseando argv
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear el repo de la CLI, copiar/adaptar modelo e I/O, y
-      enrutar subcomandos sin librerías pesadas todavía.
-
-
       Desde la semana 3 el proyecto crece cada lección. No lo dejes para la
       semana 6.
+
+
+      **Objetivo de esta lección:** Crear el repo de la CLI, copiar/adaptar
+      modelo e I/O, y enrutar subcomandos sin librerías pesadas todavía.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Nuevo proyecto CLI
+    titulo: Nuevo proyecto CLI
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m02-habits/src
+      cd projects/m02-habits
+      npm init -y
+      npm install -D typescript tsx vitest @types/node
+      ```
+
+      Misma base `tsconfig` strict que katas. `"type": "module"`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Tipos de comando
     xp: 10
     cuerpo: |-
       ```ts
@@ -43,84 +61,67 @@ pasos:
         return { tipo: "help" };
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
+
+      `src/comandos.ts`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
-    pregunta: 'Para marcar "argv y diseño de CLI" como hecha, ¿qué cuenta de verdad?'
+    pregunta: >-
+      Al terminar «argv y diseño de CLI», ¿qué demuestra que cumpliste el
+      criterio mínimo?
     opciones:
       - id: a
-        texto: projects/m02-habits/ creado con src/cli.ts parseando argv
+        texto: >-
+          Existe `projects/m02-habits/` con `add` y `list` funcionales contra
+          JSON local.
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: Instalar herramientas al azar sin evidencia de argv y diseño de CLI
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `mkdir -p projects/m02-habits/src`
     comandoEsperado:
       - mkdir -p projects/m02-habits/src
+      - cd projects/m02-habits
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: mkdir -p projects/m02-habits/src'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Crear el repo de la CLI, copiar/adaptar modelo e I/O, y enrutar
           subcomandos sin librerías pesadas todavía.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Tipos de comando
-    xp: 10
-    cuerpo: |-
-      `src/comandos.ts`:
-
-      ```ts
-      export type Comando =
-        | { tipo: "add"; nombre: string }
-        | { tipo: "list" }
-        | { tipo: "help" };
-
-      export function parseArgv(argv: string[]): Comando {
-        const [, , cmd, ...rest] = argv;
-        if (cmd === "add") {
-          const nombre = rest.join(" ").trim();
-          if (!nombre) return { tipo: "help" };
-          return { tipo: "add", nombre };
-        }
-        if (cmd === "list") return { tipo: "list" };
-        return { tipo: "help" };
-      }
-      ```
   - id: s7
     tipo: explicacion
-    titulo: 3. Entry `cli.ts`
+    titulo: Entry `cli.ts`
     xp: 10
     cuerpo: >-
       Carga estado, ejecuta comando, guarda. Mensajes de ayuda claros en
@@ -135,11 +136,13 @@ pasos:
         local.
       - '`parseArgv` es función pura testeable (prepara L19).'
       - Commit en git del esqueleto CLI.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L11 — argv y diseño de CLI
 

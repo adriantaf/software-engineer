@@ -12,18 +12,22 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Implementar `media`, `varianzaMuestral` y comprobar E[X]=np,
-      Var(X)=np(1−p) para Binomial vía Monte Carlo.
-
-
       Calculas E[X] y Var(X) por definición en casos discretos y verificas con
       simulación; conectas varianza con “ruido” en métricas.
+
+
+      **Objetivo de esta lección:** Implementar `media`, `varianzaMuestral` y
+      comprobar E[X]=np, Var(X)=np(1−p) para Binomial vía Monte Carlo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Estadísticos
+    titulo: Estadísticos
     xp: 10
     cuerpo: |-
       ```ts
@@ -36,71 +40,77 @@ pasos:
         return xs.reduce((s, x) => s + (x - m) ** 2, 0) / (xs.length - 1);
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `src/stats-basic.ts` (reutiliza funciones de la ficha M04):
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Esperanza y varianza en código" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: projects/m04-stats/src/stats-basic.ts + notas/esperanza-varianza.md
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Verificación Binomial
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git commit -am "feat(m04): media varianza y binomial L07"
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Método
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Esperanza y varianza en código», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`stats-basic.ts` con media y varianza muestral.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Esperanza y varianza en
+          código
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Práctica deliberada
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      Debes producir algo verificable (código, nota, commit) además de leer,
-      antes de dar la lección por hecha.
+      Además de leer, debes producir algo verificable (código, nota, commit o
+      ejercicio) antes de dar la lección por hecha.
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: t
-    explicacionError: 'Verdadero: práctica deliberada + evidencia.'
+    explicacionError: 'Verdadero: sin evidencia no hay progreso real.'
     explicacionOk: Exacto.
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Implementar `media`, `varianzaMuestral` y comprobar E[X]=np,
           Var(X)=np(1−p) para Binomial vía Monte Carlo.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Verificación Binomial
-    xp: 10
-    cuerpo: >-
-      Simula 20_000 valores `binomial(50, 0.2)`; compara media y varianza
-      muestral con 10 y 50×0.2×0.8.
   - id: s7
     tipo: explicacion
-    titulo: 3. Nota
+    titulo: Nota
     xp: 10
     cuerpo: >-
       `notas/esperanza-varianza.md`: por qué dos features con la misma media
@@ -113,11 +123,11 @@ pasos:
       - '`stats-basic.ts` con media y varianza muestral.'
       - Comparación teórica vs simulada documentada.
       - Commit.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L07 — Esperanza y varianza en código
 

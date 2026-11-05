@@ -8,22 +8,47 @@ semana: 3
 lectura: EJ cap. 10 (módulos) + TS Handbook Modules
 evidencia: src/ reorganizado con imports .js + package.json type module
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Reorganizar katas/modelo en módulos ES (`"type": "module"`)
-      y entender por qué los imports terminan en `.js`.
-
-
       Un `index.ts` de 400 líneas es deuda. La semana 3 separa dominio, I/O y
       CLI.
+
+
+      **Objetivo de esta lección:** Reorganizar katas/modelo en módulos ES
+      (`"type": "module"`) y entender por qué los imports terminan en `.js`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Activar ESM
+    titulo: Activar ESM
+    xp: 10
+    cuerpo: >-
+      ```json
+
+      {
+        "type": "module",
+        "scripts": {
+          "build": "tsc",
+          "start": "tsx src/cli/demo.ts"
+        }
+      }
+
+      ```
+
+
+      En `package.json`: Imports entre archivos TS usan extensión **`.js`** en
+      el import (resolución NodeNext).
+    caption: Practícalo en tu entorno; no te limites a leerlo.
+  - id: s3
+    tipo: ejemplo
+    titulo: Barrel opcional
     xp: 10
     cuerpo: |-
       ```json
@@ -35,69 +60,64 @@ pasos:
         }
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
-  - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: 'Para marcar "Módulos ES en Node" como hecha, ¿qué cuenta de verdad?'
-    opciones:
-      - id: a
-        texto: src/ reorganizado con imports .js + package.json type module
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Módulos ES en Node», ¿qué demuestra que cumpliste el criterio
+      mínimo?
+    opciones:
+      - id: a
+        texto: '`npm run start` (o `tsx src/cli/demo.ts`) funciona tras el refactor.'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia de Módulos ES en Node
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Olvidar `.js` en imports relativos
-      con NodeNext."
+      ¿Es recomendable en esta lección? “Olvidar `.js` en imports relativos con
+      NodeNext."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Reorganizar katas/modelo en módulos ES (`"type": "module"`) y entender
           por qué los imports terminan en `.js`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Barrel opcional
-    xp: 10
-    cuerpo: >-
-      `src/modelo/index.ts` reexporta `habito` y `almacen`. No abuses: solo
-      donde simplifica.
   - id: s7
     tipo: explicacion
-    titulo: 3. Mover CLI demo
+    titulo: Mover CLI demo
     xp: 10
     cuerpo: >-
       `src/cli/demo.ts` importa `crearHabito` y `nombresOrdenados`, imprime un
@@ -110,11 +130,13 @@ pasos:
       - '`npm run start` (o `tsx src/cli/demo.ts`) funciona tras el refactor.'
       - 'No hay imports circulares obvios (si los hay, documenta el arreglo).'
       - 'Commit `refactor(m02): módulos ES`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L09 — Módulos ES en Node
 

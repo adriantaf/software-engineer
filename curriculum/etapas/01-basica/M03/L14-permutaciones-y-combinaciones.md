@@ -8,23 +8,27 @@ semana: 4
 lectura: 'Rosen Cap. 6.3–6.4 — permutaciones, combinaciones, notación C(n,k) y P(n,k)'
 evidencia: 'conteo.md + src/counting.ts (nCk, nPk) + tests factorial pequeño'
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Derivar y usar `P(n,k)` y `C(n,k)`; resolver problemas de
-      selección con y sin repetición (alcance del capítulo); implementar
-      funciones con validación.
-
-
       Orden importa (permutación) o no (combinación). Debes elegir la fórmula
       según el **problema**, no según la que recuerdes primero.
+
+
+      **Objetivo de esta lección:** Derivar y usar `P(n,k)` y `C(n,k)`; resolver
+      problemas de selección con y sin repetición (alcance del capítulo);
+      implementar funciones con validación.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Fórmulas y significado
+    titulo: Fórmulas y significado
     xp: 10
     cuerpo: |-
       ```ts
@@ -45,34 +49,58 @@ pasos:
         return factorial(n) / (factorial(k) * factorial(n - k));
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Permutaciones y combinaciones" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: 'conteo.md + src/counting.ts (nCk, nPk) + tests factorial pequeño'
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Problemas
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function factorial(n: number): number {
+        if (n < 0) throw new Error("n negativo");
+        let r = 1;
+        for (let i = 2; i <= n; i++) r *= i;
+        return r;
+      }
+
+      export function nPk(n: number, k: number): number {
+        if (k < 0 || k > n) return 0;
+        return factorial(n) / factorial(n - k);
+      }
+
+      export function nCk(n: number, k: number): number {
+        if (k < 0 || k > n) return 0;
+        return factorial(n) / (factorial(k) * factorial(n - k));
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Permutaciones y combinaciones», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Tres problemas con identificación explícita P vs C.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Permutaciones y
+          combinaciones
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
     pregunta: >-
-      ¿Es buena práctica en esta lección? “Usar `C` cuando el orden importa
+      ¿Es recomendable en esta lección? “Usar `C` cuando el orden importa
       (ranking)."
     opciones:
       - id: t
@@ -80,64 +108,36 @@ pasos:
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Derivar y usar `P(n,k)` y `C(n,k)`; resolver problemas de selección
-          con y sin repetición (alcance del capítulo); implementar funciones
-          con…
+          con y sin repetición (alcance del capítulo); implementar funciones con
+          validación.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Problemas
+    titulo: Implementación
     xp: 10
     cuerpo: >-
-      **3** problemas:
-
-
-      1. Ordenar 5 libros en un estante de 5 (permutación).
-
-      2. Elegir 3 personas de 10 sin orden (combinación).
-
-      3. Un problema “trampa” donde el orden sí importa aunque parezca comité —
-      justifica.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Implementación
-    xp: 10
-    cuerpo: |-
-      ```ts
-      export function factorial(n: number): number {
-        if (n < 0) throw new Error("n negativo");
-        let r = 1;
-        for (let i = 2; i <= n; i++) r *= i;
-        return r;
-      }
-
-      export function nPk(n: number, k: number): number {
-        if (k < 0 || k > n) return 0;
-        return factorial(n) / factorial(n - k);
-      }
-
-      export function nCk(n: number, k: number): number {
-        if (k < 0 || k > n) return 0;
-        return factorial(n) / (factorial(k) * factorial(n - k));
-      }
-      ```
+      Tests: casos borde `k=0`, `k=n`, `k>n`. Para n grande, comenta overflow
+      (BigInt opcional).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -146,11 +146,11 @@ pasos:
       - Tres problemas con identificación explícita P vs C.
       - '`nPk` y `nCk` con tests borde.'
       - 'Explicas en una frase por qué `C(n,k) = C(n, n−k)`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L14 — Permutaciones y combinaciones
 

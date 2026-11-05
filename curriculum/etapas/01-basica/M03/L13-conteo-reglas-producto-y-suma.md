@@ -8,23 +8,27 @@ semana: 4
 lectura: 'Rosen Cap. 6.1 — reglas básicas de conteo, árbol de decisiones'
 evidencia: apuntes/conteo.md + 4 problemas resueltos (producto/suma)
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Aplicar regla del producto y regla de la suma (casos
-      disjuntos); modelar problemas con árboles de decisión; evitar doble
-      conteo.
-
-
       Semana 4: contar sin listar todo. Las reglas del producto y la suma son el
       fundamento de complejidad combinatoria.
+
+
+      **Objetivo de esta lección:** Aplicar regla del producto y regla de la
+      suma (casos disjuntos); modelar problemas con árboles de decisión; evitar
+      doble conteo.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Apuntes
+    titulo: Apuntes
     xp: 10
     cuerpo: |-
       ```ts
@@ -33,86 +37,80 @@ pasos:
         return 2 ** n;
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Conteo — regla del producto y la suma" como hecha, ¿qué
-      cuenta de verdad?
-    opciones:
-      - id: a
-        texto: apuntes/conteo.md + 4 problemas resueltos (producto/suma)
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Problemas a mano
+    xp: 10
+    cuerpo: |-
+      ```ts
+      export function cadenasBinarias(n: number): number {
+        if (n < 0) throw new Error("n inválido");
+        return 2 ** n;
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Conteo — regla del producto y la suma», ¿qué demuestra que
+      cumpliste el criterio mínimo?
+    opciones:
+      - id: a
+        texto: Cuatro problemas documentados con justificación de producto o suma.
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Conteo — regla del
+          producto y la suma
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “Sumar cuando los casos se solapan."
+    pregunta: ¿Es recomendable en esta lección? “Sumar cuando los casos se solapan."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Aplicar regla del producto y regla de la suma (casos disjuntos);
           modelar problemas con árboles de decisión; evitar doble conteo.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
+  - id: s7
     tipo: explicacion
-    titulo: 2. Problemas a mano
+    titulo: Código ilustrativo
     xp: 10
     cuerpo: >-
-      Resuelve **4** problemas (enunciado + razonamiento + número):
-
-
-      1. Cadenas de bits de longitud `n` (producto).
-
-      2. Contraseñas con restricciones simples (producto con casos).
-
-      3. Elegir un curso de lista A **o** lista B (suma disjunta).
-
-      4. Un problema donde **falles** si aplicas producto sin disjunción —
-      corrige el error en la solución.
-  - id: s7
-    tipo: ejemplo
-    titulo: 3. Código ilustrativo
-    xp: 10
-    cuerpo: |-
-      ```ts
-      export function cadenasBinarias(n: number): number {
-        if (n < 0) throw new Error("n inválido");
-        return 2 ** n;
-      }
-      ```
+      `src/counting.ts`: Test: `n=0` → 1 (cadena vacía). Comenta por qué es
+      `2^n` (producto repetido).
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -121,11 +119,11 @@ pasos:
       - Cuatro problemas documentados con justificación de producto o suma.
       - Explicas por qué los casos del problema 3 son disjuntos.
       - '`cadenasBinarias` con test para `n=0`.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L13 — Conteo: regla del producto y la suma
 

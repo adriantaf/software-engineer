@@ -8,22 +8,26 @@ semana: 6
 lectura: — (foco proyecto + README)
 evidencia: comando export --csv + README completo m02-habits
 formato: pasos
-xpLeccion: 75
+xpLeccion: 80
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Exportación CSV de hábitos (id, nombre, # completados) y
-      documentación que otra persona pueda seguir sin ti.
-
-
       CSV es el puente hacia hojas de cálculo y análisis. El README es evidencia
       de comunicación técnica.
+
+
+      **Objetivo de esta lección:** Exportación CSV de hábitos (id, nombre, #
+      completados) y documentación que otra persona pueda seguir sin ti.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Generador CSV
+    titulo: Generador CSV
     xp: 10
     cuerpo: |-
       ```ts
@@ -42,77 +46,92 @@ pasos:
         return s;
       }
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `src/dominio/exportar-csv.ts`:
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "Export CSV y entrega final CLI" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: comando export --csv + README completo m02-habits
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Comando export
+    xp: 10
+    cuerpo: |-
+      ```ts
+      import type { Habito } from "../modelo/habito.js";
+
+      export function habitosACsv(habitos: Habito[]): string {
+        const header = "id,nombre,marcados";
+        const rows = habitos.map(
+          (h) => `${h.id},${escapeCsv(h.nombre)},${h.completados.length}`
+        );
+        return [header, ...rows].join("\n");
+      }
+
+      function escapeCsv(s: string): string {
+        if (/[",\n]/.test(s)) return `"${s.replace(/"/g, '""')}"`;
+        return s;
+      }
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «Export CSV y entrega final CLI», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: '`export --csv` genera archivo válido abrible en Excel/LibreOffice.'
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Export CSV y entrega
+          final CLI
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? “CSV sin escapar comas en nombres."
+    pregunta: ¿Es recomendable en esta lección? “CSV sin escapar comas en nombres."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Exportación CSV de hábitos (id, nombre, # completados) y documentación
           que otra persona pueda seguir sin ti.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Comando export
-    xp: 10
-    cuerpo: >-
-      `export --csv [ruta]` — si no hay ruta, imprime a stdout. Tests del escape
-      CSV.
   - id: s7
     tipo: explicacion
-    titulo: 3. README final
+    titulo: README final
     xp: 10
-    cuerpo: |-
-      `projects/m02-habits/README.md`:
-
-      - Instalación
-      - Todos los comandos con ejemplos
-      - Dónde vive `data/habits.json`
-      - `npm test`
+    cuerpo: >-
+      `projects/m02-habits/README.md`: - Instalación - Todos los comandos con
+      ejemplos - Dónde vive `data/habits.json` - `npm test`
   - id: s8
     tipo: resumen
     titulo: Cierre
@@ -121,11 +140,13 @@ pasos:
       - '`export --csv` genera archivo válido abrible en Excel/LibreOffice.'
       - README cumple requisitos mínimos de la ficha M02.
       - '`npm test` sigue verde.'
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L23 — Export CSV y entrega final CLI
 

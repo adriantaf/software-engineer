@@ -8,22 +8,27 @@ semana: 6
 lectura: Repaso modelo Habito + separación capas
 evidencia: m02-habits con src/dominio/ sin dependencia de console
 formato: pasos
-xpLeccion: 90
+xpLeccion: 96
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Módulo `dominio/` con operaciones `agregarHabito`,
-      `marcarHecho`, `listar` sobre `EstadoApp` sin `console` ni `fs`.
-
-
       El proyecto final debe enseñarse en portafolio. Capas claras = mantenible
       y testeable.
+
+
+      **Objetivo de esta lección:** Módulo `dominio/` con operaciones
+      `agregarHabito`, `marcarHecho`, `listar` sobre `EstadoApp` sin `console`
+      ni `fs`.
+
+
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Extraer dominio
+    titulo: Extraer dominio
     xp: 10
     cuerpo: >-
       ```ts
@@ -44,67 +49,94 @@ pasos:
       }
 
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+
+      `src/dominio/operaciones.ts`: Implementa `marcarHechoPorId` y tests
+      asociados.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
-    tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
-    variante: opcion_multiple
-    pregunta: >-
-      Para marcar "CLI — dominio y persistencia" como hecha, ¿qué cuenta de
-      verdad?
-    opciones:
-      - id: a
-        texto: m02-habits con src/dominio/ sin dependencia de console
-      - id: b
-        texto: Solo leer el título y pasar a la siguiente
-      - id: c
-        texto: Marcar el checkbox sin producir nada
-    respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
+    tipo: ejemplo
+    titulo: Adaptador CLI
+    xp: 10
+    cuerpo: >-
+      ```ts
+
+      import type { EstadoApp } from "../modelo/almacen.js";
+
+      import { crearHabito } from "../modelo/habito.js";
+
+      import { validarNombreHabito } from "../validacion/habito.js";
+
+
+      export function agregarHabito(estado: EstadoApp, nombreRaw: string):
+      EstadoApp {
+        const v = validarNombreHabito(nombreRaw);
+        if (!v.ok) throw new Error(v.error);
+        const habito = crearHabito(v.value);
+        return { ...estado, habitos: [...estado.habitos, habito] };
+      }
+
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
   - id: s4
     tipo: quiz
-    titulo: Error común
+    titulo: Comprueba lo básico
+    xp: 10
+    variante: opcion_multiple
+    pregunta: >-
+      Al terminar «CLI — dominio y persistencia», ¿qué demuestra que cumpliste
+      el criterio mínimo?
+    opciones:
+      - id: a
+        texto: >-
+          `dominio/` sin imports de `fs` ni `process` (salvo tipos Node si
+          unavoidable).
+      - id: b
+        texto: >-
+          Instalar herramientas al azar sin evidencia de CLI — dominio y
+          persistencia
+      - id: c
+        texto: Marcar la lección hecha sin producir nada verificable
+    respuesta: a
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
+    tipo: quiz
+    titulo: Evita el error común
     xp: 15
     variante: verdadero_falso
-    pregunta: ¿Es buena práctica en esta lección? ““Dominio” que importa `cli.ts`."
+    pregunta: ¿Es recomendable en esta lección? ““Dominio” que importa `cli.ts`."
     opciones:
       - id: t
         texto: Verdadero
       - id: f
         texto: Falso
     respuesta: f
-    explicacionError: 'Eso figura como error común: evítalo.'
-    explicacionOk: Bien — ese es un anti-patrón de la lección.
-  - id: s5
+    explicacionError: 'Eso está listado como error común: no lo hagas.'
+    explicacionOk: Correcto — es un anti-patrón.
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Módulo `dominio/` con operaciones `agregarHabito`, `marcarHecho`,
           `listar` sobre `EstadoApp` sin `console` ni `fs`.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Adaptador CLI
-    xp: 10
-    cuerpo: '`cli.ts` solo parsea, llama dominio, imprime, guarda.'
   - id: s7
     tipo: explicacion
-    titulo: 3. Tests dominio
+    titulo: Tests dominio
     xp: 10
     cuerpo: ≥3 tests nuevos sobre operaciones puras.
   - id: s8
@@ -117,11 +149,13 @@ pasos:
         unavoidable).
       - Tests dominio en verde.
       - Comandos previos siguen funcionando manualmente.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
+
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L21 — CLI: dominio y persistencia
 

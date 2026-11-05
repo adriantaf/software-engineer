@@ -16,101 +16,107 @@ xpLeccion: 120
 pasos:
   - id: s1
     tipo: explicacion
-    titulo: Qué vas a lograr
+    titulo: Por qué esta lección
     xp: 10
     cuerpo: >-
-      **Objetivo:** Crear el proyecto TypeScript en
+      M06 es ingeniería de software aplicada: modelas un dominio real sin
+      frameworks web y con tipos estrictos.
+
+
+      **Objetivo de esta lección:** Crear el proyecto TypeScript en
       `projects/m06-programacion-ii/`, elegir dominio (biblioteca o inventario)
       y definir interfaces nucleares con tests mínimos.
 
 
-      M06 es ingeniería de software aplicada: modelas un dominio real sin
-      frameworks web y con tipos estrictos.
+      Los libros y el detalle largo quedan como **lectura complementaria** al
+      final. Aquí el foco es entender y demostrar.
   - id: s2
     tipo: ejemplo
-    titulo: 1. Entorno
+    titulo: Entorno
     xp: 10
     cuerpo: |-
-      ```ts
-      // src/model.ts — adapta nombres a tu dominio
-      export interface Libro {
-        id: string;
-        titulo: string;
-        prestado: boolean;
-      }
-
-      export interface RepositorioLibros {
-        guardar(libro: Libro): void;
-        obtener(id: string): Libro | undefined;
-      }
+      ```bash
+      mkdir -p projects/m06-programacion-ii/src
+      cd projects/m06-programacion-ii
+      npm init -y
+      npm install -D typescript tsx vitest @types/node
+      npx tsc --init
       ```
-    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+
+      `strict: true`. Scripts: `"test": "vitest run"`, `"build": "tsc"`.
+    caption: Practícalo en tu entorno; no te limites a leerlo.
   - id: s3
+    tipo: ejemplo
+    titulo: Elige dominio
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m06-programacion-ii/src
+      cd projects/m06-programacion-ii
+      npm init -y
+      npm install -D typescript tsx vitest @types/node
+      npx tsc --init
+      ```
+    caption: Ejemplo tomado de la lección — córrelo o adáptalo.
+  - id: s4
     tipo: quiz
-    titulo: Evidencia de la lección
-    xp: 15
+    titulo: Comprueba lo básico
+    xp: 10
     variante: opcion_multiple
     pregunta: >-
-      Para marcar "Dominio inicial y entorno del proyecto" como hecha, ¿qué
-      cuenta de verdad?
+      Al terminar «Dominio inicial y entorno del proyecto», ¿qué demuestra que
+      cumpliste el criterio mínimo?
     opciones:
       - id: a
-        texto: >-
-          projects/m06-programacion-ii/ con package.json, tsconfig strict,
-          src/dominio inicial
+        texto: Repo TS strict con ≥3 tests verdes.
       - id: b
-        texto: Solo leer el título y pasar a la siguiente
+        texto: >-
+          Instalar herramientas al azar sin evidencia de Dominio inicial y
+          entorno del proyecto
       - id: c
-        texto: Marcar el checkbox sin producir nada
+        texto: Marcar la lección hecha sin producir nada verificable
     respuesta: a
-    explicacionError: >-
-      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
-      git, no existe.
-    explicacionOk: Correcto — evidencia primero.
-  - id: s4
+    explicacionError: El criterio «Hecho cuando» / evidencia manda. Leer no basta.
+    explicacionOk: Bien — evidencia verificable.
+  - id: s5
     tipo: terminal
-    titulo: Comando clave
+    titulo: Reto de terminal
     xp: 15
     enunciado: |-
-      Escribe este comando tal cual (es el de práctica de la lección):
+      Escribe el comando de práctica de esta lección:
 
       `mkdir -p projects/m06-programacion-ii/src`
     comandoEsperado:
       - mkdir -p projects/m06-programacion-ii/src
+      - cd projects/m06-programacion-ii
     pistas:
-      - Respeta el orden de los argumentos.
-      - Sin prompt `$`.
+      - Sin el prompt `$`.
+      - Respeta flags y rutas.
     explicacionError: 'Esperado: mkdir -p projects/m06-programacion-ii/src'
-  - id: s5
+  - id: s6
     tipo: quiz
-    titulo: Foco de la lección
-    xp: 10
+    titulo: Foco (dificultad media)
+    xp: 15
     variante: opcion_multiple
-    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    pregunta: >-
+      ¿Cuál describe mejor lo que debes ser capaz de hacer al cerrar esta
+      lección?
     opciones:
       - id: a
         texto: >-
           Crear el proyecto TypeScript en `projects/m06-programacion-ii/`,
           elegir dominio (biblioteca o inventario) y definir interfaces
-          nucleares co…
+          nucleares con tests mínimos.
       - id: b
-        texto: Instalar herramientas al azar sin evidencia
+        texto: Saltar a otra materia dejando esta a medias
       - id: c
-        texto: Saltar a otra materia sin terminar esta
+        texto: Memorizar el índice del libro sin practicar
     respuesta: a
-    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionError: El objetivo de la lección define el foco — no el consumo pasivo.
     explicacionOk: Correcto.
-  - id: s6
-    tipo: explicacion
-    titulo: 2. Elige dominio
-    xp: 10
-    cuerpo: >-
-      Documenta en `DOMINIO.md`: actores, reglas de negocio, 5 operaciones core.
-      Ejemplo biblioteca: agregar, prestar, devolver, buscar, listar
-      disponibles.
   - id: s7
-    tipo: ejemplo
-    titulo: 3. Interfaces
+    tipo: explicacion
+    titulo: Interfaces
     xp: 10
     cuerpo: |-
       ```ts
@@ -134,11 +140,11 @@ pasos:
       - Repo TS strict con ≥3 tests verdes.
       - '`DOMINIO.md` describe el dominio elegido.'
       - Hay al menos una interfaz + implementación en memoria.
-    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
+    siguiente: Sigue al siguiente nodo del camino o abre la lectura complementaria.
 ---
 ## Lectura complementaria
 
-Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
+Detalle original, lecturas de libro y plantillas. Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Dominio inicial y entorno del proyecto
 
