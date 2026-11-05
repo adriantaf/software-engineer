@@ -29,6 +29,7 @@ const CURRICULUM_PAGE_ROUTES: Record<string, string> = {
   'bibliografia.md': 'docs/bibliografia',
   'glosario.md': 'docs/glosario',
   'como-estudiar.md': 'docs/como-estudiar',
+  'lecciones-paso-a-paso.md': 'docs/lecciones-paso-a-paso',
   'filosofia.md': 'docs/filosofia',
   'producto-saas.md': 'docs/producto-saas',
   'instalar-iphone.md': 'docs/instalar-iphone',

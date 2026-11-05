@@ -5,98 +5,103 @@ orden: 7
 titulo: Ramas, merge y stash
 horas: 3
 semana: 2
-lectura: "Pro Git cap. 3 (Ramas en Git) — crear, merge, conflicto simple; stash intro"
-evidencia: "Rama de práctica mergeada; notas de conflicto resuelto (o simulado)"
+lectura: "Pro Git cap. 3 (ramas) — complementaria"
+evidencia: "Rama de práctica mergeada o documentada en bitácora"
+formato: pasos
+xpLeccion: 95
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Rama = puntero móvil
+    xp: 10
+    cuerpo: |
+      Una **rama** es un puntero a un commit. `main` no es mágica: es la línea que eliges como estable.
+
+      Flujo típico:
+      1. Crear rama para un experimento.
+      2. Commits ahí.
+      3. Volver a `main` y **merge**.
+      4. Si interrumpes un trabajo sucio: `stash`.
+  - id: s2
+    tipo: ejemplo
+    titulo: Mini laboratorio
+    xp: 10
+    cuerpo: |
+      ```bash
+      git branch
+      git switch -c practica/m01-rama
+      # edita + commit
+      git switch main
+      git merge practica/m01-rama
+      git branch -d practica/m01-rama
+      ```
+
+      Stash:
+
+      ```bash
+      git stash push -m "wip bitacora"
+      git stash list
+      git stash pop
+      ```
+  - id: s3
+    tipo: terminal
+    titulo: Crear y cambiar de rama
+    xp: 15
+    enunciado: "Crea y cambia a la rama `practica/m01-rama` en un solo comando moderno (`switch -c`)."
+    comandoEsperado:
+      - git switch -c practica/m01-rama
+      - git checkout -b practica/m01-rama
+    explicacionError: "`git switch -c practica/m01-rama` (o `checkout -b`)."
+  - id: s4
+    tipo: terminal
+    titulo: Merge
+    xp: 15
+    enunciado: "Estás en `main`. Integra la rama `practica/m01-rama`."
+    comandoEsperado:
+      - git merge practica/m01-rama
+    explicacionError: "`git merge practica/m01-rama`"
+  - id: s5
+    tipo: quiz
+    titulo: "¿Para qué stash?"
+    xp: 15
+    variante: opcion_multiple
+    pregunta: "¿Cuándo usas `git stash`?"
+    opciones:
+      - id: a
+        texto: Para borrar para siempre un commit de main
+      - id: b
+        texto: Para guardar cambios locales sucios y limpiar el working tree un momento
+      - id: c
+        texto: Para subir la rama al remoto
+    respuesta: b
+    explicacionError: Stash = aparcar cambios locales temporales.
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: quiz
+    titulo: Conflicto
+    xp: 15
+    variante: verdadero_falso
+    pregunta: "Un conflicto de merge significa que Git no pudo combinar automáticamente el mismo trozo de archivo; tú debes editar y completar el merge."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: t
+    explicacionError: "Verdadero — resuelves el archivo, `add`, y cierras el merge."
+    explicacionOk: Sí.
+  - id: s7
+    tipo: resumen
+    titulo: Cierre L07
+    xp: 15
+    puntos:
+      - Creas ramas, merges y borras ramas locales con criterio.
+      - Sabes aparcar trabajo con stash.
+      - Entiendes qué es un conflicto (aunque aún practiques pocos).
+      - "Lectura: Pro Git cap. 3."
+    siguiente: "Siguiente → L08 ADR, bitácora y cierre."
 ---
 
-# L07 — Ramas, merge y stash
+## Lectura complementaria
 
-**~3 h · Semana 2**
-
-Las ramas son conversaciones paralelas en el historial. Aquí practicas crear, fusionar y (si aparece) resolver un conflicto mínimo.
-
-## Objetivo
-
-Usar `branch`, `switch`/`checkout`, `merge` y un `stash` básico sin depender de la GUI.
-
-## Pasos
-
-### 1. Lectura — Pro Git cap. 3 (60–75 min)
-
-Lee [*Ramas en Git*](https://git-scm.com/book/es/v2/Ramificaciones-en-Git-Qué-es-una-rama%3F) (cap. 3). Enfócate en: qué es una rama, merge fast-forward vs merge commit, conflictos.
-
-Otra vez: terminal abierta, ejemplos en **este** repo.
-
-### 2. Rama de práctica (40–50 min)
-
-```bash
-git status
-git switch -c practica/m01-rama   # o: git checkout -b practica/m01-rama
-# haz un cambio pequeño en un archivo de notes
-git add -A
-git commit -m "docs(m01): ejercicio de rama de práctica"
-git switch main                   # o master — usa tu rama base real
-git merge practica/m01-rama
-git log -5 --oneline --graph
-```
-
-Si tu rama base no se llama `main`, usa el nombre real (`git branch`).
-
-### 3. Conflicto simple (30–40 min)
-
-Opción A — provocarlo:
-
-1. En `main`, edita la misma línea de un archivo de notas y commit.
-2. En otra rama, edita la **misma** línea distinto y commit.
-3. Merge → resuelve marcadores `<<<<<<<` / `=======` / `>>>>>>>`.
-4. `git add` + commit de merge.
-
-Opción B — si no quieres ensuciar el historial: escribe en `git-notas.md` los pasos que *seguirías* y practica en un repo throwaway. Prefiere A si puedes.
-
-### 4. Stash intro (15–20 min)
-
-```bash
-# con un cambio sin commit:
-git stash push -m "wip m01"
-git status
-git stash list
-git stash pop
-```
-
-Anota cuándo usarías stash (cambiar de rama con trabajo a medias) vs commit WIP honesto.
-
-### 5. Limpieza (10 min)
-
-Si la rama `practica/m01-rama` ya está mergeada:
-
-```bash
-git branch -d practica/m01-rama
-```
-
-## Lectura de esta lección
-
-| Fuente | Capítulos |
-|--------|-----------|
-| *Pro Git* | **Cap. 3** (ramas). Rebase: solo intro; no reescribas historial remoto aún. |
-| Catálogo | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
-
-
-## Hecho cuando
-
-1. Creaste una rama, commitiste y mergeaste a tu rama base.
-2. Sabes explicar un merge conflict en una frase.
-3. Probaste `stash` al menos una vez (push/pop o list).
-
-## Criterio de dominio (anticipado)
-
-Más adelante la ficha pide: explicar branching sin Stack Overflow y resolver un conflicto simple. Esta lección es el ensayo.
-
-## Errores comunes
-
-- Trabajar siempre en `main` con 20 archivos mezclados.
-- Tener miedo al conflicto y descartar cambios con `reset --hard` sin leer.
-- Rebase agresivo en ramas compartidas (aún no toca).
-
-## Siguiente
-
-[L08 — ADR, bitácora y cierre](L08-adr-bitacora-y-cierre.md)
+*Pro Git* cap. 3. Haz el laboratorio en este repo (puedes borrar la rama de práctica después).

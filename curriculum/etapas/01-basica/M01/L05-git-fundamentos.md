@@ -5,88 +5,93 @@ orden: 5
 titulo: Git fundamentos
 horas: 3
 semana: 2
-lectura: "Pro Git cap. 2 (Fundamentos de Git) — working tree, staging, commit"
-evidencia: "git status/diff/log usados en este repo; notas de 5 comandos nuevos"
+lectura: "Pro Git cap. 2 (fundamentos) — lectura complementaria guiada"
+evidencia: "status/diff/log usados con intención en este repo"
+formato: pasos
+xpLeccion: 95
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Tres árboles mentales
+    xp: 10
+    cuerpo: |
+      Git no es “guardar archivos”. Piensa en tres zonas:
+
+      1. **Working tree** — tus archivos editados.
+      2. **Staging (index)** — lo que irá en el próximo commit (`git add`).
+      3. **Repository** — historial de commits.
+
+      Comandos núcleo: `status`, `diff`, `add`, `commit`, `log`.
+  - id: s2
+    tipo: ejemplo
+    titulo: Ciclo de un cambio
+    xp: 10
+    cuerpo: |
+      ```bash
+      git status
+      # edita un archivo…
+      git diff                 # working vs staging
+      git add ruta/archivo
+      git diff --staged        # lo que vas a committear
+      git commit -m "docs(m01): nota corta"
+      git log --oneline -5
+      ```
+  - id: s3
+    tipo: quiz
+    titulo: "¿Dónde está el cambio?"
+    xp: 15
+    variante: opcion_multiple
+    pregunta: "Editaste un archivo pero aún no corriste `git add`. ¿Dónde está el cambio?"
+    opciones:
+      - id: a
+        texto: Solo en staging
+      - id: b
+        texto: En el working tree (sin staged)
+      - id: c
+        texto: Ya está en un commit nuevo
+    respuesta: b
+    explicacionError: "Sin `add`, el cambio vive en el working tree."
+    explicacionOk: Correcto.
+  - id: s4
+    tipo: terminal
+    titulo: Ver estado
+    xp: 15
+    enunciado: Comando para ver archivos modificados / staged / untracked.
+    comandoEsperado: git status
+    explicacionError: "Es `git status`."
+  - id: s5
+    tipo: terminal
+    titulo: Diff staged
+    xp: 15
+    enunciado: "Comando para ver el diff de lo **ya en staging** (listo para commit)."
+    comandoEsperado:
+      - git diff --staged
+      - git diff --cached
+    explicacionError: "`git diff --staged` (o `--cached`)."
+  - id: s6
+    tipo: quiz
+    titulo: Completar
+    xp: 15
+    variante: completar
+    pregunta: "El área intermedia entre working tree y el historial se llama ____ (staging o index)."
+    respuesta:
+      - staging
+      - index
+      - staging area
+      - el index
+    explicacionError: Se llama staging area (index).
+    explicacionOk: Bien.
+  - id: s7
+    tipo: resumen
+    titulo: Cierre L05
+    xp: 15
+    puntos:
+      - Explicas working / staging / repo sin memes.
+      - "Usas `status`, `diff`, `diff --staged`, `log`."
+      - "Lectura: Pro Git cap. 2 (complementaria) para reforzar nombres."
+    siguiente: "Siguiente → L06 commits atómicos."
 ---
 
-# L05 — Git fundamentos
+## Lectura complementaria
 
-**~3 h · Semana 2**
-
-Entras a la semana de Git. Aquí el libro manda: lees *Pro Git* y **reproduces** en este repo, no en un playground aparte.
-
-## Objetivo
-
-Dominar el ciclo working tree → staging → commit, y leer `status`, `diff` y `log` sin miedo.
-
-## Mapa mental
-
-```text
-archivos modificados  →  git add  →  staging  →  git commit  →  historial
-                           ↑
-                     git status / git diff
-```
-
-## Pasos
-
-### 1. Lectura activa — Pro Git cap. 2 (60–75 min)
-
-Lee el **capítulo 2** de [*Pro Git*](https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git) (Fundamentos).
-
-Mientras lees, ten la terminal abierta. Cada vez que el libro muestre un comando, **pruébalo** aquí (con archivos de `projects/m01-diario/`, no inventes otro repo).
-
-### 2. Ciclo mínimo a mano (40–50 min)
-
-Haz un cambio pequeño (por ejemplo una línea en `shell-notas.md` o en la bitácora):
-
-```bash
-git status
-git diff
-git add -p    # o git add <archivo>
-git status
-git diff --staged
-git commit -m "docs(m01): anotar práctica de git status/diff"
-git log -3 --oneline
-git show HEAD
-```
-
-Si `add -p` te confunde, usa `git add <archivo>` y vuelve a `add -p` otro día.
-
-### 3. Vocabulario que debes poder explicar (20 min)
-
-Sin mirar el libro, escribe en `projects/m01-diario/git-notas.md`:
-
-- Working tree
-- Staging area (index)
-- Commit
-- Qué responde `git status` en 3 estados típicos
-
-### 4. Cinco comandos nuevos (15–20 min)
-
-Lista 5 comandos/flags del cap. 2 que no usabas (ej. `git log --stat`, `git rm`, `git mv`) y prueba al menos 2.
-
-## Lectura de esta lección
-
-| Fuente | Capítulos | Alternativa |
-|--------|-----------|-------------|
-| *Pro Git* | **Cap. 2** | [ES](https://git-scm.com/book/es/v2) |
-
-**Regla M01:** no pases al cap. 4 (servidor remoto) todavía. Remotos cuando uses GitHub de verdad en el flujo diario.
-| Catálogo | Entrada M01 | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
-
-
-## Hecho cuando
-
-1. Leíste (o trabajaste) el cap. 2 con ejercicios en **este** repo.
-2. Existe al menos un commit nuevo de práctica con mensaje claro.
-3. `git-notas.md` define working tree / staging / commit con tus palabras.
-
-## Errores comunes
-
-- Leer el capítulo entero sin un solo `git status`.
-- Hacer commits basura (`asdf`, `update`) “porque es práctica”.
-- Usar solo la GUI del editor y no mirar el diff.
-
-## Siguiente
-
-[L06 — Commits atómicos y mensajes](L06-commits-atomicos-y-mensajes.md)
+*Pro Git* capítulo 2. Practica cada sección en **este** repo, no en un playground vacío.

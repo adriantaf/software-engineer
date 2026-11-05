@@ -7,95 +7,102 @@ horas: 2
 semana: 1
 lectura: "Cómo estudiar (esta guía del plan) + regla 40/30/30"
 evidencia: "projects/m01-diario/semana-0001.md con plan de la semana (bloques de horas)"
+formato: pasos
+xpLeccion: 70
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Consumo vs práctica deliberada
+    xp: 10
+    cuerpo: |
+      **Consumo pasivo** = ver videos sin producir.
+
+      **Práctica deliberada** = un objetivo concreto, feedback (error, diff, mentor) y repetición.
+
+      La brújula del plan: **40 / 30 / 30** (teoría / práctica / proyecto). No es dogma rígido: si un día solo tienes 2 h, prioriza práctica + proyecto.
+  - id: s2
+    tipo: ejemplo
+    titulo: Semana tipo (~20 h)
+    xp: 10
+    cuerpo: |
+      | Bloque | Horas | Qué haces |
+      |--------|-------|-----------|
+      | Teoría / libro | 6–8 | Leer con lápiz: dudas, no subrayar todo |
+      | Práctica | 6–8 | Comandos, ejercicios, evidencia en `projects/` |
+      | Proyecto | 4–6 | Avance medible (diario, ADR, código) |
+      | Retro | 1 | Qué bloqueó / qué sigue |
+
+      Si solo tienes **2 h**: 1 h práctica + 1 h proyecto. La lectura se acorta o se mueve; no se inventa otro temario.
+  - id: s3
+    tipo: quiz
+    titulo: "¿Qué es práctica deliberada?"
+    xp: 15
+    variante: opcion_multiple
+    pregunta: "¿Cuál es el mejor ejemplo de práctica deliberada?"
+    opciones:
+      - id: a
+        texto: Ver 3 horas de tutoriales “para inspirarte”
+      - id: b
+        texto: Escribir entorno.md, fallar el commit, leer el error y corregirlo
+      - id: c
+        texto: Subrayar un capítulo entero sin tomar notas
+    respuesta: b
+    explicacionError: Deliberada = objetivo + feedback + repetición. Ver o subrayar sin producir no cuenta.
+    explicacionOk: "Sí — produciste, fallaste, corregiste."
+  - id: s4
+    tipo: quiz
+    titulo: Regla 40/30/30
+    xp: 10
+    variante: completar
+    pregunta: "Completa: la regla del plan es 40 / 30 / ___ (teoría / práctica / ?)."
+    respuesta:
+      - "30"
+      - "proyecto"
+      - "30 proyecto"
+    explicacionError: "El tercer bloque es **proyecto** (30%). Respuesta corta aceptada: `30` o `proyecto`."
+    explicacionOk: Teoría 40 · práctica 30 · proyecto 30.
+  - id: s5
+    tipo: quiz
+    titulo: Bitácora de la semana
+    xp: 15
+    variante: verdadero_falso
+    pregunta: "La evidencia de L02 es tener projects/m01-diario/semana-0001.md con bloques de horas planificados."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: t
+    explicacionError: "Sí es verdadero — sin bitácora no hay método instalado."
+    explicacionOk: Correcto. Escribe el plan en la bitácora ahora (offline).
+  - id: s6
+    tipo: resumen
+    titulo: Cierre L02
+    xp: 10
+    puntos:
+      - Leíste (o repasas) Cómo estudiar.
+      - Entiendes 40/30/30 y práctica deliberada.
+      - "Existe `semana-0001.md` con bloques de horas reales para tu semana."
+    siguiente: "Siguiente → L03 Shell, navegación y archivos."
 ---
 
-# L02 — Método y práctica deliberada
+## Lectura complementaria
 
-**~2 h · Semana 1**
+- [Cómo estudiar](../../../como-estudiar.md) — flujo por materia, qué cuenta como terminado.
 
-Ya tienes entorno. Ahora instalas el **sistema de estudio** que usarás en las 27 materias.
-
-## Objetivo
-
-Diseñar una semana de ~20 h con bloques de teoría / práctica / proyecto, y escribirlo en la bitácora.
-
-## Idea clave
-
-**Consumo pasivo** = ver videos sin producir.  
-**Práctica deliberada** = un objetivo concreto, feedback (error, diff, mentor) y repetición.
-
-La regla del plan: **40 / 30 / 30** (teoría / práctica / proyecto) como brújula, no como dogma rígido.
-
-## Semana tipo (repasa y aplica)
-
-| Bloque | Horas | Qué haces |
-|--------|-------|-----------|
-| Teoría / libro | 6–8 | Leer con lápiz: dudas, no subrayar todo |
-| Práctica | 6–8 | Comandos, ejercicios, evidencia en `projects/` |
-| Proyecto | 4–6 | Avance medible (diario, ADR, código) |
-| Retro | 1 | Qué bloqueó / qué sigue |
-
-Si un día solo tienes **2 h**: 1 h práctica + 1 h proyecto. La lectura de esa semana **no se borra**; se acorta o se mueve, no se inventa otro temario.
-
-## Pasos
-
-### 1. Lee el manual de método (30–40 min)
-
-Lee [Cómo estudiar](../../../como-estudiar.md) completo una vez. Marca mentalmente: flujo por materia, qué cuenta como terminado, errores de método.
-
-### 2. Planifica *tu* semana 1 de M01 (40–50 min)
-
-En `projects/m01-diario/semana-0001.md` escribe:
+## Plantilla bitácora
 
 ```markdown
 # Semana 0001 — M01
 
-## Meta de horas
-- Disponibles esta semana:
-- Bloques (día → horas → foco):
+## Plan (horas)
+- Teoría:
+- Práctica:
+- Proyecto:
 
-## Lecciones que ataco
-- [ ] L01 (si falta algo)
-- [ ] L02
-- [ ] L03 …
-- [ ] L04 …
+## Qué haré concreto
+- …
 
-## Lectura
-- Pro Git / man pages según cada lección
-
-## Al cierre (llénalo el domingo)
-- Qué hice:
-- Qué bloqueó:
-- Qué sigue:
+## Riesgos / bloqueos previstos
+- …
 ```
-
-Sé honesto con las horas. 20 h es la meta del plan; si esta semana son 12, anótalo y reparte sin mentirte.
-
-### 3. Define “hecho” de la semana (20 min)
-
-Al final de `semana-0001.md`, lista 3 resultados observables (ej.: “entorno.md commiteado”, “puedo usar pipes”, “7 commits atómicos en marcha”). Sin resultados, la semana fue niebla.
-
-## Lectura de esta lección
-
-| Fuente | Qué leer |
-|--------|----------|
-| Plan | [Cómo estudiar](../../../como-estudiar.md) |
-| Plan | [Filosofía](../../../filosofia.md) (opcional, 10–15 min) |
-| Catálogo | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
-
-
-## Hecho cuando
-
-1. Existe `projects/m01-diario/semana-0001.md` con bloques de horas y lecciones planeadas.
-2. Puedes explicar en una frase la diferencia entre ver un tutorial y práctica deliberada.
-3. Sabes qué harías si solo tienes 2 h un día.
-
-## Errores comunes
-
-- Planear 40 h “porque hay que”.
-- Llenar la bitácora al final inventando lo que “hubieras” hecho.
-- Saltar el método porque “ya sé estudiar”.
-
-## Siguiente
-
-[L03 — Shell: navegación y archivos](L03-shell-navegacion-y-archivos.md)

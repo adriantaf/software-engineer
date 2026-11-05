@@ -5,92 +5,89 @@ orden: 6
 titulo: Commits atómicos y mensajes
 horas: 2.5
 semana: 2
-lectura: "Pro Git cap. 2 (secciones de commit) + convención qué/porqué"
-evidencia: "Cadena de commits atómicos en marcha (meta P2: 7 días)"
+lectura: "Convencional commits (idea) + Pro Git cap. 2 (mensajes)"
+evidencia: "≥1 commit atómico con mensaje qué/porqué en este repo"
+formato: pasos
+xpLeccion: 80
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Atómico = revisable
+    xp: 10
+    cuerpo: |
+      Un commit **atómico** cambia **una** idea: un fix, un doc, un refactor pequeño.
+
+      Mensaje útil = **qué** cambió + **por qué** (no “update stuff”).
+
+      Estilo del plan (Conventional Commits light):
+
+      `docs(m01): registrar entorno de desarrollo`
+  - id: s2
+    tipo: ejemplo
+    titulo: Buenos vs malos
+    xp: 10
+    cuerpo: |
+      **Mal:**
+      - `update`
+      - `fixes`
+      - `asdf`
+
+      **Bien:**
+      - `docs(m01): plan semana 0001 en bitácora`
+      - `fix(m01): corregir typo en entorno.md`
+      - `chore: ignorar archivo temporal de shell`
+  - id: s3
+    tipo: quiz
+    titulo: "¿Cuál es atómico?"
+    xp: 15
+    variante: opcion_multiple
+    pregunta: "¿Cuál commit es más atómico?"
+    opciones:
+      - id: a
+        texto: "feat: agregar CLI + docs + renombrar 40 archivos + bump deps"
+      - id: b
+        texto: "docs(m01): añadir notas de Pro Git cap. 2 a la bitácora"
+      - id: c
+        texto: "update stuff"
+    respuesta: b
+    explicacionError: Atómico = una intención clara. (b) es un solo cambio de docs.
+    explicacionOk: Correcto.
+  - id: s4
+    tipo: quiz
+    titulo: Mensaje
+    xp: 15
+    variante: verdadero_falso
+    pregunta: "El mensaje debe explicar el 'por qué' cuando no es obvio, no solo listar archivos."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: t
+    explicacionError: "Verdadero — el diff ya muestra el qué; el mensaje aporta contexto."
+    explicacionOk: Sí.
+  - id: s5
+    tipo: terminal
+    titulo: Commit con mensaje
+    xp: 20
+    enunciado: |
+      Escribe un `git commit` con mensaje `docs(m01): nota de practica deliberada`
+      (asume que ya hiciste `git add`).
+    comandoEsperado:
+      - "git commit -m \"docs(m01): nota de practica deliberada\""
+      - "git commit -m 'docs(m01): nota de practica deliberada'"
+    explicacionError: "`git commit -m \"docs(m01): nota de practica deliberada\"`"
+  - id: s6
+    tipo: resumen
+    titulo: Cierre L06
+    xp: 10
+    puntos:
+      - Prefieres commits pequeños y revisables.
+      - "Mensajes con alcance (`docs`/`fix`/`chore`) + descripción."
+      - "Evidencia: al menos un commit atómico real en este repo (P2 en curso)."
+    siguiente: "Siguiente → L07 ramas, merge y stash."
 ---
 
-# L06 — Commits atómicos y mensajes
+## Lectura complementaria
 
-**~2.5 h · Semana 2**
-
-Un commit atómico = **una** idea revisable. El mensaje dice **qué** cambió y **por qué** importa.
-
-## Objetivo
-
-Escribir mensajes claros y partir el trabajo en commits pequeños. Empezar (o continuar) la racha de **7 días** de la P2.
-
-## Bueno vs malo
-
-```text
-malo:  update
-malo:  cambios
-malo:  fix
-bueno: docs(m01): añadir bitácora de la semana 0001
-bueno: chore(m01): aliases de git en .bashrc
-bueno: docs(m01): anotar pipeline grep en shell-notas
-```
-
-Patrón útil: `tipo(ambito): resumen en imperativo`
-
-Tipos comunes aquí: `docs`, `chore`, `feat`, `fix`.
-
-## Pasos
-
-### 1. Audita tu historial reciente (20 min)
-
-```bash
-git log -10 --oneline
-```
-
-Marca mentalmente cuáles mensajes no te servirían en 3 meses. Reescribe la regla en `git-notas.md`.
-
-### 2. Practica el split (40–50 min)
-
-Haz **dos** cambios distintos (ej. una línea en bitácora + una línea en `git-notas.md`) y **dos** commits separados:
-
-```bash
-git add projects/m01-diario/semana-0001.md
-git commit -m "docs(m01): actualizar bitácora semana 0001"
-
-git add projects/m01-diario/git-notas.md
-git commit -m "docs(m01): aclarar regla de mensajes de commit"
-```
-
-Si ya los mezclaste en staging: `git restore --staged <archivo>` y vuelve a añadir por partes.
-
-### 3. Arranca o continúa P2 (45–60 min)
-
-**P2:** 7 días con ≥1 commit atómico/día (mensajes qué/porqué).
-
-- Hoy cuenta como un día si haces un commit real de progreso.
-- Pega en la bitácora (cuando cierres la semana): salida de `git log --oneline` relevante.
-
-No inventes commits vacíos (`git commit --allow-empty`) para “cumplir”: el plan pide honestidad.
-
-### 4. Checklist de mensaje (10 min)
-
-Antes de cada `commit`, pregúntate:
-
-1. ¿Qué archivo(s) toca?
-2. ¿Por qué alguien del futuro debería importarle?
-3. ¿Se puede revisar en <5 minutos?
-
-## Lectura
-
-Repasa en *Pro Git* cap. 2 las secciones de registrar cambios / historial. No avances al cap. 3 todavía si no terminaste esta práctica.
-
-## Hecho cuando
-
-1. Hiciste al menos 2 commits separados con mensajes claros en esta sesión.
-2. Entiendes la meta de P2 (7 días) y ya tienes al menos el día de hoy (o documentaste el plan de racha).
-3. Actualizaste `git-notas.md` con la regla qué/porqué.
-
-## Errores comunes
-
-- Un solo commit gigante “toda la semana M01”.
-- Mensajes que describen el mood (`wip`, `tmp`) sin contenido.
-- Marcar P2 en la UI sin los 7 días.
-
-## Siguiente
-
-[L07 — Ramas, merge y stash](L07-ramas-merge-y-stash.md)
+Evita commits gigantes. Si mezclaste cosas, `git add -p` (más adelante) o deshaz y vuelve a partir.

@@ -36,12 +36,12 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M01 usa el formato de lecciones tipo freeCodeCamp: lecciones cortas y completas que marcas una a una.
+M01 usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación propia, ejemplos, quizzes y retos de terminal. Los libros pasan a **lectura complementaria**.
 
-1. Abre las lecciones **en orden** (L01 → L08).
-2. Cada lección trae objetivo, pasos, lectura de libro y criterio “Hecho cuando”.
-3. Marca la lección en la UI solo si cumple ese criterio.
-4. Las **prácticas / proyecto** de abajo siguen exigiendo evidencia en `projects/`.
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden L01 → L08).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato. No avances si falla.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria para P1–P3.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
 5. Método general: [Cómo estudiar](../../como-estudiar.md).
 
 ## Semana tipo (20 h)

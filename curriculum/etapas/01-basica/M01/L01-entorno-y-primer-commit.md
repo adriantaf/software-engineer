@@ -5,118 +5,117 @@ orden: 1
 titulo: Entorno y primer commit
 horas: 2.5
 semana: 1
-lectura: "Pro Git cap. 1 (Introducción) — instalación solo si falta Git"
+lectura: "Pro Git cap. 1 (complementaria) — después de practicar"
 evidencia: "projects/m01-diario/entorno.md + commit docs(m01): registrar entorno"
+formato: pasos
+xpLeccion: 85
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Por qué empieza aquí
+    xp: 10
+    cuerpo: |
+      Sin entorno y sin hábito de commit, el resto del plan se diluye en “luego lo configuro”.
+
+      Hoy instalas **poco** y **demuestras** con un archivo + un commit en **este** repo.
+
+      Usarás Git como **receta** (`status` → `add` → `commit`). No hace falta entender staging a fondo todavía: eso llega en L05–L07.
+  - id: s2
+    tipo: ejemplo
+    titulo: El flujo mínimo de evidencia
+    xp: 10
+    caption: "Receta del Día 1 — memoriza el orden."
+    cuerpo: |
+      ```bash
+      git status
+      git add projects/m01-diario/entorno.md
+      git commit -m "docs(m01): registrar entorno de desarrollo"
+      git log -1 --oneline
+      ```
+
+      Si Git pide nombre/email la primera vez:
+
+      ```bash
+      git config --global user.name "Tu Nombre"
+      git config --global user.email "tu@email.com"
+      ```
+  - id: s3
+    tipo: quiz
+    titulo: Qué cuenta como evidencia
+    xp: 15
+    variante: opcion_multiple
+    pregunta: "¿Qué demuestra que “existes” en este plan el Día 1?"
+    opciones:
+      - id: a
+        texto: Tener VS Code instalado y un tema oscuro
+      - id: b
+        texto: Un archivo entorno.md en projects/ + un commit que lo registra
+      - id: c
+        texto: Haber leído Pro Git cap. 1 completo sin tocar la terminal
+    respuesta: b
+    explicacionError: La evidencia es archivo en projects/ + commit. Herramientas o lectura sola no bastan.
+    explicacionOk: "Correcto — evidencia = archivo + historial en git."
+  - id: s4
+    tipo: terminal
+    titulo: Comprueba Git
+    xp: 15
+    enunciado: |
+      Escribe el comando que muestra la **versión** de Git instalada.
+    comandoEsperado:
+      - git --version
+    pistas:
+      - "Empieza por git y pide la versión."
+    explicacionError: "El comando es git --version (con dos guiones)."
+  - id: s5
+    tipo: terminal
+    titulo: Primer commit (comando)
+    xp: 15
+    enunciado: |
+      Tras crear `projects/m01-diario/entorno.md`, ¿qué comando **añade ese archivo** al área de staging?
+
+      (En la vida real créalo con SO, Git, Node, editor y fecha; aquí compruebas el comando.)
+    comandoEsperado:
+      - git add projects/m01-diario/entorno.md
+    pistas:
+      - "git add + ruta del archivo"
+    explicacionError: "Usa git add projects/m01-diario/entorno.md"
+  - id: s6
+    tipo: quiz
+    titulo: Verdadero o falso
+    xp: 10
+    variante: verdadero_falso
+    pregunta: "Hoy debes instalar 15 herramientas (Docker, k8s, 3 IDEs…) antes del primer commit."
+    opciones:
+      - id: t
+        texto: Verdadero
+      - id: f
+        texto: Falso
+    respuesta: f
+    explicacionError: "Falso — el error común es instalar de más y no hacer el commit."
+    explicacionOk: Exacto. Poco entorno, mucha evidencia.
+  - id: s7
+    tipo: resumen
+    titulo: Cierre L01
+    xp: 10
+    puntos:
+      - "Git + Node LTS en PATH; versiones anotadas."
+      - "Existe projects/m01-diario/entorno.md con SO / Git / Node / editor."
+      - "Commit con mensaje que menciona el entorno (ideal docs(m01): registrar entorno)."
+      - "Lectura complementaria: Pro Git cap. 1 al final, para nombrar lo que ya corriste."
+    siguiente: "Siguiente → L02 Método y práctica deliberada."
 ---
 
-# L01 — Entorno y primer commit
-
-**~2.5 h · Semana 1**
-
-Esta es tu primera lección del plan. Al terminar tendrás terminal lista, evidencia en `projects/` y un commit limpio en **este** repo.
-
-## Objetivo
-
-Configurar el entorno mínimo (Git + Node + editor) y dejar constancia en git de que existes aquí.
-
-## Por qué empieza así
-
-Sin entorno y sin hábito de commit, el resto del plan se diluye en “luego lo configuro”. Hoy instalas poco y **demuestras** con un archivo + un commit.
-
-Hoy usas Git como **receta** (`status` → `add` → `commit`): no hace falta entender staging ni el historial todavía. La lectura del cap. 1 va **al final** para nombrar lo que ya corriste. En **L05–L07** el libro sí manda primero; aquí el Día 1 prioriza evidencia en este repo.
-
-## Pasos (hazlos en orden)
-
-### 1. Terminal y versiones (15–20 min)
-
-Abre la terminal. En Windows, preferible **WSL2** (Ubuntu). Comprueba:
-
-```bash
-git --version
-node --version
-```
-
-- Si falta **Git**: instálalo ([git-scm.com](https://git-scm.com/) o `sudo apt install git` en Linux/WSL).
-- Si falta **Node**: instala **LTS** desde [nodejs.org](https://nodejs.org/) (no uses una versión random de un tutorial viejo).
-
-Anota las versiones; las vas a pegar en el siguiente paso.
-
-### 2. Repo y carpeta de evidencia (20–30 min)
-
-Clona o abre este repositorio. Desde la raíz:
-
-```bash
-mkdir -p projects/m01-diario
-pwd
-ls projects/m01-diario
-```
-
-Si aún no tienes el repo local: clónalo desde GitHub y entra a la carpeta antes de seguir.
-
-### 3. Escribe `entorno.md` (30–40 min)
-
-Crea `projects/m01-diario/entorno.md` con al menos:
-
-```markdown
-# Entorno — M01
-
-- SO:
-- Git:
-- Node:
-- Editor:
-- Fecha:
-- Notas (WSL / rutas / lo que te costó):
-```
-
-Sé concreto. “Windows” no basta: indica edición y si usas WSL.
-
-### 4. Primer commit atómico (20–30 min)
-
-```bash
-git status
-git add projects/m01-diario/entorno.md
-git commit -m "docs(m01): registrar entorno de desarrollo"
-git log -1 --oneline
-```
-
-Si Git pide nombre/email la primera vez:
-
-```bash
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu@email.com"
-```
-
-### 5. Lectura corta (30–40 min)
-
-Lee *Pro Git* **capítulo 1** (Introducción). No te pierdas en servidores remotos todavía. Vas a reconocer `status` / `add` / `commit` que ya corriste.
-
-Anota **5 comandos o ideas nuevas** al final de `entorno.md` (o en una sección `## Notas Pro Git`).
-
-## Lectura de esta lección
+## Lectura complementaria
 
 | Fuente | Qué leer | Alternativa |
 |--------|----------|-------------|
-| *Pro Git* | Cap. 1 | Misma [URL en español](https://git-scm.com/book/es/v2) |
+| *Pro Git* | Cap. 1 | [URL en español](https://git-scm.com/book/es/v2) |
 | Este plan | [Cómo estudiar](../../../como-estudiar.md) (una pasada) | — |
-| Catálogo | Entrada M01 | [Bibliografía · M01](../../../bibliografia.md#m01-metodo-git) |
 
+## Checklist offline (evidencia real)
 
-## Hecho cuando
+1. `git --version` y `node --version` OK.
+2. Archivo `projects/m01-diario/entorno.md` completo.
+3. Commit `docs(m01): registrar entorno de desarrollo` (o equivalente claro).
 
-Marca la lección **solo si**:
-
-1. Existen `git` y `node` en tu PATH (versiones anotadas).
-2. Existe `projects/m01-diario/entorno.md` con SO / Git / Node / editor.
-3. Hay un commit cuyo mensaje menciona el entorno (ideal: `docs(m01): registrar entorno de desarrollo`).
-
-Esto alimenta la **P1** de la materia. No marques P1 en la ficha hasta que la evidencia exista.
-
-## Errores comunes
-
-- Instalar 15 herramientas y no hacer el commit.
-- Escribir `entorno.md` pero dejarlo sin `git add`.
-- Usar solo la GUI y no saber qué hizo `commit`.
-
-## Siguiente
-
-[L02 — Método y práctica deliberada](L02-metodo-y-practica-deliberada.md)
+Esto alimenta la **P1** de la materia.
