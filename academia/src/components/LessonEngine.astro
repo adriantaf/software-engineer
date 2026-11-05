@@ -1,0 +1,115 @@
+---
+import { marked } from 'marked';
+import type { LeccionDoc } from '../lib/curriculum';
+import type { PlayerPaso, PlayerPayload } from '../lib/lesson-player';
+import { pathTo } from '../lib/paths';
+
+interface Props {
+  leccion: LeccionDoc;
+  materiaId: string;
+  nextLeccionId?: string | null;
+}
+
+const { leccion, materiaId, nextLeccionId } = Astro.props;
+const pasos = leccion.pasos ?? [];
+
+function md(src: string): string {
+  return marked.parse(src, { async: false }) as string;
+}
+
+const playerPasos: PlayerPaso[] = pasos.map((p) => {
+  if (p.tipo === 'explicacion' || p.tipo === 'ejemplo') {
+    return { ...p, cuerpoHtml: md(p.cuerpo) };
+  }
+  if (p.tipo === 'terminal' || p.tipo === 'codigo' || p.tipo === 'proyecto') {
+    return { ...p, enunciadoHtml: md(p.enunciado) };
+  }
+  return p;
+});
+
+const payload: PlayerPayload = {
+  materiaId,
+  leccionId: leccion.id,
+  titulo: leccion.titulo,
+  pasos: playerPasos,
+  nextLeccionHref: nextLeccionId
+    ? pathTo(`materia/${materiaId}/leccion/${nextLeccionId}`)
+    : null,
+  materiaHref: pathTo(`materia/${materiaId}`),
+  lecturaComplementariaHtml: leccion.bodyHtml || undefined,
+};
+---
+
+<section
+  class="lesson-engine"
+  data-lesson-player
+  aria-label={`Lección ${leccion.id} paso a paso`}
+>
+  <div class="lesson-engine__hud surface-panel px-3 py-2.5 sm:px-4 mb-4">
+    <div class="flex flex-wrap items-center justify-between gap-2 text-sm mb-1.5">
+      <p class="m-0 font-medium" data-step-label>Paso 1 de {pasos.length}</p>
+      <p class="m-0 text-xs sm:text-sm opacity-80 flex gap-3">
+        <span><span class="opacity-60">XP</span> <strong data-xp-total>0</strong></span>
+        <span><span class="opacity-60">Racha</span> <strong data-streak>0</strong></span>
+      </p>
+    </div>
+    <progress
+      class="progress progress-primary progress-atelier w-full h-2"
+      data-step-bar
+      value="0"
+      max="100"
+      aria-label="Progreso de la lección"
+    ></progress>
+  </div>
+
+  <div class="lesson-engine__card surface-panel p-4 sm:p-6 mb-4 min-h-[16rem]">
+    <div data-step-stage class="lesson-stage"></div>
+    <div data-step-feedback class="lesson-feedback mt-4" hidden></div>
+  </div>
+
+  <div class="lesson-engine__actions flex flex-wrap gap-2 pb-24 lg:pb-0">
+    <a class="btn btn-ghost btn-sm" href={pathTo(`materia/${materiaId}`)}>Mapa</a>
+    <button type="button" class="btn btn-primary btn-sm ml-auto" data-step-check>
+      Comprobar
+    </button>
+    <button type="button" class="btn btn-secondary btn-sm" data-step-next hidden disabled>
+      Continuar
+    </button>
+  </div>
+
+  {
+    leccion.bodyHtml && (
+      <aside
+        class="callout-atelier text-sm mt-8"
+        data-step-complement
+        hidden
+        aria-label="Lectura complementaria"
+      >
+        <p class="font-display font-semibold m-0 mb-2">Lectura complementaria</p>
+        <div class="prose-academia materia-body min-w-0" set:html={leccion.bodyHtml} />
+      </aside>
+    )
+  }
+
+  <script type="application/json" id="lesson-player-data" set:html={JSON.stringify(payload)} />
+</section>
+
+<script>
+  import { mountLessonPlayer } from '../lib/lesson-player';
+  import type { PlayerPayload } from '../lib/lesson-player';
+
+  function boot() {
+    const root = document.querySelector<HTMLElement>('[data-lesson-player]');
+    const raw = document.getElementById('lesson-player-data')?.textContent;
+    if (!root || !raw) return;
+    try {
+      const data = JSON.parse(raw) as PlayerPayload;
+      mountLessonPlayer(root, data);
+    } catch (e) {
+      console.error('[lesson-player]', e);
+    }
+  }
+
+  boot();
+  document.addEventListener('astro:page-load', boot);
+</script>

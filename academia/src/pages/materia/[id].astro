@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import MateriaCover from '../../components/MateriaCover.astro';
-import { getCatalog, getEtapa, getHorasBreakdown, loadMateria } from '../../lib/curriculum';
+import PathMap from '../../components/PathMap.astro';
+import { getCatalog, getEtapa, getHorasBreakdown, loadMateria, materiaUsaPasos } from '../../lib/curriculum';
 import { pathTo } from '../../lib/paths';
 
 export function getStaticPaths() {
@@ -20,6 +21,7 @@ const hasLecciones = materia.lecciones.length > 0;
 const firstLeccion = materia.lecciones[0];
 const hasDia1 = !hasLecciones && /día\s*1|dia\s*1/i.test(materia.bodyHtml);
 const horas = getHorasBreakdown(materia.id);
+const usaPasos = materiaUsaPasos(materia.id);
 ---
 
 <Layout title={`${materia.id} ${materia.titulo}`}>
@@ -67,16 +69,20 @@ const horas = getHorasBreakdown(materia.id);
       </header>
 
       {
-        hasLecciones && firstLeccion && (
-          <div role="status" class="callout-atelier text-sm">
-            <p>
-              Empieza por{' '}
-              <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
-                {firstLeccion.id} — {firstLeccion.titulo}
-              </a>
-              . Marca cada lección al cumplir “Hecho cuando”.
-            </p>
-          </div>
+        usaPasos && hasLecciones ? (
+          <PathMap materiaId={materia.id} lecciones={materia.lecciones} />
+        ) : (
+          hasLecciones && firstLeccion && (
+            <div role="status" class="callout-atelier text-sm">
+              <p>
+                Empieza por{' '}
+                <a class="link font-semibold" href={pathTo(`materia/${materia.id}/leccion/${firstLeccion.id}`)}>
+                  {firstLeccion.id} — {firstLeccion.titulo}
+                </a>
+                . Marca cada lección al cumplir “Hecho cuando”.
+              </p>
+            </div>
+          )
         )
       }
 

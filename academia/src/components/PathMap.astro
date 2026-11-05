@@ -1,0 +1,141 @@
+---
+import type { LeccionMeta } from '../lib/curriculum';
+import { pathTo } from '../lib/paths';
+
+interface Props {
+  materiaId: string;
+  lecciones: LeccionMeta[];
+}
+
+const { materiaId, lecciones } = Astro.props;
+---
+
+<section
+  class="surface-panel p-4 sm:p-5 mb-6"
+  data-path-map
+  data-materia={materiaId}
+  aria-label="Camino de lecciones"
+>
+  <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+    <div>
+      <h2 class="font-display text-lg font-semibold m-0">Camino</h2>
+      <p class="text-sm opacity-70 m-0 mt-0.5">Completa en orden. Las bloqueadas se abren al terminar la anterior.</p>
+    </div>
+    <a
+      class="btn btn-primary btn-sm"
+      data-path-continue
+      href={pathTo(`materia/${materiaId}/leccion/${lecciones[0]?.id ?? 'L01'}`)}
+    >
+      Continuar
+    </a>
+  </div>
+
+  <ol class="path-map" data-path-list>
+    {
+      lecciones.map((l, i) => (
+        <li
+          class="path-map__item"
+          data-path-node={l.id}
+          data-orden={l.orden}
+          data-index={i}
+        >
+          <div class="path-map__rail" aria-hidden="true">
+            <span class="path-map__node" data-path-dot>{l.id.replace(/^L0?/, '')}</span>
+            {i < lecciones.length - 1 && <span class="path-map__line" data-path-line />}
+          </div>
+          <a
+            class="path-map__card"
+            data-path-link
+            href={pathTo(`materia/${materiaId}/leccion/${l.id}`)}
+          >
+            <span class="path-map__id">{l.id}</span>
+            <p class="path-map__title">{l.titulo}</p>
+            <p class="text-xs opacity-60 m-0 mt-1" data-path-status>
+              {l.formato === 'pasos' ? `${l.pasosCount ?? '—'} pasos` : 'Lección'}
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+
+  <script type="application/json" data-path-ids set:html={JSON.stringify(lecciones.map((l) => l.id))} />
+</section>
+
+<script>
+  import { loadProgress, resolveContinuePath } from '../lib/progress-client';
+  import { pathTo } from '../lib/paths';
+
+  function syncPathMap() {
+    const root = document.querySelector<HTMLElement>('[data-path-map]');
+    if (!root) return;
+    const mid = root.getAttribute('data-materia');
+    if (!mid) return;
+    const idsRaw = root.querySelector('[data-path-ids]')?.textContent;
+    let ids: string[] = [];
+    try {
+      ids = idsRaw ? (JSON.parse(idsRaw) as string[]) : [];
+    } catch {
+      ids = [];
+    }
+
+    const state = loadProgress();
+    const doneMap = state?.materias?.[mid]?.lecciones ?? {};
+    const pasoActual = state?.materias?.[mid]?.pasoActual ?? {};
+
+    let firstIncomplete = ids.find((id) => !doneMap[id]) ?? ids[ids.length - 1];
+    let locked = false;
+
+    root.querySelectorAll<HTMLElement>('[data-path-node]').forEach((li) => {
+      const lid = li.getAttribute('data-path-node')!;
+      const isDone = Boolean(doneMap[lid]);
+      const isCurrent = lid === firstIncomplete && !isDone;
+      const link = li.querySelector<HTMLAnchorElement>('[data-path-link]');
+      const dot = li.querySelector('[data-path-dot]');
+      const line = li.querySelector('[data-path-line]');
+      const status = li.querySelector('[data-path-status]');
+
+      if (locked && !isDone) {
+        link?.classList.add('path-map__card--locked');
+        link?.classList.remove('path-map__card--current', 'path-map__card--done');
+        link?.setAttribute('aria-disabled', 'true');
+        link?.setAttribute('tabindex', '-1');
+        dot?.classList.add('path-map__node--locked');
+        dot?.classList.remove('path-map__node--done', 'path-map__node--current');
+        if (status) status.textContent = 'Bloqueada';
+      } else if (isDone) {
+        link?.classList.add('path-map__card--done');
+        link?.classList.remove('path-map__card--current', 'path-map__card--locked');
+        link?.removeAttribute('aria-disabled');
+        link?.removeAttribute('tabindex');
+        dot?.classList.add('path-map__node--done');
+        dot?.classList.remove('path-map__node--current', 'path-map__node--locked');
+        line?.classList.add('path-map__line--done');
+        if (status) status.textContent = 'Completada';
+      } else if (isCurrent) {
+        link?.classList.add('path-map__card--current');
+        link?.classList.remove('path-map__card--done', 'path-map__card--locked');
+        link?.removeAttribute('aria-disabled');
+        link?.removeAttribute('tabindex');
+        dot?.classList.add('path-map__node--current');
+        dot?.classList.remove('path-map__node--done', 'path-map__node--locked');
+        const paso = pasoActual[lid];
+        if (status) status.textContent = paso ? `Actual · paso ${paso}` : 'Actual';
+        locked = true; // siguientes bloqueadas
+      } else {
+        // Disponible (no debería pasar con bloqueo secuencial)
+        locked = true;
+      }
+    });
+
+    const cont = root.querySelector<HTMLAnchorElement>('[data-path-continue]');
+    if (cont) {
+      const rel = resolveContinuePath([mid], { [mid]: ids });
+      cont.href = pathTo(rel);
+    }
+  }
+
+  syncPathMap();
+  window.addEventListener('academia-progress', syncPathMap);
+  document.addEventListener('astro:page-load', syncPathMap);
+</script>

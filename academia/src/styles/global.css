@@ -1849,3 +1849,208 @@ body.nav-drawer-open {
 .materia-cover--hero .materia-cover__img {
   object-position: center;
 }
+
+/* —— Lesson engine (paso a paso) —— */
+.lesson-engine {
+  max-width: 42rem;
+}
+
+.lesson-stage--enter {
+  animation: lesson-step-in var(--dur-med) var(--ease-out) both;
+}
+
+@keyframes lesson-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lesson-stage--enter {
+    animation: none;
+  }
+}
+
+.lesson-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  background: var(--paper-elevated);
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.lesson-choice:hover {
+  border-color: var(--accent);
+  background: var(--color-plan-primary-soft);
+}
+
+.lesson-choice:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--color-plan-primary-soft);
+}
+
+.lesson-choice input {
+  margin-top: 0.15rem;
+  accent-color: var(--accent);
+}
+
+.lesson-feedback {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.lesson-feedback--ok {
+  background: color-mix(in srgb, var(--color-success) 12%, white);
+  border: 1px solid color-mix(in srgb, var(--color-success) 35%, white);
+  color: var(--accent-ink);
+}
+
+.lesson-feedback--err {
+  background: color-mix(in srgb, var(--danger) 10%, white);
+  border: 1px solid color-mix(in srgb, var(--danger) 30%, white);
+  color: var(--danger);
+}
+
+.lesson-feedback__icon {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+/* —— Path map (camino de lecciones) —— */
+.path-map {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 28rem;
+}
+
+.path-map__item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.path-map__rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.path-map__node {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  border: 2px solid var(--line);
+  background: var(--paper-elevated);
+  color: var(--muted);
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.path-map__node--done {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.path-map__node--current {
+  border-color: var(--color-plan-cta);
+  background: var(--color-plan-cta);
+  color: #fff;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-plan-cta) 25%, transparent);
+}
+
+.path-map__node--locked {
+  opacity: 0.55;
+}
+
+.path-map__line {
+  flex: 1;
+  width: 2px;
+  min-height: 1.25rem;
+  background: var(--line);
+  margin: 0.15rem 0;
+}
+
+.path-map__line--done {
+  background: var(--accent);
+}
+
+.path-map__card {
+  display: block;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0.85rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+}
+
+.path-map__card:hover {
+  border-color: var(--accent);
+}
+
+.path-map__card--current {
+  border-color: var(--color-plan-cta);
+  background: color-mix(in srgb, var(--color-plan-cta) 8%, white);
+}
+
+.path-map__card--locked {
+  opacity: 0.55;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.path-map__card--done {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+
+.path-map__id {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  opacity: 0.65;
+}
+
+.path-map__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0.1rem 0 0;
+  font-family: var(--font-display);
+}
+
+.gamify-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-plan-primary-soft);
+  color: var(--accent-ink);
+}

@@ -177,6 +177,16 @@ function navCurrent(segment: string): boolean {
         </nav>
 
         <div class="site-header__actions">
+          <span
+            class="gamify-chip hidden sm:inline-flex"
+            id="hud-xp-chip"
+            title="XP y racha diaria"
+            hidden
+          >
+            <span><span class="opacity-70">XP</span> <strong id="hud-xp">0</strong></span>
+            <span aria-hidden="true">·</span>
+            <span><span class="opacity-70">🔥</span> <strong id="hud-racha">0</strong></span>
+          </span>
           <div id="auth-sync" class="site-header__auth hidden sm:flex">
             <button
               type="button"
@@ -337,7 +347,11 @@ function navCurrent(segment: string): boolean {
     <script type="application/json" id="lecciones-catalog" set:html={JSON.stringify(leccionesCatalog)} />
 
     <script>
-      import { initProgressFromSeed, resolveContinuePath } from '../lib/progress-client';
+      import {
+        initProgressFromSeed,
+        loadProgress,
+        resolveContinuePath,
+      } from '../lib/progress-client';
       import { pathTo } from '../lib/paths';
       import {
         onSyncStatus,
@@ -543,6 +557,20 @@ function navCurrent(segment: string): boolean {
           a.href = href;
           a.textContent = narrow || materiaId === 'M01' ? 'Continuar' : `Continuar ${materiaId}`;
         });
+
+        const st = loadProgress();
+        const xp = st?.xp ?? 0;
+        const racha = st?.racha ?? 0;
+        const xpEl = document.getElementById('hud-xp');
+        const rachaEl = document.getElementById('hud-racha');
+        const chip = document.getElementById('hud-xp-chip');
+        if (xpEl) xpEl.textContent = String(xp);
+        if (rachaEl) rachaEl.textContent = String(racha);
+        if (chip) {
+          const show = xp > 0 || racha > 0;
+          chip.hidden = !show;
+          chip.classList.toggle('hidden', !show);
+        }
       }
 
       function initNavDrawer() {

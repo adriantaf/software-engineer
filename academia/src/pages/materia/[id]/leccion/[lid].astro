@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
+import LessonEngine from '../../../../components/LessonEngine.astro';
 import {
   getCatalog,
   getEtapa,
@@ -10,13 +11,13 @@ import {
 import { pathTo } from '../../../../lib/paths';
 
 export function getStaticPaths() {
-  const paths: { params: { id: string; lid: string } }[] = [];
+  const out: { params: { id: string; lid: string } }[] = [];
   for (const m of getCatalog().materias) {
     for (const l of listLecciones(m.id)) {
-      paths.push({ params: { id: m.id, lid: l.id } });
+      out.push({ params: { id: m.id, lid: l.id } });
     }
   }
-  return paths;
+  return out;
 }
 
 const { id, lid } = Astro.params;
@@ -29,6 +30,7 @@ const idx = all.findIndex((l) => l.id === leccion.id);
 const prev = all[idx - 1];
 const next = all[idx + 1];
 const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
+const isPasos = leccion.formato === 'pasos' && (leccion.pasos?.length ?? 0) > 0;
 ---
 
 <Layout title={`${leccion.id} ${leccion.titulo} · ${materia.id}`}>
@@ -41,270 +43,277 @@ const pctStatic = all.length ? Math.round(((idx + 1) / all.length) * 100) : 0;
     </ul>
   </div>
 
-  <div
-    class="mb-4 surface-panel px-3 py-2 sm:px-4"
-    data-lesson-progress
-    data-materia={materia.id}
-    data-total={all.length}
-    data-index={idx + 1}
-  >
-    <div class="flex flex-wrap items-baseline justify-between gap-2 text-sm mb-1.5">
-      <p class="m-0 font-medium">
-        Lección <span id="lp-index">{idx + 1}</span> de {all.length}
-        <span class="opacity-60 font-normal">· {materia.id}</span>
-      </p>
-      <p class="m-0 text-xs sm:text-sm opacity-70">
-        Hechas: <span id="lp-done">0</span>/{all.length}
-        (<span id="lp-pct">0</span>%)
-      </p>
-    </div>
-    <progress
-      id="lp-bar"
-      class="progress progress-primary progress-atelier w-full h-2"
-      value={pctStatic}
-      max="100"
-      aria-label="Progreso de posición en la materia"
-    ></progress>
-  </div>
-
-  <div class="flex flex-col lg:flex-row gap-6 min-w-0 pb-24 lg:pb-0">
-    <article class="article-reading flex-1 min-w-0">
-      <div class="min-w-0">
-        <header class="mb-4 pb-4 border-b border-base-300">
-          <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
+  {
+    isPasos ? (
+      <>
+        <header class="mb-4 pb-3 border-b border-base-300">
+          <div class="flex flex-wrap items-center gap-2 mb-1 text-xs font-semibold tracking-wide uppercase opacity-70">
             <span>{materia.id}</span>
             <span aria-hidden="true">·</span>
             <span>{leccion.id}</span>
-            {
-              leccion.semana > 0 && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>Semana {leccion.semana}</span>
-                </>
-              )
-            }
-            {
-              leccion.horas > 0 && (
-                <>
-                  <span aria-hidden="true">·</span>
-                  <span>~{leccion.horas} h</span>
-                </>
-              )
-            }
-          </div>
-          <p class="text-sm opacity-70 m-0">
-            <a class="link link-primary" href={pathTo(`materia/${materia.id}`)}>
-              Ficha {materia.id}
-            </a>
-          </p>
-        </header>
-
-        <div class="prose-academia materia-body min-w-0" set:html={leccion.bodyHtml} />
-
-        <div class="hidden lg:flex flex-wrap gap-2 mt-8 pt-4 border-t border-base-300">
-          {
-            prev ? (
-              <a
-                class="btn btn-outline btn-sm"
-                href={pathTo(`materia/${materia.id}/leccion/${prev.id}`)}
-              >
-                ← {prev.id}
-              </a>
-            ) : (
-              <a class="btn btn-outline btn-sm" href={pathTo(`materia/${materia.id}`)}>
-                ← Ficha {materia.id}
-              </a>
-            )
-          }
-          <label class="btn btn-secondary btn-sm gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              class="checkbox checkbox-sm checkbox-primary"
-              data-leccion={leccion.id}
-              data-materia={materia.id}
-              data-mark-main
-            />
-            Marcar lección hecha
-          </label>
-          {
-            next ? (
-              <a
-                class="btn btn-primary btn-sm ml-auto"
-                href={pathTo(`materia/${materia.id}/leccion/${next.id}`)}
-              >
-                {next.id} →
-              </a>
-            ) : (
-              <a
-                class="btn btn-primary btn-sm ml-auto"
-                href={pathTo(`materia/${materia.id}`)}
-              >
-                Cerrar ficha {materia.id} →
-              </a>
-            )
-          }
-        </div>
-      </div>
-    </article>
-
-    <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
-      <nav class="surface-panel overflow-hidden min-w-0" aria-label="Lecciones">
-        <div class="flex flex-col gap-2 p-4 min-w-0">
-          <h2 class="font-display text-base font-semibold m-0">Lecciones · {materia.id}</h2>
-          <div class="max-h-96 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-0.5">
-            {
-              all.map((l) => (
-                <div class="lesson-toc-row">
-                  <input
-                    id={`chk-${materia.id}-${l.id}`}
-                    type="checkbox"
-                    class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
-                    data-leccion={l.id}
-                    data-materia={materia.id}
-                  />
-                  <div class="min-w-0 flex-1">
-                    <label class="sr-only" for={`chk-${materia.id}-${l.id}`}>
-                      {`Marcar ${l.id} hecha`}
-                    </label>
-                    <a
-                      class:list={[
-                        'text-sm leading-snug link link-hover min-w-0 block',
-                        l.id === leccion.id && 'font-semibold text-primary',
-                      ]}
-                      href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
-                      aria-describedby={`chk-${materia.id}-${l.id}`}
-                    >
-                      <span class="font-mono text-xs opacity-70">{l.id}</span>
-                      {' '}
-                      {l.titulo}
-                    </a>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-      </nav>
-
-      {
-        (leccion.lectura || leccion.evidencia) && (
-          <aside class="callout-atelier text-sm min-w-0" aria-label="Recordatorio">
-            <p class="font-display font-semibold m-0 mb-2">Recordatorio</p>
-            {leccion.lectura && (
-              <p class="m-0 mb-1">
-                <span class="font-semibold">Lectura:</span> {leccion.lectura}
-              </p>
+            {leccion.semana > 0 && (
+              <>
+                <span aria-hidden="true">·</span>
+                <span>Semana {leccion.semana}</span>
+              </>
             )}
-            {leccion.evidencia && (
-              <p class="m-0">
-                <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
-              </p>
+          </div>
+          <h1 class="font-display text-2xl sm:text-3xl font-bold tracking-tight m-0">
+            {leccion.titulo}
+          </h1>
+        </header>
+        <LessonEngine
+          leccion={leccion}
+          materiaId={materia.id}
+          nextLeccionId={next?.id ?? null}
+        />
+      </>
+    ) : (
+      <>
+        <div
+          class="mb-4 surface-panel px-3 py-2 sm:px-4"
+          data-lesson-progress
+          data-materia={materia.id}
+          data-total={all.length}
+          data-index={idx + 1}
+        >
+          <div class="flex flex-wrap items-baseline justify-between gap-2 text-sm mb-1.5">
+            <p class="m-0 font-medium">
+              Lección <span id="lp-index">{idx + 1}</span> de {all.length}
+              <span class="opacity-60 font-normal">· {materia.id}</span>
+            </p>
+            <p class="m-0 text-xs sm:text-sm opacity-70">
+              Hechas: <span id="lp-done">0</span>/{all.length}
+              (<span id="lp-pct">0</span>%)
+            </p>
+          </div>
+          <progress
+            id="lp-bar"
+            class="progress progress-primary progress-atelier w-full h-2"
+            value={pctStatic}
+            max="100"
+            aria-label="Progreso de posición en la materia"
+          ></progress>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-6 min-w-0 pb-24 lg:pb-0">
+          <article class="article-reading flex-1 min-w-0">
+            <div class="min-w-0">
+              <header class="mb-4 pb-4 border-b border-base-300">
+                <div class="flex flex-wrap items-center gap-2 mb-2 text-xs font-semibold tracking-wide uppercase opacity-70">
+                  <span>{materia.id}</span>
+                  <span aria-hidden="true">·</span>
+                  <span>{leccion.id}</span>
+                  {leccion.semana > 0 && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span>Semana {leccion.semana}</span>
+                    </>
+                  )}
+                  {leccion.horas > 0 && (
+                    <>
+                      <span aria-hidden="true">·</span>
+                      <span>~{leccion.horas} h</span>
+                    </>
+                  )}
+                </div>
+                <p class="text-sm opacity-70 m-0">
+                  <a class="link link-primary" href={pathTo(`materia/${materia.id}`)}>
+                    Ficha {materia.id}
+                  </a>
+                </p>
+              </header>
+
+              <div class="prose-academia materia-body min-w-0" set:html={leccion.bodyHtml} />
+
+              <div class="hidden lg:flex flex-wrap gap-2 mt-8 pt-4 border-t border-base-300">
+                {prev ? (
+                  <a
+                    class="btn btn-outline btn-sm"
+                    href={pathTo(`materia/${materia.id}/leccion/${prev.id}`)}
+                  >
+                    ← {prev.id}
+                  </a>
+                ) : (
+                  <a class="btn btn-outline btn-sm" href={pathTo(`materia/${materia.id}`)}>
+                    ← Ficha {materia.id}
+                  </a>
+                )}
+                <label class="btn btn-secondary btn-sm gap-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    class="checkbox checkbox-sm checkbox-primary"
+                    data-leccion={leccion.id}
+                    data-materia={materia.id}
+                    data-mark-main
+                  />
+                  Marcar lección hecha
+                </label>
+                {next ? (
+                  <a
+                    class="btn btn-primary btn-sm ml-auto"
+                    href={pathTo(`materia/${materia.id}/leccion/${next.id}`)}
+                  >
+                    {next.id} →
+                  </a>
+                ) : (
+                  <a class="btn btn-primary btn-sm ml-auto" href={pathTo(`materia/${materia.id}`)}>
+                    Cerrar ficha {materia.id} →
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+
+          <aside class="w-full lg:w-72 xl:w-80 lg:shrink-0 flex flex-col gap-4 min-w-0 max-w-full lg:sticky lg:top-20 lg:self-start">
+            <nav class="surface-panel overflow-hidden min-w-0" aria-label="Lecciones">
+              <div class="flex flex-col gap-2 p-4 min-w-0">
+                <h2 class="font-display text-base font-semibold m-0">Lecciones · {materia.id}</h2>
+                <div class="max-h-96 overflow-y-auto overflow-x-hidden min-w-0 pr-1 flex flex-col gap-0.5">
+                  {all.map((l) => (
+                    <div class="lesson-toc-row">
+                      <input
+                        id={`chk-${materia.id}-${l.id}`}
+                        type="checkbox"
+                        class="checkbox checkbox-primary checkbox-sm mt-0.5 shrink-0"
+                        data-leccion={l.id}
+                        data-materia={materia.id}
+                      />
+                      <div class="min-w-0 flex-1">
+                        <label class="sr-only" for={`chk-${materia.id}-${l.id}`}>
+                          {`Marcar ${l.id} hecha`}
+                        </label>
+                        <a
+                          class:list={[
+                            'text-sm leading-snug link link-hover min-w-0 block',
+                            l.id === leccion.id && 'font-semibold text-primary',
+                          ]}
+                          href={pathTo(`materia/${materia.id}/leccion/${l.id}`)}
+                          aria-describedby={`chk-${materia.id}-${l.id}`}
+                        >
+                          <span class="font-mono text-xs opacity-70">{l.id}</span> {l.titulo}
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </nav>
+
+            {(leccion.lectura || leccion.evidencia) && (
+              <aside class="callout-atelier text-sm min-w-0" aria-label="Recordatorio">
+                <p class="font-display font-semibold m-0 mb-2">Recordatorio</p>
+                {leccion.lectura && (
+                  <p class="m-0 mb-1">
+                    <span class="font-semibold">Lectura:</span> {leccion.lectura}
+                  </p>
+                )}
+                {leccion.evidencia && (
+                  <p class="m-0">
+                    <span class="font-semibold">Evidencia:</span> {leccion.evidencia}
+                  </p>
+                )}
+              </aside>
             )}
           </aside>
-        )
-      }
-    </aside>
-  </div>
+        </div>
 
-  <!-- Barra fija móvil: marcar hecha + navegación -->
-  <div
-    class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t border-base-300 bg-base-100/95 backdrop-blur px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]"
-    role="region"
-    aria-label="Acciones de lección"
-  >
-    <div class="max-w-6xl mx-auto flex items-center gap-2">
-      {
-        prev ? (
-          <a
-            class="btn btn-outline btn-sm shrink-0"
-            href={pathTo(`materia/${materia.id}/leccion/${prev.id}`)}
-          >
-            ←
-          </a>
-        ) : (
-          <a class="btn btn-outline btn-sm shrink-0" href={pathTo(`materia/${materia.id}`)}>
-            ←
-          </a>
-        )
-      }
-      <label class="btn btn-secondary btn-sm flex-1 gap-2 cursor-pointer min-w-0">
-        <input
-          type="checkbox"
-          class="checkbox checkbox-sm checkbox-primary"
-          data-leccion={leccion.id}
-          data-materia={materia.id}
-          data-mark-main
-        />
-        <span class="truncate">Hecha</span>
-      </label>
-      {
-        next ? (
-          <a
-            class="btn btn-primary btn-sm shrink-0"
-            href={pathTo(`materia/${materia.id}/leccion/${next.id}`)}
-          >
-            →
-          </a>
-        ) : (
-          <a class="btn btn-primary btn-sm shrink-0" href={pathTo(`materia/${materia.id}`)}>
-            Ficha
-          </a>
-        )
-      }
-    </div>
-  </div>
+        <div
+          class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t border-base-300 bg-base-100/95 backdrop-blur px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]"
+          role="region"
+          aria-label="Acciones de lección"
+        >
+          <div class="max-w-6xl mx-auto flex items-center gap-2">
+            {prev ? (
+              <a
+                class="btn btn-outline btn-sm shrink-0"
+                href={pathTo(`materia/${materia.id}/leccion/${prev.id}`)}
+              >
+                ←
+              </a>
+            ) : (
+              <a class="btn btn-outline btn-sm shrink-0" href={pathTo(`materia/${materia.id}`)}>
+                ←
+              </a>
+            )}
+            <label class="btn btn-secondary btn-sm flex-1 gap-2 cursor-pointer min-w-0">
+              <input
+                type="checkbox"
+                class="checkbox checkbox-sm checkbox-primary"
+                data-leccion={leccion.id}
+                data-materia={materia.id}
+                data-mark-main
+              />
+              <span class="truncate">Hecha</span>
+            </label>
+            {next ? (
+              <a
+                class="btn btn-primary btn-sm shrink-0"
+                href={pathTo(`materia/${materia.id}/leccion/${next.id}`)}
+              >
+                →
+              </a>
+            ) : (
+              <a class="btn btn-primary btn-sm shrink-0" href={pathTo(`materia/${materia.id}`)}>
+                Ficha
+              </a>
+            )}
+          </div>
+        </div>
 
-  <script>
-    import { loadProgress, setLeccion, touchMateria } from '../../../../lib/progress-client';
+        <script>
+          import { loadProgress, setLeccion, touchMateria } from '../../../../lib/progress-client';
 
-    const progressRoot = document.querySelector('[data-lesson-progress]');
-    const materiaId = progressRoot?.getAttribute('data-materia');
-    const total = Number(progressRoot?.getAttribute('data-total') || 0);
-    const leccionIdPage = document
-      .querySelector('input[data-mark-main]')
-      ?.getAttribute('data-leccion');
-    if (materiaId && leccionIdPage) touchMateria(materiaId, leccionIdPage);
+          const progressRoot = document.querySelector('[data-lesson-progress]');
+          const materiaId = progressRoot?.getAttribute('data-materia');
+          const total = Number(progressRoot?.getAttribute('data-total') || 0);
+          const leccionIdPage = document
+            .querySelector('input[data-mark-main]')
+            ?.getAttribute('data-leccion');
+          if (materiaId && leccionIdPage) touchMateria(materiaId, leccionIdPage);
 
-    function syncProgressBar() {
-      if (!materiaId || !total) return;
-      const m = loadProgress()?.materias?.[materiaId];
-      const doneCount = Object.values(m?.lecciones ?? {}).filter(Boolean).length;
-      const pct = Math.round((doneCount / total) * 100);
-      const doneEl = document.getElementById('lp-done');
-      const pctEl = document.getElementById('lp-pct');
-      const bar = document.getElementById('lp-bar') as HTMLProgressElement | null;
-      if (doneEl) doneEl.textContent = String(doneCount);
-      if (pctEl) pctEl.textContent = String(pct);
-      if (bar) bar.value = pct;
-    }
+          function syncProgressBar() {
+            if (!materiaId || !total) return;
+            const m = loadProgress()?.materias?.[materiaId];
+            const doneCount = Object.values(m?.lecciones ?? {}).filter(Boolean).length;
+            const pct = Math.round((doneCount / total) * 100);
+            const doneEl = document.getElementById('lp-done');
+            const pctEl = document.getElementById('lp-pct');
+            const bar = document.getElementById('lp-bar') as HTMLProgressElement | null;
+            if (doneEl) doneEl.textContent = String(doneCount);
+            if (pctEl) pctEl.textContent = String(pct);
+            if (bar) bar.value = pct;
+          }
 
-    function syncUI() {
-      const mid = materiaId;
-      if (!mid) return;
-      const m = loadProgress()?.materias?.[mid];
-      document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
-        const id = el.getAttribute('data-leccion')!;
-        el.checked = Boolean(m?.lecciones?.[id]);
-      });
-      syncProgressBar();
-    }
+          function syncUI() {
+            const mid = materiaId;
+            if (!mid) return;
+            const m = loadProgress()?.materias?.[mid];
+            document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+              const id = el.getAttribute('data-leccion')!;
+              el.checked = Boolean(m?.lecciones?.[id]);
+            });
+            syncProgressBar();
+          }
 
-    document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
-      el.addEventListener('change', () => {
-        const mid = el.getAttribute('data-materia')!;
-        const lid = el.getAttribute('data-leccion')!;
-        setLeccion(mid, lid, el.checked);
-        // Sincroniza todos los checkboxes del mismo id (sidebar + barras).
-        document
-          .querySelectorAll<HTMLInputElement>(`input[data-leccion="${lid}"]`)
-          .forEach((other) => {
-            other.checked = el.checked;
+          document.querySelectorAll<HTMLInputElement>('input[data-leccion]').forEach((el) => {
+            el.addEventListener('change', () => {
+              const mid = el.getAttribute('data-materia')!;
+              const lid = el.getAttribute('data-leccion')!;
+              setLeccion(mid, lid, el.checked);
+              document
+                .querySelectorAll<HTMLInputElement>(`input[data-leccion="${lid}"]`)
+                .forEach((other) => {
+                  other.checked = el.checked;
+                });
+              syncProgressBar();
+            });
           });
-        syncProgressBar();
-      });
-    });
 
-    syncUI();
-    window.addEventListener('academia-progress', syncUI);
-  </script>
+          syncUI();
+          window.addEventListener('academia-progress', syncUI);
+        </script>
+      </>
+    )
+  }
 </Layout>
