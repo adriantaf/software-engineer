@@ -10,7 +10,8 @@
     "build": "npm run validate:lessons && astro build && pagefind --site dist --output-path dist/pagefind",
     "preview": "astro preview",
     "astro": "astro",
-    "validate:lessons": "node scripts/validate-lessons.mjs"
+    "validate:lessons": "node scripts/validate-lessons.mjs",
+    "migrate:lessons": "node scripts/migrate-lessons-to-pasos.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
