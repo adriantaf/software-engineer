@@ -3,11 +3,133 @@ id: L05
 materia: M21
 orden: 5
 titulo: Sprint planning — meta única del sprint 1
-horas: 5.0
+horas: 5
 semana: 2
 lectura: Scrum Guide — Sprint Planning
 evidencia: projects/m21-proyectos/sprints/sprint-01.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Planificar sprint 1 con **una meta** clara, WIP limitado y
+      lista de entregables enlazados a issues.
+
+
+      Multi-tasking sin meta única es la causa #1 de carry-over; M21 te entrena
+      a decir no.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Meta de sprint.
+
+      - WIP.
+
+      - Compromiso realista.
+
+      - Definition of Done aplicada.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m21): l05 sprint-planning-meta-nica-del-sprint-1"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Sprint planning — meta única del sprint 1" como hecha, ¿qué
+      cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m21-proyectos/sprints/sprint-01.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
+    comandoEsperado:
+      - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: >-
+      Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
+      projects/
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Planificar sprint 1 con **una meta** clara, WIP limitado y lista de
+          entregables enlazados a issues.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: >-
+      Confirma rutas bajo `projects/m21-proyectos/sprints`.
+
+
+      Crea `projects/m21-proyectos/sprints/sprint-01.md` con plantilla de la
+      ficha (fechas, meta, tabla Planeado/Hecho/Aprendizaje vacía).
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Laboratorio principal
+    xp: 10
+    cuerpo: >-
+      Elige **1 meta** (ej. ‘segundo tenant en staging + 1 test cross-tenant’).
+      Máximo **3 issues** en progreso.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m21-proyectos/sprints/sprint-01.md`.'
+      - sprint-01.md con meta única.
+      - ≤3 issues WIP.
+      - Rango horas documentado.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L05 — Sprint planning — meta única del sprint 1
 

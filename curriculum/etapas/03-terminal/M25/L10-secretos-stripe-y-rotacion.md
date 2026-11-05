@@ -3,11 +3,132 @@ id: L10
 materia: M25
 orden: 10
 titulo: Secretos Stripe y rotación
-horas: 5.0
+horas: 5
 semana: 3
 lectura: OWASP Configuration + Stripe webhooks docs
 evidencia: projects/m25-ciber/hardening/stripe-secrets.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Inventario claves test/live; ninguna en repo; webhook
+      secret.
+
+
+      Billing roto o secrets filtrados tumba el SaaS antes del primer cliente.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Stripe signature
+
+      - Secrets manager / env
+
+      - Restore ≠ backup
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      rg -n "sk_live|sk_test|whsec_" --glob '!.git' . || true
+      rg -n "STRIPE_" .env.example apps/ || true
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Secretos Stripe y rotación" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: projects/m25-ciber/hardening/stripe-secrets.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/`
+    comandoEsperado:
+      - git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: git add projects/'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: Inventario claves test/live; ninguna en repo; webhook secret.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Inventario de secretos Stripe
+    xp: 10
+    cuerpo: >-
+      En `projects/m25-ciber/hardening/stripe-secrets.md` tabla:
+
+
+      | Secreto | Ambiente | Dónde vive | Rotación |
+
+      |---------|----------|------------|----------|
+
+
+      Incluye `sk_test`/`sk_live`, `pk_*`, webhook signing secret. **Nunca**
+      pegues valores.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Busca fugas en repo e historial
+    xp: 10
+    cuerpo: |-
+      ```bash
+      rg -n "sk_live|sk_test|whsec_" --glob '!.git' . || true
+      rg -n "STRIPE_" .env.example apps/ || true
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m25-ciber/hardening/stripe-secrets.md`.'
+      - Checklist ítem demostrado.
+      - Sin valores de API keys.
+      - 'Commit `docs(m25): l10 …` en el historial.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L10 — Secretos Stripe y rotación
 

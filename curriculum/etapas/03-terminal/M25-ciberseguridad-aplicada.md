@@ -36,13 +36,14 @@ proyecto:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M25 es **ciberseguridad aplicada** al SaaS Vitrina: L01–L24, evidencia en `projects/m25-ciber/` y fixes en el repo del producto.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L24**; prioriza **IDOR cross-tenant** sobre hallazgos cosméticos.
-2. Solo atacas **tus** ambientes prod/staging acordados.
-3. Cierra ≥2 issues críticos/altos de aislamiento con tests antes del cierre.
-4. Tabletop documentado (≥30 min narrativa) sin copiar tutorial.
-5. [hilo seguridad](../../hilos/seguridad.md) + [producto-saas](../../producto-saas.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

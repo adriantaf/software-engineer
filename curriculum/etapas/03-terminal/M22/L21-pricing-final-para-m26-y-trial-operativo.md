@@ -3,11 +3,132 @@ id: L21
 materia: M22
 orden: 21
 titulo: Pricing final para M26 y trial operativo
-horas: 5.0
+horas: 5
 semana: 6
 lectura: Stripe docs (preview) + pricing.md
 evidencia: projects/m22-bektor/pricing.md final
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Congelar pricing Free/Pro MXN para integración Stripe test
+      en M26; checklist trial operativo.
+
+
+      Semana 6 cierra comercial de la materia con números estables.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Price freeze.
+
+      - Trial 14d.
+
+      - Límites.
+
+      - Handoff M26.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m22): l21 pricing-final-para-m26-y-trial-operativo"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Pricing final para M26 y trial operativo" como hecha, ¿qué
+      cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m22-bektor/pricing.md final
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
+    comandoEsperado:
+      - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: >-
+      Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
+      projects/
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Congelar pricing Free/Pro MXN para integración Stripe test en M26;
+          checklist trial operativo.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: >-
+      Confirma rutas bajo `projects/m22-bektor`.
+
+
+      Marca `projects/m22-bektor/pricing.md` sección **Final M22** con fecha
+      congelación.
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Laboratorio principal
+    xp: 10
+    cuerpo: >-
+      Lista checklist trial: alta tenant, credenciales, soporte WhatsApp,
+      activación medida.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m22-bektor/pricing.md final`.'
+      - Pricing congelado fechado.
+      - Checklist trial.
+      - P3 listo para UI.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L21 — Pricing final para M26 y trial operativo
 

@@ -3,11 +3,116 @@ id: L12
 materia: M25
 orden: 12
 titulo: Backup y restore probado
-horas: 5.0
+horas: 5
 semana: 3
 lectura: OWASP Configuration + Stripe webhooks docs
 evidencia: projects/m25-ciber/hardening/restore-test.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: |-
+      **Objetivo:** Restore en entorno aislado; anotar tiempo y pasos.
+
+      Billing roto o secrets filtrados tumba el SaaS antes del primer cliente.
+
+      Conceptos que debes poder explicar al cerrar:
+
+      - Stripe signature
+      - Secrets manager / env
+      - Restore ≠ backup
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      # ejemplo — adapta a tu provider; no uses prod
+      # pg_restore -d vitrina_restore_test backup.dump
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: 'Para marcar "Backup y restore probado" como hecha, ¿qué cuenta de verdad?'
+    opciones:
+      - id: a
+        texto: projects/m25-ciber/hardening/restore-test.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/`
+    comandoEsperado:
+      - git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: git add projects/'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: Restore en entorno aislado; anotar tiempo y pasos.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Documenta backup actual
+    xp: 10
+    cuerpo: >-
+      En `projects/m25-ciber/hardening/restore-test.md`: provider, frecuencia,
+      retención, dónde vive el artefacto (sin keys).
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Restore en entorno aislado
+    xp: 10
+    cuerpo: |-
+      ```bash
+      # ejemplo — adapta a tu provider; no uses prod
+      # pg_restore -d vitrina_restore_test backup.dump
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m25-ciber/hardening/restore-test.md`.'
+      - Checklist ítem demostrado.
+      - Sin valores de API keys.
+      - 'Commit `docs(m25): l12 …` en el historial.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L12 — Backup y restore probado
 

@@ -3,11 +3,133 @@ id: L02
 materia: M21
 orden: 2
 titulo: Milestones y cinco issues reales del producto
-horas: 5.0
+horas: 5
 semana: 1
 lectura: Scrum Guide — artefactos y compromiso del backlog
 evidencia: projects/m21-proyectos/board.md borrador
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Crear milestones de cuatro semanas de M21 y mover cinco
+      issues **reales** del repo Vitrina al backlog priorizado.
+
+
+      El tablero ficticio no prepara trials (M22) ni FAQ (M23); hoy enlazas
+      gestión al código que ya desplegaste.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Milestone.
+
+      - Issue vs épica.
+
+      - Etiquetas feature/security/ops.
+
+      - Prioridad vs urgencia.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+      git status
+      git commit -m "docs(m21): l02 milestones-y-cinco-issues-reales-del-pro"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Milestones y cinco issues reales del producto" como hecha,
+      ¿qué cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m21-proyectos/board.md borrador
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/ curriculum/etapas/03-terminal/ || git add projects/`
+    comandoEsperado:
+      - git add projects/ curriculum/etapas/03-terminal/ || git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: >-
+      Esperado: git add projects/ curriculum/etapas/03-terminal/ || git add
+      projects/
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear milestones de cuatro semanas de M21 y mover cinco issues
+          **reales** del repo Vitrina al backlog priorizado.
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: >-
+      Confirma rutas bajo `projects/m21-proyectos`.
+
+
+      En GitHub Projects (o Linear): milestones `M21-S1` … `M21-S4` con fechas
+      orientativas.
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Laboratorio principal
+    xp: 10
+    cuerpo: >-
+      Mueve **5 issues** del repo producto al backlog ordenado. **Al menos uno**
+      debe ser seguridad o `tenant_id` (cross-tenant, secretos, backup).
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m21-proyectos/board.md borrador`.'
+      - 5 issues enlazados.
+      - ≥1 issue security/tenant.
+      - board.md con URL.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L02 — Milestones y cinco issues reales del producto
 

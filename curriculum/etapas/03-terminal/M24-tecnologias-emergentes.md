@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M24 es **evaluación disciplinada** de tecnologías emergentes para Vitrina: L01–L12 (formato M01), evidencia en `projects/m24-emergentes/`.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
-2. **Fuentes primarias** (docs oficiales) antes de puntuar la matriz.
-3. El spike vive aislado; no merges a prod sin go explícito en `go-no-go.md`.
-4. Un “no” bien argumentado vale igual que un “go” si el spike midió costo/riesgo.
-5. [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

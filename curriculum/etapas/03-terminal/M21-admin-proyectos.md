@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M21 opera **Vitrina** como proyecto real en el repo: L01–L12 (3 semanas × 4 lecciones).
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L12**; marca solo con “Hecho cuando” cumplido.
-2. Issues y milestones en el **repo producto**, evidencia de gestión en `projects/m21-proyectos/`.
-3. Estima en rangos; documenta desviaciones en sprints, no las borres.
-4. Cada sprint: meta única, retrospectiva escrita, ≥1 issue de seguridad/multi-tenant visible en backlog.
-5. [Cómo estudiar](../../como-estudiar.md) y [producto-saas](../../producto-saas.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

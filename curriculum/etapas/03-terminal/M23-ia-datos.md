@@ -40,13 +40,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M23 añade métricas, LLM evaluado y RAG **por tenant** a Vitrina: L01–L24 (6 semanas × 4).
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L24**; escribe `politica-datos-llm.md` **antes** de pegar datos en APIs.
-2. No envíes PII, dumps crudos ni secretos a proveedores LLM.
-3. Cada prompt: versión en archivo + resultado en rúbrica.
-4. Demo obligatoria: tenant A no lee corpus de B (test automatizado preferido).
-5. [producto-saas](../../producto-saas.md), [hilo seguridad](../../hilos/seguridad.md), [Cómo estudiar](../../como-estudiar.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

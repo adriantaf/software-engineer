@@ -3,11 +3,131 @@ id: L01
 materia: M24
 orden: 1
 titulo: Estructura M24 y tres candidatos al producto
-horas: 5.0
+horas: 5
 semana: 1
 lectura: Ficha M24 + producto-saas (recordatorios / realtime)
 evidencia: projects/m24-emergentes/candidatos.md + bitácora semana-01.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Crear carpetas de evidencia y registrar tres tecnologías
+      candidatas alineadas a Vitrina (ej. WhatsApp Cloud API, SSE/WebSockets,
+      cola managed).
+
+
+      M24 separa hype de utilidad; sin candidatos escritos terminas en tutorial
+      random sin decisión.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Spike vs producción
+
+      - Fuentes primarias obligatorias
+
+      - Hipótesis de producto
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m24-emergentes/research projects/m24-emergentes/spike
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Estructura M24 y tres candidatos al producto" como hecha,
+      ¿qué cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m24-emergentes/candidatos.md + bitácora semana-01.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `mkdir -p projects/m24-emergentes/research projects/m24-emergentes/spike`
+    comandoEsperado:
+      - mkdir -p projects/m24-emergentes/research projects/m24-emergentes/spike
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: >-
+      Esperado: mkdir -p projects/m24-emergentes/research
+      projects/m24-emergentes/spike
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear carpetas de evidencia y registrar tres tecnologías candidatas
+          alineadas a Vitrina (ej. WhatsApp Cloud API, SSE/WebSockets, cola
+          manag…
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m24-emergentes/research projects/m24-emergentes/spike
+      ```
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Laboratorio principal
+    xp: 10
+    cuerpo: >-
+      En `projects/m24-emergentes/candidatos.md` lista **tres** candidatos con
+      una línea de valor para el ICP (barberías, clínicas dentales, etc.).
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - >-
+        Existe el entregable: `projects/m24-emergentes/candidatos.md + bitácora
+        semana-01.md`.
+      - Tres candidatos nombrados con valor ICP.
+      - Carpetas research/ y spike/ existen.
+      - Bitácora semana 1 iniciada.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Estructura M24 y tres candidatos al producto
 

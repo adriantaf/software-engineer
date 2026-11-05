@@ -39,13 +39,14 @@ Al terminar debe poder:
 
 ## Cómo estudiar esta materia (lecciones)
 
-M26 es el **capstone**: Vitrina SaaS en **producción** con L01–L32 (máxima profundidad del plan), evidencia en `projects/m26-capstone/` y repos de aplicación.
+Esta materia usa el **motor paso a paso** (tipo Duolingo): cada lección son 5–8 pasos cortos con explicación, ejemplos, quizzes y/o retos. Los libros y el detalle largo viven como **lectura complementaria**.
 
-1. Orden **L01 → L32**; congela alcance en semana 1 y respétalo.
-2. Cada semana: demo interna con **≥2 tenants** distintos.
-3. Billing (Stripe test) y cross-tenant **no** se aplazan a la semana 8.
-4. Memoria y video deben explicar **tu** tenancy real a un tercero.
-5. [egreso.md](../../egreso.md) + [producto-saas](../../producto-saas.md).
+1. Abre el **Camino** en esta ficha y pulsa **Continuar** (respeta el orden).
+2. En cada paso: lee o responde → **Comprobar** → feedback inmediato.
+3. La lección se marca hecha al completar todos los pasos; la evidencia en `projects/` sigue siendo obligatoria.
+4. Usa **Repaso diario** para preguntas falladas o ya vistas.
+5. Método general: [Cómo estudiar](../../como-estudiar.md).
+
 
 ## Semana tipo (20 h)
 

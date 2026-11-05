@@ -3,11 +3,121 @@ id: L19
 materia: M26
 orden: 19
 titulo: Checkout test end-to-end
-horas: 5.0
+horas: 5
 semana: 5
 lectura: Stripe Checkout
 evidencia: projects/m26-capstone/memoria/billing-flujo.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Checkout test end-to-end (crear sesión → pagar test card →
+      estado Pro).
+
+
+      M26 es el cierre del plan: SaaS multi-tenant real, no portafolio de
+      tutoriales.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Webhook
+
+      - Customer portal opcional
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      git add projects/
+      git status
+      git commit -m "docs(m26): l19 checkout-test-end-to-end"
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: 'Para marcar "Checkout test end-to-end" como hecha, ¿qué cuenta de verdad?'
+    opciones:
+      - id: a
+        texto: projects/m26-capstone/memoria/billing-flujo.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `git add projects/`
+    comandoEsperado:
+      - git add projects/
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: git add projects/'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Checkout test end-to-end (crear sesión → pagar test card → estado
+          Pro).
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Checkout Session
+    xp: 10
+    cuerpo: >-
+      Implementa o verifica endpoint que crea Checkout Session en test mode para
+      un tenant Free → Pro.
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Pago con tarjeta test
+    xp: 10
+    cuerpo: >-
+      Completa pago con `4242…`. Documenta en `billing-flujo.md` pasos + IDs
+      (session, subscription) **sin** secretos.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - Existe `projects/m26-capstone/memoria/billing-flujo.md`.
+      - Commit en git con mensaje docs(m26).
+      - Bitácora de la semana actualizada.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L19 — Checkout test end-to-end
 

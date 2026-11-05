@@ -3,11 +3,125 @@ id: L01
 materia: M22
 orden: 1
 titulo: Lean Startup aplicado a Vitrina — carpeta y visión
-horas: 5.0
+horas: 5
 semana: 1
-lectura: El método Lean Startup — visión, start, build-measure-learn
+lectura: 'El método Lean Startup — visión, start, build-measure-learn'
 evidencia: projects/m22-bektor/demos + bitacora-m22.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Crear estructura comercial, leer visión/start/BML y escribir
+      hipótesis de negocio SaaS (no agencia).
+
+
+      M22 vende **suscripción** al producto que construiste; Bektor como agencia
+      no es el modelo del plan.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Visión vs estrategia.
+
+      - Build-measure-learn.
+
+      - SaaS vertical.
+
+      - Anti-patrón agencia.
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m22-bektor/demos
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Lean Startup aplicado a Vitrina — carpeta y visión" como
+      hecha, ¿qué cuenta de verdad?
+    opciones:
+      - id: a
+        texto: projects/m22-bektor/demos + bitacora-m22.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `mkdir -p projects/m22-bektor/demos`
+    comandoEsperado:
+      - mkdir -p projects/m22-bektor/demos
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: mkdir -p projects/m22-bektor/demos'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: >-
+          Crear estructura comercial, leer visión/start/BML y escribir hipótesis
+          de negocio SaaS (no agencia).
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Prepara evidencia y carpetas
+    xp: 10
+    cuerpo: |-
+      ```bash
+      mkdir -p projects/m22-bektor/demos
+      ```
+  - id: s7
+    tipo: explicacion
+    titulo: 3. Laboratorio principal
+    xp: 10
+    cuerpo: Lista 3 supuestos que **matarían** el negocio si fueran falsos.
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m22-bektor/demos + bitacora-m22.md`.'
+      - demos/ existe.
+      - bitacora con BML.
+      - 3 supuestos críticos.
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L01 — Lean Startup aplicado a Vitrina — carpeta y visión
 

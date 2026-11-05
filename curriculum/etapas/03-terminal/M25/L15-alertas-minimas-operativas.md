@@ -3,11 +3,133 @@ id: L15
 materia: M25
 orden: 15
 titulo: Alertas mínimas operativas
-horas: 5.0
+horas: 5
 semana: 4
 lectura: OWASP Error handling / logging
 evidencia: projects/m25-ciber/alertas/minimas.md
+formato: pasos
+xpLeccion: 120
+pasos:
+  - id: s1
+    tipo: explicacion
+    titulo: Qué vas a lograr
+    xp: 10
+    cuerpo: >-
+      **Objetivo:** Qué te despierta: 5xx, disco, failed logins — aunque sea
+      email manual.
+
+
+      Un atacante lee tus logs si exfiltras tokens; un cliente lee tus stack
+      traces.
+
+
+      Conceptos que debes poder explicar al cerrar:
+
+
+      - Structured logging
+
+      - Correlation id
+
+      - Fail closed
+  - id: s2
+    tipo: ejemplo
+    titulo: 1. Lectura concreta de la fuente
+    xp: 10
+    cuerpo: |-
+      ```bash
+      # ejemplo synthetic — adapta a tu provider
+      curl -s -X POST "$ALERT_WEBHOOK_URL" \
+        -H "Content-Type: application/json" \
+        -d '{"text":"m25 synthetic alert — safe to ignore"}'
+      ```
+    caption: Ejemplo migrado de la lección original — practícalo en tu entorno.
+  - id: s3
+    tipo: quiz
+    titulo: Evidencia de la lección
+    xp: 15
+    variante: opcion_multiple
+    pregunta: >-
+      Para marcar "Alertas mínimas operativas" como hecha, ¿qué cuenta de
+      verdad?
+    opciones:
+      - id: a
+        texto: projects/m25-ciber/alertas/minimas.md
+      - id: b
+        texto: Solo leer el título y pasar a la siguiente
+      - id: c
+        texto: Marcar el checkbox sin producir nada
+    respuesta: a
+    explicacionError: >-
+      Sin evidencia en el repo (o criterio cumplido) no cuenta. Si no está en
+      git, no existe.
+    explicacionOk: Correcto — evidencia primero.
+  - id: s4
+    tipo: terminal
+    titulo: Comando clave
+    xp: 15
+    enunciado: |-
+      Escribe este comando tal cual (es el de práctica de la lección):
+
+      `curl -s -X POST "$ALERT_WEBHOOK_URL" \`
+    comandoEsperado:
+      - curl -s -X POST "$ALERT_WEBHOOK_URL" \
+    pistas:
+      - Respeta el orden de los argumentos.
+      - Sin prompt `$`.
+    explicacionError: 'Esperado: curl -s -X POST "$ALERT_WEBHOOK_URL" \'
+  - id: s5
+    tipo: quiz
+    titulo: Foco de la lección
+    xp: 10
+    variante: opcion_multiple
+    pregunta: ¿Cuál describe mejor el foco de esta lección?
+    opciones:
+      - id: a
+        texto: 'Qué te despierta: 5xx, disco, failed logins — aunque sea email manual.'
+      - id: b
+        texto: Instalar herramientas al azar sin evidencia
+      - id: c
+        texto: Saltar a otra materia sin terminar esta
+    respuesta: a
+    explicacionError: 'El foco está en el objetivo de la lección, no en atajos.'
+    explicacionOk: Correcto.
+  - id: s6
+    tipo: explicacion
+    titulo: 2. Elige señales que te despiertan
+    xp: 10
+    cuerpo: |-
+      En `projects/m25-ciber/alertas/minimas.md` tabla:
+
+      | Señal | Umbral | Canal | Dueño | Acción |
+      |-------|--------|-------|-------|--------|
+
+      Mínimo: 5xx spike, disco/DB, failed logins, webhook Stripe fallando.
+  - id: s7
+    tipo: ejemplo
+    titulo: 3. Configura o documenta canal
+    xp: 10
+    cuerpo: |-
+      ```bash
+      # ejemplo synthetic — adapta a tu provider
+      curl -s -X POST "$ALERT_WEBHOOK_URL" \
+        -H "Content-Type: application/json" \
+        -d '{"text":"m25 synthetic alert — safe to ignore"}'
+      ```
+  - id: s8
+    tipo: resumen
+    titulo: Cierre
+    xp: 10
+    puntos:
+      - 'Marca la lección solo si:'
+      - 'Existe el entregable: `projects/m25-ciber/alertas/minimas.md`.'
+      - Política o config documentada.
+      - Ejemplo de log seguro vs inseguro.
+      - 'Commit `docs(m25): l15 …` en el historial.'
+    siguiente: Continúa en el mapa de la materia o abre la lectura complementaria abajo.
 ---
+## Lectura complementaria
+
+Contenido original de la lección (pasos detallados, lecturas y plantillas). Úsalo mientras avanzas los pasos interactivos.
 
 # L15 — Alertas mínimas operativas
 
