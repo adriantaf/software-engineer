@@ -17,19 +17,44 @@ const payload = {
 ---
 
 <Layout
-  title="Repaso cronometrado"
-  description="Sesión corta de repaso: Hecho cuando + evidencia de lecciones incompletas"
+  title="Repaso"
+  description="Repaso espaciado diario + sesión cronometrada de criterios Hecho cuando"
 >
   <header class="mb-6 max-w-3xl">
     <p class="text-xs font-semibold tracking-widest uppercase text-primary m-0 mb-2">Repaso</p>
     <h1 class="font-display text-3xl sm:text-4xl font-bold tracking-tight m-0 mb-2">
-      Repaso cronometrado
+      Repaso diario
     </h1>
     <p class="m-0 opacity-80 leading-relaxed">
-      No sustituye estudiar. Empaqueta criterios «Hecho cuando» y evidencias de lecciones
-      incompletas en una sesión cronometrada. Marca solo si puedes demostrar el criterio.
+      Primero: preguntas que fallaste o ya viste (repaso espaciado). Después: sesión
+      cronometrada con criterios «Hecho cuando» de lecciones incompletas.
     </p>
   </header>
+
+  <section class="surface-panel p-4 sm:p-5 mb-8 max-w-3xl" aria-labelledby="srs-title">
+    <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+      <div>
+        <h2 id="srs-title" class="font-display text-xl font-semibold m-0">Repaso espaciado</h2>
+        <p class="text-sm opacity-70 m-0 mt-1" id="srs-status">Cargando cola…</p>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" id="srs-start">Empezar sesión</button>
+    </div>
+    <div id="srs-card" class="hidden border border-base-300 rounded-lg p-4" aria-live="polite">
+      <p class="text-xs opacity-60 m-0 mb-2" id="srs-meta"></p>
+      <p class="font-medium m-0 mb-3" id="srs-prompt"></p>
+      <div id="srs-body" class="mb-3"></div>
+      <div id="srs-feedback" class="lesson-feedback mb-3" hidden></div>
+      <div class="flex flex-wrap gap-2">
+        <button type="button" class="btn btn-primary btn-sm" id="srs-check">Comprobar</button>
+        <button type="button" class="btn btn-outline btn-sm" id="srs-skip">Saltar</button>
+      </div>
+    </div>
+    <p id="srs-empty" class="text-sm opacity-70 m-0">
+      No hay ítems vencidos hoy. Completa quizzes en lecciones paso a paso para llenar la cola.
+    </p>
+  </section>
+
+  <h2 class="font-display text-xl font-semibold m-0 mb-3 max-w-3xl">Repaso cronometrado (criterios)</h2>
 
   <form id="rev-form" class="surface-panel p-4 sm:p-5 mb-6 grid gap-4 sm:grid-cols-3 max-w-4xl">
     <label class="form-control w-full">
@@ -79,7 +104,17 @@ const payload = {
   <script type="application/json" id="rev-data" set:html={JSON.stringify(payload)} />
 
   <script>
-    import { loadProgress, setLeccion } from '../lib/progress-client';
+    import {
+      commandMatches,
+      fillMatches,
+    } from '../lib/lesson-schema';
+    import {
+      gradeRepaso,
+      listDueRepaso,
+      loadProgress,
+      setLeccion,
+      type RepasoItem,
+    } from '../lib/progress-client';
 
     type Card = {
       materiaId: string;
@@ -258,5 +293,119 @@ const payload = {
       paintClock();
       startTick();
     });
+
+    /* —— Repaso espaciado —— */
+    let srsQueue: RepasoItem[] = [];
+    let srsIndex = 0;
+    const srsCard = document.getElementById('srs-card')!;
+    const srsEmpty = document.getElementById('srs-empty')!;
+    const srsStatus = document.getElementById('srs-status')!;
+    const srsPrompt = document.getElementById('srs-prompt')!;
+    const srsMeta = document.getElementById('srs-meta')!;
+    const srsBody = document.getElementById('srs-body')!;
+    const srsFeedback = document.getElementById('srs-feedback')!;
+
+    function refreshSrsStatus() {
+      const due = listDueRepaso(50);
+      srsStatus.textContent = due.length
+        ? `${due.length} ítem(s) vencido(s) hoy`
+        : 'Cola vacía por hoy';
+      srsEmpty.hidden = due.length > 0 && !srsCard.classList.contains('hidden');
+      if (srsCard.classList.contains('hidden')) srsEmpty.hidden = due.length > 0;
+    }
+
+    function renderSrsItem() {
+      const item = srsQueue[srsIndex];
+      if (!item) {
+        srsCard.classList.add('hidden');
+        srsEmpty.hidden = false;
+        srsEmpty.textContent = 'Sesión de repaso terminada. ¡Bien!';
+        refreshSrsStatus();
+        return;
+      }
+      srsEmpty.hidden = true;
+      srsCard.classList.remove('hidden');
+      srsFeedback.hidden = true;
+      srsMeta.textContent = `${item.materiaId} · ${item.leccionId} · ${item.pasoId} · ${srsIndex + 1}/${srsQueue.length}`;
+      srsPrompt.textContent = item.prompt;
+      srsBody.innerHTML = '';
+      if (item.kind === 'quiz') {
+        const variante = String(item.payload.variante || 'opcion_multiple');
+        if (variante === 'completar') {
+          srsBody.innerHTML = `<input type="text" class="input input-bordered w-full max-w-md font-mono" data-srs-answer autocomplete="off" />`;
+        } else {
+          const opts = (item.payload.opciones as { id: string; texto: string }[]) || [];
+          srsBody.innerHTML = opts
+            .map(
+              (o) =>
+                `<label class="lesson-choice mb-2"><input type="radio" name="srs-q" value="${escapeHtml(o.id)}" data-srs-answer /><span>${escapeHtml(o.texto)}</span></label>`,
+            )
+            .join('');
+        }
+      } else if (item.kind === 'terminal') {
+        srsBody.innerHTML = `<input type="text" class="input input-bordered w-full font-mono" data-srs-answer placeholder="comando" autocomplete="off" spellcheck="false" />`;
+      } else {
+        srsBody.innerHTML = `<textarea class="textarea textarea-bordered w-full font-mono text-sm min-h-28" data-srs-answer></textarea>`;
+      }
+    }
+
+    function checkSrs(): boolean {
+      const item = srsQueue[srsIndex];
+      if (!item) return false;
+      if (item.kind === 'quiz') {
+        const variante = String(item.payload.variante || '');
+        const respuesta = item.payload.respuesta as string | string[];
+        if (variante === 'completar') {
+          const v = (srsBody.querySelector('[data-srs-answer]') as HTMLInputElement)?.value || '';
+          return fillMatches(v, respuesta, item.payload.normalizar !== false);
+        }
+        const checked = srsBody.querySelector('input[data-srs-answer]:checked') as HTMLInputElement | null;
+        const expected = Array.isArray(respuesta) ? respuesta : [respuesta];
+        return Boolean(checked && expected.includes(checked.value));
+      }
+      if (item.kind === 'terminal') {
+        const v = (srsBody.querySelector('[data-srs-answer]') as HTMLInputElement)?.value || '';
+        return commandMatches(v, item.payload.comandoEsperado as string | string[]);
+      }
+      // codigo: auto-pass on honest attempt length (tests need full harness; grade manually)
+      const code = (srsBody.querySelector('[data-srs-answer]') as HTMLTextAreaElement)?.value || '';
+      return code.trim().length > 0;
+    }
+
+    document.getElementById('srs-start')?.addEventListener('click', () => {
+      srsQueue = listDueRepaso(15);
+      srsIndex = 0;
+      if (!srsQueue.length) {
+        refreshSrsStatus();
+        srsEmpty.hidden = false;
+        srsCard.classList.add('hidden');
+        return;
+      }
+      renderSrsItem();
+    });
+
+    document.getElementById('srs-check')?.addEventListener('click', () => {
+      const item = srsQueue[srsIndex];
+      if (!item) return;
+      const ok = checkSrs();
+      gradeRepaso(item.id, ok);
+      srsFeedback.hidden = false;
+      srsFeedback.className = `lesson-feedback mb-3 ${ok ? 'lesson-feedback--ok' : 'lesson-feedback--err'}`;
+      srsFeedback.innerHTML = ok
+        ? '<span aria-hidden="true">✅</span><p class="m-0">Correcto. Próximo intervalo actualizado.</p>'
+        : `<span aria-hidden="true">❌</span><p class="m-0">${escapeHtml(String(item.payload.explicacionError || 'Incorrecto. Vuelve pronto.'))}</p>`;
+      setTimeout(() => {
+        srsIndex += 1;
+        renderSrsItem();
+      }, ok ? 700 : 1400);
+    });
+
+    document.getElementById('srs-skip')?.addEventListener('click', () => {
+      srsIndex += 1;
+      renderSrsItem();
+    });
+
+    refreshSrsStatus();
+    window.addEventListener('academia-progress', refreshSrsStatus);
   </script>
 </Layout>
